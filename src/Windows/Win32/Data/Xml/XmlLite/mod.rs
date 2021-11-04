@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlReader<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>>(riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void, pmalloc: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn CreateXmlReader<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     pinputstream: Param0,
@@ -36,8 +36,8 @@ pub unsafe fn CreateXmlReaderInputWithEncodingCodePage<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn CreateXmlReaderInputWithEncodingName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     pinputstream: Param0,
@@ -58,8 +58,8 @@ pub unsafe fn CreateXmlReaderInputWithEncodingName<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriter<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>>(riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void, pmalloc: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -73,8 +73,8 @@ pub unsafe fn CreateXmlWriter<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>>(poutputstream: Param0, pmalloc: Param1, nencodingcodepage: u32) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -89,8 +89,8 @@ pub unsafe fn CreateXmlWriterOutputWithEncodingCodePage<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Data_Xml_XmlLite`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn CreateXmlWriterOutputWithEncodingName<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IMalloc>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(poutputstream: Param0, pmalloc: Param1, pwszencodingname: Param2) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]

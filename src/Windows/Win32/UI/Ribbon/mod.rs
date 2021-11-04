@@ -759,7 +759,6 @@ unsafe impl ::windows::runtime::Abi for UI_EVENTPARAMS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Ribbon`, `Win32_Foundation`*"]
 pub union UI_EVENTPARAMS_0 {
     pub Modes: i32,
     pub Params: UI_EVENTPARAMS_COMMAND,

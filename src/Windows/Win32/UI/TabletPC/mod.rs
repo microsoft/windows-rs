@@ -34,8 +34,8 @@ pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
 #[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AddStroke<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49,8 +49,8 @@ pub unsafe fn AddStroke<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOWORDLIST>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwl: Param0, pwcwords: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -64,8 +64,8 @@ pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdviseInkChange<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hrc: Param0, bnewstroke: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1768,8 +1768,8 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBestResultString<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcbestresult: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1797,8 +1797,8 @@ pub unsafe fn GetLatticePtr<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcleftseparator: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1840,8 +1840,8 @@ pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRightSeparator<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcrightseparator: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10868,8 +10868,8 @@ impl ::std::convert::From<i32> for InteractionMode {
 unsafe impl ::windows::runtime::Abi for InteractionMode {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsStringSupported<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, wcstring: u32, pwcstring: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11055,8 +11055,8 @@ impl ::std::convert::From<i32> for MICUIELEMENTSTATE {
 unsafe impl ::windows::runtime::Abi for MICUIELEMENTSTATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MakeWordList<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOGNIZER>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrec: Param0, pbuffer: Param1, phwl: *mut HRECOWORDLIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11238,9 +11238,10 @@ unsafe impl ::windows::runtime::Abi for PanelType {
 }
 pub const PenInputPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148487318, 7002, 18590, [129, 220, 251, 215, 172, 98, 152, 168]);
 pub const PenInputPanel_Internal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150309817, 1387, 18208, [176, 204, 128, 210, 59, 113, 23, 30]);
+#[doc = "*Required features: `Win32_UI_TabletPC`*"]
 pub type PfnRecoCallback = unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows::runtime::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11759,8 +11760,8 @@ pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFactoid<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11802,8 +11803,8 @@ pub unsafe fn SetGuide<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEX
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TabletPC`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTextContext<'a, Param0: ::windows::runtime::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hrc: Param0, cwcbefore: u32, pwcbefore: Param2, cwcafter: u32, pwcafter: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1,58 +1,86 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNMSGECALLBACK = unsafe extern "system" fn(bverbose: super::super::Foundation::BOOL, lpmessage: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_ASSIGN_SHELL_PROTECTION = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, hprocess: super::super::Foundation::HANDLE, hthread: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_CHANGE_PASSWORD_NOTIFY = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_CHANGE_PASSWORD_NOTIFY_EX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pmprinfo: *mut WLX_MPR_NOTIFY_INFO, dwchangeinfo: u32, providername: super::super::Foundation::PWSTR, reserved: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_CLOSE_USER_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP, htoken: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_CREATE_USER_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, htoken: super::super::Foundation::HANDLE, flags: u32, pszdesktopname: super::super::Foundation::PWSTR, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PWLX_DIALOG_BOX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PWLX_DIALOG_BOX_INDIRECT = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PWLX_DIALOG_BOX_INDIRECT_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, hdialogtemplate: *mut super::super::UI::WindowsAndMessaging::DLGTEMPLATE, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub type PWLX_DIALOG_BOX_PARAM = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hinst: super::super::Foundation::HANDLE, lpsztemplate: super::super::Foundation::PWSTR, hwndowner: super::super::Foundation::HWND, dlgprc: ::windows::runtime::RawPtr, dwinitparam: super::super::Foundation::LPARAM) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_DISCONNECT = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_GET_OPTION = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: *mut usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_GET_SOURCE_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ppdesktop: *mut *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_MESSAGE_BOX = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, hwndowner: super::super::Foundation::HWND, lpsztext: super::super::Foundation::PWSTR, lpsztitle: super::super::Foundation::PWSTR, fustyle: u32) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_CLIENT_CREDENTIALS = unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_CONSOLESWITCH_CREDENTIALS = unsafe extern "system" fn(pcred: *mut WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0) -> u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_IC_CREDENTIALS = unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V1_0) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_TERMINAL_SERVICES_DATA = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, ptsdata: *mut WLX_TERMINAL_SERVICES_DATA, username: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_QUERY_TS_LOGON_CREDENTIALS = unsafe extern "system" fn(pcred: *mut WLX_CLIENT_CREDENTIALS_INFO_V2_0) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SAS_NOTIFY = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, dwsastype: u32);
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SET_CONTEXT_POINTER = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pwlxcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SET_OPTION = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, option: u32, value: usize, oldvalue: *mut usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`, `Win32_System_StationsAndDesktops`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_StationsAndDesktops"))]
 pub type PWLX_SET_RETURN_DESKTOP = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, pdesktop: *mut WLX_DESKTOP) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SET_TIMEOUT = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE, timeout: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SWITCH_DESKTOP_TO_USER = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_SWITCH_DESKTOP_TO_WINLOGON = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_USE_CTRL_ALT_DEL = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_Security_WinWlx`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWLX_WIN31_MIGRATE = unsafe extern "system" fn(hwlx: super::super::Foundation::HANDLE);
 #[doc = "*Required features: `Win32_Security_WinWlx`*"]

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(privilegeid: u32, scope: Param1, policy: Param2) -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -15,8 +15,8 @@ pub unsafe fn CheckGamingPrivilegeSilently<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(user: Param0, privilegeid: u32, scope: Param2, policy: Param3) -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -170,6 +170,7 @@ unsafe impl ::windows::runtime::Abi for GAMING_DEVICE_VENDOR_ID {
 }
 pub const GameExplorer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2589895056, 12340, 19823, [145, 40, 1, 243, 198, 16, 34, 188]);
 pub const GameStatistics: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687340588, 49372, 18785, [182, 226, 210, 139, 98, 193, 26, 212]);
+#[doc = "*Required features: `Win32_Gaming`*"]
 pub type GameUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_Gaming`*"]
 #[inline]
@@ -201,8 +202,8 @@ pub unsafe fn GetGamingDeviceModelInformation() -> ::windows::runtime::Result<GA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -909,9 +910,10 @@ impl ::std::convert::From<i32> for KnownGamingPrivileges {
 unsafe impl ::windows::runtime::Abi for KnownGamingPrivileges {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Gaming`*"]
 pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(returncode: ::windows::runtime::HRESULT, context: *const ::std::ffi::c_void, selectedxuids: *const ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, selectedxuidscount: usize);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ProcessPendingGameUI<'a, Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>>(waitforcompletion: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1313,8 +1315,8 @@ pub unsafe fn ShowUserSettingsUIForUser<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Gaming`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     #[cfg(windows)]

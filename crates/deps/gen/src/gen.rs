@@ -72,6 +72,22 @@ impl Gen {
         features
     }
 
+    pub fn gen_function_cfg(&self, attributes: impl Iterator<Item = Attribute>, signature: &MethodSignature) -> TokenStream {
+        let arch = self.gen_arch_cfg(attributes);
+        let features = signature.method_features();
+        let cfg = self.gen_cfg(&features);
+        let doc = self.gen_cfg_doc(&features);
+
+        quote! { #doc #arch #cfg }
+    }
+
+    pub fn gen_struct_cfg(&self, def: &TypeDef, features: &BTreeSet<&'static str>) -> TokenStream {
+        let arch = self.gen_arch_cfg(def.attributes());
+        let cfg = self.gen_cfg_impl(features, false);
+
+        quote! { #arch #cfg }
+    }
+
     pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
         if self.root.is_empty() {
             return TokenStream::new();
@@ -93,6 +109,29 @@ impl Gen {
         }
 
         format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
+    }
+
+    fn gen_arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
+        for attribute in attributes {
+            if attribute.name() == "SupportedArchitectureAttribute" {
+                if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
+                    let mut cfg = "#[cfg(any(".to_string();
+                    if value & 1 == 1 {
+                        cfg.push_str(r#"target_arch = "x86", "#);
+                    }
+                    if value & 2 == 2 {
+                        cfg.push_str(r#"target_arch = "x86_64", "#);
+                    }
+                    if value & 4 == 4 {
+                        cfg.push_str(r#"target_arch = "aarch64", "#);
+                    }
+                    cfg.push_str("))]");
+                    return cfg.into();
+                }
+            }
+        }
+
+        TokenStream::new()
     }
 
     pub fn gen_cfg(&self, features: &BTreeSet<&'static str>) -> TokenStream {
@@ -124,9 +163,7 @@ impl Gen {
                 continue;
             }
 
-            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
-
-            let feature = &feature.strip_prefix(format!("{}.", self.root).as_str()).unwrap_or(feature);
+            let feature = &feature[self.root.len() + 1..];
             tokens.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
             count += 1;
         }
@@ -175,16 +212,5 @@ mod tests {
         assert_eq!(Gen::relative("Windows.Foundation").namespace("Windows.Foundation").as_str(), "");
 
         assert_eq!(Gen::relative("Windows.Foundation.Collections").namespace("Windows.Foundation").as_str(), "super::");
-    }
-
-    #[test]
-    fn test_features() {
-        let mut features = BTreeSet::new();
-        features.insert("Windows.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "" }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Windows_Foundation")]"#);
-
-        let mut features = BTreeSet::new();
-        features.insert("Microsoft.Foundation");
-        assert_eq!(Gen { root: "Microsoft", relative: "" }.gen_cfg(&features).as_str(), r#"#[cfg(feature = "Foundation")]"#);
     }
 }

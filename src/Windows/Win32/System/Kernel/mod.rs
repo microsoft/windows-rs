@@ -78,10 +78,12 @@ impl ::std::convert::From<i32> for EXCEPTION_DISPOSITION {
 unsafe impl ::windows::runtime::Abi for EXCEPTION_DISPOSITION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Kernel`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
 pub type EXCEPTION_ROUTINE = unsafe extern "system" fn(exceptionrecord: *mut super::Diagnostics::Debug::EXCEPTION_RECORD, establisherframe: *const ::std::ffi::c_void, contextrecord: *mut super::Diagnostics::Debug::CONTEXT, dispatchercontext: *const ::std::ffi::c_void) -> EXCEPTION_DISPOSITION;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
@@ -94,12 +96,15 @@ pub struct FLOATING_SAVE_AREA {
     pub RegisterArea: [u8; 80],
     pub Cr0NpxState: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl FLOATING_SAVE_AREA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for FLOATING_SAVE_AREA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for FLOATING_SAVE_AREA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FLOATING_SAVE_AREA")
@@ -115,12 +120,66 @@ impl ::std::fmt::Debug for FLOATING_SAVE_AREA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for FLOATING_SAVE_AREA {
     fn eq(&self, other: &Self) -> bool {
         self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Cr0NpxState == other.Cr0NpxState
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for FLOATING_SAVE_AREA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub struct FLOATING_SAVE_AREA {
+    pub ControlWord: u32,
+    pub StatusWord: u32,
+    pub TagWord: u32,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u32,
+    pub DataOffset: u32,
+    pub DataSelector: u32,
+    pub RegisterArea: [u8; 80],
+    pub Spare0: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl FLOATING_SAVE_AREA {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for FLOATING_SAVE_AREA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for FLOATING_SAVE_AREA {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("FLOATING_SAVE_AREA")
+            .field("ControlWord", &self.ControlWord)
+            .field("StatusWord", &self.StatusWord)
+            .field("TagWord", &self.TagWord)
+            .field("ErrorOffset", &self.ErrorOffset)
+            .field("ErrorSelector", &self.ErrorSelector)
+            .field("DataOffset", &self.DataOffset)
+            .field("DataSelector", &self.DataSelector)
+            .field("RegisterArea", &self.RegisterArea)
+            .field("Spare0", &self.Spare0)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for FLOATING_SAVE_AREA {
+    fn eq(&self, other: &Self) -> bool {
+        self.ControlWord == other.ControlWord && self.StatusWord == other.StatusWord && self.TagWord == other.TagWord && self.ErrorOffset == other.ErrorOffset && self.ErrorSelector == other.ErrorSelector && self.DataOffset == other.DataOffset && self.DataSelector == other.DataSelector && self.RegisterArea == other.RegisterArea && self.Spare0 == other.Spare0
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for FLOATING_SAVE_AREA {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for FLOATING_SAVE_AREA {
     type Abi = Self;
 }
@@ -601,78 +660,252 @@ unsafe impl ::windows::runtime::Abi for SLIST_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Kernel`*"]
 pub union SLIST_HEADER {
     pub Anonymous: SLIST_HEADER_0,
     pub HeaderArm64: SLIST_HEADER_1,
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl SLIST_HEADER {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::default::Default for SLIST_HEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SLIST_HEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SLIST_HEADER {}
+#[cfg(any(target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[cfg(any(target_arch = "aarch64",))]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::default::Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SLIST_HEADER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Alignment == other.Alignment && self.Region == other.Region
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Kernel`*"]
+#[cfg(any(target_arch = "aarch64",))]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl SLIST_HEADER_1 {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::default::Default for SLIST_HEADER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SLIST_HEADER_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_HeaderArm64_e__Struct").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SLIST_HEADER_1 {}
+#[cfg(any(target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub union SLIST_HEADER {
+    pub Anonymous: SLIST_HEADER_0,
+    pub HeaderX64: SLIST_HEADER_1,
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl SLIST_HEADER {}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::default::Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::PartialEq for SLIST_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::Eq for SLIST_HEADER {}
+#[cfg(any(target_arch = "x86_64",))]
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
+pub struct SLIST_HEADER_0 {
+    pub Alignment: u64,
+    pub Region: u64,
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::default::Default for SLIST_HEADER_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct").field("Alignment", &self.Alignment).field("Region", &self.Region).finish()
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Alignment == other.Alignment && self.Region == other.Region
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "x86_64",))]
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
+pub struct SLIST_HEADER_1 {
+    pub _bitfield1: u64,
+    pub _bitfield2: u64,
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl SLIST_HEADER_1 {}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::default::Default for SLIST_HEADER_1 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::fmt::Debug for SLIST_HEADER_1 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_HeaderX64_e__Struct").field("_bitfield1", &self._bitfield1).field("_bitfield2", &self._bitfield2).finish()
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::PartialEq for SLIST_HEADER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self._bitfield1 == other._bitfield1 && self._bitfield2 == other._bitfield2
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::Eq for SLIST_HEADER_1 {}
+#[cfg(any(target_arch = "x86_64",))]
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_1 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_System_Kernel`*"]
+pub union SLIST_HEADER {
+    pub Alignment: u64,
+    pub Anonymous: SLIST_HEADER_0,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SLIST_HEADER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SLIST_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SLIST_HEADER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SLIST_HEADER {}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+pub struct SLIST_HEADER_0 {
+    pub Next: SINGLE_LIST_ENTRY,
+    pub Depth: u16,
+    pub CpuId: u16,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SLIST_HEADER_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for SLIST_HEADER_0 {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("_Anonymous_e__Struct").field("Next", &self.Next).field("Depth", &self.Depth).field("CpuId", &self.CpuId).finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SLIST_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        self.Next == other.Next && self.Depth == other.Depth && self.CpuId == other.CpuId
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::runtime::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]

@@ -12411,8 +12411,8 @@ pub const WMFORMAT_Script: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const WMFORMAT_VideoInfo: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89694080, 50006, 4558, [191, 1, 0, 170, 0, 85, 89, 90]);
 pub const WMFORMAT_WaveFormatEx: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(89694081, 50006, 4558, [191, 1, 0, 170, 0, 85, 89, 90]);
 pub const WMFORMAT_WebStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659426579, 33625, 16464, [179, 152, 56, 142, 150, 91, 240, 12]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_WindowsMediaFormat`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WMIsContentProtected<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszfilename: Param0, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

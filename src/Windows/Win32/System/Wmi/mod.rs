@@ -8577,6 +8577,7 @@ impl ::std::convert::From<i32> for MI_CallbackMode {
 unsafe impl ::windows::runtime::Abi for MI_CallbackMode {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_CancelCallback = unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -10542,6 +10543,7 @@ impl ::std::cmp::Eq for MI_DeserializerFT {}
 unsafe impl ::windows::runtime::Abi for MI_DeserializerFT {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_Deserializer_ClassObjectNeeded = unsafe extern "system" fn(context: *const ::std::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11194,6 +11196,7 @@ pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
 pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_MainFunction = unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11246,6 +11249,7 @@ impl ::std::cmp::Eq for MI_MethodDecl {}
 unsafe impl ::windows::runtime::Abi for MI_MethodDecl {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_MethodDecl_Invoke = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11280,10 +11284,12 @@ impl ::std::cmp::Eq for MI_Module {}
 unsafe impl ::windows::runtime::Abi for MI_Module {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_Module_Load = unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context);
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct MI_Module_Self(pub u8);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_Module_Unload = unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
@@ -11377,9 +11383,13 @@ impl ::std::cmp::Eq for MI_Operation {}
 unsafe impl ::windows::runtime::Abi for MI_Operation {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_Class = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_Indication = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_Instance = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_PromptUser = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize);
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -11397,9 +11407,13 @@ impl ::std::convert::From<i32> for MI_OperationCallback_ResponseType {
 unsafe impl ::windows::runtime::Abi for MI_OperationCallback_ResponseType {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_StreamedParameter = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_WriteError = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_WriteMessage = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, channel: u32, message: *const u16);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_OperationCallback_WriteProgress = unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::std::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
@@ -11866,19 +11880,33 @@ impl ::std::cmp::Eq for MI_ProviderFT {}
 unsafe impl ::windows::runtime::Abi for MI_ProviderFT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_AssociatorInstances = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_CreateInstance = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_DeleteInstance = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_DisableIndications = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_EnableIndications = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_EnumerateInstances = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_GetInstance = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_Invoke = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_Load = unsafe extern "system" fn(self_: *mut *mut ::std::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_ModifyInstance = unsafe extern "system" fn(self_: *mut ::std::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_ReferenceInstances = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_Subscribe = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_Unload = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context);
+#[doc = "*Required features: `Win32_System_Wmi`*"]
 pub type MI_ProviderFT_Unsubscribe = unsafe extern "system" fn(self_: *const ::std::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

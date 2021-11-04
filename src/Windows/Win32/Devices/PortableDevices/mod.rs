@@ -46,8 +46,8 @@ pub const DEVSVCTYPE_ABSTRACT: u32 = 1u32;
 pub const DEVSVCTYPE_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `Win32_Devices_PortableDevices`*"]
 pub const DEVSVC_SERVICEINFO_VERSION: u32 = 100u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_PortableDevices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DMProcessConfigXMLFiltered<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszxmlin: Param0, rgszallowedcspnodes: *const super::super::Foundation::PWSTR, dwnumallowedcspnodes: u32) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
     #[cfg(windows)]

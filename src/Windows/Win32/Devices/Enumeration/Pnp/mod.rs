@@ -1865,6 +1865,7 @@ impl ::std::convert::From<i32> for SW_DEVICE_CAPABILITIES {
 unsafe impl ::windows::runtime::Abi for SW_DEVICE_CAPABILITIES {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::runtime::HRESULT, pcontext: *const ::std::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -1947,8 +1948,8 @@ pub unsafe fn SwDeviceClose<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_Security`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SwDeviceCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     pszenumeratorname: Param0,
@@ -1986,8 +1987,8 @@ pub unsafe fn SwDeviceGetLifetime<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SwDeviceInterfacePropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hswdevice: Param0, pszdeviceinterfaceid: Param1, cpropertycount: u32, pproperties: *const super::super::super::System::SystemServices::DEVPROPERTY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2001,8 +2002,8 @@ pub unsafe fn SwDeviceInterfacePropertySet<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SwDeviceInterfaceRegister<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(
     hswdevice: Param0,
@@ -2024,8 +2025,8 @@ pub unsafe fn SwDeviceInterfaceRegister<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwDeviceInterfaceSetState<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hswdevice: Param0, pszdeviceinterfaceid: Param1, fenabled: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2039,8 +2040,8 @@ pub unsafe fn SwDeviceInterfaceSetState<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_Enumeration_Pnp`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SwDevicePropertySet<'a, Param0: ::windows::runtime::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0, cpropertycount: u32, pproperties: *const super::super::super::System::SystemServices::DEVPROPERTY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

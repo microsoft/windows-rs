@@ -110,14 +110,20 @@ pub struct ISceSvcAttachmentPersistInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lptemplatename: *mut i8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub type PFSCE_FREE_INFO = unsafe extern "system" fn(pvserviceinfo: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]
 pub type PFSCE_LOG_INFO = unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_QUERY_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::std::ffi::c_void, psceenumhandle: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_SET_INFO = unsafe extern "system" fn(scehandle: *mut ::std::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_ConfigAnalyzeService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>) -> u32;
+#[doc = "*Required features: `Win32_Security_ConfigurationSnapin`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_UpdateService = unsafe extern "system" fn(pscecbinfo: *mut ::std::mem::ManuallyDrop<SCESVC_CALLBACK_INFO>, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32;
 #[doc = "*Required features: `Win32_Security_ConfigurationSnapin`*"]

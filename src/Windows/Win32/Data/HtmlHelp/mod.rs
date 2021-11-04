@@ -74,7 +74,6 @@ unsafe impl ::windows::runtime::Abi for CProperty {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub union CProperty_0 {
     pub lpszwData: super::super::Foundation::PWSTR,
     pub lpvData: *mut ::std::ffi::c_void,
@@ -1893,6 +1892,7 @@ pub struct IWordBreakerConfig_abi(
 );
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub const MAX_COLUMNS: u32 = 256u32;
+#[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_Data_HtmlHelp`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

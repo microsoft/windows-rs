@@ -41,8 +41,8 @@ pub unsafe fn AddClusterGroupToGroupSetDependency(hdependentgroup: *const _HGROU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddClusterNode<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, pfnprogresscallback: ::std::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
@@ -56,8 +56,8 @@ pub unsafe fn AddClusterNode<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddClusterNodeEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwflags: u32, pfnprogresscallback: ::std::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HNODE {
     #[cfg(windows)]
@@ -99,8 +99,8 @@ pub unsafe fn AddClusterResourceNode(hresource: *const _HRESOURCE, hnode: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hcluster: *const _HCLUSTER,
@@ -121,8 +121,8 @@ pub unsafe fn AddClusterStorageNode<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddCrossClusterGroupSetDependency<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: Param1, lpremotegroupsetname: Param2) -> u32 {
     #[cfg(windows)]
@@ -150,8 +150,8 @@ pub unsafe fn AddResourceToClusterSharedVolumes(hresource: *const _HRESOURCE) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupClusterDatabase<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszpathname: Param1) -> u32 {
     #[cfg(windows)]
@@ -499,7 +499,6 @@ impl ::std::clone::Clone for CLRES_FUNCTION_TABLE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: ::std::mem::ManuallyDrop<CLRES_V1_FUNCTIONS>,
     pub V2Functions: ::std::mem::ManuallyDrop<CLRES_V2_FUNCTIONS>,
@@ -1899,7 +1898,6 @@ unsafe impl ::windows::runtime::Abi for CLUSPROP_SECURITY_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_SystemServices`*"]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::System::SystemServices::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
@@ -5621,8 +5619,8 @@ unsafe impl ::windows::runtime::Abi for CREATE_CLUSTER_NAME_ACCOUNT {
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const CREATE_CLUSTER_VERSION: u32 = 1536u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CanResourceBeDependent(hresource: *const _HRESOURCE, hresourcedependent: *const _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5678,8 +5676,8 @@ pub unsafe fn ChangeClusterResourceGroupEx(hresource: *const _HRESOURCE, hgroup:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseCluster(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5707,8 +5705,8 @@ pub unsafe fn CloseClusterCryptProvider(hcluscryptprovider: *const _HCLUSCRYPTPR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5722,8 +5720,8 @@ pub unsafe fn CloseClusterGroup(hgroup: *const _HGROUP) -> super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5737,8 +5735,8 @@ pub unsafe fn CloseClusterGroupSet(hgroupset: *const _HGROUPSET) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5752,8 +5750,8 @@ pub unsafe fn CloseClusterNetInterface(hnetinterface: *const _HNETINTERFACE) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5767,8 +5765,8 @@ pub unsafe fn CloseClusterNetwork(hnetwork: *const _HNETWORK) -> super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5782,8 +5780,8 @@ pub unsafe fn CloseClusterNode(hnode: *const _HNODE) -> super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5797,8 +5795,8 @@ pub unsafe fn CloseClusterNotifyPort(hchange: *const _HCHANGE) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5812,8 +5810,8 @@ pub unsafe fn CloseClusterResource(hresource: *const _HRESOURCE) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusAddClusterHealthFault(hcluster: *const _HCLUSTER, failure: *const CLUSTER_HEALTH_FAULT, param2: u32) -> u32 {
     #[cfg(windows)]
@@ -5831,8 +5829,8 @@ pub const ClusApplication: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const ClusCryptoKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161387, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusDisk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161379, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusDisks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161381, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusGetClusterHealthFaults(hcluster: *const _HCLUSTER, objects: *mut CLUSTER_HEALTH_FAULT_ARRAY, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -5864,8 +5862,8 @@ pub const ClusPropertyValueData: ::windows::runtime::GUID = ::windows::runtime::
 pub const ClusPropertyValues: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161371, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusRefObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161345, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusRegistryKeys: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161385, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusRemoveClusterHealthFault<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, id: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -5894,8 +5892,8 @@ pub const ClusResource: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
 pub const ClusResources: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161355, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusScsiAddress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161383, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
 pub const ClusVersion: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161365, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5909,8 +5907,8 @@ pub unsafe fn ClusWorkerCheckTerminate(lpworker: *mut CLUS_WORKER) -> super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: ::std::option::Option<PWORKER_START_ROUTINE>, lpparameter: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5924,8 +5922,8 @@ pub unsafe fn ClusWorkerCreate(lpworker: *mut CLUS_WORKER, lpstartaddress: ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     #[cfg(windows)]
@@ -5939,8 +5937,8 @@ pub unsafe fn ClusWorkerTerminate(lpworker: *const CLUS_WORKER) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusWorkerTerminateEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(clusworker: *mut CLUS_WORKER, timeoutinmilliseconds: u32, waitonly: Param2) -> u32 {
     #[cfg(windows)]
@@ -5954,8 +5952,8 @@ pub unsafe fn ClusWorkerTerminateEx<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusWorkersTerminate<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: Param3) -> u32 {
     #[cfg(windows)]
@@ -5970,8 +5968,8 @@ pub unsafe fn ClusWorkersTerminate<'a, Param3: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 pub const Cluster: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4075161315, 9777, 4561, [137, 241, 0, 160, 201, 13, 6, 30]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterAddGroupToAffinityRule<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
@@ -6013,8 +6011,8 @@ pub unsafe fn ClusterAddGroupToGroupSetWithDomains(hgroupset: *const _HGROUPSET,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterAffinityRuleControl<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, affinityrulename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6038,8 +6036,8 @@ pub unsafe fn ClusterAffinityRuleControl<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterClearBackupStateForSharedVolume<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumepathname: Param0) -> u32 {
     #[cfg(windows)]
@@ -6104,8 +6102,8 @@ pub unsafe fn ClusterControl(hcluster: *const _HCLUSTER, hhostnode: *const _HNOD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterCreateAffinityRule<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32 {
     #[cfg(windows)]
@@ -6147,8 +6145,8 @@ pub unsafe fn ClusterEncrypt(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6162,8 +6160,8 @@ pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterEnumEx(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6205,8 +6203,8 @@ pub unsafe fn ClusterGetEnumCountEx(hclusterenum: *const _HCLUSENUMEX) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6220,8 +6218,8 @@ pub unsafe fn ClusterGetVolumeNameForVolumeMountPoint<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGetVolumePathName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6286,8 +6284,8 @@ pub unsafe fn ClusterGroupControl(hgroup: *const _HGROUP, hhostnode: *const _HNO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6301,8 +6299,8 @@ pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGroupEnumEx(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6358,8 +6356,8 @@ pub unsafe fn ClusterGroupOpenEnum(hgroup: *const _HGROUP, dwtype: u32) -> *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGroupOpenEnumEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszproperties: Param1, cbproperties: u32, lpszroproperties: Param3, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX {
     #[cfg(windows)]
@@ -6410,8 +6408,8 @@ pub unsafe fn ClusterGroupSetControl(hgroupset: *const _HGROUPSET, hhostnode: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6453,8 +6451,8 @@ pub unsafe fn ClusterGroupSetOpenEnum(hcluster: *mut _HCLUSTER) -> *mut _HGROUPS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterIsPathOnSharedVolume<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6506,8 +6504,8 @@ pub unsafe fn ClusterNetInterfaceControl(hnetinterface: *const _HNETINTERFACE, h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6521,8 +6519,8 @@ pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEEN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNetInterfaceOpenEnum<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, lpsznetworkname: Param2) -> *mut _HNETINTERFACEENUM {
     #[cfg(windows)]
@@ -6573,8 +6571,8 @@ pub unsafe fn ClusterNetworkControl(hnetwork: *const _HNETWORK, hhostnode: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6667,8 +6665,8 @@ pub unsafe fn ClusterNodeControl(hnode: *const _HNODE, hhostnode: *const _HNODE,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6682,8 +6680,8 @@ pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwty
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNodeEnumEx(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6753,8 +6751,8 @@ pub unsafe fn ClusterNodeOpenEnumEx(hnode: *const _HNODE, dwtype: u32, poptions:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterNodeReplacement<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodenamecurrent: Param1, lpsznodenamenew: Param2) -> u32 {
     #[cfg(windows)]
@@ -6796,8 +6794,8 @@ pub unsafe fn ClusterOpenEnumEx(hcluster: *const _HCLUSTER, dwtype: u32, poption
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterPrepareSharedVolumeForBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6811,8 +6809,8 @@ pub unsafe fn ClusterPrepareSharedVolumeForBackup<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRegBatchAddCommand<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: Param2, dwoptions: u32, lpdata: *const ::std::ffi::c_void, cbdata: u32) -> i32 {
     #[cfg(windows)]
@@ -6840,8 +6838,8 @@ pub unsafe fn ClusterRegBatchCloseNotification(hbatchnotification: *const _HREGB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: *const _HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32 {
     #[cfg(windows)]
@@ -6855,8 +6853,8 @@ pub unsafe fn ClusterRegBatchReadCommand(hbatchnotification: *const _HREGBATCHNO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRegCloseBatch<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hregbatch: *const _HREGBATCH, bcommit: Param1, failedcommandnumber: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -6898,8 +6896,8 @@ pub unsafe fn ClusterRegCloseBatchNotifyPort(hbatchnotifyport: *const _HREGBATCH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0) -> i32 {
     #[cfg(windows)]
@@ -6955,8 +6953,8 @@ pub unsafe fn ClusterRegCloseReadBatchReply(hregreadbatchreply: *const _HREGREAD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateBatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phregbatch: *mut *mut _HREGBATCH) -> i32 {
     #[cfg(windows)]
@@ -6970,8 +6968,8 @@ pub unsafe fn ClusterRegCreateBatch<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateBatchNotifyPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phbatchnotifyport: *mut *mut _HREGBATCHPORT) -> i32 {
     #[cfg(windows)]
@@ -6985,8 +6983,8 @@ pub unsafe fn ClusterRegCreateBatchNotifyPort<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegCreateKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7000,8 +6998,8 @@ pub unsafe fn ClusterRegCreateKey<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ClusterRegCreateReadBatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, phregreadbatch: *mut *mut _HREGREADBATCH) -> i32 {
     #[cfg(windows)]
@@ -7015,8 +7013,8 @@ pub unsafe fn ClusterRegCreateReadBatch<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegDeleteKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1) -> i32 {
     #[cfg(windows)]
@@ -7030,8 +7028,8 @@ pub unsafe fn ClusterRegDeleteKey<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegDeleteValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1) -> u32 {
     #[cfg(windows)]
@@ -7045,8 +7043,8 @@ pub unsafe fn ClusterRegDeleteValue<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegEnumKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32 {
     #[cfg(windows)]
@@ -7060,8 +7058,8 @@ pub unsafe fn ClusterRegEnumKey<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegEnumValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, lpszvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7089,8 +7087,8 @@ pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, requestedinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7104,8 +7102,8 @@ pub unsafe fn ClusterRegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegOpenKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszsubkey: Param1, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32 {
     #[cfg(windows)]
@@ -7119,8 +7117,8 @@ pub unsafe fn ClusterRegOpenKey<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegQueryInfoKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, lpcsubkeys: *const u32, lpcchmaxsubkeylen: *const u32, lpcvalues: *const u32, lpcchmaxvaluenamelen: *const u32, lpcbmaxvaluelen: *const u32, lpcbsecuritydescriptor: *const u32, lpftlastwritetime: *const super::super::Foundation::FILETIME) -> i32 {
     #[cfg(windows)]
@@ -7143,8 +7141,8 @@ pub unsafe fn ClusterRegQueryInfoKey<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegQueryValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7158,8 +7156,8 @@ pub unsafe fn ClusterRegQueryValue<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRegReadBatchAddCommand<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: Param1, wzvaluename: Param2) -> i32 {
     #[cfg(windows)]
@@ -7173,8 +7171,8 @@ pub unsafe fn ClusterRegReadBatchAddCommand<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32 {
     #[cfg(windows)]
@@ -7188,8 +7186,8 @@ pub unsafe fn ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: *const _HR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> i32 {
     #[cfg(windows)]
@@ -7203,8 +7201,8 @@ pub unsafe fn ClusterRegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ClusterRegSetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpszvaluename: Param1, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32 {
     #[cfg(windows)]
@@ -7232,8 +7230,8 @@ pub unsafe fn ClusterRegSyncDatabase(hcluster: *const _HCLUSTER, flags: u32) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRemoveAffinityRule<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1) -> u32 {
     #[cfg(windows)]
@@ -7247,8 +7245,8 @@ pub unsafe fn ClusterRemoveAffinityRule<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterRemoveGroupFromAffinityRule<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, rulename: Param1, hgroup: *const _HGROUP) -> u32 {
     #[cfg(windows)]
@@ -7350,8 +7348,8 @@ pub unsafe fn ClusterResourceControlAsUser(hresource: *const _HRESOURCE, hhostno
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7365,8 +7363,8 @@ pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceEnumEx(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7422,8 +7420,8 @@ pub unsafe fn ClusterResourceOpenEnum(hresource: *const _HRESOURCE, dwtype: u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceOpenEnumEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszproperties: Param1, cbproperties: u32, lpszroproperties: Param3, cbroproperties: u32, dwflags: u32) -> *mut _HRESENUMEX {
     #[cfg(windows)]
@@ -7451,8 +7449,8 @@ pub unsafe fn ClusterResourceTypeCloseEnum(hrestypeenum: *const _HRESTYPEENUM) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceTypeControl<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7476,8 +7474,8 @@ pub unsafe fn ClusterResourceTypeControl<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceTypeControlAsUser<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7501,8 +7499,8 @@ pub unsafe fn ClusterResourceTypeControlAsUser<'a, Param1: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7530,8 +7528,8 @@ pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterResourceTypeOpenEnum<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, dwtype: u32) -> *mut _HRESTYPEENUM {
     #[cfg(windows)]
@@ -7545,8 +7543,8 @@ pub unsafe fn ClusterResourceTypeOpenEnum<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterSetAccountAccess<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, szaccountsid: Param1, dwaccess: u32, dwcontroltype: u32) -> u32 {
     #[cfg(windows)]
@@ -7560,8 +7558,8 @@ pub unsafe fn ClusterSetAccountAccess<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterSharedVolumeSetSnapshotState<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guidsnapshotset: Param0, lpszvolumename: Param1, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32 {
     #[cfg(windows)]
@@ -7575,8 +7573,8 @@ pub unsafe fn ClusterSharedVolumeSetSnapshotState<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, perform: Param1, pfnprogresscallback: ::std::option::Option<PCLUSTER_UPGRADE_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7590,8 +7588,8 @@ pub unsafe fn ClusterUpgradeFunctionalLevel<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: ::std::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HCLUSTER {
     #[cfg(windows)]
@@ -7605,8 +7603,8 @@ pub unsafe fn CreateCluster(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogressca
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterAvailabilitySet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpavailabilitysetname: Param1, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> *mut _HGROUPSET {
     #[cfg(windows)]
@@ -7620,8 +7618,8 @@ pub unsafe fn CreateClusterAvailabilitySet<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1) -> *mut _HGROUP {
     #[cfg(windows)]
@@ -7635,8 +7633,8 @@ pub unsafe fn CreateClusterGroup<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterGroupEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> *mut _HGROUP {
     #[cfg(windows)]
@@ -7650,8 +7648,8 @@ pub unsafe fn CreateClusterGroupEx<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterGroupSet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, groupsetname: Param1) -> *mut _HGROUPSET {
     #[cfg(windows)]
@@ -7665,8 +7663,8 @@ pub unsafe fn CreateClusterGroupSet<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterNameAccount(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: ::std::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7708,8 +7706,8 @@ pub unsafe fn CreateClusterNotifyPortV2(hchange: *const _HCHANGE, hcluster: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterResource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszresourcename: Param1, lpszresourcetype: Param2, dwflags: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -7723,8 +7721,8 @@ pub unsafe fn CreateClusterResource<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateClusterResourceType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1, lpszdisplayname: Param2, lpszresourcetypedll: Param3, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32 {
     #[cfg(windows)]
@@ -7782,8 +7780,8 @@ pub unsafe fn DeleteClusterResource(hresource: *const _HRESOURCE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteClusterResourceType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcetypename: Param1) -> u32 {
     #[cfg(windows)]
@@ -7797,8 +7795,8 @@ pub unsafe fn DeleteClusterResourceType<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyCluster<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, pfnprogresscallback: ::std::option::Option<PCLUSTER_SETUP_PROGRESS_CALLBACK>, pvcallbackarg: *const ::std::ffi::c_void, fdeletevirtualcomputerobjects: Param3) -> u32 {
     #[cfg(windows)]
@@ -7840,8 +7838,8 @@ pub unsafe fn DetermineCNOResTypeFromCluster(hcluster: *const _HCLUSTER, pcnores
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DetermineCNOResTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcnorestype: *mut CLUSTER_MGMT_POINT_RESTYPE) -> u32 {
     #[cfg(windows)]
@@ -7869,8 +7867,8 @@ pub unsafe fn DetermineClusterCloudTypeFromCluster(hcluster: *const _HCLUSTER, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DetermineClusterCloudTypeFromNodelist(cnodes: u32, ppsznodenames: *const super::super::Foundation::PWSTR, pcloudtype: *mut CLUSTER_CLOUD_TYPE) -> u32 {
     #[cfg(windows)]
@@ -8028,8 +8026,8 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::std::ffi::c_void) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
@@ -8043,8 +8041,8 @@ pub unsafe fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg(windows)]
@@ -8239,8 +8237,8 @@ pub unsafe fn GetClusterFromResource(hresource: *const _HRESOURCE) -> *mut _HCLU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8254,8 +8252,8 @@ pub unsafe fn GetClusterGroupKey(hgroup: *const _HGROUP, samdesired: u32) -> sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE {
     #[cfg(windows)]
@@ -8269,8 +8267,8 @@ pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername: super::super::Foundation::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32 {
     #[cfg(windows)]
@@ -8284,8 +8282,8 @@ pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8299,8 +8297,8 @@ pub unsafe fn GetClusterKey(hcluster: *const _HCLUSTER, samdesired: u32) -> supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterNetInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, lpsznetworkname: Param2, lpszinterfacename: super::super::Foundation::PWSTR, lpcchinterfacename: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8314,8 +8312,8 @@ pub unsafe fn GetClusterNetInterface<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNetInterfaceKey(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8343,8 +8341,8 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8358,8 +8356,8 @@ pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNetworkKey(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8387,8 +8385,8 @@ pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETW
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterNodeId(hnode: *const _HNODE, lpsznodeid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8402,8 +8400,8 @@ pub unsafe fn GetClusterNodeId(hnode: *const _HNODE, lpsznodeid: super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterNodeKey(hnode: *const _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8431,8 +8429,8 @@ pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32 {
     #[cfg(windows)]
@@ -8446,8 +8444,8 @@ pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpbbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32 {
     #[cfg(windows)]
@@ -8476,8 +8474,8 @@ pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8491,8 +8489,8 @@ pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR, lpcchdependencyexpression: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8506,8 +8504,8 @@ pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8521,8 +8519,8 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8536,8 +8534,8 @@ pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32, lpszgroupname: super::super::Foundation::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE {
     #[cfg(windows)]
@@ -8551,8 +8549,8 @@ pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn GetClusterResourceTypeKey<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsztypename: Param1, samdesired: u32) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -8566,8 +8564,8 @@ pub unsafe fn GetClusterResourceTypeKey<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNodeCloudTypeDW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppsznodename: Param0, nodecloudtype: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8581,8 +8579,8 @@ pub unsafe fn GetNodeCloudTypeDW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNodeClusterState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsznodename: Param0, pdwclusterstate: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8596,8 +8594,8 @@ pub unsafe fn GetNodeClusterState<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNotifyEventHandle(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -14217,8 +14215,8 @@ pub struct IWEInvokeCommand_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ncommandid: u32, pidata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg(windows)]
@@ -14232,8 +14230,8 @@ pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEAL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg(windows)]
@@ -14247,8 +14245,8 @@ pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsFileOnClusterSharedVolume<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -14280,9 +14278,13 @@ impl ::std::convert::From<i32> for LOG_LEVEL {
 unsafe impl ::windows::runtime::Abi for LOG_LEVEL {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type LPGROUP_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type LPNODE_CALLBACK = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HNODE, param2: CLUSTER_NODE_STATE, param3: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type LPRESOURCE_CALLBACK = unsafe extern "system" fn(param0: *mut _HRESOURCE, param1: *mut _HRESOURCE, param2: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type LPRESOURCE_CALLBACK_EX = unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HRESOURCE, param2: *mut _HRESOURCE, param3: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -14592,8 +14594,8 @@ pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflag
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenCluster<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0) -> *mut _HCLUSTER {
     #[cfg(windows)]
@@ -14607,8 +14609,8 @@ pub unsafe fn OpenCluster<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterCryptProvider<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresource: Param0, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
@@ -14622,8 +14624,8 @@ pub unsafe fn OpenClusterCryptProvider<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterCryptProviderEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresource: Param0, lpszkeyname: Param1, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER {
     #[cfg(windows)]
@@ -14637,8 +14639,8 @@ pub unsafe fn OpenClusterCryptProviderEx<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0, desiredaccess: u32, grantedaccess: *mut u32) -> *mut _HCLUSTER {
     #[cfg(windows)]
@@ -14652,8 +14654,8 @@ pub unsafe fn OpenClusterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1) -> *mut _HGROUP {
     #[cfg(windows)]
@@ -14667,8 +14669,8 @@ pub unsafe fn OpenClusterGroup<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterGroupEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupname: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HGROUP {
     #[cfg(windows)]
@@ -14682,8 +14684,8 @@ pub unsafe fn OpenClusterGroupEx<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterGroupSet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszgroupsetname: Param1) -> *mut _HGROUPSET {
     #[cfg(windows)]
@@ -14697,8 +14699,8 @@ pub unsafe fn OpenClusterGroupSet<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNetInterface<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszinterfacename: Param1) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
@@ -14712,8 +14714,8 @@ pub unsafe fn OpenClusterNetInterface<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNetInterfaceEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszinterfacename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETINTERFACE {
     #[cfg(windows)]
@@ -14727,8 +14729,8 @@ pub unsafe fn OpenClusterNetInterfaceEx<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznetworkname: Param1) -> *mut _HNETWORK {
     #[cfg(windows)]
@@ -14742,8 +14744,8 @@ pub unsafe fn OpenClusterNetwork<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNetworkEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznetworkname: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETWORK {
     #[cfg(windows)]
@@ -14757,8 +14759,8 @@ pub unsafe fn OpenClusterNetworkEx<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNode<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1) -> *mut _HNODE {
     #[cfg(windows)]
@@ -14786,8 +14788,8 @@ pub unsafe fn OpenClusterNodeById(hcluster: *const _HCLUSTER, nodeid: u32) -> *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterNodeEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznodename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNODE {
     #[cfg(windows)]
@@ -14801,8 +14803,8 @@ pub unsafe fn OpenClusterNodeEx<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterResource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcename: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -14816,8 +14818,8 @@ pub unsafe fn OpenClusterResource<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenClusterResourceEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszresourcename: Param1, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -14831,366 +14833,596 @@ pub unsafe fn OpenClusterResourceEx<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PARBITRATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, lostquorumresource: ::windows::runtime::RawPtr) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESCALL_AS_USER_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESCALL_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESTYPECALL_AS_USER_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, tokenhandle: super::super::Foundation::HANDLE, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PBEGIN_RESTYPECALL_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32, context: i64, returnedasynchronously: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCANCEL_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, cancelflags_reserved: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCHANGE_RESOURCE_PROCESS_FOR_DUMPS = unsafe extern "system" fn(resource: isize, processname: super::super::Foundation::PWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, processname: super::super::Foundation::PWSTR, processid: u32, isadd: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLOSE_CLUSTER_CRYPT_PROVIDER = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLOSE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPIClusWorkerCheckTerminate = unsafe extern "system" fn(lpworker: *mut CLUS_WORKER) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_DEPENDENCY = unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroup: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, hprovidergroupset: *const _HGROUPSET) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroup: *const _HGROUP, hprovidergroupset: *const _HGROUPSET) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_ADD_CLUSTER_NODE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HNODE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_ADD_CLUSTER_NODE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwflags: u32, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HNODE;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_CLUSTER_RESOURCE_NODE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_ADD_CROSS_CLUSTER_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ADD_RESOURCE_TO_CLUSTER_SHARED_VOLUMES = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_BACKUP_CLUSTER_DATABASE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszpathname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CAN_RESOURCE_BE_DEPENDENT = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hresourcedependent: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CHANGE_CLUSTER_RESOURCE_GROUP_EX = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hgroup: *mut _HGROUP, flags: u64) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_NETWORK = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_NOTIFY_PORT = unsafe extern "system" fn(hchange: *const _HCHANGE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLOSE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_ADD_GROUP_TO_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroup: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_AFFINITY_RULE_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, affinityrulename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_CLOSE_ENUM = unsafe extern "system" fn(henum: *const _HCLUSENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_CLOSE_ENUM_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_CREATE_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_ENUM = unsafe extern "system" fn(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_ENUM_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT = unsafe extern "system" fn(henum: *const _HCLUSENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hclusterenum: *const _HCLUSENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM = unsafe extern "system" fn(hgroupenum: *mut _HGROUPENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_CLOSE_ENUM_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_CONTROL = unsafe extern "system" fn(hgroup: *const _HGROUP, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_GROUP_ENUM = unsafe extern "system" fn(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_GROUP_ENUM_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT = unsafe extern "system" fn(hgroupenum: *const _HGROUPENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hgroupenumex: *const _HGROUPENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_GROUPSET_CONTROL = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM = unsafe extern "system" fn(hgroup: *mut _HGROUP, dwtype: u32) -> *mut _HGROUPENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_GROUP_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HGROUPENUMEX;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_CLOSE_ENUM = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_CONTROL = unsafe extern "system" fn(hnetwork: *const _HNETWORK, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_NETWORK_ENUM = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_GET_ENUM_COUNT = unsafe extern "system" fn(hnetworkenum: *const _HNETWORKENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NETWORK_OPEN_ENUM = unsafe extern "system" fn(hnetwork: *const _HNETWORK, dwtype: u32) -> *mut _HNETWORKENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NET_INTERFACE_CONTROL = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CLOSE_ENUM_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_CONTROL = unsafe extern "system" fn(hnode: *const _HNODE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_NODE_ENUM = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_NODE_ENUM_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT = unsafe extern "system" fn(hnodeenum: *const _HNODEENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hnodeenum: *const _HNODEENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM = unsafe extern "system" fn(hnode: *const _HNODE, dwtype: u32) -> *mut _HNODEENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_NODE_OPEN_ENUM_EX = unsafe extern "system" fn(hnode: *const _HNODE, dwtype: u32, poptions: *const ::std::ffi::c_void) -> *mut _HNODEENUMEX;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM = unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32) -> *mut _HCLUSENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, dwtype: u32, poptions: *const ::std::ffi::c_void) -> *mut _HCLUSENUMEX;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_CLOSE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_BATCH = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregbatch: *mut *mut _HREGBATCH) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_CREATE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, dwoptions: u32, samdesired: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, phkresult: *mut super::super::System::Registry::HKEY, lpdwdisposition: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_DELETE_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_ENUM_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, dwindex: u32, lpszvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpdwtype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_GET_KEY_SECURITY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, requestedinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_OPEN_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszsubkey: super::super::Foundation::PWSTR, samdesired: u32, phkresult: *mut super::super::System::Registry::HKEY) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_INFO_KEY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_QUERY_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, lpdwvaluetype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_KEY_SECURITY = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_CLUSTER_REG_SET_VALUE = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, lpszvaluename: super::super::Foundation::PWSTR, dwtype: u32, lpdata: *const u8, cbdata: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_REG_SYNC_DATABASE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, flags: u32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_REMOVE_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_AFFINITY_RULE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, rulename: super::super::Foundation::PWSTR, hgroup: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_REMOVE_GROUP_FROM_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hgroupname: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM = unsafe extern "system" fn(hresenum: *mut _HRESENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CLOSE_ENUM_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_CONTROL = unsafe extern "system" fn(hresource: *const _HRESOURCE, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, cbinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, cboutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM = unsafe extern "system" fn(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_ENUM_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT = unsafe extern "system" fn(hresenum: *const _HRESENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_GET_ENUM_COUNT_EX = unsafe extern "system" fn(hresourceenumex: *const _HRESENUMEX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM = unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwtype: u32) -> *mut _HRESENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_OPEN_ENUM_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszproperties: super::super::Foundation::PWSTR, cbproperties: u32, lpszroproperties: super::super::Foundation::PWSTR, cbroproperties: u32, dwflags: u32) -> *mut _HRESENUMEX;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CLOSE_ENUM = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_CONTROL = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, hhostnode: *const _HNODE, dwcontrolcode: u32, lpinbuffer: *const ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_ENUM = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_GET_ENUM_COUNT = unsafe extern "system" fn(hrestypeenum: *const _HRESTYPEENUM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_RESOURCE_TYPE_OPEN_ENUM = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, dwtype: u32) -> *mut _HRESTYPEENUM;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUSTER_UPGRADE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, perform: super::super::Foundation::BOOL, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUS_WORKER_CREATE = unsafe extern "system" fn(lpworker: *mut CLUS_WORKER, lpstartaddress: ::windows::runtime::RawPtr, lpparameter: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CLUS_WORKER_TERMINATE = unsafe extern "system" fn(lpworker: *const CLUS_WORKER);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER = unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_AVAILABILITY_SET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpavailabilitysetname: super::super::Foundation::PWSTR, pavailabilitysetconfig: *const CLUSTER_AVAILABILITY_SET_CONFIG) -> *mut _HGROUPSET;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_CNOLESS = unsafe extern "system" fn(pconfig: *const CREATE_CLUSTER_CONFIG, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_GROUP = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_GROUPEX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, pgroupinfo: *const CLUSTER_CREATE_GROUP_INFO) -> *mut _HGROUP;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_NAME_ACCOUNT = unsafe extern "system" fn(hcluster: *const _HCLUSTER, pconfig: *const CREATE_CLUSTER_NAME_ACCOUNT, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT = unsafe extern "system" fn(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, dwfilter: u32, dwnotifykey: usize) -> *mut _HCHANGE;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_CREATE_CLUSTER_NOTIFY_PORT_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, filters: *const NOTIFY_FILTER_AND_TYPE, dwfiltercount: u32, dwnotifykey: usize) -> *mut _HCHANGE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE = unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwflags: u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_CREATE_CLUSTER_RESOURCE_TYPE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR, lpszdisplayname: super::super::Foundation::PWSTR, lpszresourcetypedll: super::super::Foundation::PWSTR, dwlooksalivepollinterval: u32, dwisalivepollinterval: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_DELETE_CLUSTER_RESOURCE_TYPE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, lpszresourcetypename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_DESTROY_CLUSTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, pfnprogresscallback: ::windows::runtime::RawPtr, pvcallbackarg: *const ::std::ffi::c_void, fdeletevirtualcomputerobjects: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_DESTROY_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_EVICT_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_EVICT_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, dwtimeout: u32, phrcleanupstatus: *mut ::windows::runtime::HRESULT) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_FAIL_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_GROUP_GROUPSET = unsafe extern "system" fn(hgroupset: *const _HGROUPSET) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_NETWORK = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_NET_INTERFACE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_FROM_RESOURCE = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_KEY = unsafe extern "system" fn(hgroup: *mut _HGROUP, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_GROUP_STATE = unsafe extern "system" fn(hgroup: *const _HGROUP, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32) -> CLUSTER_GROUP_STATE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_INFORMATION = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszclustername: super::super::Foundation::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: *mut CLUSTERVERSIONINFO) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_KEY = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_ID = unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpsznetworkid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_KEY = unsafe extern "system" fn(hnetwork: *const _HNETWORK, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_NETWORK_STATE = unsafe extern "system" fn(hnetwork: *const _HNETWORK) -> CLUSTER_NETWORK_STATE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, lpsznetworkname: super::super::Foundation::PWSTR, lpszinterfacename: super::super::Foundation::PWSTR, lpcchinterfacename: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_KEY = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_NET_INTERFACE_STATE = unsafe extern "system" fn(hnetinterface: *const _HNETINTERFACE) -> CLUSTER_NETINTERFACE_STATE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NODE_ID = unsafe extern "system" fn(hnode: *const _HNODE, lpsznodeid: super::super::Foundation::PWSTR, lpcchname: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_NODE_KEY = unsafe extern "system" fn(hnode: *mut _HNODE, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_GET_CLUSTER_NODE_STATE = unsafe extern "system" fn(hnode: *const _HNODE) -> CLUSTER_NODE_STATE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY = unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_NOTIFY_V2 =
     unsafe extern "system" fn(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: *mut NOTIFY_FILTER_AND_TYPE, buffer: *mut u8, lpcchbuffersize: *mut u32, lpszobjectid: super::super::Foundation::PWSTR, lpcchobjectid: *mut u32, lpszparentid: super::super::Foundation::PWSTR, lpcchparentid: *mut u32, lpszname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpsztype: super::super::Foundation::PWSTR, lpcchtype: *mut u32, dwmilliseconds: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_QUORUM_RESOURCE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: super::super::Foundation::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR, lpcchdependencyexpression: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_KEY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_NETWORK_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_STATE = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpsznodename: super::super::Foundation::PWSTR, lpcchnodename: *mut u32, lpszgroupname: super::super::Foundation::PWSTR, lpcchgroupname: *mut u32) -> CLUSTER_RESOURCE_STATE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PCLUSAPI_GET_CLUSTER_RESOURCE_TYPE_KEY = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsztypename: super::super::Foundation::PWSTR, samdesired: u32) -> super::super::System::Registry::HKEY;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_NODE_CLUSTER_STATE = unsafe extern "system" fn(lpsznodename: super::super::Foundation::PWSTR, pdwclusterstate: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_GET_NOTIFY_EVENT_HANDLE_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, lphtargetevent: *mut super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_IS_FILE_ON_CLUSTER_SHARED_VOLUME = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR, pbfileisonsharedvolume: *mut super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_MOVE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_OFFLINE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *mut _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_OFFLINE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ONLINE_CLUSTER_GROUP = unsafe extern "system" fn(hgroup: *const _HGROUP, hdestinationnode: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_ONLINE_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_EX = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HCLUSTER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_GROUP = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR) -> *mut _HGROUP;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_GROUP_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HGROUP;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_GROUP_GROUPSET = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszgroupsetname: super::super::Foundation::PWSTR) -> *mut _HGROUPSET;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NETINTERFACE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetinterfacename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETINTERFACE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NETWORK = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR) -> *mut _HNETWORK;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NETWORK_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznetworkname: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNETWORK;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NET_INTERFACE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszinterfacename: super::super::Foundation::PWSTR) -> *mut _HNETINTERFACE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NODE = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR) -> *mut _HNODE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_NODE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznodename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HNODE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_OPEN_CLUSTER_RESOURCE_EX = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpszresourcename: super::super::Foundation::PWSTR, dwdesiredaccess: u32, lpdwgrantedaccess: *mut u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_OPEN_NODE_BY_ID = unsafe extern "system" fn(hcluster: *const _HCLUSTER, nodeid: u32) -> *mut _HNODE;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_PAUSE_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_PAUSE_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, bdrainnode: super::super::Foundation::BOOL, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY = unsafe extern "system" fn(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_REGISTER_CLUSTER_NOTIFY_V2 = unsafe extern "system" fn(hchange: *const _HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::super::Foundation::HANDLE, dwnotifykey: usize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_DEPENDENCY = unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUP) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, hdependson: *const _HGROUPSET) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_GROUP_TO_GROUP_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hgroup: *const _HGROUP, hdependson: *const _HGROUPSET) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_NAME_ACCOUNT = unsafe extern "system" fn(hcluster: *const _HCLUSTER) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hdependson: *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_CLUSTER_RESOURCE_NODE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, hnode: *mut _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_REMOVE_CROSS_CLUSTER_GROUPSET_DEPENDENCY = unsafe extern "system" fn(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: super::super::Foundation::PWSTR, lpremotegroupsetname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_REMOVE_RESOURCE_FROM_CLUSTER_SHARED_VOLUMES = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_RESTART_CLUSTER_RESOURCE = unsafe extern "system" fn(hresource: *mut _HRESOURCE, dwflags: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_RESTORE_CLUSTER_DATABASE = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR, bforce: super::super::Foundation::BOOL, lpszquorumdriveletter: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_RESUME_CLUSTER_NODE = unsafe extern "system" fn(hnode: *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_RESUME_CLUSTER_NODE_EX = unsafe extern "system" fn(hnode: *const _HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_GROUPSET_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hgroupset: *const _HGROUPSET, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_NAME = unsafe extern "system" fn(hgroup: *mut _HGROUP, lpszgroupname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_SET_CLUSTER_GROUP_NODE_LIST = unsafe extern "system" fn(hgroup: *const _HGROUP, nodecount: u32, nodelist: *const *const _HNODE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_NETWORK_NAME = unsafe extern "system" fn(hnetwork: *const _HNETWORK, lpszname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSAPI_SET_CLUSTER_NETWORK_PRIORITY_ORDER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, networkcount: u32, networklist: *const *const _HNETWORK) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_QUORUM_RESOURCE = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdevicename: super::super::Foundation::PWSTR, dwmaxquologsize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_RESOURCE_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hresource: *const _HRESOURCE, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_RESOURCE_NAME = unsafe extern "system" fn(hresource: *mut _HRESOURCE, lpszresourcename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_CLUSTER_SERVICE_ACCOUNT_PASSWORD = unsafe extern "system" fn(lpszclustername: super::super::Foundation::PWSTR, lpsznewpassword: super::super::Foundation::PWSTR, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SET_GROUP_DEPENDENCY_EXPRESSION = unsafe extern "system" fn(hgroupset: *const _HGROUP, lpszdependencyexpression: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SHARED_VOLUME_SET_SNAPSHOT_STATE = unsafe extern "system" fn(guidsnapshotset: ::windows::runtime::GUID, lpszvolumename: super::super::Foundation::PWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSAPI_SetClusterName = unsafe extern "system" fn(hcluster: *const _HCLUSTER, lpsznewclustername: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_CLEAR_BACKUP_STATE_FOR_SHARED_VOLUME = unsafe extern "system" fn(lpszvolumepathname: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_DECRYPT = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pcryptinput: *const u8, cbcryptinput: u32, ppcryptoutput: *mut *mut u8, pcbcryptoutput: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_ENCRYPT = unsafe extern "system" fn(hcluscryptprovider: *const _HCLUSCRYPTPROVIDER, pdata: *const u8, cbdata: u32, ppdata: *mut *mut u8, pcbdata: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT = unsafe extern "system" fn(lpszvolumemountpoint: super::super::Foundation::PWSTR, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_GET_VOLUME_PATH_NAME = unsafe extern "system" fn(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_IS_PATH_ON_SHARED_VOLUME = unsafe extern "system" fn(lpszpathname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_PREPARE_SHARED_VOLUME_FOR_BACKUP = unsafe extern "system" fn(lpszfilename: super::super::Foundation::PWSTR, lpszvolumepathname: super::super::Foundation::PWSTR, lpcchvolumepathname: *mut u32, lpszvolumename: super::super::Foundation::PWSTR, lpcchvolumename: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_REG_BATCH_ADD_COMMAND = unsafe extern "system" fn(hregbatch: *const _HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: super::super::Foundation::PWSTR, dwoptions: u32, lpdata: *const ::std::ffi::c_void, cbdata: u32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_BATCH_CLOSE_NOTIFICATION = unsafe extern "system" fn(hbatchnotification: *const _HREGBATCHNOTIFICATION) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_REG_BATCH_READ_COMMAND = unsafe extern "system" fn(hbatchnotification: *const _HREGBATCHNOTIFICATION, pbatchcommand: *mut CLUSTER_BATCH_COMMAND) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_REG_CLOSE_BATCH = unsafe extern "system" fn(hregbatch: *const _HREGBATCH, bcommit: super::super::Foundation::BOOL, failedcommandnumber: *mut i32) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_CLOSE_BATCH_NOTIFY_PORT = unsafe extern "system" fn(hbatchnotifyport: *const _HREGBATCHPORT) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_CLOSE_READ_BATCH = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_EX = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, flags: u32, phregreadbatchreply: *mut *mut _HREGREADBATCHREPLY) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_CLOSE_READ_BATCH_REPLY = unsafe extern "system" fn(hregreadbatchreply: *const _HREGREADBATCHREPLY) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSTER_REG_CREATE_BATCH_NOTIFY_PORT = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phbatchnotifyport: *mut *mut _HREGBATCHPORT) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PCLUSTER_REG_CREATE_READ_BATCH = unsafe extern "system" fn(hkey: super::super::System::Registry::HKEY, phregreadbatch: *mut *mut _HREGREADBATCH) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PCLUSTER_REG_GET_BATCH_NOTIFICATION = unsafe extern "system" fn(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut *mut _HREGBATCHNOTIFICATION) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_REG_READ_BATCH_ADD_COMMAND = unsafe extern "system" fn(hregreadbatch: *const _HREGREADBATCH, wzsubkeyname: super::super::Foundation::PWSTR, wzvaluename: super::super::Foundation::PWSTR) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_REG_READ_BATCH_REPLY_NEXT_COMMAND = unsafe extern "system" fn(hregreadbatchreply: *const _HREGREADBATCHREPLY, pbatchcommand: *mut CLUSTER_READ_BATCH_COMMAND) -> i32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_SETUP_PROGRESS_CALLBACK = unsafe extern "system" fn(pvcallbackarg: *mut ::std::ffi::c_void, esetupphase: CLUSTER_SETUP_PHASE, ephasetype: CLUSTER_SETUP_PHASE_TYPE, ephaseseverity: CLUSTER_SETUP_PHASE_SEVERITY, dwpercentcomplete: u32, lpszobjectname: super::super::Foundation::PWSTR, dwstatus: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_SET_ACCOUNT_ACCESS = unsafe extern "system" fn(hcluster: *const _HCLUSTER, szaccountsid: super::super::Foundation::PWSTR, dwaccess: u32, dwcontroltype: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCLUSTER_UPGRADE_PROGRESS_CALLBACK = unsafe extern "system" fn(pvcallbackarg: *mut ::std::ffi::c_void, eupgradephase: CLUSTER_UPGRADE_PHASE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PEND_CONTROL_CALL = unsafe extern "system" fn(context: i64, status: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PEND_TYPE_CONTROL_CALL = unsafe extern "system" fn(context: i64, status: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PEXTEND_RES_CONTROL_CALL = unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PEXTEND_RES_TYPE_CONTROL_CALL = unsafe extern "system" fn(context: i64, newtimeoutinms: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PFREE_CLUSTER_CRYPT = unsafe extern "system" fn(pcryptinfo: *const ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PIS_ALIVE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
@@ -15218,23 +15450,33 @@ impl ::std::convert::From<i32> for PLACEMENT_OPTIONS {
 unsafe impl ::windows::runtime::Abi for PLACEMENT_OPTIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_EVENT_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: super::super::Foundation::PWSTR);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOOKS_ALIVE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type POFFLINE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POFFLINE_V2_ROUTINE = unsafe extern "system" fn(resource: *const ::std::ffi::c_void, destinationnodename: super::super::Foundation::PWSTR, offlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PONLINE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PONLINE_V2_ROUTINE = unsafe extern "system" fn(resource: *const ::std::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE, onlineflags: u32, inbuffer: *const u8, inbuffersize: u32, reserved: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POPEN_CLUSTER_CRYPT_PROVIDER = unsafe extern "system" fn(lpszresource: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type POPEN_CLUSTER_CRYPT_PROVIDEREX = unsafe extern "system" fn(lpszresource: super::super::Foundation::PWSTR, lpszkeyname: super::super::Foundation::PWSTR, lpszprovider: *const i8, dwtype: u32, dwflags: u32) -> *mut _HCLUSCRYPTPROVIDER;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type POPEN_ROUTINE = unsafe extern "system" fn(resourcename: super::super::Foundation::PWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type POPEN_V2_ROUTINE = unsafe extern "system" fn(resourcename: super::super::Foundation::PWSTR, resourcekey: super::super::System::Registry::HKEY, resourcehandle: isize, openflags: u32) -> *mut ::std::ffi::c_void;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -15267,195 +15509,299 @@ impl ::std::cmp::Eq for POST_UPGRADE_VERSION_INFO {}
 unsafe impl ::windows::runtime::Abi for POST_UPGRADE_VERSION_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PQUERY_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows::runtime::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PQUORUM_RESOURCE_LOST = unsafe extern "system" fn(resource: isize);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRAISE_RES_TYPE_NOTIFICATION = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, ppayload: *const u8, payloadsize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREGISTER_APPINSTANCE = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const ::windows::runtime::GUID, childreninheritappinstance: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PREGISTER_APPINSTANCE_VERSION = unsafe extern "system" fn(appinstanceid: *const ::windows::runtime::GUID, instanceversionhigh: u64, instanceversionlow: u64) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRELEASE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREQUEST_DUMP_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, dumpduetocallinprogress: super::super::Foundation::BOOL, dumpdelayinms: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESET_ALL_APPINSTANCE_VERSIONS = unsafe extern "system" fn() -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESOURCE_CONTROL_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESOURCE_TYPE_CONTROL_ROUTINE = unsafe extern "system" fn(resourcetypename: super::super::Foundation::PWSTR, controlcode: u32, inbuffer: *mut ::std::ffi::c_void, inbuffersize: u32, outbuffer: *mut ::std::ffi::c_void, outbuffersize: u32, bytesreturned: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_ADD_UNKNOWN_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_CREATE_DIRECTORY_TREE = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_DUP_PARAMETER_BLOCK = unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_DUP_STRING = unsafe extern "system" fn(pszinstring: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_ENUM_PRIVATE_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_ENUM_PROPERTIES = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_ENUM_RESOURCES = unsafe extern "system" fn(hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::runtime::RawPtr, pparameter: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_ENUM_RESOURCES_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::runtime::RawPtr, pparameter: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_ENUM_RESOURCES_EX2 = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: super::super::Foundation::PWSTR, prescallback: ::windows::runtime::RawPtr, pparameter: *mut ::std::ffi::c_void, dwdesiredaccess: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_EXPAND_ENVIRONMENT_STRINGS = unsafe extern "system" fn(pszsrc: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_BINARY_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_DEPENDENT_DISK_RESOURCE_DRIVE_LETTER = unsafe extern "system" fn(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: super::super::Foundation::PWSTR, pcchdriveletter: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_DWORD_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pdwpropertyvalue: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_EXPANDED_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_EXPAND_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_FILETIME_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_LONG_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut i32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_MULTI_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_SZ_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FIND_ULARGEINTEGER_PROPERTY = unsafe extern "system" fn(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: super::super::Foundation::PWSTR, plpropertyvalue: *mut u64) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_FREE_ENVIRONMENT = unsafe extern "system" fn(lpenvironment: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_FREE_PARAMETER_BLOCK = unsafe extern "system" fn(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_ALL_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_BINARY_PROPERTY = unsafe extern "system" fn(ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_BINARY, pboldvalue: *const u8, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_BINARY_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES = unsafe extern "system" fn(hcluster: *const _HCLUSTER, phclusternameresource: *mut *mut _HRESOURCE, phclusteripaddressresource: *mut *mut _HRESOURCE, phclusterquorumresource: *mut *mut _HRESOURCE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_CORE_CLUSTER_RESOURCES_EX = unsafe extern "system" fn(hclusterin: *const _HCLUSTER, phclusternameresourceout: *mut *mut _HRESOURCE, phclusteripaddressresourceout: *mut *mut _HRESOURCE, phclusterquorumresourceout: *mut *mut _HRESOURCE, dwdesiredaccess: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_DWORD_PROPERTY = unsafe extern "system" fn(pdwoutvalue: *mut u32, pvaluestruct: *const CLUSPROP_DWORD, dwoldvalue: u32, dwminimum: u32, dwmaximum: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_DWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_ENVIRONMENT_WITH_NET_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_EXPAND_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, bexpand: super::super::Foundation::BOOL) -> super::super::Foundation::PWSTR;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_FILETIME_PROPERTY = unsafe extern "system" fn(pftoutvalue: *mut super::super::Foundation::FILETIME, pvaluestruct: *const CLUSPROP_FILETIME, ftoldvalue: super::super::Foundation::FILETIME, ftminimum: super::super::Foundation::FILETIME, ftmaximum: super::super::Foundation::FILETIME, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_GET_LONG_PROPERTY = unsafe extern "system" fn(ploutvalue: *mut i32, pvaluestruct: *const CLUSPROP_LONG, loldvalue: i32, lminimum: i32, lmaximum: i32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_MULTI_SZ_PROPERTY = unsafe extern "system" fn(ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_GET_PRIVATE_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_PROPERTIES_TO_PARAMETER_BLOCK = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: super::super::Foundation::BOOL, psznameofpropinerror: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_PROPERTY = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::std::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_PROPERTY_FORMATS = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::std::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_PROPERTY_SIZE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_QWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY = unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_CLASS_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_BY_NAME_EX = unsafe extern "system" fn(hcluster: *mut _HCLUSTER, hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, brecurse: super::super::Foundation::BOOL, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENCY_EX = unsafe extern "system" fn(hself: super::super::Foundation::HANDLE, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_DEPENDENTIP_ADDRESS_PROPS = unsafe extern "system" fn(hresource: *const _HRESOURCE, pszaddress: super::super::Foundation::PWSTR, pcchaddress: *mut u32, pszsubnetmask: super::super::Foundation::PWSTR, pcchsubnetmask: *mut u32, psznetwork: super::super::Foundation::PWSTR, pcchnetwork: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_NAME = unsafe extern "system" fn(hresource: *const _HRESOURCE, pszresourcename: super::super::Foundation::PWSTR, pcchresourcenameinout: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY = unsafe extern "system" fn(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_RESOURCE_NAME_DEPENDENCY_EX = unsafe extern "system" fn(lpszresourcename: super::super::Foundation::PWSTR, lpszresourcetype: super::super::Foundation::PWSTR, dwdesiredaccess: u32) -> *mut _HRESOURCE;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_GET_SZ_PROPERTY = unsafe extern "system" fn(ppszoutvalue: *mut super::super::Foundation::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: super::super::Foundation::PWSTR, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_GET_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_IS_PATH_VALID = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_IS_RESOURCE_CLASS_EQUAL = unsafe extern "system" fn(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_PROPERTY_LIST_FROM_PARAMETER_BLOCK = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_REMOVE_RESOURCE_SERVICE_ENVIRONMENT = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, pfnlogevent: ::windows::runtime::RawPtr, hresourcehandle: isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_RESOURCES_EQUAL = unsafe extern "system" fn(hself: *mut _HRESOURCE, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_RESOURCE_TYPES_EQUAL = unsafe extern "system" fn(lpszresourcetypename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_BINARY_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_DWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_EXPAND_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_MULTI_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, cbnewvaluesize: u32, ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
 #[cfg(feature = "Win32_System_Registry")]
 pub type PRESUTIL_SET_PRIVATE_PROPERTY_LIST = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_PROPERTY_PARAMETER_BLOCK_EX = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_PROPERTY_TABLE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_PROPERTY_TABLE_EX = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: super::super::Foundation::BOOL, poutparams: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_QWORD_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_SET_RESOURCE_SERVICE_ENVIRONMENT = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, hresource: *mut _HRESOURCE, pfnlogevent: ::windows::runtime::RawPtr, hresourcehandle: isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, pfnlogevent: ::windows::runtime::RawPtr, hresourcehandle: isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type PRESUTIL_SET_RESOURCE_SERVICE_START_PARAMETERS_EX = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, schscmhandle: super::super::Security::SC_HANDLE, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: ::windows::runtime::RawPtr, hresourcehandle: isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_SZ_VALUE = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, pszvaluename: super::super::Foundation::PWSTR, psznewvalue: super::super::Foundation::PWSTR, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PRESUTIL_SET_UNKNOWN_PROPERTIES = unsafe extern "system" fn(hkeyclusterkey: super::super::System::Registry::HKEY, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_START_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR, phservicehandle: *mut isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_STOP_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Security`*"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_STOP_SERVICE = unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_TERMINATE_SERVICE_PROCESS_FROM_RES_DLL = unsafe extern "system" fn(dwservicepid: u32, boffline: super::super::Foundation::BOOL, pdwresourcestate: *mut u32, pfnlogevent: ::windows::runtime::RawPtr, hresourcehandle: isize) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRESUTIL_VERIFY_PRIVATE_PROPERTY_LIST = unsafe extern "system" fn(pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_VERIFY_PROPERTY_TABLE = unsafe extern "system" fn(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, ballowunknownproperties: super::super::Foundation::BOOL, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRESUTIL_VERIFY_RESOURCE_SERVICE = unsafe extern "system" fn(pszservicename: super::super::Foundation::PWSTR) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Security`*"]
 #[cfg(feature = "Win32_Security")]
 pub type PRESUTIL_VERIFY_SERVICE = unsafe extern "system" fn(hservicehandle: super::super::Security::SC_HANDLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PRES_UTIL_VERIFY_SHUTDOWN_SAFE = unsafe extern "system" fn(flags: u32, reason: u32, presult: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_INTERNAL_STATE = unsafe extern "system" fn(param0: isize, statetype: CLUSTER_RESOURCE_APPLICATION_STATE, active: super::super::Foundation::BOOL) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, propertylistbuffer: *const u8, propertylistbuffersize: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32, lockedmodeflags: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_RESOURCE_LOCKED_MODE_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, lockedmodeenabled: super::super::Foundation::BOOL, lockedmodereason: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_RESOURCE_STATUS_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSET_RESOURCE_STATUS_ROUTINE_EX = unsafe extern "system" fn(resourcehandle: isize, resourcestatus: *mut RESOURCE_STATUS_EX) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PSIGNAL_FAILURE_ROUTINE = unsafe extern "system" fn(resourcehandle: isize, failuretype: FAILURE_TYPE, applicationspecificerrorcode: u32) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PSTARTUP_EX_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, monitorcallbackfunctions: *mut ::std::mem::ManuallyDrop<CLRES_CALLBACK_FUNCTION_TABLE>, resourcedllinterfacefunctions: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub type PSTARTUP_ROUTINE = unsafe extern "system" fn(resourcetype: super::super::Foundation::PWSTR, minversionsupported: u32, maxversionsupported: u32, setresourcestatus: ::windows::runtime::RawPtr, logevent: ::windows::runtime::RawPtr, functiontable: *mut *mut CLRES_FUNCTION_TABLE) -> u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub type PTERMINATE_ROUTINE = unsafe extern "system" fn(resource: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PWORKER_START_ROUTINE = unsafe extern "system" fn(pworker: *mut CLUS_WORKER, lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
@@ -15472,8 +15818,8 @@ pub unsafe fn PauseClusterNode(hnode: *const _HNODE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PauseClusterNodeEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hnode: *const _HNODE, bdrainnode: Param1, dwpauseflags: u32, hnodedraintarget: *const _HNODE) -> u32 {
     #[cfg(windows)]
@@ -15551,8 +15897,8 @@ impl ::std::cmp::Eq for PaxosTagCStruct {}
 unsafe impl ::windows::runtime::Abi for PaxosTagCStruct {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const ::windows::runtime::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
     #[cfg(windows)]
@@ -15903,7 +16249,6 @@ unsafe impl ::windows::runtime::Abi for RESUTIL_PROPERTY_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 pub union RESUTIL_PROPERTY_ITEM_0 {
     pub DefaultPtr: usize,
     pub Default: u32,
@@ -15988,8 +16333,8 @@ pub const RedirectedIOReasonUnsafeFileSystemFilter: u64 = 2u64;
 pub const RedirectedIOReasonUnsafeVolumeFilter: u64 = 4u64;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const RedirectedIOReasonUserRequest: u64 = 1u64;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(processhandle: Param0, appinstanceid: *const ::windows::runtime::GUID, childreninheritappinstance: Param2) -> u32 {
     #[cfg(windows)]
@@ -16017,8 +16362,8 @@ pub unsafe fn RegisterAppInstanceVersion(appinstanceid: *const ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterClusterNotify<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: *const _HCHANGE, dwfiltertype: u32, hobject: Param2, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
@@ -16032,8 +16377,8 @@ pub unsafe fn RegisterClusterNotify<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterClusterNotifyV2<'a, Param1: ::windows::runtime::IntoParam<'a, NOTIFY_FILTER_AND_TYPE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: *const _HCHANGE, filter: Param1, hobject: Param2, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
@@ -16047,8 +16392,8 @@ pub unsafe fn RegisterClusterNotifyV2<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterClusterResourceTypeNotifyV2<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hchange: *const _HCHANGE, hcluster: *const _HCLUSTER, flags: i64, restypename: Param3, dwnotifykey: usize) -> u32 {
     #[cfg(windows)]
@@ -16104,8 +16449,8 @@ pub unsafe fn RemoveClusterGroupToGroupSetDependency(hgroup: *const _HGROUP, hde
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveClusterNameAccount<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *const _HCLUSTER, bdeletecomputerobjects: Param1) -> u32 {
     #[cfg(windows)]
@@ -16147,8 +16492,8 @@ pub unsafe fn RemoveClusterResourceNode(hresource: *const _HRESOURCE, hnode: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveClusterStorageNode<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpszclusterstorageenclosurename: Param1, dwtimeout: u32, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -16162,8 +16507,8 @@ pub unsafe fn RemoveClusterStorageNode<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveCrossClusterGroupSetDependency<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdependentgroupset: *const _HGROUPSET, lpremoteclustername: Param1, lpremotegroupsetname: Param2) -> u32 {
     #[cfg(windows)]
@@ -16191,8 +16536,8 @@ pub unsafe fn RemoveResourceFromClusterSharedVolumes(hresource: *const _HRESOURC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilAddUnknownProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, pcboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16206,8 +16551,8 @@ pub unsafe fn ResUtilAddUnknownProperties<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilCreateDirectoryTree<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> u32 {
     #[cfg(windows)]
@@ -16235,8 +16580,8 @@ pub unsafe fn ResUtilDupGroup(group: *mut _HGROUP, copy: *mut *mut _HGROUP) -> u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilDupParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) -> u32 {
     #[cfg(windows)]
@@ -16264,8 +16609,8 @@ pub unsafe fn ResUtilDupResource(group: *mut _HRESOURCE, copy: *mut *mut _HRESOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilDupString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszinstring: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -16307,8 +16652,8 @@ pub unsafe fn ResUtilEnumGroupsEx(hcluster: *mut _HCLUSTER, hself: *mut _HGROUP,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilEnumPrivateProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16322,8 +16667,8 @@ pub unsafe fn ResUtilEnumPrivateProperties<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM, pszoutproperties: super::super::Foundation::PWSTR, cboutpropertiessize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16337,8 +16682,8 @@ pub unsafe fn ResUtilEnumProperties(ppropertytable: *const RESUTIL_PROPERTY_ITEM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: *mut _HRESOURCE, lpszrestypename: Param1, prescallback: ::std::option::Option<LPRESOURCE_CALLBACK>, pparameter: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -16352,8 +16697,8 @@ pub unsafe fn ResUtilEnumResources<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: ::std::option::Option<LPRESOURCE_CALLBACK_EX>, pparameter: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -16367,8 +16712,8 @@ pub unsafe fn ResUtilEnumResourcesEx<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *mut _HCLUSTER, hself: *mut _HRESOURCE, lpszrestypename: Param2, prescallback: ::std::option::Option<LPRESOURCE_CALLBACK_EX>, pparameter: *mut ::std::ffi::c_void, dwdesiredaccess: u32) -> u32 {
     #[cfg(windows)]
@@ -16382,8 +16727,8 @@ pub unsafe fn ResUtilEnumResourcesEx2<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilExpandEnvironmentStrings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsrc: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -16397,8 +16742,8 @@ pub unsafe fn ResUtilExpandEnvironmentStrings<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindBinaryProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pbpropertyvalue: *mut *mut u8, pcbpropertyvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16412,8 +16757,8 @@ pub unsafe fn ResUtilFindBinaryProperty<'a, Param2: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLUSTER, hresource: *const _HRESOURCE, pszdriveletter: super::super::Foundation::PWSTR, pcchdriveletter: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16427,8 +16772,8 @@ pub unsafe fn ResUtilFindDependentDiskResourceDriveLetter(hcluster: *const _HCLU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindDwordProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pdwpropertyvalue: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16442,8 +16787,8 @@ pub unsafe fn ResUtilFindDwordProperty<'a, Param2: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindExpandSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -16457,8 +16802,8 @@ pub unsafe fn ResUtilFindExpandSzProperty<'a, Param2: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindExpandedSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -16472,8 +16817,8 @@ pub unsafe fn ResUtilFindExpandedSzProperty<'a, Param2: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindFileTimeProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pftpropertyvalue: *mut super::super::Foundation::FILETIME) -> u32 {
     #[cfg(windows)]
@@ -16487,8 +16832,8 @@ pub unsafe fn ResUtilFindFileTimeProperty<'a, Param2: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindLongProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, plpropertyvalue: *mut i32) -> u32 {
     #[cfg(windows)]
@@ -16502,8 +16847,8 @@ pub unsafe fn ResUtilFindLongProperty<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindMultiSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR, pcbpropertyvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16517,8 +16862,8 @@ pub unsafe fn ResUtilFindMultiSzProperty<'a, Param2: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, pszpropertyvalue: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -16532,8 +16877,8 @@ pub unsafe fn ResUtilFindSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFindULargeIntegerProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppropertylist: *const ::std::ffi::c_void, cbpropertylistsize: u32, pszpropertyname: Param2, plpropertyvalue: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -16561,8 +16906,8 @@ pub unsafe fn ResUtilFreeEnvironment(lpenvironment: *mut ::std::ffi::c_void) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u8, ppropertytable: *const RESUTIL_PROPERTY_ITEM) {
     #[cfg(windows)]
@@ -16576,8 +16921,8 @@ pub unsafe fn ResUtilFreeParameterBlock(poutparams: *mut u8, pinparams: *const u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetAllProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16605,8 +16950,8 @@ pub unsafe fn ResUtilGetBinaryProperty(ppboutvalue: *mut *mut u8, pcboutvaluesiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetBinaryValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16718,8 +17063,8 @@ pub unsafe fn ResUtilGetDwordProperty(pdwoutvalue: *mut u32, pvaluestruct: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetDwordValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pdwoutvalue: *mut u32, dwdefaultvalue: u32) -> u32 {
     #[cfg(windows)]
@@ -16747,8 +17092,8 @@ pub unsafe fn ResUtilGetEnvironmentWithNetName(hresource: *const _HRESOURCE) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetFileTimeProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::FILETIME>>(
     pftoutvalue: *mut super::super::Foundation::FILETIME,
@@ -16784,8 +17129,8 @@ pub unsafe fn ResUtilGetLongProperty(ploutvalue: *mut i32, pvaluestruct: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetMultiSzProperty<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: Param3, cboldvaluesize: u32, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16799,8 +17144,8 @@ pub unsafe fn ResUtilGetMultiSzProperty<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilGetPrivateProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16814,8 +17159,8 @@ pub unsafe fn ResUtilGetPrivateProperties<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, cboutpropertylistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16829,8 +17174,8 @@ pub unsafe fn ResUtilGetProperties<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetPropertiesToParameterBlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutparams: *mut u8, bcheckforrequiredproperties: Param3, psznameofpropinerror: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -16844,8 +17189,8 @@ pub unsafe fn ResUtilGetPropertiesToParameterBlock<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, poutpropertyitem: *mut *mut ::std::ffi::c_void, pcboutpropertyitemsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16859,8 +17204,8 @@ pub unsafe fn ResUtilGetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertyformatlist: *mut ::std::ffi::c_void, cbpropertyformatlistsize: u32, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16874,8 +17219,8 @@ pub unsafe fn ResUtilGetPropertyFormats(ppropertytable: *const RESUTIL_PROPERTY_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetPropertySize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytableitem: *const RESUTIL_PROPERTY_ITEM, pcboutpropertylistsize: *mut u32, pnpropertycount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16889,8 +17234,8 @@ pub unsafe fn ResUtilGetPropertySize<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetQwordValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pqwoutvalue: *mut u64, qwdefaultvalue: u64) -> u32 {
     #[cfg(windows)]
@@ -16904,8 +17249,8 @@ pub unsafe fn ResUtilGetQwordValue<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: Param0, lpszresourcetype: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16919,8 +17264,8 @@ pub unsafe fn ResUtilGetResourceDependency<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByClass<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: Param3) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16934,8 +17279,8 @@ pub unsafe fn ResUtilGetResourceDependencyByClass<'a, Param1: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByClassEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, prci: *mut CLUS_RESOURCE_CLASS_INFO, brecurse: Param3, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16949,8 +17294,8 @@ pub unsafe fn ResUtilGetResourceDependencyByClassEx<'a, Param1: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, lpszresourcetype: Param2, brecurse: Param3) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16964,8 +17309,8 @@ pub unsafe fn ResUtilGetResourceDependencyByName<'a, Param1: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyByNameEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcluster: *mut _HCLUSTER, hself: Param1, lpszresourcetype: Param2, brecurse: Param3, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16979,8 +17324,8 @@ pub unsafe fn ResUtilGetResourceDependencyByNameEx<'a, Param1: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependencyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hself: Param0, lpszresourcetype: Param1, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -16994,8 +17339,8 @@ pub unsafe fn ResUtilGetResourceDependencyEx<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESOURCE, pszaddress: super::super::Foundation::PWSTR, pcchaddress: *mut u32, pszsubnetmask: super::super::Foundation::PWSTR, pcchsubnetmask: *mut u32, psznetwork: super::super::Foundation::PWSTR, pcchnetwork: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17009,8 +17354,8 @@ pub unsafe fn ResUtilGetResourceDependentIPAddressProps(hresource: *const _HRESO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcename: super::super::Foundation::PWSTR, pcchresourcenameinout: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17024,8 +17369,8 @@ pub unsafe fn ResUtilGetResourceName(hresource: *const _HRESOURCE, pszresourcena
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceNameDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcename: Param0, lpszresourcetype: Param1) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -17039,8 +17384,8 @@ pub unsafe fn ResUtilGetResourceNameDependency<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetResourceNameDependencyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcename: Param0, lpszresourcetype: Param1, dwdesiredaccess: u32) -> *mut _HRESOURCE {
     #[cfg(windows)]
@@ -17054,8 +17399,8 @@ pub unsafe fn ResUtilGetResourceNameDependencyEx<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGetSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppszoutvalue: *mut super::super::Foundation::PWSTR, pvaluestruct: *const CLUSPROP_SZ, pszoldvalue: Param2, pppropertylist: *mut *mut u8, pcbpropertylistsize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17069,8 +17414,8 @@ pub unsafe fn ResUtilGetSzProperty<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilGetSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -17084,8 +17429,8 @@ pub unsafe fn ResUtilGetSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilGroupsEqual(hself: *mut _HGROUP, hgroup: *mut _HGROUP, pequal: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -17099,8 +17444,8 @@ pub unsafe fn ResUtilGroupsEqual(hself: *mut _HGROUP, hgroup: *mut _HGROUP, pequ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilIsPathValid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17114,8 +17459,8 @@ pub unsafe fn ResUtilIsPathValid<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17129,8 +17474,8 @@ pub unsafe fn ResUtilIsResourceClassEqual(prci: *mut CLUS_RESOURCE_CLASS_INFO, h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17158,8 +17503,8 @@ pub unsafe fn ResUtilNodeEnum(hcluster: *mut _HCLUSTER, pnodecallback: ::std::op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17173,8 +17518,8 @@ pub unsafe fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUTIL_PROPERTY_ITEM, poutpropertylist: *mut ::std::ffi::c_void, pcboutpropertylistsize: *mut u32, pinparams: *const u8, pcbbytesreturned: *mut u32, pcbrequired: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17188,8 +17533,8 @@ pub unsafe fn ResUtilPropertyListFromParameterBlock(ppropertytable: *const RESUT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilRemoveResourceServiceEnvironment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, pfnlogevent: ::std::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
@@ -17217,8 +17562,8 @@ pub unsafe fn ResUtilResourceDepEnum(hself: *mut _HRESOURCE, enumtype: u32, pres
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilResourceTypesEqual<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszresourcetypename: Param0, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17232,8 +17577,8 @@ pub unsafe fn ResUtilResourceTypesEqual<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRESOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17247,8 +17592,8 @@ pub unsafe fn ResUtilResourcesEqual(hself: *mut _HRESOURCE, hresource: *mut _HRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, pbnewvalue: *const u8, cbnewvaluesize: u32, ppboutvalue: *mut *mut u8, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17262,8 +17607,8 @@ pub unsafe fn ResUtilSetBinaryValue<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetDwordValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, dwnewvalue: u32, pdwoutvalue: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17277,8 +17622,8 @@ pub unsafe fn ResUtilSetDwordValue<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetExpandSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -17292,8 +17637,8 @@ pub unsafe fn ResUtilSetExpandSzValue<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetMultiSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, cbnewvaluesize: u32, ppszoutvalue: *mut super::super::Foundation::PWSTR, pcboutvaluesize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -17307,8 +17652,8 @@ pub unsafe fn ResUtilSetMultiSzValue<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn ResUtilSetPrivatePropertyList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg(windows)]
@@ -17322,8 +17667,8 @@ pub unsafe fn ResUtilSetPrivatePropertyList<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -17337,8 +17682,8 @@ pub unsafe fn ResUtilSetPropertyParameterBlock<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetPropertyParameterBlockEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, pinparams: *const u8, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, bforcewrite: Param6, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -17361,8 +17706,8 @@ pub unsafe fn ResUtilSetPropertyParameterBlockEx<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, ballowunknownproperties: Param3, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -17376,8 +17721,8 @@ pub unsafe fn ResUtilSetPropertyTable<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetPropertyTableEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hkeyclusterkey: Param0,
@@ -17409,8 +17754,8 @@ pub unsafe fn ResUtilSetPropertyTableEx<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetQwordValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, qwnewvalue: u64, pqwoutvalue: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -17424,8 +17769,8 @@ pub unsafe fn ResUtilSetQwordValue<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, hresource: *mut _HRESOURCE, pfnlogevent: ::std::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
@@ -17439,8 +17784,8 @@ pub unsafe fn ResUtilSetResourceServiceEnvironment<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, pfnlogevent: ::std::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
@@ -17454,8 +17799,8 @@ pub unsafe fn ResUtilSetResourceServiceStartParameters<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(pszservicename: Param0, schscmhandle: Param1, phservice: *mut isize, dwdesiredaccess: u32, pfnlogevent: ::std::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
@@ -17469,8 +17814,8 @@ pub unsafe fn ResUtilSetResourceServiceStartParametersEx<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, pszvaluename: Param1, psznewvalue: Param2, ppszoutstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -17484,8 +17829,8 @@ pub unsafe fn ResUtilSetSzValue<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetUnknownProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyclusterkey: Param0, ppropertytable: *const RESUTIL_PROPERTY_ITEM, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32) -> u32 {
     #[cfg(windows)]
@@ -17499,8 +17844,8 @@ pub unsafe fn ResUtilSetUnknownProperties<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyclusterkey: Param0, valuename: Param1, valuetype: u32, valuedata: *const u8, valuesize: u32, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -17514,8 +17859,8 @@ pub unsafe fn ResUtilSetValueEx<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilStartResourceService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0, phservicehandle: *mut isize) -> u32 {
     #[cfg(windows)]
@@ -17529,8 +17874,8 @@ pub unsafe fn ResUtilStartResourceService<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilStopResourceService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0) -> u32 {
     #[cfg(windows)]
@@ -17544,8 +17889,8 @@ pub unsafe fn ResUtilStopResourceService<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Security")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Security`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilStopService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservicehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -17559,8 +17904,8 @@ pub unsafe fn ResUtilStopService<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilTerminateServiceProcessFromResDll<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwservicepid: u32, boffline: Param1, pdwresourcestate: *mut u32, pfnlogevent: ::std::option::Option<PLOG_EVENT_ROUTINE>, hresourcehandle: isize) -> u32 {
     #[cfg(windows)]
@@ -17588,8 +17933,8 @@ pub unsafe fn ResUtilVerifyPrivatePropertyList(pinpropertylist: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilVerifyPropertyTable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(ppropertytable: *const RESUTIL_PROPERTY_ITEM, reserved: *mut ::std::ffi::c_void, ballowunknownproperties: Param2, pinpropertylist: *const ::std::ffi::c_void, cbinpropertylistsize: u32, poutparams: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -17603,8 +17948,8 @@ pub unsafe fn ResUtilVerifyPropertyTable<'a, Param2: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResUtilVerifyResourceService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszservicename: Param0) -> u32 {
     #[cfg(windows)]
@@ -17618,8 +17963,8 @@ pub unsafe fn ResUtilVerifyResourceService<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Security")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Security`*"]
+#[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn ResUtilVerifyService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservicehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -17647,8 +17992,8 @@ pub unsafe fn ResUtilVerifyShutdownSafe(flags: u32, reason: u32, presult: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ResUtilsDeleteKeyTree<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(key: Param0, keyname: Param1, treatnokeyaserror: Param2) -> u32 {
     #[cfg(windows)]
@@ -17717,8 +18062,8 @@ pub unsafe fn RestartClusterResource(hresource: *const _HRESOURCE, dwflags: u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestoreClusterDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszpathname: Param0, bforce: Param1, lpszquorumdriveletter: Param2) -> u32 {
     #[cfg(windows)]
@@ -17762,6 +18107,7 @@ pub unsafe fn ResumeClusterNodeEx(hnode: *const _HNODE, eresumefailbacktype: CLU
 }
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
 pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
+#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SET_APP_INSTANCE_CSV_FLAGS = unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32;
 #[doc = "*Required features: `Win32_Networking_Clustering`*"]
@@ -18178,8 +18524,8 @@ impl ::std::cmp::Eq for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {}
 unsafe impl ::windows::runtime::Abi for SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAppInstanceCsvFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, mask: u32, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -18193,8 +18539,8 @@ pub unsafe fn SetAppInstanceCsvFlags<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterGroupName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszgroupname: Param1) -> u32 {
     #[cfg(windows)]
@@ -18222,8 +18568,8 @@ pub unsafe fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodecount: u32, no
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterGroupSetDependencyExpression<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroupset: *const _HGROUPSET, lpszdependencyexprssion: Param1) -> u32 {
     #[cfg(windows)]
@@ -18237,8 +18583,8 @@ pub unsafe fn SetClusterGroupSetDependencyExpression<'a, Param1: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hcluster: *const _HCLUSTER, lpsznewclustername: Param1) -> u32 {
     #[cfg(windows)]
@@ -18252,8 +18598,8 @@ pub unsafe fn SetClusterName<'a, Param1: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterNetworkName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hnetwork: *const _HNETWORK, lpszname: Param1) -> u32 {
     #[cfg(windows)]
@@ -18281,8 +18627,8 @@ pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, network
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterQuorumResource<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszdevicename: Param1, dwmaxquologsize: u32) -> u32 {
     #[cfg(windows)]
@@ -18296,8 +18642,8 @@ pub unsafe fn SetClusterQuorumResource<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterResourceDependencyExpression<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszdependencyexpression: Param1) -> u32 {
     #[cfg(windows)]
@@ -18311,8 +18657,8 @@ pub unsafe fn SetClusterResourceDependencyExpression<'a, Param1: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterResourceName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hresource: *const _HRESOURCE, lpszresourcename: Param1) -> u32 {
     #[cfg(windows)]
@@ -18326,8 +18672,8 @@ pub unsafe fn SetClusterResourceName<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClusterServiceAccountPassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszclustername: Param0, lpsznewpassword: Param1, dwflags: u32, lpreturnstatusbuffer: *mut CLUSTER_SET_PASSWORD_STATUS, lpcbreturnstatusbuffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -18341,8 +18687,8 @@ pub unsafe fn SetClusterServiceAccountPassword<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetGroupDependencyExpression<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hgroup: *const _HGROUP, lpszdependencyexpression: Param1) -> u32 {
     #[cfg(windows)]

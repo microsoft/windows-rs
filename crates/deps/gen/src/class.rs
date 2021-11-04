@@ -112,7 +112,7 @@ impl Class {
                 let default_abi_name = gen_abi_name(&default_interface.def, gen);
                 let type_signature = Literal::byte_string(self.0.type_signature().as_bytes());
                 let inspectable = gen_inspectable(&name, &TokenStream::new(), &cfg);
-                let (async_get, future) = gen_async(&self.0, &interfaces, gen);
+                let (async_get, future) = gen_async(&self.0, &interfaces, gen, &cfg);
 
                 let new = if self.0.has_default_constructor() {
                     quote! {

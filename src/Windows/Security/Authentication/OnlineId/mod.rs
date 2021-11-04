@@ -871,6 +871,7 @@ impl SignOutUserOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -897,6 +898,7 @@ unsafe impl ::windows::runtime::Interface for SignOutUserOperation {
 impl ::windows::runtime::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for SignOutUserOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1084,6 +1086,7 @@ impl UserAuthenticationOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -1110,6 +1113,7 @@ unsafe impl ::windows::runtime::Interface for UserAuthenticationOperation {
 impl ::windows::runtime::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for UserAuthenticationOperation {
     type Output = ::windows::runtime::Result<UserIdentity>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

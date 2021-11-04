@@ -1178,25 +1178,30 @@ unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *mut ::std::ffi::c_void,
     pub ints: *mut i64,
     pub strings: *mut *mut i8,
     pub floats: *mut f32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MLOperatorAttributeNameValue_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MLOperatorAttributeNameValue_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MLOperatorAttributeNameValue_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
 }
@@ -1659,7 +1664,6 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union MLOperatorSchemaEdgeDescription_0 {
     pub reserved: *mut ::std::ffi::c_void,
     pub typeLabel: super::super::super::Foundation::PSTR,
@@ -1835,7 +1839,6 @@ impl ::std::clone::Clone for WINML_BINDING_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`, `Win32_Graphics_Direct3D12`*"]
 pub union WINML_BINDING_DESC_0 {
     pub Tensor: WINML_TENSOR_BINDING_DESC,
     pub Sequence: WINML_SEQUENCE_BINDING_DESC,
@@ -1990,7 +1993,6 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_MAP_BINDING_DESC_0 {
     pub pStringKeys: *mut super::super::super::Foundation::PWSTR,
     pub pIntKeys: *mut i64,
@@ -2018,7 +2020,6 @@ unsafe impl ::windows::runtime::Abi for WINML_MAP_BINDING_DESC_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_MAP_BINDING_DESC_1 {
     pub pStringFields: *mut super::super::super::Foundation::PWSTR,
     pub pIntFields: *mut i64,
@@ -2190,7 +2191,6 @@ unsafe impl ::windows::runtime::Abi for WINML_SEQUENCE_BINDING_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`, `Win32_Foundation`*"]
 pub union WINML_SEQUENCE_BINDING_DESC_0 {
     pub pStrings: *mut super::super::super::Foundation::PWSTR,
     pub pInts: *mut i64,
@@ -2364,25 +2364,30 @@ unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_AI_MachineLearning_WinML`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
     pub Map: WINML_MAP_VARIABLE_DESC,
     pub Image: WINML_IMAGE_VARIABLE_DESC,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINML_VARIABLE_DESC_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINML_VARIABLE_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINML_VARIABLE_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINML_VARIABLE_DESC_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
 }

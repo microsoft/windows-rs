@@ -3156,7 +3156,6 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub union DEVICE_MEDIA_INFO_0 {
     pub DiskInfo: DEVICE_MEDIA_INFO_0_0,
     pub RemovableDiskInfo: DEVICE_MEDIA_INFO_0_1,
@@ -3184,7 +3183,7 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -3194,12 +3193,15 @@ pub struct DEVICE_MEDIA_INFO_0_0 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl DEVICE_MEDIA_INFO_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::default::Default for DEVICE_MEDIA_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_DiskInfo_e__Struct")
@@ -3213,18 +3215,21 @@ impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_0 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Cylinders == other.Cylinders && self.MediaType == other.MediaType && self.TracksPerCylinder == other.TracksPerCylinder && self.SectorsPerTrack == other.SectorsPerTrack && self.BytesPerSector == other.BytesPerSector && self.NumberMediaSides == other.NumberMediaSides && self.MediaCharacteristics == other.MediaCharacteristics
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -3234,12 +3239,15 @@ pub struct DEVICE_MEDIA_INFO_0_1 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl DEVICE_MEDIA_INFO_0_1 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::default::Default for DEVICE_MEDIA_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RemovableDiskInfo_e__Struct")
@@ -3253,19 +3261,21 @@ impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_1 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Cylinders == other.Cylinders && self.MediaType == other.MediaType && self.TracksPerCylinder == other.TracksPerCylinder && self.SectorsPerTrack == other.SectorsPerTrack && self.BytesPerSector == other.BytesPerSector && self.NumberMediaSides == other.NumberMediaSides && self.MediaCharacteristics == other.MediaCharacteristics
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_1 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_FileSystem`*"]
 pub struct DEVICE_MEDIA_INFO_0_2 {
     pub MediaType: STORAGE_MEDIA_TYPE,
     pub MediaCharacteristics: u32,
@@ -3295,49 +3305,60 @@ unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl DEVICE_MEDIA_INFO_0_2_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::default::Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
     pub DensityCode: u8,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl DEVICE_MEDIA_INFO_0_2_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::default::Default for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ScsiInformation_e__Struct").field("MediumType", &self.MediumType).field("DensityCode", &self.DensityCode).finish()
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.MediumType == other.MediumType && self.DensityCode == other.DensityCode
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::runtime::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
     type Abi = Self;
 }
@@ -3700,78 +3721,95 @@ unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DISK_CACHE_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DISK_CACHE_INFORMATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISK_CACHE_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_BlockPrefetch_e__Struct").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Minimum == other.Minimum && self.Maximum == other.Maximum
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DISK_CACHE_INFORMATION_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DISK_CACHE_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ScalarPrefetch_e__Struct").field("Minimum", &self.Minimum).field("Maximum", &self.Maximum).field("MaximumBlocks", &self.MaximumBlocks).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Minimum == other.Minimum && self.Maximum == other.Maximum && self.MaximumBlocks == other.MaximumBlocks
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_1 {
     type Abi = Self;
 }
@@ -4441,23 +4479,28 @@ unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DRIVE_LAYOUT_INFORMATION_EX_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
     type Abi = Self;
 }
@@ -4555,6 +4598,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DUPLICATE_EXTENTS_DATA32 {
     pub FileHandle: u32,
@@ -4562,23 +4606,29 @@ pub struct DUPLICATE_EXTENTS_DATA32 {
     pub TargetFileOffset: i64,
     pub ByteCount: i64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DUPLICATE_EXTENTS_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DUPLICATE_EXTENTS_DATA32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DUPLICATE_EXTENTS_DATA32").field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA32 {
     fn eq(&self, other: &Self) -> bool {
         self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DUPLICATE_EXTENTS_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA32 {
     type Abi = Self;
 }
@@ -4622,6 +4672,7 @@ unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct DUPLICATE_EXTENTS_DATA_EX32 {
     pub Size: u32,
@@ -4631,23 +4682,29 @@ pub struct DUPLICATE_EXTENTS_DATA_EX32 {
     pub ByteCount: i64,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DUPLICATE_EXTENTS_DATA_EX32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DUPLICATE_EXTENTS_DATA_EX32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA_EX32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DUPLICATE_EXTENTS_DATA_EX32").field("Size", &self.Size).field("FileHandle", &self.FileHandle).field("SourceFileOffset", &self.SourceFileOffset).field("TargetFileOffset", &self.TargetFileOffset).field("ByteCount", &self.ByteCount).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA_EX32 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.FileHandle == other.FileHandle && self.SourceFileOffset == other.SourceFileOffset && self.TargetFileOffset == other.TargetFileOffset && self.ByteCount == other.ByteCount && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DUPLICATE_EXTENTS_DATA_EX32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA_EX32 {
     type Abi = Self;
 }
@@ -8614,68 +8671,84 @@ unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MARK_HANDLE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MARK_HANDLE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MARK_HANDLE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MARK_HANDLE_INFO32 {
     pub Anonymous: MARK_HANDLE_INFO32_0,
     pub VolumeHandle: u32,
     pub HandleInfo: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MARK_HANDLE_INFO32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MARK_HANDLE_INFO32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MARK_HANDLE_INFO32 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MARK_HANDLE_INFO32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union MARK_HANDLE_INFO32_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MARK_HANDLE_INFO32_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MARK_HANDLE_INFO32_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MARK_HANDLE_INFO32_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MARK_HANDLE_INFO32_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32_0 {
     type Abi = Self;
 }
@@ -8867,6 +8940,7 @@ unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub struct MOVE_FILE_DATA32 {
     pub FileHandle: u32,
@@ -8874,23 +8948,29 @@ pub struct MOVE_FILE_DATA32 {
     pub StartingLcn: i64,
     pub ClusterCount: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MOVE_FILE_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MOVE_FILE_DATA32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MOVE_FILE_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MOVE_FILE_DATA32").field("FileHandle", &self.FileHandle).field("StartingVcn", &self.StartingVcn).field("StartingLcn", &self.StartingLcn).field("ClusterCount", &self.ClusterCount).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MOVE_FILE_DATA32 {
     fn eq(&self, other: &Self) -> bool {
         self.FileHandle == other.FileHandle && self.StartingVcn == other.StartingVcn && self.StartingLcn == other.StartingLcn && self.ClusterCount == other.ClusterCount
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MOVE_FILE_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA32 {
     type Abi = Self;
 }
@@ -9914,7 +9994,6 @@ unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub union PARTITION_INFORMATION_EX_0 {
     pub Mbr: PARTITION_INFORMATION_MBR,
     pub Gpt: PARTITION_INFORMATION_GPT,
@@ -10346,6 +10425,7 @@ impl ::std::cmp::Eq for PHYSICAL_ELEMENT_STATUS_REQUEST {}
 unsafe impl ::windows::runtime::Abi for PHYSICAL_ELEMENT_STATUS_REQUEST {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_Ioctl`*"]
 pub type PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = unsafe extern "system" fn(sourcecontext: *const ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, targetcontext: *mut ::std::mem::ManuallyDrop<IO_IRP_EXT_TRACK_OFFSET_HEADER>, relativeoffset: i64);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -11774,27 +11854,33 @@ unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_FirmwareActivationCapability_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type Abi = Self;
 }
@@ -16101,49 +16187,60 @@ unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl STORAGE_MINIPORT_DESCRIPTOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
@@ -17324,7 +17421,6 @@ unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE 
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_Vhd")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Storage_Vhd`*"]
 pub union STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE_0 {
     pub Lev1Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY; 1],
     pub Lev2Depends: [STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY; 1],
@@ -18043,7 +18139,6 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub union STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     pub SequentialRequiredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1,
     pub SequentialPreferredZone: STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0,
@@ -18070,35 +18165,40 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Ioctl`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SequentialPreferredZone_e__Struct").field("OptimalOpenZoneCount", &self.OptimalOpenZoneCount).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.OptimalOpenZoneCount == other.OptimalOpenZoneCount && self.Reserved == other.Reserved
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Ioctl`, `Win32_Foundation`*"]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_1 {
     pub MaxOpenZoneCount: u32,
     pub UnrestrictedRead: super::super::Foundation::BOOLEAN,

@@ -60,8 +60,8 @@ pub const DCM_FLAGS_CTFMON: u32 = 2u32;
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_TextServices`*"]
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_TextServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(dwflags: u32, heventforservicestop: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12470,22 +12470,27 @@ unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl TF_LMLATTELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for TF_LMLATTELEMENT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TF_LMLATTELEMENT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for TF_LMLATTELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for TF_LMLATTELEMENT_0 {
     type Abi = Self;
 }

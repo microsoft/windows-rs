@@ -89,6 +89,7 @@ impl DeleteSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -115,6 +116,7 @@ unsafe impl ::windows::runtime::Interface for DeleteSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for DeleteSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DeleteSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -295,6 +297,7 @@ impl DeleteSmsMessagesOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -321,6 +324,7 @@ unsafe impl ::windows::runtime::Interface for DeleteSmsMessagesOperation {
 impl ::windows::runtime::RuntimeName for DeleteSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.DeleteSmsMessagesOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DeleteSmsMessagesOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -504,6 +508,7 @@ impl GetSmsDeviceOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<SmsDevice> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -530,6 +535,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsDeviceOperation {
 impl ::windows::runtime::RuntimeName for GetSmsDeviceOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsDeviceOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsDeviceOperation {
     type Output = ::windows::runtime::Result<SmsDevice>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -713,6 +719,7 @@ impl GetSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<ISmsMessage> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -739,6 +746,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for GetSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsMessageOperation {
     type Output = ::windows::runtime::Result<ISmsMessage>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -937,6 +945,7 @@ impl GetSmsMessagesOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -963,6 +972,7 @@ unsafe impl ::windows::runtime::Interface for GetSmsMessagesOperation {
 impl ::windows::runtime::RuntimeName for GetSmsMessagesOperation {
     const NAME: &'static str = "Windows.Devices.Sms.GetSmsMessagesOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for GetSmsMessagesOperation {
     type Output = ::windows::runtime::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -2427,6 +2437,7 @@ impl SendSmsMessageOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -2453,6 +2464,7 @@ unsafe impl ::windows::runtime::Interface for SendSmsMessageOperation {
 impl ::windows::runtime::RuntimeName for SendSmsMessageOperation {
     const NAME: &'static str = "Windows.Devices.Sms.SendSmsMessageOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for SendSmsMessageOperation {
     type Output = ::windows::runtime::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

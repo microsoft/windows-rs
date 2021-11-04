@@ -3203,6 +3203,7 @@ pub struct IImeSpecifyApplets_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, refiid: *const ::windows::runtime::GUID, lpiidlist: *mut APPLETIDLIST) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 pub type IMCENUMPROC = unsafe extern "system" fn(param0: super::super::super::Globalization::HIMC, param1: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
@@ -4340,45 +4341,55 @@ unsafe impl ::windows::runtime::Abi for IMEWRD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IMEWRD_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IMEWRD_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMEWRD_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IMEWRD_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEWRD_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IMEWRD_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMEWRD_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEWRD_0_0 {
     type Abi = Self;
 }
@@ -4716,29 +4727,28 @@ unsafe impl ::windows::runtime::Abi for INPUTCONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for INPUTCONTEXT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for INPUTCONTEXT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for INPUTCONTEXT_0 {
     type Abi = Self;
 }
@@ -4810,8 +4820,8 @@ pub const ISC_SHOWUICANDIDATEWINDOW: u32 = 1u32;
 pub const ISC_SHOWUICOMPOSITIONWINDOW: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub const ISC_SHOWUIGUIDELINE: u32 = 1073741824u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
@@ -4825,8 +4835,8 @@ pub unsafe fn ImmAssociateContext<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4840,8 +4850,8 @@ pub unsafe fn ImmAssociateContextEx<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4855,8 +4865,8 @@ pub unsafe fn ImmConfigureIMEA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4870,8 +4880,8 @@ pub unsafe fn ImmConfigureIMEW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
@@ -4885,8 +4895,8 @@ pub unsafe fn ImmCreateContext() -> super::super::super::Globalization::HIMC {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
@@ -4900,8 +4910,8 @@ pub unsafe fn ImmCreateIMCC(param0: u32) -> super::super::super::Globalization::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: u32, param1: Param1, param2: i32, param3: i32) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -4915,8 +4925,8 @@ pub unsafe fn ImmCreateSoftKeyboard<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4930,8 +4940,8 @@ pub unsafe fn ImmDestroyContext<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
@@ -4945,8 +4955,8 @@ pub unsafe fn ImmDestroyIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4960,8 +4970,8 @@ pub unsafe fn ImmDestroySoftKeyboard<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4975,8 +4985,8 @@ pub unsafe fn ImmDisableIME(param0: u32) -> super::super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4990,8 +5000,8 @@ pub unsafe fn ImmDisableLegacyIME() -> super::super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5005,8 +5015,8 @@ pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(idthread: u32, lpfn: ::std::option::Option<IMCENUMPROC>, lparam: Param2) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5020,8 +5030,8 @@ pub unsafe fn ImmEnumInputContext<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: ::std::option::Option<REGISTERWORDENUMPROCA>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5035,8 +5045,8 @@ pub unsafe fn ImmEnumRegisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: ::std::option::Option<REGISTERWORDENUMPROCW>, lpszreading: Param2, param3: u32, lpszregister: Param4, param5: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -5050,8 +5060,8 @@ pub unsafe fn ImmEnumRegisterWordW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEscapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -5065,8 +5075,8 @@ pub unsafe fn ImmEscapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmEscapeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1, param2: u32, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -5080,8 +5090,8 @@ pub unsafe fn ImmEscapeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5095,8 +5105,8 @@ pub unsafe fn ImmGenerateMessage<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5110,8 +5120,8 @@ pub unsafe fn ImmGetCandidateListA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5125,8 +5135,8 @@ pub unsafe fn ImmGetCandidateListCountA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpdwlistcount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5140,8 +5150,8 @@ pub unsafe fn ImmGetCandidateListCountW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, deindex: u32, lpcandlist: *mut CANDIDATELIST, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5155,8 +5165,8 @@ pub unsafe fn ImmGetCandidateListW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5170,8 +5180,8 @@ pub unsafe fn ImmGetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5185,8 +5195,8 @@ pub unsafe fn ImmGetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5200,8 +5210,8 @@ pub unsafe fn ImmGetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::std::ffi::c_void, dwbuflen: u32) -> i32 {
     #[cfg(windows)]
@@ -5215,8 +5225,8 @@ pub unsafe fn ImmGetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, lpbuf: *mut ::std::ffi::c_void, dwbuflen: u32) -> i32 {
     #[cfg(windows)]
@@ -5230,8 +5240,8 @@ pub unsafe fn ImmGetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5245,8 +5255,8 @@ pub unsafe fn ImmGetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Globalization::HIMC {
     #[cfg(windows)]
@@ -5260,8 +5270,8 @@ pub unsafe fn ImmGetContext<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
     #[cfg(windows)]
@@ -5275,8 +5285,8 @@ pub unsafe fn ImmGetConversionListA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1, lpsrc: Param2, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32 {
     #[cfg(windows)]
@@ -5290,8 +5300,8 @@ pub unsafe fn ImmGetConversionListW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5305,8 +5315,8 @@ pub unsafe fn ImmGetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -5320,8 +5330,8 @@ pub unsafe fn ImmGetDefaultIMEWnd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5335,8 +5345,8 @@ pub unsafe fn ImmGetDescriptionA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszdescription: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5350,8 +5360,8 @@ pub unsafe fn ImmGetDescriptionW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PSTR, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5365,8 +5375,8 @@ pub unsafe fn ImmGetGuideLineA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: super::super::super::Foundation::PWSTR, dwbuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5380,8 +5390,8 @@ pub unsafe fn ImmGetGuideLineW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut isize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5395,8 +5405,8 @@ pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -5410,8 +5420,8 @@ pub unsafe fn ImmGetIMCCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -5425,8 +5435,8 @@ pub unsafe fn ImmGetIMCCSize<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -5440,8 +5450,8 @@ pub unsafe fn ImmGetIMCLockCount<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5455,8 +5465,8 @@ pub unsafe fn ImmGetIMEFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, lpszfilename: super::super::super::Foundation::PWSTR, ubuflen: u32) -> u32 {
     #[cfg(windows)]
@@ -5470,8 +5480,8 @@ pub unsafe fn ImmGetIMEFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOA, lpimemenu: *mut IMEMENUITEMINFOA, dwsize: u32) -> u32 {
     #[cfg(windows)]
@@ -5485,8 +5495,8 @@ pub unsafe fn ImmGetImeMenuItemsA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32, lpimeparentmenu: *mut IMEMENUITEMINFOW, lpimemenu: *mut IMEMENUITEMINFOW, dwsize: u32) -> u32 {
     #[cfg(windows)]
@@ -5500,8 +5510,8 @@ pub unsafe fn ImmGetImeMenuItemsW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5515,8 +5525,8 @@ pub unsafe fn ImmGetOpenStatus<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmGetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, param1: u32) -> u32 {
     #[cfg(windows)]
@@ -5530,8 +5540,8 @@ pub unsafe fn ImmGetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFA) -> u32 {
     #[cfg(windows)]
@@ -5545,8 +5555,8 @@ pub unsafe fn ImmGetRegisterWordStyleA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0, nitem: u32, lpstylebuf: *mut STYLEBUFW) -> u32 {
     #[cfg(windows)]
@@ -5560,8 +5570,8 @@ pub unsafe fn ImmGetRegisterWordStyleW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5575,8 +5585,8 @@ pub unsafe fn ImmGetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -5590,8 +5600,8 @@ pub unsafe fn ImmGetVirtualKey<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -5605,8 +5615,8 @@ pub unsafe fn ImmInstallIMEA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszimefilename: Param0, lpszlayouttext: Param1) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -5620,8 +5630,8 @@ pub unsafe fn ImmInstallIMEW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmIsIME<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5635,8 +5645,8 @@ pub unsafe fn ImmIsIME<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5650,8 +5660,8 @@ pub unsafe fn ImmIsUIMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: u32, param2: Param2, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5665,8 +5675,8 @@ pub unsafe fn ImmIsUIMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmLockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> *mut INPUTCONTEXT {
     #[cfg(windows)]
@@ -5680,8 +5690,8 @@ pub unsafe fn ImmLockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -5695,8 +5705,8 @@ pub unsafe fn ImmLockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5710,8 +5720,8 @@ pub unsafe fn ImmNotifyIME<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Globalization")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Globalization`*"]
+#[cfg(feature = "Win32_Globalization")]
 #[inline]
 pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0, param1: u32) -> super::super::super::Globalization::HIMCC {
     #[cfg(windows)]
@@ -5725,8 +5735,8 @@ pub unsafe fn ImmReSizeIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5740,8 +5750,8 @@ pub unsafe fn ImmRegisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5755,8 +5765,8 @@ pub unsafe fn ImmRegisterWordW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5770,8 +5780,8 @@ pub unsafe fn ImmReleaseContext<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -5785,8 +5795,8 @@ pub unsafe fn ImmRequestMessageA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(param0: Param0, param1: Param1, param2: Param2) -> super::super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -5800,8 +5810,8 @@ pub unsafe fn ImmRequestMessageW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcandidate: *const CANDIDATEFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5815,8 +5825,8 @@ pub unsafe fn ImmSetCandidateWindow<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5830,8 +5840,8 @@ pub unsafe fn ImmSetCompositionFontA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5845,8 +5855,8 @@ pub unsafe fn ImmSetCompositionFontW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::std::ffi::c_void, dwcomplen: u32, lpread: *const ::std::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5860,8 +5870,8 @@ pub unsafe fn ImmSetCompositionStringA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: *const ::std::ffi::c_void, dwcomplen: u32, lpread: *const ::std::ffi::c_void, dwreadlen: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5875,8 +5885,8 @@ pub unsafe fn ImmSetCompositionStringW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5890,8 +5900,8 @@ pub unsafe fn ImmSetCompositionWindow<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5905,8 +5915,8 @@ pub unsafe fn ImmSetConversionStatus<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(param0: u32, param1: u32, param2: u32, param3: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5920,8 +5930,8 @@ pub unsafe fn ImmSetHotKey<'a, Param3: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(param0: Param0, param1: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5935,8 +5945,8 @@ pub unsafe fn ImmSetOpenStatus<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0, lpptpos: *const super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5950,8 +5960,8 @@ pub unsafe fn ImmSetStatusWindowPos<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5965,8 +5975,8 @@ pub unsafe fn ImmShowSoftKeyboard<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(param0: Param0, param1: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5980,8 +5990,8 @@ pub unsafe fn ImmSimulateHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5995,8 +6005,8 @@ pub unsafe fn ImmUnlockIMC<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Globalization`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
 #[inline]
 pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Globalization::HIMCC>>(param0: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6010,8 +6020,8 @@ pub unsafe fn ImmUnlockIMCC<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6025,8 +6035,8 @@ pub unsafe fn ImmUnregisterWordA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ImmUnregisterWordW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, lpszreading: Param1, param2: u32, lpszunregister: Param3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6428,7 +6438,6 @@ unsafe impl ::windows::runtime::Abi for MORRSLT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 pub union MORRSLT_0 {
     pub pwchRead: super::super::super::Foundation::PWSTR,
     pub pwchComp: super::super::super::Foundation::PWSTR,
@@ -6455,45 +6464,55 @@ unsafe impl ::windows::runtime::Abi for MORRSLT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MORRSLT_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MORRSLT_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MORRSLT_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MORRSLT_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MORRSLT_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MORRSLT_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT_2 {
     type Abi = Self;
 }
@@ -6593,6 +6612,7 @@ impl ::std::ops::Not for NOTIFY_IME_INDEX {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::runtime::HRESULT) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -6699,8 +6719,10 @@ impl ::std::cmp::Eq for REGISTERWORDA {}
 unsafe impl ::windows::runtime::Abi for REGISTERWORDA {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCA = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PSTR, param1: u32, lpszstring: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type REGISTERWORDENUMPROCW = unsafe extern "system" fn(lpszreading: super::super::super::Foundation::PWSTR, param1: u32, lpszstring: super::super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -7059,8 +7081,11 @@ impl ::std::cmp::Eq for WDD_1 {}
 unsafe impl ::windows::runtime::Abi for WDD_1 {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFECommonInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFEDictionaryInstanceType = unsafe extern "system" fn(ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
 pub type fpCreateIFELanguageInstanceType = unsafe extern "system" fn(clsid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]

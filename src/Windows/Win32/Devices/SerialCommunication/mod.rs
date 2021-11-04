@@ -21,8 +21,8 @@ pub unsafe fn ComDBClaimNextFreePort<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_SerialCommunication`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ComDBClaimPort<'a, Param0: ::windows::runtime::IntoParam<'a, HCOMDB>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hcomdb: Param0, comnumber: u32, forceclaim: Param2, forced: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]

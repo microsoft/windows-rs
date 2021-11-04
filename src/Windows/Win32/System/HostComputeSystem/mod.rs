@@ -85,6 +85,7 @@ impl ::std::cmp::Eq for HCS_EVENT {}
 unsafe impl ::windows::runtime::Abi for HCS_EVENT {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
@@ -184,6 +185,7 @@ impl ::std::convert::From<i32> for HCS_NOTIFICATIONS {
 unsafe impl ::windows::runtime::Abi for HCS_NOTIFICATIONS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = unsafe extern "system" fn(notificationtype: u32, context: *const ::std::ffi::c_void, notificationstatus: ::windows::runtime::HRESULT, notificationdata: super::super::Foundation::PWSTR);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
@@ -212,6 +214,7 @@ unsafe impl ::windows::runtime::Handle for HCS_OPERATION {}
 unsafe impl ::windows::runtime::Abi for HCS_OPERATION {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
 pub type HCS_OPERATION_COMPLETION = unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_HostComputeSystem`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -303,8 +306,8 @@ unsafe impl ::windows::runtime::Handle for HCS_SYSTEM {}
 unsafe impl ::windows::runtime::Abi for HCS_SYSTEM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsAttachLayerStorageFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, layerdata: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -374,8 +377,8 @@ pub unsafe fn HcsCloseProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsCrashComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -389,8 +392,8 @@ pub unsafe fn HcsCrashComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn HcsCreateComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(id: Param0, configuration: Param1, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
@@ -405,8 +408,8 @@ pub unsafe fn HcsCreateComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsCreateComputeSystemInNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(idnamespace: Param0, id: Param1, configuration: Param2, operation: Param3, options: *const HCS_CREATE_OPTIONS) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
@@ -421,8 +424,8 @@ pub unsafe fn HcsCreateComputeSystemInNamespace<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsCreateEmptyGuestStateFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(gueststatefilepath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -436,8 +439,8 @@ pub unsafe fn HcsCreateEmptyGuestStateFile<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsCreateEmptyRuntimeStateFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(runtimestatefilepath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -465,8 +468,8 @@ pub unsafe fn HcsCreateOperation(context: *const ::std::ffi::c_void, callback: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn HcsCreateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(computesystem: Param0, processparameters: Param1, operation: Param2, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> ::windows::runtime::Result<HCS_PROCESS> {
     #[cfg(windows)]
@@ -481,8 +484,8 @@ pub unsafe fn HcsCreateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsDestroyLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -496,8 +499,8 @@ pub unsafe fn HcsDestroyLayer<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsDetachLayerStorageFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -511,8 +514,8 @@ pub unsafe fn HcsDetachLayerStorageFilter<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsEnumerateComputeSystems<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(query: Param0, operation: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -526,8 +529,8 @@ pub unsafe fn HcsEnumerateComputeSystems<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsEnumerateComputeSystemsInNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(idnamespace: Param0, query: Param1, operation: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -541,8 +544,8 @@ pub unsafe fn HcsEnumerateComputeSystemsInNamespace<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsExportLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, exportfolderpath: Param1, layerdata: Param2, options: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -556,8 +559,8 @@ pub unsafe fn HcsExportLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsExportLegacyWritableLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(writablelayermountpath: Param0, writablelayerfolderpath: Param1, exportfolderpath: Param2, layerdata: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -571,8 +574,8 @@ pub unsafe fn HcsExportLegacyWritableLayer<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsFormatWritableLayerVhd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(vhdhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -600,8 +603,8 @@ pub unsafe fn HcsGetComputeSystemFromOperation<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetComputeSystemProperties<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, propertyquery: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -615,8 +618,8 @@ pub unsafe fn HcsGetComputeSystemProperties<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetLayerVhdMountPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(vhdhandle: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -659,8 +662,8 @@ pub unsafe fn HcsGetOperationId<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetOperationResult<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(operation: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -675,8 +678,8 @@ pub unsafe fn HcsGetOperationResult<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetOperationResultAndProcessInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(operation: Param0, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -732,8 +735,8 @@ pub unsafe fn HcsGetProcessInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetProcessProperties<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(process: Param0, operation: Param1, propertyquery: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -747,8 +750,8 @@ pub unsafe fn HcsGetProcessProperties<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(runtimefilename: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -763,8 +766,8 @@ pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<'a, Param0: ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGetServiceProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(propertyquery: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -779,8 +782,8 @@ pub unsafe fn HcsGetServiceProperties<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGrantVmAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmid: Param0, filepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -794,8 +797,8 @@ pub unsafe fn HcsGrantVmAccess<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsGrantVmGroupAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -809,8 +812,8 @@ pub unsafe fn HcsGrantVmGroupAccess<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsImportLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, sourcefolderpath: Param1, layerdata: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -824,8 +827,8 @@ pub unsafe fn HcsImportLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsInitializeLegacyWritableLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(writablelayermountpath: Param0, writablelayerfolderpath: Param1, layerdata: Param2, options: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -839,8 +842,8 @@ pub unsafe fn HcsInitializeLegacyWritableLayer<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsInitializeWritableLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(writablelayerpath: Param0, layerdata: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -854,8 +857,8 @@ pub unsafe fn HcsInitializeWritableLayer<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsModifyComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(computesystem: Param0, operation: Param1, configuration: Param2, identity: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -869,8 +872,8 @@ pub unsafe fn HcsModifyComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsModifyProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(process: Param0, operation: Param1, settings: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -884,8 +887,8 @@ pub unsafe fn HcsModifyProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsModifyServiceSettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(settings: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -900,8 +903,8 @@ pub unsafe fn HcsModifyServiceSettings<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsOpenComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(id: Param0, requestedaccess: u32) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
@@ -916,8 +919,8 @@ pub unsafe fn HcsOpenComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsOpenComputeSystemInNamespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(idnamespace: Param0, id: Param1, requestedaccess: u32) -> ::windows::runtime::Result<HCS_SYSTEM> {
     #[cfg(windows)]
@@ -947,8 +950,8 @@ pub unsafe fn HcsOpenProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsPauseComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -962,8 +965,8 @@ pub unsafe fn HcsPauseComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsResumeComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -977,8 +980,8 @@ pub unsafe fn HcsResumeComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsRevokeVmAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmid: Param0, filepath: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -992,8 +995,8 @@ pub unsafe fn HcsRevokeVmAccess<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsRevokeVmGroupAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1007,8 +1010,8 @@ pub unsafe fn HcsRevokeVmGroupAccess<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSaveComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1022,8 +1025,8 @@ pub unsafe fn HcsSaveComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSetComputeSystemCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>>(computesystem: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::std::ffi::c_void, callback: ::std::option::Option<HCS_EVENT_CALLBACK>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1065,8 +1068,8 @@ pub unsafe fn HcsSetOperationContext<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>>(process: Param0, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::std::ffi::c_void, callback: ::std::option::Option<HCS_EVENT_CALLBACK>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1080,8 +1083,8 @@ pub unsafe fn HcsSetProcessCallback<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSetupBaseOSLayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, vhdhandle: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1095,8 +1098,8 @@ pub unsafe fn HcsSetupBaseOSLayer<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSetupBaseOSVolume<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, volumepath: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1110,8 +1113,8 @@ pub unsafe fn HcsSetupBaseOSVolume<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsShutDownComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1125,8 +1128,8 @@ pub unsafe fn HcsShutDownComputeSystem<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSignalProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(process: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1140,8 +1143,8 @@ pub unsafe fn HcsSignalProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsStartComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1155,8 +1158,8 @@ pub unsafe fn HcsStartComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsSubmitWerReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(settings: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1170,8 +1173,8 @@ pub unsafe fn HcsSubmitWerReport<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsTerminateComputeSystem<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(computesystem: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1185,8 +1188,8 @@ pub unsafe fn HcsTerminateComputeSystem<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsTerminateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>, Param1: ::windows::runtime::IntoParam<'a, HCS_OPERATION>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(process: Param0, operation: Param1, options: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1200,8 +1203,8 @@ pub unsafe fn HcsTerminateProcess<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsWaitForComputeSystemExit<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_SYSTEM>>(computesystem: Param0, timeoutms: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -1216,8 +1219,8 @@ pub unsafe fn HcsWaitForComputeSystemExit<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsWaitForOperationResult<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(operation: Param0, timeoutms: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -1232,8 +1235,8 @@ pub unsafe fn HcsWaitForOperationResult<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsWaitForOperationResultAndProcessInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_OPERATION>>(operation: Param0, timeoutms: u32, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1247,8 +1250,8 @@ pub unsafe fn HcsWaitForOperationResultAndProcessInfo<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_HostComputeSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsWaitForProcessExit<'a, Param0: ::windows::runtime::IntoParam<'a, HCS_PROCESS>>(computesystem: Param0, timeoutms: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]

@@ -240,7 +240,6 @@ impl ::std::clone::Clone for APO_NOTIFICATION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
 pub union APO_NOTIFICATION_0 {
     pub audioEndpointVolumeChange: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION>,
     pub audioEndpointPropertyChange: ::std::mem::ManuallyDrop<AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION>,
@@ -1101,8 +1100,8 @@ impl ::std::cmp::Eq for AUDIO_VOLUME_NOTIFICATION_DATA {}
 unsafe impl ::windows::runtime::Abi for AUDIO_VOLUME_NOTIFICATION_DATA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn ActivateAudioInterfaceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IActivateAudioInterfaceCompletionHandler>>(deviceinterfacepath: Param0, riid: *const ::windows::runtime::GUID, activationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: Param3) -> ::windows::runtime::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg(windows)]
@@ -1489,8 +1488,8 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
@@ -1550,8 +1549,8 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
@@ -9421,23 +9420,28 @@ unsafe impl ::windows::runtime::Abi for KSAUDIO_MIX_CAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KSAUDIO_MIX_CAPS_0 {
     pub Reset: i32,
     pub Resolution: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSAUDIO_MIX_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSAUDIO_MIX_CAPS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSAUDIO_MIX_CAPS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSAUDIO_MIX_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSAUDIO_MIX_CAPS_0 {
     type Abi = Self;
 }
@@ -9707,28 +9711,34 @@ unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTA
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
     pub Denominator: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MaxFrameRate_e__Struct").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Numerator == other.Numerator && self.Denominator == other.Denominator
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     type Abi = Self;
 }
@@ -12492,7 +12502,6 @@ unsafe impl ::windows::runtime::Abi for KSEVENTDATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub union KSEVENTDATA_0 {
     pub EventHandle: KSEVENTDATA_0_1,
     pub SemaphoreHandle: KSEVENTDATA_0_2,
@@ -12520,35 +12529,40 @@ unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSEVENTDATA_0_0 {
     pub Unused: *mut ::std::ffi::c_void,
     pub Alignment: [isize; 2],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSEVENTDATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSEVENTDATA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSEVENTDATA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Alignment_e__Struct").field("Unused", &self.Unused).field("Alignment", &self.Alignment).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSEVENTDATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Unused == other.Unused && self.Alignment == other.Alignment
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSEVENTDATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub struct KSEVENTDATA_0_1 {
     pub Event: super::super::super::Foundation::HANDLE,
     pub Reserved: [usize; 2],
@@ -12582,7 +12596,6 @@ unsafe impl ::windows::runtime::Abi for KSEVENTDATA_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub struct KSEVENTDATA_0_2 {
     pub Semaphore: super::super::super::Foundation::HANDLE,
     pub Reserved: u32,
@@ -13766,23 +13779,58 @@ unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
     pub ListenerId: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub ListenerId: *mut ::std::ffi::c_void,
+    pub Reserved: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     type Abi = Self;
 }
@@ -13835,24 +13883,60 @@ unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut ::std::ffi::c_void,
     pub Length: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl KSNODEPROPERTY_AUDIO_PROPERTY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
+    pub NodeProperty: KSNODEPROPERTY,
+    pub AppContext: *mut ::std::ffi::c_void,
+    pub Length: u32,
+    pub Reserved: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl KSNODEPROPERTY_AUDIO_PROPERTY {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
     type Abi = Self;
 }
@@ -15101,23 +15185,28 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTER
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     pub Capabilities: u32,
     pub Configuration: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     type Abi = Self;
 }
@@ -15688,7 +15777,6 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub union KSPROPERTY_EXTXPORT_NODE_S_0 {
     pub Capabilities: u32,
     pub SignalMode: u32,
@@ -15722,57 +15810,69 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RawAVC_e__Struct").field("PayloadSize", &self.PayloadSize).field("Payload", &self.Payload).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.Payload == other.Payload
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Timecode_e__Struct").field("frame", &self.frame).field("second", &self.second).field("minute", &self.minute).field("hour", &self.hour).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.frame == other.frame && self.second == other.second && self.minute == other.minute && self.hour == other.hour
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     type Abi = Self;
 }
@@ -15807,7 +15907,6 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub union KSPROPERTY_EXTXPORT_S_0 {
     pub Capabilities: u32,
     pub SignalMode: u32,
@@ -15841,57 +15940,69 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSPROPERTY_EXTXPORT_S_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSPROPERTY_EXTXPORT_S_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSPROPERTY_EXTXPORT_S_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RawAVC_e__Struct").field("PayloadSize", &self.PayloadSize).field("Payload", &self.Payload).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.PayloadSize == other.PayloadSize && self.Payload == other.Payload
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KSPROPERTY_EXTXPORT_S_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KSPROPERTY_EXTXPORT_S_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KSPROPERTY_EXTXPORT_S_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Timecode_e__Struct").field("frame", &self.frame).field("second", &self.second).field("minute", &self.minute).field("hour", &self.hour).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KSPROPERTY_EXTXPORT_S_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.frame == other.frame && self.second == other.second && self.minute == other.minute && self.hour == other.hour
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KSPROPERTY_EXTXPORT_S_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KSPROPERTY_EXTXPORT_S_0_1 {
     type Abi = Self;
 }
@@ -18389,7 +18500,6 @@ unsafe impl ::windows::runtime::Abi for KSRELATIVEEVENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
 pub union KSRELATIVEEVENT_0 {
     pub ObjectHandle: super::super::super::Foundation::HANDLE,
     pub ObjectPointer: *mut ::std::ffi::c_void,
@@ -19007,6 +19117,7 @@ unsafe impl ::windows::runtime::Abi for KSSTREAMALLOCATOR_STATUS_EX {
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
@@ -19019,12 +19130,15 @@ pub struct KSSTREAM_HEADER {
     pub OptionsFlags: u32,
     pub Reserved: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl KSSTREAM_HEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for KSSTREAM_HEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for KSSTREAM_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("KSSTREAM_HEADER")
@@ -19040,12 +19154,64 @@ impl ::std::fmt::Debug for KSSTREAM_HEADER {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for KSSTREAM_HEADER {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.TypeSpecificFlags == other.TypeSpecificFlags && self.PresentationTime == other.PresentationTime && self.Duration == other.Duration && self.FrameExtent == other.FrameExtent && self.DataUsed == other.DataUsed && self.Data == other.Data && self.OptionsFlags == other.OptionsFlags && self.Reserved == other.Reserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for KSSTREAM_HEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for KSSTREAM_HEADER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+pub struct KSSTREAM_HEADER {
+    pub Size: u32,
+    pub TypeSpecificFlags: u32,
+    pub PresentationTime: KSTIME,
+    pub Duration: i64,
+    pub FrameExtent: u32,
+    pub DataUsed: u32,
+    pub Data: *mut ::std::ffi::c_void,
+    pub OptionsFlags: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl KSSTREAM_HEADER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for KSSTREAM_HEADER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for KSSTREAM_HEADER {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("KSSTREAM_HEADER")
+            .field("Size", &self.Size)
+            .field("TypeSpecificFlags", &self.TypeSpecificFlags)
+            .field("PresentationTime", &self.PresentationTime)
+            .field("Duration", &self.Duration)
+            .field("FrameExtent", &self.FrameExtent)
+            .field("DataUsed", &self.DataUsed)
+            .field("Data", &self.Data)
+            .field("OptionsFlags", &self.OptionsFlags)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for KSSTREAM_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        self.Size == other.Size && self.TypeSpecificFlags == other.TypeSpecificFlags && self.PresentationTime == other.PresentationTime && self.Duration == other.Duration && self.FrameExtent == other.FrameExtent && self.DataUsed == other.DataUsed && self.Data == other.Data && self.OptionsFlags == other.OptionsFlags
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for KSSTREAM_HEADER {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for KSSTREAM_HEADER {
     type Abi = Self;
 }
@@ -21086,72 +21252,88 @@ unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KS_FRAME_INFO_0 {
     pub lSurfacePitch: i32,
     pub Reserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KS_FRAME_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KS_FRAME_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KS_FRAME_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KS_FRAME_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
     pub FrameCompletionNumber: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KS_FRAME_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KS_FRAME_INFO_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KS_FRAME_INFO_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KS_FRAME_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KS_FRAME_INFO_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KS_FRAME_INFO_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for KS_FRAME_INFO_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KS_FRAME_INFO_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KS_FRAME_INFO_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_FRAME_INFO_1_0 {
     type Abi = Self;
 }
@@ -21995,24 +22177,29 @@ unsafe impl ::windows::runtime::Abi for KS_VIDEOINFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KS_VIDEOINFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KS_VIDEOINFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KS_VIDEOINFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KS_VIDEOINFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFO_0 {
     type Abi = Self;
 }
@@ -22094,23 +22281,28 @@ unsafe impl ::windows::runtime::Abi for KS_VIDEOINFOHEADER2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl KS_VIDEOINFOHEADER2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for KS_VIDEOINFOHEADER2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for KS_VIDEOINFOHEADER2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for KS_VIDEOINFOHEADER2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for KS_VIDEOINFOHEADER2_0 {
     type Abi = Self;
 }
@@ -22312,8 +22504,8 @@ pub const KS_iPALETTE_COLORS: u32 = 256u32;
 pub const KS_iRED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_iTRUECOLOR: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22327,8 +22519,8 @@ pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22343,8 +22535,8 @@ pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22358,8 +22550,8 @@ pub unsafe fn KsCreateClock<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22374,8 +22566,8 @@ pub unsafe fn KsCreateClock2<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22389,8 +22581,8 @@ pub unsafe fn KsCreatePin<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22405,8 +22597,8 @@ pub unsafe fn KsCreatePin2<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22420,8 +22612,8 @@ pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -24560,6 +24752,7 @@ pub const NABTS_LINES_PER_BUNDLE: u32 = 16u32;
 pub const NABTS_PAYLOAD_PER_LINE: u32 = 28u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const NANOSECONDS: u32 = 10000000u32;
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub type PAudioStateMonitorCallback = unsafe extern "system" fn(audiostatemonitor: ::windows::runtime::RawPtr, context: *const ::std::ffi::c_void);
 pub const PINNAME_DISPLAYPORT_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(570143529, 6730, 18650, [160, 118, 35, 24, 163, 197, 155, 38]);
 pub const PINNAME_HDMI_OUT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(947649539, 59375, 18689, [134, 224, 53, 183, 195, 43, 0, 239]);
@@ -26290,6 +26483,7 @@ pub const WST_BYTES_PER_LINE: u32 = 42u32;
 pub const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096i32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const WST_TVTUNER_CHANGE_END_TUNE: i32 = 8192i32;
+#[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub type YIELDPROC = unsafe extern "system" fn(mciid: u32, dwyielddata: u32) -> u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -26365,8 +26559,8 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciDriverNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hwndcallback: Param0, wdeviceid: u32, ustatus: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26394,8 +26588,8 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26423,8 +26617,8 @@ pub unsafe fn mciGetCreatorTask(mciid: u32) -> HTASK {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
@@ -26438,8 +26632,8 @@ pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
@@ -26453,8 +26647,8 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
@@ -26468,8 +26662,8 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
@@ -26497,8 +26691,8 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::super::Foundation::PSTR, cchtext: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26512,8 +26706,8 @@ pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26541,8 +26735,8 @@ pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::std::op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hinstance: Param0, lpresname: Param1, wtype: u32) -> u32 {
     #[cfg(windows)]
@@ -26584,8 +26778,8 @@ pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
@@ -26599,8 +26793,8 @@ pub unsafe fn mciSendStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
@@ -26614,8 +26808,8 @@ pub unsafe fn mciSendStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26629,8 +26823,8 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::std::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

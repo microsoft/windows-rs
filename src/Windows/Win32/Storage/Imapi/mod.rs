@@ -1096,8 +1096,8 @@ pub const FsiNamedStreams: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const FsiStream: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(747904973, 38747, 22974, [169, 96, 154, 42, 38, 40, 83, 165]);
 pub const GUID_SMTPSVC_SOURCE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(456918630, 58480, 4561, [170, 103, 0, 192, 79, 163, 69, 246]);
 pub const GUID_SMTP_SOURCE_TYPE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4217750748, 58472, 4561, [170, 103, 0, 192, 79, 163, 69, 246]);
-#[cfg(feature = "Win32_System_AddressBook")]
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
+#[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn GetAttribIMsgOnIStg(lpobject: *mut ::std::ffi::c_void, lpproptagarray: *mut super::super::System::AddressBook::SPropTagArray, lpppropattrarray: *mut *mut SPropAttrArray) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9962,6 +9962,7 @@ pub const MP_STATUS_SUCCESS: u32 = 0u32;
 pub const MSDiscMasterObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569955, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 pub const MSDiscRecorderObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1376569953, 20901, 4563, [145, 68, 0, 16, 75, 161, 28, 94]);
 pub const MSEnumDiscRecordersObj: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2315474554, 25547, 19368, [186, 246, 82, 17, 152, 22, 209, 239]);
+#[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
 #[cfg(feature = "Win32_System_AddressBook")]
 pub type MSGCALLRELEASE = unsafe extern "system" fn(ulcallerdata: u32, lpmessage: ::windows::runtime::RawPtr);
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
@@ -10001,8 +10002,8 @@ pub const NMP_PROCESS_CONTROL: u32 = 2u32;
 pub const NMP_PROCESS_MODERATOR: u32 = 4u32;
 #[doc = "*Required features: `Win32_Storage_Imapi`*"]
 pub const NMP_PROCESS_POST: u32 = 1u32;
-#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>, Param6: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(
     lpmsgsess: *mut _MSGSESS,
@@ -10040,8 +10041,8 @@ pub unsafe fn OpenIMsgOnIStg<'a, Param4: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OpenIMsgSession<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(lpmalloc: Param0, ulflags: u32, lppmsgsess: *mut *mut _MSGSESS) -> i32 {
     #[cfg(windows)]
@@ -10164,8 +10165,8 @@ impl ::std::cmp::Eq for SPropAttrArray {}
 unsafe impl ::windows::runtime::Abi for SPropAttrArray {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_AddressBook")]
 #[doc = "*Required features: `Win32_Storage_Imapi`, `Win32_System_AddressBook`*"]
+#[cfg(feature = "Win32_System_AddressBook")]
 #[inline]
 pub unsafe fn SetAttribIMsgOnIStg(lpobject: *mut ::std::ffi::c_void, lpproptags: *mut super::super::System::AddressBook::SPropTagArray, lppropattrs: *mut SPropAttrArray, lpppropproblems: *mut *mut super::super::System::AddressBook::SPropProblemArray) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

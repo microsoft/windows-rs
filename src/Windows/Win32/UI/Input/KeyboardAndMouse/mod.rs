@@ -51,8 +51,8 @@ impl ::std::ops::Not for ACTIVATE_KEYBOARD_LAYOUT_FLAGS {
 pub const ACUTE: u32 = 769u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const AX_KBD_DESKTOP_TYPE: u32 = 1u32;
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -68,8 +68,8 @@ pub unsafe fn ActivateKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const BREVE: u32 = 774u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BlockInput<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fblockit: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -135,8 +135,8 @@ pub const DONTCARE_BIT: u32 = 33554432u32;
 pub const DOT_ABOVE: u32 = 775u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const DOUBLE_ACUTE: u32 = 779u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragDetect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::POINT>>(hwnd: Param0, pt: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -152,8 +152,8 @@ pub unsafe fn DragDetect<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const EXTENDED_BIT: u32 = 16777216u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hwnd: Param0, benable: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -221,8 +221,8 @@ impl ::std::ops::Not for GET_MOUSE_MOVE_POINTS_EX_RESOLUTION {
 pub const GRAVE: u32 = 768u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const GRPSELTAP: u32 = 128u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetActiveWindow() -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -250,8 +250,8 @@ pub unsafe fn GetAsyncKeyState(vkey: i32) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCapture() -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ pub unsafe fn GetDoubleClickTime() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFocus() -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -308,8 +308,8 @@ pub unsafe fn GetKBCodePage() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Foundation::PSTR, cchsize: i32) -> i32 {
     #[cfg(windows)]
@@ -323,8 +323,8 @@ pub unsafe fn GetKeyNameTextA(lparam: i32, lpstring: super::super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyNameTextW(lparam: i32, lpstring: super::super::super::Foundation::PWSTR, cchsize: i32) -> i32 {
     #[cfg(windows)]
@@ -352,8 +352,8 @@ pub unsafe fn GetKeyState(nvirtkey: i32) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -367,8 +367,8 @@ pub unsafe fn GetKeyboardLayout(idthread: u32) -> super::super::TextServices::HK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextServices::HKL) -> i32 {
     #[cfg(windows)]
@@ -382,8 +382,8 @@ pub unsafe fn GetKeyboardLayoutList(nbuff: i32, lplist: *mut super::super::TextS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::PSTR) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -397,8 +397,8 @@ pub unsafe fn GetKeyboardLayoutNameA(pwszklid: super::super::super::Foundation::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::PWSTR) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -412,8 +412,8 @@ pub unsafe fn GetKeyboardLayoutNameW(pwszklid: super::super::super::Foundation::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKeyboardState(lpkeystate: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -441,8 +441,8 @@ pub unsafe fn GetKeyboardType(ntypeflag: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLastInputInfo(plii: *mut LASTINPUTINFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -635,8 +635,8 @@ impl ::std::ops::Not for INPUT_TYPE {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWindowEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1056,8 +1056,8 @@ impl ::std::cmp::Eq for LIGATURE5 {}
 unsafe impl ::windows::runtime::Abi for LIGATURE5 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -1071,8 +1071,8 @@ pub unsafe fn LoadKeyboardLayoutA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn LoadKeyboardLayoutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszklid: Param0, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS) -> super::super::TextServices::HKL {
     #[cfg(windows)]
@@ -1264,8 +1264,8 @@ pub unsafe fn MapVirtualKeyA(ucode: u32, umaptype: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
@@ -1279,8 +1279,8 @@ pub unsafe fn MapVirtualKeyExA<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn MapVirtualKeyExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ucode: u32, umaptype: u32, dwhkl: Param2) -> u32 {
     #[cfg(windows)]
@@ -1364,8 +1364,8 @@ pub unsafe fn OemKeyScan(woemchar: u16) -> u32 {
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const RING: u32 = 778u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32, fsmodifiers: HOT_KEY_MODIFIERS, vk: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1379,8 +1379,8 @@ pub unsafe fn RegisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseCapture() -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1430,8 +1430,8 @@ pub unsafe fn SendInput(cinputs: u32, pinputs: *const INPUT, cbsize: i32) -> u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1445,8 +1445,8 @@ pub unsafe fn SetActiveWindow<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1460,8 +1460,8 @@ pub unsafe fn SetCapture<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1475,8 +1475,8 @@ pub unsafe fn SetDoubleClickTime(param0: u32) -> super::super::super::Foundation
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1490,8 +1490,8 @@ pub unsafe fn SetFocus<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1505,8 +1505,8 @@ pub unsafe fn SetKeyboardState(lpkeystate: *const u8) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwapMouseButton<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(fswap: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1623,8 +1623,8 @@ pub unsafe fn ToAscii(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpch
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(uvirtkey: u32, uscancode: u32, lpkeystate: *const u8, lpchar: *mut u16, uflags: u32, dwhkl: Param5) -> i32 {
     #[cfg(windows)]
@@ -1638,8 +1638,8 @@ pub unsafe fn ToAsciiEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32) -> i32 {
     #[cfg(windows)]
@@ -1653,8 +1653,8 @@ pub unsafe fn ToUnicode(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(wvirtkey: u32, wscancode: u32, lpkeystate: *const u8, pwszbuff: super::super::super::Foundation::PWSTR, cchbuff: i32, wflags: u32, dwhkl: Param6) -> i32 {
     #[cfg(windows)]
@@ -1668,8 +1668,8 @@ pub unsafe fn ToUnicodeEx<'a, Param6: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1685,8 +1685,8 @@ pub unsafe fn TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::supe
 }
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const UMLAUT: u32 = 776u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(hkl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1700,8 +1700,8 @@ pub unsafe fn UnloadKeyboardLayout<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterHotKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, id: i32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2414,8 +2414,8 @@ impl ::std::cmp::Eq for VSC_VK {}
 unsafe impl ::windows::runtime::Abi for VSC_VK {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>>(ch: Param0) -> i16 {
     #[cfg(windows)]
@@ -2429,8 +2429,8 @@ pub unsafe fn VkKeyScanA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`, `Win32_UI_TextServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
 #[inline]
 pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::CHAR>, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: Param0, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
@@ -2444,8 +2444,8 @@ pub unsafe fn VkKeyScanExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_TextServices")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_UI_TextServices`*"]
+#[cfg(feature = "Win32_UI_TextServices")]
 #[inline]
 pub unsafe fn VkKeyScanExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::TextServices::HKL>>(ch: u16, dwhkl: Param1) -> i16 {
     #[cfg(windows)]
@@ -2479,8 +2479,8 @@ pub const WCH_DEAD: u32 = 61441u32;
 pub const WCH_LGTR: u32 = 61442u32;
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`*"]
 pub const WCH_NONE: u32 = 61440u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Input_KeyboardAndMouse`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn _TrackMouseEvent(lpeventtrack: *mut TRACKMOUSEEVENT) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

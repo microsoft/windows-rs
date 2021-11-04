@@ -369,6 +369,7 @@ unsafe impl ::windows::runtime::Abi for ANON_OBJECT_HEADER_V2 {
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const ANYSIZE_ARRAY: u32 = 1u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type APC_CALLBACK_FUNCTION = unsafe extern "system" fn(param0: u32, param1: *mut ::std::ffi::c_void, param2: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -533,6 +534,7 @@ pub const ARM64_MAX_WATCHPOINTS: u32 = 2u32;
 pub const ARM64_MULT_INTRINSICS_SUPPORTED: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
@@ -548,46 +550,56 @@ pub struct ARM64_NT_CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ARM64_NT_CONTEXT {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::default::Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for ARM64_NT_CONTEXT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::Eq for ARM64_NT_CONTEXT {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ARM64_NT_CONTEXT_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::default::Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for ARM64_NT_CONTEXT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::Eq for ARM64_NT_CONTEXT_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -621,12 +633,15 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ARM64_NT_CONTEXT_0_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::default::Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::fmt::Debug for ARM64_NT_CONTEXT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
@@ -664,6 +679,7 @@ impl ::std::fmt::Debug for ARM64_NT_CONTEXT_0_0 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for ARM64_NT_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.X0 == other.X0
@@ -699,7 +715,9 @@ impl ::std::cmp::PartialEq for ARM64_NT_CONTEXT_0_0 {
             && self.Lr == other.Lr
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 impl ::std::cmp::Eq for ARM64_NT_CONTEXT_0_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for ARM64_NT_CONTEXT_0_0 {
     type Abi = Self;
 }
@@ -888,8 +906,8 @@ pub const BR_ORIGCOLOR: u32 = 8u32;
 pub const BSF_MSGSRV32ISOK: u32 = 2147483648u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: ::std::option::Option<super::IO::LPOVERLAPPED_COMPLETION_ROUTINE>, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2895,7 +2913,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_0 {
     pub diffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvDiffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2923,7 +2940,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_1 {
     pub ambient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvAmbient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2951,7 +2967,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_2 {
     pub specular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvSpecular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -2979,7 +2994,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL_3 {
     pub emissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvEmissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -3006,23 +3020,28 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DMATERIAL_4 {
     pub power: f32,
     pub dvPower: f32,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl D3DMATERIAL_4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::default::Default for D3DMATERIAL_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DMATERIAL_4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::Eq for D3DMATERIAL_4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for D3DMATERIAL_4 {
     type Abi = Self;
 }
@@ -3060,7 +3079,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_0 {
     pub diffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvDiffuse: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -3088,7 +3106,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_1 {
     pub ambient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvAmbient: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -3116,7 +3133,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_2 {
     pub specular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvSpecular: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -3144,7 +3160,6 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DMATERIAL7_3 {
     pub emissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
     pub dcvEmissive: super::super::Graphics::Direct3D9::D3DCOLORVALUE,
@@ -3171,23 +3186,28 @@ unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DMATERIAL7_4 {
     pub power: f32,
     pub dvPower: f32,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl D3DMATERIAL7_4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::default::Default for D3DMATERIAL7_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DMATERIAL7_4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::Eq for D3DMATERIAL7_4 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for D3DMATERIAL7_4 {
     type Abi = Self;
 }
@@ -3567,36 +3587,34 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_UI_DisplayDevices")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_UI_DisplayDevices`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub union D3DNTHAL_CONTEXTCREATEDATA_0 {
     pub lpDDGbl: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL,
     pub lpDDLcl: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_LOCAL,
 }
-#[cfg(feature = "Win32_UI_DisplayDevices")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(feature = "Win32_UI_DisplayDevices")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_DisplayDevices")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_CONTEXTCREATEDATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_UI_DisplayDevices")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_CONTEXTCREATEDATA_0 {}
-#[cfg(feature = "Win32_UI_DisplayDevices")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_CONTEXTCREATEDATA_1 {
     pub lpDDS: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
@@ -3624,7 +3642,6 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_CONTEXTCREATEDATA_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_CONTEXTCREATEDATA_2 {
     pub lpDDSZ: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpDDSZLcl: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
@@ -4365,23 +4382,28 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2RENDERSTATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DNTHAL_DP2RENDERSTATE_0 {
     pub fState: f32,
     pub dwState: u32,
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl D3DNTHAL_DP2RENDERSTATE_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::default::Default for D3DNTHAL_DP2RENDERSTATE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DNTHAL_DP2RENDERSTATE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::Eq for D3DNTHAL_DP2RENDERSTATE_0 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_DP2RENDERSTATE_0 {
     type Abi = Self;
 }
@@ -4977,7 +4999,6 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
     pub lpDDVertex: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL,
     pub lpVertices: *mut ::std::ffi::c_void,
@@ -5004,23 +5025,28 @@ unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub union D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     pub dwVertexSize: u32,
     pub ddrval: ::windows::runtime::HRESULT,
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for D3DNTHAL_DRAWPRIMITIVES2DATA_1 {
     type Abi = Self;
 }
@@ -5741,7 +5767,6 @@ unsafe impl ::windows::runtime::Abi for D3DSTATE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 pub union D3DSTATE_0 {
     pub dtstTransformStateType: super::super::Graphics::Direct3D9::D3DTRANSFORMSTATETYPE,
     pub dlstLightStateType: D3DLIGHTSTATETYPE,
@@ -5769,23 +5794,28 @@ unsafe impl ::windows::runtime::Abi for D3DSTATE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub union D3DSTATE_1 {
     pub dwArg: [u32; 1],
     pub dvArg: [f32; 1],
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl D3DSTATE_1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::default::Default for D3DSTATE_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for D3DSTATE_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::Eq for D3DSTATE_1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 unsafe impl ::windows::runtime::Abi for D3DSTATE_1 {
     type Abi = Self;
 }
@@ -9336,6 +9366,7 @@ unsafe impl ::windows::runtime::Abi for DISK_HEALTH_NOTIFICATION_DATA {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 pub struct DISPATCHER_CONTEXT {
@@ -9352,14 +9383,17 @@ pub struct DISPATCHER_CONTEXT {
     pub ControlPcIsUnwound: super::super::Foundation::BOOLEAN,
     pub NonVolatileRegisters: *mut u8,
 }
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl DISPATCHER_CONTEXT {}
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9378,6 +9412,7 @@ impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
             .finish()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -9395,77 +9430,73 @@ impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
             && self.NonVolatileRegisters == other.NonVolatileRegisters
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for DISPATCHER_CONTEXT {}
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
-pub struct DISPATCHER_CONTEXT_ARM64 {
-    pub ControlPc: usize,
-    pub ImageBase: usize,
-    pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
-    pub EstablisherFrame: usize,
-    pub TargetPc: usize,
-    pub ContextRecord: *mut ARM64_NT_CONTEXT,
+pub struct DISPATCHER_CONTEXT {
+    pub ControlPc: u64,
+    pub ImageBase: u64,
+    pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
+    pub EstablisherFrame: u64,
+    pub TargetIp: u64,
+    pub ContextRecord: *mut super::Diagnostics::Debug::CONTEXT,
     pub LanguageHandler: ::std::option::Option<super::Kernel::EXCEPTION_ROUTINE>,
     pub HandlerData: *mut ::std::ffi::c_void,
     pub HistoryTable: *mut UNWIND_HISTORY_TABLE,
     pub ScopeIndex: u32,
-    pub ControlPcIsUnwound: super::super::Foundation::BOOLEAN,
-    pub NonVolatileRegisters: *mut u8,
+    pub Fill0: u32,
 }
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl DISPATCHER_CONTEXT_ARM64 {}
+impl DISPATCHER_CONTEXT {}
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::std::default::Default for DISPATCHER_CONTEXT_ARM64 {
+impl ::std::default::Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::std::fmt::Debug for DISPATCHER_CONTEXT_ARM64 {
+impl ::std::fmt::Debug for DISPATCHER_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISPATCHER_CONTEXT_ARM64")
+        fmt.debug_struct("DISPATCHER_CONTEXT")
             .field("ControlPc", &self.ControlPc)
             .field("ImageBase", &self.ImageBase)
             .field("FunctionEntry", &self.FunctionEntry)
             .field("EstablisherFrame", &self.EstablisherFrame)
-            .field("TargetPc", &self.TargetPc)
+            .field("TargetIp", &self.TargetIp)
             .field("ContextRecord", &self.ContextRecord)
             .field("HandlerData", &self.HandlerData)
             .field("HistoryTable", &self.HistoryTable)
             .field("ScopeIndex", &self.ScopeIndex)
-            .field("ControlPcIsUnwound", &self.ControlPcIsUnwound)
-            .field("NonVolatileRegisters", &self.NonVolatileRegisters)
+            .field("Fill0", &self.Fill0)
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT_ARM64 {
+impl ::std::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
-        self.ControlPc == other.ControlPc
-            && self.ImageBase == other.ImageBase
-            && self.FunctionEntry == other.FunctionEntry
-            && self.EstablisherFrame == other.EstablisherFrame
-            && self.TargetPc == other.TargetPc
-            && self.ContextRecord == other.ContextRecord
-            && self.LanguageHandler.map(|f| f as usize) == other.LanguageHandler.map(|f| f as usize)
-            && self.HandlerData == other.HandlerData
-            && self.HistoryTable == other.HistoryTable
-            && self.ScopeIndex == other.ScopeIndex
-            && self.ControlPcIsUnwound == other.ControlPcIsUnwound
-            && self.NonVolatileRegisters == other.NonVolatileRegisters
+        self.ControlPc == other.ControlPc && self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry && self.EstablisherFrame == other.EstablisherFrame && self.TargetIp == other.TargetIp && self.ContextRecord == other.ContextRecord && self.LanguageHandler.map(|f| f as usize) == other.LanguageHandler.map(|f| f as usize) && self.HandlerData == other.HandlerData && self.HistoryTable == other.HistoryTable && self.ScopeIndex == other.ScopeIndex && self.Fill0 == other.Fill0
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-impl ::std::cmp::Eq for DISPATCHER_CONTEXT_ARM64 {}
+impl ::std::cmp::Eq for DISPATCHER_CONTEXT {}
+#[cfg(any(target_arch = "x86_64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT_ARM64 {
+unsafe impl ::windows::runtime::Abi for DISPATCHER_CONTEXT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -10215,8 +10246,8 @@ pub const EXCEPTION_TARGET_UNWIND: u32 = 32u32;
 pub const EXCEPTION_UNWINDING: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const EXCEPTION_WRITE_FAULT: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn EngQueryEMFInfo<'a, Param0: ::windows::runtime::IntoParam<'a, HDEV>>(hdev: Param0, pemfinfo: *mut EMFINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10682,6 +10713,7 @@ pub const FRAME_NONFPO: u32 = 3u32;
 pub const FRAME_TRAP: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const FRAME_TSS: u32 = 2u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type FREEOBJPROC = unsafe extern "system" fn(pdriverobj: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DRIVEROBJ>) -> super::super::Foundation::BOOL;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -10811,7 +10843,6 @@ unsafe impl ::windows::runtime::Abi for GDI_NONREMOTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union GDI_NONREMOTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::DWORD_BLOB,
@@ -12508,23 +12539,28 @@ unsafe impl ::windows::runtime::Abi for IMAGE_COR20_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union IMAGE_COR20_HEADER_0 {
     pub EntryPointToken: u32,
     pub EntryPointRVA: u32,
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl IMAGE_COR20_HEADER_0 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::default::Default for IMAGE_COR20_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::PartialEq for IMAGE_COR20_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::std::cmp::Eq for IMAGE_COR20_HEADER_0 {}
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 unsafe impl ::windows::runtime::Abi for IMAGE_COR20_HEADER_0 {
     type Abi = Self;
 }
@@ -13408,7 +13444,6 @@ unsafe impl ::windows::runtime::Abi for IMAGE_POLICY_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union IMAGE_POLICY_ENTRY_0 {
     pub None: *mut ::std::ffi::c_void,
     pub BoolValue: super::super::Foundation::BOOLEAN,
@@ -15875,8 +15910,8 @@ pub const IO_WRN_FAILURE_PREDICTED: super::super::Foundation::NTSTATUS = super::
 pub const IS_TEXT_UNICODE_DBCS_LEADBYTE: u32 = 1024u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const IS_TEXT_UNICODE_UTF8: u32 = 2048u32;
-#[cfg(feature = "Win32_System_Rpc")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Rpc")]
 #[inline]
 pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -15890,8 +15925,8 @@ pub unsafe fn I_RpcNsGetBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Rpc")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Rpc")]
 #[inline]
 pub unsafe fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, status: super::Rpc::RPC_STATUS) {
     #[cfg(windows)]
@@ -15905,8 +15940,8 @@ pub unsafe fn I_RpcNsRaiseException(message: *mut super::Rpc::RPC_MESSAGE, statu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Rpc")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Rpc")]
 #[inline]
 pub unsafe fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: *mut *mut ::std::ffi::c_void) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -15920,8 +15955,8 @@ pub unsafe fn I_RpcNsSendReceive(message: *mut super::Rpc::RPC_MESSAGE, handle: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Rpc")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Rpc")]
 #[inline]
 pub unsafe fn I_RpcReBindBuffer(message: *mut super::Rpc::RPC_MESSAGE) -> super::Rpc::RPC_STATUS {
     #[cfg(windows)]
@@ -16771,67 +16806,82 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     pub RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     type Abi = Self;
 }
@@ -16950,67 +17000,82 @@ unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     pub JobHighMemoryLimit: u64,
     pub JobMemoryLimit: u64,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     pub RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
     pub CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_JobObjects")]
 pub union JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     pub RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
     pub CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL,
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::default::Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::PartialEq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_JobObjects")]
 impl ::std::cmp::Eq for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {}
+#[cfg(feature = "Win32_System_JobObjects")]
 unsafe impl ::windows::runtime::Abi for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
     type Abi = Self;
 }
@@ -17367,51 +17432,62 @@ unsafe impl ::windows::runtime::Abi for KERNEL_CET_CONTEXT_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64",))]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64",))]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -17430,12 +17506,15 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm14: *mut M128A,
     pub Xmm15: *mut M128A,
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
@@ -17458,40 +17537,48 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Xmm0 == other.Xmm0 && self.Xmm1 == other.Xmm1 && self.Xmm2 == other.Xmm2 && self.Xmm3 == other.Xmm3 && self.Xmm4 == other.Xmm4 && self.Xmm5 == other.Xmm5 && self.Xmm6 == other.Xmm6 && self.Xmm7 == other.Xmm7 && self.Xmm8 == other.Xmm8 && self.Xmm9 == other.Xmm9 && self.Xmm10 == other.Xmm10 && self.Xmm11 == other.Xmm11 && self.Xmm12 == other.Xmm12 && self.Xmm13 == other.Xmm13 && self.Xmm14 == other.Xmm14 && self.Xmm15 == other.Xmm15
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64",))]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS_1 {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1 {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64",))]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -17510,12 +17597,15 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R14: *mut u64,
     pub R15: *mut u64,
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
@@ -17538,17 +17628,54 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Rax == other.Rax && self.Rcx == other.Rcx && self.Rdx == other.Rdx && self.Rbx == other.Rbx && self.Rsp == other.Rsp && self.Rbp == other.Rbp && self.Rsi == other.Rsi && self.Rdi == other.Rdi && self.R8 == other.R8 && self.R9 == other.R9 && self.R10 == other.R10 && self.R11 == other.R11 && self.R12 == other.R12 && self.R13 == other.R13 && self.R14 == other.R14 && self.R15 == other.R15
     }
 }
+#[cfg(any(target_arch = "x86_64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct KNONVOLATILE_CONTEXT_POINTERS {
+    pub Dummy: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl KNONVOLATILE_CONTEXT_POINTERS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("KNONVOLATILE_CONTEXT_POINTERS").field("Dummy", &self.Dummy).finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS {
+    fn eq(&self, other: &Self) -> bool {
+        self.Dummy == other.Dummy
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS {}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: *mut u64,
@@ -17572,12 +17699,15 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub D14: *mut u64,
     pub D15: *mut u64,
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl KNONVOLATILE_CONTEXT_POINTERS_ARM64 {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::default::Default for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("KNONVOLATILE_CONTEXT_POINTERS_ARM64")
@@ -17604,12 +17734,15 @@ impl ::std::fmt::Debug for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn eq(&self, other: &Self) -> bool {
         self.X19 == other.X19 && self.X20 == other.X20 && self.X21 == other.X21 && self.X22 == other.X22 && self.X23 == other.X23 && self.X24 == other.X24 && self.X25 == other.X25 && self.X26 == other.X26 && self.X27 == other.X27 && self.X28 == other.X28 && self.Fp == other.Fp && self.Lr == other.Lr && self.D8 == other.D8 && self.D9 == other.D9 && self.D10 == other.D10 && self.D11 == other.D11 && self.D12 == other.D12 && self.D13 == other.D13 && self.D14 == other.D14 && self.D15 == other.D15
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {}
+#[cfg(any(target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     type Abi = Self;
 }
@@ -18024,34 +18157,53 @@ pub const LOCKP_FAIL_WRITES: u32 = 0u32;
 pub const LOCKP_LOCK_FOR_FORMAT: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LOCKP_USER_MASK: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK = unsafe extern "system" fn(lpguid: *mut ::windows::runtime::GUID, lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param3: *mut _D3DDeviceDesc, param4: *mut _D3DDeviceDesc, param5: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DENUMDEVICESCALLBACK7 = unsafe extern "system" fn(lpdevicedescription: super::super::Foundation::PSTR, lpdevicename: super::super::Foundation::PSTR, param2: *mut _D3DDeviceDesc7, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_DirectDraw`*"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMPIXELFORMATSCALLBACK = unsafe extern "system" fn(lpddpixfmt: *mut super::super::Graphics::DirectDraw::DDPIXELFORMAT, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_DirectDraw`*"]
 #[cfg(feature = "Win32_Graphics_DirectDraw")]
 pub type LPD3DENUMTEXTUREFORMATSCALLBACK = unsafe extern "system" fn(lpddsd: *mut super::super::Graphics::DirectDraw::DDSURFACEDESC, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type LPD3DNTHAL_CLEAR2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CLEAR2DATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_CONTEXTCREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTCREATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_CONTEXTDESTROYALLCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYALLDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_CONTEXTDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_CONTEXTDESTROYDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_DRAWPRIMITIVES2CB = unsafe extern "system" fn(param0: *mut D3DNTHAL_DRAWPRIMITIVES2DATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_SCENECAPTURECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SCENECAPTUREDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type LPD3DNTHAL_SETRENDERTARGETCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_SETRENDERTARGETDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTURECREATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURECREATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_TEXTUREDESTROYCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREDESTROYDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPD3DNTHAL_TEXTUREGETSURFCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTUREGETSURFDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_TEXTURESWAPCB = unsafe extern "system" fn(param0: *mut D3DNTHAL_TEXTURESWAPDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DNTHAL_VALIDATETEXTURESTAGESTATECB = unsafe extern "system" fn(param0: *mut D3DNTHAL_VALIDATETEXTURESTAGESTATEDATA) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPD3DVALIDATECALLBACK = unsafe extern "system" fn(lpuserarg: *mut ::std::ffi::c_void, dwoffset: u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPTHREAD_START_ROUTINE = unsafe extern "system" fn(lpthreadparameter: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type LPTIMECALLBACK = unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const LTP_PC_SMT: u32 = 1u32;
@@ -18503,34 +18655,39 @@ unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MEM_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MEM_EXTENDED_PARAMETER_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MEM_EXTENDED_PARAMETER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union MEM_EXTENDED_PARAMETER_1 {
     pub ULong64: u64,
     pub Pointer: *mut ::std::ffi::c_void,
@@ -18786,23 +18943,28 @@ unsafe impl ::windows::runtime::Abi for NT_TIB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::std::ffi::c_void,
     pub Version: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for NT_TIB_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for NT_TIB_0 {
     type Abi = Self;
 }
@@ -19005,6 +19167,7 @@ pub const PAL_CMYK: u32 = 16u32;
 pub const PAL_INDEXED: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PAL_RGB: u32 = 4u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PAPCFUNC = unsafe extern "system" fn(parameter: usize);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PDCAP_D0_SUPPORTED: u32 = 1u32;
@@ -19048,19 +19211,29 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN = unsafe extern "system" fn() -> isize;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFND3DNTPARSEUNKNOWNCOMMAND = unsafe extern "system" fn(lpvcommands: *mut ::std::ffi::c_void, lplpvreturnedcommand: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAccumulateD3DDirtyRect = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut CDDDXGK_REDIRBITMAPPRESENTINFO) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAlphaBlend = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: *mut super::super::UI::DisplayDevices::BLENDOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvAssertMode = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvAssociateSharedSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::HANDLE, param2: super::super::Foundation::HANDLE, param3: super::super::Foundation::SIZE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvBitBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19075,78 +19248,120 @@ pub type PFN_DrvBitBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvCompletePDEV = unsafe extern "system" fn(param0: DHPDEV, param1: HDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvCopyBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvCreateDeviceBitmap = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvCreateDeviceBitmapEx = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::SIZE, param2: u32, param3: u32, param4: DHSURF, param5: u32, param6: u32, param7: *mut super::super::Foundation::HANDLE) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDeleteDeviceBitmap = unsafe extern "system" fn(param0: DHSURF);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDeleteDeviceBitmapEx = unsafe extern "system" fn(param0: DHSURF);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDeriveSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::DD_DIRECTDRAW_GLOBAL, param1: *mut super::super::UI::DisplayDevices::DD_SURFACE_LOCAL) -> super::super::Graphics::Gdi::HBITMAP;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_OpenGL`*"]
 #[cfg(feature = "Win32_Graphics_OpenGL")]
 pub type PFN_DrvDescribePixelFormat = unsafe extern "system" fn(param0: DHPDEV, param1: i32, param2: u32, param3: *mut super::super::Graphics::OpenGL::PIXELFORMATDESCRIPTOR) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDestroyFont = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::FONTOBJ);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableDirectDraw = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableDriver = unsafe extern "system" fn();
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisablePDEV = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDisableSurface = unsafe extern "system" fn(param0: DHPDEV);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvDitherColor = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: u32, param3: *mut u32) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvDrawEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::Foundation::RECTL, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnableDirectDraw = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_CALLBACKS>, param2: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_SURFACECALLBACKS>, param3: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_PALETTECALLBACKS>) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnableDriver = unsafe extern "system" fn(param0: u32, param1: u32, param2: *mut super::super::UI::DisplayDevices::DRVENABLEDATA) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEnablePDEV = unsafe extern "system" fn(param0: *mut super::super::Graphics::Gdi::DEVMODEW, param1: super::super::Foundation::PWSTR, param2: u32, param3: *mut super::super::UI::DisplayDevices::HSURF, param4: u32, param5: *mut super::super::UI::DisplayDevices::GDIINFO, param6: u32, param7: *mut super::super::UI::DisplayDevices::DEVINFO, param8: HDEV, param9: super::super::Foundation::PWSTR, param10: super::super::Foundation::HANDLE) -> DHPDEV;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_UI_DisplayDevices`*"]
 #[cfg(feature = "Win32_UI_DisplayDevices")]
 pub type PFN_DrvEnableSurface = unsafe extern "system" fn(param0: DHPDEV) -> super::super::UI::DisplayDevices::HSURF;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEndDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, fl: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEndDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, param2: *mut super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvEscape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: u32, param3: *mut ::std::ffi::c_void, param4: u32, param5: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvFillPath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param4: *mut super::super::Foundation::POINTL, param5: u32, param6: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvFontManagement = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvFree = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: usize);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_DirectDraw`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGetDirectDrawInfo = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::mem::ManuallyDrop<super::super::UI::DisplayDevices::DD_HALINFO>, param2: *mut u32, param3: *mut super::super::UI::DisplayDevices::VIDEOMEMORY, param4: *mut u32, param5: *mut u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGetGlyphMode = unsafe extern "system" fn(dhpdev: DHPDEV, pfo: *mut super::super::UI::DisplayDevices::FONTOBJ) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PFN_DrvGetModes = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: *mut super::super::Graphics::Gdi::DEVMODEW) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvGetTrueTypeFile = unsafe extern "system" fn(param0: usize, param1: *mut u32) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvGradientFill = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::XLATEOBJ, param3: *mut super::super::Graphics::Gdi::TRIVERTEX, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut super::super::Foundation::RECTL, param8: *mut super::super::Foundation::POINTL, param9: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvIcmCheckBitmapBits = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut u8) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_ColorSystem`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_ColorSystem"))]
 pub type PFN_DrvIcmCreateColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::ColorSystem::LOGCOLORSPACEW, param2: *mut ::std::ffi::c_void, param3: u32, param4: *mut ::std::ffi::c_void, param5: u32, param6: *mut ::std::ffi::c_void, param7: u32, param8: u32) -> super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvIcmDeleteColorTransform = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvIcmSetDeviceGammaRamp = unsafe extern "system" fn(param0: DHPDEV, param1: u32, param2: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvLineTo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: i32, param4: i32, param5: i32, param6: i32, param7: *mut super::super::Foundation::RECTL, param8: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PFN_DrvLoadFontFile = unsafe extern "system" fn(param0: u32, param1: *mut usize, param2: *mut *mut ::std::ffi::c_void, param3: *mut u32, param4: *mut super::super::Graphics::Gdi::DESIGNVECTOR, param5: u32, param6: u32) -> usize;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvLockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvMovePointer = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, x: i32, y: i32, prcl: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvNextBand = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvNotify = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvPaint = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::CLIPOBJ, param2: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param3: *mut super::super::Foundation::POINTL, param4: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19161,50 +19376,76 @@ pub type PFN_DrvPlgBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryAdvanceWidths = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: *mut u32, param4: *mut ::std::ffi::c_void, param5: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryDeviceSupport = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::XLATEOBJ, param2: *mut XFORMOBJ, param3: u32, param4: u32, param5: *mut ::std::ffi::c_void, param6: u32, param7: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryFont = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: *mut usize) -> *mut super::super::UI::DisplayDevices::IFIMETRICS;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontCaps = unsafe extern "system" fn(param0: u32, param1: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryFontData = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: u32, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: *mut ::std::ffi::c_void, param6: u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontFile = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryFontTree = unsafe extern "system" fn(param0: DHPDEV, param1: usize, param2: u32, param3: u32, param4: *mut usize) -> *mut ::std::ffi::c_void;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryPerBandInfo = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PERBANDINFO) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQuerySpoolType = unsafe extern "system" fn(dhpdev: DHPDEV, pwchtype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvQueryTrueTypeOutline = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::FONTOBJ, param2: u32, param3: super::super::Foundation::BOOL, param4: *mut super::super::UI::DisplayDevices::GLYPHDATA, param5: u32, param6: *mut super::super::Graphics::Gdi::TTPOLYGONHEADER) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvQueryTrueTypeSection = unsafe extern "system" fn(param0: u32, param1: u32, param2: u32, param3: *mut super::super::Foundation::HANDLE, param4: *mut i32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvQueryTrueTypeTable = unsafe extern "system" fn(param0: usize, param1: u32, param2: u32, param3: i32, param4: u32, param5: *mut u8, param6: *mut *mut u8, param7: *mut u32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvRealizeBrush = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::SURFOBJ, param4: *mut super::super::UI::DisplayDevices::XLATEOBJ, param5: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvRenderHint = unsafe extern "system" fn(dhpdev: DHPDEV, notifycode: u32, length: usize, data: *const ::std::ffi::c_void) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFN_DrvResetDevice = unsafe extern "system" fn(param0: DHPDEV, param1: *mut ::std::ffi::c_void) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvResetPDEV = unsafe extern "system" fn(dhpdevold: DHPDEV, dhpdevnew: DHPDEV) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSaveScreenBits = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: u32, param2: usize, param3: *mut super::super::Foundation::RECTL) -> usize;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSendPage = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPalette = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::UI::DisplayDevices::PALOBJ, param2: u32, param3: u32, param4: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPixelFormat = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: i32, param2: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSetPointerShape = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::SURFOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: i32, param5: i32, param6: i32, param7: i32, param8: *mut super::super::Foundation::RECTL, param9: u32) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartBanding = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, ppointl: *mut super::super::Foundation::POINTL) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartDoc = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ, pwszdocname: super::super::Foundation::PWSTR, dwjobid: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartDxInterop = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: super::super::Foundation::BOOL, kernelmodedevicehandle: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStartPage = unsafe extern "system" fn(pso: *mut super::super::UI::DisplayDevices::SURFOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19219,6 +19460,7 @@ pub type PFN_DrvStretchBlt = unsafe extern "system" fn(
     param9: *mut super::super::Foundation::POINTL,
     param10: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19235,21 +19477,29 @@ pub type PFN_DrvStretchBltROP = unsafe extern "system" fn(
     param11: *mut super::super::UI::DisplayDevices::BRUSHOBJ,
     param12: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStrokeAndFillPath =
     unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::UI::DisplayDevices::LINEATTRS, param6: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param7: *mut super::super::Foundation::POINTL, param8: u32, param9: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvStrokePath = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::PATHOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut XFORMOBJ, param4: *mut super::super::UI::DisplayDevices::BRUSHOBJ, param5: *mut super::super::Foundation::POINTL, param6: *mut super::super::UI::DisplayDevices::LINEATTRS, param7: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSurfaceComplete = unsafe extern "system" fn(param0: DHPDEV, param1: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSwapBuffers = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::WNDOBJ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSynchronize = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvSynchronizeRedirectionBitmaps = unsafe extern "system" fn(param0: DHPDEV, param1: *mut u64) -> super::super::Foundation::NTSTATUS;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvSynchronizeSurface = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::Foundation::RECTL, param2: u32);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param0: *mut super::super::UI::DisplayDevices::SURFOBJ,
@@ -19263,26 +19513,37 @@ pub type PFN_DrvTextOut = unsafe extern "system" fn(
     param8: *mut super::super::Foundation::POINTL,
     param9: u32,
 ) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type PFN_DrvTransparentBlt = unsafe extern "system" fn(param0: *mut super::super::UI::DisplayDevices::SURFOBJ, param1: *mut super::super::UI::DisplayDevices::SURFOBJ, param2: *mut super::super::UI::DisplayDevices::CLIPOBJ, param3: *mut super::super::UI::DisplayDevices::XLATEOBJ, param4: *mut super::super::Foundation::RECTL, param5: *mut super::super::Foundation::RECTL, param6: u32, param7: u32) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUnloadFontFile = unsafe extern "system" fn(param0: usize) -> super::super::Foundation::BOOL;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_DrvUnlockDisplayArea = unsafe extern "system" fn(param0: DHPDEV, param1: *mut super::super::Foundation::RECTL);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCombineRgn = unsafe extern "system" fn(hrgntrg: super::super::Foundation::HANDLE, hrgnsrc1: super::super::Foundation::HANDLE, hrgnsrc2: super::super::Foundation::HANDLE, imode: i32) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCopyRgn = unsafe extern "system" fn(hrgndst: super::super::Foundation::HANDLE, hrgnsrc: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngCreateRectRgn = unsafe extern "system" fn(left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::HANDLE;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngDeleteRgn = unsafe extern "system" fn(hrgn: super::super::Foundation::HANDLE);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngIntersectRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngSubtractRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngUnionRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_EngXorRgn = unsafe extern "system" fn(hrgnresult: super::super::Foundation::HANDLE, hrgna: super::super::Foundation::HANDLE, hrgnb: super::super::Foundation::HANDLE) -> i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -19327,7 +19588,13 @@ pub const PF_TEMPORAL_LEVEL_1: u32 = 1u32;
 pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "aarch64",))]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64",))]
+pub type PGET_RUNTIME_FUNCTION_CALLBACK = unsafe extern "system" fn(controlpc: u64, context: *const ::std::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PIMAGE_TLS_CALLBACK = unsafe extern "system" fn(dllhandle: *mut ::std::ffi::c_void, reason: u32, reserved: *mut ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -19412,8 +19679,14 @@ unsafe impl ::windows::runtime::Abi for POINTQF {
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::std::ffi::c_void, entries: *mut u32, functions: *mut *mut IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -21319,7 +21592,6 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union PROCESS_HEAP_ENTRY_0 {
     pub Block: PROCESS_HEAP_ENTRY_0_0,
     pub Region: PROCESS_HEAP_ENTRY_0_1,
@@ -21347,7 +21619,6 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct PROCESS_HEAP_ENTRY_0_0 {
     pub hMem: super::super::Foundation::HANDLE,
     pub dwReserved: [u32; 3],
@@ -21380,30 +21651,36 @@ unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut ::std::ffi::c_void,
     pub lpLastBlock: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PROCESS_HEAP_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PROCESS_HEAP_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Region_e__Struct").field("dwCommittedSize", &self.dwCommittedSize).field("dwUnCommittedSize", &self.dwUnCommittedSize).field("lpFirstBlock", &self.lpFirstBlock).field("lpLastBlock", &self.lpLastBlock).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwCommittedSize == other.dwCommittedSize && self.dwUnCommittedSize == other.dwUnCommittedSize && self.lpFirstBlock == other.lpFirstBlock && self.lpLastBlock == other.lpLastBlock
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESS_HEAP_ENTRY_0_1 {
     type Abi = Self;
 }
@@ -21725,49 +22002,60 @@ unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PROCESS_MITIGATION_DEP_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PROCESS_MITIGATION_DEP_POLICY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     type Abi = Self;
 }
@@ -22720,14 +23008,27 @@ pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64);
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "x86_64",))]
+#[cfg(feature = "Win32_Foundation")]
+pub type PTERMINATION_HANDLER = unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = unsafe extern "system" fn(objectcontext: *mut ::std::ffi::c_void, cleanupcontext: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_SIMPLE_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_TIMER_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, timer: *mut TP_TIMER);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_WAIT_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PTP_WORK_CALLBACK = unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::std::ffi::c_void, work: *mut TP_WORK);
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PUMS_SCHEDULER_ENTRY_POINT = unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PcTeb: u32 = 24u32;
@@ -22920,6 +23221,7 @@ unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
@@ -22928,23 +23230,29 @@ pub struct REARRANGE_FILE_DATA32 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl REARRANGE_FILE_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for REARRANGE_FILE_DATA32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for REARRANGE_FILE_DATA32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("REARRANGE_FILE_DATA32").field("SourceStartingOffset", &self.SourceStartingOffset).field("TargetOffset", &self.TargetOffset).field("SourceFileHandle", &self.SourceFileHandle).field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for REARRANGE_FILE_DATA32 {
     fn eq(&self, other: &Self) -> bool {
         self.SourceStartingOffset == other.SourceStartingOffset && self.TargetOffset == other.TargetOffset && self.SourceFileHandle == other.SourceFileHandle && self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for REARRANGE_FILE_DATA32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for REARRANGE_FILE_DATA32 {
     type Abi = Self;
 }
@@ -22980,7 +23288,6 @@ unsafe impl ::windows::runtime::Abi for REASON_CONTEXT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union REASON_CONTEXT_0 {
     pub Detailed: REASON_CONTEXT_0_0,
     pub SimpleReasonString: super::super::Foundation::PWSTR,
@@ -23008,7 +23315,6 @@ unsafe impl ::windows::runtime::Abi for REASON_CONTEXT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub struct REASON_CONTEXT_0_0 {
     pub LocalizedReasonModule: super::super::Foundation::HINSTANCE,
     pub LocalizedReasonId: u32,
@@ -23587,8 +23893,8 @@ pub const RTL_UMS_VERSION: u32 = 256u32;
 pub const RTL_VIRTUAL_UNWIND2_VALIDATE_PAC: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Power`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[inline]
 pub unsafe fn RegisterDeviceNotificationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -23602,8 +23908,8 @@ pub unsafe fn RegisterDeviceNotificationA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Power`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Power"))]
 #[inline]
 pub unsafe fn RegisterDeviceNotificationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, notificationfilter: *const ::std::ffi::c_void, flags: super::Power::POWER_SETTING_REGISTER_NOTIFICATION_FLAGS) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -23878,8 +24184,8 @@ pub unsafe fn RtlCompareMemory(source1: *const ::std::ffi::c_void, source2: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: super::super::Foundation::PWSTR, deviceform: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -23922,6 +24228,7 @@ pub unsafe fn RtlCrc64(buffer: *const ::std::ffi::c_void, size: usize, initialcr
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -23935,8 +24242,8 @@ pub unsafe fn RtlDrainNonVolatileFlush(nvtoken: *const ::std::ffi::c_void) -> u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -23951,6 +24258,7 @@ pub unsafe fn RtlExtendCorrelationVector(correlationvector: *mut CORRELATION_VEC
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, size: usize, value: u8, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -23964,8 +24272,8 @@ pub unsafe fn RtlFillNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdes
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -23980,6 +24288,7 @@ pub unsafe fn RtlFirstEntrySList(listhead: *const super::Kernel::SLIST_HEADER) -
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbuffer: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -23994,6 +24303,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvbu
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void, nvranges: *const NV_MEMORY_RANGE, numranges: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -24008,6 +24318,7 @@ pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const ::std::ffi::c_void
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlFreeNonVolatileToken(nvtoken: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -24036,6 +24347,7 @@ pub unsafe fn RtlGetDeviceFamilyInfoEnum(pulluapinfo: *mut u64, puldevicefamily:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: usize, nvtoken: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -24049,8 +24361,8 @@ pub unsafe fn RtlGetNonVolatileToken(nvbuffer: *const ::std::ffi::c_void, size: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlGetProductInfo(osmajorversion: u32, osminorversion: u32, spmajorversion: u32, spminorversion: u32, returnedproducttype: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -24092,8 +24404,8 @@ pub unsafe fn RtlGetSystemGlobalData(dataid: RTL_SYSTEM_GLOBAL_DATA_ID, buffer: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -24107,8 +24419,8 @@ pub unsafe fn RtlIncrementCorrelationVector(correlationvector: *mut CORRELATION_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION_VECTOR, version: i32, guid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -24122,8 +24434,8 @@ pub unsafe fn RtlInitializeCorrelationVector(correlationvector: *mut CORRELATION
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
     #[cfg(windows)]
@@ -24137,8 +24449,8 @@ pub unsafe fn RtlInitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -24152,8 +24464,8 @@ pub unsafe fn RtlInterlockedFlushSList(listhead: *mut super::Kernel::SLIST_HEADE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HEADER) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -24167,8 +24479,8 @@ pub unsafe fn RtlInterlockedPopEntrySList(listhead: *mut super::Kernel::SLIST_HE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_HEADER, listentry: *mut super::Kernel::SLIST_ENTRY) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -24182,8 +24494,8 @@ pub unsafe fn RtlInterlockedPushEntrySList(listhead: *mut super::Kernel::SLIST_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_HEADER, list: *mut super::Kernel::SLIST_ENTRY, listend: *mut super::Kernel::SLIST_ENTRY, count: u32) -> *mut super::Kernel::SLIST_ENTRY {
     #[cfg(windows)]
@@ -24197,8 +24509,8 @@ pub unsafe fn RtlInterlockedPushListSListEx(listhead: *mut super::Kernel::SLIST_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -24212,8 +24524,8 @@ pub unsafe fn RtlIsZeroMemory(buffer: *const ::std::ffi::c_void, length: usize) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -24241,8 +24553,8 @@ pub unsafe fn RtlOsDeploymentState(flags: u32) -> OS_DEPLOYEMENT_STATE_VALUES {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Kernel`*"]
+#[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
     #[cfg(windows)]
@@ -24256,8 +24568,8 @@ pub unsafe fn RtlQueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
     #[cfg(windows)]
@@ -24271,8 +24583,8 @@ pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 #[inline]
 pub unsafe fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debug::EXCEPTION_RECORD) {
     #[cfg(windows)]
@@ -24286,8 +24598,8 @@ pub unsafe fn RtlRaiseException(exceptionrecord: *const super::Diagnostics::Debu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemInformation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_SystemInformation`*"]
+#[cfg(feature = "Win32_System_SystemInformation")]
 #[inline]
 pub unsafe fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVERSIONINFOEXW, typemask: u32, conditionmask: u64) -> u32 {
     #[cfg(windows)]
@@ -24301,8 +24613,8 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const super::SystemInformation::OSVER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) -> u32 {
     #[cfg(windows)]
@@ -24317,6 +24629,7 @@ pub unsafe fn RtlValidateCorrelationVector(vector: *const CORRELATION_VECTOR) ->
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn RtlWriteNonVolatileMemory(nvtoken: *const ::std::ffi::c_void, nvdestination: *mut ::std::ffi::c_void, source: *const ::std::ffi::c_void, size: usize, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -25552,7 +25865,6 @@ unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_Security`*"]
 pub union SE_TOKEN_USER_0 {
     pub TokenUser: super::super::Security::TOKEN_USER,
     pub User: super::super::Security::SID_AND_ATTRIBUTES,
@@ -25579,29 +25891,28 @@ unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Security")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
 }
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl SE_TOKEN_USER_1 {}
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for SE_TOKEN_USER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for SE_TOKEN_USER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for SE_TOKEN_USER_1 {}
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for SE_TOKEN_USER_1 {
     type Abi = Self;
 }
@@ -25713,6 +26024,7 @@ unsafe impl ::windows::runtime::Abi for SILOOBJECT_BASIC_INFORMATION {
 pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type SORTCOMP = unsafe extern "system" fn(pv1: *const ::std::ffi::c_void, pv2: *const ::std::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
@@ -27198,49 +27510,60 @@ unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3 {
 pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_Threading")]
 pub union TP_CALLBACK_ENVIRON_V3_1 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_1_0,
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl TP_CALLBACK_ENVIRON_V3_1 {}
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::default::Default for TP_CALLBACK_ENVIRON_V3_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1 {}
+#[cfg(feature = "Win32_System_Threading")]
 unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_Threading")]
 pub struct TP_CALLBACK_ENVIRON_V3_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl TP_CALLBACK_ENVIRON_V3_1_0 {}
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::fmt::Debug for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_s_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_System_Threading")]
 impl ::std::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1_0 {}
+#[cfg(feature = "Win32_System_Threading")]
 unsafe impl ::windows::runtime::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
     type Abi = Self;
 }
@@ -27804,6 +28127,7 @@ pub const UNIFIEDBUILDREVISION_MIN: u32 = 0u32;
 pub const UNWIND_CHAIN_LIMIT: u32 = 32u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
@@ -27815,12 +28139,15 @@ pub struct UNWIND_HISTORY_TABLE {
     pub HighAddress: usize,
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl UNWIND_HISTORY_TABLE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for UNWIND_HISTORY_TABLE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("UNWIND_HISTORY_TABLE")
@@ -27835,39 +28162,83 @@ impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE {
     fn eq(&self, other: &Self) -> bool {
         self.Count == other.Count && self.LocalHint == other.LocalHint && self.GlobalHint == other.GlobalHint && self.Search == other.Search && self.Once == other.Once && self.LowAddress == other.LowAddress && self.HighAddress == other.HighAddress && self.Entry == other.Entry
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl UNWIND_HISTORY_TABLE_ENTRY {}
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("UNWIND_HISTORY_TABLE_ENTRY").field("ImageBase", &self.ImageBase).field("FunctionEntry", &self.FunctionEntry).finish()
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry
     }
 }
+#[cfg(any(target_arch = "aarch64",))]
 impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
+#[cfg(any(target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86_64",))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct UNWIND_HISTORY_TABLE_ENTRY {
+    pub ImageBase: usize,
+    pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl UNWIND_HISTORY_TABLE_ENTRY {}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::fmt::Debug for UNWIND_HISTORY_TABLE_ENTRY {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("UNWIND_HISTORY_TABLE_ENTRY").field("ImageBase", &self.ImageBase).field("FunctionEntry", &self.FunctionEntry).finish()
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        self.ImageBase == other.ImageBase && self.FunctionEntry == other.FunctionEntry
+    }
+}
+#[cfg(any(target_arch = "x86_64",))]
+impl ::std::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
+#[cfg(any(target_arch = "x86_64",))]
 unsafe impl ::windows::runtime::Abi for UNWIND_HISTORY_TABLE_ENTRY {
     type Abi = Self;
 }
@@ -27892,8 +28263,8 @@ impl ::std::convert::From<i32> for USER_ACTIVITY_PRESENCE {
 unsafe impl ::windows::runtime::Abi for USER_ACTIVITY_PRESENCE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterDeviceNotification(handle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -28027,6 +28398,7 @@ impl ::std::cmp::Eq for VolLockBroadcast {}
 unsafe impl ::windows::runtime::Abi for VolLockBroadcast {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WAITORTIMERCALLBACK = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: super::super::Foundation::BOOLEAN);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28041,6 +28413,7 @@ pub const WINDDI_MAXSETPALETTECOLORINDEX: u32 = 255u32;
 pub const WINDDI_MAXSETPALETTECOLORS: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WINDDI_MAX_BROADCAST_CONTEXT: u32 = 64u32;
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_UI_DisplayDevices`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
 pub type WNDOBJCHANGEPROC = unsafe extern "system" fn(pwo: *mut super::super::UI::DisplayDevices::WNDOBJ, fl: u32);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
@@ -28065,6 +28438,7 @@ pub const WOC_RGN_SURFACE_DELTA: u32 = 4u32;
 pub const WOC_SPRITE_NO_OVERLAP: u32 = 256u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WOC_SPRITE_OVERLAP: u32 = 128u32;
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type WORKERCALLBACKFUNC = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void);
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const WO_DRAW_NOTIFY: u32 = 64u32;
@@ -28328,6 +28702,7 @@ unsafe impl ::windows::runtime::Abi for XSAVE_CET_U_FORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
@@ -28347,12 +28722,15 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl XSAVE_FORMAT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for XSAVE_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("XSAVE_FORMAT")
@@ -28375,6 +28753,7 @@ impl ::std::fmt::Debug for XSAVE_FORMAT {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for XSAVE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         self.ControlWord == other.ControlWord
@@ -28395,7 +28774,89 @@ impl ::std::cmp::PartialEq for XSAVE_FORMAT {
             && self.Reserved4 == other.Reserved4
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for XSAVE_FORMAT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for XSAVE_FORMAT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct XSAVE_FORMAT {
+    pub ControlWord: u16,
+    pub StatusWord: u16,
+    pub TagWord: u8,
+    pub Reserved1: u8,
+    pub ErrorOpcode: u16,
+    pub ErrorOffset: u32,
+    pub ErrorSelector: u16,
+    pub Reserved2: u16,
+    pub DataOffset: u32,
+    pub DataSelector: u16,
+    pub Reserved3: u16,
+    pub MxCsr: u32,
+    pub MxCsr_Mask: u32,
+    pub FloatRegisters: [M128A; 8],
+    pub XmmRegisters: [M128A; 8],
+    pub Reserved4: [u8; 224],
+}
+#[cfg(any(target_arch = "x86",))]
+impl XSAVE_FORMAT {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for XSAVE_FORMAT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for XSAVE_FORMAT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("XSAVE_FORMAT")
+            .field("ControlWord", &self.ControlWord)
+            .field("StatusWord", &self.StatusWord)
+            .field("TagWord", &self.TagWord)
+            .field("Reserved1", &self.Reserved1)
+            .field("ErrorOpcode", &self.ErrorOpcode)
+            .field("ErrorOffset", &self.ErrorOffset)
+            .field("ErrorSelector", &self.ErrorSelector)
+            .field("Reserved2", &self.Reserved2)
+            .field("DataOffset", &self.DataOffset)
+            .field("DataSelector", &self.DataSelector)
+            .field("Reserved3", &self.Reserved3)
+            .field("MxCsr", &self.MxCsr)
+            .field("MxCsr_Mask", &self.MxCsr_Mask)
+            .field("FloatRegisters", &self.FloatRegisters)
+            .field("XmmRegisters", &self.XmmRegisters)
+            .field("Reserved4", &self.Reserved4)
+            .finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for XSAVE_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        self.ControlWord == other.ControlWord
+            && self.StatusWord == other.StatusWord
+            && self.TagWord == other.TagWord
+            && self.Reserved1 == other.Reserved1
+            && self.ErrorOpcode == other.ErrorOpcode
+            && self.ErrorOffset == other.ErrorOffset
+            && self.ErrorSelector == other.ErrorSelector
+            && self.Reserved2 == other.Reserved2
+            && self.DataOffset == other.DataOffset
+            && self.DataSelector == other.DataSelector
+            && self.Reserved3 == other.Reserved3
+            && self.MxCsr == other.MxCsr
+            && self.MxCsr_Mask == other.MxCsr_Mask
+            && self.FloatRegisters == other.FloatRegisters
+            && self.XmmRegisters == other.XmmRegisters
+            && self.Reserved4 == other.Reserved4
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for XSAVE_FORMAT {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for XSAVE_FORMAT {
     type Abi = Self;
 }
@@ -28502,6 +28963,7 @@ unsafe impl ::windows::runtime::Abi for XSTATE_CONFIGURATION_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
@@ -28510,23 +28972,68 @@ pub struct XSTATE_CONTEXT {
     pub Area: *mut XSAVE_AREA,
     pub Buffer: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl XSTATE_CONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for XSTATE_CONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("XSTATE_CONTEXT").field("Mask", &self.Mask).field("Length", &self.Length).field("Reserved1", &self.Reserved1).field("Area", &self.Area).field("Buffer", &self.Buffer).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for XSTATE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         self.Mask == other.Mask && self.Length == other.Length && self.Reserved1 == other.Reserved1 && self.Area == other.Area && self.Buffer == other.Buffer
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for XSTATE_CONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::runtime::Abi for XSTATE_CONTEXT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_System_SystemServices`*"]
+pub struct XSTATE_CONTEXT {
+    pub Mask: u64,
+    pub Length: u32,
+    pub Reserved1: u32,
+    pub Area: *mut XSAVE_AREA,
+    pub Reserved2: u32,
+    pub Buffer: *mut ::std::ffi::c_void,
+    pub Reserved3: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+impl XSTATE_CONTEXT {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for XSTATE_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::fmt::Debug for XSTATE_CONTEXT {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("XSTATE_CONTEXT").field("Mask", &self.Mask).field("Length", &self.Length).field("Reserved1", &self.Reserved1).field("Area", &self.Area).field("Reserved2", &self.Reserved2).field("Buffer", &self.Buffer).field("Reserved3", &self.Reserved3).finish()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for XSTATE_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        self.Mask == other.Mask && self.Length == other.Length && self.Reserved1 == other.Reserved1 && self.Area == other.Area && self.Reserved2 == other.Reserved2 && self.Buffer == other.Buffer && self.Reserved3 == other.Reserved3
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for XSTATE_CONTEXT {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for XSTATE_CONTEXT {
     type Abi = Self;
 }
@@ -29678,7 +30185,6 @@ unsafe impl ::windows::runtime::Abi for userCLIPFORMAT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`*"]
 pub union userCLIPFORMAT_0 {
     pub dwValue: u32,
     pub pwszName: super::super::Foundation::PWSTR,
@@ -29779,7 +30285,6 @@ unsafe impl ::windows::runtime::Abi for userHENHMETAFILE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHENHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
@@ -29836,7 +30341,6 @@ unsafe impl ::windows::runtime::Abi for userHGLOBAL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHGLOBAL_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::FLAGGED_BYTE_BLOB,
@@ -29893,7 +30397,6 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHMETAFILE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::Com::BYTE_BLOB,
@@ -29950,7 +30453,6 @@ unsafe impl ::windows::runtime::Abi for userHMETAFILEPICT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_System_Com`*"]
 pub union userHMETAFILEPICT_0 {
     pub hInproc: i32,
     pub hRemote: *mut remoteMETAFILEPICT,
@@ -30007,7 +30509,6 @@ unsafe impl ::windows::runtime::Abi for userHPALETTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Graphics_Gdi`*"]
 pub union userHPALETTE_0 {
     pub hInproc: i32,
     pub hRemote: *mut super::super::Graphics::Gdi::LOGPALETTE,

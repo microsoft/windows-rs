@@ -163,8 +163,8 @@ pub const EISAFLAG_NO_IO_MERGE: u32 = 1u32;
 pub const EISAFLAG_SLOT_IO_FIRST: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRegistryValueWithFallbackW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hkeyprimary: Param0,
@@ -336,6 +336,7 @@ pub const PIR_STATUS_TABLE_REALMODE: u32 = 2u32;
 pub const PIR_STATUS_TABLE_REGISTRY: u32 = 0u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const PIR_STATUS_TABLE_SUCCESS: u32 = 6u32;
+#[doc = "*Required features: `Win32_System_Registry`*"]
 pub type PQUERYHANDLER = unsafe extern "system" fn(keycontext: *mut ::std::ffi::c_void, val_list: *mut val_context, num_vals: u32, outputbuffer: *mut ::std::ffi::c_void, total_outlen: *mut u32, input_blen: u32) -> u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const PROVIDER_KEEPS_VALUE_LENGTH: u32 = 1u32;
@@ -735,8 +736,8 @@ pub const RRF_SUBKEY_WOW6464KEY: u32 = 65536u32;
 pub const RRF_WOW64_MASK: u32 = 196608u32;
 #[doc = "*Required features: `Win32_System_Registry`*"]
 pub const RRF_ZEROONFAILURE: u32 = 536870912u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -750,8 +751,8 @@ pub unsafe fn RegCloseKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegConnectRegistryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -765,8 +766,8 @@ pub unsafe fn RegConnectRegistryA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegConnectRegistryExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, flags: u32, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -780,8 +781,8 @@ pub unsafe fn RegConnectRegistryExA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegConnectRegistryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, flags: u32, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -795,8 +796,8 @@ pub unsafe fn RegConnectRegistryExW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegConnectRegistryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, HKEY>>(lpmachinename: Param0, hkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -810,8 +811,8 @@ pub unsafe fn RegConnectRegistryW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegCopyTreeA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, HKEY>>(hkeysrc: Param0, lpsubkey: Param1, hkeydest: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -825,8 +826,8 @@ pub unsafe fn RegCopyTreeA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegCopyTreeW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, HKEY>>(hkeysrc: Param0, lpsubkey: Param1, hkeydest: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -840,8 +841,8 @@ pub unsafe fn RegCopyTreeW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegCreateKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -855,8 +856,8 @@ pub unsafe fn RegCreateKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hkey: Param0,
@@ -890,8 +891,8 @@ pub unsafe fn RegCreateKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hkey: Param0,
@@ -925,8 +926,8 @@ pub unsafe fn RegCreateKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     hkey: Param0,
@@ -964,8 +965,8 @@ pub unsafe fn RegCreateKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(
     hkey: Param0,
@@ -1003,8 +1004,8 @@ pub unsafe fn RegCreateKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegCreateKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1018,8 +1019,8 @@ pub unsafe fn RegCreateKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1033,8 +1034,8 @@ pub unsafe fn RegDeleteKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1048,8 +1049,8 @@ pub unsafe fn RegDeleteKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1063,8 +1064,8 @@ pub unsafe fn RegDeleteKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32, htransaction: Param4, pextendedparameter: *mut ::std::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1078,8 +1079,8 @@ pub unsafe fn RegDeleteKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, samdesired: u32, reserved: u32, htransaction: Param4, pextendedparameter: *mut ::std::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1093,8 +1094,8 @@ pub unsafe fn RegDeleteKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1108,8 +1109,8 @@ pub unsafe fn RegDeleteKeyValueA<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1123,8 +1124,8 @@ pub unsafe fn RegDeleteKeyValueW<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1138,8 +1139,8 @@ pub unsafe fn RegDeleteKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteTreeA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1153,8 +1154,8 @@ pub unsafe fn RegDeleteTreeA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteTreeW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1168,8 +1169,8 @@ pub unsafe fn RegDeleteTreeW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1183,8 +1184,8 @@ pub unsafe fn RegDeleteValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDeleteValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1198,8 +1199,8 @@ pub unsafe fn RegDeleteValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1213,8 +1214,8 @@ pub unsafe fn RegDisablePredefinedCache() -> super::super::Foundation::LSTATUS {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegDisablePredefinedCacheEx() -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1256,8 +1257,8 @@ pub unsafe fn RegEnableReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PSTR, cchname: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1271,8 +1272,8 @@ pub unsafe fn RegEnumKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1286,8 +1287,8 @@ pub unsafe fn RegEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PWSTR, lpcchname: *mut u32, lpreserved: *mut u32, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1301,8 +1302,8 @@ pub unsafe fn RegEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpname: super::super::Foundation::PWSTR, cchname: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1316,8 +1317,8 @@ pub unsafe fn RegEnumKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpvaluename: super::super::Foundation::PSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1331,8 +1332,8 @@ pub unsafe fn RegEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, dwindex: u32, lpvaluename: super::super::Foundation::PWSTR, lpcchvaluename: *mut u32, lpreserved: *mut u32, lptype: *mut u32, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1346,8 +1347,8 @@ pub unsafe fn RegEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegFlushKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1361,8 +1362,8 @@ pub unsafe fn RegFlushKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1376,8 +1377,8 @@ pub unsafe fn RegGetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvalue: Param2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1391,8 +1392,8 @@ pub unsafe fn RegGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvalue: Param2, dwflags: RRF_RT, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1406,8 +1407,8 @@ pub unsafe fn RegGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadAppKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfile: Param0, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1421,8 +1422,8 @@ pub unsafe fn RegLoadAppKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadAppKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfile: Param0, phkresult: *mut HKEY, samdesired: u32, dwoptions: u32, reserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1436,8 +1437,8 @@ pub unsafe fn RegLoadAppKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpfile: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1451,8 +1452,8 @@ pub unsafe fn RegLoadKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpfile: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1466,8 +1467,8 @@ pub unsafe fn RegLoadKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadMUIStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszvalue: Param1, pszoutbuf: super::super::Foundation::PSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: Param6) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1481,8 +1482,8 @@ pub unsafe fn RegLoadMUIStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegLoadMUIStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszvalue: Param1, pszoutbuf: super::super::Foundation::PWSTR, cboutbuf: u32, pcbdata: *mut u32, flags: u32, pszdirectory: Param6) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1496,8 +1497,8 @@ pub unsafe fn RegLoadMUIStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegNotifyChangeKeyValue<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hkey: Param0, bwatchsubtree: Param1, dwnotifyfilter: REG_NOTIFY_FILTER, hevent: Param3, fasynchronous: Param4) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1511,8 +1512,8 @@ pub unsafe fn RegNotifyChangeKeyValue<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1526,8 +1527,8 @@ pub unsafe fn RegOpenCurrentUser(samdesired: u32, phkresult: *mut HKEY) -> super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1541,8 +1542,8 @@ pub unsafe fn RegOpenKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1556,8 +1557,8 @@ pub unsafe fn RegOpenKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1571,8 +1572,8 @@ pub unsafe fn RegOpenKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: Param5, pextendedparemeter: *mut ::std::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1586,8 +1587,8 @@ pub unsafe fn RegOpenKeyTransactedA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hkey: Param0, lpsubkey: Param1, uloptions: u32, samdesired: REG_SAM_FLAGS, phkresult: *mut HKEY, htransaction: Param5, pextendedparemeter: *mut ::std::ffi::c_void) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1601,8 +1602,8 @@ pub unsafe fn RegOpenKeyTransactedW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1616,8 +1617,8 @@ pub unsafe fn RegOpenKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOpenUserClassesRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, dwoptions: u32, samdesired: u32, phkresult: *mut HKEY) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1631,8 +1632,8 @@ pub unsafe fn RegOpenUserClassesRoot<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegOverridePredefKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, hnewhkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1646,8 +1647,8 @@ pub unsafe fn RegOverridePredefKey<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, lpclass: super::super::Foundation::PSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1674,8 +1675,8 @@ pub unsafe fn RegQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, lpclass: super::super::Foundation::PWSTR, lpcchclass: *mut u32, lpreserved: *mut u32, lpcsubkeys: *mut u32, lpcbmaxsubkeylen: *mut u32, lpcbmaxclasslen: *mut u32, lpcvalues: *mut u32, lpcbmaxvaluenamelen: *mut u32, lpcbmaxvaluelen: *mut u32, lpcbsecuritydescriptor: *mut u32, lpftlastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1702,8 +1703,8 @@ pub unsafe fn RegQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, val_list: *mut VALENTA, num_vals: u32, lpvaluebuf: super::super::Foundation::PSTR, ldwtotsize: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1717,8 +1718,8 @@ pub unsafe fn RegQueryMultipleValuesA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, val_list: *mut VALENTW, num_vals: u32, lpvaluebuf: super::super::Foundation::PWSTR, ldwtotsize: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1732,8 +1733,8 @@ pub unsafe fn RegQueryMultipleValuesW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hbase: Param0, bisreflectiondisabled: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]
@@ -1747,8 +1748,8 @@ pub unsafe fn RegQueryReflectionKey<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpdata: super::super::Foundation::PSTR, lpcbdata: *mut i32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1762,8 +1763,8 @@ pub unsafe fn RegQueryValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1777,8 +1778,8 @@ pub unsafe fn RegQueryValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryValueExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1, lpreserved: *mut u32, lptype: *mut REG_VALUE_TYPE, lpdata: *mut u8, lpcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1792,8 +1793,8 @@ pub unsafe fn RegQueryValueExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegQueryValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpdata: super::super::Foundation::PWSTR, lpcbdata: *mut i32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1807,8 +1808,8 @@ pub unsafe fn RegQueryValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegRenameKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkeyname: Param1, lpnewkeyname: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1822,8 +1823,8 @@ pub unsafe fn RegRenameKey<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegReplaceKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpnewfile: Param2, lpoldfile: Param3) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1837,8 +1838,8 @@ pub unsafe fn RegReplaceKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegReplaceKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpnewfile: Param2, lpoldfile: Param3) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1852,8 +1853,8 @@ pub unsafe fn RegReplaceKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegRestoreKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1867,8 +1868,8 @@ pub unsafe fn RegRestoreKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegRestoreKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, dwflags: REG_RESTORE_KEY_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1882,8 +1883,8 @@ pub unsafe fn RegRestoreKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegSaveKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1897,8 +1898,8 @@ pub unsafe fn RegSaveKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegSaveKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1912,8 +1913,8 @@ pub unsafe fn RegSaveKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegSaveKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flags: REG_SAVE_FORMAT) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1927,8 +1928,8 @@ pub unsafe fn RegSaveKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegSaveKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpfile: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1942,8 +1943,8 @@ pub unsafe fn RegSaveKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>>(hkey: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1957,8 +1958,8 @@ pub unsafe fn RegSetKeySecurity<'a, Param0: ::windows::runtime::IntoParam<'a, HK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetKeyValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2, dwtype: u32, lpdata: *const ::std::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1972,8 +1973,8 @@ pub unsafe fn RegSetKeyValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetKeyValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, lpvaluename: Param2, dwtype: u32, lpdata: *const ::std::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -1987,8 +1988,8 @@ pub unsafe fn RegSetKeyValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1, dwtype: REG_VALUE_TYPE, lpdata: Param3, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -2002,8 +2003,8 @@ pub unsafe fn RegSetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpvaluename: Param1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -2017,8 +2018,8 @@ pub unsafe fn RegSetValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetValueExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpvaluename: Param1, reserved: u32, dwtype: REG_VALUE_TYPE, lpdata: *const u8, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -2032,8 +2033,8 @@ pub unsafe fn RegSetValueExW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegSetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1, dwtype: REG_VALUE_TYPE, lpdata: Param3, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -2047,8 +2048,8 @@ pub unsafe fn RegSetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegUnLoadKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -2062,8 +2063,8 @@ pub unsafe fn RegUnLoadKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Registry`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegUnLoadKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, lpsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]

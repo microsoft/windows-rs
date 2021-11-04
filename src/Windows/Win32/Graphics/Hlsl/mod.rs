@@ -98,8 +98,8 @@ pub const D3DCOMPILE_SKIP_OPTIMIZATION: u32 = 4u32;
 pub const D3DCOMPILE_SKIP_VALIDATION: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub const D3DCOMPILE_WARNINGS_ARE_ERRORS: u32 = 262144u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -138,8 +138,8 @@ pub unsafe fn D3DCompile<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -199,8 +199,8 @@ pub unsafe fn D3DCompile2<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     pfilename: Param0,
@@ -224,8 +224,8 @@ pub unsafe fn D3DCompileFromFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADER_DATA, uflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -240,8 +240,8 @@ pub unsafe fn D3DCompressShaders(unumshaders: u32, pshaderdata: *const D3D_SHADE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -256,8 +256,8 @@ pub unsafe fn D3DCreateBlob(size: usize) -> ::windows::runtime::Result<super::Di
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3D11FunctionLinkingGraph> {
     #[cfg(windows)]
@@ -272,8 +272,8 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::Direct3D11::ID3D11Linker> {
     #[cfg(windows)]
@@ -288,8 +288,8 @@ pub unsafe fn D3DCreateLinker() -> ::windows::runtime::Result<super::Direct3D11:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DDecompressShaders(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: *const u32, uflags: u32, ppshaders: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, ptotalshaders: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -303,8 +303,8 @@ pub unsafe fn D3DDecompressShaders(psrcdata: *const ::std::ffi::c_void, srcdatas
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -319,8 +319,8 @@ pub unsafe fn D3DDisassemble<'a, Param3: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D10", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D10`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D10", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D10::ID3D10Effect>>(peffect: Param0, flags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -335,8 +335,8 @@ pub unsafe fn D3DDisassemble10Effect<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: Param3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: *mut usize, ppdisassembly: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -350,8 +350,8 @@ pub unsafe fn D3DDisassembleRegion<'a, Param3: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DGetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -366,8 +366,8 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -382,8 +382,8 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const ::std::ffi::c_void, srcdatasize: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -398,8 +398,8 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -414,8 +414,8 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -444,8 +444,8 @@ pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DLoadModule(psrcdata: *const ::std::ffi::c_void, cbsrcdatasize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3D11Module> {
     #[cfg(windows)]
@@ -460,8 +460,8 @@ pub unsafe fn D3DLoadModule(psrcdata: *const ::std::ffi::c_void, cbsrcdatasize: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DInclude>>(
     psrcdata: *const ::std::ffi::c_void,
@@ -483,8 +483,8 @@ pub unsafe fn D3DPreprocess<'a, Param2: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DReadFileToBlob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pfilename: Param0) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -527,8 +527,8 @@ pub unsafe fn D3DReflectLibrary(psrcdata: *const ::std::ffi::c_void, srcdatasize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DSetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const ::std::ffi::c_void, partsize: usize) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -543,8 +543,8 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const ::std::ffi::c_void, srcdatasize: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3DStripShader(pshaderbytecode: *const ::std::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> ::windows::runtime::Result<super::Direct3D11::ID3DBlob> {
     #[cfg(windows)]
@@ -559,8 +559,8 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const ::std::ffi::c_void, bytecod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 #[inline]
 pub unsafe fn D3DWriteBlobToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Direct3D11::ID3DBlob>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pblob: Param0, pfilename: Param1, boverwrite: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -799,8 +799,8 @@ pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::runtime::GUID, riid: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMalloc>>(pmalloc: Param0, rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -814,8 +814,10 @@ pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_System_Com`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = unsafe extern "system" fn(pmalloc: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`*"]
 pub type DxcCreateInstanceProc = unsafe extern "system" fn(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -2888,9 +2890,12 @@ pub struct IDxcVersionInfo3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pversionstring: *mut *mut i8) -> ::windows::runtime::HRESULT,
 );
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DCompile = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D11::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, pentrypoint: super::super::Foundation::PSTR, ptarget: super::super::Foundation::PSTR, flags1: u32, flags2: u32, ppcode: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DDisassemble = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: super::super::Foundation::PSTR, ppdisassembly: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Hlsl`, `Win32_Foundation`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D11"))]
 pub type pD3DPreprocess = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasize: usize, pfilename: super::super::Foundation::PSTR, pdefines: *const super::Direct3D11::D3D_SHADER_MACRO, pinclude: ::windows::runtime::RawPtr, ppcodetext: *mut ::windows::runtime::RawPtr, pperrormsgs: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;

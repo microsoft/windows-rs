@@ -236,6 +236,7 @@ unsafe impl ::windows::runtime::Abi for APPACTIONFLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct APPBARDATA {
@@ -246,28 +247,72 @@ pub struct APPBARDATA {
     pub rc: super::super::Foundation::RECT,
     pub lParam: super::super::Foundation::LPARAM,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl APPBARDATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for APPBARDATA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for APPBARDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("APPBARDATA").field("cbSize", &self.cbSize).field("hWnd", &self.hWnd).field("uCallbackMessage", &self.uCallbackMessage).field("uEdge", &self.uEdge).field("rc", &self.rc).field("lParam", &self.lParam).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for APPBARDATA {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hWnd == other.hWnd && self.uCallbackMessage == other.uCallbackMessage && self.uEdge == other.uEdge && self.rc == other.rc && self.lParam == other.lParam
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for APPBARDATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for APPBARDATA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct APPBARDATA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uCallbackMessage: u32,
+    pub uEdge: u32,
+    pub rc: super::super::Foundation::RECT,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl APPBARDATA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for APPBARDATA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for APPBARDATA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for APPBARDATA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for APPBARDATA {
     type Abi = Self;
@@ -477,6 +522,7 @@ impl ::std::convert::From<i32> for APPINFODATAFLAGS {
 unsafe impl ::windows::runtime::Abi for APPINFODATAFLAGS {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type APPLET_PROC = unsafe extern "system" fn(hwndcpl: super::super::Foundation::HWND, msg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -687,6 +733,7 @@ pub const ASSOCF_REMAPRUNDLL: i32 = 128i32;
 pub const ASSOCF_VERIFY: i32 = 64i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct ASSOCIATIONELEMENT {
@@ -694,28 +741,69 @@ pub struct ASSOCIATIONELEMENT {
     pub hkClass: super::super::System::Registry::HKEY,
     pub pszClass: super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ASSOCIATIONELEMENT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for ASSOCIATIONELEMENT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::fmt::Debug for ASSOCIATIONELEMENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ASSOCIATIONELEMENT").field("ac", &self.ac).field("hkClass", &self.hkClass).field("pszClass", &self.pszClass).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for ASSOCIATIONELEMENT {
     fn eq(&self, other: &Self) -> bool {
         self.ac == other.ac && self.hkClass == other.hkClass && self.pszClass == other.pszClass
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for ASSOCIATIONELEMENT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for ASSOCIATIONELEMENT {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct ASSOCIATIONELEMENT {
+    pub ac: ASSOCCLASS,
+    pub hkClass: super::super::System::Registry::HKEY,
+    pub pszClass: super::super::Foundation::PWSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ASSOCIATIONELEMENT {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for ASSOCIATIONELEMENT {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for ASSOCIATIONELEMENT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for ASSOCIATIONELEMENT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for ASSOCIATIONELEMENT {
     type Abi = Self;
@@ -947,8 +1035,8 @@ pub unsafe fn AssocCreate<'a, Param0: ::windows::runtime::IntoParam<'a, ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn AssocCreateForClasses<T: ::windows::runtime::Interface>(rgclasses: *const ASSOCIATIONELEMENT, cclasses: u32) -> ::windows::runtime::Result<T> {
     #[cfg(windows)]
@@ -963,8 +1051,8 @@ pub unsafe fn AssocCreateForClasses<T: ::windows::runtime::Interface>(rgclasses:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[inline]
 pub unsafe fn AssocGetDetailsOfPropKey<'a, Param0: ::windows::runtime::IntoParam<'a, IShellFolder>>(psf: Param0, pidl: *const ITEMIDLIST, pkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, pv: *mut super::super::System::Com::VARIANT, pffoundpropkey: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -978,8 +1066,8 @@ pub unsafe fn AssocGetDetailsOfPropKey<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssocGetPerceivedType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszext: Param0, ptype: *mut PERCEIVED, pflag: *mut u32, ppsztype: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -993,8 +1081,8 @@ pub unsafe fn AssocGetPerceivedType<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssocIsDangerous<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszassoc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1008,8 +1096,8 @@ pub unsafe fn AssocIsDangerous<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn AssocQueryKeyA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, key: ASSOCKEY, pszassoc: Param2, pszextra: Param3) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
     #[cfg(windows)]
@@ -1024,8 +1112,8 @@ pub unsafe fn AssocQueryKeyA<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn AssocQueryKeyW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, key: ASSOCKEY, pszassoc: Param2, pszextra: Param3) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
     #[cfg(windows)]
@@ -1040,8 +1128,8 @@ pub unsafe fn AssocQueryKeyW<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssocQueryStringA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, str: ASSOCSTR, pszassoc: Param2, pszextra: Param3, pszout: super::super::Foundation::PSTR, pcchout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1055,8 +1143,8 @@ pub unsafe fn AssocQueryStringA<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn AssocQueryStringByKeyA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(flags: u32, str: ASSOCSTR, hkassoc: Param2, pszextra: Param3, pszout: super::super::Foundation::PSTR, pcchout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1070,8 +1158,8 @@ pub unsafe fn AssocQueryStringByKeyA<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn AssocQueryStringByKeyW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, str: ASSOCSTR, hkassoc: Param2, pszextra: Param3, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1085,8 +1173,8 @@ pub unsafe fn AssocQueryStringByKeyW<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AssocQueryStringW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, str: ASSOCSTR, pszassoc: Param2, pszextra: Param3, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1465,6 +1553,7 @@ impl ::std::cmp::Eq for BASEBROWSERDATAXP {}
 unsafe impl ::windows::runtime::Abi for BASEBROWSERDATAXP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type BFFCALLBACK = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM, lpdata: super::super::Foundation::LPARAM) -> i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -1876,8 +1965,8 @@ impl ::std::convert::From<i32> for CDCONTROLSTATEF {
 unsafe impl ::windows::runtime::Abi for CDCONTROLSTATEF {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn CDefFolderMenu_Create2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::runtime::IntoParam<'a, IShellFolder>>(pidlfolder: *const ITEMIDLIST, hwnd: Param1, cidl: u32, apidl: *const *const ITEMIDLIST, psf: Param4, pfn: ::std::option::Option<LPFNDFMCALLBACK>, nkeys: u32, ahkeys: *const super::super::System::Registry::HKEY) -> ::windows::runtime::Result<IContextMenu> {
     #[cfg(windows)]
@@ -1921,8 +2010,8 @@ impl ::std::cmp::Eq for CIDA {}
 unsafe impl ::windows::runtime::Abi for CIDA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const ITEMIDLIST, cidl: u32, apidl: *const *const ITEMIDLIST) -> ::windows::runtime::Result<super::super::System::Com::IDataObject> {
     #[cfg(windows)]
@@ -3259,8 +3348,8 @@ pub const CTF_UNUSED: i32 = 128i32;
 pub const CTF_WAIT_ALLOWCOM: i32 = 64i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const CTF_WAIT_NO_REENTRANCY: i32 = 512i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChrCmpIA(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3274,8 +3363,8 @@ pub unsafe fn ChrCmpIA(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChrCmpIW(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3289,8 +3378,8 @@ pub unsafe fn ChrCmpIW(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ColorAdjustLuma<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(clrrgb: u32, n: i32, fscale: Param2) -> u32 {
     #[cfg(windows)]
@@ -3332,8 +3421,8 @@ pub unsafe fn ColorRGBToHLS(clrrgb: u32, pwhue: *mut u16, pwluminance: *mut u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommandLineToArgvW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcmdline: Param0, pnumargs: *mut i32) -> *mut super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -3348,8 +3437,8 @@ pub unsafe fn CommandLineToArgvW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 pub const ConflictFolder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(681146540, 41217, 17217, [168, 23, 33, 235, 167, 253, 4, 109]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn ConnectToConnectionPoint<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punk: Param0, riidevent: *const ::windows::runtime::GUID, fconnect: Param2, punktarget: Param3, pdwcookie: *mut u32, ppcpout: *mut ::std::option::Option<super::super::System::Com::IConnectionPoint>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3363,8 +3452,8 @@ pub unsafe fn ConnectToConnectionPoint<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszusersid: Param0, pszusername: Param1, pszprofilepath: super::super::Foundation::PWSTR, cchprofilepath: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3378,8 +3467,8 @@ pub unsafe fn CreateProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_AutoScroll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pad: *mut AUTO_SCROLL_DATA, pptnow: *const super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3393,8 +3482,8 @@ pub unsafe fn DAD_AutoScroll<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_DragEnterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(hwndtarget: Param0, ptstart: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3408,8 +3497,8 @@ pub unsafe fn DAD_DragEnterEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn DAD_DragEnterEx2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(hwndtarget: Param0, ptstart: Param1, pdtobject: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3423,8 +3512,8 @@ pub unsafe fn DAD_DragEnterEx2<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_DragLeave() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3438,8 +3527,8 @@ pub unsafe fn DAD_DragLeave() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_DragMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(pt: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3453,8 +3542,8 @@ pub unsafe fn DAD_DragMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn DAD_SetDragImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::Controls::HIMAGELIST>>(him: Param0, pptoffset: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3468,8 +3557,8 @@ pub unsafe fn DAD_SetDragImage<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DAD_ShowDragImage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(fshow: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4183,6 +4272,7 @@ unsafe impl ::windows::runtime::Abi for DISPLAY_DEVICE_TYPE {
 }
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DLG_SCRNSAVECONFIGURE: u32 = 2003u32;
+#[doc = "*Required features: `Win32_UI_Shell`*"]
 pub type DLLGETVERSIONPROC = unsafe extern "system" fn(param0: *mut DLLVERSIONINFO) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -4256,6 +4346,7 @@ pub const DLLVER_PLATFORM_WINDOWS: u32 = 1u32;
 pub const DLLVER_QFE_MASK: u64 = 65535u64;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct DRAGINFOA {
@@ -4265,34 +4356,78 @@ pub struct DRAGINFOA {
     pub lpFileList: super::super::Foundation::PSTR,
     pub grfKeyState: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DRAGINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DRAGINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRAGINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DRAGINFOA").field("uSize", &self.uSize).field("pt", &self.pt).field("fNC", &self.fNC).field("lpFileList", &self.lpFileList).field("grfKeyState", &self.grfKeyState).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRAGINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.uSize == other.uSize && self.pt == other.pt && self.fNC == other.fNC && self.lpFileList == other.lpFileList && self.grfKeyState == other.grfKeyState
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DRAGINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DRAGINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct DRAGINFOA {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: super::super::Foundation::PSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl DRAGINFOA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DRAGINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DRAGINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DRAGINFOA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRAGINFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct DRAGINFOW {
@@ -4302,28 +4437,71 @@ pub struct DRAGINFOW {
     pub lpFileList: super::super::Foundation::PWSTR,
     pub grfKeyState: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DRAGINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DRAGINFOW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DRAGINFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DRAGINFOW").field("uSize", &self.uSize).field("pt", &self.pt).field("fNC", &self.fNC).field("lpFileList", &self.lpFileList).field("grfKeyState", &self.grfKeyState).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DRAGINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.uSize == other.uSize && self.pt == other.pt && self.fNC == other.fNC && self.lpFileList == other.lpFileList && self.grfKeyState == other.grfKeyState
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DRAGINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for DRAGINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct DRAGINFOW {
+    pub uSize: u32,
+    pub pt: super::super::Foundation::POINT,
+    pub fNC: super::super::Foundation::BOOL,
+    pub lpFileList: super::super::Foundation::PWSTR,
+    pub grfKeyState: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl DRAGINFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for DRAGINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for DRAGINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for DRAGINFOW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DRAGINFOW {
     type Abi = Self;
@@ -4501,8 +4679,8 @@ pub const DWFRF_DELETECONFIGDATA: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const DWFRF_NORMAL: u32 = 0u32;
 pub const DefFolderMenu: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3325264574, 31027, 18640, [154, 200, 133, 251, 70, 190, 47, 221]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefSubclassProc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwnd: Param0, umsg: u32, wparam: Param2, lparam: Param3) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -4516,8 +4694,8 @@ pub unsafe fn DefSubclassProc<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsidstring: Param0, lpprofilepath: Param1, lpcomputername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4531,8 +4709,8 @@ pub unsafe fn DeleteProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsidstring: Param0, lpprofilepath: Param1, lpcomputername: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4549,8 +4727,8 @@ pub unsafe fn DeleteProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super
 pub const DesktopGadget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2454506523, 25954, 19589, [134, 87, 209, 119, 146, 82, 34, 182]);
 pub const DesktopWallpaper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3268358416, 17934, 20417, [185, 208, 138, 28, 12, 156, 196, 189]);
 pub const DestinationList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012286192, 15797, 18790, [181, 32, 183, 197, 79, 211, 94, 214]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DoEnvironmentSubstA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsrc: Param0, cchsrc: u32) -> u32 {
     #[cfg(windows)]
@@ -4564,8 +4742,8 @@ pub unsafe fn DoEnvironmentSubstA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DoEnvironmentSubstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsrc: Param0, cchsrc: u32) -> u32 {
     #[cfg(windows)]
@@ -4579,8 +4757,8 @@ pub unsafe fn DoEnvironmentSubstW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Web_MsHtml`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Web_MsHtml"))]
 #[inline]
 pub unsafe fn DoPrivacyDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Web::MsHtml::IEnumPrivacyRecords>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwndowner: Param0, pszurl: Param1, pprivacyenum: Param2, freportallsites: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4595,8 +4773,8 @@ pub unsafe fn DoPrivacyDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 pub const DocPropShellExtension: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2285073347, 49033, 4561, [190, 53, 8, 0, 54, 177, 26, 3]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragAcceptFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, faccept: Param1) {
     #[cfg(windows)]
@@ -4624,8 +4802,8 @@ pub unsafe fn DragFinish<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragQueryFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP>>(hdrop: Param0, ifile: u32, lpszfile: super::super::Foundation::PSTR, cch: u32) -> u32 {
     #[cfg(windows)]
@@ -4639,8 +4817,8 @@ pub unsafe fn DragQueryFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragQueryFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP>>(hdrop: Param0, ifile: u32, lpszfile: super::super::Foundation::PWSTR, cch: u32) -> u32 {
     #[cfg(windows)]
@@ -4654,8 +4832,8 @@ pub unsafe fn DragQueryFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DragQueryPoint<'a, Param0: ::windows::runtime::IntoParam<'a, HDROP>>(hdrop: Param0, ppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4685,8 +4863,8 @@ pub unsafe fn DriveType(idrive: i32) -> i32 {
     unimplemented!("Unsupported target OS");
 }
 pub const DriveTypeCategorizer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2963862479, 17203, 19371, [136, 115, 28, 203, 28, 173, 164, 139]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn DuplicateIcon<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HICON>>(hinst: Param0, hicon: Param1) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -4972,8 +5150,8 @@ pub const EnumerableObjectCollection: ::windows::runtime::GUID = ::windows::runt
 pub const ExecuteFolder: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299611260, 42277, 16395, [158, 128, 165, 70, 21, 160, 144, 192]);
 pub const ExecuteUnknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3830354984, 48572, 18823, [160, 153, 64, 220, 143, 210, 85, 231]);
 pub const ExplorerBrowser: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1912169349, 56790, 18643, [160, 193, 174, 6, 232, 176, 85, 251]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinst: Param0, psziconpath: Param1, piicon: *mut u16) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -4987,8 +5165,8 @@ pub unsafe fn ExtractAssociatedIconA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinst: Param0, psziconpath: Param1, piiconindex: *mut u16, piiconid: *mut u16) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -5002,8 +5180,8 @@ pub unsafe fn ExtractAssociatedIconExA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, psziconpath: Param1, piiconindex: *mut u16, piiconid: *mut u16) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -5017,8 +5195,8 @@ pub unsafe fn ExtractAssociatedIconExW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, psziconpath: Param1, piicon: *mut u16) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -5032,8 +5210,8 @@ pub unsafe fn ExtractAssociatedIconW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinst: Param0, pszexefilename: Param1, niconindex: u32) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -5047,8 +5225,8 @@ pub unsafe fn ExtractIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractIconExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfile: Param0, niconindex: i32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, nicons: u32) -> u32 {
     #[cfg(windows)]
@@ -5062,8 +5240,8 @@ pub unsafe fn ExtractIconExA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractIconExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfile: Param0, niconindex: i32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, nicons: u32) -> u32 {
     #[cfg(windows)]
@@ -5077,8 +5255,8 @@ pub unsafe fn ExtractIconExW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ExtractIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinst: Param0, pszexefilename: Param1, niconindex: u32) -> super::WindowsAndMessaging::HICON {
     #[cfg(windows)]
@@ -5962,8 +6140,8 @@ pub const FileOpenDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 pub const FileOperation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(986731893, 34903, 18512, [146, 119, 17, 184, 91, 219, 142, 9]);
 pub const FileSaveDialog: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233080051, 47649, 18291, [141, 186, 51, 94, 201, 70, 235, 139]);
 pub const FileSearchBand: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3303944691, 18280, 4562, [190, 92, 0, 160, 201, 168, 61, 161]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindExecutableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfile: Param0, lpdirectory: Param1, lpresult: super::super::Foundation::PSTR) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
@@ -5977,8 +6155,8 @@ pub unsafe fn FindExecutableA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindExecutableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfile: Param0, lpdirectory: Param1, lpresult: super::super::Foundation::PWSTR) -> super::super::Foundation::HINSTANCE {
     #[cfg(windows)]
@@ -7734,8 +7912,8 @@ pub const GPFIDL_DEFAULT: i32 = 0i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const GPFIDL_UNCPRINTER: i32 = 2i32;
 pub const GenericCredentialProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(634108310, 37613, 17790, [178, 140, 71, 116, 8, 75, 213, 98]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAcceptLanguagesA(pszlanguages: super::super::Foundation::PSTR, pcchlanguages: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7749,8 +7927,8 @@ pub unsafe fn GetAcceptLanguagesA(pszlanguages: super::super::Foundation::PSTR, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAcceptLanguagesW(pszlanguages: super::super::Foundation::PWSTR, pcchlanguages: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7764,8 +7942,8 @@ pub unsafe fn GetAcceptLanguagesW(pszlanguages: super::super::Foundation::PWSTR,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllUsersProfileDirectoryA(lpprofiledir: super::super::Foundation::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7779,8 +7957,8 @@ pub unsafe fn GetAllUsersProfileDirectoryA(lpprofiledir: super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllUsersProfileDirectoryW(lpprofiledir: super::super::Foundation::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7794,8 +7972,8 @@ pub unsafe fn GetAllUsersProfileDirectoryW(lpprofiledir: super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentProcessExplicitAppUserModelID() -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -7810,8 +7988,8 @@ pub unsafe fn GetCurrentProcessExplicitAppUserModelID() -> ::windows::runtime::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultUserProfileDirectoryA(lpprofiledir: super::super::Foundation::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7825,8 +8003,8 @@ pub unsafe fn GetDefaultUserProfileDirectoryA(lpprofiledir: super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultUserProfileDirectoryW(lpprofiledir: super::super::Foundation::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7854,8 +8032,8 @@ pub unsafe fn GetDpiForShellUIComponent(param0: SHELL_UI_COMPONENT) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileNameFromBrowse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hwnd: Param0,
@@ -7877,8 +8055,8 @@ pub unsafe fn GetFileNameFromBrowse<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GetMenuContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -7892,8 +8070,8 @@ pub unsafe fn GetMenuContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn GetMenuPosFromID<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>>(hmenu: Param0, id: u32) -> i32 {
     #[cfg(windows)]
@@ -7907,8 +8085,8 @@ pub unsafe fn GetMenuPosFromID<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfileType(dwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7922,8 +8100,8 @@ pub unsafe fn GetProfileType(dwflags: *mut u32) -> super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfilesDirectoryA(lpprofiledir: super::super::Foundation::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7937,8 +8115,8 @@ pub unsafe fn GetProfilesDirectoryA(lpprofiledir: super::super::Foundation::PSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProfilesDirectoryW(lpprofiledir: super::super::Foundation::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7966,8 +8144,8 @@ pub unsafe fn GetScaleFactorForDevice(devicetype: DISPLAY_DEVICE_TYPE) -> DEVICE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetScaleFactorForMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmon: Param0) -> ::windows::runtime::Result<DEVICE_SCALE_FACTOR> {
     #[cfg(windows)]
@@ -7982,8 +8160,8 @@ pub unsafe fn GetScaleFactorForMonitor<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserProfileDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofiledir: super::super::Foundation::PSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7997,8 +8175,8 @@ pub unsafe fn GetUserProfileDirectoryA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserProfileDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofiledir: super::super::Foundation::PWSTR, lpcchsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8012,8 +8190,8 @@ pub unsafe fn GetUserProfileDirectoryW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0) -> u32 {
     #[cfg(windows)]
@@ -8027,8 +8205,8 @@ pub unsafe fn GetWindowContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowSubclass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::std::option::Option<SUBCLASSPROC>, uidsubclass: usize, pdwrefdata: *mut usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8560,8 +8738,8 @@ impl ::std::convert::From<i32> for HLTB_INFO {
 unsafe impl ::windows::runtime::Abi for HLTB_INFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR) {
     #[cfg(windows)]
@@ -8575,8 +8753,8 @@ pub unsafe fn HMONITOR_UserFree(param0: *const u32, param1: *const super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HMONITOR) {
     #[cfg(windows)]
@@ -8590,8 +8768,8 @@ pub unsafe fn HMONITOR_UserFree64(param0: *const u32, param1: *const super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
     #[cfg(windows)]
@@ -8605,8 +8783,8 @@ pub unsafe fn HMONITOR_UserMarshal(param0: *const u32, param1: *mut u8, param2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
     #[cfg(windows)]
@@ -8620,8 +8798,8 @@ pub unsafe fn HMONITOR_UserMarshal64(param0: *const u32, param1: *mut u8, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HMONITOR) -> u32 {
     #[cfg(windows)]
@@ -8635,8 +8813,8 @@ pub unsafe fn HMONITOR_UserSize(param0: *const u32, param1: u32, param2: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HMONITOR) -> u32 {
     #[cfg(windows)]
@@ -8650,8 +8828,8 @@ pub unsafe fn HMONITOR_UserSize64(param0: *const u32, param1: u32, param2: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
     #[cfg(windows)]
@@ -8665,8 +8843,8 @@ pub unsafe fn HMONITOR_UserUnmarshal(param0: *const u32, param1: *const u8, para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HMONITOR_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HMONITOR) -> *mut u8 {
     #[cfg(windows)]
@@ -8753,8 +8931,8 @@ pub unsafe fn HlinkCreateBrowseContext<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkCreateExtensionServices<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pwzadditionalheaders: Param0,
@@ -8776,8 +8954,8 @@ pub unsafe fn HlinkCreateExtensionServices<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>, Param1: ::windows::runtime::IntoParam<'a, IHlinkSite>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pidataobj: Param0, pihlsite: Param1, dwsitedata: u32, piunkouter: Param3, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8791,8 +8969,8 @@ pub unsafe fn HlinkCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkCreateFromMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IHlinkSite>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pimktrgt: Param0,
@@ -8815,8 +8993,8 @@ pub unsafe fn HlinkCreateFromMoniker<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkCreateFromString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IHlinkSite>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pwztarget: Param0,
@@ -8839,8 +9017,8 @@ pub unsafe fn HlinkCreateFromString<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkCreateShortcut<'a, Param1: ::windows::runtime::IntoParam<'a, IHlink>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(grfhlshortcutf: u32, pihl: Param1, pwzdir: Param2, pwzfilename: Param3, ppwzshortcutfile: *mut super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8854,8 +9032,8 @@ pub unsafe fn HlinkCreateShortcut<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkCreateShortcutFromMoniker<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     grfhlshortcutf: u32,
@@ -8877,8 +9055,8 @@ pub unsafe fn HlinkCreateShortcutFromMoniker<'a, Param1: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkCreateShortcutFromString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     grfhlshortcutf: u32,
@@ -8900,8 +9078,8 @@ pub unsafe fn HlinkCreateShortcutFromString<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkGetSpecialReference(ureference: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -8916,8 +9094,8 @@ pub unsafe fn HlinkGetSpecialReference(ureference: u32) -> ::windows::runtime::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkGetValueFromParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzparams: Param0, pwzname: Param1) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -8932,8 +9110,8 @@ pub unsafe fn HlinkGetValueFromParams<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkIsShortcut<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzfilename: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8947,8 +9125,8 @@ pub unsafe fn HlinkIsShortcut<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, IHlink>, Param1: ::windows::runtime::IntoParam<'a, IHlinkFrame>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindStatusCallback>, Param5: ::windows::runtime::IntoParam<'a, IHlinkBrowseContext>>(pihl: Param0, pihlframe: Param1, grfhlnf: u32, pbc: Param3, pibsc: Param4, pihlbc: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8962,8 +9140,8 @@ pub unsafe fn HlinkNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, IHlink
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkNavigateToStringReference<
     'a,
@@ -8996,8 +9174,8 @@ pub unsafe fn HlinkNavigateToStringReference<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkOnNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, IHlinkFrame>, Param1: ::windows::runtime::IntoParam<'a, IHlinkBrowseContext>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pihlframe: Param0,
@@ -9019,8 +9197,8 @@ pub unsafe fn HlinkOnNavigate<'a, Param0: ::windows::runtime::IntoParam<'a, IHli
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkOnRenameDocument<'a, Param1: ::windows::runtime::IntoParam<'a, IHlinkBrowseContext>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>>(dwreserved: u32, pihlbc: Param1, pimkold: Param2, pimknew: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9034,8 +9212,8 @@ pub unsafe fn HlinkOnRenameDocument<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pibc: Param0, pwzdisplayname: Param1, fnoforceabs: Param2, pccheaten: *mut u32, ppimk: *mut ::std::option::Option<super::super::System::Com::IMoniker>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9049,8 +9227,8 @@ pub unsafe fn HlinkParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkPreprocessMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>>(pibc: Param0, pimkin: Param1) -> ::windows::runtime::Result<super::super::System::Com::IMoniker> {
     #[cfg(windows)]
@@ -9065,8 +9243,8 @@ pub unsafe fn HlinkPreprocessMoniker<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pidataobj: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9080,8 +9258,8 @@ pub unsafe fn HlinkQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn HlinkResolveMonikerForData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>, Param5: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindStatusCallback>, Param6: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>>(
     pimkreference: Param0,
@@ -9103,8 +9281,8 @@ pub unsafe fn HlinkResolveMonikerForData<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkResolveShortcut<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IHlinkSite>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pwzshortcutfilename: Param0, pihlsite: Param1, dwsitedata: u32, piunkouter: Param3, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9118,8 +9296,8 @@ pub unsafe fn HlinkResolveShortcut<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkResolveShortcutToMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzshortcutfilename: Param0, ppimktarget: *mut ::std::option::Option<super::super::System::Com::IMoniker>, ppwzlocation: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9133,8 +9311,8 @@ pub unsafe fn HlinkResolveShortcutToMoniker<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkResolveShortcutToString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzshortcutfilename: Param0, ppwztarget: *mut super::super::Foundation::PWSTR, ppwzlocation: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9148,8 +9326,8 @@ pub unsafe fn HlinkResolveShortcutToString<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkResolveStringForData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>, Param5: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindStatusCallback>, Param6: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>>(
     pwzreference: Param0,
@@ -9171,8 +9349,8 @@ pub unsafe fn HlinkResolveStringForData<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkSetSpecialReference<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ureference: u32, pwzreference: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9186,8 +9364,8 @@ pub unsafe fn HlinkSetSpecialReference<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkTranslateURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzurl: Param0, grfflags: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -9202,8 +9380,8 @@ pub unsafe fn HlinkTranslateURL<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn HlinkUpdateStackItem<'a, Param0: ::windows::runtime::IntoParam<'a, IHlinkFrame>, Param1: ::windows::runtime::IntoParam<'a, IHlinkBrowseContext>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IMoniker>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pihlframe: Param0,
@@ -24848,8 +25026,8 @@ pub struct IKnownFolderManager_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rfid: *const ::windows::runtime::GUID, hwnd: super::super::Foundation::HWND, flags: u32, psztargetpath: super::super::Foundation::PWSTR, cfolders: u32, pexclusion: *const ::windows::runtime::GUID, ppszerror: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILAppendID<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pidl: *const ITEMIDLIST, pmkid: *const SHITEMID, fappend: Param2) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -24905,8 +25083,8 @@ pub unsafe fn ILCombine(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST) -> *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILCreateFromPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -24920,8 +25098,8 @@ pub unsafe fn ILCreateFromPathA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILCreateFromPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -25005,8 +25183,8 @@ pub unsafe fn ILGetSize(pidl: *const ITEMIDLIST) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILIsEqual(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -25020,8 +25198,8 @@ pub unsafe fn ILIsEqual(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST) -> s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILIsParent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pidl1: *const ITEMIDLIST, pidl2: *const ITEMIDLIST, fimmediate: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -25035,8 +25213,8 @@ pub unsafe fn ILIsParent<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ILLoadFromStreamEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> ::windows::runtime::Result<*mut ITEMIDLIST> {
     #[cfg(windows)]
@@ -25053,8 +25231,8 @@ pub unsafe fn ILLoadFromStreamEx<'a, Param0: ::windows::runtime::IntoParam<'a, s
 }
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const ILMM_IE4: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ILRemoveLastID(pidl: *mut ITEMIDLIST) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -25068,8 +25246,8 @@ pub unsafe fn ILRemoveLastID(pidl: *mut ITEMIDLIST) -> super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn ILSaveToStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0, pidl: *const ITEMIDLIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37795,8 +37973,8 @@ pub struct IStreamUnbufferedInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbsectorsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_Copy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstmfrom: Param0, pstmto: Param1, cb: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37810,8 +37988,8 @@ pub unsafe fn IStream_Copy<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0, pv: *mut ::std::ffi::c_void, cb: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37825,8 +38003,8 @@ pub unsafe fn IStream_Read<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_ReadPidl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> ::windows::runtime::Result<*mut ITEMIDLIST> {
     #[cfg(windows)]
@@ -37841,8 +38019,8 @@ pub unsafe fn IStream_ReadPidl<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn IStream_ReadStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -37857,8 +38035,8 @@ pub unsafe fn IStream_ReadStr<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_Reset<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37872,8 +38050,8 @@ pub unsafe fn IStream_Reset<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_Size<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -37888,8 +38066,8 @@ pub unsafe fn IStream_Size<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_Write<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0, pv: *const ::std::ffi::c_void, cb: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37903,8 +38081,8 @@ pub unsafe fn IStream_Write<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn IStream_WritePidl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstm: Param0, pidlwrite: *const ITEMIDLIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -37918,8 +38096,8 @@ pub unsafe fn IStream_WritePidl<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn IStream_WriteStr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pstm: Param0, psz: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -42118,8 +42296,8 @@ pub unsafe fn IUnknown_GetSite<'a, Param0: ::windows::runtime::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IUnknown_GetWindow<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(punk: Param0) -> ::windows::runtime::Result<super::super::Foundation::HWND> {
     #[cfg(windows)]
@@ -43266,8 +43444,8 @@ pub const Identity_LocalUserProvider: ::windows::runtime::GUID = ::windows::runt
 pub const ImageProperties: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2058842311, 3619, 19834, [138, 162, 25, 191, 173, 71, 152, 41]);
 pub const ImageRecompress: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1848838428, 54008, 18240, [181, 94, 46, 17, 209, 71, 122, 44]);
 pub const ImageTranscode: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(397889894, 37519, 16765, [150, 133, 100, 170, 19, 85, 101, 193]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImportPrivacySettings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, pfparseprivacypreferences: *mut super::super::Foundation::BOOL, pfparsepersiterules: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43281,8 +43459,8 @@ pub unsafe fn ImportPrivacySettings<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitNetworkAddressControl() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43298,8 +43476,8 @@ pub unsafe fn InitNetworkAddressControl() -> super::super::Foundation::BOOL {
 }
 pub const InputPanelConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(676572627, 61590, 19555, [167, 143, 127, 163, 234, 131, 127, 183]);
 pub const InternetPrintOrdering: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2916313768, 29978, 17785, [162, 102, 214, 111, 82, 2, 204, 187]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IntlStrEqWorkerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fcasesens: Param0, lpstring1: Param1, lpstring2: Param2, nchar: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43313,8 +43491,8 @@ pub unsafe fn IntlStrEqWorkerA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IntlStrEqWorkerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fcasesens: Param0, lpstring1: Param1, lpstring2: Param2, nchar: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43328,8 +43506,8 @@ pub unsafe fn IntlStrEqWorkerW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsCharSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(wch: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43343,8 +43521,8 @@ pub unsafe fn IsCharSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsCharSpaceW(wch: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43358,8 +43536,8 @@ pub unsafe fn IsCharSpaceW(wch: u16) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsInternetESCEnabled() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43373,8 +43551,8 @@ pub unsafe fn IsInternetESCEnabled() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLFNDriveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43388,8 +43566,8 @@ pub unsafe fn IsLFNDriveA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLFNDriveW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43417,8 +43595,8 @@ pub unsafe fn IsNetDrive(idrive: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsOS(dwos: OS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43432,8 +43610,8 @@ pub unsafe fn IsOS(dwos: OS) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsUserAnAdmin() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43644,12 +43822,14 @@ pub const LIBRARY_E_NO_ACCESSIBLE_LOCATION: ::windows::runtime::HRESULT = ::wind
 pub const LIBRARY_E_NO_SAVE_LOCATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927232i32 as _);
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const LINK_E_DELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2144927485i32 as _);
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub type LPFNDFMCALLBACK = unsafe extern "system" fn(psf: ::windows::runtime::RawPtr, hwnd: super::super::Foundation::HWND, pdtobj: ::windows::runtime::RawPtr, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNVIEWCALLBACK = unsafe extern "system" fn(psvouter: ::windows::runtime::RawPtr, psf: ::windows::runtime::RawPtr, hwndmain: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::runtime::HRESULT;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUserProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofileinfo: *mut PROFILEINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -43663,8 +43843,8 @@ pub unsafe fn LoadUserProfileA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadUserProfileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, lpprofileinfo: *mut PROFILEINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -44082,6 +44262,7 @@ pub const NIS_HIDDEN: u32 = 1u32;
 pub const NIS_SHAREDICON: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct NOTIFYICONDATAA {
@@ -44101,50 +44282,147 @@ pub struct NOTIFYICONDATAA {
     pub guidItem: ::windows::runtime::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl NOTIFYICONDATAA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for NOTIFYICONDATAA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for NOTIFYICONDATAA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for NOTIFYICONDATAA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Shell`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl NOTIFYICONDATAA_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for NOTIFYICONDATAA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for NOTIFYICONDATAA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for NOTIFYICONDATAA_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct NOTIFYICONDATAA {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [super::super::Foundation::CHAR; 128],
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szInfo: [super::super::Foundation::CHAR; 256],
+    pub Anonymous: NOTIFYICONDATAA_0,
+    pub szInfoTitle: [super::super::Foundation::CHAR; 64],
+    pub dwInfoFlags: u32,
+    pub guidItem: ::windows::runtime::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union NOTIFYICONDATAA_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAA_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAA_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAA_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAA_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct NOTIFYICONDATAW {
@@ -44164,50 +44442,147 @@ pub struct NOTIFYICONDATAW {
     pub guidItem: ::windows::runtime::GUID,
     pub hBalloonIcon: super::WindowsAndMessaging::HICON,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl NOTIFYICONDATAW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for NOTIFYICONDATAW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for NOTIFYICONDATAW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for NOTIFYICONDATAW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Shell`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl NOTIFYICONDATAW_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for NOTIFYICONDATAW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for NOTIFYICONDATAW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for NOTIFYICONDATAW_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct NOTIFYICONDATAW {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub uFlags: NOTIFY_ICON_DATA_FLAGS,
+    pub uCallbackMessage: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub szTip: [u16; 128],
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szInfo: [u16; 256],
+    pub Anonymous: NOTIFYICONDATAW_0,
+    pub szInfoTitle: [u16; 64],
+    pub dwInfoFlags: u32,
+    pub guidItem: ::windows::runtime::GUID,
+    pub hBalloonIcon: super::WindowsAndMessaging::HICON,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub union NOTIFYICONDATAW_0 {
+    pub uTimeout: u32,
+    pub uVersion: u32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl NOTIFYICONDATAW_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for NOTIFYICONDATAW_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for NOTIFYICONDATAW_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for NOTIFYICONDATAW_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for NOTIFYICONDATAW_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct NOTIFYICONIDENTIFIER {
@@ -44216,28 +44591,70 @@ pub struct NOTIFYICONIDENTIFIER {
     pub uID: u32,
     pub guidItem: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl NOTIFYICONIDENTIFIER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NOTIFYICONIDENTIFIER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NOTIFYICONIDENTIFIER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NOTIFYICONIDENTIFIER").field("cbSize", &self.cbSize).field("hWnd", &self.hWnd).field("uID", &self.uID).field("guidItem", &self.guidItem).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NOTIFYICONIDENTIFIER {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hWnd == other.hWnd && self.uID == other.uID && self.guidItem == other.guidItem
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NOTIFYICONIDENTIFIER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for NOTIFYICONIDENTIFIER {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct NOTIFYICONIDENTIFIER {
+    pub cbSize: u32,
+    pub hWnd: super::super::Foundation::HWND,
+    pub uID: u32,
+    pub guidItem: ::windows::runtime::GUID,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl NOTIFYICONIDENTIFIER {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for NOTIFYICONIDENTIFIER {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for NOTIFYICONIDENTIFIER {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for NOTIFYICONIDENTIFIER {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NOTIFYICONIDENTIFIER {
     type Abi = Self;
@@ -44682,6 +45099,7 @@ impl ::std::ops::Not for OPEN_AS_INFO_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct OPEN_PRINTER_PROPS_INFOA {
@@ -44691,34 +45109,78 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPEN_PRINTER_PROPS_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OPEN_PRINTER_PROPS_INFOA").field("dwSize", &self.dwSize).field("pszSheetName", &self.pszSheetName).field("uSheetIndex", &self.uSheetIndex).field("dwFlags", &self.dwFlags).field("bModal", &self.bModal).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.pszSheetName == other.pszSheetName && self.uSheetIndex == other.uSheetIndex && self.dwFlags == other.dwFlags && self.bModal == other.bModal
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct OPEN_PRINTER_PROPS_INFOA {
+    pub dwSize: u32,
+    pub pszSheetName: super::super::Foundation::PSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct OPEN_PRINTER_PROPS_INFOW {
@@ -44728,28 +45190,71 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwFlags: u32,
     pub bModal: super::super::Foundation::BOOL,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPEN_PRINTER_PROPS_INFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OPEN_PRINTER_PROPS_INFOW").field("dwSize", &self.dwSize).field("pszSheetName", &self.pszSheetName).field("uSheetIndex", &self.uSheetIndex).field("dwFlags", &self.dwFlags).field("bModal", &self.bModal).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOW {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize && self.pszSheetName == other.pszSheetName && self.uSheetIndex == other.uSheetIndex && self.dwFlags == other.dwFlags && self.bModal == other.bModal
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct OPEN_PRINTER_PROPS_INFOW {
+    pub dwSize: u32,
+    pub pszSheetName: super::super::Foundation::PWSTR,
+    pub uSheetIndex: u32,
+    pub dwFlags: u32,
+    pub bModal: super::super::Foundation::BOOL,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for OPEN_PRINTER_PROPS_INFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for OPEN_PRINTER_PROPS_INFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for OPEN_PRINTER_PROPS_INFOW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_PRINTER_PROPS_INFOW {
     type Abi = Self;
@@ -44847,8 +45352,8 @@ impl ::std::convert::From<i32> for OfflineFolderStatus {
 unsafe impl ::windows::runtime::Abi for OfflineFolderStatus {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleSaveToStreamEx<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(piunk: Param0, pistm: Param1, fcleardirty: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -44865,8 +45370,8 @@ pub unsafe fn OleSaveToStreamEx<'a, Param0: ::windows::runtime::IntoParam<'a, ::
 pub const OnexCredentialProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(128583814, 52365, 19993, [164, 16, 28, 117, 175, 104, 110, 98]);
 pub const OnexPlapSmartcardCredentialProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(868773078, 28767, 19361, [154, 219, 103, 7, 11, 131, 119, 117]);
 pub const OpenControlPanel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107097477, 26710, 17504, [141, 225, 168, 25, 33, 180, 28, 75]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn OpenRegStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, grfmode: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -44913,8 +45418,10 @@ pub const PANE_PROGRESS: u32 = 6u32;
 pub const PANE_SSL: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const PANE_ZONE: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPCONSTRAIN_CHANGE_ROUTINE = unsafe extern "system" fn(constrained: super::super::Foundation::BOOLEAN, context: *const ::std::ffi::c_void);
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PAPPSTATE_CHANGE_ROUTINE = unsafe extern "system" fn(quiesced: super::super::Foundation::BOOLEAN, context: *const ::std::ffi::c_void);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -45138,8 +45645,10 @@ impl ::std::cmp::Eq for PERSIST_FOLDER_TARGET_INFO {}
 unsafe impl ::windows::runtime::Abi for PERSIST_FOLDER_TARGET_INFO {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNCANSHAREFOLDERW = unsafe extern "system" fn(pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNSHOWSHAREFOLDERUIW = unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
@@ -45702,8 +46211,8 @@ unsafe impl ::windows::runtime::Abi for PUBAPPINFOFLAGS {
     type Abi = Self;
 }
 pub const PackageDebugSettings: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2981020015, 9091, 18514, [176, 233, 143, 11, 29, 198, 107, 77]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ParseURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pcszurl: Param0, ppu: *mut PARSEDURLA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45717,8 +46226,8 @@ pub unsafe fn ParseURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ParseURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcszurl: Param0, ppu: *mut PARSEDURLW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45733,8 +46242,8 @@ pub unsafe fn ParseURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 pub const PasswordCredentialProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1622642312, 60120, 17500, [156, 253, 11, 135, 247, 78, 166, 205]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAddBackslashA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -45748,8 +46257,8 @@ pub unsafe fn PathAddBackslashA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAddBackslashW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -45763,8 +46272,8 @@ pub unsafe fn PathAddBackslashW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAddExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45778,8 +46287,8 @@ pub unsafe fn PathAddExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAddExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45793,8 +46302,8 @@ pub unsafe fn PathAddExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAllocCanonicalize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathin: Param0, dwflags: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -45809,8 +46318,8 @@ pub unsafe fn PathAllocCanonicalize<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAllocCombine<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathin: Param0, pszmore: Param1, dwflags: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -45825,8 +46334,8 @@ pub unsafe fn PathAllocCombine<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAppendA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszmore: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45840,8 +46349,8 @@ pub unsafe fn PathAppendA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathAppendW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszmore: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45855,8 +46364,8 @@ pub unsafe fn PathAppendW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathBuildRootA(pszroot: super::super::Foundation::PSTR, idrive: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -45870,8 +46379,8 @@ pub unsafe fn PathBuildRootA(pszroot: super::super::Foundation::PSTR, idrive: i3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathBuildRootW(pszroot: super::super::Foundation::PWSTR, idrive: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -45885,8 +46394,8 @@ pub unsafe fn PathBuildRootW(pszroot: super::super::Foundation::PWSTR, idrive: i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCanonicalizeA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszbuf: super::super::Foundation::PSTR, pszpath: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45900,8 +46409,8 @@ pub unsafe fn PathCanonicalizeA<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCanonicalizeW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszbuf: super::super::Foundation::PWSTR, pszpath: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45915,8 +46424,8 @@ pub unsafe fn PathCanonicalizeW<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchAddBackslash<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45930,8 +46439,8 @@ pub unsafe fn PathCchAddBackslash<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchAddBackslashEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, ppszend: *mut super::super::Foundation::PWSTR, pcchremaining: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45945,8 +46454,8 @@ pub unsafe fn PathCchAddBackslashEx<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchAddExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, pszext: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45960,8 +46469,8 @@ pub unsafe fn PathCchAddExtension<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchAppend<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, pszmore: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45975,8 +46484,8 @@ pub unsafe fn PathCchAppend<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchAppendEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, pszmore: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45990,8 +46499,8 @@ pub unsafe fn PathCchAppendEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchCanonicalize<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathout: super::super::Foundation::PWSTR, cchpathout: usize, pszpathin: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46005,8 +46514,8 @@ pub unsafe fn PathCchCanonicalize<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchCanonicalizeEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathout: super::super::Foundation::PWSTR, cchpathout: usize, pszpathin: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46020,8 +46529,8 @@ pub unsafe fn PathCchCanonicalizeEx<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchCombine<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathout: super::super::Foundation::PWSTR, cchpathout: usize, pszpathin: Param2, pszmore: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46035,8 +46544,8 @@ pub unsafe fn PathCchCombine<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchCombineEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpathout: super::super::Foundation::PWSTR, cchpathout: usize, pszpathin: Param2, pszmore: Param3, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46050,8 +46559,8 @@ pub unsafe fn PathCchCombineEx<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchFindExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -46066,8 +46575,8 @@ pub unsafe fn PathCchFindExtension<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchIsRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46081,8 +46590,8 @@ pub unsafe fn PathCchIsRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchRemoveBackslash<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46096,8 +46605,8 @@ pub unsafe fn PathCchRemoveBackslash<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchRemoveBackslashEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, ppszend: *mut super::super::Foundation::PWSTR, pcchremaining: *mut usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46111,8 +46620,8 @@ pub unsafe fn PathCchRemoveBackslashEx<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchRemoveExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46126,8 +46635,8 @@ pub unsafe fn PathCchRemoveExtension<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchRemoveFileSpec<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46141,8 +46650,8 @@ pub unsafe fn PathCchRemoveFileSpec<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchRenameExtension<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize, pszext: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46156,8 +46665,8 @@ pub unsafe fn PathCchRenameExtension<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchSkipRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -46172,8 +46681,8 @@ pub unsafe fn PathCchSkipRoot<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchStripPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46187,8 +46696,8 @@ pub unsafe fn PathCchStripPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCchStripToRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, cchpath: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46202,8 +46711,8 @@ pub unsafe fn PathCchStripToRoot<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCleanupSpec<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdir: Param0, pszspec: Param1) -> PCS_RET {
     #[cfg(windows)]
@@ -46217,8 +46726,8 @@ pub unsafe fn PathCleanupSpec<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCombineA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdest: super::super::Foundation::PSTR, pszdir: Param1, pszfile: Param2) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46232,8 +46741,8 @@ pub unsafe fn PathCombineA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCombineW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdest: super::super::Foundation::PWSTR, pszdir: Param1, pszfile: Param2) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46247,8 +46756,8 @@ pub unsafe fn PathCombineW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCommonPrefixA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile1: Param0, pszfile2: Param1, achpath: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
@@ -46262,8 +46771,8 @@ pub unsafe fn PathCommonPrefixA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCommonPrefixW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile1: Param0, pszfile2: Param1, achpath: super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -46277,8 +46786,8 @@ pub unsafe fn PathCommonPrefixW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PathCompactPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, pszpath: Param1, dx: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46292,8 +46801,8 @@ pub unsafe fn PathCompactPathA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCompactPathExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszout: super::super::Foundation::PSTR, pszsrc: Param1, cchmax: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46307,8 +46816,8 @@ pub unsafe fn PathCompactPathExA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCompactPathExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszout: super::super::Foundation::PWSTR, pszsrc: Param1, cchmax: u32, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46322,8 +46831,8 @@ pub unsafe fn PathCompactPathExW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PathCompactPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, pszpath: Param1, dx: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46337,8 +46846,8 @@ pub unsafe fn PathCompactPathW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCreateFromUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, pszpath: super::super::Foundation::PSTR, pcchpath: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46352,8 +46861,8 @@ pub unsafe fn PathCreateFromUrlA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCreateFromUrlAlloc<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszin: Param0, ppszout: *mut super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46367,8 +46876,8 @@ pub unsafe fn PathCreateFromUrlAlloc<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathCreateFromUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, pszpath: super::super::Foundation::PWSTR, pcchpath: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46382,8 +46891,8 @@ pub unsafe fn PathCreateFromUrlW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFileExistsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46397,8 +46906,8 @@ pub unsafe fn PathFileExistsA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFileExistsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46412,8 +46921,8 @@ pub unsafe fn PathFileExistsW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46427,8 +46936,8 @@ pub unsafe fn PathFindExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46442,8 +46951,8 @@ pub unsafe fn PathFindExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46457,8 +46966,8 @@ pub unsafe fn PathFindFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46472,8 +46981,8 @@ pub unsafe fn PathFindFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindNextComponentA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46487,8 +46996,8 @@ pub unsafe fn PathFindNextComponentA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindNextComponentW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46502,8 +47011,8 @@ pub unsafe fn PathFindNextComponentW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindOnPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, ppszotherdirs: *const *const i8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46517,8 +47026,8 @@ pub unsafe fn PathFindOnPathA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindOnPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, ppszotherdirs: *const *const u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46532,8 +47041,8 @@ pub unsafe fn PathFindOnPathW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindSuffixArrayA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, apszsuffix: *const super::super::Foundation::PSTR, iarraysize: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46547,8 +47056,8 @@ pub unsafe fn PathFindSuffixArrayA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathFindSuffixArrayW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, apszsuffix: *const super::super::Foundation::PWSTR, iarraysize: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46562,8 +47071,8 @@ pub unsafe fn PathFindSuffixArrayW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathGetArgsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -46577,8 +47086,8 @@ pub unsafe fn PathGetArgsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathGetArgsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -46620,8 +47129,8 @@ pub unsafe fn PathGetCharTypeW(ch: u16) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathGetDriveNumberA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> i32 {
     #[cfg(windows)]
@@ -46635,8 +47144,8 @@ pub unsafe fn PathGetDriveNumberA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathGetDriveNumberW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> i32 {
     #[cfg(windows)]
@@ -46650,8 +47159,8 @@ pub unsafe fn PathGetDriveNumberW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathGetShortPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlongpath: Param0) {
     #[cfg(windows)]
@@ -46665,8 +47174,8 @@ pub unsafe fn PathGetShortPath<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsContentTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszcontenttype: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46680,8 +47189,8 @@ pub unsafe fn PathIsContentTypeA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsContentTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszcontenttype: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46695,8 +47204,8 @@ pub unsafe fn PathIsContentTypeW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46710,8 +47219,8 @@ pub unsafe fn PathIsDirectoryA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsDirectoryEmptyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46725,8 +47234,8 @@ pub unsafe fn PathIsDirectoryEmptyA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsDirectoryEmptyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46740,8 +47249,8 @@ pub unsafe fn PathIsDirectoryEmptyW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46755,8 +47264,8 @@ pub unsafe fn PathIsDirectoryW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsExe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46770,8 +47279,8 @@ pub unsafe fn PathIsExe<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46785,8 +47294,8 @@ pub unsafe fn PathIsFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46800,8 +47309,8 @@ pub unsafe fn PathIsFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsLFNFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46815,8 +47324,8 @@ pub unsafe fn PathIsLFNFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsLFNFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46830,8 +47339,8 @@ pub unsafe fn PathIsLFNFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsNetworkPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46845,8 +47354,8 @@ pub unsafe fn PathIsNetworkPathA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsNetworkPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46860,8 +47369,8 @@ pub unsafe fn PathIsNetworkPathW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsPrefixA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszprefix: Param0, pszpath: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46875,8 +47384,8 @@ pub unsafe fn PathIsPrefixA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsPrefixW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszprefix: Param0, pszpath: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46890,8 +47399,8 @@ pub unsafe fn PathIsPrefixW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsRelativeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46905,8 +47414,8 @@ pub unsafe fn PathIsRelativeA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsRelativeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46920,8 +47429,8 @@ pub unsafe fn PathIsRelativeW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46935,8 +47444,8 @@ pub unsafe fn PathIsRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46950,8 +47459,8 @@ pub unsafe fn PathIsRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSameRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath1: Param0, pszpath2: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46965,8 +47474,8 @@ pub unsafe fn PathIsSameRootA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSameRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath1: Param0, pszpath2: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46980,8 +47489,8 @@ pub unsafe fn PathIsSameRootW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0, dwattr: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -46995,8 +47504,8 @@ pub unsafe fn PathIsSlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0, dwattr: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47010,8 +47519,8 @@ pub unsafe fn PathIsSlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, dwattrb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47025,8 +47534,8 @@ pub unsafe fn PathIsSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, dwattrb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47040,8 +47549,8 @@ pub unsafe fn PathIsSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47055,8 +47564,8 @@ pub unsafe fn PathIsUNCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, ppszserver: *mut super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47070,8 +47579,8 @@ pub unsafe fn PathIsUNCEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47085,8 +47594,8 @@ pub unsafe fn PathIsUNCServerA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCServerShareA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47100,8 +47609,8 @@ pub unsafe fn PathIsUNCServerShareA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCServerShareW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47115,8 +47624,8 @@ pub unsafe fn PathIsUNCServerShareW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47130,8 +47639,8 @@ pub unsafe fn PathIsUNCServerW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsUNCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47145,8 +47654,8 @@ pub unsafe fn PathIsUNCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47160,8 +47669,8 @@ pub unsafe fn PathIsURLA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathIsURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47175,8 +47684,8 @@ pub unsafe fn PathIsURLW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakePrettyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47190,8 +47699,8 @@ pub unsafe fn PathMakePrettyA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakePrettyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47205,8 +47714,8 @@ pub unsafe fn PathMakePrettyW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakeSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47220,8 +47729,8 @@ pub unsafe fn PathMakeSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakeSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47235,8 +47744,8 @@ pub unsafe fn PathMakeSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMakeUniqueName<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszuniquename: super::super::Foundation::PWSTR, cchmax: u32, psztemplate: Param2, pszlongplate: Param3, pszdir: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47250,8 +47759,8 @@ pub unsafe fn PathMakeUniqueName<'a, Param2: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMatchSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0, pszspec: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47265,8 +47774,8 @@ pub unsafe fn PathMatchSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMatchSpecExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0, pszspec: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47280,8 +47789,8 @@ pub unsafe fn PathMatchSpecExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMatchSpecExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0, pszspec: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47295,8 +47804,8 @@ pub unsafe fn PathMatchSpecExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathMatchSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0, pszspec: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47310,8 +47819,8 @@ pub unsafe fn PathMatchSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathParseIconLocationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psziconfile: Param0) -> i32 {
     #[cfg(windows)]
@@ -47325,8 +47834,8 @@ pub unsafe fn PathParseIconLocationA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathParseIconLocationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psziconfile: Param0) -> i32 {
     #[cfg(windows)]
@@ -47340,8 +47849,8 @@ pub unsafe fn PathParseIconLocationW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathQualify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0) {
     #[cfg(windows)]
@@ -47355,8 +47864,8 @@ pub unsafe fn PathQualify<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathQuoteSpacesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47370,8 +47879,8 @@ pub unsafe fn PathQuoteSpacesA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathQuoteSpacesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47385,8 +47894,8 @@ pub unsafe fn PathQuoteSpacesW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRelativePathToA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: super::super::Foundation::PSTR, pszfrom: Param1, dwattrfrom: u32, pszto: Param3, dwattrto: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47400,8 +47909,8 @@ pub unsafe fn PathRelativePathToA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRelativePathToW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: super::super::Foundation::PWSTR, pszfrom: Param1, dwattrfrom: u32, pszto: Param3, dwattrto: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47415,8 +47924,8 @@ pub unsafe fn PathRelativePathToW<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveArgsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47430,8 +47939,8 @@ pub unsafe fn PathRemoveArgsA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveArgsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47445,8 +47954,8 @@ pub unsafe fn PathRemoveArgsW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveBackslashA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -47460,8 +47969,8 @@ pub unsafe fn PathRemoveBackslashA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveBackslashW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -47475,8 +47984,8 @@ pub unsafe fn PathRemoveBackslashW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveBlanksA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47490,8 +47999,8 @@ pub unsafe fn PathRemoveBlanksA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveBlanksW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47505,8 +48014,8 @@ pub unsafe fn PathRemoveBlanksW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47520,8 +48029,8 @@ pub unsafe fn PathRemoveExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47535,8 +48044,8 @@ pub unsafe fn PathRemoveExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47550,8 +48059,8 @@ pub unsafe fn PathRemoveFileSpecA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRemoveFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47565,8 +48074,8 @@ pub unsafe fn PathRemoveFileSpecW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRenameExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47580,8 +48089,8 @@ pub unsafe fn PathRenameExtensionA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathRenameExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszext: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47595,8 +48104,8 @@ pub unsafe fn PathRenameExtensionW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathResolve<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, dirs: *const *const u16, fflags: PRF_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -47610,8 +48119,8 @@ pub unsafe fn PathResolve<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSearchAndQualifyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47625,8 +48134,8 @@ pub unsafe fn PathSearchAndQualifyA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSearchAndQualifyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47640,8 +48149,8 @@ pub unsafe fn PathSearchAndQualifyW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSetDlgItemPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdlg: Param0, id: i32, pszpath: Param2) {
     #[cfg(windows)]
@@ -47655,8 +48164,8 @@ pub unsafe fn PathSetDlgItemPathA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSetDlgItemPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdlg: Param0, id: i32, pszpath: Param2) {
     #[cfg(windows)]
@@ -47670,8 +48179,8 @@ pub unsafe fn PathSetDlgItemPathW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSkipRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -47685,8 +48194,8 @@ pub unsafe fn PathSkipRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathSkipRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -47700,8 +48209,8 @@ pub unsafe fn PathSkipRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47715,8 +48224,8 @@ pub unsafe fn PathStripPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47730,8 +48239,8 @@ pub unsafe fn PathStripPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripToRootA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47745,8 +48254,8 @@ pub unsafe fn PathStripToRootA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathStripToRootW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47760,8 +48269,8 @@ pub unsafe fn PathStripToRootW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnExpandEnvStringsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47775,8 +48284,8 @@ pub unsafe fn PathUnExpandEnvStringsA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnExpandEnvStringsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47790,8 +48299,8 @@ pub unsafe fn PathUnExpandEnvStringsW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUndecorateA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47805,8 +48314,8 @@ pub unsafe fn PathUndecorateA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUndecorateW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) {
     #[cfg(windows)]
@@ -47820,8 +48329,8 @@ pub unsafe fn PathUndecorateW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnmakeSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47835,8 +48344,8 @@ pub unsafe fn PathUnmakeSystemFolderA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnmakeSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47850,8 +48359,8 @@ pub unsafe fn PathUnmakeSystemFolderW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnquoteSpacesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpsz: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47865,8 +48374,8 @@ pub unsafe fn PathUnquoteSpacesA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathUnquoteSpacesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsz: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47880,8 +48389,8 @@ pub unsafe fn PathUnquoteSpacesW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PathYetAnotherMakeUniqueName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszuniquename: super::super::Foundation::PWSTR, pszpath: Param1, pszshort: Param2, pszfilespec: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47895,8 +48404,8 @@ pub unsafe fn PathYetAnotherMakeUniqueName<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PickIconDlg<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, psziconpath: Param1, cchiconpath: u32, piiconindex: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -48296,8 +48805,8 @@ impl ::std::convert::From<i32> for RESTRICTIONS {
 unsafe impl ::windows::runtime::Abi for RESTRICTIONS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadCabinetState(pcs: *mut CABINETSTATE, clength: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -48311,8 +48820,8 @@ pub unsafe fn ReadCabinetState(pcs: *mut CABINETSTATE, clength: i32) -> super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RealDriveType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(idrive: i32, foktohitnet: Param1) -> i32 {
     #[cfg(windows)]
@@ -48326,8 +48835,8 @@ pub unsafe fn RealDriveType<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppConstrainedChangeNotification(routine: ::std::option::Option<PAPPCONSTRAIN_CHANGE_ROUTINE>, context: *const ::std::ffi::c_void, registration: *mut *mut _APPCONSTRAIN_REGISTRATION) -> u32 {
     #[cfg(windows)]
@@ -48341,8 +48850,8 @@ pub unsafe fn RegisterAppConstrainedChangeNotification(routine: ::std::option::O
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterAppStateChangeNotification(routine: ::std::option::Option<PAPPSTATE_CHANGE_ROUTINE>, context: *const ::std::ffi::c_void, registration: *mut *mut _APPSTATE_REGISTRATION) -> u32 {
     #[cfg(windows)]
@@ -48356,8 +48865,8 @@ pub unsafe fn RegisterAppStateChangeNotification(routine: ::std::option::Option<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterScaleChangeEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> ::windows::runtime::Result<usize> {
     #[cfg(windows)]
@@ -48372,8 +48881,8 @@ pub unsafe fn RegisterScaleChangeEvent<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterScaleChangeNotifications<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(displaydevice: DISPLAY_DEVICE_TYPE, hwndnotify: Param1, umsgnotify: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -48388,8 +48897,8 @@ pub unsafe fn RegisterScaleChangeNotifications<'a, Param1: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::std::option::Option<SUBCLASSPROC>, uidsubclass: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -48403,8 +48912,8 @@ pub unsafe fn RemoveWindowSubclass<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestartDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszprompt: Param1, dwreturn: u32) -> i32 {
     #[cfg(windows)]
@@ -48418,8 +48927,8 @@ pub unsafe fn RestartDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestartDialogEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszprompt: Param1, dwreturn: u32, dwreasoncode: u32) -> i32 {
     #[cfg(windows)]
@@ -49120,8 +49629,8 @@ impl ::std::convert::From<i32> for SHARE_ROLE {
 unsafe impl ::windows::runtime::Abi for SHARE_ROLE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SHAddFromPropSheetExtArray<'a, Param0: ::windows::runtime::IntoParam<'a, HPSXA>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, lpfnaddpage: ::std::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param2) -> u32 {
     #[cfg(windows)]
@@ -49163,8 +49672,8 @@ pub unsafe fn SHAlloc(cb: usize) -> *mut ::std::ffi::c_void {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAllocShared(pvdata: *const ::std::ffi::c_void, dwsize: u32, dwprocessid: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -49178,8 +49687,8 @@ pub unsafe fn SHAllocShared(pvdata: *const ::std::ffi::c_void, dwsize: u32, dwpr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAnsiToAnsi<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsrc: Param0, pszdst: super::super::Foundation::PSTR, cchbuf: i32) -> i32 {
     #[cfg(windows)]
@@ -49193,8 +49702,8 @@ pub unsafe fn SHAnsiToAnsi<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAnsiToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsrc: Param0, pwszdst: super::super::Foundation::PWSTR, cwchbuf: i32) -> i32 {
     #[cfg(windows)]
@@ -49208,8 +49717,8 @@ pub unsafe fn SHAnsiToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAppBarMessage(dwmessage: u32, pdata: *mut APPBARDATA) -> usize {
     #[cfg(windows)]
@@ -49223,8 +49732,8 @@ pub unsafe fn SHAppBarMessage(dwmessage: u32, pdata: *mut APPBARDATA) -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAssocEnumHandlers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszextra: Param0, affilter: ASSOC_FILTER) -> ::windows::runtime::Result<IEnumAssocHandlers> {
     #[cfg(windows)]
@@ -49239,8 +49748,8 @@ pub unsafe fn SHAssocEnumHandlers<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAssocEnumHandlersForProtocolByApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(protocol: Param0, riid: *const ::windows::runtime::GUID, enumhandlers: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49254,8 +49763,8 @@ pub unsafe fn SHAssocEnumHandlersForProtocolByApplication<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHAutoComplete<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndedit: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49283,8 +49792,8 @@ pub unsafe fn SHBindToFolderIDListParent<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHBindToFolderIDListParentEx<'a, Param0: ::windows::runtime::IntoParam<'a, IShellFolder>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(psfroot: Param0, pidl: *const ITEMIDLIST, ppbc: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void, ppidllast: *mut *mut ITEMIDLIST) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49298,8 +49807,8 @@ pub unsafe fn SHBindToFolderIDListParentEx<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHBindToObject<'a, Param0: ::windows::runtime::IntoParam<'a, IShellFolder>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(psf: Param0, pidl: *const ITEMIDLIST, pbc: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49327,8 +49836,8 @@ pub unsafe fn SHBindToParent(pidl: *const ITEMIDLIST, riid: *const ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -49342,8 +49851,8 @@ pub unsafe fn SHBrowseForFolderA(lpbi: *const BROWSEINFOA) -> *mut ITEMIDLIST {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHBrowseForFolderW(lpbi: *const BROWSEINFOW) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -49367,8 +49876,8 @@ pub const SHCIDS_BITMASK: i32 = -65536i32;
 pub const SHCIDS_CANONICALONLY: i32 = 268435456i32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHCIDS_COLUMNMASK: i32 = 65535i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCLSIDFromString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -49682,6 +50191,7 @@ unsafe impl ::windows::runtime::Abi for SHCOLUMNINIT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`*"]
 pub struct SHCREATEPROCESSINFOW {
@@ -49699,14 +50209,17 @@ pub struct SHCREATEPROCESSINFOW {
     pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
     pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 impl SHCREATEPROCESSINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 impl ::std::default::Default for SHCREATEPROCESSINFOW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 impl ::std::fmt::Debug for SHCREATEPROCESSINFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -49727,6 +50240,7 @@ impl ::std::fmt::Debug for SHCREATEPROCESSINFOW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 impl ::std::cmp::PartialEq for SHCREATEPROCESSINFOW {
     fn eq(&self, other: &Self) -> bool {
@@ -49745,8 +50259,55 @@ impl ::std::cmp::PartialEq for SHCREATEPROCESSINFOW {
             && self.lpProcessInformation == other.lpProcessInformation
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 impl ::std::cmp::Eq for SHCREATEPROCESSINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+unsafe impl ::windows::runtime::Abi for SHCREATEPROCESSINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`*"]
+pub struct SHCREATEPROCESSINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub pszFile: super::super::Foundation::PWSTR,
+    pub pszParameters: super::super::Foundation::PWSTR,
+    pub pszCurrentDirectory: super::super::Foundation::PWSTR,
+    pub hUserToken: super::super::Foundation::HANDLE,
+    pub lpProcessAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub lpThreadAttributes: *mut super::super::Security::SECURITY_ATTRIBUTES,
+    pub bInheritHandles: super::super::Foundation::BOOL,
+    pub dwCreationFlags: u32,
+    pub lpStartupInfo: *mut super::super::System::Threading::STARTUPINFOW,
+    pub lpProcessInformation: *mut super::super::System::Threading::PROCESS_INFORMATION,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl SHCREATEPROCESSINFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::default::Default for SHCREATEPROCESSINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::cmp::PartialEq for SHCREATEPROCESSINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
+impl ::std::cmp::Eq for SHCREATEPROCESSINFOW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 unsafe impl ::windows::runtime::Abi for SHCREATEPROCESSINFOW {
     type Abi = Self;
@@ -49777,8 +50338,8 @@ impl ::std::cmp::Eq for SHChangeDWORDAsIDList {}
 unsafe impl ::windows::runtime::Abi for SHChangeDWORDAsIDList {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHChangeNotification_Lock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hchange: Param0, dwprocid: u32, pppidl: *mut *mut *mut ITEMIDLIST, plevent: *mut i32) -> ShFindChangeNotificationHandle {
     #[cfg(windows)]
@@ -49792,8 +50353,8 @@ pub unsafe fn SHChangeNotification_Lock<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHChangeNotification_Unlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlock: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -49821,8 +50382,8 @@ pub unsafe fn SHChangeNotify(weventid: SHCNE_ID, uflags: SHCNF_FLAGS, dwitem1: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHChangeNotifyDeregister(ulid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -49864,8 +50425,8 @@ impl ::std::cmp::Eq for SHChangeNotifyEntry {}
 unsafe impl ::windows::runtime::Abi for SHChangeNotifyEntry {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHChangeNotifyRegister<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, fsources: SHCNRF_SOURCE, fevents: i32, wmsg: u32, centries: i32, pshcne: *const SHChangeNotifyEntry) -> u32 {
     #[cfg(windows)]
@@ -49943,8 +50504,8 @@ impl ::std::cmp::Eq for SHChangeUpdateImageIDList {}
 unsafe impl ::windows::runtime::Abi for SHChangeUpdateImageIDList {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCloneSpecialIDList<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, csidl: i32, fcreate: Param2) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -49958,8 +50519,8 @@ pub unsafe fn SHCloneSpecialIDList<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCoCreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pszclsid: Param0, pclsid: *const ::windows::runtime::GUID, punkouter: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49973,8 +50534,8 @@ pub unsafe fn SHCoCreateInstance<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHCopyKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeysrc: Param0, pszsrcsubkey: Param1, hkeydest: Param2, freserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -49988,8 +50549,8 @@ pub unsafe fn SHCopyKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHCopyKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeysrc: Param0, pszsrcsubkey: Param1, hkeydest: Param2, freserved: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50017,8 +50578,8 @@ pub unsafe fn SHCreateAssociationRegistration(riid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateDataObject<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pidlfolder: *const ITEMIDLIST, cidl: u32, apidl: *const *const ITEMIDLIST, pdtinner: Param3, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50032,8 +50593,8 @@ pub unsafe fn SHCreateDataObject<'a, Param3: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHCreateDefaultContextMenu(pdcm: *const DEFCONTEXTMENU, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50076,8 +50637,8 @@ pub unsafe fn SHCreateDefaultPropertiesOp<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCreateDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszpath: Param1) -> i32 {
     #[cfg(windows)]
@@ -50091,8 +50652,8 @@ pub unsafe fn SHCreateDirectory<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SHCreateDirectoryExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pszpath: Param1, psa: *const super::super::Security::SECURITY_ATTRIBUTES) -> i32 {
     #[cfg(windows)]
@@ -50106,8 +50667,8 @@ pub unsafe fn SHCreateDirectoryExA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SHCreateDirectoryExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszpath: Param1, psa: *const super::super::Security::SECURITY_ATTRIBUTES) -> i32 {
     #[cfg(windows)]
@@ -50121,8 +50682,8 @@ pub unsafe fn SHCreateDirectoryExW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCreateFileExtractIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0, dwfileattributes: u32, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50150,8 +50711,8 @@ pub unsafe fn SHCreateItemFromIDList(pidl: *const ITEMIDLIST, riid: *const ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHCreateItemFromParsingName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(pszpath: Param0, pbc: Param1, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50165,8 +50726,8 @@ pub unsafe fn SHCreateItemFromParsingName<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHCreateItemFromRelativeName<'a, Param0: ::windows::runtime::IntoParam<'a, IShellItem>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(psiparent: Param0, pszname: Param1, pbc: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50180,8 +50741,8 @@ pub unsafe fn SHCreateItemFromRelativeName<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCreateItemInKnownFolder<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(kfid: *const ::windows::runtime::GUID, dwkfflags: u32, pszitem: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50209,8 +50770,8 @@ pub unsafe fn SHCreateItemWithParent<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateMemStream(pinit: *const u8, cbinit: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -50224,8 +50785,8 @@ pub unsafe fn SHCreateMemStream(pinit: *const u8, cbinit: u32) -> ::std::option:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Threading`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Threading"))]
 #[inline]
 pub unsafe fn SHCreateProcessAsUserW(pscpi: *mut SHCREATEPROCESSINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -50239,8 +50800,8 @@ pub unsafe fn SHCreateProcessAsUserW(pscpi: *mut SHCREATEPROCESSINFOW) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHCreatePropSheetExtArray<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, max_iface: u32) -> HPSXA {
     #[cfg(windows)]
@@ -50254,8 +50815,8 @@ pub unsafe fn SHCreatePropSheetExtArray<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateQueryCancelAutoPlayMoniker() -> ::windows::runtime::Result<super::super::System::Com::IMoniker> {
     #[cfg(windows)]
@@ -50285,8 +50846,8 @@ pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> ::windows::runtime::Result<IShellView> {
     #[cfg(windows)]
@@ -50331,8 +50892,8 @@ pub unsafe fn SHCreateShellItemArray<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateShellItemArrayFromDataObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pdo: Param0, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50375,8 +50936,8 @@ pub unsafe fn SHCreateShellItemArrayFromShellItem<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn SHCreateShellPalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(hdc: Param0) -> super::super::Graphics::Gdi::HPALETTE {
     #[cfg(windows)]
@@ -50390,8 +50951,8 @@ pub unsafe fn SHCreateShellPalette<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHCreateStdEnumFmtEtc(cfmt: u32, afmt: *const super::super::System::Com::FORMATETC) -> ::windows::runtime::Result<super::super::System::Com::IEnumFORMATETC> {
     #[cfg(windows)]
@@ -50406,8 +50967,8 @@ pub unsafe fn SHCreateStdEnumFmtEtc(cfmt: u32, afmt: *const super::super::System
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHCreateStreamOnFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0, grfmode: u32) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -50422,8 +50983,8 @@ pub unsafe fn SHCreateStreamOnFileA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHCreateStreamOnFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pszfile: Param0, grfmode: u32, dwattributes: u32, fcreate: Param3, pstmtemplate: Param4) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -50438,8 +50999,8 @@ pub unsafe fn SHCreateStreamOnFileEx<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHCreateStreamOnFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0, grfmode: u32) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -50454,8 +51015,8 @@ pub unsafe fn SHCreateStreamOnFileW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SHCreateThread(pfnthreadproc: ::std::option::Option<super::super::System::SystemServices::LPTHREAD_START_ROUTINE>, pdata: *const ::std::ffi::c_void, flags: u32, pfncallback: ::std::option::Option<super::super::System::SystemServices::LPTHREAD_START_ROUTINE>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -50483,8 +51044,8 @@ pub unsafe fn SHCreateThreadRef(pcref: *mut i32, ppunk: *mut ::std::option::Opti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn SHCreateThreadWithHandle(pfnthreadproc: ::std::option::Option<super::super::System::SystemServices::LPTHREAD_START_ROUTINE>, pdata: *const ::std::ffi::c_void, flags: u32, pfncallback: ::std::option::Option<super::super::System::SystemServices::LPTHREAD_START_ROUTINE>, phandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -50595,8 +51156,8 @@ impl ::std::cmp::Eq for SHDRAGIMAGE {}
 unsafe impl ::windows::runtime::Abi for SHDRAGIMAGE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHDefExtractIconA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psziconfile: Param0, iindex: i32, uflags: u32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, niconsize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50610,8 +51171,8 @@ pub unsafe fn SHDefExtractIconA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHDefExtractIconW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psziconfile: Param0, iindex: i32, uflags: u32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, niconsize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50625,8 +51186,8 @@ pub unsafe fn SHDefExtractIconW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteEmptyKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50640,8 +51201,8 @@ pub unsafe fn SHDeleteEmptyKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteEmptyKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50655,8 +51216,8 @@ pub unsafe fn SHDeleteEmptyKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50670,8 +51231,8 @@ pub unsafe fn SHDeleteKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50685,8 +51246,8 @@ pub unsafe fn SHDeleteKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50700,8 +51261,8 @@ pub unsafe fn SHDeleteValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHDeleteValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -50729,8 +51290,8 @@ pub unsafe fn SHDestroyPropSheetExtArray<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn SHDoDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Ole::IDropSource>>(hwnd: Param0, pdata: Param1, pdsrc: Param2, dweffect: u32) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -50792,6 +51353,7 @@ unsafe impl ::windows::runtime::Abi for SHELLDETAILS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct SHELLEXECUTEINFOA {
@@ -50811,56 +51373,147 @@ pub struct SHELLEXECUTEINFOA {
     pub Anonymous: SHELLEXECUTEINFOA_0,
     pub hProcess: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl SHELLEXECUTEINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for SHELLEXECUTEINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for SHELLEXECUTEINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl SHELLEXECUTEINFOA_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for SHELLEXECUTEINFOA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for SHELLEXECUTEINFOA_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct SHELLEXECUTEINFOA {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: super::super::Foundation::PSTR,
+    pub lpFile: super::super::Foundation::PSTR,
+    pub lpParameters: super::super::Foundation::PSTR,
+    pub lpDirectory: super::super::Foundation::PSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut ::std::ffi::c_void,
+    pub lpClass: super::super::Foundation::PSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOA_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub union SHELLEXECUTEINFOA_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOA_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOA_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOA_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOA_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub struct SHELLEXECUTEINFOW {
@@ -50880,51 +51533,141 @@ pub struct SHELLEXECUTEINFOW {
     pub Anonymous: SHELLEXECUTEINFOW_0,
     pub hProcess: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl SHELLEXECUTEINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for SHELLEXECUTEINFOW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for SHELLEXECUTEINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl SHELLEXECUTEINFOW_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for SHELLEXECUTEINFOW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for SHELLEXECUTEINFOW_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW_0 {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+pub struct SHELLEXECUTEINFOW {
+    pub cbSize: u32,
+    pub fMask: u32,
+    pub hwnd: super::super::Foundation::HWND,
+    pub lpVerb: super::super::Foundation::PWSTR,
+    pub lpFile: super::super::Foundation::PWSTR,
+    pub lpParameters: super::super::Foundation::PWSTR,
+    pub lpDirectory: super::super::Foundation::PWSTR,
+    pub nShow: i32,
+    pub hInstApp: super::super::Foundation::HINSTANCE,
+    pub lpIDList: *mut ::std::ffi::c_void,
+    pub lpClass: super::super::Foundation::PWSTR,
+    pub hkeyClass: super::super::System::Registry::HKEY,
+    pub dwHotKey: u32,
+    pub Anonymous: SHELLEXECUTEINFOW_0,
+    pub hProcess: super::super::Foundation::HANDLE,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub union SHELLEXECUTEINFOW_0 {
+    pub hIcon: super::super::Foundation::HANDLE,
+    pub hMonitor: super::super::Foundation::HANDLE,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl SHELLEXECUTEINFOW_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::default::Default for SHELLEXECUTEINFOW_0 {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::PartialEq for SHELLEXECUTEINFOW_0 {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ::std::cmp::Eq for SHELLEXECUTEINFOW_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for SHELLEXECUTEINFOW_0 {
     type Abi = Self;
 }
@@ -51101,8 +51844,8 @@ pub const SHERB_NOCONFIRMATION: u32 = 1u32;
 pub const SHERB_NOPROGRESSUI: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHERB_NOSOUND: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHEmptyRecycleBinA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, pszrootpath: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -51116,8 +51859,8 @@ pub unsafe fn SHEmptyRecycleBinA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHEmptyRecycleBinW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszrootpath: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -51131,8 +51874,8 @@ pub unsafe fn SHEmptyRecycleBinW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -51146,8 +51889,8 @@ pub unsafe fn SHEnumKeyExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, pszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -51161,8 +51904,8 @@ pub unsafe fn SHEnumKeyExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -51176,8 +51919,8 @@ pub unsafe fn SHEnumValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -51191,8 +51934,8 @@ pub unsafe fn SHEnumValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHEnumerateUnreadMailAccountsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkeyuser: Param0, dwindex: u32, pszmailaddress: super::super::Foundation::PWSTR, cchmailaddress: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -51206,8 +51949,8 @@ pub unsafe fn SHEnumerateUnreadMailAccountsW<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHEvaluateSystemCommandTemplate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszcmdtemplate: Param0, ppszapplication: *mut super::super::Foundation::PWSTR, ppszcommandline: *mut super::super::Foundation::PWSTR, ppszparameters: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -51223,6 +51966,7 @@ pub unsafe fn SHEvaluateSystemCommandTemplate<'a, Param0: ::windows::runtime::In
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct SHFILEINFOA {
@@ -51232,34 +51976,78 @@ pub struct SHFILEINFOA {
     pub szDisplayName: [super::super::Foundation::CHAR; 260],
     pub szTypeName: [super::super::Foundation::CHAR; 80],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl SHFILEINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for SHFILEINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::fmt::Debug for SHFILEINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHFILEINFOA").field("hIcon", &self.hIcon).field("iIcon", &self.iIcon).field("dwAttributes", &self.dwAttributes).field("szDisplayName", &self.szDisplayName).field("szTypeName", &self.szTypeName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for SHFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.hIcon == other.hIcon && self.iIcon == other.iIcon && self.dwAttributes == other.dwAttributes && self.szDisplayName == other.szDisplayName && self.szTypeName == other.szTypeName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for SHFILEINFOA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::runtime::Abi for SHFILEINFOA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHFILEINFOA {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [super::super::Foundation::CHAR; 260],
+    pub szTypeName: [super::super::Foundation::CHAR; 80],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl SHFILEINFOA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::default::Default for SHFILEINFOA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::PartialEq for SHFILEINFOA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::std::cmp::Eq for SHFILEINFOA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for SHFILEINFOA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct SHFILEINFOW {
@@ -51269,34 +52057,78 @@ pub struct SHFILEINFOW {
     pub szDisplayName: [u16; 260],
     pub szTypeName: [u16; 80],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl SHFILEINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::default::Default for SHFILEINFOW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::fmt::Debug for SHFILEINFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHFILEINFOW").field("hIcon", &self.hIcon).field("iIcon", &self.iIcon).field("dwAttributes", &self.dwAttributes).field("szDisplayName", &self.szDisplayName).field("szTypeName", &self.szTypeName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::PartialEq for SHFILEINFOW {
     fn eq(&self, other: &Self) -> bool {
         self.hIcon == other.hIcon && self.iIcon == other.iIcon && self.dwAttributes == other.dwAttributes && self.szDisplayName == other.szDisplayName && self.szTypeName == other.szTypeName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::Eq for SHFILEINFOW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::runtime::Abi for SHFILEINFOW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHFILEINFOW {
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iIcon: i32,
+    pub dwAttributes: u32,
+    pub szDisplayName: [u16; 260],
+    pub szTypeName: [u16; 80],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl SHFILEINFOW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::default::Default for SHFILEINFOW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::PartialEq for SHFILEINFOW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::Eq for SHFILEINFOW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for SHFILEINFOW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct SHFILEOPSTRUCTA {
@@ -51309,14 +52141,17 @@ pub struct SHFILEOPSTRUCTA {
     pub hNameMappings: *mut ::std::ffi::c_void,
     pub lpszProgressTitle: super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SHFILEOPSTRUCTA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SHFILEOPSTRUCTA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SHFILEOPSTRUCTA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -51332,20 +52167,64 @@ impl ::std::fmt::Debug for SHFILEOPSTRUCTA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SHFILEOPSTRUCTA {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.wFunc == other.wFunc && self.pFrom == other.pFrom && self.pTo == other.pTo && self.fFlags == other.fFlags && self.fAnyOperationsAborted == other.fAnyOperationsAborted && self.hNameMappings == other.hNameMappings && self.lpszProgressTitle == other.lpszProgressTitle
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SHFILEOPSTRUCTA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHFILEOPSTRUCTA {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: *mut i8,
+    pub pTo: *mut i8,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut ::std::ffi::c_void,
+    pub lpszProgressTitle: super::super::Foundation::PSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SHFILEOPSTRUCTA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHFILEOPSTRUCTA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHFILEOPSTRUCTA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHFILEOPSTRUCTA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct SHFILEOPSTRUCTW {
@@ -51358,14 +52237,17 @@ pub struct SHFILEOPSTRUCTW {
     pub hNameMappings: *mut ::std::ffi::c_void,
     pub lpszProgressTitle: super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SHFILEOPSTRUCTW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SHFILEOPSTRUCTW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SHFILEOPSTRUCTW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -51381,14 +52263,57 @@ impl ::std::fmt::Debug for SHFILEOPSTRUCTW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SHFILEOPSTRUCTW {
     fn eq(&self, other: &Self) -> bool {
         self.hwnd == other.hwnd && self.wFunc == other.wFunc && self.pFrom == other.pFrom && self.pTo == other.pTo && self.fFlags == other.fFlags && self.fAnyOperationsAborted == other.fAnyOperationsAborted && self.hNameMappings == other.hNameMappings && self.lpszProgressTitle == other.lpszProgressTitle
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SHFILEOPSTRUCTW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHFILEOPSTRUCTW {
+    pub hwnd: super::super::Foundation::HWND,
+    pub wFunc: u32,
+    pub pFrom: super::super::Foundation::PWSTR,
+    pub pTo: super::super::Foundation::PWSTR,
+    pub fFlags: u16,
+    pub fAnyOperationsAborted: super::super::Foundation::BOOL,
+    pub hNameMappings: *mut ::std::ffi::c_void,
+    pub lpszProgressTitle: super::super::Foundation::PWSTR,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SHFILEOPSTRUCTW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHFILEOPSTRUCTW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHFILEOPSTRUCTW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHFILEOPSTRUCTW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHFILEOPSTRUCTW {
     type Abi = Self;
@@ -51597,8 +52522,8 @@ impl ::std::cmp::Eq for SHFOLDERCUSTOMSETTINGS {}
 unsafe impl ::windows::runtime::Abi for SHFOLDERCUSTOMSETTINGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFileOperationA(lpfileop: *mut SHFILEOPSTRUCTA) -> i32 {
     #[cfg(windows)]
@@ -51612,8 +52537,8 @@ pub unsafe fn SHFileOperationA(lpfileop: *mut SHFILEOPSTRUCTA) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFileOperationW(lpfileop: *mut SHFILEOPSTRUCTW) -> i32 {
     #[cfg(windows)]
@@ -51627,8 +52552,8 @@ pub unsafe fn SHFileOperationW(lpfileop: *mut SHFILEOPSTRUCTW) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFindFiles(pidlfolder: *const ITEMIDLIST, pidlsavefile: *const ITEMIDLIST) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51642,8 +52567,8 @@ pub unsafe fn SHFindFiles(pidlfolder: *const ITEMIDLIST, pidlsavefile: *const IT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHFind_InitMenuPopup<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hmenu: Param0, hwndowner: Param1, idcmdfirst: u32, idcmdlast: u32) -> ::std::option::Option<IContextMenu> {
     #[cfg(windows)]
@@ -51671,8 +52596,8 @@ pub unsafe fn SHFlushSFCache() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFormatDateTimeA(pft: *const super::super::Foundation::FILETIME, pdwflags: *mut u32, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> i32 {
     #[cfg(windows)]
@@ -51686,8 +52611,8 @@ pub unsafe fn SHFormatDateTimeA(pft: *const super::super::Foundation::FILETIME, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFormatDateTimeW(pft: *const super::super::Foundation::FILETIME, pdwflags: *mut u32, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> i32 {
     #[cfg(windows)]
@@ -51701,8 +52626,8 @@ pub unsafe fn SHFormatDateTimeW(pft: *const super::super::Foundation::FILETIME, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFormatDrive<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, drive: u32, fmtid: SHFMT_ID, options: SHFMT_OPT) -> u32 {
     #[cfg(windows)]
@@ -51730,8 +52655,8 @@ pub unsafe fn SHFree(pv: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFreeNameMappings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hnamemappings: Param0) {
     #[cfg(windows)]
@@ -51745,8 +52670,8 @@ pub unsafe fn SHFreeNameMappings<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHFreeShared<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdata: Param0, dwprocessid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -51947,8 +52872,8 @@ pub const SHGVSPB_PERFOLDER: u32 = 4u32;
 pub const SHGVSPB_PERUSER: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHGVSPB_ROAM: u32 = 32u32;
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetAttributesFromDataObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pdo: Param0, dwattributemask: u32, pdwattributes: *mut u32, pcitems: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52005,8 +52930,8 @@ pub unsafe fn SHGetDesktopFolder() -> ::windows::runtime::Result<IShellFolder> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetDiskFreeSpaceExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdirectoryname: Param0, pulfreebytesavailabletocaller: *mut u64, pultotalnumberofbytes: *mut u64, pultotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52020,8 +52945,8 @@ pub unsafe fn SHGetDiskFreeSpaceExA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetDiskFreeSpaceExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdirectoryname: Param0, pulfreebytesavailabletocaller: *mut u64, pultotalnumberofbytes: *mut u64, pultotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52035,8 +52960,8 @@ pub unsafe fn SHGetDiskFreeSpaceExW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetDriveMedia<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdrive: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -52051,8 +52976,8 @@ pub unsafe fn SHGetDriveMedia<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHGetFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: *mut SHFILEINFOA, cbfileinfo: u32, uflags: SHGFI_FLAGS) -> usize {
     #[cfg(windows)]
@@ -52066,8 +52991,8 @@ pub unsafe fn SHGetFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_Storage_FileSystem`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SHGetFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, dwfileattributes: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, psfi: *mut SHFILEINFOW, cbfileinfo: u32, uflags: SHGFI_FLAGS) -> usize {
     #[cfg(windows)]
@@ -52081,8 +53006,8 @@ pub unsafe fn SHGetFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetFolderLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, csidl: i32, htoken: Param2, dwflags: u32) -> ::windows::runtime::Result<*mut ITEMIDLIST> {
     #[cfg(windows)]
@@ -52097,8 +53022,8 @@ pub unsafe fn SHGetFolderLocation<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetFolderPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, csidl: i32, htoken: Param2, dwflags: u32, pszpath: super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52112,8 +53037,8 @@ pub unsafe fn SHGetFolderPathA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetFolderPathAndSubDirA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, csidl: i32, htoken: Param2, dwflags: u32, pszsubdir: Param4, pszpath: super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52127,8 +53052,8 @@ pub unsafe fn SHGetFolderPathAndSubDirA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetFolderPathAndSubDirW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, csidl: i32, htoken: Param2, dwflags: u32, pszsubdir: Param4, pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52142,8 +53067,8 @@ pub unsafe fn SHGetFolderPathAndSubDirW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetFolderPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hwnd: Param0, csidl: i32, htoken: Param2, dwflags: u32, pszpath: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52172,8 +53097,8 @@ pub unsafe fn SHGetIDListFromObject<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetIconOverlayIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psziconpath: Param0, iiconindex: i32) -> i32 {
     #[cfg(windows)]
@@ -52187,8 +53112,8 @@ pub unsafe fn SHGetIconOverlayIndexA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetIconOverlayIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psziconpath: Param0, iiconindex: i32) -> i32 {
     #[cfg(windows)]
@@ -52245,8 +53170,8 @@ pub unsafe fn SHGetInverseCMAP(pbmap: *mut u8, cbmap: u32) -> ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetItemFromDataObject<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pdtobj: Param0, dwflags: DATAOBJ_GET_ITEM_FLAGS, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52274,8 +53199,8 @@ pub unsafe fn SHGetItemFromObject<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetKnownFolderIDList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(rfid: *const ::windows::runtime::GUID, dwflags: u32, htoken: Param2) -> ::windows::runtime::Result<*mut ITEMIDLIST> {
     #[cfg(windows)]
@@ -52290,8 +53215,8 @@ pub unsafe fn SHGetKnownFolderIDList<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetKnownFolderItem<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(rfid: *const ::windows::runtime::GUID, flags: KNOWN_FOLDER_FLAG, htoken: Param2, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52305,8 +53230,8 @@ pub unsafe fn SHGetKnownFolderItem<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetKnownFolderPath<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(rfid: *const ::windows::runtime::GUID, dwflags: u32, htoken: Param2) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -52321,8 +53246,8 @@ pub unsafe fn SHGetKnownFolderPath<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszresmodule: super::super::Foundation::PWSTR, cch: u32, pidsres: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52336,8 +53261,8 @@ pub unsafe fn SHGetLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetMalloc() -> ::windows::runtime::Result<super::super::System::Com::IMalloc> {
     #[cfg(windows)]
@@ -52352,8 +53277,8 @@ pub unsafe fn SHGetMalloc() -> ::windows::runtime::Result<super::super::System::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetNameFromIDList(pidl: *const ITEMIDLIST, sigdnname: SIGDN) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -52368,8 +53293,8 @@ pub unsafe fn SHGetNameFromIDList(pidl: *const ITEMIDLIST, sigdnname: SIGDN) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetNewLinkInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszlinkto: Param0, pszdir: Param1, pszname: super::super::Foundation::PSTR, pfmustcopy: *mut super::super::Foundation::BOOL, uflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52383,8 +53308,8 @@ pub unsafe fn SHGetNewLinkInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetNewLinkInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlinkto: Param0, pszdir: Param1, pszname: super::super::Foundation::PWSTR, pfmustcopy: *mut super::super::Foundation::BOOL, uflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52398,8 +53323,8 @@ pub unsafe fn SHGetNewLinkInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListA(pidl: *const ITEMIDLIST, pszpath: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52413,8 +53338,8 @@ pub unsafe fn SHGetPathFromIDListA(pidl: *const ITEMIDLIST, pszpath: super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListEx(pidl: *const ITEMIDLIST, pszpath: super::super::Foundation::PWSTR, cchpath: u32, uopts: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52428,8 +53353,8 @@ pub unsafe fn SHGetPathFromIDListEx(pidl: *const ITEMIDLIST, pszpath: super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetPathFromIDListW(pidl: *const ITEMIDLIST, pszpath: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52458,8 +53383,8 @@ pub unsafe fn SHGetRealIDL<'a, Param0: ::windows::runtime::IntoParam<'a, IShellF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetSetFolderCustomSettings<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pfcs: *mut SHFOLDERCUSTOMSETTINGS, pszpath: Param1, dwreadwrite: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52473,8 +53398,8 @@ pub unsafe fn SHGetSetFolderCustomSettings<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetSetSettings<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpss: *mut SHELLSTATEA, dwmask: SSF_MASK, bset: Param2) {
     #[cfg(windows)]
@@ -52502,8 +53427,8 @@ pub unsafe fn SHGetSettings(psfs: *mut SHELLFLAGSTATE, dwmask: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderLocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, csidl: i32) -> ::windows::runtime::Result<*mut ITEMIDLIST> {
     #[cfg(windows)]
@@ -52518,8 +53443,8 @@ pub unsafe fn SHGetSpecialFolderLocation<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, pszpath: super::super::Foundation::PSTR, csidl: i32, fcreate: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52533,8 +53458,8 @@ pub unsafe fn SHGetSpecialFolderPathA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, pszpath: super::super::Foundation::PWSTR, csidl: i32, fcreate: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52548,8 +53473,8 @@ pub unsafe fn SHGetSpecialFolderPathW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SHSTOCKICONINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52563,8 +53488,8 @@ pub unsafe fn SHGetStockIconInfo(siid: SHSTOCKICONID, uflags: u32, psii: *mut SH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[inline]
 pub unsafe fn SHGetTemporaryPropertyForItem<'a, Param0: ::windows::runtime::IntoParam<'a, IShellItem>>(psi: Param0, propkey: *const super::super::System::PropertiesSystem::PROPERTYKEY) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -52594,8 +53519,8 @@ pub unsafe fn SHGetThreadRef() -> ::windows::runtime::Result<::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHGetUnreadMailCountW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkeyuser: Param0, pszmailaddress: Param1, pdwcount: *mut u32, pfiletime: *mut super::super::Foundation::FILETIME, pszshellexecutecommand: super::super::Foundation::PWSTR, cchshellexecutecommand: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52609,8 +53534,8 @@ pub unsafe fn SHGetUnreadMailCountW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -52624,8 +53549,8 @@ pub unsafe fn SHGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -52639,8 +53564,8 @@ pub unsafe fn SHGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetViewStatePropertyBag<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pidl: *const ITEMIDLIST, pszbagname: Param1, dwflags: u32, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52714,8 +53639,8 @@ pub unsafe fn SHHandleUpdateImage(pidlextra: *const ITEMIDLIST) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHILCreateFromPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, ppidl: *mut *mut ITEMIDLIST, rgfinout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52773,8 +53698,8 @@ impl ::std::cmp::Eq for SHITEMID {}
 unsafe impl ::windows::runtime::Abi for SHITEMID {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHInvokePrinterCommandA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, uaction: u32, lpbuf1: Param2, lpbuf2: Param3, fmodal: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52788,8 +53713,8 @@ pub unsafe fn SHInvokePrinterCommandA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHInvokePrinterCommandW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, uaction: u32, lpbuf1: Param2, lpbuf2: Param3, fmodal: Param4) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52803,8 +53728,8 @@ pub unsafe fn SHInvokePrinterCommandW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHIsFileAvailableOffline<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszpath: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -52819,8 +53744,8 @@ pub unsafe fn SHIsFileAvailableOffline<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHIsLowMemoryMachine(dwtype: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -52834,8 +53759,8 @@ pub unsafe fn SHIsLowMemoryMachine(dwtype: u32) -> super::super::Foundation::BOO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHLimitInputEdit<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, IShellFolder>>(hwndedit: Param0, psf: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52863,8 +53788,8 @@ pub unsafe fn SHLoadInProc(rclsid: *const ::windows::runtime::GUID) -> ::windows
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHLoadIndirectString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsource: Param0, pszoutbuf: super::super::Foundation::PWSTR, cchoutbuf: u32, ppvreserved: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52892,8 +53817,8 @@ pub unsafe fn SHLoadNonloadedIconOverlayIdentifiers() -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHLockShared<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdata: Param0, dwprocessid: u32) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -52921,8 +53846,8 @@ pub unsafe fn SHMapPIDLToSystemImageListIndex<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHMessageBoxCheckA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, psztext: Param1, pszcaption: Param2, utype: u32, idefault: i32, pszregval: Param5) -> i32 {
     #[cfg(windows)]
@@ -52936,8 +53861,8 @@ pub unsafe fn SHMessageBoxCheckA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHMessageBoxCheckW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, psztext: Param1, pszcaption: Param2, utype: u32, idefault: i32, pszregval: Param5) -> i32 {
     #[cfg(windows)]
@@ -52951,8 +53876,8 @@ pub unsafe fn SHMessageBoxCheckW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHMultiFileProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>>(pdtobj: Param0, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -52968,6 +53893,7 @@ pub unsafe fn SHMultiFileProperties<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct SHNAMEMAPPINGA {
@@ -52976,34 +53902,77 @@ pub struct SHNAMEMAPPINGA {
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SHNAMEMAPPINGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SHNAMEMAPPINGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SHNAMEMAPPINGA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHNAMEMAPPINGA").field("pszOldPath", &self.pszOldPath).field("pszNewPath", &self.pszNewPath).field("cchOldPath", &self.cchOldPath).field("cchNewPath", &self.cchNewPath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SHNAMEMAPPINGA {
     fn eq(&self, other: &Self) -> bool {
         self.pszOldPath == other.pszOldPath && self.pszNewPath == other.pszNewPath && self.cchOldPath == other.cchOldPath && self.cchNewPath == other.cchNewPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SHNAMEMAPPINGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGA {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHNAMEMAPPINGA {
+    pub pszOldPath: super::super::Foundation::PSTR,
+    pub pszNewPath: super::super::Foundation::PSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SHNAMEMAPPINGA {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHNAMEMAPPINGA {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHNAMEMAPPINGA {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHNAMEMAPPINGA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub struct SHNAMEMAPPINGW {
@@ -53012,28 +53981,70 @@ pub struct SHNAMEMAPPINGW {
     pub cchOldPath: i32,
     pub cchNewPath: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl SHNAMEMAPPINGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SHNAMEMAPPINGW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SHNAMEMAPPINGW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHNAMEMAPPINGW").field("pszOldPath", &self.pszOldPath).field("pszNewPath", &self.pszNewPath).field("cchOldPath", &self.cchOldPath).field("cchNewPath", &self.cchNewPath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SHNAMEMAPPINGW {
     fn eq(&self, other: &Self) -> bool {
         self.pszOldPath == other.pszOldPath && self.pszNewPath == other.pszNewPath && self.cchOldPath == other.cchOldPath && self.cchNewPath == other.cchNewPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SHNAMEMAPPINGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGW {
+    type Abi = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+pub struct SHNAMEMAPPINGW {
+    pub pszOldPath: super::super::Foundation::PWSTR,
+    pub pszNewPath: super::super::Foundation::PWSTR,
+    pub cchOldPath: i32,
+    pub cchNewPath: i32,
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl SHNAMEMAPPINGW {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::default::Default for SHNAMEMAPPINGW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::PartialEq for SHNAMEMAPPINGW {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::std::cmp::Eq for SHNAMEMAPPINGW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SHNAMEMAPPINGW {
     type Abi = Self;
@@ -53081,8 +54092,8 @@ impl ::std::ops::Not for SHOP_TYPE {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHObjectProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, shopobjecttype: SHOP_TYPE, pszobjectname: Param2, pszpropertypage: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -53110,8 +54121,8 @@ pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: *const ITEMIDLIST, cidl: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHOpenPropSheetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::System::Com::IDataObject>, Param5: ::windows::runtime::IntoParam<'a, IShellBrowser>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pszcaption: Param0,
@@ -53133,8 +54144,8 @@ pub unsafe fn SHOpenPropSheetW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHOpenRegStream2A<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, grfmode: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -53148,8 +54159,8 @@ pub unsafe fn SHOpenRegStream2A<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHOpenRegStream2W<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, grfmode: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -53163,8 +54174,8 @@ pub unsafe fn SHOpenRegStream2W<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHOpenRegStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, grfmode: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -53178,8 +54189,8 @@ pub unsafe fn SHOpenRegStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHOpenRegStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, grfmode: u32) -> ::std::option::Option<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -53193,8 +54204,8 @@ pub unsafe fn SHOpenRegStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHOpenWithDialog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, poainfo: *const OPENASINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53232,8 +54243,8 @@ pub const SHPWHF_NORECOMPRESS: u32 = 1u32;
 pub const SHPWHF_USEMRU: u32 = 8u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHPWHF_VALIDATEVIAWEBFOLDERS: u32 = 65536u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(pszname: Param0, pbc: Param1, ppidl: *mut *mut ITEMIDLIST, sfgaoin: u32, psfgaoout: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53247,8 +54258,8 @@ pub unsafe fn SHParseDisplayName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHPathPrepareForWriteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, punkenablemodless: Param1, pszpath: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53262,8 +54273,8 @@ pub unsafe fn SHPathPrepareForWriteA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHPathPrepareForWriteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, punkenablemodless: Param1, pszpath: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53279,34 +54290,70 @@ pub unsafe fn SHPathPrepareForWriteW<'a, Param0: ::windows::runtime::IntoParam<'
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
     pub i64NumItems: i64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SHQUERYRBINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SHQUERYRBINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SHQUERYRBINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHQUERYRBINFO").field("cbSize", &self.cbSize).field("i64Size", &self.i64Size).field("i64NumItems", &self.i64NumItems).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SHQUERYRBINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.i64Size == other.i64Size && self.i64NumItems == other.i64NumItems
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SHQUERYRBINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SHQUERYRBINFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[doc = "*Required features: `Win32_UI_Shell`*"]
+pub struct SHQUERYRBINFO {
+    pub cbSize: u32,
+    pub i64Size: i64,
+    pub i64NumItems: i64,
+}
+#[cfg(any(target_arch = "x86",))]
+impl SHQUERYRBINFO {}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::default::Default for SHQUERYRBINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::PartialEq for SHQUERYRBINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::std::cmp::Eq for SHQUERYRBINFO {}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::runtime::Abi for SHQUERYRBINFO {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53320,8 +54367,8 @@ pub unsafe fn SHQueryInfoKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53335,8 +54382,8 @@ pub unsafe fn SHQueryInfoKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHQueryRecycleBinA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszrootpath: Param0, pshqueryrbinfo: *mut SHQUERYRBINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53350,8 +54397,8 @@ pub unsafe fn SHQueryRecycleBinA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHQueryRecycleBinW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszrootpath: Param0, pshqueryrbinfo: *mut SHQUERYRBINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53380,8 +54427,8 @@ pub unsafe fn SHQueryUserNotificationState() -> ::windows::runtime::Result<QUERY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHQueryValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszvalue: Param1, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53395,8 +54442,8 @@ pub unsafe fn SHQueryValueExA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHQueryValueExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszvalue: Param1, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53450,8 +54497,8 @@ pub const SHREGSET_FORCE_HKLM: u32 = 8u32;
 pub const SHREGSET_HKCU: u32 = 1u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const SHREGSET_HKLM: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53465,8 +54512,8 @@ pub unsafe fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::LSTATU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegCreateUSKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53480,8 +54527,8 @@ pub unsafe fn SHRegCreateUSKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegCreateUSKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzpath: Param0, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53495,8 +54542,8 @@ pub unsafe fn SHRegCreateUSKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegDeleteEmptyUSKeyA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(huskey: isize, pszsubkey: Param1, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53510,8 +54557,8 @@ pub unsafe fn SHRegDeleteEmptyUSKeyA<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegDeleteEmptyUSKeyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(huskey: isize, pwzsubkey: Param1, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53525,8 +54572,8 @@ pub unsafe fn SHRegDeleteEmptyUSKeyW<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegDeleteUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(huskey: isize, pszvalue: Param1, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53540,8 +54587,8 @@ pub unsafe fn SHRegDeleteUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegDeleteUSValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(huskey: isize, pwzvalue: Param1, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53555,8 +54602,8 @@ pub unsafe fn SHRegDeleteUSValueW<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn SHRegDuplicateHKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>>(hkey: Param0) -> super::super::System::Registry::HKEY {
     #[cfg(windows)]
@@ -53570,8 +54617,8 @@ pub unsafe fn SHRegDuplicateHKey<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53585,8 +54632,8 @@ pub unsafe fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: super::super::Foundation::PWSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53600,8 +54647,8 @@ pub unsafe fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53615,8 +54662,8 @@ pub unsafe fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53630,8 +54677,8 @@ pub unsafe fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegGetBoolUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszsubkey: Param0, pszvalue: Param1, fignorehkcu: Param2, fdefault: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -53645,8 +54692,8 @@ pub unsafe fn SHRegGetBoolUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegGetBoolUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszsubkey: Param0, pszvalue: Param1, fignorehkcu: Param2, fdefault: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -53660,8 +54707,8 @@ pub unsafe fn SHRegGetBoolUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegGetIntW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hk: Param0, pwzkey: Param1, idefault: i32) -> i32 {
     #[cfg(windows)]
@@ -53675,8 +54722,8 @@ pub unsafe fn SHRegGetIntW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegGetPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pcszsubkey: Param1, pcszvalue: Param2, pszpath: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53690,8 +54737,8 @@ pub unsafe fn SHRegGetPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegGetPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pcszsubkey: Param1, pcszvalue: Param2, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53705,8 +54752,8 @@ pub unsafe fn SHRegGetPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegGetUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszsubkey: Param0, pszvalue: Param1, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, fignorehkcu: Param5, pvdefaultdata: *const ::std::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53720,8 +54767,8 @@ pub unsafe fn SHRegGetUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegGetUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszsubkey: Param0, pszvalue: Param1, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, fignorehkcu: Param5, pvdefaultdata: *const ::std::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53735,8 +54782,8 @@ pub unsafe fn SHRegGetUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53750,8 +54797,8 @@ pub unsafe fn SHRegGetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegGetValueFromHKCUHKLM<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszkey: Param0, pwszvalue: Param1, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53765,8 +54812,8 @@ pub unsafe fn SHRegGetValueFromHKCUHKLM<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53780,8 +54827,8 @@ pub unsafe fn SHRegGetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegOpenUSKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pszpath: Param0, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: Param4) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53795,8 +54842,8 @@ pub unsafe fn SHRegOpenUSKeyA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegOpenUSKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pwzpath: Param0, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: Param4) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53810,8 +54857,8 @@ pub unsafe fn SHRegOpenUSKeyW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53825,8 +54872,8 @@ pub unsafe fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: *mut u32, pcchmaxsu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53840,8 +54887,8 @@ pub unsafe fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: *mut u32, pcchmaxsu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(huskey: isize, pszvalue: Param1, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, fignorehkcu: Param5, pvdefaultdata: *const ::std::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53855,8 +54902,8 @@ pub unsafe fn SHRegQueryUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegQueryUSValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(huskey: isize, pszvalue: Param1, pdwtype: *mut u32, pvdata: *mut ::std::ffi::c_void, pcbdata: *mut u32, fignorehkcu: Param5, pvdefaultdata: *const ::std::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53870,8 +54917,8 @@ pub unsafe fn SHRegQueryUSValueW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegSetPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pcszsubkey: Param1, pcszvalue: Param2, pcszpath: Param3, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53885,8 +54932,8 @@ pub unsafe fn SHRegSetPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHRegSetPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pcszsubkey: Param1, pcszvalue: Param2, pcszpath: Param3, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53900,8 +54947,8 @@ pub unsafe fn SHRegSetPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegSetUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsubkey: Param0, pszvalue: Param1, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53915,8 +54962,8 @@ pub unsafe fn SHRegSetUSValueA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegSetUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzsubkey: Param0, pwzvalue: Param1, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53930,8 +54977,8 @@ pub unsafe fn SHRegSetUSValueW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegWriteUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(huskey: isize, pszvalue: Param1, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53945,8 +54992,8 @@ pub unsafe fn SHRegWriteUSValueA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRegWriteUSValueW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(huskey: isize, pwzvalue: Param1, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -53974,8 +55021,8 @@ pub unsafe fn SHReleaseThreadRef() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHRemoveLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -53989,8 +55036,8 @@ pub unsafe fn SHRemoveLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn SHReplaceFromPropSheetExtArray<'a, Param0: ::windows::runtime::IntoParam<'a, HPSXA>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hpsxa: Param0, upageid: u32, lpfnreplacewith: ::std::option::Option<super::Controls::LPFNSVADDPROPSHEETPAGE>, lparam: Param3) -> u32 {
     #[cfg(windows)]
@@ -54140,6 +55187,7 @@ unsafe impl ::windows::runtime::Abi for SHSTOCKICONID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
 pub struct SHSTOCKICONINFO {
@@ -54149,34 +55197,77 @@ pub struct SHSTOCKICONINFO {
     pub iIcon: i32,
     pub szPath: [u16; 260],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl SHSTOCKICONINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::default::Default for SHSTOCKICONINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::fmt::Debug for SHSTOCKICONINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SHSTOCKICONINFO").field("cbSize", &self.cbSize).field("hIcon", &self.hIcon).field("iSysImageIndex", &self.iSysImageIndex).field("iIcon", &self.iIcon).field("szPath", &self.szPath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::PartialEq for SHSTOCKICONINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.hIcon == other.hIcon && self.iSysImageIndex == other.iSysImageIndex && self.iIcon == other.iIcon && self.szPath == other.szPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::Eq for SHSTOCKICONINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for SHSTOCKICONINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+pub struct SHSTOCKICONINFO {
+    pub cbSize: u32,
+    pub hIcon: super::WindowsAndMessaging::HICON,
+    pub iSysImageIndex: i32,
+    pub iIcon: i32,
+    pub szPath: [u16; 260],
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl SHSTOCKICONINFO {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::default::Default for SHSTOCKICONINFO {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::PartialEq for SHSTOCKICONINFO {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::std::cmp::Eq for SHSTOCKICONINFO {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::runtime::Abi for SHSTOCKICONINFO {
+    type Abi = Self;
+}
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSendMessageBroadcastA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(umsg: u32, wparam: Param1, lparam: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -54190,8 +55281,8 @@ pub unsafe fn SHSendMessageBroadcastA<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSendMessageBroadcastW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(umsg: u32, wparam: Param1, lparam: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -54205,8 +55296,8 @@ pub unsafe fn SHSendMessageBroadcastW<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetDefaultProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, IShellItem>, Param3: ::windows::runtime::IntoParam<'a, IFileOperationProgressSink>>(hwnd: Param0, psi: Param1, dwfileopflags: u32, pfops: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54220,8 +55311,8 @@ pub unsafe fn SHSetDefaultProperties<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetFolderPathA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(csidl: i32, htoken: Param1, dwflags: u32, pszpath: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54235,8 +55326,8 @@ pub unsafe fn SHSetFolderPathA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetFolderPathW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(csidl: i32, htoken: Param1, dwflags: u32, pszpath: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54264,8 +55355,8 @@ pub unsafe fn SHSetInstanceExplorer<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetKnownFolderPath<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rfid: *const ::windows::runtime::GUID, dwflags: u32, htoken: Param2, pszpath: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54279,8 +55370,8 @@ pub unsafe fn SHSetKnownFolderPath<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszresmodule: Param1, idsres: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54294,8 +55385,8 @@ pub unsafe fn SHSetLocalizedName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation", feature = "Win32_System_PropertiesSystem"))]
 #[inline]
 pub unsafe fn SHSetTemporaryPropertyForItem<'a, Param0: ::windows::runtime::IntoParam<'a, IShellItem>>(psi: Param0, propkey: *const super::super::System::PropertiesSystem::PROPERTYKEY, propvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54323,8 +55414,8 @@ pub unsafe fn SHSetThreadRef<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSetUnreadMailCountW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszmailaddress: Param0, dwcount: u32, pszshellexecutecommand: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54338,8 +55429,8 @@ pub unsafe fn SHSetUnreadMailCountW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHSetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -54353,8 +55444,8 @@ pub unsafe fn SHSetValueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn SHSetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hkey: Param0, pszsubkey: Param1, pszvalue: Param2, dwtype: u32, pvdata: *const ::std::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS {
     #[cfg(windows)]
@@ -54368,8 +55459,8 @@ pub unsafe fn SHSetValueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHShellFolderView_Message<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwndmain: Param0, umsg: u32, lparam: Param2) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
@@ -54383,8 +55474,8 @@ pub unsafe fn SHShellFolderView_Message<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHShowManageLibraryUI<'a, Param0: ::windows::runtime::IntoParam<'a, IShellItem>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psilibrary: Param0, hwndowner: Param1, psztitle: Param2, pszinstruction: Param3, lmdoptions: LIBRARYMANAGEDIALOGOPTIONS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54398,8 +55489,8 @@ pub unsafe fn SHShowManageLibraryUI<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHSimpleIDListFromPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> *mut ITEMIDLIST {
     #[cfg(windows)]
@@ -54413,8 +55504,8 @@ pub unsafe fn SHSimpleIDListFromPath<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SHSkipJunction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IBindCtx>>(pbc: Param0, pclsid: *const ::windows::runtime::GUID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -54428,8 +55519,8 @@ pub unsafe fn SHSkipJunction<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStartNetConnectionDialogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszremotename: Param1, dwtype: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54443,8 +55534,8 @@ pub unsafe fn SHStartNetConnectionDialogW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStrDupA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -54459,8 +55550,8 @@ pub unsafe fn SHStrDupA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStrDupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -54475,8 +55566,8 @@ pub unsafe fn SHStrDupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStripMneumonicA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszmenu: Param0) -> super::super::Foundation::CHAR {
     #[cfg(windows)]
@@ -54490,8 +55581,8 @@ pub unsafe fn SHStripMneumonicA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHStripMneumonicW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszmenu: Param0) -> u16 {
     #[cfg(windows)]
@@ -54505,8 +55596,8 @@ pub unsafe fn SHStripMneumonicW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHTestTokenMembership<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, ulrid: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -54520,8 +55611,8 @@ pub unsafe fn SHTestTokenMembership<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUnicodeToAnsi<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszsrc: Param0, pszdst: super::super::Foundation::PSTR, cchbuf: i32) -> i32 {
     #[cfg(windows)]
@@ -54535,8 +55626,8 @@ pub unsafe fn SHUnicodeToAnsi<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUnicodeToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwzsrc: Param0, pwzdst: super::super::Foundation::PWSTR, cwchbuf: i32) -> i32 {
     #[cfg(windows)]
@@ -54550,8 +55641,8 @@ pub unsafe fn SHUnicodeToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUnlockShared(pvdata: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -54565,8 +55656,8 @@ pub unsafe fn SHUnlockShared(pvdata: *const ::std::ffi::c_void) -> super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUpdateImageA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszhashitem: Param0, iindex: i32, uflags: u32, iimageindex: i32) {
     #[cfg(windows)]
@@ -54580,8 +55671,8 @@ pub unsafe fn SHUpdateImageA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHUpdateImageW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszhashitem: Param0, iindex: i32, uflags: u32, iimageindex: i32) {
     #[cfg(windows)]
@@ -54595,8 +55686,8 @@ pub unsafe fn SHUpdateImageW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHValidateUNC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, pszfile: Param1, fconnect: VALIDATEUNC_OPTION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -55403,7 +56494,6 @@ unsafe impl ::windows::runtime::Abi for STRRET {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 pub union STRRET_0 {
     pub pOleStr: super::super::Foundation::PWSTR,
     pub uOffset: u32,
@@ -55444,6 +56534,7 @@ impl ::std::convert::From<i32> for STRRET_TYPE {
 unsafe impl ::windows::runtime::Abi for STRRET_TYPE {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SUBCLASSPROC = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::LRESULT;
 #[derive(:: std :: clone :: Clone)]
@@ -56185,8 +57276,8 @@ pub const S_SYNCMGR_RETRYSYNC: ::windows::runtime::HRESULT = ::windows::runtime:
 pub const ScheduledTasks: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3592911248, 19562, 4559, [141, 135, 0, 170, 0, 96, 245, 191]);
 pub const SearchFolderItemFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335613442, 48061, 16880, [136, 227, 237, 163, 113, 33, 101, 132]);
 pub const SelectedItemCount_Property_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2414024402, 3666, 17930, [156, 30, 72, 242, 115, 212, 112, 163]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentProcessExplicitAppUserModelID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(appid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -56200,8 +57291,8 @@ pub unsafe fn SetCurrentProcessExplicitAppUserModelID<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn SetMenuContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56215,8 +57306,8 @@ pub unsafe fn SetMenuContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56230,8 +57321,8 @@ pub unsafe fn SetWindowContextHelpId<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowSubclass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pfnsubclass: ::std::option::Option<SUBCLASSPROC>, uidsubclass: usize, dwrefdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56260,8 +57351,8 @@ unsafe impl ::windows::runtime::Abi for ShFindChangeNotificationHandle {
 pub const SharedBitmap: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1303536758, 26503, 16454, [184, 54, 232, 65, 42, 158, 138, 39]);
 pub const SharingConfigurationManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1240691169, 35932, 19868, [154, 59, 84, 166, 130, 127, 81, 60]);
 pub const Shell: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(326145568, 49785, 4558, [164, 158, 68, 69, 83, 84, 0, 0]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ShellAboutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HICON>>(hwnd: Param0, szapp: Param1, szotherstuff: Param2, hicon: Param3) -> i32 {
     #[cfg(windows)]
@@ -56275,8 +57366,8 @@ pub unsafe fn ShellAboutA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ShellAboutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HICON>>(hwnd: Param0, szapp: Param1, szotherstuff: Param2, hicon: Param3) -> i32 {
     #[cfg(windows)]
@@ -56292,8 +57383,8 @@ pub unsafe fn ShellAboutW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
 }
 pub const ShellDesktop: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136192, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 pub const ShellDispatchInproc: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176793696, 55217, 4558, [131, 80, 68, 69, 83, 84, 0, 0]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ShellExecuteA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hwnd: Param0,
@@ -56314,8 +57405,8 @@ pub unsafe fn ShellExecuteA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ShellExecuteExA(pexecinfo: *mut SHELLEXECUTEINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56329,8 +57420,8 @@ pub unsafe fn ShellExecuteExA(pexecinfo: *mut SHELLEXECUTEINFOA) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56344,8 +57435,8 @@ pub unsafe fn ShellExecuteExW(pexecinfo: *mut SHELLEXECUTEINFOW) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ShellExecuteW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     hwnd: Param0,
@@ -56394,8 +57485,8 @@ pub const ShellItem: ::windows::runtime::GUID = ::windows::runtime::GUID::from_v
 pub const ShellLibrary: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3652395293, 58751, 17446, [170, 239, 48, 168, 6, 173, 211, 151]);
 pub const ShellLink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(136193, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 pub const ShellLinkObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(287413280, 5992, 4561, [149, 190, 0, 96, 151, 151, 234, 79]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ShellMessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(happinst: Param0, hwnd: Param1, lpctext: Param2, lpctitle: Param3, fustyle: u32) -> i32 {
     #[cfg(windows)]
@@ -56409,8 +57500,8 @@ pub unsafe fn ShellMessageBoxA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ShellMessageBoxW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(happinst: Param0, hwnd: Param1, lpctext: Param2, lpctitle: Param3, fustyle: u32) -> i32 {
     #[cfg(windows)]
@@ -56506,8 +57597,8 @@ impl ::std::convert::From<i32> for ShellWindowTypeConstants {
 unsafe impl ::windows::runtime::Abi for ShellWindowTypeConstants {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Shell_GetCachedImageIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwsziconpath: Param0, iiconindex: i32, uiconflags: u32) -> i32 {
     #[cfg(windows)]
@@ -56521,8 +57612,8 @@ pub unsafe fn Shell_GetCachedImageIndex<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Shell_GetCachedImageIndexA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psziconpath: Param0, iiconindex: i32, uiconflags: u32) -> i32 {
     #[cfg(windows)]
@@ -56536,8 +57627,8 @@ pub unsafe fn Shell_GetCachedImageIndexA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Shell_GetCachedImageIndexW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psziconpath: Param0, iiconindex: i32, uiconflags: u32) -> i32 {
     #[cfg(windows)]
@@ -56551,8 +57642,8 @@ pub unsafe fn Shell_GetCachedImageIndexW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_Controls`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 #[inline]
 pub unsafe fn Shell_GetImageLists(phiml: *mut super::Controls::HIMAGELIST, phimlsmall: *mut super::Controls::HIMAGELIST) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56566,8 +57657,8 @@ pub unsafe fn Shell_GetImageLists(phiml: *mut super::Controls::HIMAGELIST, phiml
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn Shell_MergeMenus<'a, Param0: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>, Param1: ::windows::runtime::IntoParam<'a, super::WindowsAndMessaging::HMENU>>(hmdst: Param0, hmsrc: Param1, uinsert: u32, uidadjust: u32, uidadjustmax: u32, uflags: MM_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -56581,8 +57672,8 @@ pub unsafe fn Shell_MergeMenus<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const NOTIFYICONDATAA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56596,8 +57687,8 @@ pub unsafe fn Shell_NotifyIconA(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const N
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -> ::windows::runtime::Result<super::super::Foundation::RECT> {
     #[cfg(windows)]
@@ -56612,8 +57703,8 @@ pub unsafe fn Shell_NotifyIconGetRect(identifier: *const NOTIFYICONIDENTIFIER) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn Shell_NotifyIconW(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const NOTIFYICONDATAW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56628,8 +57719,8 @@ pub unsafe fn Shell_NotifyIconW(dwmessage: NOTIFY_ICON_MESSAGE, lpdata: *const N
     unimplemented!("Unsupported target OS");
 }
 pub const ShowInputPaneAnimationCoordinator: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(520383167, 12802, 19905, [140, 181, 60, 103, 97, 124, 225, 250]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SignalFileOpen(pidl: *const ITEMIDLIST) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -56649,8 +57740,8 @@ pub const SmartcardCredentialProvider: ::windows::runtime::GUID = ::windows::run
 pub const SmartcardPinProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488888446, 14148, 16846, [137, 62, 187, 240, 145, 34, 247, 106]);
 pub const SmartcardReaderSelectionProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(455620705, 30031, 16418, [173, 71, 165, 234, 170, 97, 136, 148]);
 pub const SmartcardWinRTProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(518468479, 34220, 17890, [162, 60, 55, 199, 83, 32, 151, 105]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com_Urlmon`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
 #[inline]
 pub unsafe fn SoftwareUpdateMessageBox<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pszdistunit: Param1, dwflags: u32, psdi: *mut super::super::System::Com::Urlmon::SOFTDISTINFO) -> u32 {
     #[cfg(windows)]
@@ -56665,8 +57756,8 @@ pub unsafe fn SoftwareUpdateMessageBox<'a, Param0: ::windows::runtime::IntoParam
     unimplemented!("Unsupported target OS");
 }
 pub const StartMenuPin: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2729006173, 41154, 17076, [151, 8, 160, 178, 186, 221, 119, 200]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn StgMakeUniqueName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pstgparent: Param0, pszfilespec: Param1, grfmode: u32, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -56681,8 +57772,8 @@ pub unsafe fn StgMakeUniqueName<'a, Param0: ::windows::runtime::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 pub const StorageProviderBanners: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2093873652, 58742, 17754, [139, 199, 246, 236, 104, 214, 240, 99]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -56696,8 +57787,8 @@ pub unsafe fn StrCSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCSpnIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -56711,8 +57802,8 @@ pub unsafe fn StrCSpnIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCSpnIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -56726,8 +57817,8 @@ pub unsafe fn StrCSpnIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -56741,8 +57832,8 @@ pub unsafe fn StrCSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCatBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdest: Param0, pszsrc: Param1, cchdestbuffsize: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -56756,8 +57847,8 @@ pub unsafe fn StrCatBuffA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCatBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdest: Param0, pszsrc: Param1, cchdestbuffsize: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56771,8 +57862,8 @@ pub unsafe fn StrCatBuffW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCatChainW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdst: super::super::Foundation::PWSTR, cchdst: u32, ichat: u32, pszsrc: Param3) -> u32 {
     #[cfg(windows)]
@@ -56786,8 +57877,8 @@ pub unsafe fn StrCatChainW<'a, Param3: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56801,8 +57892,8 @@ pub unsafe fn StrCatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstart: Param0, wmatch: u16) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -56816,8 +57907,8 @@ pub unsafe fn StrChrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstart: Param0, wmatch: u16) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -56831,8 +57922,8 @@ pub unsafe fn StrChrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, wmatch: u16) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56846,8 +57937,8 @@ pub unsafe fn StrChrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, wmatch: u16, cchmax: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56861,8 +57952,8 @@ pub unsafe fn StrChrNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, wmatch: u16, cchmax: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56876,8 +57967,8 @@ pub unsafe fn StrChrNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrChrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, wmatch: u16) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -56891,8 +57982,8 @@ pub unsafe fn StrChrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr1: Param0, pszstr2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56906,8 +57997,8 @@ pub unsafe fn StrCmpCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr1: Param0, pszstr2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56921,8 +58012,8 @@ pub unsafe fn StrCmpCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr1: Param0, pszstr2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56936,8 +58027,8 @@ pub unsafe fn StrCmpICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr1: Param0, pszstr2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56951,8 +58042,8 @@ pub unsafe fn StrCmpICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56966,8 +58057,8 @@ pub unsafe fn StrCmpIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpLogicalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1) -> i32 {
     #[cfg(windows)]
@@ -56981,8 +58072,8 @@ pub unsafe fn StrCmpLogicalW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz1: Param0, psz2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -56996,8 +58087,8 @@ pub unsafe fn StrCmpNA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr1: Param0, pszstr2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57011,8 +58102,8 @@ pub unsafe fn StrCmpNCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr1: Param0, pszstr2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57026,8 +58117,8 @@ pub unsafe fn StrCmpNCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz1: Param0, psz2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57041,8 +58132,8 @@ pub unsafe fn StrCmpNIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstr1: Param0, pszstr2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57056,8 +58147,8 @@ pub unsafe fn StrCmpNICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstr1: Param0, pszstr2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57071,8 +58162,8 @@ pub unsafe fn StrCmpNICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57086,8 +58177,8 @@ pub unsafe fn StrCmpNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1, nchar: i32) -> i32 {
     #[cfg(windows)]
@@ -57101,8 +58192,8 @@ pub unsafe fn StrCmpNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCmpW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1) -> i32 {
     #[cfg(windows)]
@@ -57116,8 +58207,8 @@ pub unsafe fn StrCmpW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCpyNW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdst: super::super::Foundation::PWSTR, pszsrc: Param1, cchmax: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57131,8 +58222,8 @@ pub unsafe fn StrCpyNW<'a, Param1: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrCpyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: super::super::Foundation::PWSTR, psz2: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57146,8 +58237,8 @@ pub unsafe fn StrCpyW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrDupA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsrch: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57161,8 +58252,8 @@ pub unsafe fn StrDupA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrDupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsrch: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57176,8 +58267,8 @@ pub unsafe fn StrDupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatByteSize64A(qdw: i64, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57191,8 +58282,8 @@ pub unsafe fn StrFormatByteSize64A(qdw: i64, pszbuf: super::super::Foundation::P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatByteSizeA(dw: u32, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57206,8 +58297,8 @@ pub unsafe fn StrFormatByteSizeA(dw: u32, pszbuf: super::super::Foundation::PSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57221,8 +58312,8 @@ pub unsafe fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, pszbuf: super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatByteSizeW(qdw: i64, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57236,8 +58327,8 @@ pub unsafe fn StrFormatByteSizeW(qdw: i64, pszbuf: super::super::Foundation::PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatKBSizeA(qdw: i64, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57251,8 +58342,8 @@ pub unsafe fn StrFormatKBSizeA(qdw: i64, pszbuf: super::super::Foundation::PSTR,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFormatKBSizeW(qdw: i64, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57266,8 +58357,8 @@ pub unsafe fn StrFormatKBSizeW(qdw: i64, pszbuf: super::super::Foundation::PWSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFromTimeIntervalA(pszout: super::super::Foundation::PSTR, cchmax: u32, dwtimems: u32, digits: i32) -> i32 {
     #[cfg(windows)]
@@ -57281,8 +58372,8 @@ pub unsafe fn StrFromTimeIntervalA(pszout: super::super::Foundation::PSTR, cchma
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrFromTimeIntervalW(pszout: super::super::Foundation::PWSTR, cchmax: u32, dwtimems: u32, digits: i32) -> i32 {
     #[cfg(windows)]
@@ -57296,8 +58387,8 @@ pub unsafe fn StrFromTimeIntervalW(pszout: super::super::Foundation::PWSTR, cchm
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrIsIntlEqualA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fcasesens: Param0, pszstring1: Param1, pszstring2: Param2, nchar: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57311,8 +58402,8 @@ pub unsafe fn StrIsIntlEqualA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrIsIntlEqualW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fcasesens: Param0, pszstring1: Param1, pszstring2: Param2, nchar: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57326,8 +58417,8 @@ pub unsafe fn StrIsIntlEqualW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrNCatA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz1: Param0, psz2: Param1, cchmax: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57341,8 +58432,8 @@ pub unsafe fn StrNCatA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrNCatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz1: Param0, psz2: Param1, cchmax: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57356,8 +58447,8 @@ pub unsafe fn StrNCatW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrPBrkA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz: Param0, pszset: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57371,8 +58462,8 @@ pub unsafe fn StrPBrkA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrPBrkW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0, pszset: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57386,8 +58477,8 @@ pub unsafe fn StrPBrkW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRChrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstart: Param0, pszend: Param1, wmatch: u16) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57401,8 +58492,8 @@ pub unsafe fn StrRChrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRChrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstart: Param0, pszend: Param1, wmatch: u16) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57416,8 +58507,8 @@ pub unsafe fn StrRChrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRChrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, pszend: Param1, wmatch: u16) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57431,8 +58522,8 @@ pub unsafe fn StrRChrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRChrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstart: Param0, pszend: Param1, wmatch: u16) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57446,8 +58537,8 @@ pub unsafe fn StrRChrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRStrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsource: Param0, pszlast: Param1, pszsrch: Param2) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57461,8 +58552,8 @@ pub unsafe fn StrRStrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRStrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsource: Param0, pszlast: Param1, pszsrch: Param2) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57476,8 +58567,8 @@ pub unsafe fn StrRStrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRetToBSTR(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57491,8 +58582,8 @@ pub unsafe fn StrRetToBSTR(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pbstr: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRetToBufA(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pszbuf: super::super::Foundation::PSTR, cchbuf: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57506,8 +58597,8 @@ pub unsafe fn StrRetToBufA(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pszbuf: s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRetToBufW(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pszbuf: super::super::Foundation::PWSTR, cchbuf: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57521,8 +58612,8 @@ pub unsafe fn StrRetToBufW(pstr: *mut STRRET, pidl: *const ITEMIDLIST, pszbuf: s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRetToStrA(pstr: *mut STRRET, pidl: *const ITEMIDLIST, ppsz: *mut super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57536,8 +58627,8 @@ pub unsafe fn StrRetToStrA(pstr: *mut STRRET, pidl: *const ITEMIDLIST, ppsz: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrRetToStrW(pstr: *mut STRRET, pidl: *const ITEMIDLIST, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -57551,8 +58642,8 @@ pub unsafe fn StrRetToStrW(pstr: *mut STRRET, pidl: *const ITEMIDLIST, ppsz: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -57566,8 +58657,8 @@ pub unsafe fn StrSpnA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0, pszset: Param1) -> i32 {
     #[cfg(windows)]
@@ -57581,8 +58672,8 @@ pub unsafe fn StrSpnW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfirst: Param0, pszsrch: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57596,8 +58687,8 @@ pub unsafe fn StrStrA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfirst: Param0, pszsrch: Param1) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -57611,8 +58702,8 @@ pub unsafe fn StrStrIA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfirst: Param0, pszsrch: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57626,8 +58717,8 @@ pub unsafe fn StrStrIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfirst: Param0, pszsrch: Param1, cchmax: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57641,8 +58732,8 @@ pub unsafe fn StrStrNIW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfirst: Param0, pszsrch: Param1, cchmax: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57656,8 +58747,8 @@ pub unsafe fn StrStrNW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrStrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfirst: Param0, pszsrch: Param1) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -57671,8 +58762,8 @@ pub unsafe fn StrStrW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToInt64ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstring: Param0, dwflags: i32, pllret: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57686,8 +58777,8 @@ pub unsafe fn StrToInt64ExA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToInt64ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstring: Param0, dwflags: i32, pllret: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57701,8 +58792,8 @@ pub unsafe fn StrToInt64ExW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToIntA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszsrc: Param0) -> i32 {
     #[cfg(windows)]
@@ -57716,8 +58807,8 @@ pub unsafe fn StrToIntA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToIntExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszstring: Param0, dwflags: i32, piret: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57731,8 +58822,8 @@ pub unsafe fn StrToIntExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToIntExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszstring: Param0, dwflags: i32, piret: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57746,8 +58837,8 @@ pub unsafe fn StrToIntExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrToIntW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszsrc: Param0) -> i32 {
     #[cfg(windows)]
@@ -57761,8 +58852,8 @@ pub unsafe fn StrToIntW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrTrimA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(psz: Param0, psztrimchars: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -57776,8 +58867,8 @@ pub unsafe fn StrTrimA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrTrimW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psz: Param0, psztrimchars: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58188,8 +59279,8 @@ pub const URL_UNESCAPE_INPLACE: u32 = 1048576u32;
 pub const URL_UNESCAPE_URI_COMPONENT: u32 = 262144u32;
 #[doc = "*Required features: `Win32_UI_Shell`*"]
 pub const URL_WININET_COMPATIBILITY: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnloadUserProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(htoken: Param0, hprofile: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58245,8 +59336,8 @@ pub unsafe fn UnregisterScaleChangeEvent(dwcookie: usize) -> ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlApplySchemeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszin: Param0, pszout: super::super::Foundation::PSTR, pcchout: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58260,8 +59351,8 @@ pub unsafe fn UrlApplySchemeA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlApplySchemeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszin: Param0, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58275,8 +59366,8 @@ pub unsafe fn UrlApplySchemeW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCanonicalizeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, pszcanonicalized: super::super::Foundation::PSTR, pcchcanonicalized: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58290,8 +59381,8 @@ pub unsafe fn UrlCanonicalizeA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCanonicalizeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, pszcanonicalized: super::super::Foundation::PWSTR, pcchcanonicalized: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58305,8 +59396,8 @@ pub unsafe fn UrlCanonicalizeW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCombineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszbase: Param0, pszrelative: Param1, pszcombined: super::super::Foundation::PSTR, pcchcombined: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58320,8 +59411,8 @@ pub unsafe fn UrlCombineA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCombineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszbase: Param0, pszrelative: Param1, pszcombined: super::super::Foundation::PWSTR, pcchcombined: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58335,8 +59426,8 @@ pub unsafe fn UrlCombineW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCompareA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psz1: Param0, psz2: Param1, fignoreslash: Param2) -> i32 {
     #[cfg(windows)]
@@ -58350,8 +59441,8 @@ pub unsafe fn UrlCompareA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCompareW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(psz1: Param0, psz2: Param1, fignoreslash: Param2) -> i32 {
     #[cfg(windows)]
@@ -58365,8 +59456,8 @@ pub unsafe fn UrlCompareW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCreateFromPathA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszpath: Param0, pszurl: super::super::Foundation::PSTR, pcchurl: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58380,8 +59471,8 @@ pub unsafe fn UrlCreateFromPathA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlCreateFromPathW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0, pszurl: super::super::Foundation::PWSTR, pcchurl: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58395,8 +59486,8 @@ pub unsafe fn UrlCreateFromPathW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlEscapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, pszescaped: super::super::Foundation::PSTR, pcchescaped: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58410,8 +59501,8 @@ pub unsafe fn UrlEscapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlEscapeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, pszescaped: super::super::Foundation::PWSTR, pcchescaped: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58425,8 +59516,8 @@ pub unsafe fn UrlEscapeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlFixupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcszurl: Param0, psztranslatedurl: super::super::Foundation::PWSTR, cchmax: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58440,8 +59531,8 @@ pub unsafe fn UrlFixupW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlGetLocationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -58455,8 +59546,8 @@ pub unsafe fn UrlGetLocationA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlGetLocationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -58470,8 +59561,8 @@ pub unsafe fn UrlGetLocationW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlGetPartA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszin: Param0, pszout: super::super::Foundation::PSTR, pcchout: *mut u32, dwpart: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58485,8 +59576,8 @@ pub unsafe fn UrlGetPartA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlGetPartW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszin: Param0, pszout: super::super::Foundation::PWSTR, pcchout: *mut u32, dwpart: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58500,8 +59591,8 @@ pub unsafe fn UrlGetPartW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlHashA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, pbhash: *mut u8, cbhash: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58515,8 +59606,8 @@ pub unsafe fn UrlHashA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlHashW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, pbhash: *mut u8, cbhash: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58530,8 +59621,8 @@ pub unsafe fn UrlHashW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, urlis: URLIS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58545,8 +59636,8 @@ pub unsafe fn UrlIsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsNoHistoryA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58560,8 +59651,8 @@ pub unsafe fn UrlIsNoHistoryA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsNoHistoryW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58575,8 +59666,8 @@ pub unsafe fn UrlIsNoHistoryW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsOpaqueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58590,8 +59681,8 @@ pub unsafe fn UrlIsOpaqueA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsOpaqueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58605,8 +59696,8 @@ pub unsafe fn UrlIsOpaqueW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlIsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, urlis: URLIS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58620,8 +59711,8 @@ pub unsafe fn UrlIsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlUnescapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszurl: Param0, pszunescaped: super::super::Foundation::PSTR, pcchunescaped: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58635,8 +59726,8 @@ pub unsafe fn UrlUnescapeA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UrlUnescapeW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszurl: Param0, pszunescaped: super::super::Foundation::PWSTR, pcchunescaped: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -58949,8 +60040,8 @@ pub unsafe fn WhichPlatform() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Win32DeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszpath: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58965,8 +60056,8 @@ pub unsafe fn Win32DeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 pub const WinBioCredentialProvider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3200291363, 45080, 16749, [160, 172, 82, 57, 113, 182, 57, 245]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHelpA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwndmain: Param0, lpszhelp: Param1, ucommand: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58980,8 +60071,8 @@ pub unsafe fn WinHelpA<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinHelpW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndmain: Param0, lpszhelp: Param1, ucommand: u32, dwdata: usize) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -58995,8 +60086,8 @@ pub unsafe fn WinHelpW<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteCabinetState(pcs: *const CABINETSTATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -59820,8 +60911,8 @@ impl ::std::cmp::Eq for urlinvokecommandinfoW {}
 unsafe impl ::windows::runtime::Abi for urlinvokecommandinfoW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wnsprintfA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdest: super::super::Foundation::PSTR, cchdest: i32, pszfmt: Param2) -> i32 {
     #[cfg(windows)]
@@ -59835,8 +60926,8 @@ pub unsafe fn wnsprintfA<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wnsprintfW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdest: super::super::Foundation::PWSTR, cchdest: i32, pszfmt: Param2) -> i32 {
     #[cfg(windows)]
@@ -59850,8 +60941,8 @@ pub unsafe fn wnsprintfW<'a, Param2: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wvnsprintfA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdest: super::super::Foundation::PSTR, cchdest: i32, pszfmt: Param2, arglist: *const i8) -> i32 {
     #[cfg(windows)]
@@ -59865,8 +60956,8 @@ pub unsafe fn wvnsprintfA<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Shell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wvnsprintfW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdest: super::super::Foundation::PWSTR, cchdest: i32, pszfmt: Param2, arglist: *const i8) -> i32 {
     #[cfg(windows)]

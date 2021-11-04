@@ -3,8 +3,8 @@ pub const CLSID_D3D12Debug: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249229764, 40948, 19160, [159, 24, 171, 174, 132, 220, 95, 242]);
 pub const CLSID_D3D12SDKConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2094688970, 41022, 18888, [148, 88, 3, 52, 210, 14, 7, 206]);
 pub const CLSID_D3D12Tools: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816953521, 15500, 18483, [170, 9, 10, 6, 182, 93, 150, 200]);
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pdevice: Param0,
@@ -106,8 +106,8 @@ impl ::std::cmp::Eq for D3D11_RESOURCE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for D3D11_RESOURCE_FLAGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D11::D3D_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -192,11 +192,12 @@ pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(rclsid: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::std::ffi::c_void);
 pub const D3D12MetaCommand: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342125438, 32887, 18632, [159, 220, 217, 209, 221, 49, 221, 119]);
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -210,8 +211,8 @@ pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -802,7 +803,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRU
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub InstanceDescs: u64,
     pub pGeometryDescs: *mut D3D12_RAYTRACING_GEOMETRY_DESC,
@@ -954,23 +954,28 @@ unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_CLEAR_VALUE_0 {
     pub Color: [f32; 4],
     pub DepthStencil: D3D12_DEPTH_STENCIL_VALUE,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_CLEAR_VALUE_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_CLEAR_VALUE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_CLEAR_VALUE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_CLEAR_VALUE_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE_0 {
     type Abi = Self;
 }
@@ -2086,7 +2091,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D12_TEX1D_DSV,
     pub Texture1DArray: D3D12_TEX1D_ARRAY_DSV,
@@ -2095,18 +2100,23 @@ pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D12_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_DSV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -8819,7 +8829,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     pub Triangles: D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub AABBs: D3D12_RAYTRACING_GEOMETRY_AABBS_DESC,
@@ -9279,7 +9288,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     pub Clear: D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS,
 }
@@ -9423,7 +9431,6 @@ impl ::std::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: ::std::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
 }
@@ -9724,7 +9731,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_RTV,
     pub Texture1D: D3D12_TEX1D_RTV,
@@ -9735,18 +9742,23 @@ pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D12_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -11650,7 +11662,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_SRV,
     pub Texture1D: D3D12_TEX1D_SRV,
@@ -11664,18 +11676,23 @@ pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D12_TEXCUBE_ARRAY_SRV,
     pub RaytracingAccelerationStructure: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -13390,7 +13407,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_TEXTURE_COPY_LOCATION_0 {
     pub PlacedFootprint: D3D12_PLACED_SUBRESOURCE_FOOTPRINT,
     pub SubresourceIndex: u32,
@@ -13722,7 +13738,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_UAV,
     pub Texture1D: D3D12_TEX1D_UAV,
@@ -13731,18 +13747,23 @@ pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D12_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D12_TEX3D_UAV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -13792,7 +13813,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
 pub union D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     pub Dred_1_0: D3D12_DEVICE_REMOVED_EXTENDED_DATA,
     pub Dred_1_1: D3D12_DEVICE_REMOVED_EXTENDED_DATA1,
@@ -14279,8 +14299,8 @@ pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
 pub const DXGI_DEBUG_D3D12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478759820, 43344, 17190, [145, 239, 155, 186, 161, 123, 253, 149]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::std::option::Option<super::Direct3D9::IDirect3D9> {
     #[cfg(windows)]
@@ -14294,8 +14314,8 @@ pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::std::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -30816,20 +30836,30 @@ pub struct OpenGLOn12CreatorID_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D11ON12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: u32, param2: *const super::Direct3D11::D3D_FEATURE_LEVEL, featurelevels: u32, param4: *const ::windows::runtime::RawPtr, numqueues: u32, param6: u32, param7: *mut ::windows::runtime::RawPtr, param8: *mut ::windows::runtime::RawPtr, param9: *mut super::Direct3D11::D3D_FEATURE_LEVEL) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_CREATE_DEVICE = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: super::Direct3D11::D3D_FEATURE_LEVEL, param2: *const ::windows::runtime::GUID, param3: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_CREATE_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::runtime::GUID, pprootsignaturedeserializer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_CREATE_VERSIONED_ROOT_SIGNATURE_DESERIALIZER = unsafe extern "system" fn(psrcdata: *const ::std::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const ::windows::runtime::GUID, pprootsignaturedeserializer: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_GET_DEBUG_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub type PFN_D3D12_GET_INTERFACE = unsafe extern "system" fn(param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_SERIALIZE_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 pub type PFN_D3D12_SERIALIZE_VERSIONED_ROOT_SIGNATURE = unsafe extern "system" fn(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::windows::runtime::RawPtr, pperrorblob: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PFN_Direct3DCreate9On12 = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::std::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32) -> ::std::option::Option<super::Direct3D9::IDirect3D9>;
+#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub type PFN_Direct3DCreate9On12Ex = unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut ::std::mem::ManuallyDrop<D3D9ON12_ARGS>, numoverrideentries: u32, ppoutputinterface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 pub const WKPDID_D3DAutoDebugObjectNameW: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3566218806, 30074, 18754, [149, 148, 182, 118, 154, 250, 67, 205]);

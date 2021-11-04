@@ -64,8 +64,8 @@ pub const CLSID_D2D1UnPremultiply: ::windows::runtime::GUID = ::windows::runtime
 pub const CLSID_D2D1Vignette: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3222028478, 24167, 19619, [149, 180, 244, 176, 44, 17, 81, 53]);
 pub const CLSID_D2D1WhiteLevelAdjustment: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1151453915, 27869, 18456, [143, 244, 38, 193, 207, 233, 91, 219]);
 pub const CLSID_D2D1YCbCr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2572172481, 26311, 17865, [168, 117, 138, 216, 167, 145, 68, 1]);
-#[cfg(feature = "Foundation_Numerics")]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+#[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> f32 {
     #[cfg(windows)]
@@ -93,8 +93,8 @@ pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIDevice>>(dxgidevice: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::runtime::Result<ID2D1Device> {
     #[cfg(windows)]
@@ -109,8 +109,8 @@ pub unsafe fn D2D1CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn D2D1CreateDeviceContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGISurface>>(dxgisurface: Param0, creationproperties: *const D2D1_CREATION_PROPERTIES) -> ::windows::runtime::Result<ID2D1DeviceContext> {
     #[cfg(windows)]
@@ -204,8 +204,8 @@ pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -219,8 +219,8 @@ pub unsafe fn D2D1InvertMatrix(matrix: *mut super::super::super::Foundation::Num
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Foundation"))]
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -234,8 +234,8 @@ pub unsafe fn D2D1IsMatrixInvertible(matrix: *const super::super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Foundation_Numerics")]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+#[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a, D2D_POINT_2F>>(angle: f32, center: Param1, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
@@ -249,8 +249,8 @@ pub unsafe fn D2D1MakeRotateMatrix<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Foundation_Numerics")]
 #[doc = "*Required features: `Win32_Graphics_Direct2D`, `Foundation_Numerics`*"]
+#[cfg(feature = "Foundation_Numerics")]
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix<'a, Param2: ::windows::runtime::IntoParam<'a, D2D_POINT_2F>>(anglex: f32, angley: f32, center: Param2, matrix: *mut super::super::super::Foundation::Numerics::Matrix3x2) {
     #[cfg(windows)]
@@ -32149,6 +32149,9 @@ impl ::std::cmp::Eq for Matrix5x4F {}
 unsafe impl ::windows::runtime::Abi for Matrix5x4F {
     type Abi = Self;
 }
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_EFFECT_FACTORY = unsafe extern "system" fn(effectimpl: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_PROPERTY_GET_FUNCTION = unsafe extern "system" fn(effect: ::windows::runtime::RawPtr, data: *mut u8, datasize: u32, actualsize: *mut u32) -> ::windows::runtime::HRESULT;
+#[doc = "*Required features: `Win32_Graphics_Direct2D`*"]
 pub type PD2D1_PROPERTY_SET_FUNCTION = unsafe extern "system" fn(effect: ::windows::runtime::RawPtr, data: *const u8, datasize: u32) -> ::windows::runtime::HRESULT;

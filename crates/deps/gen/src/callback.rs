@@ -15,10 +15,10 @@ pub fn gen_callback(def: &TypeDef, gen: &Gen) -> TokenStream {
     });
 
     let return_sig = gen_win32_return_sig(&signature, gen);
-    let features = method_features(&signature, gen);
+    let cfg = gen.gen_function_cfg(def.attributes(), &signature);
 
     quote! {
-        #features
+        #cfg
         pub type #name = unsafe extern "system" fn(#(#params),*) #return_sig;
     }
 }

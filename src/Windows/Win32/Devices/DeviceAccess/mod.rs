@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const CLSID_DeviceIoControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(315876210, 34635, 17789, [159, 223, 115, 151, 119, 120, 104, 108]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_DeviceAccess`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDeviceAccessInstance<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(deviceinterfacepath: Param0, desiredaccess: u32) -> ::windows::runtime::Result<ICreateDeviceAccessAsync> {
     #[cfg(windows)]

@@ -21,6 +21,7 @@ pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
 pub const AURL_ENABLETELNO: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
+#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type AutoCorrectProc = unsafe extern "system" fn(langid: u16, pszbefore: super::super::super::Foundation::PWSTR, pszafter: super::super::super::Foundation::PWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -358,23 +359,28 @@ unsafe impl ::windows::runtime::Abi for CHARFORMAT2A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHARFORMAT2A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHARFORMAT2A_0 {
     type Abi = Self;
 }
@@ -689,7 +695,9 @@ impl ::std::cmp::Eq for EDITSTREAM {}
 unsafe impl ::windows::runtime::Abi for EDITSTREAM {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type EDITSTREAMCALLBACK = unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32;
+#[doc = "*Required features: `Win32_UI_Controls_RichEdit`, `Win32_Foundation`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type EDITWORDBREAKPROCEX = unsafe extern "system" fn(pchtext: super::super::super::Foundation::PSTR, cchtext: i32, bcharset: u8, action: i32) -> i32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
@@ -9871,6 +9879,7 @@ pub const PC_FOLLOWING: u32 = 1u32;
 pub const PC_LEADING: u32 = 2u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PC_OVERFLOW: u32 = 3u32;
+#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type PCreateTextServices = unsafe extern "system" fn(punkouter: ::windows::runtime::RawPtr, pitexthost: ::windows::runtime::RawPtr, ppunk: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
@@ -9942,6 +9951,7 @@ pub const PFN_LCROMAN: u32 = 5u32;
 pub const PFN_UCLETTER: u32 = 4u32;
 #[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub const PFN_UCROMAN: u32 = 6u32;
+#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
 pub type PShutdownTextServices = unsafe extern "system" fn(ptextservices: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
