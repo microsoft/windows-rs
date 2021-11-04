@@ -50,7 +50,7 @@ pub fn gen_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> TokenStr
         } else {
             let interfaces = interfaces(def);
             let methods = InterfaceInfo::gen_methods(&interfaces, gen);
-            let (async_get, future) = gen_async(def, &interfaces, gen);
+            let (async_get, future) = gen_async(def, &interfaces, gen, &TokenStream::new());
             let inspectable = gen_inspectable(&name, &constraints, &TokenStream::new());
             let iterator = gen_iterator(def, &interfaces, gen);
 

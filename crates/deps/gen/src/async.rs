@@ -1,17 +1,17 @@
 use crate::*;
 
-pub fn gen_async(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen) -> (TokenStream, TokenStream) {
+pub fn gen_async(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen, cfg: &TokenStream) -> (TokenStream, TokenStream) {
     let kind = async_kind(def);
 
     if kind != AsyncKind::None {
-        return gen_async_kind(kind, def, def, gen);
+        return gen_async_kind(kind, def, def, gen, cfg);
     }
 
     for interface in interfaces {
         let kind = async_kind(&interface.def);
 
         if kind != AsyncKind::None {
-            return gen_async_kind(kind, &interface.def, def, gen);
+            return gen_async_kind(kind, &interface.def, def, gen, cfg);
         }
     }
 
@@ -38,7 +38,7 @@ pub fn async_kind(def: &TypeDef) -> AsyncKind {
     }
 }
 
-fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Gen) -> (TokenStream, TokenStream) {
+fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Gen, cfg: &TokenStream) -> (TokenStream, TokenStream) {
     let return_sig = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => gen_name(&name.generics[0], gen),
         _ => quote! { () },
@@ -58,6 +58,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
 
     (
         quote! {
+            #cfg
             pub fn get(&self) -> ::windows::runtime::Result<#return_sig> {
                 if self.Status()? == #namespace AsyncStatus::Started {
                     let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -71,6 +72,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
             }
         },
         quote! {
+            #cfg
             impl<#constraints> ::std::future::Future for #name {
                 type Output = ::windows::runtime::Result<#return_sig>;
 

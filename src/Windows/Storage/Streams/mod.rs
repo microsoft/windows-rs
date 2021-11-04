@@ -552,6 +552,7 @@ impl DataReaderLoadOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -578,6 +579,7 @@ unsafe impl ::windows::runtime::Interface for DataReaderLoadOperation {
 impl ::windows::runtime::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DataReaderLoadOperation {
     type Output = ::windows::runtime::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1059,6 +1061,7 @@ impl DataWriterStoreOperation {
         let this = &::windows::runtime::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this)).ok() }
     }
+    #[cfg(feature = "Foundation")]
     pub fn get(&self) -> ::windows::runtime::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (waiter, signaler) = ::windows::runtime::Waiter::new();
@@ -1085,6 +1088,7 @@ unsafe impl ::windows::runtime::Interface for DataWriterStoreOperation {
 impl ::windows::runtime::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
 }
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DataWriterStoreOperation {
     type Output = ::windows::runtime::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
