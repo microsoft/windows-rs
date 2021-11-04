@@ -166,16 +166,6 @@ impl TypeDef {
             generic.features(features, keys);
         }
 
-        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
-            for def in &entry.def {
-                if let ElementType::TypeDef(def) = def {
-                def.arch_features(features, keys);
-                }
-            }
-        }
-    }
-
-    fn arch_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         match self.kind() {
             TypeKind::Class => {
                 if let Some(def) = self.default_interface() {
@@ -192,6 +182,14 @@ impl TypeDef {
             }
             TypeKind::Delegate => self.invoke_method().signature(&[]).features(features, keys),
             _ => {}
+        }
+
+        if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
+            for def in &entry.def {
+                if let ElementType::TypeDef(def) = def {
+                def.features(features, keys);
+                }
+            }
         }
     }
 

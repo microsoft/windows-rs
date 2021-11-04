@@ -19285,9 +19285,9 @@ pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`*"]
+#[doc = "*Required features: `Win32_System_SystemServices`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PEXCEPTION_FILTER = unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::std::ffi::c_void) -> i32;
 #[doc = "*Required features: `Win32_System_SystemServices`*"]
 pub type PFLS_CALLBACK_FUNCTION = unsafe extern "system" fn(lpflsdata: *const ::std::ffi::c_void);

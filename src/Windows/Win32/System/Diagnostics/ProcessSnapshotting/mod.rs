@@ -885,8 +885,8 @@ unsafe impl ::windows::runtime::Abi for PSS_QUERY_INFORMATION_CLASS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
 pub struct PSS_THREAD_ENTRY {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::std::ffi::c_void,
@@ -908,15 +908,15 @@ pub struct PSS_THREAD_ENTRY {
     pub SizeOfContextRecord: u16,
     pub ContextRecord: *mut super::Debug::CONTEXT,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 impl PSS_THREAD_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 impl ::std::default::Default for PSS_THREAD_ENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for PSS_THREAD_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PSS_THREAD_ENTRY")
@@ -942,7 +942,7 @@ impl ::std::fmt::Debug for PSS_THREAD_ENTRY {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for PSS_THREAD_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         self.ExitStatus == other.ExitStatus
@@ -966,9 +966,9 @@ impl ::std::cmp::PartialEq for PSS_THREAD_ENTRY {
             && self.ContextRecord == other.ContextRecord
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::Eq for PSS_THREAD_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for PSS_THREAD_ENTRY {
     type Abi = Self;
 }

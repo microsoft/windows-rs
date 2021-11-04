@@ -8474,7 +8474,8 @@ unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[doc = "*Required features: `Win32_System_Performance`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
     pub CounterNameTitleIndex: u32,
@@ -8488,14 +8489,17 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterOffset: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl PERF_COUNTER_DEFINITION {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_COUNTER_DEFINITION")
@@ -8513,14 +8517,17 @@ impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
         self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
 }
@@ -9107,7 +9114,8 @@ pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[doc = "*Required features: `Win32_System_Performance`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
     pub DefinitionLength: u32,
@@ -9125,14 +9133,17 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfFreq: i64,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl PERF_OBJECT_TYPE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_OBJECT_TYPE")
@@ -9154,6 +9165,7 @@ impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.TotalByteLength == other.TotalByteLength
@@ -9173,8 +9185,10 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
 }

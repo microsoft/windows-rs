@@ -11285,8 +11285,8 @@ pub struct IWindowsLockModeHelper_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, issmode: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_SystemServices`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_SystemServices"))]
+#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_Diagnostics_Debug`, `Win32_System_Kernel`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn InitializeContext2(buffer: *mut ::std::ffi::c_void, contextflags: u32, context: *mut *mut super::Diagnostics::Debug::CONTEXT, contextlength: *mut u32, xstatecompactionmask: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
