@@ -177,50 +177,61 @@ unsafe impl ::windows::runtime::Abi for OVERLAPPED {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_IO`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OVERLAPPED_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OVERLAPPED_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_IO`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OVERLAPPED_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Offset", &self.Offset).field("OffsetHigh", &self.OffsetHigh).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OVERLAPPED_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Offset == other.Offset && self.OffsetHigh == other.OffsetHigh
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OVERLAPPED_0_0 {
     type Abi = Self;
 }

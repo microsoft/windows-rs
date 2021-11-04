@@ -3359,7 +3359,6 @@ impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIAS_CHANGED_VALUE_INFO_0 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -3394,7 +3393,6 @@ impl ::std::clone::Clone for WIAS_CHANGED_VALUE_INFO_1 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIAS_CHANGED_VALUE_INFO_1 {
     pub lVal: i32,
     pub fltVal: f32,
@@ -5334,7 +5332,6 @@ impl ::std::clone::Clone for WIA_PROPERTY_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
     pub RangeFloat: WIA_PROPERTY_INFO_0_6,
@@ -5367,35 +5364,40 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
     pub ValidBits: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Flag_e__Struct").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Nom == other.Nom && self.ValidBits == other.ValidBits
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`, `Win32_Foundation`*"]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
     pub Nom: super::super::Foundation::BSTR,
@@ -5429,169 +5431,205 @@ unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: f64,
     pub pList: *mut u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ListFloat_e__Struct").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: ::windows::runtime::GUID,
     pub pList: *mut ::windows::runtime::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ListGuid_e__Struct").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: i32,
     pub pList: *mut u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_List_e__Struct").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_4 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_None_e__Struct").field("Dummy", &self.Dummy).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.Dummy == other.Dummy
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_5 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
     pub Nom: f64,
     pub Max: f64,
     pub Inc: f64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RangeFloat_e__Struct").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_6 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_ImageAcquisition`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
     pub Nom: i32,
     pub Max: i32,
     pub Inc: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WIA_PROPERTY_INFO_0_7 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIA_PROPERTY_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Range_e__Struct").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.Min == other.Min && self.Nom == other.Nom && self.Max == other.Max && self.Inc == other.Inc
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIA_PROPERTY_INFO_0_7 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIA_PROPERTY_INFO_0_7 {
     type Abi = Self;
 }

@@ -263,7 +263,6 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub union PSS_HANDLE_ENTRY_0 {
     pub Process: PSS_HANDLE_ENTRY_0_2,
     pub Thread: PSS_HANDLE_ENTRY_0_5,
@@ -295,7 +294,6 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_ENTRY_0_0 {
     pub ManualReset: super::super::super::Foundation::BOOL,
     pub Signaled: super::super::super::Foundation::BOOL,
@@ -329,7 +327,6 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`, `Win32_Foundation`*"]
 pub struct PSS_HANDLE_ENTRY_0_1 {
     pub CurrentCount: i32,
     pub Abandoned: super::super::super::Foundation::BOOL,
@@ -364,7 +361,7 @@ unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut ::std::ffi::c_void,
@@ -374,12 +371,15 @@ pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ParentProcessId: u32,
     pub Flags: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PSS_HANDLE_ENTRY_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PSS_HANDLE_ENTRY_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Process_e__Struct")
@@ -393,73 +393,88 @@ impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_2 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.ExitStatus == other.ExitStatus && self.PebBaseAddress == other.PebBaseAddress && self.AffinityMask == other.AffinityMask && self.BasePriority == other.BasePriority && self.ProcessId == other.ProcessId && self.ParentProcessId == other.ParentProcessId && self.Flags == other.Flags
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut ::std::ffi::c_void,
     pub AllocationAttributes: u32,
     pub MaximumSize: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PSS_HANDLE_ENTRY_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PSS_HANDLE_ENTRY_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Section_e__Struct").field("BaseAddress", &self.BaseAddress).field("AllocationAttributes", &self.AllocationAttributes).field("MaximumSize", &self.MaximumSize).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.BaseAddress == other.BaseAddress && self.AllocationAttributes == other.AllocationAttributes && self.MaximumSize == other.MaximumSize
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PSS_HANDLE_ENTRY_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PSS_HANDLE_ENTRY_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Semaphore_e__Struct").field("CurrentCount", &self.CurrentCount).field("MaximumCount", &self.MaximumCount).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentCount == other.CurrentCount && self.MaximumCount == other.MaximumCount
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_4 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Diagnostics_ProcessSnapshotting`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::std::ffi::c_void,
@@ -470,12 +485,15 @@ pub struct PSS_HANDLE_ENTRY_0_5 {
     pub BasePriority: i32,
     pub Win32StartAddress: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PSS_HANDLE_ENTRY_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PSS_HANDLE_ENTRY_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Thread_e__Struct")
@@ -490,12 +508,15 @@ impl ::std::fmt::Debug for PSS_HANDLE_ENTRY_0_5 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PSS_HANDLE_ENTRY_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.ExitStatus == other.ExitStatus && self.TebBaseAddress == other.TebBaseAddress && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.AffinityMask == other.AffinityMask && self.Priority == other.Priority && self.BasePriority == other.BasePriority && self.Win32StartAddress == other.Win32StartAddress
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PSS_HANDLE_ENTRY_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PSS_HANDLE_ENTRY_0_5 {
     type Abi = Self;
 }

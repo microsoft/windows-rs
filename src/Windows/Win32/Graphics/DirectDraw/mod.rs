@@ -6734,29 +6734,28 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub union DDRAWI_DDRAWPALETTE_GBL_0 {
     pub dwReserved1: usize,
     pub hHELGDIPalette: super::Gdi::HPALETTE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl DDRAWI_DDRAWPALETTE_GBL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for DDRAWI_DDRAWPALETTE_GBL_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWPALETTE_GBL_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWPALETTE_GBL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWPALETTE_GBL_0 {
     type Abi = Self;
 }
@@ -6890,7 +6889,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 pub union DDRAWI_DDRAWSURFACE_GBL_0 {
     pub lpRectList: *mut ACCESSRECTLIST,
     pub dwBlockSizeY: u32,
@@ -6918,36 +6916,34 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_1 {
     pub lpVidMemHeap: *mut super::super::Devices::Display::VMEMHEAP,
     pub dwBlockSizeX: u32,
 }
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl DDRAWI_DDRAWSURFACE_GBL_1 {}
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_1 {}
-#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 pub union DDRAWI_DDRAWSURFACE_GBL_2 {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
     pub lpDDHandle: *mut ::std::ffi::c_void,
@@ -6974,23 +6970,28 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_3 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl DDRAWI_DDRAWSURFACE_GBL_3 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::default::Default for DDRAWI_DDRAWSURFACE_GBL_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::PartialEq for DDRAWI_DDRAWSURFACE_GBL_3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 impl ::std::cmp::Eq for DDRAWI_DDRAWSURFACE_GBL_3 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
 unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_GBL_3 {
     type Abi = Self;
 }
@@ -7147,7 +7148,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 pub union DDRAWI_DDRAWSURFACE_LCL_0 {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
     pub lp16DDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
@@ -7175,7 +7175,6 @@ unsafe impl ::windows::runtime::Abi for DDRAWI_DDRAWSURFACE_LCL_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_DisplayDevices"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_DisplayDevices`*"]
 pub union DDRAWI_DDRAWSURFACE_LCL_1 {
     pub lpDDClipper: *mut ::std::mem::ManuallyDrop<DDRAWI_DDRAWCLIPPER_LCL>,
     pub lp16DDClipper: *mut DDRAWI_DDRAWCLIPPER_INT,
@@ -12273,30 +12272,34 @@ unsafe impl ::windows::runtime::Abi for VIDMEM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`*"]
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 pub union VIDMEM_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 impl VIDMEM_0 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 impl ::std::default::Default for VIDMEM_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 impl ::std::cmp::PartialEq for VIDMEM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 impl ::std::cmp::Eq for VIDMEM_0 {}
+#[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
 unsafe impl ::windows::runtime::Abi for VIDMEM_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Devices_Display", feature = "Win32_Foundation"))]
-#[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Devices_Display`, `Win32_Foundation`*"]
 pub union VIDMEM_1 {
     pub lpHeap: *mut super::super::Devices::Display::VMEMHEAP,
     pub dwHeight: u32,

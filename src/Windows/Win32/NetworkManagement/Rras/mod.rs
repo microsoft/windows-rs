@@ -8138,7 +8138,6 @@ unsafe impl ::windows::runtime::Abi for RASTUNNELENDPOINT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub union RASTUNNELENDPOINT_0 {
     pub ipv4: super::super::Networking::WinSock::IN_ADDR,
     pub ipv6: super::super::Networking::WinSock::IN6_ADDR,
@@ -8915,7 +8914,6 @@ unsafe impl ::windows::runtime::Abi for RAS_PROJECTION_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union RAS_PROJECTION_INFO_0 {
     pub ppp: RASPPP_PROJECTION_INFO,
     pub ikev2: RASIKEV2_PROJECTION_INFO,
@@ -9489,7 +9487,7 @@ unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Rras`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -9498,23 +9496,29 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl RTM_DEST_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RTM_DEST_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RTM_DEST_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("ViewId", &self.ViewId).field("NumRoutes", &self.NumRoutes).field("Route", &self.Route).field("Owner", &self.Owner).field("DestFlags", &self.DestFlags).field("HoldRoute", &self.HoldRoute).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RTM_DEST_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.ViewId == other.ViewId && self.NumRoutes == other.NumRoutes && self.Route == other.Route && self.Owner == other.Owner && self.DestFlags == other.DestFlags && self.HoldRoute == other.HoldRoute
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RTM_DEST_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RTM_DEST_INFO_0 {
     type Abi = Self;
 }
@@ -12441,7 +12445,6 @@ unsafe impl ::windows::runtime::Abi for VPN_TS_IP_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_Rras`, `Win32_Networking_WinSock`*"]
 pub union VPN_TS_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
     pub v6: super::super::Networking::WinSock::IN6_ADDR,

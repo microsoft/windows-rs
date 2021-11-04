@@ -880,7 +880,6 @@ unsafe impl ::windows::runtime::Abi for INET_FIREWALL_AC_CHANGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
 pub union INET_FIREWALL_AC_CHANGE_0 {
     pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
     pub binaries: INET_FIREWALL_AC_BINARIES,

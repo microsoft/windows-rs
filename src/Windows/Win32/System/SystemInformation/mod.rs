@@ -1758,7 +1758,6 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 pub union SYSTEM_INFO_0 {
     pub dwOemId: u32,
     pub Anonymous: SYSTEM_INFO_0_0,
@@ -1786,7 +1785,6 @@ unsafe impl ::windows::runtime::Abi for SYSTEM_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
 pub struct SYSTEM_INFO_0_0 {
     pub wProcessorArchitecture: super::Diagnostics::Debug::PROCESSOR_ARCHITECTURE,
     pub wReserved: u16,

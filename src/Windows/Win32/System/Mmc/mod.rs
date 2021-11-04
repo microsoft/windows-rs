@@ -5249,7 +5249,6 @@ unsafe impl ::windows::runtime::Abi for MMC_TASK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Mmc`, `Win32_Foundation`*"]
 pub union MMC_TASK_0 {
     pub nCommandID: isize,
     pub szActionURL: super::super::Foundation::PWSTR,
@@ -5340,7 +5339,6 @@ unsafe impl ::windows::runtime::Abi for MMC_TASK_DISPLAY_OBJECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Mmc`, `Win32_Foundation`*"]
 pub union MMC_TASK_DISPLAY_OBJECT_0 {
     pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
     pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
@@ -6181,7 +6179,6 @@ impl ::std::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Mmc`, `Win32_Foundation`*"]
 pub union RESULT_VIEW_TYPE_INFO_0 {
     pub dwListOptions: u32,
     pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
@@ -6210,7 +6207,6 @@ unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Mmc`, `Win32_Foundation`*"]
 pub struct RESULT_VIEW_TYPE_INFO_0_0 {
     pub dwHTMLOptions: u32,
     pub pstrURL: super::super::Foundation::PWSTR,
@@ -6243,28 +6239,34 @@ unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Mmc`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: ::std::option::Option<::windows::runtime::IUnknown>,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl RESULT_VIEW_TYPE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous2_e__Struct").field("dwOCXOptions", &self.dwOCXOptions).field("pUnkControl", &self.pUnkControl).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwOCXOptions == other.dwOCXOptions && self.pUnkControl == other.pUnkControl
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }

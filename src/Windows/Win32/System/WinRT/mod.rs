@@ -546,7 +546,6 @@ unsafe impl ::windows::runtime::Abi for HSTRING_HEADER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_WinRT`, `Win32_Foundation`*"]
 pub union HSTRING_HEADER_0 {
     pub Reserved1: *mut ::std::ffi::c_void,
     pub Reserved2: [super::super::Foundation::CHAR; 24],

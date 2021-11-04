@@ -141,7 +141,6 @@ unsafe impl ::windows::runtime::Abi for HELPER_ATTRIBUTE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
 pub union HELPER_ATTRIBUTE_0 {
     pub Boolean: super::super::Foundation::BOOL,
     pub Char: u8,
@@ -1248,7 +1247,6 @@ unsafe impl ::windows::runtime::Abi for UiInfo {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_NetworkDiagnosticsFramework`, `Win32_Foundation`*"]
 pub union UiInfo_0 {
     pub pwzNull: super::super::Foundation::PWSTR,
     pub ShellInfo: ShellCommandInfo,

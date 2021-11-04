@@ -4771,7 +4771,6 @@ unsafe impl ::windows::runtime::Abi for MAPINAMEID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`*"]
 pub union MAPINAMEID_0 {
     pub lID: i32,
     pub lpwstrName: super::super::Foundation::PWSTR,
@@ -4963,7 +4962,6 @@ unsafe impl ::windows::runtime::Abi for NOTIFICATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union NOTIFICATION_0 {
     pub err: ERROR_NOTIFICATION,
     pub newmail: NEWMAIL_NOTIFICATION,
@@ -5897,7 +5895,6 @@ unsafe impl ::windows::runtime::Abi for SRestriction {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_AddressBook`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union SRestriction_0 {
     pub resCompareProps: SComparePropsRestriction,
     pub resAnd: SAndRestriction,

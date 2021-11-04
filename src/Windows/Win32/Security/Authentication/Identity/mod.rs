@@ -5418,7 +5418,6 @@ unsafe impl ::windows::runtime::Abi for LSA_FOREST_TRUST_RECORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 pub union LSA_FOREST_TRUST_RECORD_0 {
     pub TopLevelName: super::super::super::Foundation::UNICODE_STRING,
     pub DomainInfo: LSA_FOREST_TRUST_DOMAIN_INFO,
@@ -11445,7 +11444,6 @@ unsafe impl ::windows::runtime::Abi for SECPKG_EXTENDED_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Authentication_Identity`, `Win32_Foundation`*"]
 pub union SECPKG_EXTENDED_INFORMATION_0 {
     pub GssInfo: SECPKG_GSS_INFO,
     pub ContextThunks: SECPKG_CONTEXT_THUNKS,

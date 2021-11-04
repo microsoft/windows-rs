@@ -3650,28 +3650,34 @@ unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Display`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_BRIGHTNESS_POLICY_0 {
     pub BatteryLevel: u8,
     pub Brightness: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl VIDEO_BRIGHTNESS_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for VIDEO_BRIGHTNESS_POLICY_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VIDEO_BRIGHTNESS_POLICY_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("BatteryLevel", &self.BatteryLevel).field("Brightness", &self.Brightness).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VIDEO_BRIGHTNESS_POLICY_0 {
     fn eq(&self, other: &Self) -> bool {
         self.BatteryLevel == other.BatteryLevel && self.Brightness == other.Brightness
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for VIDEO_BRIGHTNESS_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VIDEO_BRIGHTNESS_POLICY_0 {
     type Abi = Self;
 }

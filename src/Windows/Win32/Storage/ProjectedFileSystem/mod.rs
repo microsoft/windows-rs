@@ -283,7 +283,6 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub union PRJ_EXTENDED_INFO_0 {
     pub Symlink: PRJ_EXTENDED_INFO_0_0,
 }
@@ -310,7 +309,6 @@ unsafe impl ::windows::runtime::Abi for PRJ_EXTENDED_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_EXTENDED_INFO_0_0 {
     pub TargetName: super::super::Foundation::PWSTR,
 }
@@ -555,7 +553,6 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_0 {
     pub IsFileModified: super::super::Foundation::BOOLEAN,
 }
@@ -587,53 +584,65 @@ unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PRJ_NOTIFICATION_PARAMETERS_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_FileRenamed_e__Struct").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationMask == other.NotificationMask
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PRJ_NOTIFICATION_PARAMETERS_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_PostCreate_e__Struct").field("NotificationMask", &self.NotificationMask).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn eq(&self, other: &Self) -> bool {
         self.NotificationMask == other.NotificationMask
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PRJ_NOTIFICATION_PARAMETERS_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_NOTIFICATION_PARAMETERS_2 {
     type Abi = Self;
 }
@@ -752,82 +761,100 @@ unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PRJ_PLACEHOLDER_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PRJ_PLACEHOLDER_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PRJ_PLACEHOLDER_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_EaInformation_e__Struct").field("EaBufferSize", &self.EaBufferSize).field("OffsetToFirstEa", &self.OffsetToFirstEa).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         self.EaBufferSize == other.EaBufferSize && self.OffsetToFirstEa == other.OffsetToFirstEa
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PRJ_PLACEHOLDER_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PRJ_PLACEHOLDER_INFO_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PRJ_PLACEHOLDER_INFO_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SecurityInformation_e__Struct").field("SecurityBufferSize", &self.SecurityBufferSize).field("OffsetToSecurityDescriptor", &self.OffsetToSecurityDescriptor).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
         self.SecurityBufferSize == other.SecurityBufferSize && self.OffsetToSecurityDescriptor == other.OffsetToSecurityDescriptor
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PRJ_PLACEHOLDER_INFO_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PRJ_PLACEHOLDER_INFO_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PRJ_PLACEHOLDER_INFO_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_StreamsInformation_e__Struct").field("StreamsInfoBufferSize", &self.StreamsInfoBufferSize).field("OffsetToFirstStreamInfo", &self.OffsetToFirstStreamInfo).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PRJ_PLACEHOLDER_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.StreamsInfoBufferSize == other.StreamsInfoBufferSize && self.OffsetToFirstStreamInfo == other.OffsetToFirstStreamInfo
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PRJ_PLACEHOLDER_INFO_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PRJ_PLACEHOLDER_INFO_2 {
     type Abi = Self;
 }

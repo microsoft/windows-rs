@@ -1013,30 +1013,36 @@ unsafe impl ::windows::runtime::Abi for ldap {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_Ldap`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ldap_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ldap_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ldap_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ldap_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ld_sb_e__Struct").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ldap_0 {
     fn eq(&self, other: &Self) -> bool {
         self.sb_sd == other.sb_sd && self.Reserved1 == other.Reserved1 && self.sb_naddr == other.sb_naddr && self.Reserved2 == other.Reserved2
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ldap_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ldap_0 {
     type Abi = Self;
 }
@@ -4748,7 +4754,6 @@ unsafe impl ::windows::runtime::Abi for ldapmodA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
 pub union ldapmodA_0 {
     pub modv_strvals: *mut super::super::Foundation::PSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,
@@ -4805,7 +4810,6 @@ unsafe impl ::windows::runtime::Abi for ldapmodW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_Ldap`, `Win32_Foundation`*"]
 pub union ldapmodW_0 {
     pub modv_strvals: *mut super::super::Foundation::PWSTR,
     pub modv_bvals: *mut *mut LDAP_BERVAL,

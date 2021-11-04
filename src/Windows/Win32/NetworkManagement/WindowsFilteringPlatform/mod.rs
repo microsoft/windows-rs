@@ -341,7 +341,6 @@ unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub union DL_TEREDO_ADDRESS_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_0_0,
@@ -369,7 +368,6 @@ unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct DL_TEREDO_ADDRESS_0_0 {
     pub Flags: u16,
     pub MappedPort: u16,
@@ -426,7 +424,6 @@ unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_PRV {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub union DL_TEREDO_ADDRESS_PRV_0 {
     pub Eui64: DL_EUI64,
     pub Anonymous: DL_TEREDO_ADDRESS_PRV_0_0,
@@ -454,7 +451,6 @@ unsafe impl ::windows::runtime::Abi for DL_TEREDO_ADDRESS_PRV_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Networking_WinSock`*"]
 pub struct DL_TEREDO_ADDRESS_PRV_0_0 {
     pub Flags: u16,
     pub MappedPort: u16,
@@ -1116,45 +1112,55 @@ unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl FWPM_CONNECTION0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FWPM_CONNECTION0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FWPM_CONNECTION0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FWPM_CONNECTION0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl FWPM_CONNECTION0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FWPM_CONNECTION0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FWPM_CONNECTION0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FWPM_CONNECTION0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FWPM_CONNECTION0_1 {
     type Abi = Self;
 }
@@ -1381,23 +1387,28 @@ unsafe impl ::windows::runtime::Abi for FWPM_FILTER0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: ::windows::runtime::GUID,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_FILTER0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_FILTER0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_FILTER0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_FILTER0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_FILTER0_0 {
     type Abi = Self;
 }
@@ -1840,7 +1851,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT0_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE0,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1901,7 +1911,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT1_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -1962,7 +1971,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT2_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -2027,7 +2035,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT3 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT3_0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE1,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE0,
@@ -2092,7 +2099,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT4_ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT4__0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_,
@@ -2157,7 +2163,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT5_ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT5__0 {
     pub ikeMmFailure: *mut FWPM_NET_EVENT_IKEEXT_MM_FAILURE2_,
     pub ikeQmFailure: *mut FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_,
@@ -2637,45 +2642,55 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER0_1 {
     type Abi = Self;
 }
@@ -2719,115 +2734,140 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
     pub reserved3: FWP_BYTE_ARRAY6,
@@ -2839,12 +2879,15 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved9: u16,
     pub reserved10: u64,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
@@ -2860,12 +2903,15 @@ impl ::std::fmt::Debug for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
             .finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.reserved2 == other.reserved2 && self.reserved3 == other.reserved3 && self.reserved4 == other.reserved4 && self.reserved5 == other.reserved5 && self.reserved6 == other.reserved6 && self.reserved7 == other.reserved7 && self.reserved8 == other.reserved8 && self.reserved9 == other.reserved9 && self.reserved10 == other.reserved10
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     type Abi = Self;
 }
@@ -2910,45 +2956,55 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER2_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER2_1 {
     type Abi = Self;
 }
@@ -2996,45 +3052,55 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER3_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER3_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER3_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl FWPM_NET_EVENT_HEADER3_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for FWPM_NET_EVENT_HEADER3_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for FWPM_NET_EVENT_HEADER3_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for FWPM_NET_EVENT_HEADER3_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_HEADER3_1 {
     type Abi = Self;
 }
@@ -3417,7 +3483,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
@@ -3444,7 +3509,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
@@ -3508,7 +3572,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
     pub localSubNet: FWP_CONDITION_VALUE0,
 }
@@ -3535,7 +3598,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_NET_EVENT_IKEEXT_QM_FAILURE1__1 {
     pub remoteSubNet: FWP_CONDITION_VALUE0,
 }
@@ -3857,7 +3919,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_PROVIDER_CONTEXT0_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY0,
@@ -3926,7 +3987,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_PROVIDER_CONTEXT1_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY0,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY1,
@@ -3998,7 +4058,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_PROVIDER_CONTEXT2_0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -4071,7 +4130,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_PROVIDER_CONTEXT3_ {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWPM_PROVIDER_CONTEXT3__0 {
     pub keyingPolicy: *mut IPSEC_KEYING_POLICY1,
     pub ikeQmTransportPolicy: *mut IPSEC_TRANSPORT_POLICY2,
@@ -4812,7 +4870,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union FWPM_VSWITCH_EVENT0_0 {
     pub positionInfo: FWPM_VSWITCH_EVENT0_0_0,
     pub reorderInfo: FWPM_VSWITCH_EVENT0_0_1,
@@ -4840,7 +4897,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_VSWITCH_EVENT0_0_0 {
     pub numvSwitchFilterExtensions: u32,
     pub vSwitchFilterExtensions: *mut super::super::Foundation::PWSTR,
@@ -4874,7 +4930,6 @@ unsafe impl ::windows::runtime::Abi for FWPM_VSWITCH_EVENT0_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct FWPM_VSWITCH_EVENT0_0_1 {
     pub inRequiredPosition: super::super::Foundation::BOOL,
     pub numvSwitchFilterExtensions: u32,
@@ -5366,7 +5421,6 @@ unsafe impl ::windows::runtime::Abi for FWP_CONDITION_VALUE0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWP_CONDITION_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -5710,7 +5764,6 @@ unsafe impl ::windows::runtime::Abi for FWP_VALUE0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
 pub union FWP_VALUE0_0 {
     pub uint8: u8,
     pub uint16: u16,
@@ -8085,97 +8138,119 @@ unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMPV3_QUERY_HEADER_0 {
     pub MaxRespCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMPV3_QUERY_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_QUERY_HEADER_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMPV3_QUERY_HEADER_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IGMPV3_QUERY_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMPV3_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMPV3_QUERY_HEADER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMPV3_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMPV3_QUERY_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMPV3_QUERY_HEADER_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IGMPV3_QUERY_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMPV3_QUERY_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMPV3_QUERY_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMPV3_QUERY_HEADER_1_0 {
     type Abi = Self;
 }
@@ -8271,72 +8346,88 @@ unsafe impl ::windows::runtime::Abi for IGMP_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMP_HEADER_0 {
     pub Anonymous: IGMP_HEADER_0_0,
     pub VersionType: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMP_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMP_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMP_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IGMP_HEADER_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMP_HEADER_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IGMP_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMP_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMP_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IGMP_HEADER_1 {
     pub Reserved: u8,
     pub MaxRespTime: u8,
     pub Code: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IGMP_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IGMP_HEADER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IGMP_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IGMP_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IGMP_HEADER_1 {
     type Abi = Self;
 }
@@ -8410,7 +8501,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_AUTHENTICATION_METHOD0_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0,
@@ -8470,7 +8560,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_AUTHENTICATION_METHOD1_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1,
@@ -8531,7 +8620,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_AUTHENTICATION_METHOD2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_AUTHENTICATION_METHOD2_0 {
     pub presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2,
@@ -8874,7 +8962,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1,
@@ -8903,7 +8990,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -8937,7 +9023,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -8971,7 +9056,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -9005,7 +9089,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
     pub Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0,
     pub Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1,
@@ -9034,7 +9117,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -9068,7 +9150,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -9102,7 +9183,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -9640,7 +9720,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_CREDENTIAL0_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION0,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL0,
@@ -9698,7 +9777,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_CREDENTIAL1_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
@@ -9756,7 +9834,6 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_CREDENTIAL2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union IKEEXT_CREDENTIAL2_0 {
     pub presharedKey: *mut IKEEXT_PRESHARED_KEY_AUTHENTICATION1,
     pub certificate: *mut IKEEXT_CERTIFICATE_CREDENTIAL1,
@@ -11201,22 +11278,27 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IKEEXT_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IKEEXT_SA_DETAILS0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS0_0 {
     type Abi = Self;
 }
@@ -11259,22 +11341,27 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IKEEXT_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IKEEXT_SA_DETAILS1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS1_0 {
     type Abi = Self;
 }
@@ -11317,22 +11404,27 @@ unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IKEEXT_SA_DETAILS2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IKEEXT_SA_DETAILS2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IKEEXT_SA_DETAILS2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IKEEXT_SA_DETAILS2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IKEEXT_SA_DETAILS2_0 {
     type Abi = Self;
 }
@@ -12823,22 +12915,27 @@ unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IPSEC_SA_BUNDLE0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IPSEC_SA_BUNDLE0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE0_0 {
     type Abi = Self;
 }
@@ -12886,22 +12983,27 @@ unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IPSEC_SA_BUNDLE1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IPSEC_SA_BUNDLE1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IPSEC_SA_BUNDLE1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IPSEC_SA_BUNDLE1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_BUNDLE1_0 {
     type Abi = Self;
 }
@@ -13218,22 +13320,27 @@ unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for IPSEC_SA_DETAILS0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for IPSEC_SA_DETAILS0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS0_0 {
     type Abi = Self;
 }
@@ -13272,22 +13379,27 @@ unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl IPSEC_SA_DETAILS1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::default::Default for IPSEC_SA_DETAILS1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for IPSEC_SA_DETAILS1_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::Eq for IPSEC_SA_DETAILS1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 unsafe impl ::windows::runtime::Abi for IPSEC_SA_DETAILS1_0 {
     type Abi = Self;
 }
@@ -14323,45 +14435,55 @@ unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_ENDPOINTS2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IPSEC_TUNNEL_ENDPOINTS2_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IPSEC_TUNNEL_ENDPOINTS2_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IPSEC_TUNNEL_ENDPOINTS2_1 {
     type Abi = Self;
 }
@@ -14611,145 +14733,178 @@ unsafe impl ::windows::runtime::Abi for IPV4_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_0 {
     pub VersionAndHeaderLength: u8,
     pub Anonymous: IPV4_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IPV4_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_1 {
     pub TypeOfServiceAndEcnField: u8,
     pub Anonymous: IPV4_HEADER_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IPV4_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_1_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV4_HEADER_2 {
     pub FlagsAndOffset: u16,
     pub Anonymous: IPV4_HEADER_2_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_2 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_2 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV4_HEADER_2_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV4_HEADER_2_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV4_HEADER_2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IPV4_HEADER_2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV4_HEADER_2_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV4_HEADER_2_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV4_HEADER_2_0 {
     type Abi = Self;
 }
@@ -15087,49 +15242,60 @@ unsafe impl ::windows::runtime::Abi for IPV6_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union IPV6_HEADER_0 {
     pub VersionClassFlow: u32,
     pub Anonymous: IPV6_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV6_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV6_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV6_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV6_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV6_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct IPV6_HEADER_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl IPV6_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for IPV6_HEADER_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for IPV6_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for IPV6_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for IPV6_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for IPV6_HEADER_0_0 {
     type Abi = Self;
 }
@@ -16227,97 +16393,119 @@ unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union MLDV2_QUERY_HEADER_0 {
     pub MaxRespCode: u16,
     pub Anonymous: MLDV2_QUERY_HEADER_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for MLDV2_QUERY_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for MLDV2_QUERY_HEADER_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for MLDV2_QUERY_HEADER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union MLDV2_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: MLDV2_QUERY_HEADER_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for MLDV2_QUERY_HEADER_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct MLDV2_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl MLDV2_QUERY_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for MLDV2_QUERY_HEADER_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for MLDV2_QUERY_HEADER_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for MLDV2_QUERY_HEADER_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for MLDV2_QUERY_HEADER_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MLDV2_QUERY_HEADER_1_0 {
     type Abi = Self;
 }
@@ -16510,7 +16698,6 @@ unsafe impl ::windows::runtime::Abi for NPI_MODULEID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
 pub union NPI_MODULEID_0 {
     pub Guid: ::windows::runtime::GUID,
     pub IfLuid: super::super::Foundation::LUID,
@@ -16898,98 +17085,120 @@ unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_prefix_info_0 {
     pub nd_opt_pi_flags_reserved: u8,
     pub Flags: nd_opt_prefix_info_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_prefix_info_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_prefix_info_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_prefix_info_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_prefix_info_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_prefix_info_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for nd_opt_prefix_info_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_prefix_info_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_prefix_info_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_prefix_info_1 {
     pub nd_opt_pi_reserved2: u32,
     pub Anonymous: nd_opt_prefix_info_1_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_prefix_info_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_prefix_info_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_prefix_info_1 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_prefix_info_1_0 {
     pub nd_opt_pi_reserved3: [u8; 3],
     pub nd_opt_pi_site_prefix_len: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_prefix_info_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_prefix_info_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for nd_opt_prefix_info_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("nd_opt_pi_reserved3", &self.nd_opt_pi_reserved3).field("nd_opt_pi_site_prefix_len", &self.nd_opt_pi_site_prefix_len).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_prefix_info_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self.nd_opt_pi_reserved3 == other.nd_opt_pi_reserved3 && self.nd_opt_pi_site_prefix_len == other.nd_opt_pi_site_prefix_len
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_prefix_info_1_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_prefix_info_1_0 {
     type Abi = Self;
 }
@@ -17085,49 +17294,60 @@ unsafe impl ::windows::runtime::Abi for nd_opt_route_info {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union nd_opt_route_info_0 {
     pub nd_opt_ri_flags_reserved: u8,
     pub Flags: nd_opt_route_info_0_0,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_route_info_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_route_info_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_route_info_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_route_info_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_route_info_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct nd_opt_route_info_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl nd_opt_route_info_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for nd_opt_route_info_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::fmt::Debug for nd_opt_route_info_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for nd_opt_route_info_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for nd_opt_route_info_0_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for nd_opt_route_info_0_0 {
     type Abi = Self;
 }

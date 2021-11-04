@@ -6701,7 +6701,6 @@ impl ::std::clone::Clone for WMDM_PROP_DESC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_Media_DeviceManager`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::std::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
     pub EnumeratedValidValues: WMDM_PROP_VALUES_ENUM,

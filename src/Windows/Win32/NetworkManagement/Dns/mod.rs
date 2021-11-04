@@ -164,22 +164,27 @@ unsafe impl ::windows::runtime::Abi for DNS_ADDR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DNS_ADDR_0 {
     pub DnsAddrUserDword: [u32; 8],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DNS_ADDR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DNS_ADDR_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_ADDR_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DNS_ADDR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_ADDR_0 {
     type Abi = Self;
 }
@@ -667,7 +672,6 @@ unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_CONNECTION_PROXY_INFO_0 {
     pub Config: DNS_CONNECTION_PROXY_INFO_0_0,
     pub Script: DNS_CONNECTION_PROXY_INFO_0_1,
@@ -695,7 +699,6 @@ unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_INFO_0_0 {
     pub pwszServer: super::super::Foundation::PWSTR,
     pub pwszUsername: super::super::Foundation::PWSTR,
@@ -733,7 +736,6 @@ unsafe impl ::windows::runtime::Abi for DNS_CONNECTION_PROXY_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub struct DNS_CONNECTION_PROXY_INFO_0_1 {
     pub pwszScript: super::super::Foundation::PWSTR,
     pub pwszUsername: super::super::Foundation::PWSTR,
@@ -913,7 +915,6 @@ unsafe impl ::windows::runtime::Abi for DNS_CUSTOM_SERVER {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_CUSTOM_SERVER_0 {
     pub pwszTemplate: super::super::Foundation::PWSTR,
 }
@@ -940,7 +941,6 @@ unsafe impl ::windows::runtime::Abi for DNS_CUSTOM_SERVER_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_CUSTOM_SERVER_1 {
     pub MaxSa: [super::super::Foundation::CHAR; 32],
 }
@@ -2175,7 +2175,6 @@ unsafe impl ::windows::runtime::Abi for DNS_RECORDA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_RECORDA_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAA,
@@ -2284,23 +2283,28 @@ unsafe impl ::windows::runtime::Abi for DNS_RECORDA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DNS_RECORDA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DNS_RECORDA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DNS_RECORDA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_RECORDA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DNS_RECORDA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDA_1 {
     type Abi = Self;
 }
@@ -2341,7 +2345,6 @@ unsafe impl ::windows::runtime::Abi for DNS_RECORDW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_RECORDW_0 {
     pub A: DNS_A_DATA,
     pub SOA: DNS_SOA_DATAW,
@@ -2450,23 +2453,28 @@ unsafe impl ::windows::runtime::Abi for DNS_RECORDW_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DNS_RECORDW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DNS_RECORDW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DNS_RECORDW_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DNS_RECORDW_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DNS_RECORDW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DNS_RECORDW_1 {
     type Abi = Self;
 }
@@ -2718,7 +2726,6 @@ impl ::std::clone::Clone for DNS_SERVICE_BROWSE_REQUEST_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`, `Win32_Foundation`*"]
 pub union DNS_SERVICE_BROWSE_REQUEST_0 {
     pub pBrowseCallback: ::windows::runtime::RawPtr,
     pub pBrowseCallbackV2: ::windows::runtime::RawPtr,
@@ -4868,6 +4875,7 @@ unsafe impl ::windows::runtime::Abi for IP4_ARRAY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub union IP6_ADDRESS {
     pub IP6Qword: [u64; 2],
@@ -4875,41 +4883,52 @@ pub union IP6_ADDRESS {
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl IP6_ADDRESS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for IP6_ADDRESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for IP6_ADDRESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for IP6_ADDRESS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
 pub union IP6_ADDRESS {
     pub IP6Dword: [u32; 4],
     pub IP6Word: [u16; 8],
     pub IP6Byte: [u8; 16],
 }
+#[cfg(any(target_arch = "x86",))]
 impl IP6_ADDRESS {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for IP6_ADDRESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for IP6_ADDRESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for IP6_ADDRESS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for IP6_ADDRESS {
     type Abi = Self;
 }
@@ -5048,45 +5067,55 @@ unsafe impl ::windows::runtime::Abi for _DnsRecordOptA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union _DnsRecordOptA_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl _DnsRecordOptA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for _DnsRecordOptA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _DnsRecordOptA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for _DnsRecordOptA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union _DnsRecordOptA_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl _DnsRecordOptA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for _DnsRecordOptA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _DnsRecordOptA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for _DnsRecordOptA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptA_1 {
     type Abi = Self;
 }
@@ -5127,45 +5156,55 @@ unsafe impl ::windows::runtime::Abi for _DnsRecordOptW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union _DnsRecordOptW_0 {
     pub OPT: DNS_OPT_DATA,
     pub Opt: DNS_OPT_DATA,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl _DnsRecordOptW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for _DnsRecordOptW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _DnsRecordOptW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for _DnsRecordOptW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptW_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_Dns`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union _DnsRecordOptW_1 {
     pub DW: u32,
     pub S: DNS_RECORD_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl _DnsRecordOptW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for _DnsRecordOptW_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _DnsRecordOptW_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for _DnsRecordOptW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for _DnsRecordOptW_1 {
     type Abi = Self;
 }

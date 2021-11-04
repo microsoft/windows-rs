@@ -3377,98 +3377,120 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.IfIndex == other.IfIndex
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_LH_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_LH_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_LH_1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_LH_1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_LH_1_0 {
     type Abi = Self;
 }
@@ -3519,50 +3541,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ADDRESSES_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("IfIndex", &self.IfIndex).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.IfIndex == other.IfIndex
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ADDRESSES_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ADDRESSES_XP_0_0 {
     type Abi = Self;
 }
@@ -3601,50 +3634,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -3683,50 +3727,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -3788,50 +3843,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -3987,50 +4053,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -4097,50 +4174,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_PREFIX_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_PREFIX_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_PREFIX_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_PREFIX_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_PREFIX_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_PREFIX_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_PREFIX_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_PREFIX_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_PREFIX_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_PREFIX_XP_0_0 {
     type Abi = Self;
 }
@@ -4186,50 +4274,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_UNICAST_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -4270,50 +4369,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_UNICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Flags == other.Flags
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     type Abi = Self;
 }
@@ -4348,50 +4458,61 @@ unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("Length", &self.Length).field("Reserved", &self.Reserved).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.Reserved == other.Reserved
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     type Abi = Self;
 }
@@ -5771,27 +5892,33 @@ unsafe impl ::windows::runtime::Abi for MIB_IF_ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl MIB_IF_ROW2_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::default::Default for MIB_IF_ROW2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::fmt::Debug for MIB_IF_ROW2_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_InterfaceAndOperStatusFlags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::cmp::PartialEq for MIB_IF_ROW2_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::cmp::Eq for MIB_IF_ROW2_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for MIB_IF_ROW2_0 {
     type Abi = Self;
 }
@@ -6136,30 +6263,34 @@ unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl MIB_IPFORWARDROW_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for MIB_IPFORWARDROW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for MIB_IPFORWARDROW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for MIB_IPFORWARDROW_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for MIB_IPFORWARDROW_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`, `Win32_Networking_WinSock`*"]
 pub union MIB_IPFORWARDROW_1 {
     pub dwForwardProto: u32,
     pub ForwardProto: super::super::Networking::WinSock::NL_ROUTE_PROTOCOL,
@@ -7068,71 +7199,87 @@ unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl MIB_IPNET_ROW2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for MIB_IPNET_ROW2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for MIB_IPNET_ROW2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for MIB_IPNET_ROW2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl MIB_IPNET_ROW2_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for MIB_IPNET_ROW2_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for MIB_IPNET_ROW2_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for MIB_IPNET_ROW2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for MIB_IPNET_ROW2_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl MIB_IPNET_ROW2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for MIB_IPNET_ROW2_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for MIB_IPNET_ROW2_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for MIB_IPNET_ROW2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MIB_IPNET_ROW2_1 {
     type Abi = Self;
 }
@@ -7220,23 +7367,28 @@ unsafe impl ::windows::runtime::Abi for MIB_IPPATH_ROW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl MIB_IPPATH_ROW_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for MIB_IPPATH_ROW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for MIB_IPPATH_ROW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for MIB_IPPATH_ROW_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for MIB_IPPATH_ROW_0 {
     type Abi = Self;
 }
@@ -11938,6 +12090,7 @@ unsafe impl ::windows::runtime::Abi for icmp_echo_reply {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct icmp_echo_reply32 {
     pub Address: u32,
@@ -11948,23 +12101,29 @@ pub struct icmp_echo_reply32 {
     pub Data: *mut ::std::ffi::c_void,
     pub Options: ip_option_information32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl icmp_echo_reply32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for icmp_echo_reply32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for icmp_echo_reply32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("icmp_echo_reply32").field("Address", &self.Address).field("Status", &self.Status).field("RoundTripTime", &self.RoundTripTime).field("DataSize", &self.DataSize).field("Reserved", &self.Reserved).field("Data", &self.Data).field("Options", &self.Options).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for icmp_echo_reply32 {
     fn eq(&self, other: &Self) -> bool {
         self.Address == other.Address && self.Status == other.Status && self.RoundTripTime == other.RoundTripTime && self.DataSize == other.DataSize && self.Reserved == other.Reserved && self.Data == other.Data && self.Options == other.Options
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for icmp_echo_reply32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for icmp_echo_reply32 {
     type Abi = Self;
 }
@@ -12084,6 +12243,7 @@ unsafe impl ::windows::runtime::Abi for ip_option_information {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_NetworkManagement_IpHelper`*"]
 pub struct ip_option_information32 {
     pub Ttl: u8,
@@ -12092,23 +12252,29 @@ pub struct ip_option_information32 {
     pub OptionsSize: u8,
     pub OptionsData: *mut u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ip_option_information32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for ip_option_information32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for ip_option_information32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ip_option_information32").field("Ttl", &self.Ttl).field("Tos", &self.Tos).field("Flags", &self.Flags).field("OptionsSize", &self.OptionsSize).field("OptionsData", &self.OptionsData).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for ip_option_information32 {
     fn eq(&self, other: &Self) -> bool {
         self.Ttl == other.Ttl && self.Tos == other.Tos && self.Flags == other.Flags && self.OptionsSize == other.OptionsSize && self.OptionsData == other.OptionsData
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for ip_option_information32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ip_option_information32 {
     type Abi = Self;
 }

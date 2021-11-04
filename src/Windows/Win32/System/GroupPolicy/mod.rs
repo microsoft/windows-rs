@@ -7593,7 +7593,6 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
 pub struct INSTALLSPEC_0 {
     pub Name: super::super::Foundation::PWSTR,
     pub GPOId: ::windows::runtime::GUID,
@@ -7626,28 +7625,34 @@ unsafe impl ::windows::runtime::Abi for INSTALLSPEC_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_GroupPolicy`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows::runtime::GUID,
     pub ClsCtx: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl INSTALLSPEC_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INSTALLSPEC_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INSTALLSPEC_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_COMClass_e__Struct").field("Clsid", &self.Clsid).field("ClsCtx", &self.ClsCtx).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INSTALLSPEC_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Clsid == other.Clsid && self.ClsCtx == other.ClsCtx
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INSTALLSPEC_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INSTALLSPEC_1 {
     type Abi = Self;
 }

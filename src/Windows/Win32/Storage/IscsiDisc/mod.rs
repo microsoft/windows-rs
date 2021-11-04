@@ -63,6 +63,7 @@ unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
@@ -78,12 +79,15 @@ pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ATA_PASS_THROUGH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for ATA_PASS_THROUGH_DIRECT32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for ATA_PASS_THROUGH_DIRECT32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ATA_PASS_THROUGH_DIRECT32")
@@ -102,12 +106,15 @@ impl ::std::fmt::Debug for ATA_PASS_THROUGH_DIRECT32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.AtaFlags == other.AtaFlags && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.ReservedAsUchar == other.ReservedAsUchar && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.ReservedAsUlong == other.ReservedAsUlong && self.DataBuffer == other.DataBuffer && self.PreviousTaskFile == other.PreviousTaskFile && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
 }
@@ -174,6 +181,7 @@ unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct ATA_PASS_THROUGH_EX32 {
     pub Length: u16,
@@ -189,12 +197,15 @@ pub struct ATA_PASS_THROUGH_EX32 {
     pub PreviousTaskFile: [u8; 8],
     pub CurrentTaskFile: [u8; 8],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ATA_PASS_THROUGH_EX32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for ATA_PASS_THROUGH_EX32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for ATA_PASS_THROUGH_EX32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ATA_PASS_THROUGH_EX32")
@@ -213,6 +224,7 @@ impl ::std::fmt::Debug for ATA_PASS_THROUGH_EX32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_EX32 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length
@@ -229,7 +241,9 @@ impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_EX32 {
             && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_EX32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX32 {
     type Abi = Self;
 }
@@ -1129,34 +1143,39 @@ unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HYBRID_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HYBRID_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HYBRID_INFORMATION_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Attributes_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HYBRID_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_IscsiDisc`, `Win32_Foundation`*"]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
     pub MaxPriorityBehavior: super::super::Foundation::BOOLEAN,
@@ -1204,30 +1223,36 @@ unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
     pub MaxEvictCommands: u32,
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HYBRID_INFORMATION_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HYBRID_INFORMATION_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HYBRID_INFORMATION_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SupportedCommands_e__Struct").field("_bitfield", &self._bitfield).field("MaxEvictCommands", &self.MaxEvictCommands).field("MaxLbaRangeCountForEvict", &self.MaxLbaRangeCountForEvict).field("MaxLbaRangeCountForChangeLba", &self.MaxLbaRangeCountForChangeLba).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield && self.MaxEvictCommands == other.MaxEvictCommands && self.MaxLbaRangeCountForEvict == other.MaxLbaRangeCountForEvict && self.MaxLbaRangeCountForChangeLba == other.MaxLbaRangeCountForChangeLba
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HYBRID_INFORMATION_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HYBRID_INFORMATION_1_0 {
     type Abi = Self;
 }
@@ -2660,6 +2685,7 @@ unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PassThrough: SCSI_PASS_THROUGH32,
@@ -2669,28 +2695,35 @@ pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MPIO_PASS_THROUGH_PATH32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MPIO_PASS_THROUGH_PATH32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPIO_PASS_THROUGH_PATH32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32 {
     fn eq(&self, other: &Self) -> bool {
         self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PassThroughOffset: u32,
@@ -2700,23 +2733,29 @@ pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MPIO_PASS_THROUGH_PATH32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MPIO_PASS_THROUGH_PATH32_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPIO_PASS_THROUGH_PATH32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32_EX {
     fn eq(&self, other: &Self) -> bool {
         self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH32_EX {
     type Abi = Self;
 }
@@ -2753,6 +2792,7 @@ unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT32,
@@ -2762,28 +2802,35 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MPIO_PASS_THROUGH_PATH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
         self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PassThroughOffset: u32,
@@ -2793,23 +2840,29 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PortNumber: u8,
     pub MpioPathId: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn eq(&self, other: &Self) -> bool {
         self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     type Abi = Self;
 }
@@ -4204,6 +4257,7 @@ unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct SCSI_PASS_THROUGH32 {
     pub Length: u16,
@@ -4220,12 +4274,15 @@ pub struct SCSI_PASS_THROUGH32 {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SCSI_PASS_THROUGH32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SCSI_PASS_THROUGH32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SCSI_PASS_THROUGH32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCSI_PASS_THROUGH32")
@@ -4245,6 +4302,7 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length
@@ -4262,12 +4320,15 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32 {
             && self.Cdb == other.Cdb
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct SCSI_PASS_THROUGH32_EX {
     pub Version: u32,
@@ -4287,12 +4348,15 @@ pub struct SCSI_PASS_THROUGH32_EX {
     pub DataInBufferOffset: u32,
     pub Cdb: [u8; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SCSI_PASS_THROUGH32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SCSI_PASS_THROUGH32_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SCSI_PASS_THROUGH32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCSI_PASS_THROUGH32_EX")
@@ -4315,6 +4379,7 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH32_EX {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32_EX {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
@@ -4335,7 +4400,9 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH32_EX {
             && self.Cdb == other.Cdb
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH32_EX {
     type Abi = Self;
 }
@@ -4393,6 +4460,7 @@ unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
@@ -4409,12 +4477,15 @@ pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub SenseInfoOffset: u32,
     pub Cdb: [u8; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SCSI_PASS_THROUGH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SCSI_PASS_THROUGH_DIRECT32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCSI_PASS_THROUGH_DIRECT32")
@@ -4434,17 +4505,21 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
         self.Length == other.Length && self.ScsiStatus == other.ScsiStatus && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.DataIn == other.DataIn && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.DataBuffer == other.DataBuffer && self.SenseInfoOffset == other.SenseInfoOffset && self.Cdb == other.Cdb
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
 pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub Version: u32,
@@ -4464,12 +4539,15 @@ pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub DataInBuffer: *mut ::std::ffi::c_void,
     pub Cdb: [u8; 1],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl SCSI_PASS_THROUGH_DIRECT32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SCSI_PASS_THROUGH_DIRECT32_EX")
@@ -4492,6 +4570,7 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32_EX {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32_EX {
     fn eq(&self, other: &Self) -> bool {
         self.Version == other.Version
@@ -4512,7 +4591,9 @@ impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32_EX {
             && self.Cdb == other.Cdb
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32_EX {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for SCSI_PASS_THROUGH_DIRECT32_EX {
     type Abi = Self;
 }
@@ -5068,23 +5149,28 @@ unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_IscsiDisc`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl STORAGE_FIRMWARE_SLOT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_SLOT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_0 {
     type Abi = Self;
 }

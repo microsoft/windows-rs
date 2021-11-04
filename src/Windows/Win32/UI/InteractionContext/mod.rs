@@ -540,24 +540,29 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl INTERACTION_CONTEXT_OUTPUT_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
     type Abi = Self;
 }
@@ -597,24 +602,29 @@ unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_InteractionContext`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl INTERACTION_CONTEXT_OUTPUT2_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::default::Default for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::std::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::runtime::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
 }

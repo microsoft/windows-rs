@@ -513,23 +513,28 @@ unsafe impl ::windows::runtime::Abi for ACTRL_OVERLAPPED {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Authorization`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut ::std::ffi::c_void,
     pub Reserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACTRL_OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACTRL_OVERLAPPED_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACTRL_OVERLAPPED_0 {
     type Abi = Self;
 }
@@ -838,7 +843,6 @@ unsafe impl ::windows::runtime::Abi for AUDIT_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
 pub union AUDIT_PARAM_0 {
     pub Data0: usize,
     pub String: super::super::Foundation::PWSTR,
@@ -871,23 +875,28 @@ unsafe impl ::windows::runtime::Abi for AUDIT_PARAM_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Authorization`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl AUDIT_PARAM_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AUDIT_PARAM_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AUDIT_PARAM_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AUDIT_PARAM_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUDIT_PARAM_1 {
     type Abi = Self;
 }
@@ -1572,7 +1581,6 @@ unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
 pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
 }
@@ -1771,7 +1779,6 @@ unsafe impl ::windows::runtime::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
 pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
@@ -1867,23 +1874,28 @@ unsafe impl ::windows::runtime::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Authorization`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut ::std::ffi::c_void,
     pub pProviderGuid: *mut ::windows::runtime::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     type Abi = Self;
 }

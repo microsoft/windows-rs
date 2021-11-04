@@ -5042,30 +5042,29 @@ unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_WiFi`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl DOT11_PHY_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::std::default::Default for DOT11_PHY_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::std::cmp::PartialEq for DOT11_PHY_ATTRIBUTES_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::std::cmp::Eq for DOT11_PHY_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_ATTRIBUTES_0 {
     type Abi = Self;
 }
@@ -5181,23 +5180,28 @@ unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_WiFi`*"]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
     pub ulFrequency: u32,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::default::Default for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::cmp::PartialEq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::std::cmp::Eq for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 unsafe impl ::windows::runtime::Abi for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     type Abi = Self;
 }

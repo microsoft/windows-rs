@@ -302,7 +302,6 @@ unsafe impl ::windows::runtime::Abi for DIACTIONA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 pub union DIACTIONA_0 {
     pub lptszActionName: super::super::Foundation::PSTR,
     pub uResIdString: u32,
@@ -511,7 +510,6 @@ unsafe impl ::windows::runtime::Abi for DIACTIONW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 pub union DIACTIONW_0 {
     pub lptszActionName: super::super::Foundation::PWSTR,
     pub uResIdString: u32,
@@ -6025,29 +6023,34 @@ unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_BUTTON_CAPS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -6058,12 +6061,15 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_BUTTON_CAPS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_NotRange_e__Struct")
@@ -6078,18 +6084,21 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -6100,12 +6109,15 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_BUTTON_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_BUTTON_CAPS_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Range_e__Struct")
@@ -6120,12 +6132,15 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_BUTTON_CAPS_0_1 {
     type Abi = Self;
 }
@@ -6234,7 +6249,6 @@ unsafe impl ::windows::runtime::Abi for HIDP_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
 pub union HIDP_DATA_0 {
     pub RawValue: u32,
     pub On: super::super::Foundation::BOOLEAN,
@@ -6488,29 +6502,34 @@ unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_VALUE_CAPS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -6521,12 +6540,15 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_VALUE_CAPS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_NotRange_e__Struct")
@@ -6541,18 +6563,21 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -6563,12 +6588,15 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HIDP_VALUE_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HIDP_VALUE_CAPS_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Range_e__Struct")
@@ -6583,12 +6611,15 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HIDP_VALUE_CAPS_0_1 {
     type Abi = Self;
 }

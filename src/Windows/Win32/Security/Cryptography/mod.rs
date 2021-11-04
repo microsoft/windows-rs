@@ -2769,7 +2769,6 @@ unsafe impl ::windows::runtime::Abi for CERT_ALT_NAME_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_ALT_NAME_ENTRY_0 {
     pub pOtherName: *mut CERT_OTHER_NAME,
     pub pwszRfc822Name: super::super::Foundation::PWSTR,
@@ -3070,7 +3069,6 @@ unsafe impl ::windows::runtime::Abi for CERT_BIOMETRIC_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_BIOMETRIC_DATA_0 {
     pub dwPredefined: u32,
     pub pszObjId: super::super::Foundation::PSTR,
@@ -5324,23 +5322,28 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CERT_LOGOTYPE_IMAGE_INFO_0 {
     pub dwNumBits: u32,
     pub dwTableSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CERT_LOGOTYPE_IMAGE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CERT_LOGOTYPE_IMAGE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CERT_LOGOTYPE_IMAGE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_IMAGE_INFO_0 {
     type Abi = Self;
 }
@@ -5417,7 +5420,6 @@ unsafe impl ::windows::runtime::Abi for CERT_LOGOTYPE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_LOGOTYPE_INFO_0 {
     pub pLogotypeDirectInfo: *mut CERT_LOGOTYPE_DATA,
     pub pLogotypeIndirectInfo: *mut CERT_LOGOTYPE_REFERENCE,
@@ -8343,7 +8345,6 @@ unsafe impl ::windows::runtime::Abi for CERT_STRONG_SIGN_PARA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CERT_STRONG_SIGN_PARA_0 {
     pub pvInfo: *mut ::std::ffi::c_void,
     pub pSerializedInfo: *mut CERT_STRONG_SIGN_SERIALIZED_INFO,
@@ -8571,58 +8572,56 @@ unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Registry")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     pub hKeyBase: super::super::System::Registry::HKEY,
     pub pvBase: *mut ::std::ffi::c_void,
 }
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CERT_SYSTEM_STORE_RELOCATE_PARA_0 {}
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {}
-#[cfg(feature = "Win32_System_Registry")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 pub union CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     pub pvSystemStore: *mut ::std::ffi::c_void,
     pub pszSystemStore: super::super::Foundation::PSTR,
     pub pwszSystemStore: super::super::Foundation::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl CERT_SYSTEM_STORE_RELOCATE_PARA_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::default::Default for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::PartialEq for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 impl ::std::cmp::Eq for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 unsafe impl ::windows::runtime::Abi for CERT_SYSTEM_STORE_RELOCATE_PARA_1 {
     type Abi = Self;
 }
@@ -9672,7 +9671,6 @@ unsafe impl ::windows::runtime::Abi for CMC_STATUS_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMC_STATUS_INFO_0 {
     pub dwFailInfo: u32,
     pub pPendInfo: *mut CMC_PEND_INFO,
@@ -9999,7 +9997,6 @@ unsafe impl ::windows::runtime::Abi for CMSG_CMS_RECIPIENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_CMS_RECIPIENT_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_INFO,
@@ -10175,23 +10172,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_CONTENT_ENCRYPT_INFO_0 {
     pub hContentEncryptKey: usize,
     pub hCNGContentEncryptKey: BCRYPT_KEY_HANDLE,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_CONTENT_ENCRYPT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_CONTENT_ENCRYPT_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_CONTENT_ENCRYPT_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_CONTENT_ENCRYPT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CONTENT_ENCRYPT_INFO_0 {
     type Abi = Self;
 }
@@ -10372,23 +10374,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_AGREE_DECRYPT_PARA_0 {
     type Abi = Self;
 }
@@ -10427,23 +10434,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_KEY_TRANS_DECRYPT_PARA_0 {
     type Abi = Self;
 }
@@ -10483,23 +10495,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_CTRL_MAIL_LIST_DECRYPT_PARA_0 {
     type Abi = Self;
 }
@@ -10757,7 +10774,6 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_ENCRYPT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_ENCRYPT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -10936,7 +10952,6 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO_0 {
     pub pEphemeralAlgorithm: *mut CRYPT_ALGORITHM_IDENTIFIER,
     pub pSenderId: *mut CERT_ID,
@@ -10997,7 +11012,6 @@ unsafe impl ::windows::runtime::Abi for CMSG_KEY_AGREE_RECIPIENT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_KEY_AGREE_RECIPIENT_INFO_0 {
     pub OriginatorCertId: CERT_ID,
     pub OriginatorPublicKeyInfo: CERT_PUBLIC_KEY_INFO,
@@ -11217,23 +11231,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     pub hKeyEncryptionKey: usize,
     pub pvKeyEncryptionKey: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO_0 {
     type Abi = Self;
 }
@@ -11368,7 +11387,6 @@ unsafe impl ::windows::runtime::Abi for CMSG_RECIPIENT_ENCODE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CMSG_RECIPIENT_ENCODE_INFO_0 {
     pub pKeyTrans: *mut CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO,
     pub pKeyAgree: *mut CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO,
@@ -11597,23 +11615,28 @@ unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CMSG_SIGNER_ENCODE_INFO_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CMSG_SIGNER_ENCODE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CMSG_SIGNER_ENCODE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMSG_SIGNER_ENCODE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CMSG_SIGNER_ENCODE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CMSG_SIGNER_ENCODE_INFO_0 {
     type Abi = Self;
 }
@@ -12010,7 +12033,6 @@ unsafe impl ::windows::runtime::Abi for CRL_DIST_POINT_NAME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRL_DIST_POINT_NAME_0 {
     pub FullName: CERT_ALT_NAME_INFO,
 }
@@ -12787,29 +12809,28 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     pub pCryptProviderData: *mut super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTA_0 {
     type Abi = Self;
 }
@@ -12859,29 +12880,28 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`, `Win32_Security_WinTrust`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     pub pCryptProviderData: *mut super::WinTrust::CRYPT_PROVIDER_DATA,
     pub hWVTStateData: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     type Abi = Self;
 }
@@ -13042,7 +13062,6 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO_0 {
     pub pPvkFileInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO,
     pub pPvkProvInfo: *mut CRYPT_KEY_PROV_INFO,
@@ -13187,7 +13206,6 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
     pub pwszFileName: super::super::Foundation::PWSTR,
     pub pSignBlobInfo: *mut CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO,
@@ -13215,7 +13233,6 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_DIGITAL_SIGN_INFO_1 {
     pub pSigningCertContext: *mut CERT_CONTEXT,
     pub pSigningCertStore: *mut ::std::mem::ManuallyDrop<CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO>,
@@ -13569,7 +13586,6 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_EXPORT_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_EXPORT_INFO_0 {
     pub pCertContext: *mut CERT_CONTEXT,
     pub pCTLContext: *mut CTL_CONTEXT,
@@ -13727,7 +13743,6 @@ unsafe impl ::windows::runtime::Abi for CRYPTUI_WIZ_IMPORT_SRC_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     pub pwszFileName: super::super::Foundation::PWSTR,
     pub pCertContext: *mut CERT_CONTEXT,
@@ -15744,23 +15759,28 @@ unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     pub hCryptProv: usize,
     pub hNCryptKey: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CRYPT_KEY_SIGN_MESSAGE_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_KEY_SIGN_MESSAGE_PARA_0 {
     type Abi = Self;
 }
@@ -16135,24 +16155,29 @@ unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CRYPT_OID_INFO_0 {
     pub dwValue: u32,
     pub Algid: u32,
     pub dwLength: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CRYPT_OID_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CRYPT_OID_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CRYPT_OID_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CRYPT_OID_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CRYPT_OID_INFO_0 {
     type Abi = Self;
 }
@@ -18608,7 +18633,6 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_INFO_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_KEY_INFO_ITEM_0 {
     pub wszKeyName: super::super::Foundation::PWSTR,
     pub KeyValue: CRYPT_XML_KEY_VALUE,
@@ -18694,7 +18718,6 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_KEY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_KEY_VALUE_0 {
     pub DSAKeyValue: CRYPT_XML_KEY_DSA_KEY_VALUE,
     pub RSAKeyValue: CRYPT_XML_KEY_RSA_KEY_VALUE,
@@ -19342,7 +19365,6 @@ unsafe impl ::windows::runtime::Abi for CRYPT_XML_X509DATA_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union CRYPT_XML_X509DATA_ITEM_0 {
     pub IssuerSerial: CRYPT_XML_ISSUER_SERIAL,
     pub SKI: CRYPT_XML_DATA_BLOB,
@@ -25243,23 +25265,28 @@ unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union HTTPSPolicyCallbackData_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HTTPSPolicyCallbackData_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HTTPSPolicyCallbackData_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTPSPolicyCallbackData_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HTTPSPolicyCallbackData_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTPSPolicyCallbackData_0 {
     type Abi = Self;
 }
@@ -28257,7 +28284,6 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_ENTRY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security_Cryptography`, `Win32_Foundation`*"]
 pub union OCSP_BASIC_RESPONSE_ENTRY_0 {
     pub pRevokedInfo: *mut OCSP_BASIC_REVOKED_INFO,
 }
@@ -28317,23 +28343,28 @@ unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union OCSP_BASIC_RESPONSE_INFO_0 {
     pub ByNameResponderId: CRYPTOAPI_BLOB,
     pub ByKeyResponderId: CRYPTOAPI_BLOB,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl OCSP_BASIC_RESPONSE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OCSP_BASIC_RESPONSE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OCSP_BASIC_RESPONSE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OCSP_BASIC_RESPONSE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OCSP_BASIC_RESPONSE_INFO_0 {
     type Abi = Self;
 }

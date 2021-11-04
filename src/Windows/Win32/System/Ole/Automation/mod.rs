@@ -501,7 +501,6 @@ unsafe impl ::windows::runtime::Abi for ELEMDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union ELEMDESC_0 {
     pub idldesc: IDLDESC,
     pub paramdesc: PARAMDESC,
@@ -4612,7 +4611,6 @@ unsafe impl ::windows::runtime::Abi for TYPEDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_System_Com`*"]
 pub union TYPEDESC_0 {
     pub lptdesc: *mut TYPEDESC,
     pub lpadesc: *mut ARRAYDESC,
@@ -4791,7 +4789,6 @@ unsafe impl ::windows::runtime::Abi for VARDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union VARDESC_0 {
     pub oInst: u32,
     pub lpvarValue: *mut ::std::mem::ManuallyDrop<super::super::Com::VARIANT>,
@@ -9576,7 +9573,6 @@ unsafe impl ::windows::runtime::Abi for _wireSAFEARRAY_UNION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union _wireSAFEARRAY_UNION_0 {
     pub BstrStr: _wireSAFEARR_BSTR,
     pub UnknownStr: _wireSAFEARR_UNKNOWN,
@@ -9832,7 +9828,6 @@ impl ::std::clone::Clone for _wireVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_Ole_Automation`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union _wireVARIANT_0 {
     pub llVal: i64,
     pub lVal: i32,

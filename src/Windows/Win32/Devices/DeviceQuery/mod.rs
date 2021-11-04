@@ -275,7 +275,6 @@ unsafe impl ::windows::runtime::Abi for DEV_QUERY_RESULT_ACTION_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub union DEV_QUERY_RESULT_ACTION_DATA_0 {
     pub State: DEV_QUERY_STATE,
     pub DeviceObject: DEV_OBJECT,

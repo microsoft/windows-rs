@@ -93,7 +93,6 @@ unsafe impl ::windows::runtime::Abi for RM_FILTER_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RestartManager`, `Win32_Foundation`*"]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: super::super::Foundation::PWSTR,
     pub Process: RM_UNIQUE_PROCESS,

@@ -519,7 +519,6 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub union CF_CALLBACK_PARAMETERS_0 {
     pub Cancel: CF_CALLBACK_PARAMETERS_0_0,
     pub FetchData: CF_CALLBACK_PARAMETERS_0_6,
@@ -556,209 +555,255 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_FetchData_e__Struct").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.FileOffset == other.FileOffset && self.Length == other.Length
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_CloseCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_DehydrateCompletion_e__Struct").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.Reason == other.Reason
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Dehydrate_e__Struct").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.Reason == other.Reason
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_DeleteCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_4 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Delete_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_5 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -768,12 +813,15 @@ pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub LastDehydrationTime: i64,
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_6 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_FetchData_e__Struct")
@@ -787,19 +835,21 @@ impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength && self.OptionalFileOffset == other.OptionalFileOffset && self.OptionalLength == other.OptionalLength && self.LastDehydrationTime == other.LastDehydrationTime && self.LastDehydrationReason == other.LastDehydrationReason
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_6 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: super::super::Foundation::PWSTR,
@@ -832,34 +882,39 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_8 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_8 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_OpenCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_8 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_8 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: super::super::Foundation::PWSTR,
@@ -893,7 +948,6 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_9 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
     pub TargetPath: super::super::Foundation::PWSTR,
@@ -926,29 +980,35 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_10 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CF_CALLBACK_PARAMETERS_0_11 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_11 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ValidateData_e__Struct").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CF_CALLBACK_PARAMETERS_0_11 {
     type Abi = Self;
 }
@@ -1971,7 +2031,6 @@ unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_6,
     pub RetrieveData: CF_OPERATION_PARAMETERS_0_5,
@@ -2004,183 +2063,178 @@ unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_AckData_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Offset == other.Offset && self.Length == other.Length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub FileIdentity: *mut ::std::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_AckDehydrate_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_AckDelete_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_AckRename_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Storage_FileSystem")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Storage_FileSystem`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *mut CF_FS_METADATA,
     pub FileIdentity: *mut ::std::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RestartHydration_e__Struct").field("Flags", &self.Flags).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(feature = "Win32_Storage_FileSystem")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_4 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut ::std::ffi::c_void,
@@ -2188,30 +2242,35 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Length: i64,
     pub ReturnedLength: i64,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_RetrieveData_e__Struct").field("Flags", &self.Flags).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).field("ReturnedLength", &self.ReturnedLength).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length && self.ReturnedLength == other.ReturnedLength
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_5 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_5 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -2219,36 +2278,35 @@ pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_6 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_TransferData_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_6 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
-#[doc = "*Required features: `Win32_Storage_CloudFilters`, `Win32_Foundation`, `Win32_Storage_FileSystem`*"]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,

@@ -104,7 +104,6 @@ unsafe impl ::windows::runtime::Abi for CHAR_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Console`, `Win32_Foundation`*"]
 pub union CHAR_INFO_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: super::super::Foundation::CHAR,
@@ -1316,7 +1315,6 @@ unsafe impl ::windows::runtime::Abi for INPUT_RECORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Console`, `Win32_Foundation`*"]
 pub union INPUT_RECORD_0 {
     pub KeyEvent: KEY_EVENT_RECORD,
     pub MouseEvent: MOUSE_EVENT_RECORD,
@@ -1381,7 +1379,6 @@ unsafe impl ::windows::runtime::Abi for KEY_EVENT_RECORD {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Console`, `Win32_Foundation`*"]
 pub union KEY_EVENT_RECORD_0 {
     pub UnicodeChar: u16,
     pub AsciiChar: super::super::Foundation::CHAR,

@@ -81,6 +81,13 @@ impl Gen {
         quote! { #doc #arch #cfg }
     }
 
+    pub fn gen_struct_cfg(&self, def: &TypeDef, features: &BTreeSet<&'static str>) -> TokenStream {
+        let arch = self.gen_arch_cfg(def.attributes());
+        let cfg = self.gen_cfg_impl(features, false);
+
+        quote! { #arch #cfg }
+    }
+
     pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
         if self.root.is_empty() {
             return TokenStream::new();
@@ -110,7 +117,7 @@ impl Gen {
                 if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
                     let mut cfg = "#[cfg(any(".to_string();
                     if value & 1 == 1 {
-                        cfg.push_str(r#"target_arch = "i686", "#);
+                        cfg.push_str(r#"target_arch = "x86", "#);
                     }
                     if value & 2 == 2 {
                         cfg.push_str(r#"target_arch = "x86_64", "#);

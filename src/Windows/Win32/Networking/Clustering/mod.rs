@@ -499,7 +499,6 @@ impl ::std::clone::Clone for CLRES_FUNCTION_TABLE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`, `Win32_System_Registry`*"]
 pub union CLRES_FUNCTION_TABLE_0 {
     pub V1Functions: ::std::mem::ManuallyDrop<CLRES_V1_FUNCTIONS>,
     pub V2Functions: ::std::mem::ManuallyDrop<CLRES_V2_FUNCTIONS>,
@@ -1899,7 +1898,6 @@ unsafe impl ::windows::runtime::Abi for CLUSPROP_SECURITY_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_System_SystemServices`*"]
 pub union CLUSPROP_SECURITY_DESCRIPTOR_0 {
     pub sd: super::super::System::SystemServices::SECURITY_DESCRIPTOR_RELATIVE,
     pub rgbSecurityDescriptor: [u8; 1],
@@ -15903,7 +15901,6 @@ unsafe impl ::windows::runtime::Abi for RESUTIL_PROPERTY_ITEM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_Clustering`, `Win32_Foundation`*"]
 pub union RESUTIL_PROPERTY_ITEM_0 {
     pub DefaultPtr: usize,
     pub Default: u32,

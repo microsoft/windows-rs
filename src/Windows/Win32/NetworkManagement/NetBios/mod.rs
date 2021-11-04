@@ -271,6 +271,7 @@ unsafe impl ::windows::runtime::Abi for NAME_BUFFER {
 pub const NAME_FLAGS_MASK: u32 = 135u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`, `Win32_Foundation`*"]
 pub struct NCB {
@@ -290,14 +291,17 @@ pub struct NCB {
     pub ncb_reserve: [u8; 18],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl NCB {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NCB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NCB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -320,6 +324,7 @@ impl ::std::fmt::Debug for NCB {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
@@ -340,14 +345,17 @@ impl ::std::cmp::PartialEq for NCB {
             && self.ncb_event == other.ncb_event
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NCB {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCB {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetBios`, `Win32_Foundation`*"]
 pub struct NCB {
@@ -367,14 +375,17 @@ pub struct NCB {
     pub ncb_reserve: [u8; 10],
     pub ncb_event: super::super::Foundation::HANDLE,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl NCB {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NCB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NCB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -397,6 +408,7 @@ impl ::std::fmt::Debug for NCB {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NCB {
     fn eq(&self, other: &Self) -> bool {
@@ -417,8 +429,10 @@ impl ::std::cmp::PartialEq for NCB {
             && self.ncb_event == other.ncb_event
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NCB {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NCB {
     type Abi = Self;

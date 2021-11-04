@@ -358,23 +358,28 @@ unsafe impl ::windows::runtime::Abi for CHARFORMAT2A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Controls_RichEdit`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHARFORMAT2A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHARFORMAT2A_0 {
     type Abi = Self;
 }

@@ -2499,7 +2499,6 @@ unsafe impl ::windows::runtime::Abi for DEVMODEA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
     pub Anonymous2: DEVMODEA_0_1,
@@ -2526,7 +2525,7 @@ unsafe impl ::windows::runtime::Abi for DEVMODEA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2537,12 +2536,15 @@ pub struct DEVMODEA_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DEVMODEA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DEVMODEA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVMODEA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct")
@@ -2557,19 +2559,21 @@ impl ::std::fmt::Debug for DEVMODEA_0_0 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVMODEA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dmOrientation == other.dmOrientation && self.dmPaperSize == other.dmPaperSize && self.dmPaperLength == other.dmPaperLength && self.dmPaperWidth == other.dmPaperWidth && self.dmScale == other.dmScale && self.dmCopies == other.dmCopies && self.dmDefaultSource == other.dmDefaultSource && self.dmPrintQuality == other.dmPrintQuality
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DEVMODEA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVMODEA_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: u32,
@@ -2603,23 +2607,28 @@ unsafe impl ::windows::runtime::Abi for DEVMODEA_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DEVMODEA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DEVMODEA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVMODEA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DEVMODEA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVMODEA_1 {
     type Abi = Self;
 }
@@ -2679,7 +2688,6 @@ unsafe impl ::windows::runtime::Abi for DEVMODEW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
     pub Anonymous2: DEVMODEW_0_1,
@@ -2706,7 +2714,7 @@ unsafe impl ::windows::runtime::Abi for DEVMODEW_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -2717,12 +2725,15 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DEVMODEW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DEVMODEW_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DEVMODEW_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous1_e__Struct")
@@ -2737,19 +2748,21 @@ impl ::std::fmt::Debug for DEVMODEW_0_0 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVMODEW_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dmOrientation == other.dmOrientation && self.dmPaperSize == other.dmPaperSize && self.dmPaperLength == other.dmPaperLength && self.dmPaperWidth == other.dmPaperWidth && self.dmScale == other.dmScale && self.dmCopies == other.dmCopies && self.dmDefaultSource == other.dmDefaultSource && self.dmPrintQuality == other.dmPrintQuality
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DEVMODEW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVMODEW_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
     pub dmDisplayOrientation: u32,
@@ -2783,23 +2796,28 @@ unsafe impl ::windows::runtime::Abi for DEVMODEW_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DEVMODEW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DEVMODEW_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DEVMODEW_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DEVMODEW_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DEVMODEW_1 {
     type Abi = Self;
 }

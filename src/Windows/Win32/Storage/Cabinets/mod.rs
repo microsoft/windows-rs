@@ -388,7 +388,6 @@ unsafe impl ::windows::runtime::Abi for FDIDECRYPT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub union FDIDECRYPT_0 {
     pub cabinet: FDIDECRYPT_0_0,
     pub folder: FDIDECRYPT_0_2,
@@ -416,37 +415,42 @@ unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut ::std::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl FDIDECRYPT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FDIDECRYPT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_cabinet_e__Struct").field("pHeaderReserve", &self.pHeaderReserve).field("cbHeaderReserve", &self.cbHeaderReserve).field("setID", &self.setID).field("iCabinet", &self.iCabinet).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FDIDECRYPT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.pHeaderReserve == other.pHeaderReserve && self.cbHeaderReserve == other.cbHeaderReserve && self.setID == other.setID && self.iCabinet == other.iCabinet
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FDIDECRYPT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDIDECRYPT_0_1 {
     pub pDataReserve: *mut ::std::ffi::c_void,
     pub cbDataReserve: u16,
@@ -483,29 +487,35 @@ unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Cabinets`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut ::std::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl FDIDECRYPT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FDIDECRYPT_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_folder_e__Struct").field("pFolderReserve", &self.pFolderReserve).field("cbFolderReserve", &self.cbFolderReserve).field("iFolder", &self.iFolder).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FDIDECRYPT_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.pFolderReserve == other.pFolderReserve && self.cbFolderReserve == other.cbFolderReserve && self.iFolder == other.iFolder
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FDIDECRYPT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
 }
@@ -658,62 +668,75 @@ unsafe impl ::windows::runtime::Abi for FDINOTIFICATIONTYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDISPILLFILE {
     pub ach: [super::super::Foundation::CHAR; 2],
     pub cbFile: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FDISPILLFILE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FDISPILLFILE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("FDISPILLFILE").field("ach", &self.ach).field("cbFile", &self.cbFile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FDISPILLFILE {
     fn eq(&self, other: &Self) -> bool {
         self.ach == other.ach && self.cbFile == other.cbFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FDISPILLFILE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
 pub struct FDISPILLFILE {
     pub ach: [super::super::Foundation::CHAR; 2],
     pub cbFile: i32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FDISPILLFILE {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FDISPILLFILE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FDISPILLFILE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FDISPILLFILE {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;

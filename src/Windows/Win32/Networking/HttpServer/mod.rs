@@ -465,7 +465,6 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub union HTTP_DATA_CHUNK_0 {
     pub FromMemory: HTTP_DATA_CHUNK_0_3,
     pub FromFileHandle: HTTP_DATA_CHUNK_0_0,
@@ -496,7 +495,6 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub struct HTTP_DATA_CHUNK_0_0 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub FileHandle: super::super::Foundation::HANDLE,
@@ -530,7 +528,6 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub struct HTTP_DATA_CHUNK_0_1 {
     pub ByteRange: HTTP_BYTE_RANGE,
     pub pFragmentName: super::super::Foundation::PWSTR,
@@ -564,7 +561,6 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub struct HTTP_DATA_CHUNK_0_2 {
     pub FragmentNameLength: u16,
     pub pFragmentName: super::super::Foundation::PWSTR,
@@ -597,35 +593,40 @@ unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_HttpServer`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub pBuffer: *mut ::std::ffi::c_void,
     pub BufferLength: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl HTTP_DATA_CHUNK_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HTTP_DATA_CHUNK_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_FromMemory_e__Struct").field("pBuffer", &self.pBuffer).field("BufferLength", &self.BufferLength).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.pBuffer == other.pBuffer && self.BufferLength == other.BufferLength
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for HTTP_DATA_CHUNK_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for HTTP_DATA_CHUNK_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub struct HTTP_DATA_CHUNK_0_4 {
     pub TrailerCount: u16,
     pub pTrailers: *mut HTTP_UNKNOWN_HEADER,
@@ -3367,7 +3368,6 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
 pub union HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
     pub Http2WindowSizeParam: HTTP2_WINDOW_SIZE_PARAM,
     pub Http2SettingsLimitsParam: HTTP2_SETTINGS_LIMITS_PARAM,

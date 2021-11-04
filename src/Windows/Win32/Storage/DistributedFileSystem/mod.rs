@@ -351,27 +351,34 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_150 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_1_32 {
     pub EntryPath: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DFS_INFO_1_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DFS_INFO_1_32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DFS_INFO_1_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DFS_INFO_1_32").field("EntryPath", &self.EntryPath).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DFS_INFO_1_32 {
     fn eq(&self, other: &Self) -> bool {
         self.EntryPath == other.EntryPath
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DFS_INFO_1_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_1_32 {
     type Abi = Self;
 }
@@ -446,6 +453,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_200 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_2_32 {
     pub EntryPath: u32,
@@ -453,23 +461,29 @@ pub struct DFS_INFO_2_32 {
     pub State: u32,
     pub NumberOfStorages: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DFS_INFO_2_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DFS_INFO_2_32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DFS_INFO_2_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DFS_INFO_2_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DFS_INFO_2_32 {
     fn eq(&self, other: &Self) -> bool {
         self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DFS_INFO_2_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_2_32 {
     type Abi = Self;
 }
@@ -546,6 +560,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_300 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_3_32 {
     pub EntryPath: u32,
@@ -554,23 +569,29 @@ pub struct DFS_INFO_3_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DFS_INFO_3_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DFS_INFO_3_32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DFS_INFO_3_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DFS_INFO_3_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DFS_INFO_3_32 {
     fn eq(&self, other: &Self) -> bool {
         self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DFS_INFO_3_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_3_32 {
     type Abi = Self;
 }
@@ -615,6 +636,7 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_4 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_INFO_4_32 {
     pub EntryPath: u32,
@@ -625,23 +647,29 @@ pub struct DFS_INFO_4_32 {
     pub NumberOfStorages: u32,
     pub Storage: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DFS_INFO_4_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DFS_INFO_4_32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DFS_INFO_4_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DFS_INFO_4_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DFS_INFO_4_32 {
     fn eq(&self, other: &Self) -> bool {
         self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DFS_INFO_4_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DFS_INFO_4_32 {
     type Abi = Self;
 }
@@ -1047,29 +1075,36 @@ unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_DistributedFileSystem`*"]
 pub struct DFS_STORAGE_INFO_0_32 {
     pub State: u32,
     pub ServerName: u32,
     pub ShareName: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DFS_STORAGE_INFO_0_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DFS_STORAGE_INFO_0_32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DFS_STORAGE_INFO_0_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DFS_STORAGE_INFO_0_32").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
     fn eq(&self, other: &Self) -> bool {
         self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DFS_STORAGE_INFO_0_32 {
     type Abi = Self;
 }

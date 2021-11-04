@@ -3041,7 +3041,6 @@ unsafe impl ::windows::runtime::Abi for WSMAN_AUTHENTICATION_CREDENTIALS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 pub union WSMAN_AUTHENTICATION_CREDENTIALS_0 {
     pub userAccount: WSMAN_USERNAME_PASSWORD_CREDS,
     pub certificateThumbprint: super::super::Foundation::PWSTR,
@@ -3258,7 +3257,6 @@ unsafe impl ::windows::runtime::Abi for WSMAN_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
 pub union WSMAN_DATA_0 {
     pub text: WSMAN_DATA_TEXT,
     pub binaryData: WSMAN_DATA_BINARY,

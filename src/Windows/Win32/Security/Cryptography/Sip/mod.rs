@@ -424,23 +424,28 @@ unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_Cryptography_Sip`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SIP_CAP_SET_V3_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SIP_CAP_SET_V3_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SIP_CAP_SET_V3_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SIP_CAP_SET_V3_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SIP_CAP_SET_V3_0 {
     type Abi = Self;
 }
@@ -571,7 +576,6 @@ unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-#[doc = "*Required features: `Win32_Security_Cryptography_Sip`, `Win32_Foundation`, `Win32_Security_Cryptography_Catalog`*"]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut MS_ADDINFO_CATALOGMEMBER,

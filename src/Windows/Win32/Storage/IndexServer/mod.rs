@@ -195,6 +195,7 @@ pub const CI_VERSION_WDS40: u32 = 265u32;
 pub const CI_VERSION_WIN70: u32 = 1792u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 pub struct DBID {
@@ -202,78 +203,100 @@ pub struct DBID {
     pub eKind: u32,
     pub uName: DBID_1,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_IndexServer`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows::runtime::GUID,
     pub pguid: *mut ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl DBID_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBID_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 pub struct DBID {
@@ -281,72 +304,93 @@ pub struct DBID {
     pub eKind: u32,
     pub uName: DBID_1,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBID {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
-#[doc = "*Required features: `Win32_Storage_IndexServer`*"]
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows::runtime::GUID,
     pub pguid: *mut ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl DBID_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID_0 {}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBID_1 {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBID_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBID_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBID_1 {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBID_1 {
     type Abi = Self;

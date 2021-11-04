@@ -962,7 +962,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTIONS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_ALL_OPTIONS_0 {
     pub Option: DHCP_OPTION,
     pub VendorName: super::super::Foundation::PWSTR,
@@ -1032,7 +1031,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_ALL_OPTION_VALUES_0 {
     pub ClassName: super::super::Foundation::PWSTR,
     pub VendorName: super::super::Foundation::PWSTR,
@@ -1103,7 +1101,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_ALL_OPTION_VALUES_PB {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_ALL_OPTION_VALUES_PB_0 {
     pub PolicyName: super::super::Foundation::PWSTR,
     pub VendorName: super::super::Foundation::PWSTR,
@@ -1168,7 +1165,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_ATTRIB {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_ATTRIB_0 {
     pub DhcpAttribBool: super::super::Foundation::BOOL,
     pub DhcpAttribUlong: u32,
@@ -3499,7 +3495,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_ELEMENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_OPTION_DATA_ELEMENT_0 {
     pub ByteOption: u8,
     pub WordOption: u16,
@@ -3620,7 +3615,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_OPTION_SCOPE_INFO_0 {
     pub DefaultScopeInfo: *mut ::std::ffi::c_void,
     pub GlobalScopeInfo: *mut ::std::ffi::c_void,
@@ -4314,7 +4308,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_PROPERTY_0 {
     pub ByteValue: u8,
     pub WordValue: u16,
@@ -4594,7 +4587,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_SEARCH_INFO_0 {
     pub ClientIpAddress: u32,
     pub ClientHardwareAddress: DHCP_BINARY_DATA,
@@ -4681,7 +4673,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_V6 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_SEARCH_INFO_V6_0 {
     pub ClientIpAddress: DHCP_IPV6_ADDRESS,
     pub ClientDUID: DHCP_BINARY_DATA,
@@ -4964,6 +4955,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SERVER_CONFIG_INFO_VQ {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_SERVER_OPTIONS {
@@ -4993,14 +4985,17 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DHCP_SERVER_OPTIONS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DHCP_SERVER_OPTIONS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5033,6 +5028,7 @@ impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -5063,14 +5059,17 @@ impl ::std::cmp::PartialEq for DHCP_SERVER_OPTIONS {
             && self.ScopeId == other.ScopeId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DHCP_SERVER_OPTIONS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub struct DHCP_SERVER_OPTIONS {
@@ -5100,14 +5099,17 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DHCP_SERVER_OPTIONS {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DHCP_SERVER_OPTIONS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -5140,6 +5142,7 @@ impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
@@ -5170,8 +5173,10 @@ impl ::std::cmp::PartialEq for DHCP_SERVER_OPTIONS {
             && self.ScopeId == other.ScopeId
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DHCP_SERVER_OPTIONS {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
@@ -5241,7 +5246,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_SUBNET_ELEMENT_DATA_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -5300,7 +5304,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V4 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_SUBNET_ELEMENT_DATA_V4_0 {
     pub IpRange: *mut DHCP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,
@@ -5359,7 +5362,6 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_DATA_V5 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Dhcp`, `Win32_Foundation`*"]
 pub union DHCP_SUBNET_ELEMENT_DATA_V5_0 {
     pub IpRange: *mut DHCP_BOOTP_IP_RANGE,
     pub SecondaryHost: *mut DHCP_HOST_INFO,

@@ -274,23 +274,28 @@ unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     pub Numeric_Value: u32,
     pub Passkey: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for BLUETOOTH_AUTHENTICATION_CALLBACK_PARAMS_0 {
     type Abi = Self;
 }
@@ -3029,7 +3034,6 @@ unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`, `Win32_Foundation`*"]
 pub union SDP_ELEMENT_DATA_0 {
     pub int128: SDP_LARGE_INTEGER_16,
     pub int64: i64,
@@ -3072,109 +3076,133 @@ unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_0 {
     pub value: *mut u8,
     pub length: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SDP_ELEMENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_alternative_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_1 {
     pub value: *mut u8,
     pub length: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SDP_ELEMENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_sequence_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_2 {
     pub value: *mut u8,
     pub length: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SDP_ELEMENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_string_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Bluetooth`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SDP_ELEMENT_DATA_0_3 {
     pub value: *mut u8,
     pub length: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl SDP_ELEMENT_DATA_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for SDP_ELEMENT_DATA_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SDP_ELEMENT_DATA_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_url_e__Struct").field("value", &self.value).field("length", &self.length).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SDP_ELEMENT_DATA_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.value == other.value && self.length == other.length
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for SDP_ELEMENT_DATA_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for SDP_ELEMENT_DATA_0_3 {
     type Abi = Self;
 }

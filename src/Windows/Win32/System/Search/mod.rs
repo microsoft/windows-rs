@@ -215,30 +215,29 @@ unsafe impl ::windows::runtime::Abi for CATEGORIZATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
     pub bucket: BUCKETCATEGORIZE,
     pub range: RANGECATEGORIZE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl CATEGORIZATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for CATEGORIZATION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for CATEGORIZATION_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for CATEGORIZATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATION_0 {
     type Abi = Self;
 }
@@ -841,50 +840,63 @@ unsafe impl ::windows::runtime::Abi for DBASYNCHPHASEENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBBINDEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBBINDEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBBINDEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBBINDEXT").field("pExtension", &self.pExtension).field("ulExtension", &self.ulExtension).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBBINDEXT {
     fn eq(&self, other: &Self) -> bool {
         self.pExtension == other.pExtension && self.ulExtension == other.ulExtension
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBBINDEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBBINDEXT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: usize,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBBINDEXT {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBBINDEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBBINDEXT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBBINDEXT {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBBINDEXT {
     type Abi = Self;
 }
@@ -903,6 +915,7 @@ unsafe impl ::windows::runtime::Abi for DBBINDFLAGENUM {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_System_Ole_Automation`*"]
 pub struct DBBINDING {
@@ -922,14 +935,17 @@ pub struct DBBINDING {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl DBBINDING {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for DBBINDING {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for DBBINDING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -952,6 +968,7 @@ impl ::std::fmt::Debug for DBBINDING {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for DBBINDING {
     fn eq(&self, other: &Self) -> bool {
@@ -972,12 +989,15 @@ impl ::std::cmp::PartialEq for DBBINDING {
             && self.bScale == other.bScale
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for DBBINDING {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for DBBINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::clone::Clone for DBBINDING {
     fn clone(&self) -> Self {
@@ -985,6 +1005,7 @@ impl ::std::clone::Clone for DBBINDING {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_System_Ole_Automation`*"]
 pub struct DBBINDING {
@@ -1004,22 +1025,27 @@ pub struct DBBINDING {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl DBBINDING {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for DBBINDING {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for DBBINDING {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for DBBINDING {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for DBBINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1105,6 +1131,7 @@ unsafe impl ::windows::runtime::Abi for DBBOOKMARK {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct DBCOLUMNACCESS {
@@ -1118,28 +1145,34 @@ pub struct DBCOLUMNACCESS {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl DBCOLUMNACCESS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for DBCOLUMNACCESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for DBCOLUMNACCESS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct DBCOLUMNACCESS {
@@ -1153,26 +1186,32 @@ pub struct DBCOLUMNACCESS {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl DBCOLUMNACCESS {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for DBCOLUMNACCESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for DBCOLUMNACCESS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for DBCOLUMNACCESS {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
@@ -1180,6 +1219,7 @@ impl ::std::clone::Clone for DBCOLUMNDESC {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNDESC {
@@ -1194,26 +1234,32 @@ pub struct DBCOLUMNDESC {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBCOLUMNDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCOLUMNDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCOLUMNDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNDESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
@@ -1221,6 +1267,7 @@ impl ::std::clone::Clone for DBCOLUMNDESC {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNDESC {
@@ -1235,22 +1282,27 @@ pub struct DBCOLUMNDESC {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBCOLUMNDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCOLUMNDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCOLUMNDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNDESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1357,6 +1409,7 @@ impl ::std::convert::From<i32> for DBCOLUMNFLAGSENUM26 {
 unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM26 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
@@ -1364,6 +1417,7 @@ impl ::std::clone::Clone for DBCOLUMNINFO {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNINFO {
@@ -1377,26 +1431,32 @@ pub struct DBCOLUMNINFO {
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl DBCOLUMNINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCOLUMNINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCOLUMNINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
@@ -1404,6 +1464,7 @@ impl ::std::clone::Clone for DBCOLUMNINFO {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Ole_Automation`*"]
 pub struct DBCOLUMNINFO {
@@ -1417,22 +1478,27 @@ pub struct DBCOLUMNINFO {
     pub bScale: u8,
     pub columnid: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl DBCOLUMNINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCOLUMNINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCOLUMNINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCOLUMNINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1527,6 +1593,7 @@ pub const DBCOMPUTEMODE_DYNAMIC: u32 = 2u32;
 pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBCONSTRAINTDESC {
@@ -1545,14 +1612,17 @@ pub struct DBCONSTRAINTDESC {
     pub cReserved: usize,
     pub rgReserved: *mut DBPROPSET,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBCONSTRAINTDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for DBCONSTRAINTDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1574,6 +1644,7 @@ impl ::std::fmt::Debug for DBCONSTRAINTDESC {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1593,14 +1664,17 @@ impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
             && self.rgReserved == other.rgReserved
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBCONSTRAINTDESC {
@@ -1619,22 +1693,27 @@ pub struct DBCONSTRAINTDESC {
     pub cReserved: usize,
     pub rgReserved: *mut DBPROPSET,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBCONSTRAINTDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
@@ -1703,52 +1782,65 @@ unsafe impl ::windows::runtime::Abi for DBCOPYFLAGSENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBCOST {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBCOST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBCOST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBCOST").field("eKind", &self.eKind).field("dwUnits", &self.dwUnits).field("lValue", &self.lValue).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBCOST {
     fn eq(&self, other: &Self) -> bool {
         self.eKind == other.eKind && self.dwUnits == other.dwUnits && self.lValue == other.lValue
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBCOST {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBCOST {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBCOST {
     pub eKind: u32,
     pub dwUnits: u32,
     pub lValue: i32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBCOST {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBCOST {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBCOST {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBCOST {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBCOST {
     type Abi = Self;
 }
@@ -1889,52 +1981,65 @@ unsafe impl ::windows::runtime::Abi for DBEXECLIMITSENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: ::windows::runtime::HRESULT,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBFAILUREINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBFAILUREINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBFAILUREINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBFAILUREINFO").field("hRow", &self.hRow).field("iColumn", &self.iColumn).field("failure", &self.failure).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBFAILUREINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hRow == other.hRow && self.iColumn == other.iColumn && self.failure == other.failure
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBFAILUREINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBFAILUREINFO {
     pub hRow: usize,
     pub iColumn: usize,
     pub failure: ::windows::runtime::HRESULT,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBFAILUREINFO {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBFAILUREINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBFAILUREINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBFAILUREINFO {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBFAILUREINFO {
     type Abi = Self;
 }
@@ -1942,117 +2047,144 @@ pub const DBGUID_MSSQLXML: ::windows::runtime::GUID = ::windows::runtime::GUID::
 pub const DBGUID_XPATH: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3962192531, 59544, 4562, [177, 183, 0, 192, 79, 104, 12, 86]);
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: ::std::option::Option<::windows::runtime::IUnknown>,
     pub piid: *mut ::windows::runtime::GUID,
     pub pSession: ::std::option::Option<::windows::runtime::IUnknown>,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBIMPLICITSESSION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBIMPLICITSESSION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBIMPLICITSESSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBIMPLICITSESSION").field("pUnkOuter", &self.pUnkOuter).field("piid", &self.piid).field("pSession", &self.pSession).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBIMPLICITSESSION {
     fn eq(&self, other: &Self) -> bool {
         self.pUnkOuter == other.pUnkOuter && self.piid == other.piid && self.pSession == other.pSession
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBIMPLICITSESSION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBIMPLICITSESSION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::clone::Clone for DBIMPLICITSESSION {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: ::std::option::Option<::windows::runtime::IUnknown>,
     pub piid: *mut ::windows::runtime::GUID,
     pub pSession: ::std::option::Option<::windows::runtime::IUnknown>,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBIMPLICITSESSION {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBIMPLICITSESSION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBIMPLICITSESSION {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBIMPLICITSESSION {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBIMPLICITSESSION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl DBINDEXCOLUMNDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for DBINDEXCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::fmt::Debug for DBINDEXCOLUMNDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBINDEXCOLUMNDESC").field("pColumnID", &self.pColumnID).field("eIndexColOrder", &self.eIndexColOrder).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for DBINDEXCOLUMNDESC {
     fn eq(&self, other: &Self) -> bool {
         self.pColumnID == other.pColumnID && self.eIndexColOrder == other.eIndexColOrder
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for DBINDEXCOLUMNDESC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBINDEXCOLUMNDESC {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut super::super::Storage::IndexServer::DBID,
     pub eIndexColOrder: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl DBINDEXCOLUMNDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for DBINDEXCOLUMNDESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for DBINDEXCOLUMNDESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for DBINDEXCOLUMNDESC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for DBINDEXCOLUMNDESC {
     type Abi = Self;
@@ -2140,6 +2272,7 @@ unsafe impl ::windows::runtime::Abi for DBLITERALENUM21 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct DBLITERALINFO {
@@ -2150,14 +2283,17 @@ pub struct DBLITERALINFO {
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBLITERALINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBLITERALINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DBLITERALINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2171,20 +2307,24 @@ impl ::std::fmt::Debug for DBLITERALINFO {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBLITERALINFO {
     fn eq(&self, other: &Self) -> bool {
         self.pwszLiteralValue == other.pwszLiteralValue && self.pwszInvalidChars == other.pwszInvalidChars && self.pwszInvalidStartingChars == other.pwszInvalidStartingChars && self.lt == other.lt && self.fSupported == other.fSupported && self.cchMaxLen == other.cchMaxLen
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBLITERALINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBLITERALINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct DBLITERALINFO {
@@ -2195,22 +2335,27 @@ pub struct DBLITERALINFO {
     pub fSupported: super::super::Foundation::BOOL,
     pub cchMaxLen: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBLITERALINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBLITERALINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBLITERALINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBLITERALINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBLITERALINFO {
     type Abi = Self;
@@ -2265,55 +2410,69 @@ unsafe impl ::windows::runtime::Abi for DBMOVEFLAGSENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBOBJECT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBOBJECT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBOBJECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBOBJECT").field("dwFlags", &self.dwFlags).field("iid", &self.iid).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBOBJECT {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.iid == other.iid
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBOBJECT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBOBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBOBJECT {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBOBJECT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBOBJECT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBOBJECT {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBOBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct DBPARAMBINDINFO {
@@ -2324,34 +2483,41 @@ pub struct DBPARAMBINDINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBPARAMBINDINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBPARAMBINDINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DBPARAMBINDINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPARAMBINDINFO").field("pwszDataSourceType", &self.pwszDataSourceType).field("pwszName", &self.pwszName).field("ulParamSize", &self.ulParamSize).field("dwFlags", &self.dwFlags).field("bPrecision", &self.bPrecision).field("bScale", &self.bScale).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBPARAMBINDINFO {
     fn eq(&self, other: &Self) -> bool {
         self.pwszDataSourceType == other.pwszDataSourceType && self.pwszName == other.pwszName && self.ulParamSize == other.ulParamSize && self.dwFlags == other.dwFlags && self.bPrecision == other.bPrecision && self.bScale == other.bScale
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBPARAMBINDINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBPARAMBINDINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct DBPARAMBINDINFO {
@@ -2362,22 +2528,27 @@ pub struct DBPARAMBINDINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DBPARAMBINDINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DBPARAMBINDINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DBPARAMBINDINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DBPARAMBINDINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DBPARAMBINDINFO {
     type Abi = Self;
@@ -2414,6 +2585,7 @@ unsafe impl ::windows::runtime::Abi for DBPARAMFLAGSENUM20 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub struct DBPARAMINFO {
@@ -2426,14 +2598,17 @@ pub struct DBPARAMINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl DBPARAMINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPARAMINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for DBPARAMINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2449,18 +2624,22 @@ impl ::std::fmt::Debug for DBPARAMINFO {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPARAMINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags && self.iOrdinal == other.iOrdinal && self.pwszName == other.pwszName && self.pTypeInfo == other.pTypeInfo && self.ulParamSize == other.ulParamSize && self.wType == other.wType && self.bPrecision == other.bPrecision && self.bScale == other.bScale
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPARAMINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPARAMINFO {
     fn clone(&self) -> Self {
@@ -2468,6 +2647,7 @@ impl ::std::clone::Clone for DBPARAMINFO {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub struct DBPARAMINFO {
@@ -2480,22 +2660,27 @@ pub struct DBPARAMINFO {
     pub bPrecision: u8,
     pub bScale: u8,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl DBPARAMINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPARAMINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPARAMINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPARAMINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -2517,52 +2702,65 @@ unsafe impl ::windows::runtime::Abi for DBPARAMIOENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBPARAMS {
     pub pData: *mut ::std::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBPARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBPARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPARAMS").field("pData", &self.pData).field("cParamSets", &self.cParamSets).field("hAccessor", &self.hAccessor).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBPARAMS {
     fn eq(&self, other: &Self) -> bool {
         self.pData == other.pData && self.cParamSets == other.cParamSets && self.hAccessor == other.hAccessor
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBPARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBPARAMS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBPARAMS {
     pub pData: *mut ::std::ffi::c_void,
     pub cParamSets: usize,
     pub hAccessor: usize,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBPARAMS {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBPARAMS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBPARAMS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBPARAMS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBPARAMS {
     type Abi = Self;
 }
@@ -2649,6 +2847,7 @@ pub const DBPROMPT_COMPLETEREQUIRED: u32 = 3u32;
 pub const DBPROMPT_NOPROMPT: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const DBPROMPT_PROMPT: u32 = 1u32;
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROP {
     fn clone(&self) -> Self {
@@ -2656,6 +2855,7 @@ impl ::std::clone::Clone for DBPROP {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROP {
@@ -2665,26 +2865,32 @@ pub struct DBPROP {
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROP {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROP {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROP {
     fn clone(&self) -> Self {
@@ -2692,6 +2898,7 @@ impl ::std::clone::Clone for DBPROP {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROP {
@@ -2701,22 +2908,27 @@ pub struct DBPROP {
     pub colid: super::super::Storage::IndexServer::DBID,
     pub vValue: super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROP {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROP {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3140,55 +3352,69 @@ unsafe impl ::windows::runtime::Abi for DBPROPFLAGSENUM26 {
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBPROPIDSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBPROPIDSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBPROPIDSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPROPIDSET").field("rgPropertyIDs", &self.rgPropertyIDs).field("cPropertyIDs", &self.cPropertyIDs).field("guidPropertySet", &self.guidPropertySet).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBPROPIDSET {
     fn eq(&self, other: &Self) -> bool {
         self.rgPropertyIDs == other.rgPropertyIDs && self.cPropertyIDs == other.cPropertyIDs && self.guidPropertySet == other.guidPropertySet
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBPROPIDSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut u32,
     pub cPropertyIDs: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBPROPIDSET {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBPROPIDSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBPROPIDSET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBPROPIDSET {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
@@ -3196,6 +3422,7 @@ impl ::std::clone::Clone for DBPROPINFO {
     }
 }
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPINFO {
@@ -3205,26 +3432,32 @@ pub struct DBPROPINFO {
     pub vtType: u16,
     pub vValues: super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
@@ -3232,6 +3465,7 @@ impl ::std::clone::Clone for DBPROPINFO {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPINFO {
@@ -3241,28 +3475,34 @@ pub struct DBPROPINFO {
     pub vtType: u16,
     pub vValues: super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPINFOSET {
@@ -3270,34 +3510,41 @@ pub struct DBPROPINFOSET {
     pub cPropertyInfos: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPINFOSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for DBPROPINFOSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPROPINFOSET").field("rgPropertyInfos", &self.rgPropertyInfos).field("cPropertyInfos", &self.cPropertyInfos).field("guidPropertySet", &self.guidPropertySet).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPINFOSET {
     fn eq(&self, other: &Self) -> bool {
         self.rgPropertyInfos == other.rgPropertyInfos && self.cPropertyInfos == other.cPropertyInfos && self.guidPropertySet == other.guidPropertySet
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPINFOSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPINFOSET {
@@ -3305,22 +3552,27 @@ pub struct DBPROPINFOSET {
     pub cPropertyInfos: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPINFOSET {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPINFOSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPINFOSET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPINFOSET {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
     type Abi = Self;
@@ -3342,6 +3594,7 @@ unsafe impl ::windows::runtime::Abi for DBPROPOPTIONSENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPSET {
@@ -3349,34 +3602,41 @@ pub struct DBPROPSET {
     pub cProperties: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for DBPROPSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPROPSET").field("rgProperties", &self.rgProperties).field("cProperties", &self.cProperties).field("guidPropertySet", &self.guidPropertySet).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPSET {
     fn eq(&self, other: &Self) -> bool {
         self.rgProperties == other.rgProperties && self.cProperties == other.cProperties && self.guidPropertySet == other.guidPropertySet
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPSET {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPSET {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
 pub struct DBPROPSET {
@@ -3384,22 +3644,27 @@ pub struct DBPROPSET {
     pub cProperties: u32,
     pub guidPropertySet: ::windows::runtime::GUID,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl DBPROPSET {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPROPSET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPROPSET {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPROPSET {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPROPSET {
     type Abi = Self;
@@ -4241,6 +4506,7 @@ unsafe impl ::windows::runtime::Abi for DBTIME {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBTIMESTAMP {
     pub year: i16,
@@ -4251,28 +4517,35 @@ pub struct DBTIMESTAMP {
     pub second: u16,
     pub fraction: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBTIMESTAMP {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBTIMESTAMP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBTIMESTAMP {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBTIMESTAMP").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("minute", &self.minute).field("second", &self.second).field("fraction", &self.fraction).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBTIMESTAMP {
     fn eq(&self, other: &Self) -> bool {
         self.year == other.year && self.month == other.month && self.day == other.day && self.hour == other.hour && self.minute == other.minute && self.second == other.second && self.fraction == other.fraction
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBTIMESTAMP {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBTIMESTAMP {
     pub year: i16,
@@ -4283,18 +4556,23 @@ pub struct DBTIMESTAMP {
     pub second: u16,
     pub fraction: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBTIMESTAMP {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBTIMESTAMP {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBTIMESTAMP {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBTIMESTAMP {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBTIMESTAMP {
     type Abi = Self;
 }
@@ -4392,50 +4670,63 @@ unsafe impl ::windows::runtime::Abi for DBUPDELRULEENUM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DBVECTOR {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DBVECTOR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DBVECTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBVECTOR").field("size", &self.size).field("ptr", &self.ptr).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DBVECTOR {
     fn eq(&self, other: &Self) -> bool {
         self.size == other.size && self.ptr == other.ptr
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DBVECTOR {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DBVECTOR {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct DBVECTOR {
     pub size: usize,
     pub ptr: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DBVECTOR {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DBVECTOR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DBVECTOR {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DBVECTOR {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DBVECTOR {
     type Abi = Self;
 }
@@ -5310,6 +5601,7 @@ unsafe impl ::windows::runtime::Abi for EBindInfoOptions {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct ERRORINFO {
     pub hrError: ::windows::runtime::HRESULT,
@@ -5318,28 +5610,35 @@ pub struct ERRORINFO {
     pub iid: ::windows::runtime::GUID,
     pub dispid: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ERRORINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for ERRORINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for ERRORINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("ERRORINFO").field("hrError", &self.hrError).field("dwMinor", &self.dwMinor).field("clsid", &self.clsid).field("iid", &self.iid).field("dispid", &self.dispid).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for ERRORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.hrError == other.hrError && self.dwMinor == other.dwMinor && self.clsid == other.clsid && self.iid == other.iid && self.dispid == other.dispid
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for ERRORINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ERRORINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct ERRORINFO {
     pub hrError: ::windows::runtime::HRESULT,
@@ -5348,18 +5647,23 @@ pub struct ERRORINFO {
     pub iid: ::windows::runtime::GUID,
     pub dispid: i32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl ERRORINFO {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for ERRORINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for ERRORINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for ERRORINFO {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for ERRORINFO {
     type Abi = Self;
 }
@@ -19322,6 +19626,7 @@ pub const MAXUSEVERITY: u32 = 18u32;
 pub const MAX_QUERY_RANK: u32 = 1000u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct MDAXISINFO {
@@ -19332,34 +19637,41 @@ pub struct MDAXISINFO {
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl MDAXISINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MDAXISINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MDAXISINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MDAXISINFO").field("cbSize", &self.cbSize).field("iAxis", &self.iAxis).field("cDimensions", &self.cDimensions).field("cCoordinates", &self.cCoordinates).field("rgcColumns", &self.rgcColumns).field("rgpwszDimensionNames", &self.rgpwszDimensionNames).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MDAXISINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbSize == other.cbSize && self.iAxis == other.iAxis && self.cDimensions == other.cDimensions && self.cCoordinates == other.cCoordinates && self.rgcColumns == other.rgcColumns && self.rgpwszDimensionNames == other.rgpwszDimensionNames
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MDAXISINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDAXISINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub struct MDAXISINFO {
@@ -19370,22 +19682,27 @@ pub struct MDAXISINFO {
     pub rgcColumns: *mut usize,
     pub rgpwszDimensionNames: *mut super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl MDAXISINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MDAXISINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MDAXISINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MDAXISINFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MDAXISINFO {
     type Abi = Self;
@@ -20069,7 +20386,6 @@ unsafe impl ::windows::runtime::Abi for ODBC_VS_ARGS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub union ODBC_VS_ARGS_0 {
     pub wszArg: super::super::Foundation::PWSTR,
     pub szArg: super::super::Foundation::PSTR,
@@ -20097,7 +20413,6 @@ unsafe impl ::windows::runtime::Abi for ODBC_VS_ARGS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
 pub union ODBC_VS_ARGS_1 {
     pub wszCorrelation: super::super::Foundation::PWSTR,
     pub szCorrelation: super::super::Foundation::PSTR,
@@ -20843,7 +21158,6 @@ impl ::std::clone::Clone for RESTRICTION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
     pub orRestriction: NODERESTRICTION,
@@ -20896,6 +21210,7 @@ pub const REXSPH_E_UNKNOWN_DATA_TYPE: i32 = -2147207929i32;
 pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 pub struct RMTPACK {
@@ -20914,14 +21229,17 @@ pub struct RMTPACK {
     pub cArray: u32,
     pub rgArray: *mut super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl RMTPACK {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for RMTPACK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -20943,6 +21261,7 @@ impl ::std::fmt::Debug for RMTPACK {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for RMTPACK {
     fn eq(&self, other: &Self) -> bool {
@@ -20962,12 +21281,15 @@ impl ::std::cmp::PartialEq for RMTPACK {
             && self.rgArray == other.rgArray
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for RMTPACK {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RMTPACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for RMTPACK {
     fn clone(&self) -> Self {
@@ -20975,6 +21297,7 @@ impl ::std::clone::Clone for RMTPACK {
     }
 }
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
 pub struct RMTPACK {
@@ -20993,22 +21316,27 @@ pub struct RMTPACK {
     pub cArray: u32,
     pub rgArray: *mut super::Com::VARIANT,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl RMTPACK {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for RMTPACK {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for RMTPACK {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for RMTPACK {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for RMTPACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -21371,118 +21699,143 @@ pub const SEC_E_NOTRUSTEEID: ::windows::runtime::HRESULT = ::windows::runtime::H
 pub const SEC_E_PERMISSIONDENIED: i32 = -2147217911i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl SEC_OBJECT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for SEC_OBJECT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::fmt::Debug for SEC_OBJECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("SEC_OBJECT").field("cObjects", &self.cObjects).field("prgObjects", &self.prgObjects).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for SEC_OBJECT {
     fn eq(&self, other: &Self) -> bool {
         self.cObjects == other.cObjects && self.prgObjects == other.prgObjects
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for SEC_OBJECT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl SEC_OBJECT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for SEC_OBJECT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for SEC_OBJECT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for SEC_OBJECT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: ::windows::runtime::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl SEC_OBJECT_ELEMENT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for SEC_OBJECT_ELEMENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for SEC_OBJECT_ELEMENT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_Storage_IndexServer`*"]
 pub struct SEC_OBJECT_ELEMENT {
     pub guidObjectType: ::windows::runtime::GUID,
     pub ObjectID: super::super::Storage::IndexServer::DBID,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl SEC_OBJECT_ELEMENT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::default::Default for SEC_OBJECT_ELEMENT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::PartialEq for SEC_OBJECT_ELEMENT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 impl ::std::cmp::Eq for SEC_OBJECT_ELEMENT {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
 unsafe impl ::windows::runtime::Abi for SEC_OBJECT_ELEMENT {
     type Abi = Self;
@@ -21676,7 +22029,7 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21715,7 +22068,7 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternu
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21765,7 +22118,7 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21921,7 +22274,7 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnu
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -21951,7 +22304,7 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -21981,7 +22334,7 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -22011,7 +22364,7 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesct
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22041,7 +22394,7 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22071,7 +22424,7 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22386,7 +22739,7 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnum
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22436,7 +22789,7 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22486,7 +22839,7 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22526,7 +22879,7 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqlt
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22829,7 +23182,7 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
     #[cfg(windows)]
@@ -22879,7 +23232,7 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorie
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
     #[cfg(windows)]
@@ -23175,7 +23528,7 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -23259,7 +23612,7 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23313,7 +23666,7 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23367,7 +23720,7 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23886,7 +24239,7 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
     #[cfg(windows)]
@@ -24114,7 +24467,7 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i32) -> i16 {
     #[cfg(windows)]
@@ -24144,7 +24497,7 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24216,7 +24569,7 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, opt
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
@@ -24246,7 +24599,7 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
@@ -24276,7 +24629,7 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
@@ -24387,7 +24740,7 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24451,7 +24804,7 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternum
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24490,7 +24843,7 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u64, foption: u16,
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
     #[cfg(windows)]
@@ -24520,7 +24873,7 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
     #[cfg(windows)]
@@ -24578,7 +24931,7 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
@@ -28283,7 +28636,6 @@ impl ::std::clone::Clone for SSVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`, `Win32_System_Com`*"]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
     pub sShortIntVal: i16,
@@ -28324,64 +28676,75 @@ unsafe impl ::windows::runtime::Abi for SSVARIANT_0 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
     pub pUnk: ::std::option::Option<::windows::runtime::IUnknown>,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSVARIANT_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_BLOBType").field("dbobj", &self.dbobj).field("pUnk", &self.pUnk).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dbobj == other.dbobj && self.pUnk == other.pUnk
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSVARIANT_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_BinaryVal").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("prgbBinaryVal", &self.prgbBinaryVal).field("dwReserved", &self.dwReserved).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.prgbBinaryVal == other.prgbBinaryVal && self.dwReserved == other.dwReserved
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -28390,36 +28753,35 @@ pub struct SSVARIANT_0_2 {
     pub dwReserved: u32,
     pub pwchReserved: super::super::Foundation::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSVARIANT_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_CharVal").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("pchCharVal", &self.pchCharVal).field("rgbReserved", &self.rgbReserved).field("dwReserved", &self.dwReserved).field("pwchReserved", &self.pwchReserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pchCharVal == other.pchCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -28428,57 +28790,63 @@ pub struct SSVARIANT_0_3 {
     pub dwReserved: u32,
     pub pwchReserved: super::super::Foundation::PWSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSVARIANT_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_NCharVal").field("sActualLength", &self.sActualLength).field("sMaxLength", &self.sMaxLength).field("pwchNCharVal", &self.pwchNCharVal).field("rgbReserved", &self.rgbReserved).field("dwReserved", &self.dwReserved).field("pwchReserved", &self.pwchReserved).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.sActualLength == other.sActualLength && self.sMaxLength == other.sMaxLength && self.pwchNCharVal == other.pwchNCharVal && self.rgbReserved == other.rgbReserved && self.dwReserved == other.dwReserved && self.pwchReserved == other.pwchReserved
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT_0_4 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0_4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::fmt::Debug for SSVARIANT_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_UnknownType").field("dwActualLength", &self.dwActualLength).field("rgMetadata", &self.rgMetadata).field("pUnknownData", &self.pUnknownData).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0_4 {
     fn eq(&self, other: &Self) -> bool {
         self.dwActualLength == other.dwActualLength && self.rgMetadata == other.rgMetadata && self.pUnknownData == other.pUnknownData
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0_4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0_4 {
     type Abi = Self;
 }
@@ -29659,6 +30027,7 @@ unsafe impl ::windows::runtime::Abi for sqlperf {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct tagDBROWWATCHRANGE {
     pub hRegion: usize,
@@ -29666,28 +30035,35 @@ pub struct tagDBROWWATCHRANGE {
     pub hRow: usize,
     pub iRow: usize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl tagDBROWWATCHRANGE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for tagDBROWWATCHRANGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for tagDBROWWATCHRANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("tagDBROWWATCHRANGE").field("hRegion", &self.hRegion).field("eChangeKind", &self.eChangeKind).field("hRow", &self.hRow).field("iRow", &self.iRow).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for tagDBROWWATCHRANGE {
     fn eq(&self, other: &Self) -> bool {
         self.hRegion == other.hRegion && self.eChangeKind == other.eChangeKind && self.hRow == other.hRow && self.iRow == other.iRow
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for tagDBROWWATCHRANGE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for tagDBROWWATCHRANGE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(2))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub struct tagDBROWWATCHRANGE {
     pub hRegion: usize,
@@ -29695,18 +30071,23 @@ pub struct tagDBROWWATCHRANGE {
     pub hRow: usize,
     pub iRow: usize,
 }
+#[cfg(any(target_arch = "x86",))]
 impl tagDBROWWATCHRANGE {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for tagDBROWWATCHRANGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for tagDBROWWATCHRANGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for tagDBROWWATCHRANGE {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for tagDBROWWATCHRANGE {
     type Abi = Self;
 }

@@ -622,6 +622,7 @@ pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(hadid: HACMDRIVERID, pa
 pub type ACMFORMATTAGENUMCBW = unsafe extern "system" fn(hadid: HACMDRIVERID, paftd: *mut ACMFORMATTAGDETAILSW, dwinstance: usize, fdwsupport: u32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
@@ -637,23 +638,29 @@ pub struct ACMSTREAMHEADER {
     pub dwDstUser: usize,
     pub dwReservedDriver: [u32; 15],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for ACMSTREAMHEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Media_Multimedia`*"]
 pub struct ACMSTREAMHEADER {
     pub cbStruct: u32,
@@ -669,18 +676,23 @@ pub struct ACMSTREAMHEADER {
     pub dwDstUser: usize,
     pub dwReservedDriver: [u32; 10],
 }
+#[cfg(any(target_arch = "x86",))]
 impl ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for ACMSTREAMHEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for ACMSTREAMHEADER {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for ACMSTREAMHEADER {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for ACMSTREAMHEADER {
     type Abi = Self;
 }
@@ -9559,91 +9571,111 @@ unsafe impl ::windows::runtime::Abi for MIXERCONTROLA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MIXERCONTROLA_0 {
     pub Anonymous1: MIXERCONTROLA_0_0,
     pub Anonymous2: MIXERCONTROLA_0_1,
     pub dwReserved: [u32; 6],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA_0_0 {
     pub lMinimum: i32,
     pub lMaximum: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLA_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLA_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA_0_1 {
     pub dwMinimum: u32,
     pub dwMaximum: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLA_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLA_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLA_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MIXERCONTROLA_1 {
     pub cSteps: u32,
     pub cbCustomData: u32,
     pub dwReserved: [u32; 6],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLA_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLA_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLA_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA_1 {
     type Abi = Self;
 }
@@ -9682,7 +9714,6 @@ unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 pub union MIXERCONTROLDETAILS_0 {
     pub hwndOwner: super::super::Foundation::HWND,
     pub cMultipleItems: u32,
@@ -10105,7 +10136,6 @@ unsafe impl ::windows::runtime::Abi for MIXERLINEA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_Multimedia`, `Win32_Foundation`*"]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
@@ -10168,23 +10198,28 @@ unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MIXERLINECONTROLSA_0 {
     pub dwControlID: u32,
     pub dwControlType: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERLINECONTROLSA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERLINECONTROLSA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERLINECONTROLSA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERLINECONTROLSA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA_0 {
     type Abi = Self;
 }

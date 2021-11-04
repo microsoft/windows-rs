@@ -1086,6 +1086,7 @@ pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut ::std::ffi::c_void,
@@ -1097,12 +1098,15 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for MEMORY_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MEMORY_BASIC_INFORMATION")
@@ -1117,17 +1121,21 @@ impl ::std::fmt::Debug for MEMORY_BASIC_INFORMATION {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.PartitionId == other.PartitionId && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_System_Memory`*"]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut ::std::ffi::c_void,
@@ -1138,12 +1146,15 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
+#[cfg(any(target_arch = "x86",))]
 impl MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::fmt::Debug for MEMORY_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MEMORY_BASIC_INFORMATION")
@@ -1157,12 +1168,15 @@ impl ::std::fmt::Debug for MEMORY_BASIC_INFORMATION {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         self.BaseAddress == other.BaseAddress && self.AllocationBase == other.AllocationBase && self.AllocationProtect == other.AllocationProtect && self.RegionSize == other.RegionSize && self.State == other.State && self.Protect == other.Protect && self.Type == other.Type
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for MEMORY_BASIC_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }

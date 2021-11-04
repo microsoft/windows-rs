@@ -332,7 +332,6 @@ unsafe impl ::windows::runtime::Abi for ERROR_SPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union ERROR_SPEC_0 {
     pub errs_ipv4: Error_Spec_IPv4,
 }
@@ -441,7 +440,6 @@ unsafe impl ::windows::runtime::Abi for FILTER_SPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union FILTER_SPEC_0 {
     pub filt_ipv4: Filter_Spec_IPv4,
     pub filt_ipv4gpi: Filter_Spec_IPv4GPI,
@@ -2932,7 +2930,6 @@ unsafe impl ::windows::runtime::Abi for RSVP_HOP {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union RSVP_HOP_0 {
     pub hop_ipv4: Rsvp_Hop_IPv4,
 }
@@ -3145,7 +3142,6 @@ unsafe impl ::windows::runtime::Abi for RSVP_SCOPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union RSVP_SCOPE_0 {
     pub scopl_ipv4: Scope_list_ipv4,
 }
@@ -3200,7 +3196,6 @@ unsafe impl ::windows::runtime::Abi for RSVP_SESSION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union RSVP_SESSION_0 {
     pub sess_ipv4: Session_IPv4,
 }
@@ -4414,30 +4409,34 @@ unsafe impl ::windows::runtime::Abi for flow_desc {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_0 {
     pub stspec: *mut SENDER_TSPEC,
     pub isflow: *mut IS_FLOWSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::default::Default for flow_desc_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::PartialEq for flow_desc_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::std::cmp::Eq for flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::runtime::Abi for flow_desc_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Networking_WinSock")]
-#[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Networking_WinSock`*"]
 pub union flow_desc_1 {
     pub stemp: *mut FILTER_SPEC,
     pub fspec: *mut FILTER_SPEC,

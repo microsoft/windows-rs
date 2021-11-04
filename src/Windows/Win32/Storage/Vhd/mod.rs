@@ -557,7 +557,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union CREATE_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -587,7 +586,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -625,7 +623,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -690,7 +687,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -761,7 +757,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_PARAMETERS_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct CREATE_VIRTUAL_DISK_PARAMETERS_0_3 {
     pub UniqueId: ::windows::runtime::GUID,
     pub MaximumSize: u64,
@@ -1415,7 +1410,6 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union FORK_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -1442,7 +1436,6 @@ unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct FORK_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub ForkedVirtualDiskPath: super::super::Foundation::PWSTR,
 }
@@ -1575,7 +1568,6 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union GET_VIRTUAL_DISK_INFO_0 {
     pub Size: GET_VIRTUAL_DISK_INFO_0_3,
     pub Identifier: ::windows::runtime::GUID,
@@ -1616,7 +1608,6 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_0 {
     pub Enabled: super::super::Foundation::BOOL,
     pub NewerChanges: super::super::Foundation::BOOL,
@@ -1651,7 +1642,6 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_1 {
     pub ParentResolved: super::super::Foundation::BOOL,
     pub ParentLocationBuffer: [u16; 1],
@@ -1685,7 +1675,6 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_2 {
     pub LogicalSectorSize: u32,
     pub PhysicalSectorSize: u32,
@@ -1719,30 +1708,36 @@ unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl GET_VIRTUAL_DISK_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for GET_VIRTUAL_DISK_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GET_VIRTUAL_DISK_INFO_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Size_e__Struct").field("VirtualSize", &self.VirtualSize).field("PhysicalSize", &self.PhysicalSize).field("BlockSize", &self.BlockSize).field("SectorSize", &self.SectorSize).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.VirtualSize == other.VirtualSize && self.PhysicalSize == other.PhysicalSize && self.BlockSize == other.BlockSize && self.SectorSize == other.SectorSize
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
 }
@@ -2095,7 +2090,6 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -2122,7 +2116,6 @@ unsafe impl ::windows::runtime::Abi for MIRROR_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub MirrorVirtualDiskPath: super::super::Foundation::PWSTR,
 }
@@ -2239,7 +2232,6 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union MODIFY_VHDSET_PARAMETERS_0 {
     pub SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0,
     pub SnapshotId: ::windows::runtime::GUID,
@@ -2268,7 +2260,6 @@ unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct MODIFY_VHDSET_PARAMETERS_0_0 {
     pub SnapshotId: ::windows::runtime::GUID,
     pub SnapshotFilePath: super::super::Foundation::PWSTR,
@@ -2444,7 +2435,6 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0,
     pub Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1,
@@ -2472,34 +2462,39 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Vhd`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Version1_e__Struct").field("RWDepth", &self.RWDepth).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.RWDepth == other.RWDepth
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
@@ -2534,7 +2529,6 @@ unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_2 {
     pub GetInfoOnly: super::super::Foundation::BOOL,
     pub ReadOnly: super::super::Foundation::BOOL,
@@ -2765,7 +2759,6 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
     pub Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0,
 }
@@ -2792,7 +2785,6 @@ unsafe impl ::windows::runtime::Abi for RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RSVDHandle: super::super::Foundation::BOOL,
     pub DataIn: u8,
@@ -3112,7 +3104,6 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union SET_VIRTUAL_DISK_INFO_0 {
     pub ParentFilePath: super::super::Foundation::PWSTR,
     pub UniqueIdentifier: ::windows::runtime::GUID,
@@ -3145,7 +3136,6 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct SET_VIRTUAL_DISK_INFO_0_0 {
     pub LinkageId: ::windows::runtime::GUID,
     pub ParentFilePath: super::super::Foundation::PWSTR,
@@ -3179,7 +3169,6 @@ unsafe impl ::windows::runtime::Abi for SET_VIRTUAL_DISK_INFO_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub struct SET_VIRTUAL_DISK_INFO_0_1 {
     pub ChildDepth: u32,
     pub ParentFilePath: super::super::Foundation::PWSTR,
@@ -3262,7 +3251,6 @@ unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
 pub union STORAGE_DEPENDENCY_INFO_0 {
     pub Version1Entries: [STORAGE_DEPENDENCY_INFO_TYPE_1; 1],
     pub Version2Entries: [STORAGE_DEPENDENCY_INFO_TYPE_2; 1],

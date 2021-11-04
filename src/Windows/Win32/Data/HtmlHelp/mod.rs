@@ -74,7 +74,6 @@ unsafe impl ::windows::runtime::Abi for CProperty {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Data_HtmlHelp`, `Win32_Foundation`*"]
 pub union CProperty_0 {
     pub lpszwData: super::super::Foundation::PWSTR,
     pub lpvData: *mut ::std::ffi::c_void,

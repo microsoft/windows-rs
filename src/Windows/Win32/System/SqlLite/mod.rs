@@ -974,6 +974,7 @@ pub unsafe fn sqlite3_aggregate_count(param0: *mut sqlite3_context) -> i32 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 pub struct sqlite3_api_routines {
@@ -1231,14 +1232,17 @@ pub struct sqlite3_api_routines {
     pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
     pub txn_state: isize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sqlite3_api_routines {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sqlite3_api_routines {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1499,6 +1503,7 @@ impl ::std::fmt::Debug for sqlite3_api_routines {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
@@ -1757,14 +1762,17 @@ impl ::std::cmp::PartialEq for sqlite3_api_routines {
             && self.txn_state == other.txn_state
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SqlLite`, `Win32_Foundation`*"]
 pub struct sqlite3_api_routines {
@@ -2022,14 +2030,17 @@ pub struct sqlite3_api_routines {
     pub database_file_object: *mut *mut *mut *mut *mut *mut *mut *mut *mut *mut sqlite3_file,
     pub txn_state: isize,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sqlite3_api_routines {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sqlite3_api_routines {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2290,6 +2301,7 @@ impl ::std::fmt::Debug for sqlite3_api_routines {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sqlite3_api_routines {
     fn eq(&self, other: &Self) -> bool {
@@ -2548,8 +2560,10 @@ impl ::std::cmp::PartialEq for sqlite3_api_routines {
             && self.txn_state == other.txn_state
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sqlite3_api_routines {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_api_routines {
     type Abi = Self;
@@ -4291,84 +4305,102 @@ unsafe impl ::windows::runtime::Abi for sqlite3_index_info {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SqlLite`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_0 {
     pub iColumn: i32,
     pub op: u8,
     pub usable: u8,
     pub iTermOffset: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl sqlite3_index_info_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sqlite3_index_info_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sqlite3_index_info_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sqlite3_index_constraint").field("iColumn", &self.iColumn).field("op", &self.op).field("usable", &self.usable).field("iTermOffset", &self.iTermOffset).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sqlite3_index_info_0 {
     fn eq(&self, other: &Self) -> bool {
         self.iColumn == other.iColumn && self.op == other.op && self.usable == other.usable && self.iTermOffset == other.iTermOffset
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sqlite3_index_info_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SqlLite`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_1 {
     pub argvIndex: i32,
     pub omit: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl sqlite3_index_info_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sqlite3_index_info_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sqlite3_index_info_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sqlite3_index_constraint_usage").field("argvIndex", &self.argvIndex).field("omit", &self.omit).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sqlite3_index_info_1 {
     fn eq(&self, other: &Self) -> bool {
         self.argvIndex == other.argvIndex && self.omit == other.omit
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sqlite3_index_info_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_SqlLite`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_2 {
     pub iColumn: i32,
     pub desc: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl sqlite3_index_info_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for sqlite3_index_info_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for sqlite3_index_info_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("sqlite3_index_orderby").field("iColumn", &self.iColumn).field("desc", &self.desc).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for sqlite3_index_info_2 {
     fn eq(&self, other: &Self) -> bool {
         self.iColumn == other.iColumn && self.desc == other.desc
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for sqlite3_index_info_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for sqlite3_index_info_2 {
     type Abi = Self;
 }

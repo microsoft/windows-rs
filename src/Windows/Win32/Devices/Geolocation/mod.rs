@@ -58,7 +58,6 @@ unsafe impl ::windows::runtime::Abi for GNSS_AGNSS_INJECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
 pub union GNSS_AGNSS_INJECT_0 {
     pub Time: GNSS_AGNSS_INJECTTIME,
     pub Position: GNSS_AGNSS_INJECTPOSITION,
@@ -325,7 +324,6 @@ unsafe impl ::windows::runtime::Abi for GNSS_BREADCRUMB_LIST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
 }
@@ -863,7 +861,6 @@ unsafe impl ::windows::runtime::Abi for GNSS_EVENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
 pub union GNSS_EVENT_0 {
     pub FixData: GNSS_FIXDATA,
     pub AgnssRequest: GNSS_AGNSS_REQUEST_PARAM,
@@ -931,7 +928,6 @@ unsafe impl ::windows::runtime::Abi for GNSS_EVENT_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
 pub union GNSS_EVENT_2_0 {
     pub FixData: GNSS_FIXDATA,
     pub FixData2: GNSS_FIXDATA_2,
@@ -1807,7 +1803,6 @@ unsafe impl ::windows::runtime::Abi for GNSS_NI_REQUEST_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Geolocation`, `Win32_Foundation`*"]
 pub union GNSS_NI_REQUEST_PARAM_0 {
     pub SuplNiInfo: GNSS_SUPL_NI_INFO,
     pub CpNiInfo: GNSS_CP_NI_INFO,

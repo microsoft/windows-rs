@@ -342,6 +342,7 @@ pub const VDMADDR_V86: u32 = 2u32;
 pub type VDMBREAKTHREADPROC = unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`, `Win32_System_Kernel`*"]
 pub struct VDMCONTEXT {
@@ -371,14 +372,17 @@ pub struct VDMCONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl VDMCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::std::default::Default for VDMCONTEXT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::std::fmt::Debug for VDMCONTEXT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -411,6 +415,7 @@ impl ::std::fmt::Debug for VDMCONTEXT {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::std::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -441,8 +446,10 @@ impl ::std::cmp::PartialEq for VDMCONTEXT {
             && self.ExtendedRegisters == other.ExtendedRegisters
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::std::cmp::Eq for VDMCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::runtime::Abi for VDMCONTEXT {
     type Abi = Self;
@@ -625,101 +632,124 @@ pub type VDMISMODULELOADEDPROC = unsafe extern "system" fn(param0: super::super:
 pub type VDMKILLWOWPROC = unsafe extern "system" fn() -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
 pub struct VDMLDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: VDMLDT_ENTRY_0,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for VDMLDT_ENTRY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for VDMLDT_ENTRY {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for VDMLDT_ENTRY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Bits_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_VirtualDosMachines`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl VDMLDT_ENTRY_0_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for VDMLDT_ENTRY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Bytes_e__Struct").field("BaseMid", &self.BaseMid).field("Flags1", &self.Flags1).field("Flags2", &self.Flags2).field("BaseHi", &self.BaseHi).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.BaseMid == other.BaseMid && self.Flags1 == other.Flags1 && self.Flags2 == other.Flags2 && self.BaseHi == other.BaseHi
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for VDMLDT_ENTRY_0_1 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
 }

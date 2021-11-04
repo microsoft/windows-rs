@@ -195,7 +195,6 @@ unsafe impl ::windows::runtime::Abi for EC_VARIANT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_EventCollector`, `Win32_Foundation`*"]
 pub union EC_VARIANT_0 {
     pub BooleanVal: super::super::Foundation::BOOL,
     pub UInt32Val: u32,

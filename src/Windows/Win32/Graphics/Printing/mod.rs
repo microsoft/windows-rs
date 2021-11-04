@@ -731,7 +731,6 @@ unsafe impl ::windows::runtime::Abi for BIDI_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union BIDI_DATA_0 {
     pub bData: super::super::Foundation::BOOL,
     pub iData: i32,
@@ -968,7 +967,6 @@ unsafe impl ::windows::runtime::Abi for BranchOfficeJobData {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union BranchOfficeJobData_0 {
     pub LogJobPrinted: BranchOfficeJobDataPrinted,
     pub LogJobRendered: BranchOfficeJobDataRendered,
@@ -1582,23 +1580,28 @@ unsafe impl ::windows::runtime::Abi for CPSUICBPARAM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl CPSUICBPARAM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for CPSUICBPARAM_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for CPSUICBPARAM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for CPSUICBPARAM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for CPSUICBPARAM_0 {
     type Abi = Self;
 }
@@ -2466,29 +2469,28 @@ unsafe impl ::windows::runtime::Abi for DLGPAGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl DLGPAGE_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for DLGPAGE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for DLGPAGE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for DLGPAGE_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for DLGPAGE_0 {
     type Abi = Self;
 }
@@ -4780,7 +4782,6 @@ impl ::std::clone::Clone for EXTPUSH_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub union EXTPUSH_0 {
     pub DlgProc: ::windows::runtime::RawPtr,
     pub pfnCallBack: ::windows::runtime::RawPtr,
@@ -4807,29 +4808,28 @@ unsafe impl ::windows::runtime::Abi for EXTPUSH_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl EXTPUSH_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for EXTPUSH_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for EXTPUSH_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for EXTPUSH_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for EXTPUSH_1 {
     type Abi = Self;
 }
@@ -18631,30 +18631,34 @@ unsafe impl ::windows::runtime::Abi for OPTITEM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl OPTITEM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for OPTITEM_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for OPTITEM_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for OPTITEM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for OPTITEM_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
 pub union OPTITEM_1 {
     pub pExtChkBox: *mut EXTCHKBOX,
     pub pExtPush: *mut ::std::mem::ManuallyDrop<EXTPUSH>,
@@ -21768,29 +21772,28 @@ unsafe impl ::windows::runtime::Abi for PROPSHEETUI_INFO_HEADER {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PROPSHEETUI_INFO_HEADER_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PROPSHEETUI_INFO_HEADER_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PROPSHEETUI_INFO_HEADER_0 {
     type Abi = Self;
 }
@@ -22303,7 +22306,6 @@ unsafe impl ::windows::runtime::Abi for PrintPropertyValue {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Printing`, `Win32_Foundation`*"]
 pub union PrintPropertyValue_0 {
     pub propertyByte: u8,
     pub propertyString: super::super::Foundation::PWSTR,
@@ -22333,28 +22335,34 @@ unsafe impl ::windows::runtime::Abi for PrintPropertyValue_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Printing`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl PrintPropertyValue_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PrintPropertyValue_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PrintPropertyValue_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_propertyBlob_e__Struct").field("cbBuf", &self.cbBuf).field("pBuf", &self.pBuf).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PrintPropertyValue_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.cbBuf == other.cbBuf && self.pBuf == other.pBuf
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PrintPropertyValue_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PrintPropertyValue_0_0 {
     type Abi = Self;
 }
@@ -24147,53 +24155,67 @@ unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub struct _SPLCLIENT_INFO_2_V2 {
     pub hSplPrinter: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for _SPLCLIENT_INFO_2_V2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.hSplPrinter == other.hSplPrinter
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Graphics_Printing`*"]
 pub struct _SPLCLIENT_INFO_2_V2 {
     pub hSplPrinter: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for _SPLCLIENT_INFO_2_V2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::fmt::Debug for _SPLCLIENT_INFO_2_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_SPLCLIENT_INFO_2_V2").field("hSplPrinter", &self.hSplPrinter).finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for _SPLCLIENT_INFO_2_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.hSplPrinter == other.hSplPrinter
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for _SPLCLIENT_INFO_2_V2 {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for _SPLCLIENT_INFO_2_V2 {
     type Abi = Self;
 }

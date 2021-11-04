@@ -15281,7 +15281,6 @@ unsafe impl ::windows::runtime::Abi for LINEINITIALIZEEXPARAMS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
 pub union LINEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,
@@ -15642,7 +15641,6 @@ unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
 pub union LINEPROXYREQUEST_0 {
     pub SetAgentGroup: LINEPROXYREQUEST_0_14,
     pub SetAgentState: LINEPROXYREQUEST_0_18,
@@ -15687,31 +15685,36 @@ unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -15720,24 +15723,29 @@ pub struct LINEPROXYREQUEST_0_1 {
     pub GroupID: ::windows::runtime::GUID,
     pub dwWorkingAddressID: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
@@ -15745,91 +15753,110 @@ pub struct LINEPROXYREQUEST_0_2 {
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_3 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_4 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_4 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_4 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_5 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_5 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
 pub struct LINEPROXYREQUEST_0_6 {
     pub hAgent: u32,
     pub AgentInfo: LINEAGENTINFO,
@@ -15857,7 +15884,6 @@ unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_6 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Com`*"]
 pub struct LINEPROXYREQUEST_0_7 {
     pub hAgentSession: u32,
     pub SessionInfo: LINEAGENTSESSIONINFO,
@@ -15884,267 +15910,327 @@ unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_7 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_8 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_8 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_8 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_8 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_8 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_9 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_9 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_9 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_9 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_9 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_10 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_10 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_10 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_10 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_10 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_11 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_11 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_11 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_11 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_11 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: ::windows::runtime::GUID,
     pub QueueList: LINEQUEUELIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_12 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_12 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_12 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_12 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_12 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_13 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_13 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_13 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_13 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_13 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_14 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_14 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_14 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_14 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_14 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_15 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_15 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_15 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_15 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_15 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_16 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_16 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_16 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_16 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_16 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_17 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_17 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_17 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_17 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_17 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_18 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_18 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_18 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_18 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_18 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl LINEPROXYREQUEST_0_19 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for LINEPROXYREQUEST_0_19 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for LINEPROXYREQUEST_0_19 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for LINEPROXYREQUEST_0_19 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for LINEPROXYREQUEST_0_19 {
     type Abi = Self;
 }
@@ -16761,7 +16847,6 @@ impl ::std::clone::Clone for MSP_EVENT_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
 pub union MSP_EVENT_INFO_0 {
     pub MSP_ADDRESS_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_0>,
     pub MSP_CALL_EVENT_INFO: ::std::mem::ManuallyDrop<MSP_EVENT_INFO_0_2>,
@@ -16794,61 +16879,73 @@ unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: ::std::option::Option<ITTerminal>,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_0 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_ADDRESS_EVENT_INFO_e__Struct").field("Type", &self.Type).field("pTerminal", &self.pTerminal).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.pTerminal == other.pTerminal
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_0 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ::std::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_1 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_ASR_TERMINAL_EVENT_INFO_e__Struct").field("pASRTerminal", &self.pASRTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.pASRTerminal == other.pASRTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_1 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_1 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -16856,29 +16953,35 @@ pub struct MSP_EVENT_INFO_0_2 {
     pub pTerminal: ::std::option::Option<ITTerminal>,
     pub hrError: ::windows::runtime::HRESULT,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_2 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_CALL_EVENT_INFO_e__Struct").field("Type", &self.Type).field("Cause", &self.Cause).field("pStream", &self.pStream).field("pTerminal", &self.pTerminal).field("hrError", &self.hrError).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Cause == other.Cause && self.pStream == other.pStream && self.pTerminal == other.pTerminal && self.hrError == other.hrError
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_2 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ::std::option::Option<ITTerminal>,
     pub pFileTrack: ::std::option::Option<ITFileTrack>,
@@ -16886,12 +16989,15 @@ pub struct MSP_EVENT_INFO_0_3 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_3 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_FILE_TERMINAL_EVENT_INFO_e__Struct")
@@ -16903,19 +17009,21 @@ impl ::std::fmt::Debug for MSP_EVENT_INFO_0_3 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.pParentFileTerminal == other.pParentFileTerminal && self.pFileTrack == other.pFileTrack && self.TerminalMediaState == other.TerminalMediaState && self.ftecEventCause == other.ftecEventCause && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_3 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_3 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_System_Ole_Automation`*"]
 pub struct MSP_EVENT_INFO_0_4 {
     pub pEvent: ::std::option::Option<super::super::System::Ole::Automation::IDispatch>,
     pub lEventCode: i32,
@@ -16948,82 +17056,100 @@ unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_4 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ::std::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_5 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_TONE_TERMINAL_EVENT_INFO_e__Struct").field("pToneTerminal", &self.pToneTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.pToneTerminal == other.pToneTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_5 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_5 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_6 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_TSP_DATA_e__Struct").field("dwBufferSize", &self.dwBufferSize).field("pBuffer", &self.pBuffer).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         self.dwBufferSize == other.dwBufferSize && self.pBuffer == other.pBuffer
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_6 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_6 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Devices_Tapi`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ::std::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::runtime::HRESULT,
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl MSP_EVENT_INFO_0_7 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for MSP_EVENT_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for MSP_EVENT_INFO_0_7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_MSP_TTS_TERMINAL_EVENT_INFO_e__Struct").field("pTTSTerminal", &self.pTTSTerminal).field("hrErrorCode", &self.hrErrorCode).finish()
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for MSP_EVENT_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.pTTSTerminal == other.pTTSTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for MSP_EVENT_INFO_0_7 {}
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for MSP_EVENT_INFO_0_7 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
@@ -17062,7 +17188,6 @@ unsafe impl ::windows::runtime::Abi for NSID {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
 pub union NSID_0 {
     pub alias: _ADDR_ALIAS,
     pub rgchInterNet: [super::super::Foundation::CHAR; 1],
@@ -17600,7 +17725,6 @@ unsafe impl ::windows::runtime::Abi for PHONEINITIALIZEEXPARAMS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Devices_Tapi`, `Win32_Foundation`*"]
 pub union PHONEINITIALIZEEXPARAMS_0 {
     pub hEvent: super::super::Foundation::HANDLE,
     pub hCompletionPort: super::super::Foundation::HANDLE,

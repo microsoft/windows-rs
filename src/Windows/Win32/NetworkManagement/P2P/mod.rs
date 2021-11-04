@@ -193,7 +193,6 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union DRT_EVENT_DATA_0 {
     pub leafsetKeyChange: DRT_EVENT_DATA_0_0,
     pub registrationStateChange: DRT_EVENT_DATA_0_1,
@@ -221,63 +220,74 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_0 {
     pub change: DRT_LEAFSET_KEY_CHANGE_TYPE,
     pub localKey: DRT_DATA,
     pub remoteKey: DRT_DATA,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_EVENT_DATA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_leafsetKeyChange_e__Struct").field("change", &self.change).field("localKey", &self.localKey).field("remoteKey", &self.remoteKey).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.change == other.change && self.localKey == other.localKey && self.remoteKey == other.remoteKey
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct DRT_EVENT_DATA_0_1 {
     pub state: DRT_REGISTRATION_STATE,
     pub localKey: DRT_DATA,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl DRT_EVENT_DATA_0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for DRT_EVENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for DRT_EVENT_DATA_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_registrationStateChange_e__Struct").field("state", &self.state).field("localKey", &self.localKey).finish()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for DRT_EVENT_DATA_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.state == other.state && self.localKey == other.localKey
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for DRT_EVENT_DATA_0_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_EVENT_DATA_0_2 {
     pub status: DRT_STATUS,
     pub bootstrapAddresses: DRT_EVENT_DATA_0_2_0,
@@ -311,7 +321,6 @@ unsafe impl ::windows::runtime::Abi for DRT_EVENT_DATA_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub struct DRT_EVENT_DATA_0_2_0 {
     pub cntAddress: u32,
     pub pAddresses: *mut super::super::Networking::WinSock::SOCKADDR_STORAGE,
@@ -1594,7 +1603,6 @@ unsafe impl ::windows::runtime::Abi for PEER_COLLAB_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
 pub union PEER_COLLAB_EVENT_DATA_0 {
     pub watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA,
     pub presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA,
@@ -2382,7 +2390,6 @@ unsafe impl ::windows::runtime::Abi for PEER_GRAPH_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub union PEER_GRAPH_EVENT_DATA_0 {
     pub dwStatus: PEER_GRAPH_STATUS_FLAGS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -2603,7 +2610,6 @@ unsafe impl ::windows::runtime::Abi for PEER_GROUP_EVENT_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`*"]
 pub union PEER_GROUP_EVENT_DATA_0 {
     pub dwStatus: PEER_GROUP_STATUS,
     pub incomingData: PEER_EVENT_INCOMING_DATA,
@@ -3715,29 +3721,28 @@ unsafe impl ::windows::runtime::Abi for PNRPINFO_V2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_NetworkManagement_P2P`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 pub union PNRPINFO_V2_0 {
     pub blobPayload: super::super::System::Com::BLOB,
     pub pwszPayload: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl PNRPINFO_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::std::default::Default for PNRPINFO_V2_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for PNRPINFO_V2_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for PNRPINFO_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for PNRPINFO_V2_0 {
     type Abi = Self;
 }

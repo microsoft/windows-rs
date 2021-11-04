@@ -6843,7 +6843,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_COUNTER_INFO_A_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_A,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_A,
@@ -6872,7 +6871,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_A_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: super::super::Foundation::PSTR,
     pub szObjectName: super::super::Foundation::PSTR,
@@ -6955,7 +6953,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_COUNTER_INFO_W_0 {
     pub DataItemPath: PDH_DATA_ITEM_PATH_ELEMENTS_W,
     pub CounterPath: PDH_COUNTER_PATH_ELEMENTS_W,
@@ -6984,7 +6981,6 @@ unsafe impl ::windows::runtime::Abi for PDH_COUNTER_INFO_W_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: super::super::Foundation::PWSTR,
     pub szObjectName: super::super::Foundation::PWSTR,
@@ -7338,7 +7334,6 @@ unsafe impl ::windows::runtime::Abi for PDH_FMT_COUNTERVALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_FMT_COUNTERVALUE_0 {
     pub longValue: i32,
     pub doubleValue: f64,
@@ -7539,7 +7534,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_LOG_SERVICE_QUERY_INFO_A_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_A_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_A_0_1,
@@ -7567,7 +7561,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -7616,7 +7609,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -7704,7 +7696,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub union PDH_LOG_SERVICE_QUERY_INFO_W_0 {
     pub Anonymous1: PDH_LOG_SERVICE_QUERY_INFO_W_0_0,
     pub Anonymous2: PDH_LOG_SERVICE_QUERY_INFO_W_0_1,
@@ -7732,7 +7723,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -7781,7 +7771,6 @@ unsafe impl ::windows::runtime::Abi for PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -8482,6 +8471,7 @@ unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub struct PERF_COUNTER_DEFINITION {
     pub ByteLength: u32,
@@ -8495,12 +8485,15 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_COUNTER_DEFINITION")
@@ -8517,17 +8510,21 @@ impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
         self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_COUNTER_DEFINITION {
@@ -8542,14 +8539,17 @@ pub struct PERF_COUNTER_DEFINITION {
     pub CounterSize: u32,
     pub CounterOffset: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_COUNTER_DEFINITION {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8567,14 +8567,17 @@ impl ::std::fmt::Debug for PERF_COUNTER_DEFINITION {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_COUNTER_DEFINITION {
     fn eq(&self, other: &Self) -> bool {
         self.ByteLength == other.ByteLength && self.CounterNameTitleIndex == other.CounterNameTitleIndex && self.CounterNameTitle == other.CounterNameTitle && self.CounterHelpTitleIndex == other.CounterHelpTitleIndex && self.CounterHelpTitle == other.CounterHelpTitle && self.DefaultScale == other.DefaultScale && self.DetailLevel == other.DetailLevel && self.CounterType == other.CounterType && self.CounterSize == other.CounterSize && self.CounterOffset == other.CounterOffset
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_COUNTER_DEFINITION {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_COUNTER_DEFINITION {
     type Abi = Self;
@@ -9099,6 +9102,7 @@ pub const PERF_NUMBER_HEX: u32 = 0u32;
 pub const PERF_OBJECT_TIMER: u32 = 2097152u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Performance`*"]
 pub struct PERF_OBJECT_TYPE {
     pub TotalByteLength: u32,
@@ -9116,12 +9120,15 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PERF_OBJECT_TYPE")
@@ -9142,6 +9149,7 @@ impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
         self.TotalByteLength == other.TotalByteLength
@@ -9160,12 +9168,15 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
             && self.PerfFreq == other.PerfFreq
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Performance`, `Win32_Foundation`*"]
 pub struct PERF_OBJECT_TYPE {
@@ -9184,14 +9195,17 @@ pub struct PERF_OBJECT_TYPE {
     pub PerfTime: i64,
     pub PerfFreq: i64,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PERF_OBJECT_TYPE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9213,6 +9227,7 @@ impl ::std::fmt::Debug for PERF_OBJECT_TYPE {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
     fn eq(&self, other: &Self) -> bool {
@@ -9232,8 +9247,10 @@ impl ::std::cmp::PartialEq for PERF_OBJECT_TYPE {
             && self.PerfFreq == other.PerfFreq
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PERF_OBJECT_TYPE {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PERF_OBJECT_TYPE {
     type Abi = Self;

@@ -802,7 +802,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_BUILD_RAYTRACING_ACCELERATION_STRU
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     pub InstanceDescs: u64,
     pub pGeometryDescs: *mut D3D12_RAYTRACING_GEOMETRY_DESC,
@@ -954,23 +953,28 @@ unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_CLEAR_VALUE_0 {
     pub Color: [f32; 4],
     pub DepthStencil: D3D12_DEPTH_STENCIL_VALUE,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_CLEAR_VALUE_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_CLEAR_VALUE_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_CLEAR_VALUE_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_CLEAR_VALUE_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_CLEAR_VALUE_0 {
     type Abi = Self;
 }
@@ -2086,7 +2090,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D12_TEX1D_DSV,
     pub Texture1DArray: D3D12_TEX1D_ARRAY_DSV,
@@ -2095,18 +2099,23 @@ pub union D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D12_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_DSV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_DEPTH_STENCIL_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -8819,7 +8828,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_RAYTRACING_GEOMETRY_DESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RAYTRACING_GEOMETRY_DESC_0 {
     pub Triangles: D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub AABBs: D3D12_RAYTRACING_GEOMETRY_AABBS_DESC,
@@ -9279,7 +9287,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_RENDER_PASS_BEGINNING_ACCESS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RENDER_PASS_BEGINNING_ACCESS_0 {
     pub Clear: D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS,
 }
@@ -9423,7 +9430,6 @@ impl ::std::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     pub Resolve: ::std::mem::ManuallyDrop<D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS>,
 }
@@ -9724,7 +9730,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_RTV,
     pub Texture1D: D3D12_TEX1D_RTV,
@@ -9735,18 +9741,23 @@ pub union D3D12_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D12_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D12_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_RENDER_TARGET_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -11650,7 +11661,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_SRV,
     pub Texture1D: D3D12_TEX1D_SRV,
@@ -11664,18 +11675,23 @@ pub union D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D12_TEXCUBE_ARRAY_SRV,
     pub RaytracingAccelerationStructure: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -13390,7 +13406,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_TEXTURE_COPY_LOCATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Dxgi`*"]
 pub union D3D12_TEXTURE_COPY_LOCATION_0 {
     pub PlacedFootprint: D3D12_PLACED_SUBRESOURCE_FOOTPRINT,
     pub SubresourceIndex: u32,
@@ -13722,7 +13737,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D12_BUFFER_UAV,
     pub Texture1D: D3D12_TEX1D_UAV,
@@ -13731,18 +13746,23 @@ pub union D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D12_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D12_TEX3D_UAV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::default::Default for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::PartialEq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 impl ::std::cmp::Eq for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 unsafe impl ::windows::runtime::Abi for D3D12_UNORDERED_ACCESS_VIEW_DESC_0 {
     type Abi = Self;
 }
@@ -13792,7 +13812,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`*"]
 pub union D3D12_VERSIONED_DEVICE_REMOVED_EXTENDED_DATA_0 {
     pub Dred_1_0: D3D12_DEVICE_REMOVED_EXTENDED_DATA,
     pub Dred_1_1: D3D12_DEVICE_REMOVED_EXTENDED_DATA1,

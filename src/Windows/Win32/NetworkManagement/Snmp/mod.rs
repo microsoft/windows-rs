@@ -46,7 +46,6 @@ unsafe impl ::windows::runtime::Abi for AsnAny {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_NetworkManagement_Snmp`, `Win32_Foundation`*"]
 pub union AsnAny_0 {
     pub number: i32,
     pub unsigned32: u32,

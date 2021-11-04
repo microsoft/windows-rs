@@ -187,7 +187,6 @@ unsafe impl ::windows::runtime::Abi for ADSVALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_Foundation`*"]
 pub union ADSVALUE_0 {
     pub DNString: *mut u16,
     pub CaseExactString: *mut u16,
@@ -21437,7 +21436,6 @@ impl ::std::clone::Clone for OPENQUERYWINDOW_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_Networking_ActiveDirectory`, `Win32_System_Ole_Automation`*"]
 pub union OPENQUERYWINDOW_0 {
     pub pFormParameters: *mut ::std::ffi::c_void,
     pub ppbFormParameters: ::windows::runtime::RawPtr,

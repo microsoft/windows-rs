@@ -2902,27 +2902,33 @@ unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_POLICY_EXTENSION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
     pub assertionValue: *mut WS_XML_BUFFER,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_out_e__Struct").field("assertionValue", &self.assertionValue).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn eq(&self, other: &Self) -> bool {
         self.assertionValue == other.assertionValue
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WS_ENDPOINT_POLICY_EXTENSION_0 {
     type Abi = Self;
 }
@@ -4633,7 +4639,6 @@ unsafe impl ::windows::runtime::Abi for WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 pub struct WS_ISSUED_TOKEN_MESSAGE_SECURITY_BINDING_CONSTRAINT_0 {
     pub issuerAddress: *mut WS_ENDPOINT_ADDRESS,
     pub requestSecurityTokenTemplate: *mut WS_XML_BUFFER,
@@ -7745,7 +7750,6 @@ unsafe impl ::windows::runtime::Abi for WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTR
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
 pub struct WS_SSL_TRANSPORT_SECURITY_BINDING_CONSTRAINT_0 {
     pub clientCertCredentialRequired: super::super::Foundation::BOOL,
 }

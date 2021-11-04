@@ -8,10 +8,10 @@ use super::*;
 // TODO: api contracts are being generated
 
 pub fn gen_struct(def: &TypeDef, gen: &Gen) -> TokenStream {
-    gen_struct_with_name(def, def.name(), gen)
+    gen_struct_with_name(def, def.name(), gen, &TokenStream::new())
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &TokenStream) -> TokenStream {
     if let Some(replacement) = gen_replacement(def) {
         return replacement;
     }
@@ -55,9 +55,14 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
         };
     }
 
-    let features = struct_features(def, gen);
-    let cfg = gen.gen_cfg(&features);
-    let doc = gen.gen_cfg_doc(&features);
+    let (doc, cfg) = if cfg.is_empty() {
+        let features = struct_features(def, gen);
+        let cfg = gen.gen_struct_cfg(def, &features);
+        let doc = gen.gen_cfg_doc(&features);
+        (doc, cfg)
+    } else {
+        (TokenStream::new(), cfg.clone())
+    };
 
     let fields: Vec<(Field, Signature, TokenStream)> = def
         .fields()
@@ -300,7 +305,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     };
 
     let extensions = gen_extensions(def);
-    let nested_types = gen_nested_types(struct_name, def, gen);
+    let nested_types = gen_nested_types(struct_name, def, gen, &cfg);
 
     quote! {
         #clone_or_copy
@@ -351,14 +356,14 @@ fn gen_extensions(def: &TypeDef) -> TokenStream {
     }
 }
 
-fn gen_nested_types<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen) -> TokenStream {
+fn gen_nested_types<'a>(enclosing_name: &'a str, enclosing_type: &'a TypeDef, gen: &Gen, cfg: &TokenStream) -> TokenStream {
     if let Some(nested_types) = enclosing_type.nested_types() {
         nested_types
             .iter()
             .enumerate()
             .map(|(index, (_, nested_type))| {
                 let nested_name = format!("{}_{}", enclosing_name, index);
-                gen_struct_with_name(nested_type, &nested_name, gen)
+                gen_struct_with_name(nested_type, &nested_name, gen, cfg)
             })
             .collect()
     } else {

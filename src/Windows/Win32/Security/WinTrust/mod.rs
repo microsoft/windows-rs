@@ -307,7 +307,6 @@ unsafe impl ::windows::runtime::Abi for CRYPT_PROVIDER_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
-#[doc = "*Required features: `Win32_Security_WinTrust`, `Win32_Foundation`, `Win32_Security_Cryptography`, `Win32_Security_Cryptography_Catalog`, `Win32_Security_Cryptography_Sip`*"]
 pub union CRYPT_PROVIDER_DATA_0 {
     pub pPDSip: *mut PROVDATA_SIP,
 }
@@ -1239,7 +1238,6 @@ unsafe impl ::windows::runtime::Abi for SPC_LINK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-#[doc = "*Required features: `Win32_Security_WinTrust`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub union SPC_LINK_0 {
     pub pwszUrl: super::super::Foundation::PWSTR,
     pub Moniker: SPC_SERIALIZED_OBJECT,
@@ -1723,7 +1721,6 @@ unsafe impl ::windows::runtime::Abi for WINTRUST_DATA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
-#[doc = "*Required features: `Win32_Security_WinTrust`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
 pub union WINTRUST_DATA_0 {
     pub pFile: *mut WINTRUST_FILE_INFO,
     pub pCatalog: *mut WINTRUST_CATALOG_INFO,
@@ -2476,23 +2473,28 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_CREATE_INFO_0 {
     type Abi = Self;
 }
@@ -2534,23 +2536,28 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 pub union WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl WTD_GENERIC_CHAIN_POLICY_DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::default::Default for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 impl ::std::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_DATA_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip"))]
 unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_DATA_0 {
     type Abi = Self;
 }
@@ -2589,23 +2596,28 @@ unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Security_WinTrust`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 pub union WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     pub cbStruct: u32,
     pub cbSize: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::default::Default for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::PartialEq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 impl ::std::cmp::Eq for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 unsafe impl ::windows::runtime::Abi for WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO_0 {
     type Abi = Self;
 }

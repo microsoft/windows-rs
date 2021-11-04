@@ -13466,7 +13466,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub union WTS_PROPERTY_VALUE_0 {
     pub ulVal: u32,
     pub strVal: WTS_PROPERTY_VALUE_0_1,
@@ -13496,7 +13495,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_0 {
     pub size: u32,
     pub pbVal: super::super::Foundation::PSTR,
@@ -13530,7 +13528,6 @@ unsafe impl ::windows::runtime::Abi for WTS_PROPERTY_VALUE_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_RemoteDesktop`, `Win32_Foundation`*"]
 pub struct WTS_PROPERTY_VALUE_0_1 {
     pub size: u32,
     pub pstrVal: super::super::Foundation::PWSTR,

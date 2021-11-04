@@ -3169,7 +3169,6 @@ unsafe impl ::windows::runtime::Abi for GDI_OBJECT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 pub union GDI_OBJECT_0 {
     pub hBitmap: *mut super::SystemServices::userHBITMAP,
     pub hPalette: *mut super::SystemServices::userHPALETTE,
@@ -10090,7 +10089,6 @@ impl ::std::clone::Clone for STGMEDIUM_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]
 pub union STGMEDIUM_0 {
     pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hMetaFilePict: *mut ::std::ffi::c_void,
@@ -10470,7 +10468,6 @@ impl ::std::clone::Clone for VARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub union VARIANT_0 {
     pub Anonymous: ::std::mem::ManuallyDrop<VARIANT_0_0>,
     pub decVal: super::super::Foundation::DECIMAL,
@@ -10503,7 +10500,6 @@ impl ::std::clone::Clone for VARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub struct VARIANT_0_0 {
     pub vt: u16,
     pub wReserved1: u16,
@@ -10539,7 +10535,6 @@ impl ::std::clone::Clone for VARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub union VARIANT_0_0_0 {
     pub llVal: i64,
     pub lVal: i32,
@@ -10610,35 +10605,34 @@ unsafe impl ::windows::runtime::Abi for VARIANT_0_0_0 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_Ole_Automation")]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::std::ffi::c_void,
     pub pRecInfo: ::std::option::Option<super::Ole::Automation::IRecordInfo>,
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl VARIANT_0_0_0_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for VARIANT_0_0_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for VARIANT_0_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("pvRecord", &self.pvRecord).field("pRecInfo", &self.pRecInfo).finish()
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for VARIANT_0_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.pvRecord == other.pvRecord && self.pRecInfo == other.pRecInfo
     }
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for VARIANT_0_0_0_0 {}
-#[cfg(feature = "Win32_System_Ole_Automation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for VARIANT_0_0_0_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
@@ -10700,7 +10694,6 @@ unsafe impl ::windows::runtime::Abi for uCLSSPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
 pub union uCLSSPEC_0 {
     pub clsid: ::windows::runtime::GUID,
     pub pFileExt: super::super::Foundation::PWSTR,
@@ -10733,7 +10726,6 @@ unsafe impl ::windows::runtime::Abi for uCLSSPEC_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`*"]
 pub struct uCLSSPEC_0_0 {
     pub pPackageName: super::super::Foundation::PWSTR,
     pub PolicyId: ::windows::runtime::GUID,
@@ -10766,28 +10758,34 @@ unsafe impl ::windows::runtime::Abi for uCLSSPEC_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Com`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: ::windows::runtime::GUID,
     pub PolicyId: ::windows::runtime::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl uCLSSPEC_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for uCLSSPEC_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for uCLSSPEC_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ByObjectId_e__Struct").field("ObjectId", &self.ObjectId).field("PolicyId", &self.PolicyId).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for uCLSSPEC_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectId == other.ObjectId && self.PolicyId == other.PolicyId
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for uCLSSPEC_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for uCLSSPEC_0_1 {
     type Abi = Self;
 }
@@ -10876,7 +10874,6 @@ unsafe impl ::windows::runtime::Abi for userSTGMEDIUM_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-#[doc = "*Required features: `Win32_System_Com`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_SystemServices`*"]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
     pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,

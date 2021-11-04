@@ -29,49 +29,60 @@ unsafe impl ::windows::runtime::Abi for CONVERT_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_A_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CONVERT_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CONVERT_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONVERT_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CONVERT_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CONVERT_A_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CONVERT_A_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CONVERT_A_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONVERT_A_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CONVERT_A_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_A_0_0 {
     type Abi = Self;
 }
@@ -105,49 +116,60 @@ unsafe impl ::windows::runtime::Abi for CONVERT_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_W_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CONVERT_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CONVERT_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONVERT_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CONVERT_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl CONVERT_W_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CONVERT_W_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CONVERT_W_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CONVERT_W_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CONVERT_W_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CONVERT_W_0_0 {
     type Abi = Self;
 }
@@ -186,7 +208,6 @@ unsafe impl ::windows::runtime::Abi for JET_BKINFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub union JET_BKINFO_0 {
     pub logtimeMark: JET_LOGTIME,
     pub bklogtimeMark: JET_BKLOGTIME,
@@ -248,7 +269,6 @@ unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub union JET_BKLOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
     pub Anonymous: JET_BKLOGTIME_0_0,
@@ -275,34 +295,39 @@ unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_BKLOGTIME_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JET_BKLOGTIME_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_BKLOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_BKLOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub union JET_BKLOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
     pub Anonymous: JET_BKLOGTIME_1_0,
@@ -329,27 +354,33 @@ unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_BKLOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_BKLOGTIME_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JET_BKLOGTIME_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_BKLOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_BKLOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
 }
@@ -693,6 +724,7 @@ unsafe impl ::windows::runtime::Abi for JET_COLUMNLIST {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_COMMIT_ID {
@@ -700,28 +732,34 @@ pub struct JET_COMMIT_ID {
     pub reserved: i32,
     pub commitId: i64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_COMMIT_ID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_COMMIT_ID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_COMMIT_ID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COMMIT_ID {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_COMMIT_ID {
@@ -729,22 +767,27 @@ pub struct JET_COMMIT_ID {
     pub reserved: i32,
     pub commitId: i64,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_COMMIT_ID {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_COMMIT_ID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_COMMIT_ID {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_COMMIT_ID {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_COMMIT_ID {
     type Abi = Self;
@@ -1476,45 +1519,55 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE2_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE2_A_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE2_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_A_1 {
     type Abi = Self;
 }
@@ -1559,45 +1612,55 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE2_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE2_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE2_W_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE2_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE2_W_1 {
     type Abi = Self;
 }
@@ -1642,23 +1705,28 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE3_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE3_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_A_0 {
     type Abi = Self;
 }
@@ -1703,23 +1771,28 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE3_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE3_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE3_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE3_W_0 {
     type Abi = Self;
 }
@@ -1763,45 +1836,55 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE_A_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE_A_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_A_1 {
     type Abi = Self;
 }
@@ -1845,99 +1928,123 @@ unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_INDEXCREATE_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_INDEXCREATE_W_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_INDEXCREATE_W_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_INDEXCREATE_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_INDEXCREATE_W_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_INDEXID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for JET_INDEXID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for JET_INDEXID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for JET_INDEXID {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_INDEXID {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_INDEXID {
     pub cbStruct: u32,
     pub rgbIndexId: [u8; 12],
 }
+#[cfg(any(target_arch = "x86",))]
 impl JET_INDEXID {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for JET_INDEXID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::fmt::Debug for JET_INDEXID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_INDEXID").field("cbStruct", &self.cbStruct).field("rgbIndexId", &self.rgbIndexId).finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for JET_INDEXID {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.rgbIndexId == other.rgbIndexId
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for JET_INDEXID {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_INDEXID {
     type Abi = Self;
 }
@@ -2343,7 +2450,6 @@ unsafe impl ::windows::runtime::Abi for JET_LOGTIME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub union JET_LOGTIME_0 {
     pub bFiller1: super::super::Foundation::CHAR,
     pub Anonymous: JET_LOGTIME_0_0,
@@ -2370,34 +2476,39 @@ unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_LOGTIME_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JET_LOGTIME_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_LOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_LOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub union JET_LOGTIME_1 {
     pub bFiller2: super::super::Foundation::CHAR,
     pub Anonymous: JET_LOGTIME_1_0,
@@ -2424,27 +2535,33 @@ unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_Jet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl JET_LOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_LOGTIME_1_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for JET_LOGTIME_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_LOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         self._bitfield == other._bitfield
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_LOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_LOGTIME_1_0 {
     type Abi = Self;
 }
@@ -2470,6 +2587,7 @@ pub const JET_MoveLast: u32 = 2147483647u32;
 pub const JET_MovePrevious: i32 = -1i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
@@ -2481,28 +2599,35 @@ pub struct JET_OBJECTINFO {
     pub cRecord: u32,
     pub cPage: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_OBJECTINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for JET_OBJECTINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_OBJECTINFO").field("cbStruct", &self.cbStruct).field("objtyp", &self.objtyp).field("dtCreate", &self.dtCreate).field("dtUpdate", &self.dtUpdate).field("grbit", &self.grbit).field("flags", &self.flags).field("cRecord", &self.cRecord).field("cPage", &self.cPage).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for JET_OBJECTINFO {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.objtyp == other.objtyp && self.dtCreate == other.dtCreate && self.dtUpdate == other.dtUpdate && self.grbit == other.grbit && self.flags == other.flags && self.cRecord == other.cRecord && self.cPage == other.cPage
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for JET_OBJECTINFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_OBJECTINFO {
     pub cbStruct: u32,
@@ -2514,18 +2639,23 @@ pub struct JET_OBJECTINFO {
     pub cRecord: u32,
     pub cPage: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl JET_OBJECTINFO {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for JET_OBJECTINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for JET_OBJECTINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for JET_OBJECTINFO {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_OBJECTINFO {
     type Abi = Self;
 }
@@ -2758,6 +2888,7 @@ pub type JET_PFNREALLOC = unsafe extern "system" fn(pvcontext: *const ::std::ffi
 pub type JET_PFNSTATUS = unsafe extern "system" fn(sesid: super::StructuredStorage::JET_SESID, snp: u32, snt: u32, pv: *const ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_RBSINFOMISC {
@@ -2768,28 +2899,34 @@ pub struct JET_RBSINFOMISC {
     pub ulMinor: u32,
     pub cbLogicalFileSize: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RBSINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_RBSINFOMISC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_RBSINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_RBSINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_RBSINFOMISC {
@@ -2800,28 +2937,34 @@ pub struct JET_RBSINFOMISC {
     pub ulMinor: u32,
     pub cbLogicalFileSize: u64,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RBSINFOMISC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_RBSINFOMISC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_RBSINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_RBSINFOMISC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSINFOMISC {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_RBSREVERTINFOMISC {
@@ -2833,28 +2976,34 @@ pub struct JET_RBSREVERTINFOMISC {
     pub cSecRevert: u64,
     pub cPagesReverted: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RBSREVERTINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_RBSREVERTINFOMISC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_RBSREVERTINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_RBSREVERTINFOMISC {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Jet`, `Win32_Foundation`*"]
 pub struct JET_RBSREVERTINFOMISC {
@@ -2866,22 +3015,27 @@ pub struct JET_RBSREVERTINFOMISC {
     pub cSecRevert: u64,
     pub cPagesReverted: u64,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl JET_RBSREVERTINFOMISC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JET_RBSREVERTINFOMISC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JET_RBSREVERTINFOMISC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JET_RBSREVERTINFOMISC {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JET_RBSREVERTINFOMISC {
     type Abi = Self;
@@ -2953,6 +3107,7 @@ unsafe impl ::windows::runtime::Abi for JET_RECPOS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RECSIZE {
     pub cbData: u64,
@@ -2964,12 +3119,15 @@ pub struct JET_RECSIZE {
     pub cLongValues: u64,
     pub cMultiValues: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_RECSIZE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for JET_RECSIZE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for JET_RECSIZE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_RECSIZE")
@@ -2984,17 +3142,21 @@ impl ::std::fmt::Debug for JET_RECSIZE {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for JET_RECSIZE {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData && self.cbLongValueData == other.cbLongValueData && self.cbOverhead == other.cbOverhead && self.cbLongValueOverhead == other.cbLongValueOverhead && self.cNonTaggedColumns == other.cNonTaggedColumns && self.cTaggedColumns == other.cTaggedColumns && self.cLongValues == other.cLongValues && self.cMultiValues == other.cMultiValues
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for JET_RECSIZE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RECSIZE {
     pub cbData: u64,
@@ -3006,23 +3168,29 @@ pub struct JET_RECSIZE {
     pub cLongValues: u64,
     pub cMultiValues: u64,
 }
+#[cfg(any(target_arch = "x86",))]
 impl JET_RECSIZE {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for JET_RECSIZE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for JET_RECSIZE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for JET_RECSIZE {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
@@ -3037,12 +3205,15 @@ pub struct JET_RECSIZE2 {
     pub cbDataCompressed: u64,
     pub cbLongValueDataCompressed: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_RECSIZE2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for JET_RECSIZE2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_RECSIZE2")
@@ -3060,6 +3231,7 @@ impl ::std::fmt::Debug for JET_RECSIZE2 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for JET_RECSIZE2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbData == other.cbData
@@ -3075,12 +3247,15 @@ impl ::std::cmp::PartialEq for JET_RECSIZE2 {
             && self.cbLongValueDataCompressed == other.cbLongValueDataCompressed
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for JET_RECSIZE2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_RECSIZE2 {
     pub cbData: u64,
@@ -3095,18 +3270,23 @@ pub struct JET_RECSIZE2 {
     pub cbDataCompressed: u64,
     pub cbLongValueDataCompressed: u64,
 }
+#[cfg(any(target_arch = "x86",))]
 impl JET_RECSIZE2 {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for JET_RECSIZE2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for JET_RECSIZE2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for JET_RECSIZE2 {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_RECSIZE2 {
     type Abi = Self;
 }
@@ -4215,6 +4395,7 @@ unsafe impl ::windows::runtime::Abi for JET_THREADSTATS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
@@ -4228,12 +4409,15 @@ pub struct JET_THREADSTATS2 {
     pub cusecPageCacheMiss: u64,
     pub cPageCacheMiss: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl JET_THREADSTATS2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for JET_THREADSTATS2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("JET_THREADSTATS2")
@@ -4250,17 +4434,21 @@ impl ::std::fmt::Debug for JET_THREADSTATS2 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for JET_THREADSTATS2 {
     fn eq(&self, other: &Self) -> bool {
         self.cbStruct == other.cbStruct && self.cPageReferenced == other.cPageReferenced && self.cPageRead == other.cPageRead && self.cPagePreread == other.cPagePreread && self.cPageDirtied == other.cPageDirtied && self.cPageRedirtied == other.cPageRedirtied && self.cLogRecord == other.cLogRecord && self.cbLogRecord == other.cbLogRecord && self.cusecPageCacheMiss == other.cusecPageCacheMiss && self.cPageCacheMiss == other.cPageCacheMiss
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for JET_THREADSTATS2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Storage_Jet`*"]
 pub struct JET_THREADSTATS2 {
     pub cbStruct: u32,
@@ -4274,18 +4462,23 @@ pub struct JET_THREADSTATS2 {
     pub cusecPageCacheMiss: u64,
     pub cPageCacheMiss: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl JET_THREADSTATS2 {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for JET_THREADSTATS2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for JET_THREADSTATS2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for JET_THREADSTATS2 {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for JET_THREADSTATS2 {
     type Abi = Self;
 }

@@ -12341,7 +12341,6 @@ unsafe impl ::windows::runtime::Abi for PICTDESC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
 pub union PICTDESC_0 {
     pub bmp: PICTDESC_0_0,
     pub wmf: PICTDESC_0_3,
@@ -12370,136 +12369,132 @@ unsafe impl ::windows::runtime::Abi for PICTDESC_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PICTDESC_0_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PICTDESC_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::fmt::Debug for PICTDESC_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_bmp_e__Struct").field("hbitmap", &self.hbitmap).field("hpal", &self.hpal).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PICTDESC_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.hbitmap == other.hbitmap && self.hpal == other.hpal
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PICTDESC_0_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC_0_1 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PICTDESC_0_1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PICTDESC_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::fmt::Debug for PICTDESC_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_emf_e__Struct").field("hemf", &self.hemf).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PICTDESC_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.hemf == other.hemf
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PICTDESC_0_1 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-#[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PICTDESC_0_2 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PICTDESC_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::fmt::Debug for PICTDESC_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_icon_e__Struct").field("hicon", &self.hicon).finish()
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PICTDESC_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.hicon == other.hicon
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PICTDESC_0_2 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct PICTDESC_0_3 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl PICTDESC_0_3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for PICTDESC_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::fmt::Debug for PICTDESC_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_wmf_e__Struct").field("hmeta", &self.hmeta).field("xExt", &self.xExt).field("yExt", &self.yExt).finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for PICTDESC_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.hmeta == other.hmeta && self.xExt == other.xExt && self.yExt == other.yExt
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for PICTDESC_0_3 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for PICTDESC_0_3 {
     type Abi = Self;
 }

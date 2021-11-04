@@ -2445,7 +2445,6 @@ unsafe impl ::windows::runtime::Abi for GOPHER_ATTRIBUTE_TYPE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub union GOPHER_ATTRIBUTE_TYPE_0 {
     pub Admin: GOPHER_ADMIN_ATTRIBUTE_TYPE,
     pub ModDate: GOPHER_MOD_DATE_ATTRIBUTE_TYPE,
@@ -4858,7 +4857,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
@@ -4886,7 +4884,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
     pub CachePath: [super::super::Foundation::CHAR; 260],
     pub dwCacheSize: u32,
@@ -4955,50 +4952,61 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinInet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinInet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_INFOW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("CachePath", &self.CachePath).field("dwCacheSize", &self.dwCacheSize).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     type Abi = Self;
 }
@@ -5197,23 +5205,28 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinInet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_ENTRY_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOA_0 {
     type Abi = Self;
 }
@@ -5261,23 +5274,28 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinInet`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_ENTRY_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_ENTRY_INFOW_0 {
     type Abi = Self;
 }
@@ -5794,7 +5812,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CREDENTIALS {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub union INTERNET_CREDENTIALS_0 {
     pub Anonymous: INTERNET_CREDENTIALS_0_0,
     pub pAuthIdentityOpaque: *mut ::std::ffi::c_void,
@@ -5822,7 +5839,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CREDENTIALS_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub struct INTERNET_CREDENTIALS_0_0 {
     pub lpcwszUserName: super::super::Foundation::PWSTR,
     pub lpcwszPassword: super::super::Foundation::PWSTR,
@@ -6583,7 +6599,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub union INTERNET_PER_CONN_OPTIONA_0 {
     pub dwValue: u32,
     pub pszValue: super::super::Foundation::PSTR,
@@ -6640,7 +6655,6 @@ unsafe impl ::windows::runtime::Abi for INTERNET_PER_CONN_OPTIONW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
 pub union INTERNET_PER_CONN_OPTIONW_0 {
     pub dwValue: u32,
     pub pszValue: super::super::Foundation::PWSTR,

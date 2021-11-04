@@ -2030,7 +2030,6 @@ unsafe impl ::windows::runtime::Abi for PROPSPEC {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
 pub union PROPSPEC_0 {
     pub propid: u32,
     pub lpwstr: super::super::super::Foundation::PWSTR,
@@ -2137,7 +2136,6 @@ impl ::std::clone::Clone for PROPVARIANT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub union PROPVARIANT_0 {
     pub Anonymous: ::std::mem::ManuallyDrop<PROPVARIANT_0_0>,
     pub decVal: super::super::super::Foundation::DECIMAL,
@@ -2170,7 +2168,6 @@ impl ::std::clone::Clone for PROPVARIANT_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub struct PROPVARIANT_0_0 {
     pub vt: u16,
     pub wReserved1: u16,
@@ -2206,7 +2203,6 @@ impl ::std::clone::Clone for PROPVARIANT_0_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-#[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
 pub union PROPVARIANT_0_0_0 {
     pub cVal: super::super::super::Foundation::CHAR,
     pub bVal: u8,

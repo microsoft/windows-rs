@@ -227,50 +227,61 @@ unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NS_CONTEXT_ATTRIBUTES_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NS_CONTEXT_ATTRIBUTES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
 }

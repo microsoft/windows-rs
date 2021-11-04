@@ -1450,7 +1450,6 @@ unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
 }
@@ -1667,7 +1666,6 @@ unsafe impl ::windows::runtime::Abi for CLAIM_SECURITY_ATTRIBUTE_V1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
     pub pUint64: *mut u64,
@@ -2768,7 +2766,6 @@ unsafe impl ::windows::runtime::Abi for LLFILETIME {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Security`, `Win32_Foundation`*"]
 pub union LLFILETIME_0 {
     pub ll: i64,
     pub ft: super::Foundation::FILETIME,

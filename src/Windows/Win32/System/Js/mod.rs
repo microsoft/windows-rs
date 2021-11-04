@@ -174,7 +174,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(runtime: *const ::std::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
@@ -1258,7 +1258,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
-#[cfg(any(target_arch = "i686",))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(debugapplication: Param0) -> JsErrorCode {

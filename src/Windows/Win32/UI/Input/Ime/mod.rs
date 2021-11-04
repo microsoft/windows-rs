@@ -4340,45 +4340,55 @@ unsafe impl ::windows::runtime::Abi for IMEWRD {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IMEWRD_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IMEWRD_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMEWRD_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IMEWRD_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEWRD_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for IMEWRD_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IMEWRD_0_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for IMEWRD_0_0 {
     type Abi = Self;
 }
@@ -4716,29 +4726,28 @@ unsafe impl ::windows::runtime::Abi for INPUTCONTEXT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for INPUTCONTEXT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for INPUTCONTEXT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for INPUTCONTEXT_0 {
     type Abi = Self;
 }
@@ -6428,7 +6437,6 @@ unsafe impl ::windows::runtime::Abi for MORRSLT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Input_Ime`, `Win32_Foundation`*"]
 pub union MORRSLT_0 {
     pub pwchRead: super::super::super::Foundation::PWSTR,
     pub pwchComp: super::super::super::Foundation::PWSTR,
@@ -6455,45 +6463,55 @@ unsafe impl ::windows::runtime::Abi for MORRSLT_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MORRSLT_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MORRSLT_1 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[doc = "*Required features: `Win32_UI_Input_Ime`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl MORRSLT_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MORRSLT_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MORRSLT_2 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MORRSLT_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MORRSLT_2 {
     type Abi = Self;
 }

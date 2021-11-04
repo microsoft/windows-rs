@@ -1442,7 +1442,6 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union COPYFILE2_MESSAGE_0 {
     pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
     pub ChunkFinished: COPYFILE2_MESSAGE_0_0,
@@ -1474,7 +1473,6 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
     pub dwFlags: u32,
@@ -1527,7 +1525,6 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -1575,7 +1572,7 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
@@ -1587,12 +1584,15 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COPYFILE2_MESSAGE_0_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Error_e__Struct")
@@ -1608,45 +1608,53 @@ impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_2 {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.CopyPhase == other.CopyPhase && self.dwStreamNumber == other.dwStreamNumber && self.hrFailure == other.hrFailure && self.dwReserved == other.dwReserved && self.uliChunkNumber == other.uliChunkNumber && self.uliStreamSize == other.uliStreamSize && self.uliStreamBytesTransferred == other.uliStreamBytesTransferred && self.uliTotalFileSize == other.uliTotalFileSize && self.uliTotalBytesTransferred == other.uliTotalBytesTransferred
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Storage_FileSystem`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl COPYFILE2_MESSAGE_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COPYFILE2_MESSAGE_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COPYFILE2_MESSAGE_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_PollContinue_e__Struct").field("dwReserved", &self.dwReserved).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COPYFILE2_MESSAGE_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.dwReserved == other.dwReserved
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COPYFILE2_MESSAGE_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_3 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -1695,7 +1703,6 @@ unsafe impl ::windows::runtime::Abi for COPYFILE2_MESSAGE_0_4 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub dwStreamNumber: u32,
     pub dwReserved: u32,
@@ -5257,7 +5264,6 @@ unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union FILE_RENAME_INFO_0 {
     pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
     pub Flags: u32,
@@ -8459,7 +8465,6 @@ unsafe impl ::windows::runtime::Abi for IORING_HANDLE_REF {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union IORING_HANDLE_REF_0 {
     pub Handle: super::super::Foundation::HANDLE,
     pub Index: u32,
@@ -10317,7 +10322,6 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -10394,7 +10398,6 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,
@@ -11263,7 +11266,6 @@ unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -11341,7 +11343,6 @@ unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONW {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Storage_FileSystem`, `Win32_Foundation`*"]
 pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONW,

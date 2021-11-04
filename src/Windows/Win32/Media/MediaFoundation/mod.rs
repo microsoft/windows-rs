@@ -4559,7 +4559,6 @@ unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODE
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 pub union D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_0 {
     pub pH264PicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264,
     pub pHEVCPicData: *mut D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC,
@@ -7553,6 +7552,7 @@ unsafe impl ::windows::runtime::Abi for D3D12_VIDEO_SIZE_RANGE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
@@ -7561,28 +7561,35 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for D3DCONTENTPROTECTIONCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("D3DCONTENTPROTECTIONCAPS").field("Caps", &self.Caps).field("KeyExchangeType", &self.KeyExchangeType).field("BufferAlignmentStart", &self.BufferAlignmentStart).field("BlockAlignmentSize", &self.BlockAlignmentSize).field("ProtectedMemorySize", &self.ProtectedMemorySize).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
     fn eq(&self, other: &Self) -> bool {
         self.Caps == other.Caps && self.KeyExchangeType == other.KeyExchangeType && self.BufferAlignmentStart == other.BufferAlignmentStart && self.BlockAlignmentSize == other.BlockAlignmentSize && self.ProtectedMemorySize == other.ProtectedMemorySize
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(4))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
@@ -7591,18 +7598,23 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
+#[cfg(any(target_arch = "x86",))]
 impl D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
@@ -10901,6 +10913,7 @@ unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceBltEx {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 pub struct DXVA_DeinterlaceBltEx32 {
@@ -10914,14 +10927,17 @@ pub struct DXVA_DeinterlaceBltEx32 {
     pub DestinationFormat: u32,
     pub DestinationFlags: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DXVA_DeinterlaceBltEx32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXVA_DeinterlaceBltEx32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXVA_DeinterlaceBltEx32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -10938,14 +10954,17 @@ impl ::std::fmt::Debug for DXVA_DeinterlaceBltEx32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXVA_DeinterlaceBltEx32 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.BackgroundColor == other.BackgroundColor && self.rcTarget == other.rcTarget && self.rtTarget == other.rtTarget && self.NumSourceSurfaces == other.NumSourceSurfaces && self.Alpha == other.Alpha && self.Source == other.Source && self.DestinationFormat == other.DestinationFormat && self.DestinationFlags == other.DestinationFlags
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXVA_DeinterlaceBltEx32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_DeinterlaceBltEx32 {
     type Abi = Self;
@@ -11599,6 +11618,7 @@ unsafe impl ::windows::runtime::Abi for DXVA_VideoSample {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 pub struct DXVA_VideoSample2 {
@@ -11613,14 +11633,17 @@ pub struct DXVA_VideoSample2 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXVA_VideoSample2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXVA_VideoSample2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11638,20 +11661,24 @@ impl ::std::fmt::Debug for DXVA_VideoSample2 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         self.Size == other.Size && self.Reserved == other.Reserved && self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 pub struct DXVA_VideoSample2 {
@@ -11664,14 +11691,17 @@ pub struct DXVA_VideoSample2 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXVA_VideoSample2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXVA_VideoSample2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11687,20 +11717,24 @@ impl ::std::fmt::Debug for DXVA_VideoSample2 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXVA_VideoSample2 {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample2 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
 pub struct DXVA_VideoSample32 {
@@ -11713,14 +11747,17 @@ pub struct DXVA_VideoSample32 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl DXVA_VideoSample32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DXVA_VideoSample32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DXVA_VideoSample32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -11736,14 +11773,17 @@ impl ::std::fmt::Debug for DXVA_VideoSample32 {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DXVA_VideoSample32 {
     fn eq(&self, other: &Self) -> bool {
         self.rtStart == other.rtStart && self.rtEnd == other.rtEnd && self.SampleFormat == other.SampleFormat && self.SampleFlags == other.SampleFlags && self.lpDDSSrcSurface == other.lpDDSSrcSurface && self.rcSrc == other.rcSrc && self.rcDst == other.rcDst && self.Palette == other.Palette
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DXVA_VideoSample32 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DXVA_VideoSample32 {
     type Abi = Self;
@@ -50672,36 +50712,35 @@ impl ::std::cmp::Eq for MFVideoAlphaBitmap {}
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmap {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for MFVideoAlphaBitmap_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
-#[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
     pub pDDS: ::windows::runtime::RawPtr,
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl MFVideoAlphaBitmap_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for MFVideoAlphaBitmap_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for MFVideoAlphaBitmap_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for MFVideoAlphaBitmap_0 {}
-#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for MFVideoAlphaBitmap_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }

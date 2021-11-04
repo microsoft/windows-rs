@@ -1548,6 +1548,7 @@ unsafe impl ::windows::runtime::Abi for DECISION_LOCATION {
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct DELAYLOAD_INFO {
@@ -1560,28 +1561,34 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut ::std::ffi::c_void,
     pub LastError: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::default::Default for DELAYLOAD_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for DELAYLOAD_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::Eq for DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DELAYLOAD_INFO {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
 pub struct DELAYLOAD_INFO {
@@ -1594,22 +1601,27 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut ::std::ffi::c_void,
     pub LastError: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::default::Default for DELAYLOAD_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for DELAYLOAD_INFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::Eq for DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 unsafe impl ::windows::runtime::Abi for DELAYLOAD_INFO {
     type Abi = Self;
@@ -1645,7 +1657,6 @@ unsafe impl ::windows::runtime::Abi for DELAYLOAD_PROC_DESCRIPTOR {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
     pub Name: super::super::Foundation::PSTR,
     pub Ordinal: u32,
@@ -2093,7 +2104,7 @@ pub const EVENTLOG_FULL_INFO: u32 = 0u32;
 pub const EditionUpgradeBroker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290892327, 20281, 17887, [146, 136, 18, 255, 107, 133, 169, 33]);
 pub const EditionUpgradeHelper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(24604147, 47535, 20048, [155, 28, 86, 233, 49, 22, 215, 4]);
 #[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
-#[cfg(any(target_arch = "i686", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super::Foundation::BOOL {
@@ -3089,7 +3100,7 @@ pub unsafe fn GetSystemRegistryQuota(pdwquotaallowed: *mut u32, pdwquotaused: *m
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
-#[cfg(any(target_arch = "i686", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
 #[inline]
 pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
     #[cfg(windows)]
@@ -4239,7 +4250,6 @@ unsafe impl ::windows::runtime::Abi for IO_STATUS_BLOCK {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_WindowsProgramming`, `Win32_Foundation`*"]
 pub union IO_STATUS_BLOCK_0 {
     pub Status: super::super::Foundation::NTSTATUS,
     pub Pointer: *mut ::std::ffi::c_void,
@@ -11570,23 +11580,28 @@ unsafe impl ::windows::runtime::Abi for LDR_DATA_TABLE_ENTRY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut ::std::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl LDR_DATA_TABLE_ENTRY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::default::Default for LDR_DATA_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::PartialEq for LDR_DATA_TABLE_ENTRY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::std::cmp::Eq for LDR_DATA_TABLE_ENTRY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::runtime::Abi for LDR_DATA_TABLE_ENTRY_0 {
     type Abi = Self;
 }
@@ -15426,28 +15441,35 @@ pub unsafe fn _lwrite<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_WindowsProgramming`*"]
 pub struct tcp_request_query_information_ex32_xp {
     pub ID: TDIObjectID,
     pub Context: [u32; 4],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl tcp_request_query_information_ex32_xp {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for tcp_request_query_information_ex32_xp {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for tcp_request_query_information_ex32_xp {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("tcp_request_query_information_ex32_xp").field("ID", &self.ID).field("Context", &self.Context).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for tcp_request_query_information_ex32_xp {
     fn eq(&self, other: &Self) -> bool {
         self.ID == other.ID && self.Context == other.Context
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for tcp_request_query_information_ex32_xp {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for tcp_request_query_information_ex32_xp {
     type Abi = Self;
 }

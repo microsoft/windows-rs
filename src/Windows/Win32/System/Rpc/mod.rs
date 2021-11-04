@@ -1747,24 +1747,29 @@ unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut ::std::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut ::std::ffi::c_void,
     pub pGenericBindingInfo: *mut ::std::mem::ManuallyDrop<GENERIC_BINDING_INFO>,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl MIDL_STUB_DESC_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for MIDL_STUB_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for MIDL_STUB_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for MIDL_STUB_DESC_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for MIDL_STUB_DESC_0 {
     type Abi = Self;
 }
@@ -4456,7 +4461,6 @@ impl ::std::clone::Clone for NDR_USER_MARSHAL_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_System_Com")]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_System_Com`*"]
 pub union NDR_USER_MARSHAL_INFO_0 {
     pub Level1: ::std::mem::ManuallyDrop<NDR_USER_MARSHAL_INFO_LEVEL1>,
 }
@@ -7286,7 +7290,6 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_0 {
     pub NotificationRoutine: ::std::option::Option<PFN_RPCNOTIFICATION_ROUTINE>,
     pub hThread: super::super::Foundation::HANDLE,
@@ -7320,7 +7323,6 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_1 {
     pub hIOPort: super::super::Foundation::HANDLE,
     pub dwNumberOfBytesTransferred: u32,
@@ -7355,35 +7357,34 @@ unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_1 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl RPC_ASYNC_NOTIFICATION_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_IntPtr_e__Struct").field("hWnd", &self.hWnd).field("Msg", &self.Msg).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
         self.hWnd == other.hWnd && self.Msg == other.Msg
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for RPC_ASYNC_NOTIFICATION_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for RPC_ASYNC_NOTIFICATION_INFO_2 {
     type Abi = Self;
 }
@@ -8848,7 +8849,6 @@ unsafe impl ::windows::runtime::Abi for RPC_EE_INFO_PARAM {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 pub union RPC_EE_INFO_PARAM_0 {
     pub AnsiString: super::super::Foundation::PSTR,
     pub UnicodeString: super::super::Foundation::PWSTR,
@@ -9004,7 +9004,6 @@ unsafe impl ::windows::runtime::Abi for RPC_EXTENDED_ERROR_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_Rpc`, `Win32_Foundation`*"]
 pub union RPC_EXTENDED_ERROR_INFO_0 {
     pub SystemTime: super::super::Foundation::SYSTEMTIME,
     pub FileTime: super::super::Foundation::FILETIME,
@@ -9777,22 +9776,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V2_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V2_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V2_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_A_0 {
     type Abi = Self;
 }
@@ -9830,22 +9834,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V2_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V2_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V2_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V2_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V2_W_0 {
     type Abi = Self;
 }
@@ -9884,22 +9893,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V3_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V3_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V3_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_A_0 {
     type Abi = Self;
 }
@@ -9938,22 +9952,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V3_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V3_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V3_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V3_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V3_W_0 {
     type Abi = Self;
 }
@@ -9993,22 +10012,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V4_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V4_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V4_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_A_0 {
     type Abi = Self;
 }
@@ -10048,22 +10072,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V4_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V4_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V4_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V4_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V4_W_0 {
     type Abi = Self;
 }
@@ -10104,22 +10133,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V5_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V5_A_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V5_A_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_A_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_A_0 {
     type Abi = Self;
 }
@@ -10160,22 +10194,27 @@ unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_Rpc`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl RPC_SECURITY_QOS_V5_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::default::Default for RPC_SECURITY_QOS_V5_W_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::PartialEq for RPC_SECURITY_QOS_V5_W_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::cmp::Eq for RPC_SECURITY_QOS_V5_W_0 {}
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::runtime::Abi for RPC_SECURITY_QOS_V5_W_0 {
     type Abi = Self;
 }

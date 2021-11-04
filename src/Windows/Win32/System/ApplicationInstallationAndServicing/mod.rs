@@ -1327,23 +1327,28 @@ unsafe impl ::windows::runtime::Abi for DELTA_INPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DELTA_INPUT_0 {
     pub lpcStart: *mut ::std::ffi::c_void,
     pub lpStart: *mut ::std::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl DELTA_INPUT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DELTA_INPUT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DELTA_INPUT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DELTA_INPUT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DELTA_INPUT_0 {
     type Abi = Self;
 }
@@ -10910,7 +10915,6 @@ unsafe impl ::windows::runtime::Abi for PATCH_OLD_FILE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub union PATCH_OLD_FILE_INFO_0 {
     pub OldFileNameA: super::super::Foundation::PSTR,
     pub OldFileNameW: super::super::Foundation::PWSTR,
@@ -11550,7 +11554,6 @@ impl ::std::clone::Clone for PM_ENUM_FILTER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_System_ApplicationInstallationAndServicing`, `Win32_Foundation`*"]
 pub union PM_ENUM_FILTER_0 {
     pub Dummy: i32,
     pub Genre: PM_APP_GENRE,

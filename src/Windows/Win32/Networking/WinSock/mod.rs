@@ -3591,7 +3591,6 @@ unsafe impl ::windows::runtime::Abi for NLA_BLOB {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub union NLA_BLOB_0 {
     pub rawData: [super::super::Foundation::CHAR; 1],
     pub interfaceData: NLA_BLOB_0_2,
@@ -3621,33 +3620,39 @@ unsafe impl ::windows::runtime::Abi for NLA_BLOB_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_0_0 {
     pub remote: NLA_BLOB_0_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_ICS_e__Struct").field("remote", &self.remote).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.remote == other.remote
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_0_0_0 {
     pub speed: u32,
     pub r#type: u32,
@@ -3655,57 +3660,68 @@ pub struct NLA_BLOB_0_0_0 {
     pub machineName: [u16; 256],
     pub sharedAdapterName: [u16; 256],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_remote_e__Struct").field("speed", &self.speed).field("r#type", &self.r#type).field("state", &self.state).field("machineName", &self.machineName).field("sharedAdapterName", &self.sharedAdapterName).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.speed == other.speed && self.r#type == other.r#type && self.state == other.state && self.machineName == other.machineName && self.sharedAdapterName == other.sharedAdapterName
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_0_1 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_connectivity_e__Struct").field("r#type", &self.r#type).field("internet", &self.internet).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type && self.internet == other.internet
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_1 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct NLA_BLOB_0_2 {
     pub dwType: u32,
     pub dwSpeed: u32,
@@ -3740,7 +3756,6 @@ unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_2 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct NLA_BLOB_0_3 {
     pub information: [super::super::Foundation::CHAR; 1],
 }
@@ -3772,29 +3787,35 @@ unsafe impl ::windows::runtime::Abi for NLA_BLOB_0_3 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NLA_BLOB_1 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
     pub nextOffset: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl NLA_BLOB_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NLA_BLOB_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NLA_BLOB_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_header_e__Struct").field("r#type", &self.r#type).field("dwSize", &self.dwSize).field("nextOffset", &self.nextOffset).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NLA_BLOB_1 {
     fn eq(&self, other: &Self) -> bool {
         self.r#type == other.r#type && self.dwSize == other.dwSize && self.nextOffset == other.nextOffset
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NLA_BLOB_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NLA_BLOB_1 {
     type Abi = Self;
 }
@@ -5325,7 +5346,6 @@ unsafe impl ::windows::runtime::Abi for RIO_NOTIFICATION_COMPLETION {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub union RIO_NOTIFICATION_COMPLETION_0 {
     pub Event: RIO_NOTIFICATION_COMPLETION_0_0,
     pub Iocp: RIO_NOTIFICATION_COMPLETION_0_1,
@@ -5353,7 +5373,6 @@ unsafe impl ::windows::runtime::Abi for RIO_NOTIFICATION_COMPLETION_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::super::Foundation::HANDLE,
     pub NotifyReset: super::super::Foundation::BOOL,
@@ -5387,7 +5406,6 @@ unsafe impl ::windows::runtime::Abi for RIO_NOTIFICATION_COMPLETION_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::super::Foundation::HANDLE,
     pub CompletionKey: *mut ::std::ffi::c_void,
@@ -8247,7 +8265,6 @@ unsafe impl ::windows::runtime::Abi for TRANSMIT_PACKETS_ELEMENT {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub union TRANSMIT_PACKETS_ELEMENT_0 {
     pub Anonymous: TRANSMIT_PACKETS_ELEMENT_0_0,
     pub pBuffer: *mut ::std::ffi::c_void,
@@ -8275,7 +8292,6 @@ unsafe impl ::windows::runtime::Abi for TRANSMIT_PACKETS_ELEMENT_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::super::Foundation::HANDLE,
@@ -8523,79 +8539,96 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union WINDOWS_IAS_QUERY_0 {
     pub irdaAttribInt: i32,
     pub irdaAttribOctetSeq: WINDOWS_IAS_QUERY_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_QUERY_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_QUERY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_QUERY_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_QUERY_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_QUERY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_QUERY_0_0 {
     pub Len: u32,
     pub OctetSeq: [u8; 1024],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_QUERY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_QUERY_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_IAS_QUERY_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_irdaAttribOctetSeq_e__Struct").field("Len", &self.Len).field("OctetSeq", &self.OctetSeq).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_QUERY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Len == other.Len && self.OctetSeq == other.OctetSeq
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_QUERY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_QUERY_0_1 {
     pub Len: u32,
     pub CharSet: u32,
     pub UsrStr: [u8; 256],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_QUERY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_QUERY_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_IAS_QUERY_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_irdaAttribUsrStr_e__Struct").field("Len", &self.Len).field("CharSet", &self.CharSet).field("UsrStr", &self.UsrStr).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_QUERY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Len == other.Len && self.CharSet == other.CharSet && self.UsrStr == other.UsrStr
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_QUERY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_QUERY_0_1 {
     type Abi = Self;
 }
@@ -8631,79 +8664,96 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union WINDOWS_IAS_SET_0 {
     pub irdaAttribInt: i32,
     pub irdaAttribOctetSeq: WINDOWS_IAS_SET_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_SET_0_1,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_SET_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_SET_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_SET_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_SET_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_SET_0_0 {
     pub Len: u16,
     pub OctetSeq: [u8; 1024],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_SET_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_SET_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_IAS_SET_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_irdaAttribOctetSeq_e__Struct").field("Len", &self.Len).field("OctetSeq", &self.OctetSeq).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_SET_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Len == other.Len && self.OctetSeq == other.OctetSeq
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_SET_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET_0_0 {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWS_IAS_SET_0_1 {
     pub Len: u8,
     pub CharSet: u8,
     pub UsrStr: [u8; 256],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl WINDOWS_IAS_SET_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WINDOWS_IAS_SET_0_1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINDOWS_IAS_SET_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_irdaAttribUsrStr_e__Struct").field("Len", &self.Len).field("CharSet", &self.CharSet).field("UsrStr", &self.UsrStr).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINDOWS_IAS_SET_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.Len == other.Len && self.CharSet == other.CharSet && self.UsrStr == other.UsrStr
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WINDOWS_IAS_SET_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WINDOWS_IAS_SET_0_1 {
     type Abi = Self;
 }
@@ -9001,7 +9051,6 @@ impl ::std::clone::Clone for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub union WSACOMPLETION_0 {
     pub WindowMessage: WSACOMPLETION_0_3,
     pub Event: WSACOMPLETION_0_1,
@@ -9031,7 +9080,6 @@ unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0 {
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WSACOMPLETION_0_0 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub lpfnCompletionProc: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>,
@@ -9065,7 +9113,6 @@ unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_0 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
 }
@@ -9098,7 +9145,6 @@ unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_1 {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
 pub struct WSACOMPLETION_0_2 {
     pub lpOverlapped: *mut super::super::System::IO::OVERLAPPED,
     pub hPort: super::super::Foundation::HANDLE,
@@ -9132,36 +9178,35 @@ unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_2 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WSACOMPLETION_0_3 {
     pub hWnd: super::super::Foundation::HWND,
     pub uMsg: u32,
     pub context: super::super::Foundation::WPARAM,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl WSACOMPLETION_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::default::Default for WSACOMPLETION_0_3 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::fmt::Debug for WSACOMPLETION_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_WindowMessage_e__Struct").field("hWnd", &self.hWnd).field("uMsg", &self.uMsg).field("context", &self.context).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::PartialEq for WSACOMPLETION_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.hWnd == other.hWnd && self.uMsg == other.uMsg && self.context == other.context
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::std::cmp::Eq for WSACOMPLETION_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 unsafe impl ::windows::runtime::Abi for WSACOMPLETION_0_3 {
     type Abi = Self;
 }
@@ -9368,6 +9413,7 @@ pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct WSAData {
@@ -9379,14 +9425,17 @@ pub struct WSAData {
     pub szDescription: [super::super::Foundation::CHAR; 257],
     pub szSystemStatus: [super::super::Foundation::CHAR; 129],
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl WSAData {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WSAData {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WSAData {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9401,20 +9450,24 @@ impl ::std::fmt::Debug for WSAData {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WSAData {
     fn eq(&self, other: &Self) -> bool {
         self.wVersion == other.wVersion && self.wHighVersion == other.wHighVersion && self.iMaxSockets == other.iMaxSockets && self.iMaxUdpDg == other.iMaxUdpDg && self.lpVendorInfo == other.lpVendorInfo && self.szDescription == other.szDescription && self.szSystemStatus == other.szSystemStatus
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WSAData {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSAData {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct WSAData {
@@ -9426,14 +9479,17 @@ pub struct WSAData {
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl WSAData {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WSAData {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WSAData {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -9448,14 +9504,17 @@ impl ::std::fmt::Debug for WSAData {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WSAData {
     fn eq(&self, other: &Self) -> bool {
         self.wVersion == other.wVersion && self.wHighVersion == other.wHighVersion && self.szDescription == other.szDescription && self.szSystemStatus == other.szSystemStatus && self.iMaxSockets == other.iMaxSockets && self.iMaxUdpDg == other.iMaxUdpDg && self.lpVendorInfo == other.lpVendorInfo
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WSAData {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WSAData {
     type Abi = Self;
@@ -12573,7 +12632,6 @@ unsafe impl ::windows::runtime::Abi for addrinfo_dns_server {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub union addrinfo_dns_server_0 {
     pub ai_template: super::super::Foundation::PWSTR,
 }
@@ -13830,6 +13888,7 @@ pub unsafe fn sendto<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Para
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct servent {
@@ -13838,34 +13897,41 @@ pub struct servent {
     pub s_proto: super::super::Foundation::PSTR,
     pub s_port: i16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl servent {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for servent {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for servent {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("servent").field("s_name", &self.s_name).field("s_aliases", &self.s_aliases).field("s_proto", &self.s_proto).field("s_port", &self.s_port).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for servent {
     fn eq(&self, other: &Self) -> bool {
         self.s_name == other.s_name && self.s_aliases == other.s_aliases && self.s_proto == other.s_proto && self.s_port == other.s_port
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for servent {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for servent {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 pub struct servent {
@@ -13874,28 +13940,34 @@ pub struct servent {
     pub s_port: i16,
     pub s_proto: super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl servent {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for servent {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for servent {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("servent").field("s_name", &self.s_name).field("s_aliases", &self.s_aliases).field("s_port", &self.s_port).field("s_proto", &self.s_proto).finish()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for servent {
     fn eq(&self, other: &Self) -> bool {
         self.s_name == other.s_name && self.s_aliases == other.s_aliases && self.s_port == other.s_port && self.s_proto == other.s_proto
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for servent {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for servent {
     type Abi = Self;

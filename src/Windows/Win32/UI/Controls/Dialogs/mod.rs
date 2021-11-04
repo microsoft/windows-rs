@@ -27,6 +27,7 @@ pub const CD_LBSELNOITEMS: i32 = -1i32;
 pub const CD_LBSELSUB: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct CHOOSECOLORA {
@@ -40,14 +41,17 @@ pub struct CHOOSECOLORA {
     pub lpfnHook: ::std::option::Option<LPCCHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CHOOSECOLORA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHOOSECOLORA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHOOSECOLORA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -63,18 +67,22 @@ impl ::std::fmt::Debug for CHOOSECOLORA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORA {
     fn eq(&self, other: &Self) -> bool {
         self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.rgbResult == other.rgbResult && self.lpCustColors == other.lpCustColors && self.Flags == other.Flags && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHOOSECOLORA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for CHOOSECOLORA {
     fn clone(&self) -> Self {
@@ -82,6 +90,7 @@ impl ::std::clone::Clone for CHOOSECOLORA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct CHOOSECOLORA {
@@ -95,28 +104,34 @@ pub struct CHOOSECOLORA {
     pub lpfnHook: ::std::option::Option<LPCCHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CHOOSECOLORA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHOOSECOLORA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHOOSECOLORA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct CHOOSECOLORW {
@@ -130,14 +145,17 @@ pub struct CHOOSECOLORW {
     pub lpfnHook: ::std::option::Option<LPCCHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CHOOSECOLORW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHOOSECOLORW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CHOOSECOLORW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -153,18 +171,22 @@ impl ::std::fmt::Debug for CHOOSECOLORW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORW {
     fn eq(&self, other: &Self) -> bool {
         self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.rgbResult == other.rgbResult && self.lpCustColors == other.lpCustColors && self.Flags == other.Flags && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHOOSECOLORW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
@@ -172,6 +194,7 @@ impl ::std::clone::Clone for CHOOSECOLORW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct CHOOSECOLORW {
@@ -185,28 +208,34 @@ pub struct CHOOSECOLORW {
     pub lpfnHook: ::std::option::Option<LPCCHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl CHOOSECOLORW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for CHOOSECOLORW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for CHOOSECOLORW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for CHOOSECOLORW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CHOOSEFONTA {
@@ -227,14 +256,17 @@ pub struct CHOOSEFONTA {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl CHOOSEFONTA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for CHOOSEFONTA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for CHOOSEFONTA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -257,6 +289,7 @@ impl ::std::fmt::Debug for CHOOSEFONTA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CHOOSEFONTA {
     fn eq(&self, other: &Self) -> bool {
@@ -278,12 +311,15 @@ impl ::std::cmp::PartialEq for CHOOSEFONTA {
             && self.nSizeMax == other.nSizeMax
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for CHOOSEFONTA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
@@ -291,6 +327,7 @@ impl ::std::clone::Clone for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CHOOSEFONTA {
@@ -311,28 +348,34 @@ pub struct CHOOSEFONTA {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl CHOOSEFONTA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for CHOOSEFONTA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CHOOSEFONTA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for CHOOSEFONTA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CHOOSEFONTW {
@@ -353,14 +396,17 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl CHOOSEFONTW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for CHOOSEFONTW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for CHOOSEFONTW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -383,6 +429,7 @@ impl ::std::fmt::Debug for CHOOSEFONTW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CHOOSEFONTW {
     fn eq(&self, other: &Self) -> bool {
@@ -404,12 +451,15 @@ impl ::std::cmp::PartialEq for CHOOSEFONTW {
             && self.nSizeMax == other.nSizeMax
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for CHOOSEFONTW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
@@ -417,6 +467,7 @@ impl ::std::clone::Clone for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct CHOOSEFONTW {
@@ -437,22 +488,27 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl CHOOSEFONTW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for CHOOSEFONTW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for CHOOSEFONTW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for CHOOSEFONTW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -785,6 +841,7 @@ pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
@@ -792,28 +849,35 @@ pub struct DEVNAMES {
     pub wOutputOffset: u16,
     pub wDefault: u16,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl DEVNAMES {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for DEVNAMES {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for DEVNAMES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DEVNAMES").field("wDriverOffset", &self.wDriverOffset).field("wDeviceOffset", &self.wDeviceOffset).field("wOutputOffset", &self.wOutputOffset).field("wDefault", &self.wDefault).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for DEVNAMES {
     fn eq(&self, other: &Self) -> bool {
         self.wDriverOffset == other.wDriverOffset && self.wDeviceOffset == other.wDeviceOffset && self.wOutputOffset == other.wOutputOffset && self.wDefault == other.wDefault
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for DEVNAMES {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for DEVNAMES {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
@@ -821,18 +885,23 @@ pub struct DEVNAMES {
     pub wOutputOffset: u16,
     pub wDefault: u16,
 }
+#[cfg(any(target_arch = "x86",))]
 impl DEVNAMES {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for DEVNAMES {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for DEVNAMES {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for DEVNAMES {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for DEVNAMES {
     type Abi = Self;
 }
@@ -842,6 +911,7 @@ pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct FINDREPLACEA {
@@ -857,14 +927,17 @@ pub struct FINDREPLACEA {
     pub lpfnHook: ::std::option::Option<LPFRHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FINDREPLACEA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FINDREPLACEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FINDREPLACEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -882,18 +955,22 @@ impl ::std::fmt::Debug for FINDREPLACEA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEA {
     fn eq(&self, other: &Self) -> bool {
         self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.Flags == other.Flags && self.lpstrFindWhat == other.lpstrFindWhat && self.lpstrReplaceWith == other.lpstrReplaceWith && self.wFindWhatLen == other.wFindWhatLen && self.wReplaceWithLen == other.wReplaceWithLen && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FINDREPLACEA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
@@ -901,6 +978,7 @@ impl ::std::clone::Clone for FINDREPLACEA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct FINDREPLACEA {
@@ -916,28 +994,34 @@ pub struct FINDREPLACEA {
     pub lpfnHook: ::std::option::Option<LPFRHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FINDREPLACEA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FINDREPLACEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FINDREPLACEA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct FINDREPLACEW {
@@ -953,14 +1037,17 @@ pub struct FINDREPLACEW {
     pub lpfnHook: ::std::option::Option<LPFRHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FINDREPLACEW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FINDREPLACEW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FINDREPLACEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -978,18 +1065,22 @@ impl ::std::fmt::Debug for FINDREPLACEW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEW {
     fn eq(&self, other: &Self) -> bool {
         self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.Flags == other.Flags && self.lpstrFindWhat == other.lpstrFindWhat && self.lpstrReplaceWith == other.lpstrReplaceWith && self.wFindWhatLen == other.wFindWhatLen && self.wReplaceWithLen == other.wReplaceWithLen && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FINDREPLACEW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
@@ -997,6 +1088,7 @@ impl ::std::clone::Clone for FINDREPLACEW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct FINDREPLACEW {
@@ -1012,22 +1104,27 @@ pub struct FINDREPLACEW {
     pub lpfnHook: ::std::option::Option<LPFRHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl FINDREPLACEW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for FINDREPLACEW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for FINDREPLACEW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1359,6 +1456,7 @@ pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYA {
@@ -1366,34 +1464,41 @@ pub struct OFNOTIFYA {
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OFNOTIFYA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYA {
     fn eq(&self, other: &Self) -> bool {
         self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.pszFile == other.pszFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYA {
@@ -1401,28 +1506,34 @@ pub struct OFNOTIFYA {
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYEXA {
@@ -1431,34 +1542,41 @@ pub struct OFNOTIFYEXA {
     pub psf: *mut ::std::ffi::c_void,
     pub pidl: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYEXA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYEXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYEXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OFNOTIFYEXA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXA {
     fn eq(&self, other: &Self) -> bool {
         self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.psf == other.psf && self.pidl == other.pidl
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYEXA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYEXA {
@@ -1467,28 +1585,34 @@ pub struct OFNOTIFYEXA {
     pub psf: *mut ::std::ffi::c_void,
     pub pidl: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYEXA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYEXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYEXA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYEXW {
@@ -1497,34 +1621,41 @@ pub struct OFNOTIFYEXW {
     pub psf: *mut ::std::ffi::c_void,
     pub pidl: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYEXW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYEXW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYEXW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OFNOTIFYEXW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXW {
     fn eq(&self, other: &Self) -> bool {
         self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.psf == other.psf && self.pidl == other.pidl
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYEXW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYEXW {
@@ -1533,28 +1664,34 @@ pub struct OFNOTIFYEXW {
     pub psf: *mut ::std::ffi::c_void,
     pub pidl: *mut ::std::ffi::c_void,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYEXW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYEXW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYEXW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYW {
@@ -1562,34 +1699,41 @@ pub struct OFNOTIFYW {
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OFNOTIFYW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYW {
     fn eq(&self, other: &Self) -> bool {
         self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.pszFile == other.pszFile
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYW {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OFNOTIFYW {
@@ -1597,22 +1741,27 @@ pub struct OFNOTIFYW {
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OFNOTIFYW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFNOTIFYW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFNOTIFYW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFNOTIFYW {
     type Abi = Self;
@@ -1625,6 +1774,7 @@ pub const OFN_SHARENOWARN: u32 = 1u32;
 pub const OFN_SHAREWARN: u32 = 0u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAMEA {
@@ -1652,14 +1802,17 @@ pub struct OPENFILENAMEA {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAMEA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAMEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPENFILENAMEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1689,6 +1842,7 @@ impl ::std::fmt::Debug for OPENFILENAMEA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAMEA {
     fn eq(&self, other: &Self) -> bool {
@@ -1717,12 +1871,15 @@ impl ::std::cmp::PartialEq for OPENFILENAMEA {
             && self.FlagsEx == other.FlagsEx
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAMEA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
@@ -1730,6 +1887,7 @@ impl ::std::clone::Clone for OPENFILENAMEA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAMEA {
@@ -1757,28 +1915,34 @@ pub struct OPENFILENAMEA {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAMEA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAMEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAMEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAMEA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAMEW {
@@ -1806,14 +1970,17 @@ pub struct OPENFILENAMEW {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAMEW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAMEW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPENFILENAMEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1843,6 +2010,7 @@ impl ::std::fmt::Debug for OPENFILENAMEW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAMEW {
     fn eq(&self, other: &Self) -> bool {
@@ -1871,12 +2039,15 @@ impl ::std::cmp::PartialEq for OPENFILENAMEW {
             && self.FlagsEx == other.FlagsEx
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAMEW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
@@ -1884,6 +2055,7 @@ impl ::std::clone::Clone for OPENFILENAMEW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAMEW {
@@ -1911,28 +2083,34 @@ pub struct OPENFILENAMEW {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAMEW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAMEW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAMEW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAMEW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAMEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAME_NT4A {
@@ -1957,14 +2135,17 @@ pub struct OPENFILENAME_NT4A {
     pub lpfnHook: ::std::option::Option<LPOFNHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAME_NT4A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPENFILENAME_NT4A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1991,6 +2172,7 @@ impl ::std::fmt::Debug for OPENFILENAME_NT4A {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAME_NT4A {
     fn eq(&self, other: &Self) -> bool {
@@ -2016,12 +2198,15 @@ impl ::std::cmp::PartialEq for OPENFILENAME_NT4A {
             && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
@@ -2029,6 +2214,7 @@ impl ::std::clone::Clone for OPENFILENAME_NT4A {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAME_NT4A {
@@ -2053,28 +2239,34 @@ pub struct OPENFILENAME_NT4A {
     pub lpfnHook: ::std::option::Option<LPOFNHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAME_NT4A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAME_NT4A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4A {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAME_NT4W {
@@ -2099,14 +2291,17 @@ pub struct OPENFILENAME_NT4W {
     pub lpfnHook: ::std::option::Option<LPOFNHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAME_NT4W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OPENFILENAME_NT4W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2133,6 +2328,7 @@ impl ::std::fmt::Debug for OPENFILENAME_NT4W {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAME_NT4W {
     fn eq(&self, other: &Self) -> bool {
@@ -2158,12 +2354,15 @@ impl ::std::cmp::PartialEq for OPENFILENAME_NT4W {
             && self.lpTemplateName == other.lpTemplateName
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
@@ -2171,6 +2370,7 @@ impl ::std::clone::Clone for OPENFILENAME_NT4W {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct OPENFILENAME_NT4W {
@@ -2195,22 +2395,27 @@ pub struct OPENFILENAME_NT4W {
     pub lpfnHook: ::std::option::Option<LPOFNHOOKPROC>,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OPENFILENAME_NT4W {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OPENFILENAME_NT4W {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -2325,6 +2530,7 @@ impl ::std::ops::Not for OPEN_FILENAME_FLAGS_EX {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct PAGESETUPDLGA {
@@ -2343,14 +2549,17 @@ pub struct PAGESETUPDLGA {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PAGESETUPDLGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PAGESETUPDLGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PAGESETUPDLGA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2370,6 +2579,7 @@ impl ::std::fmt::Debug for PAGESETUPDLGA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PAGESETUPDLGA {
     fn eq(&self, other: &Self) -> bool {
@@ -2389,12 +2599,15 @@ impl ::std::cmp::PartialEq for PAGESETUPDLGA {
             && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PAGESETUPDLGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for PAGESETUPDLGA {
     fn clone(&self) -> Self {
@@ -2402,6 +2615,7 @@ impl ::std::clone::Clone for PAGESETUPDLGA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct PAGESETUPDLGA {
@@ -2420,28 +2634,34 @@ pub struct PAGESETUPDLGA {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PAGESETUPDLGA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PAGESETUPDLGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PAGESETUPDLGA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PAGESETUPDLGA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct PAGESETUPDLGW {
@@ -2460,14 +2680,17 @@ pub struct PAGESETUPDLGW {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PAGESETUPDLGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PAGESETUPDLGW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PAGESETUPDLGW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2487,6 +2710,7 @@ impl ::std::fmt::Debug for PAGESETUPDLGW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PAGESETUPDLGW {
     fn eq(&self, other: &Self) -> bool {
@@ -2506,12 +2730,15 @@ impl ::std::cmp::PartialEq for PAGESETUPDLGW {
             && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PAGESETUPDLGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
@@ -2519,6 +2746,7 @@ impl ::std::clone::Clone for PAGESETUPDLGW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
 pub struct PAGESETUPDLGW {
@@ -2537,22 +2765,27 @@ pub struct PAGESETUPDLGW {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl PAGESETUPDLGW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PAGESETUPDLGW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PAGESETUPDLGW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PAGESETUPDLGW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -2624,6 +2857,7 @@ pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGA {
@@ -2647,14 +2881,17 @@ pub struct PRINTDLGA {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for PRINTDLGA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2679,6 +2916,7 @@ impl ::std::fmt::Debug for PRINTDLGA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGA {
     fn eq(&self, other: &Self) -> bool {
@@ -2703,12 +2941,15 @@ impl ::std::cmp::PartialEq for PRINTDLGA {
             && self.hSetupTemplate == other.hSetupTemplate
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for PRINTDLGA {
     fn clone(&self) -> Self {
@@ -2716,6 +2957,7 @@ impl ::std::clone::Clone for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGA {
@@ -2739,28 +2981,34 @@ pub struct PRINTDLGA {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGEXA {
@@ -2786,14 +3034,17 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGEXA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGEXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for PRINTDLGEXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2822,6 +3073,7 @@ impl ::std::fmt::Debug for PRINTDLGEXA {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGEXA {
     fn eq(&self, other: &Self) -> bool {
@@ -2848,12 +3100,15 @@ impl ::std::cmp::PartialEq for PRINTDLGEXA {
             && self.dwResultAction == other.dwResultAction
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGEXA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for PRINTDLGEXA {
     fn clone(&self) -> Self {
@@ -2861,6 +3116,7 @@ impl ::std::clone::Clone for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGEXA {
@@ -2886,28 +3142,34 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGEXA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGEXA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGEXA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGEXA {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGEXW {
@@ -2933,14 +3195,17 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGEXW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for PRINTDLGEXW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -2969,6 +3234,7 @@ impl ::std::fmt::Debug for PRINTDLGEXW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGEXW {
     fn eq(&self, other: &Self) -> bool {
@@ -2995,12 +3261,15 @@ impl ::std::cmp::PartialEq for PRINTDLGEXW {
             && self.dwResultAction == other.dwResultAction
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGEXW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for PRINTDLGEXW {
     fn clone(&self) -> Self {
@@ -3008,6 +3277,7 @@ impl ::std::clone::Clone for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGEXW {
@@ -3033,22 +3303,27 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGEXW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGEXW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGEXW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGEXW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3123,6 +3398,7 @@ impl ::std::ops::Not for PRINTDLGEX_FLAGS {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGW {
@@ -3146,14 +3422,17 @@ pub struct PRINTDLGW {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for PRINTDLGW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3178,6 +3457,7 @@ impl ::std::fmt::Debug for PRINTDLGW {
             .finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGW {
     fn eq(&self, other: &Self) -> bool {
@@ -3202,12 +3482,15 @@ impl ::std::cmp::PartialEq for PRINTDLGW {
             && self.hSetupTemplate == other.hSetupTemplate
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGW {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::clone::Clone for PRINTDLGW {
     fn clone(&self) -> Self {
@@ -3215,6 +3498,7 @@ impl ::std::clone::Clone for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
 pub struct PRINTDLGW {
@@ -3238,72 +3522,90 @@ pub struct PRINTDLGW {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl PRINTDLGW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for PRINTDLGW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for PRINTDLGW {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for PRINTDLGW {}
+#[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for PRINTDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl PRINTPAGERANGE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::default::Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::fmt::Debug for PRINTPAGERANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PRINTPAGERANGE").field("nFromPage", &self.nFromPage).field("nToPage", &self.nToPage).finish()
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::PartialEq for PRINTPAGERANGE {
     fn eq(&self, other: &Self) -> bool {
         self.nFromPage == other.nFromPage && self.nToPage == other.nToPage
     }
 }
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::std::cmp::Eq for PRINTPAGERANGE {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
+#[cfg(any(target_arch = "x86",))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
 }
+#[cfg(any(target_arch = "x86",))]
 impl PRINTPAGERANGE {}
+#[cfg(any(target_arch = "x86",))]
 impl ::std::default::Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::PartialEq for PRINTPAGERANGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(any(target_arch = "x86",))]
 impl ::std::cmp::Eq for PRINTPAGERANGE {}
+#[cfg(any(target_arch = "x86",))]
 unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }

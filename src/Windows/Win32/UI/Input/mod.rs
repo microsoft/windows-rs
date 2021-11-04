@@ -278,24 +278,29 @@ unsafe impl ::windows::runtime::Abi for RAWINPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[doc = "*Required features: `Win32_UI_Input`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl RAWINPUT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for RAWINPUT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RAWINPUT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for RAWINPUT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for RAWINPUT_0 {
     type Abi = Self;
 }
@@ -678,7 +683,6 @@ unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO {
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_UI_Input`, `Win32_Foundation`*"]
 pub union RID_DEVICE_INFO_0 {
     pub mouse: RID_DEVICE_INFO_MOUSE,
     pub keyboard: RID_DEVICE_INFO_KEYBOARD,
