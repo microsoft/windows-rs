@@ -182,8 +182,6 @@ impl TypeDef {
     }
 
     pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        features.insert(self.namespace());
-
         for generic in &self.generics {
             generic.method_features(features, keys);
         }
