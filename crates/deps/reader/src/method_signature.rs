@@ -28,8 +28,7 @@ impl MethodSignature {
     pub fn method_features(&self) -> BTreeSet<&'static str> {
         let mut features = std::collections::BTreeSet::new();
         let mut keys = std::collections::HashSet::new();
-        self.return_sig.iter().for_each(|def| def.kind.method_features(&mut features, &mut keys));
-        self.params.iter().for_each(|def| def.signature.kind.method_features(&mut features, &mut keys));
+        self.struct_features(&mut features, &mut keys);
         features
     }
 

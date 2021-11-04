@@ -162,6 +162,10 @@ impl TypeDef {
             features.insert(self.namespace());
         }
 
+        for generic in &self.generics {
+            generic.struct_features(features, keys);
+        }
+
         match self.kind() {
             TypeKind::Class => {
                 if let Some(def) = self.default_interface() {
@@ -179,14 +183,6 @@ impl TypeDef {
             TypeKind::Delegate => self.invoke_method().signature(&[]).struct_features(features, keys),
             _ => {}
         }
-    }
-
-    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
-        for generic in &self.generics {
-            generic.method_features(features, keys);
-        }
-
-        self.struct_features(features, keys);
     }
 
     pub fn is_udt(&self) -> bool {

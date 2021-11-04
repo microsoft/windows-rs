@@ -100,7 +100,7 @@ pub fn signature_features(sig: &Signature, gen: &Gen) -> BTreeSet<&'static str> 
 
     let mut features = BTreeSet::new();
     let mut keys = std::collections::HashSet::new();
-    sig.kind.method_features(&mut features, &mut keys);
+    sig.kind.struct_features(&mut features, &mut keys);
     features
 }
 
