@@ -2207,8 +2207,8 @@ impl ::std::ops::Not for ICM_COMMAND {
 }
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDeviceModelPlugIn(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDeviceModelPlugIn(pub ::windows::runtime::IUnknown);
 impl IDeviceModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -2266,6 +2266,26 @@ unsafe impl ::windows::runtime::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugIn_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(483800181, 1988, 18174, [169, 3, 214, 85, 49, 109, 17, 253]);
 }
+impl ::std::convert::From<IDeviceModelPlugIn> for ::windows::runtime::IUnknown {
+    fn from(value: IDeviceModelPlugIn) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDeviceModelPlugIn> for ::windows::runtime::IUnknown {
+    fn from(value: &IDeviceModelPlugIn) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDeviceModelPlugIn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDeviceModelPlugIn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceModelPlugIn_abi(
@@ -2288,8 +2308,8 @@ pub struct IDeviceModelPlugIn_abi(
 );
 #[doc = "*Required features: `Win32_UI_ColorSystem`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IGamutMapModelPlugIn(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IGamutMapModelPlugIn(pub ::windows::runtime::IUnknown);
 impl IGamutMapModelPlugIn {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_UI_ColorSystem`, `Win32_Foundation`*"]
@@ -2304,6 +2324,26 @@ impl IGamutMapModelPlugIn {
 unsafe impl ::windows::runtime::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugIn_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(769130773, 44318, 16886, [162, 25, 164, 244, 181, 131, 209, 249]);
+}
+impl ::std::convert::From<IGamutMapModelPlugIn> for ::windows::runtime::IUnknown {
+    fn from(value: IGamutMapModelPlugIn) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IGamutMapModelPlugIn> for ::windows::runtime::IUnknown {
+    fn from(value: &IGamutMapModelPlugIn) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IGamutMapModelPlugIn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IGamutMapModelPlugIn {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

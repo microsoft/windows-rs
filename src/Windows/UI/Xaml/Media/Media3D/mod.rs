@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CompositeTransform3D(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CompositeTransform3D(pub ::windows::runtime::IInspectable);
 impl CompositeTransform3D {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -322,6 +322,46 @@ unsafe impl ::windows::runtime::Interface for CompositeTransform3D {
 impl ::windows::runtime::RuntimeName for CompositeTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.CompositeTransform3D";
 }
+impl ::std::convert::From<CompositeTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: CompositeTransform3D) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CompositeTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &CompositeTransform3D) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CompositeTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CompositeTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CompositeTransform3D> for ::windows::runtime::IInspectable {
+    fn from(value: CompositeTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CompositeTransform3D> for ::windows::runtime::IInspectable {
+    fn from(value: &CompositeTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CompositeTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CompositeTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<CompositeTransform3D> for Transform3D {
     fn from(value: CompositeTransform3D) -> Self {
         ::std::convert::Into::<Transform3D>::into(&value)
@@ -366,7 +406,7 @@ unsafe impl ::std::marker::Send for CompositeTransform3D {}
 unsafe impl ::std::marker::Sync for CompositeTransform3D {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositeTransform3D(::windows::runtime::IInspectable);
+pub struct ICompositeTransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3D {
     type Vtable = ICompositeTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2306329345, 44941, 19189, [176, 132, 192, 142, 185, 112, 74, 190]);
@@ -407,7 +447,7 @@ pub struct ICompositeTransform3D_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICompositeTransform3DStatics(::windows::runtime::IInspectable);
+pub struct ICompositeTransform3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICompositeTransform3DStatics {
     type Vtable = ICompositeTransform3DStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3720301927, 10789, 18675, [152, 8, 197, 30, 195, 213, 91, 236]);
@@ -436,7 +476,7 @@ pub struct ICompositeTransform3DStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMatrix3DHelper(::windows::runtime::IInspectable);
+pub struct IMatrix3DHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelper {
     type Vtable = IMatrix3DHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3834384623, 39207, 19611, [130, 19, 7, 119, 85, 18, 186, 4]);
@@ -453,7 +493,7 @@ pub struct IMatrix3DHelper_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMatrix3DHelperStatics(::windows::runtime::IInspectable);
+pub struct IMatrix3DHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMatrix3DHelperStatics {
     type Vtable = IMatrix3DHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2456048734, 57688, 20084, [136, 153, 104, 145, 96, 189, 47, 140]);
@@ -476,7 +516,7 @@ pub struct IMatrix3DHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerspectiveTransform3D(::windows::runtime::IInspectable);
+pub struct IPerspectiveTransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2591773482, 12537, 16545, [150, 201, 197, 157, 135, 249, 90, 195]);
@@ -499,7 +539,7 @@ pub struct IPerspectiveTransform3D_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPerspectiveTransform3DStatics(::windows::runtime::IInspectable);
+pub struct IPerspectiveTransform3DStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPerspectiveTransform3DStatics {
     type Vtable = IPerspectiveTransform3DStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2389664768, 25100, 18631, [132, 77, 63, 9, 132, 218, 91, 23]);
@@ -519,7 +559,7 @@ pub struct IPerspectiveTransform3DStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransform3D(::windows::runtime::IInspectable);
+pub struct ITransform3D(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3D {
     type Vtable = ITransform3D_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2923353146, 43516, 19505, [134, 205, 86, 217, 202, 37, 26, 105]);
@@ -536,7 +576,7 @@ pub struct ITransform3D_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITransform3DFactory(::windows::runtime::IInspectable);
+pub struct ITransform3DFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITransform3DFactory {
     type Vtable = ITransform3DFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86777722, 36211, 18637, [187, 184, 208, 4, 52, 202, 174, 93]);
@@ -618,8 +658,8 @@ impl ::windows::runtime::DefaultType for Matrix3D {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Matrix3DHelper(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Matrix3DHelper(pub ::windows::runtime::IInspectable);
 impl Matrix3DHelper {
     #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn Identity() -> ::windows::runtime::Result<Matrix3D> {
@@ -678,12 +718,52 @@ unsafe impl ::windows::runtime::Interface for Matrix3DHelper {
 impl ::windows::runtime::RuntimeName for Matrix3DHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Matrix3DHelper";
 }
+impl ::std::convert::From<Matrix3DHelper> for ::windows::runtime::IUnknown {
+    fn from(value: Matrix3DHelper) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Matrix3DHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &Matrix3DHelper) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Matrix3DHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Matrix3DHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Matrix3DHelper> for ::windows::runtime::IInspectable {
+    fn from(value: Matrix3DHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Matrix3DHelper> for ::windows::runtime::IInspectable {
+    fn from(value: &Matrix3DHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Matrix3DHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Matrix3DHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Matrix3DHelper {}
 unsafe impl ::std::marker::Sync for Matrix3DHelper {}
 #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PerspectiveTransform3D(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PerspectiveTransform3D(pub ::windows::runtime::IInspectable);
 impl PerspectiveTransform3D {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -823,6 +903,46 @@ unsafe impl ::windows::runtime::Interface for PerspectiveTransform3D {
 impl ::windows::runtime::RuntimeName for PerspectiveTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D";
 }
+impl ::std::convert::From<PerspectiveTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: PerspectiveTransform3D) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PerspectiveTransform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &PerspectiveTransform3D) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PerspectiveTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PerspectiveTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PerspectiveTransform3D> for ::windows::runtime::IInspectable {
+    fn from(value: PerspectiveTransform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PerspectiveTransform3D> for ::windows::runtime::IInspectable {
+    fn from(value: &PerspectiveTransform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PerspectiveTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PerspectiveTransform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<PerspectiveTransform3D> for Transform3D {
     fn from(value: PerspectiveTransform3D) -> Self {
         ::std::convert::Into::<Transform3D>::into(&value)
@@ -867,8 +987,8 @@ unsafe impl ::std::marker::Send for PerspectiveTransform3D {}
 unsafe impl ::std::marker::Sync for PerspectiveTransform3D {}
 #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Transform3D(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Transform3D(pub ::windows::runtime::IInspectable);
 impl Transform3D {
     #[doc = "*Required features: `UI_Xaml_Media_Media3D`*"]
     pub fn GetValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::DependencyProperty>>(&self, dp: Param0) -> ::windows::runtime::Result<::windows::runtime::IInspectable> {
@@ -936,6 +1056,46 @@ unsafe impl ::windows::runtime::Interface for Transform3D {
 }
 impl ::windows::runtime::RuntimeName for Transform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Transform3D";
+}
+impl ::std::convert::From<Transform3D> for ::windows::runtime::IUnknown {
+    fn from(value: Transform3D) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Transform3D> for ::windows::runtime::IUnknown {
+    fn from(value: &Transform3D) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Transform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Transform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Transform3D> for ::windows::runtime::IInspectable {
+    fn from(value: Transform3D) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Transform3D> for ::windows::runtime::IInspectable {
+    fn from(value: &Transform3D) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Transform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Transform3D {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<Transform3D> for super::super::DependencyObject {
     fn from(value: Transform3D) -> Self {

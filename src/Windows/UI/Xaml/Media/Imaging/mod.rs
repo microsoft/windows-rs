@@ -51,8 +51,8 @@ impl ::std::ops::Not for BitmapCreateOptions {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BitmapImage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BitmapImage(pub ::windows::runtime::IInspectable);
 impl BitmapImage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -390,6 +390,46 @@ unsafe impl ::windows::runtime::Interface for BitmapImage {
 impl ::windows::runtime::RuntimeName for BitmapImage {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.BitmapImage";
 }
+impl ::std::convert::From<BitmapImage> for ::windows::runtime::IUnknown {
+    fn from(value: BitmapImage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BitmapImage> for ::windows::runtime::IUnknown {
+    fn from(value: &BitmapImage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BitmapImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BitmapImage> for ::windows::runtime::IInspectable {
+    fn from(value: BitmapImage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BitmapImage> for ::windows::runtime::IInspectable {
+    fn from(value: &BitmapImage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapImage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<BitmapImage> for BitmapSource {
     fn from(value: BitmapImage) -> Self {
         ::std::convert::Into::<BitmapSource>::into(&value)
@@ -454,8 +494,8 @@ unsafe impl ::std::marker::Send for BitmapImage {}
 unsafe impl ::std::marker::Sync for BitmapImage {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BitmapSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BitmapSource(pub ::windows::runtime::IInspectable);
 impl BitmapSource {
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn PixelWidth(&self) -> ::windows::runtime::Result<i32> {
@@ -573,6 +613,46 @@ unsafe impl ::windows::runtime::Interface for BitmapSource {
 impl ::windows::runtime::RuntimeName for BitmapSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.BitmapSource";
 }
+impl ::std::convert::From<BitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: BitmapSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: &BitmapSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BitmapSource> for ::windows::runtime::IInspectable {
+    fn from(value: BitmapSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BitmapSource> for ::windows::runtime::IInspectable {
+    fn from(value: &BitmapSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<BitmapSource> for super::ImageSource {
     fn from(value: BitmapSource) -> Self {
         ::std::convert::Into::<super::ImageSource>::into(&value)
@@ -639,8 +719,8 @@ impl ::windows::runtime::DefaultType for DecodePixelType {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DownloadProgressEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DownloadProgressEventArgs(pub ::windows::runtime::IInspectable);
 impl DownloadProgressEventArgs {
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Progress(&self) -> ::windows::runtime::Result<i32> {
@@ -665,6 +745,46 @@ unsafe impl ::windows::runtime::Interface for DownloadProgressEventArgs {
 }
 impl ::windows::runtime::RuntimeName for DownloadProgressEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs";
+}
+impl ::std::convert::From<DownloadProgressEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: DownloadProgressEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DownloadProgressEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &DownloadProgressEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DownloadProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DownloadProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DownloadProgressEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: DownloadProgressEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DownloadProgressEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &DownloadProgressEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DownloadProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DownloadProgressEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for DownloadProgressEventArgs {}
 unsafe impl ::std::marker::Sync for DownloadProgressEventArgs {}
@@ -747,7 +867,7 @@ impl<F: FnMut(&::std::option::Option<::windows::runtime::IInspectable>, &::std::
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImage(::windows::runtime::IInspectable);
+pub struct IBitmapImage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage {
     type Vtable = IBitmapImage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(833565297, 58292, 17453, [163, 65, 76, 2, 38, 178, 114, 91]);
@@ -786,7 +906,7 @@ pub struct IBitmapImage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImage2(::windows::runtime::IInspectable);
+pub struct IBitmapImage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage2 {
     type Vtable = IBitmapImage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(275366326, 35995, 18274, [190, 61, 117, 159, 86, 152, 242, 179]);
@@ -805,7 +925,7 @@ pub struct IBitmapImage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImage3(::windows::runtime::IInspectable);
+pub struct IBitmapImage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImage3 {
     type Vtable = IBitmapImage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4057886502, 15475, 17727, [167, 186, 155, 133, 193, 139, 55, 51]);
@@ -828,7 +948,7 @@ pub struct IBitmapImage3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImageFactory(::windows::runtime::IInspectable);
+pub struct IBitmapImageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageFactory {
     type Vtable = IBitmapImageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3373476216, 18448, 20062, [128, 135, 3, 103, 30, 230, 13, 133]);
@@ -847,7 +967,7 @@ pub struct IBitmapImageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImageStatics(::windows::runtime::IInspectable);
+pub struct IBitmapImageStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics {
     type Vtable = IBitmapImageStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2653430083, 28904, 17276, [159, 164, 44, 191, 41, 92, 255, 132]);
@@ -868,7 +988,7 @@ pub struct IBitmapImageStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImageStatics2(::windows::runtime::IInspectable);
+pub struct IBitmapImageStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics2 {
     type Vtable = IBitmapImageStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3321190250, 30127, 16804, [184, 147, 143, 233, 31, 238, 40, 130]);
@@ -886,7 +1006,7 @@ pub struct IBitmapImageStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapImageStatics3(::windows::runtime::IInspectable);
+pub struct IBitmapImageStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapImageStatics3 {
     type Vtable = IBitmapImageStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(725934861, 63189, 17425, [168, 205, 191, 118, 3, 196, 250, 160]);
@@ -906,7 +1026,7 @@ pub struct IBitmapImageStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapSource(::windows::runtime::IInspectable);
+pub struct IBitmapSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSource {
     type Vtable = IBitmapSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(601383953, 8239, 16818, [140, 91, 168, 163, 179, 51, 128, 11]);
@@ -929,7 +1049,7 @@ pub struct IBitmapSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapSourceFactory(::windows::runtime::IInspectable);
+pub struct IBitmapSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSourceFactory {
     type Vtable = IBitmapSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3795862030, 54439, 18852, [160, 180, 165, 159, 221, 119, 229, 8]);
@@ -947,7 +1067,7 @@ pub struct IBitmapSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBitmapSourceStatics(::windows::runtime::IInspectable);
+pub struct IBitmapSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBitmapSourceStatics {
     type Vtable = IBitmapSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2593954177, 33403, 20049, [137, 27, 138, 21, 181, 17, 132, 45]);
@@ -966,7 +1086,7 @@ pub struct IBitmapSourceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDownloadProgressEventArgs(::windows::runtime::IInspectable);
+pub struct IDownloadProgressEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDownloadProgressEventArgs {
     type Vtable = IDownloadProgressEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1930551508, 65172, 20080, [155, 144, 205, 212, 122, 194, 58, 251]);
@@ -985,7 +1105,7 @@ pub struct IDownloadProgressEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRenderTargetBitmap(::windows::runtime::IInspectable);
+pub struct IRenderTargetBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderTargetBitmap {
     type Vtable = IRenderTargetBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1343090305, 35132, 19466, [143, 236, 70, 120, 172, 113, 117, 137]);
@@ -1010,7 +1130,7 @@ pub struct IRenderTargetBitmap_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRenderTargetBitmapStatics(::windows::runtime::IInspectable);
+pub struct IRenderTargetBitmapStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRenderTargetBitmapStatics {
     type Vtable = IRenderTargetBitmapStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4037144558, 49457, 19776, [156, 71, 247, 215, 207, 43, 7, 127]);
@@ -1029,7 +1149,7 @@ pub struct IRenderTargetBitmapStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISoftwareBitmapSource(::windows::runtime::IInspectable);
+pub struct ISoftwareBitmapSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoftwareBitmapSource {
     type Vtable = ISoftwareBitmapSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3537739472, 54213, 16470, [145, 181, 183, 193, 209, 232, 19, 14]);
@@ -1048,7 +1168,7 @@ pub struct ISoftwareBitmapSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISurfaceImageSource(::windows::runtime::IInspectable);
+pub struct ISurfaceImageSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSource {
     type Vtable = ISurfaceImageSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1660408854, 50964, 19532, [130, 115, 248, 57, 188, 88, 19, 92]);
@@ -1065,7 +1185,7 @@ pub struct ISurfaceImageSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISurfaceImageSourceFactory(::windows::runtime::IInspectable);
+pub struct ISurfaceImageSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISurfaceImageSourceFactory {
     type Vtable = ISurfaceImageSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(984752426, 61285, 19039, [191, 172, 115, 153, 62, 140, 18, 201]);
@@ -1084,7 +1204,7 @@ pub struct ISurfaceImageSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISvgImageSource(::windows::runtime::IInspectable);
+pub struct ISvgImageSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSource {
     type Vtable = ISvgImageSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(65130179, 3240, 19022, [141, 124, 200, 8, 160, 131, 133, 134]);
@@ -1119,7 +1239,7 @@ pub struct ISvgImageSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISvgImageSourceFactory(::windows::runtime::IInspectable);
+pub struct ISvgImageSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceFactory {
     type Vtable = ISvgImageSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3348425191, 53027, 19826, [191, 26, 223, 170, 22, 216, 234, 82]);
@@ -1139,7 +1259,7 @@ pub struct ISvgImageSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISvgImageSourceFailedEventArgs(::windows::runtime::IInspectable);
+pub struct ISvgImageSourceFailedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceFailedEventArgs {
     type Vtable = ISvgImageSourceFailedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1757098352, 15564, 16437, [172, 1, 152, 52, 84, 61, 116, 78]);
@@ -1157,7 +1277,7 @@ pub struct ISvgImageSourceFailedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISvgImageSourceOpenedEventArgs(::windows::runtime::IInspectable);
+pub struct ISvgImageSourceOpenedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceOpenedEventArgs {
     type Vtable = ISvgImageSourceOpenedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2247052310, 29838, 16392, [149, 199, 106, 35, 221, 115, 22, 219]);
@@ -1174,7 +1294,7 @@ pub struct ISvgImageSourceOpenedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISvgImageSourceStatics(::windows::runtime::IInspectable);
+pub struct ISvgImageSourceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISvgImageSourceStatics {
     type Vtable = ISvgImageSourceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623944910, 48849, 19115, [172, 187, 211, 226, 24, 93, 49, 90]);
@@ -1194,7 +1314,7 @@ pub struct ISvgImageSourceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVirtualSurfaceImageSource(::windows::runtime::IInspectable);
+pub struct IVirtualSurfaceImageSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceImageSource {
     type Vtable = IVirtualSurfaceImageSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248927722, 49068, 4576, [160, 106, 157, 228, 71, 36, 1, 155]);
@@ -1211,7 +1331,7 @@ pub struct IVirtualSurfaceImageSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVirtualSurfaceImageSourceFactory(::windows::runtime::IInspectable);
+pub struct IVirtualSurfaceImageSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVirtualSurfaceImageSourceFactory {
     type Vtable = IVirtualSurfaceImageSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(984752426, 49068, 4576, [138, 146, 105, 228, 71, 36, 1, 155]);
@@ -1230,7 +1350,7 @@ pub struct IVirtualSurfaceImageSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWriteableBitmap(::windows::runtime::IInspectable);
+pub struct IWriteableBitmap(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWriteableBitmap {
     type Vtable = IWriteableBitmap_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3205201519, 57212, 19077, [132, 19, 161, 33, 98, 133, 131, 92]);
@@ -1250,7 +1370,7 @@ pub struct IWriteableBitmap_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWriteableBitmapFactory(::windows::runtime::IInspectable);
+pub struct IWriteableBitmapFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWriteableBitmapFactory {
     type Vtable = IWriteableBitmapFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432611761, 16114, 17093, [156, 109, 28, 245, 220, 192, 65, 255]);
@@ -1268,7 +1388,7 @@ pub struct IWriteableBitmapFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTask(::windows::runtime::IInspectable);
+pub struct IXamlRenderingBackgroundTask(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTask {
     type Vtable = IXamlRenderingBackgroundTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1566566826, 21310, 17592, [169, 117, 252, 95, 30, 59, 255, 82]);
@@ -1285,7 +1405,7 @@ pub struct IXamlRenderingBackgroundTask_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTaskFactory(::windows::runtime::IInspectable);
+pub struct IXamlRenderingBackgroundTaskFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTaskFactory {
     type Vtable = IXamlRenderingBackgroundTaskFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2748431203, 14584, 19875, [159, 202, 253, 129, 40, 162, 203, 249]);
@@ -1303,7 +1423,7 @@ pub struct IXamlRenderingBackgroundTaskFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlRenderingBackgroundTaskOverrides(::windows::runtime::IInspectable);
+pub struct IXamlRenderingBackgroundTaskOverrides(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlRenderingBackgroundTaskOverrides {
     type Vtable = IXamlRenderingBackgroundTaskOverrides_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2620025239, 43272, 18193, [180, 178, 169, 96, 219, 61, 142, 90]);
@@ -1322,8 +1442,8 @@ pub struct IXamlRenderingBackgroundTaskOverrides_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RenderTargetBitmap(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RenderTargetBitmap(pub ::windows::runtime::IInspectable);
 impl RenderTargetBitmap {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1460,6 +1580,46 @@ unsafe impl ::windows::runtime::Interface for RenderTargetBitmap {
 impl ::windows::runtime::RuntimeName for RenderTargetBitmap {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap";
 }
+impl ::std::convert::From<RenderTargetBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: RenderTargetBitmap) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RenderTargetBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: &RenderTargetBitmap) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RenderTargetBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RenderTargetBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RenderTargetBitmap> for ::windows::runtime::IInspectable {
+    fn from(value: RenderTargetBitmap) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RenderTargetBitmap> for ::windows::runtime::IInspectable {
+    fn from(value: &RenderTargetBitmap) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RenderTargetBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RenderTargetBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<RenderTargetBitmap> for super::ImageSource {
     fn from(value: RenderTargetBitmap) -> Self {
         ::std::convert::Into::<super::ImageSource>::into(&value)
@@ -1504,8 +1664,8 @@ unsafe impl ::std::marker::Send for RenderTargetBitmap {}
 unsafe impl ::std::marker::Sync for RenderTargetBitmap {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SoftwareBitmapSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SoftwareBitmapSource(pub ::windows::runtime::IInspectable);
 impl SoftwareBitmapSource {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1596,6 +1756,46 @@ unsafe impl ::windows::runtime::Interface for SoftwareBitmapSource {
 impl ::windows::runtime::RuntimeName for SoftwareBitmapSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource";
 }
+impl ::std::convert::From<SoftwareBitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: SoftwareBitmapSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SoftwareBitmapSource> for ::windows::runtime::IUnknown {
+    fn from(value: &SoftwareBitmapSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SoftwareBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SoftwareBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SoftwareBitmapSource> for ::windows::runtime::IInspectable {
+    fn from(value: SoftwareBitmapSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SoftwareBitmapSource> for ::windows::runtime::IInspectable {
+    fn from(value: &SoftwareBitmapSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SoftwareBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SoftwareBitmapSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<SoftwareBitmapSource> for super::super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1666,8 +1866,8 @@ unsafe impl ::std::marker::Send for SoftwareBitmapSource {}
 unsafe impl ::std::marker::Sync for SoftwareBitmapSource {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SurfaceImageSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SurfaceImageSource(pub ::windows::runtime::IInspectable);
 impl SurfaceImageSource {
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::runtime::Result<SurfaceImageSource> {
@@ -1754,6 +1954,46 @@ unsafe impl ::windows::runtime::Interface for SurfaceImageSource {
 impl ::windows::runtime::RuntimeName for SurfaceImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SurfaceImageSource";
 }
+impl ::std::convert::From<SurfaceImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: SurfaceImageSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SurfaceImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: &SurfaceImageSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SurfaceImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: SurfaceImageSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SurfaceImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: &SurfaceImageSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SurfaceImageSource> for super::ImageSource {
     fn from(value: SurfaceImageSource) -> Self {
         ::std::convert::Into::<super::ImageSource>::into(&value)
@@ -1798,8 +2038,8 @@ unsafe impl ::std::marker::Send for SurfaceImageSource {}
 unsafe impl ::std::marker::Sync for SurfaceImageSource {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SvgImageSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SvgImageSource(pub ::windows::runtime::IInspectable);
 impl SvgImageSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Foundation`*"]
@@ -1992,6 +2232,46 @@ unsafe impl ::windows::runtime::Interface for SvgImageSource {
 impl ::windows::runtime::RuntimeName for SvgImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSource";
 }
+impl ::std::convert::From<SvgImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: SvgImageSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SvgImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: &SvgImageSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SvgImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SvgImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SvgImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: SvgImageSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SvgImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: &SvgImageSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SvgImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SvgImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<SvgImageSource> for super::ImageSource {
     fn from(value: SvgImageSource) -> Self {
         ::std::convert::Into::<super::ImageSource>::into(&value)
@@ -2036,8 +2316,8 @@ unsafe impl ::std::marker::Send for SvgImageSource {}
 unsafe impl ::std::marker::Sync for SvgImageSource {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SvgImageSourceFailedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SvgImageSourceFailedEventArgs(pub ::windows::runtime::IInspectable);
 impl SvgImageSourceFailedEventArgs {
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<SvgImageSourceLoadStatus> {
@@ -2057,6 +2337,46 @@ unsafe impl ::windows::runtime::Interface for SvgImageSourceFailedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for SvgImageSourceFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs";
+}
+impl ::std::convert::From<SvgImageSourceFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SvgImageSourceFailedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SvgImageSourceFailedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SvgImageSourceFailedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SvgImageSourceFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SvgImageSourceFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SvgImageSourceFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SvgImageSourceFailedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SvgImageSourceFailedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SvgImageSourceFailedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SvgImageSourceFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SvgImageSourceFailedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for SvgImageSourceFailedEventArgs {}
 unsafe impl ::std::marker::Sync for SvgImageSourceFailedEventArgs {}
@@ -2086,8 +2406,8 @@ impl ::windows::runtime::DefaultType for SvgImageSourceLoadStatus {
 }
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SvgImageSourceOpenedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SvgImageSourceOpenedEventArgs(pub ::windows::runtime::IInspectable);
 impl SvgImageSourceOpenedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for SvgImageSourceOpenedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs;{85ef4c16-748e-4008-95c7-6a23dd7316db})");
@@ -2099,12 +2419,52 @@ unsafe impl ::windows::runtime::Interface for SvgImageSourceOpenedEventArgs {
 impl ::windows::runtime::RuntimeName for SvgImageSourceOpenedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs";
 }
+impl ::std::convert::From<SvgImageSourceOpenedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: SvgImageSourceOpenedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SvgImageSourceOpenedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &SvgImageSourceOpenedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SvgImageSourceOpenedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SvgImageSourceOpenedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SvgImageSourceOpenedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: SvgImageSourceOpenedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SvgImageSourceOpenedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &SvgImageSourceOpenedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SvgImageSourceOpenedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SvgImageSourceOpenedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for SvgImageSourceOpenedEventArgs {}
 unsafe impl ::std::marker::Sync for SvgImageSourceOpenedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VirtualSurfaceImageSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VirtualSurfaceImageSource(pub ::windows::runtime::IInspectable);
 impl VirtualSurfaceImageSource {
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::runtime::Result<VirtualSurfaceImageSource> {
@@ -2191,6 +2551,46 @@ unsafe impl ::windows::runtime::Interface for VirtualSurfaceImageSource {
 impl ::windows::runtime::RuntimeName for VirtualSurfaceImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource";
 }
+impl ::std::convert::From<VirtualSurfaceImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: VirtualSurfaceImageSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VirtualSurfaceImageSource> for ::windows::runtime::IUnknown {
+    fn from(value: &VirtualSurfaceImageSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VirtualSurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VirtualSurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VirtualSurfaceImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: VirtualSurfaceImageSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VirtualSurfaceImageSource> for ::windows::runtime::IInspectable {
+    fn from(value: &VirtualSurfaceImageSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VirtualSurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VirtualSurfaceImageSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<VirtualSurfaceImageSource> for SurfaceImageSource {
     fn from(value: VirtualSurfaceImageSource) -> Self {
         ::std::convert::Into::<SurfaceImageSource>::into(&value)
@@ -2255,8 +2655,8 @@ unsafe impl ::std::marker::Send for VirtualSurfaceImageSource {}
 unsafe impl ::std::marker::Sync for VirtualSurfaceImageSource {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WriteableBitmap(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WriteableBitmap(pub ::windows::runtime::IInspectable);
 impl WriteableBitmap {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `UI_Xaml_Media_Imaging`, `Storage_Streams`*"]
@@ -2381,6 +2781,46 @@ unsafe impl ::windows::runtime::Interface for WriteableBitmap {
 impl ::windows::runtime::RuntimeName for WriteableBitmap {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.WriteableBitmap";
 }
+impl ::std::convert::From<WriteableBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: WriteableBitmap) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WriteableBitmap> for ::windows::runtime::IUnknown {
+    fn from(value: &WriteableBitmap) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WriteableBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WriteableBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WriteableBitmap> for ::windows::runtime::IInspectable {
+    fn from(value: WriteableBitmap) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WriteableBitmap> for ::windows::runtime::IInspectable {
+    fn from(value: &WriteableBitmap) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WriteableBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WriteableBitmap {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<WriteableBitmap> for BitmapSource {
     fn from(value: WriteableBitmap) -> Self {
         ::std::convert::Into::<BitmapSource>::into(&value)
@@ -2445,8 +2885,8 @@ unsafe impl ::std::marker::Send for WriteableBitmap {}
 unsafe impl ::std::marker::Sync for WriteableBitmap {}
 #[doc = "*Required features: `UI_Xaml_Media_Imaging`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct XamlRenderingBackgroundTask(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct XamlRenderingBackgroundTask(pub ::windows::runtime::IInspectable);
 impl XamlRenderingBackgroundTask {}
 unsafe impl ::windows::runtime::RuntimeType for XamlRenderingBackgroundTask {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask;{5d5fe9aa-533e-44b8-a975-fc5f1e3bff52})");
@@ -2457,6 +2897,46 @@ unsafe impl ::windows::runtime::Interface for XamlRenderingBackgroundTask {
 }
 impl ::windows::runtime::RuntimeName for XamlRenderingBackgroundTask {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask";
+}
+impl ::std::convert::From<XamlRenderingBackgroundTask> for ::windows::runtime::IUnknown {
+    fn from(value: XamlRenderingBackgroundTask) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&XamlRenderingBackgroundTask> for ::windows::runtime::IUnknown {
+    fn from(value: &XamlRenderingBackgroundTask) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlRenderingBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XamlRenderingBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<XamlRenderingBackgroundTask> for ::windows::runtime::IInspectable {
+    fn from(value: XamlRenderingBackgroundTask) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XamlRenderingBackgroundTask> for ::windows::runtime::IInspectable {
+    fn from(value: &XamlRenderingBackgroundTask) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlRenderingBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlRenderingBackgroundTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for XamlRenderingBackgroundTask {}
 unsafe impl ::std::marker::Sync for XamlRenderingBackgroundTask {}

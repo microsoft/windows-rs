@@ -1746,8 +1746,8 @@ pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ICloneViewHelper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ICloneViewHelper(pub ::windows::runtime::IUnknown);
 impl ICloneViewHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -1773,6 +1773,26 @@ impl ICloneViewHelper {
 unsafe impl ::windows::runtime::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4137931972, 22066, 19843, [176, 161, 251, 136, 113, 43, 30, 183]);
+}
+impl ::std::convert::From<ICloneViewHelper> for ::windows::runtime::IUnknown {
+    fn from(value: ICloneViewHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICloneViewHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &ICloneViewHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICloneViewHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICloneViewHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -1975,8 +1995,8 @@ pub const IOCTL_VIDEO_USE_DEVICE_IN_SESSION: u32 = 2293800u32;
 pub const IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION: u32 = 2294916u32;
 #[doc = "*Required features: `Win32_Devices_Display`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IViewHelper(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IViewHelper(pub ::windows::runtime::IUnknown);
 impl IViewHelper {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Display`, `Win32_Foundation`*"]
@@ -2011,6 +2031,26 @@ impl IViewHelper {
 unsafe impl ::windows::runtime::Interface for IViewHelper {
     type Vtable = IViewHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3898396405, 43690, 18416, [181, 227, 97, 247, 174, 205, 196, 193]);
+}
+impl ::std::convert::From<IViewHelper> for ::windows::runtime::IUnknown {
+    fn from(value: IViewHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IViewHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &IViewHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IViewHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IViewHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

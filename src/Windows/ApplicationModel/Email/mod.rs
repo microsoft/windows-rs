@@ -3,8 +3,8 @@
 pub mod DataProvider;
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailAttachment(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailAttachment(pub ::windows::runtime::IInspectable);
 impl EmailAttachment {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -170,6 +170,46 @@ unsafe impl ::windows::runtime::Interface for EmailAttachment {
 impl ::windows::runtime::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
 }
+impl ::std::convert::From<EmailAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: EmailAttachment) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailAttachment> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailAttachment) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailAttachment> for ::windows::runtime::IInspectable {
+    fn from(value: EmailAttachment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailAttachment> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailAttachment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailAttachment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailAttachment {}
 unsafe impl ::std::marker::Sync for EmailAttachment {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -252,8 +292,8 @@ impl ::windows::runtime::DefaultType for EmailCertificateValidationStatus {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailConversation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailConversation(pub ::windows::runtime::IInspectable);
 impl EmailConversation {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -389,12 +429,52 @@ unsafe impl ::windows::runtime::Interface for EmailConversation {
 impl ::windows::runtime::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
 }
+impl ::std::convert::From<EmailConversation> for ::windows::runtime::IUnknown {
+    fn from(value: EmailConversation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailConversation> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailConversation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailConversation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailConversation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailConversation> for ::windows::runtime::IInspectable {
+    fn from(value: EmailConversation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailConversation> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailConversation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailConversation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailConversation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailConversation {}
 unsafe impl ::std::marker::Sync for EmailConversation {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailConversationBatch(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailConversationBatch(pub ::windows::runtime::IInspectable);
 impl EmailConversationBatch {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
@@ -424,12 +504,52 @@ unsafe impl ::windows::runtime::Interface for EmailConversationBatch {
 impl ::windows::runtime::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
 }
+impl ::std::convert::From<EmailConversationBatch> for ::windows::runtime::IUnknown {
+    fn from(value: EmailConversationBatch) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailConversationBatch> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailConversationBatch) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailConversationBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailConversationBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailConversationBatch> for ::windows::runtime::IInspectable {
+    fn from(value: EmailConversationBatch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailConversationBatch> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailConversationBatch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailConversationBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailConversationBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailConversationBatch {}
 unsafe impl ::std::marker::Sync for EmailConversationBatch {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailConversationReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailConversationReader(pub ::windows::runtime::IInspectable);
 impl EmailConversationReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
@@ -450,6 +570,46 @@ unsafe impl ::windows::runtime::Interface for EmailConversationReader {
 }
 impl ::windows::runtime::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
+}
+impl ::std::convert::From<EmailConversationReader> for ::windows::runtime::IUnknown {
+    fn from(value: EmailConversationReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailConversationReader> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailConversationReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailConversationReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailConversationReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailConversationReader> for ::windows::runtime::IInspectable {
+    fn from(value: EmailConversationReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailConversationReader> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailConversationReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailConversationReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailConversationReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailConversationReader {}
 unsafe impl ::std::marker::Sync for EmailConversationReader {}
@@ -479,8 +639,8 @@ impl ::windows::runtime::DefaultType for EmailFlagState {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailFolder(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailFolder(pub ::windows::runtime::IInspectable);
 impl EmailFolder {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -692,6 +852,46 @@ unsafe impl ::windows::runtime::Interface for EmailFolder {
 impl ::windows::runtime::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
 }
+impl ::std::convert::From<EmailFolder> for ::windows::runtime::IUnknown {
+    fn from(value: EmailFolder) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailFolder> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailFolder) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailFolder> for ::windows::runtime::IInspectable {
+    fn from(value: EmailFolder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailFolder> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailFolder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailFolder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailFolder {}
 unsafe impl ::std::marker::Sync for EmailFolder {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -719,8 +919,8 @@ impl ::windows::runtime::DefaultType for EmailImportance {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailIrmInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailIrmInfo(pub ::windows::runtime::IInspectable);
 impl EmailIrmInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -910,12 +1110,52 @@ unsafe impl ::windows::runtime::Interface for EmailIrmInfo {
 impl ::windows::runtime::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
 }
+impl ::std::convert::From<EmailIrmInfo> for ::windows::runtime::IUnknown {
+    fn from(value: EmailIrmInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailIrmInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailIrmInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailIrmInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailIrmInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailIrmInfo> for ::windows::runtime::IInspectable {
+    fn from(value: EmailIrmInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailIrmInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailIrmInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailIrmInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailIrmInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailIrmInfo {}
 unsafe impl ::std::marker::Sync for EmailIrmInfo {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailIrmTemplate(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailIrmTemplate(pub ::windows::runtime::IInspectable);
 impl EmailIrmTemplate {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -985,12 +1225,52 @@ unsafe impl ::windows::runtime::Interface for EmailIrmTemplate {
 impl ::windows::runtime::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
 }
+impl ::std::convert::From<EmailIrmTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: EmailIrmTemplate) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailIrmTemplate> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailIrmTemplate) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailIrmTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailIrmTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailIrmTemplate> for ::windows::runtime::IInspectable {
+    fn from(value: EmailIrmTemplate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailIrmTemplate> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailIrmTemplate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailIrmTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailIrmTemplate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailIrmTemplate {}
 unsafe impl ::std::marker::Sync for EmailIrmTemplate {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailItemCounts(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailItemCounts(pub ::windows::runtime::IInspectable);
 impl EmailItemCounts {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Flagged(&self) -> ::windows::runtime::Result<u32> {
@@ -1035,12 +1315,52 @@ unsafe impl ::windows::runtime::Interface for EmailItemCounts {
 impl ::windows::runtime::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
 }
+impl ::std::convert::From<EmailItemCounts> for ::windows::runtime::IUnknown {
+    fn from(value: EmailItemCounts) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailItemCounts> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailItemCounts) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailItemCounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailItemCounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailItemCounts> for ::windows::runtime::IInspectable {
+    fn from(value: EmailItemCounts) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailItemCounts> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailItemCounts) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailItemCounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailItemCounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailItemCounts {}
 unsafe impl ::std::marker::Sync for EmailItemCounts {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailbox(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailbox(pub ::windows::runtime::IInspectable);
 impl EmailMailbox {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Capabilities(&self) -> ::windows::runtime::Result<EmailMailboxCapabilities> {
@@ -1568,12 +1888,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailbox {
 impl ::windows::runtime::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
 }
+impl ::std::convert::From<EmailMailbox> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailbox) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailbox> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailbox) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailbox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailbox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailbox> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailbox) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailbox> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailbox) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailbox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailbox {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailbox {}
 unsafe impl ::std::marker::Sync for EmailMailbox {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxAction(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxAction(pub ::windows::runtime::IInspectable);
 impl EmailMailboxAction {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Kind(&self) -> ::windows::runtime::Result<EmailMailboxActionKind> {
@@ -1601,6 +1961,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxAction {
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
+}
+impl ::std::convert::From<EmailMailboxAction> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxAction) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAction> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxAction) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxAction> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxAction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAction> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxAction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxAction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailMailboxAction {}
 unsafe impl ::std::marker::Sync for EmailMailboxAction {}
@@ -1660,8 +2060,8 @@ impl ::windows::runtime::DefaultType for EmailMailboxAllowedSmimeEncryptionAlgor
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxAutoReply(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxAutoReply(pub ::windows::runtime::IInspectable);
 impl EmailMailboxAutoReply {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -1700,6 +2100,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxAutoReply {
 impl ::windows::runtime::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
 }
+impl ::std::convert::From<EmailMailboxAutoReply> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxAutoReply) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAutoReply> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxAutoReply) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxAutoReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxAutoReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxAutoReply> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxAutoReply) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAutoReply> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxAutoReply) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxAutoReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxAutoReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxAutoReply {}
 unsafe impl ::std::marker::Sync for EmailMailboxAutoReply {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -1726,8 +2166,8 @@ impl ::windows::runtime::DefaultType for EmailMailboxAutoReplyMessageResponseKin
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxAutoReplySettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxAutoReplySettings(pub ::windows::runtime::IInspectable);
 impl EmailMailboxAutoReplySettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1827,12 +2267,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxAutoReplySettings {
 impl ::windows::runtime::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
 }
+impl ::std::convert::From<EmailMailboxAutoReplySettings> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxAutoReplySettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAutoReplySettings> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxAutoReplySettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxAutoReplySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxAutoReplySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxAutoReplySettings> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxAutoReplySettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxAutoReplySettings> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxAutoReplySettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxAutoReplySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxAutoReplySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxAutoReplySettings {}
 unsafe impl ::std::marker::Sync for EmailMailboxAutoReplySettings {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxCapabilities(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxCapabilities(pub ::windows::runtime::IInspectable);
 impl EmailMailboxCapabilities {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn CanForwardMeetings(&self) -> ::windows::runtime::Result<bool> {
@@ -2027,12 +2507,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxCapabilities {
 impl ::windows::runtime::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
 }
+impl ::std::convert::From<EmailMailboxCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxCapabilities) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxCapabilities> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxCapabilities) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxCapabilities> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxCapabilities) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxCapabilities> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxCapabilities) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxCapabilities {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxCapabilities {}
 unsafe impl ::std::marker::Sync for EmailMailboxCapabilities {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxChange(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxChange(pub ::windows::runtime::IInspectable);
 impl EmailMailboxChange {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn ChangeType(&self) -> ::windows::runtime::Result<EmailMailboxChangeType> {
@@ -2078,12 +2598,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxChange {
 impl ::windows::runtime::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
 }
+impl ::std::convert::From<EmailMailboxChange> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxChange) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChange> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxChange) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxChange> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxChange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChange> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxChange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxChange {}
 unsafe impl ::std::marker::Sync for EmailMailboxChange {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxChangeReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxChangeReader(pub ::windows::runtime::IInspectable);
 impl EmailMailboxChangeReader {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AcceptChanges(&self) -> ::windows::runtime::Result<()> {
@@ -2115,12 +2675,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxChangeReader {
 impl ::windows::runtime::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
 }
+impl ::std::convert::From<EmailMailboxChangeReader> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxChangeReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangeReader> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxChangeReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxChangeReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxChangeReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxChangeReader> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxChangeReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangeReader> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxChangeReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxChangeReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxChangeReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxChangeReader {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangeReader {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxChangeTracker(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxChangeTracker(pub ::windows::runtime::IInspectable);
 impl EmailMailboxChangeTracker {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn IsTracking(&self) -> ::windows::runtime::Result<bool> {
@@ -2159,6 +2759,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxChangeTracker {
 impl ::windows::runtime::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
 }
+impl ::std::convert::From<EmailMailboxChangeTracker> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxChangeTracker) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangeTracker> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxChangeTracker) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxChangeTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxChangeTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxChangeTracker> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxChangeTracker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangeTracker> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxChangeTracker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxChangeTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxChangeTracker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxChangeTracker {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangeTracker {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -2190,8 +2830,8 @@ impl ::windows::runtime::DefaultType for EmailMailboxChangeType {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxChangedDeferral(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxChangedDeferral(pub ::windows::runtime::IInspectable);
 impl EmailMailboxChangedDeferral {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Complete(&self) -> ::windows::runtime::Result<()> {
@@ -2209,12 +2849,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxChangedDeferral {
 impl ::windows::runtime::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
 }
+impl ::std::convert::From<EmailMailboxChangedDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxChangedDeferral) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangedDeferral> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxChangedDeferral) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxChangedDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxChangedDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxChangedDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxChangedDeferral) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangedDeferral> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxChangedDeferral) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxChangedDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxChangedDeferral {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxChangedDeferral {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangedDeferral {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl EmailMailboxChangedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn GetDeferral(&self) -> ::windows::runtime::Result<EmailMailboxChangedDeferral> {
@@ -2235,12 +2915,52 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxChangedEventArgs {
 impl ::windows::runtime::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
 }
+impl ::std::convert::From<EmailMailboxChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxChangedEventArgs {}
 unsafe impl ::std::marker::Sync for EmailMailboxChangedEventArgs {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxCreateFolderResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxCreateFolderResult(pub ::windows::runtime::IInspectable);
 impl EmailMailboxCreateFolderResult {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailMailboxCreateFolderStatus> {
@@ -2268,6 +2988,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxCreateFolderResult {
 }
 impl ::windows::runtime::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
+}
+impl ::std::convert::From<EmailMailboxCreateFolderResult> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxCreateFolderResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxCreateFolderResult> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxCreateFolderResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxCreateFolderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxCreateFolderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxCreateFolderResult> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxCreateFolderResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxCreateFolderResult> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxCreateFolderResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxCreateFolderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxCreateFolderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailMailboxCreateFolderResult {}
 unsafe impl ::std::marker::Sync for EmailMailboxCreateFolderResult {}
@@ -2397,8 +3157,8 @@ impl ::windows::runtime::DefaultType for EmailMailboxOtherAppWriteAccess {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxPolicies(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxPolicies(pub ::windows::runtime::IInspectable);
 impl EmailMailboxPolicies {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn AllowedSmimeEncryptionAlgorithmNegotiation(&self) -> ::windows::runtime::Result<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation> {
@@ -2493,6 +3253,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxPolicies {
 impl ::windows::runtime::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
 }
+impl ::std::convert::From<EmailMailboxPolicies> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxPolicies) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxPolicies> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxPolicies) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxPolicies {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxPolicies {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxPolicies> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxPolicies) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxPolicies> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxPolicies) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxPolicies {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxPolicies {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxPolicies {}
 unsafe impl ::std::marker::Sync for EmailMailboxPolicies {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -2546,8 +3346,8 @@ impl ::windows::runtime::DefaultType for EmailMailboxSmimeSigningAlgorithm {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMailboxSyncManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMailboxSyncManager(pub ::windows::runtime::IInspectable);
 impl EmailMailboxSyncManager {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<EmailMailboxSyncStatus> {
@@ -2627,6 +3427,46 @@ unsafe impl ::windows::runtime::Interface for EmailMailboxSyncManager {
 impl ::windows::runtime::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
 }
+impl ::std::convert::From<EmailMailboxSyncManager> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMailboxSyncManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMailboxSyncManager> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMailboxSyncManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMailboxSyncManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMailboxSyncManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMailboxSyncManager> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMailboxSyncManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMailboxSyncManager> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMailboxSyncManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMailboxSyncManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMailboxSyncManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::std::marker::Sync for EmailMailboxSyncManager {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -2701,8 +3541,8 @@ impl ::windows::runtime::RuntimeName for EmailManager {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailManagerForUser(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailManagerForUser(pub ::windows::runtime::IInspectable);
 impl EmailManagerForUser {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
@@ -2742,12 +3582,52 @@ unsafe impl ::windows::runtime::Interface for EmailManagerForUser {
 impl ::windows::runtime::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
 }
+impl ::std::convert::From<EmailManagerForUser> for ::windows::runtime::IUnknown {
+    fn from(value: EmailManagerForUser) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailManagerForUser> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailManagerForUser) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailManagerForUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailManagerForUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailManagerForUser> for ::windows::runtime::IInspectable {
+    fn from(value: EmailManagerForUser) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailManagerForUser> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailManagerForUser) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailManagerForUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailManagerForUser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailManagerForUser {}
 unsafe impl ::std::marker::Sync for EmailManagerForUser {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMeetingInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMeetingInfo(pub ::windows::runtime::IInspectable);
 impl EmailMeetingInfo {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2958,6 +3838,46 @@ unsafe impl ::windows::runtime::Interface for EmailMeetingInfo {
 impl ::windows::runtime::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
 }
+impl ::std::convert::From<EmailMeetingInfo> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMeetingInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMeetingInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMeetingInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMeetingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMeetingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMeetingInfo> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMeetingInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMeetingInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMeetingInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMeetingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMeetingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMeetingInfo {}
 unsafe impl ::std::marker::Sync for EmailMeetingInfo {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -2985,8 +3905,8 @@ impl ::windows::runtime::DefaultType for EmailMeetingResponseType {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMessage(pub ::windows::runtime::IInspectable);
 impl EmailMessage {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3431,12 +4351,52 @@ unsafe impl ::windows::runtime::Interface for EmailMessage {
 impl ::windows::runtime::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
 }
+impl ::std::convert::From<EmailMessage> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMessage> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailMessage {}
 unsafe impl ::std::marker::Sync for EmailMessage {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMessageBatch(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMessageBatch(pub ::windows::runtime::IInspectable);
 impl EmailMessageBatch {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation_Collections`*"]
@@ -3465,6 +4425,46 @@ unsafe impl ::windows::runtime::Interface for EmailMessageBatch {
 }
 impl ::windows::runtime::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
+}
+impl ::std::convert::From<EmailMessageBatch> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMessageBatch) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMessageBatch> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMessageBatch) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMessageBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMessageBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMessageBatch> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMessageBatch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMessageBatch> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMessageBatch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMessageBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMessageBatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailMessageBatch {}
 unsafe impl ::std::marker::Sync for EmailMessageBatch {}
@@ -3516,8 +4516,8 @@ impl ::windows::runtime::DefaultType for EmailMessageDownloadState {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailMessageReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailMessageReader(pub ::windows::runtime::IInspectable);
 impl EmailMessageReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`*"]
@@ -3538,6 +4538,46 @@ unsafe impl ::windows::runtime::Interface for EmailMessageReader {
 }
 impl ::windows::runtime::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
+}
+impl ::std::convert::From<EmailMessageReader> for ::windows::runtime::IUnknown {
+    fn from(value: EmailMessageReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailMessageReader> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailMessageReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailMessageReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailMessageReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailMessageReader> for ::windows::runtime::IInspectable {
+    fn from(value: EmailMessageReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailMessageReader> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailMessageReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailMessageReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailMessageReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailMessageReader {}
 unsafe impl ::std::marker::Sync for EmailMessageReader {}
@@ -3617,8 +4657,8 @@ impl ::windows::runtime::DefaultType for EmailQueryKind {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailQueryOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailQueryOptions(pub ::windows::runtime::IInspectable);
 impl EmailQueryOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3711,6 +4751,46 @@ unsafe impl ::windows::runtime::Interface for EmailQueryOptions {
 }
 impl ::windows::runtime::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
+}
+impl ::std::convert::From<EmailQueryOptions> for ::windows::runtime::IUnknown {
+    fn from(value: EmailQueryOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailQueryOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailQueryOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailQueryOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailQueryOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailQueryOptions> for ::windows::runtime::IInspectable {
+    fn from(value: EmailQueryOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailQueryOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailQueryOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailQueryOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailQueryOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailQueryOptions {}
 unsafe impl ::std::marker::Sync for EmailQueryOptions {}
@@ -3835,8 +4915,8 @@ impl ::windows::runtime::DefaultType for EmailQuerySortProperty {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailQueryTextSearch(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailQueryTextSearch(pub ::windows::runtime::IInspectable);
 impl EmailQueryTextSearch {
     #[doc = "*Required features: `ApplicationModel_Email`*"]
     pub fn Fields(&self) -> ::windows::runtime::Result<EmailQuerySearchFields> {
@@ -3888,12 +4968,52 @@ unsafe impl ::windows::runtime::Interface for EmailQueryTextSearch {
 impl ::windows::runtime::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
 }
+impl ::std::convert::From<EmailQueryTextSearch> for ::windows::runtime::IUnknown {
+    fn from(value: EmailQueryTextSearch) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailQueryTextSearch> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailQueryTextSearch) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailQueryTextSearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailQueryTextSearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailQueryTextSearch> for ::windows::runtime::IInspectable {
+    fn from(value: EmailQueryTextSearch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailQueryTextSearch> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailQueryTextSearch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailQueryTextSearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailQueryTextSearch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailQueryTextSearch {}
 unsafe impl ::std::marker::Sync for EmailQueryTextSearch {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailRecipient(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailRecipient(pub ::windows::runtime::IInspectable);
 impl EmailRecipient {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3957,12 +5077,52 @@ unsafe impl ::windows::runtime::Interface for EmailRecipient {
 impl ::windows::runtime::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
 }
+impl ::std::convert::From<EmailRecipient> for ::windows::runtime::IUnknown {
+    fn from(value: EmailRecipient) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailRecipient> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailRecipient) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailRecipient> for ::windows::runtime::IInspectable {
+    fn from(value: EmailRecipient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailRecipient> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailRecipient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailRecipient {}
 unsafe impl ::std::marker::Sync for EmailRecipient {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailRecipientResolutionResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailRecipientResolutionResult(pub ::windows::runtime::IInspectable);
 impl EmailRecipientResolutionResult {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4009,6 +5169,46 @@ unsafe impl ::windows::runtime::Interface for EmailRecipientResolutionResult {
 }
 impl ::windows::runtime::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
+}
+impl ::std::convert::From<EmailRecipientResolutionResult> for ::windows::runtime::IUnknown {
+    fn from(value: EmailRecipientResolutionResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailRecipientResolutionResult> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailRecipientResolutionResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailRecipientResolutionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailRecipientResolutionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailRecipientResolutionResult> for ::windows::runtime::IInspectable {
+    fn from(value: EmailRecipientResolutionResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailRecipientResolutionResult> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailRecipientResolutionResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailRecipientResolutionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailRecipientResolutionResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for EmailRecipientResolutionResult {}
 unsafe impl ::std::marker::Sync for EmailRecipientResolutionResult {}
@@ -4069,8 +5269,8 @@ impl ::windows::runtime::DefaultType for EmailSpecialFolderKind {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailStore(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailStore(pub ::windows::runtime::IInspectable);
 impl EmailStore {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_Email`, `Foundation`, `Foundation_Collections`*"]
@@ -4178,6 +5378,46 @@ unsafe impl ::windows::runtime::Interface for EmailStore {
 impl ::windows::runtime::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
 }
+impl ::std::convert::From<EmailStore> for ::windows::runtime::IUnknown {
+    fn from(value: EmailStore) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailStore> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailStore) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailStore> for ::windows::runtime::IInspectable {
+    fn from(value: EmailStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailStore> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailStore {}
 unsafe impl ::std::marker::Sync for EmailStore {}
 #[doc = "*Required features: `ApplicationModel_Email`*"]
@@ -4204,8 +5444,8 @@ impl ::windows::runtime::DefaultType for EmailStoreAccessType {
 }
 #[doc = "*Required features: `ApplicationModel_Email`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EmailStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EmailStoreNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 impl EmailStoreNotificationTriggerDetails {}
 unsafe impl ::windows::runtime::RuntimeType for EmailStoreNotificationTriggerDetails {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails;{ce17563c-46e6-43c9-96f7-facf7dd710cb})");
@@ -4217,11 +5457,51 @@ unsafe impl ::windows::runtime::Interface for EmailStoreNotificationTriggerDetai
 impl ::windows::runtime::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";
 }
+impl ::std::convert::From<EmailStoreNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: EmailStoreNotificationTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EmailStoreNotificationTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &EmailStoreNotificationTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EmailStoreNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EmailStoreNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EmailStoreNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: EmailStoreNotificationTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EmailStoreNotificationTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &EmailStoreNotificationTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EmailStoreNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EmailStoreNotificationTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EmailStoreNotificationTriggerDetails {}
 unsafe impl ::std::marker::Sync for EmailStoreNotificationTriggerDetails {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailAttachment(::windows::runtime::IInspectable);
+pub struct IEmailAttachment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment {
     type Vtable = IEmailAttachment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4082354937, 22472, 19163, [185, 146, 96, 252, 235, 88, 79, 84]);
@@ -4244,7 +5524,7 @@ pub struct IEmailAttachment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailAttachment2(::windows::runtime::IInspectable);
+pub struct IEmailAttachment2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachment2 {
     type Vtable = IEmailAttachment2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(576655472, 45311, 17777, [157, 84, 167, 6, 196, 141, 85, 198]);
@@ -4275,7 +5555,7 @@ pub struct IEmailAttachment2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailAttachmentFactory(::windows::runtime::IInspectable);
+pub struct IEmailAttachmentFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory {
     type Vtable = IEmailAttachmentFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2037296198, 60758, 18809, [135, 8, 171, 184, 188, 133, 75, 125]);
@@ -4294,7 +5574,7 @@ pub struct IEmailAttachmentFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailAttachmentFactory2(::windows::runtime::IInspectable);
+pub struct IEmailAttachmentFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailAttachmentFactory2 {
     type Vtable = IEmailAttachmentFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(589665333, 20985, 17021, [173, 205, 36, 16, 35, 200, 207, 183]);
@@ -4313,7 +5593,7 @@ pub struct IEmailAttachmentFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailConversation(::windows::runtime::IInspectable);
+pub struct IEmailConversation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversation {
     type Vtable = IEmailConversation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3659055688, 41148, 17225, [144, 45, 144, 246, 99, 137, 245, 27]);
@@ -4348,7 +5628,7 @@ pub struct IEmailConversation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailConversationBatch(::windows::runtime::IInspectable);
+pub struct IEmailConversationBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationBatch {
     type Vtable = IEmailConversationBatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3099700097, 453, 17194, [157, 241, 254, 133, 217, 138, 39, 154]);
@@ -4368,7 +5648,7 @@ pub struct IEmailConversationBatch_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailConversationReader(::windows::runtime::IInspectable);
+pub struct IEmailConversationReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailConversationReader {
     type Vtable = IEmailConversationReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3026390914, 10357, 17608, [155, 140, 133, 190, 179, 163, 198, 83]);
@@ -4387,7 +5667,7 @@ pub struct IEmailConversationReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailFolder(::windows::runtime::IInspectable);
+pub struct IEmailFolder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailFolder {
     type Vtable = IEmailFolder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2723116913, 39276, 18532, [177, 186, 237, 18, 64, 229, 125, 17]);
@@ -4440,7 +5720,7 @@ pub struct IEmailFolder_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailIrmInfo(::windows::runtime::IInspectable);
+pub struct IEmailIrmInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfo {
     type Vtable = IEmailIrmInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431984019, 45472, 20157, [166, 182, 221, 202, 85, 96, 110, 14]);
@@ -4483,7 +5763,7 @@ pub struct IEmailIrmInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailIrmInfoFactory(::windows::runtime::IInspectable);
+pub struct IEmailIrmInfoFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmInfoFactory {
     type Vtable = IEmailIrmInfoFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827044236, 58342, 19835, [190, 141, 145, 169, 99, 17, 176, 27]);
@@ -4502,7 +5782,7 @@ pub struct IEmailIrmInfoFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailIrmTemplate(::windows::runtime::IInspectable);
+pub struct IEmailIrmTemplate(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplate {
     type Vtable = IEmailIrmTemplate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4079449485, 21613, 19434, [169, 99, 84, 163, 139, 44, 192, 22]);
@@ -4525,7 +5805,7 @@ pub struct IEmailIrmTemplate_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailIrmTemplateFactory(::windows::runtime::IInspectable);
+pub struct IEmailIrmTemplateFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailIrmTemplateFactory {
     type Vtable = IEmailIrmTemplateFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034098806, 34616, 17432, [185, 203, 71, 27, 147, 111, 231, 30]);
@@ -4543,7 +5823,7 @@ pub struct IEmailIrmTemplateFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailItemCounts(::windows::runtime::IInspectable);
+pub struct IEmailItemCounts(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailItemCounts {
     type Vtable = IEmailItemCounts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1540436769, 65224, 19371, [131, 186, 11, 175, 60, 31, 108, 189]);
@@ -4564,7 +5844,7 @@ pub struct IEmailItemCounts_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailbox(::windows::runtime::IInspectable);
+pub struct IEmailMailbox(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox {
     type Vtable = IEmailMailbox_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826503753, 53083, 16667, [128, 177, 74, 106, 20, 132, 206, 37]);
@@ -4661,7 +5941,7 @@ pub struct IEmailMailbox_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailbox2(::windows::runtime::IInspectable);
+pub struct IEmailMailbox2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox2 {
     type Vtable = IEmailMailbox2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(351855620, 27810, 19122, [146, 65, 121, 205, 123, 244, 99, 70]);
@@ -4681,7 +5961,7 @@ pub struct IEmailMailbox2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailbox3(::windows::runtime::IInspectable);
+pub struct IEmailMailbox3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox3 {
     type Vtable = IEmailMailbox3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034258811, 17803, 16522, [142, 55, 172, 139, 5, 216, 175, 86]);
@@ -4708,7 +5988,7 @@ pub struct IEmailMailbox3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailbox4(::windows::runtime::IInspectable);
+pub struct IEmailMailbox4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox4 {
     type Vtable = IEmailMailbox4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1562325019, 61986, 18599, [183, 182, 113, 99, 86, 205, 38, 161]);
@@ -4727,7 +6007,7 @@ pub struct IEmailMailbox4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailbox5(::windows::runtime::IInspectable);
+pub struct IEmailMailbox5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailbox5 {
     type Vtable = IEmailMailbox5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(966160519, 146, 18878, [189, 14, 93, 77, 201, 217, 109, 144]);
@@ -4745,7 +6025,7 @@ pub struct IEmailMailbox5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxAction(::windows::runtime::IInspectable);
+pub struct IEmailMailboxAction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAction {
     type Vtable = IEmailMailboxAction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2895677946, 8698, 18727, [146, 16, 212, 16, 88, 47, 223, 62]);
@@ -4764,7 +6044,7 @@ pub struct IEmailMailboxAction_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxAutoReply(::windows::runtime::IInspectable);
+pub struct IEmailMailboxAutoReply(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReply_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3793954124, 35508, 18523, [179, 31, 4, 209, 84, 118, 189, 89]);
@@ -4785,7 +6065,7 @@ pub struct IEmailMailboxAutoReply_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxAutoReplySettings(::windows::runtime::IInspectable);
+pub struct IEmailMailboxAutoReplySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2826608552, 2758, 19319, [186, 119, 166, 185, 158, 154, 39, 184]);
@@ -4817,7 +6097,7 @@ pub struct IEmailMailboxAutoReplySettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxCapabilities(::windows::runtime::IInspectable);
+pub struct IEmailMailboxCapabilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4007576486, 35291, 17157, [130, 196, 67, 158, 10, 51, 218, 17]);
@@ -4842,7 +6122,7 @@ pub struct IEmailMailboxCapabilities_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxCapabilities2(::windows::runtime::IInspectable);
+pub struct IEmailMailboxCapabilities2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities2 {
     type Vtable = IEmailMailboxCapabilities2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1769094884, 12065, 19644, [136, 171, 46, 118, 2, 164, 128, 107]);
@@ -4865,7 +6145,7 @@ pub struct IEmailMailboxCapabilities2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxCapabilities3(::windows::runtime::IInspectable);
+pub struct IEmailMailboxCapabilities3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCapabilities3 {
     type Vtable = IEmailMailboxCapabilities3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136692036, 22258, 17834, [135, 44, 12, 233, 243, 219, 11, 92]);
@@ -4896,7 +6176,7 @@ pub struct IEmailMailboxCapabilities3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxChange(::windows::runtime::IInspectable);
+pub struct IEmailMailboxChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChange {
     type Vtable = IEmailMailboxChange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1642984779, 4591, 16396, [173, 222, 140, 222, 101, 200, 94, 102]);
@@ -4918,7 +6198,7 @@ pub struct IEmailMailboxChange_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxChangeReader(::windows::runtime::IInspectable);
+pub struct IEmailMailboxChangeReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3183283899, 50493, 17201, [151, 190, 190, 117, 162, 20, 106, 117]);
@@ -4939,7 +6219,7 @@ pub struct IEmailMailboxChangeReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxChangeTracker(::windows::runtime::IInspectable);
+pub struct IEmailMailboxChangeTracker(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTracker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2061796920, 20838, 17079, [136, 130, 253, 33, 201, 43, 221, 75]);
@@ -4960,7 +6240,7 @@ pub struct IEmailMailboxChangeTracker_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxChangedDeferral(::windows::runtime::IInspectable);
+pub struct IEmailMailboxChangedDeferral(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferral_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2006611137, 38853, 19284, [179, 13, 48, 98, 50, 98, 62, 109]);
@@ -4978,7 +6258,7 @@ pub struct IEmailMailboxChangedDeferral_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IEmailMailboxChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1023237998, 468, 20042, [164, 76, 178, 45, 212, 46, 194, 7]);
@@ -4996,7 +6276,7 @@ pub struct IEmailMailboxChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxCreateFolderResult(::windows::runtime::IInspectable);
+pub struct IEmailMailboxCreateFolderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2988987775, 10373, 18840, [181, 149, 138, 45, 55, 76, 233, 80]);
@@ -5015,7 +6295,7 @@ pub struct IEmailMailboxCreateFolderResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxPolicies(::windows::runtime::IInspectable);
+pub struct IEmailMailboxPolicies(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies {
     type Vtable = IEmailMailboxPolicies_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(523453893, 7227, 19911, [180, 16, 99, 115, 120, 62, 84, 93]);
@@ -5038,7 +6318,7 @@ pub struct IEmailMailboxPolicies_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxPolicies2(::windows::runtime::IInspectable);
+pub struct IEmailMailboxPolicies2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies2 {
     type Vtable = IEmailMailboxPolicies2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3132459771, 41291, 18812, [168, 226, 85, 234, 194, 156, 196, 181]);
@@ -5057,7 +6337,7 @@ pub struct IEmailMailboxPolicies2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxPolicies3(::windows::runtime::IInspectable);
+pub struct IEmailMailboxPolicies3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxPolicies3 {
     type Vtable = IEmailMailboxPolicies3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3184828447, 18535, 16714, [129, 162, 128, 57, 25, 196, 65, 145]);
@@ -5082,7 +6362,7 @@ pub struct IEmailMailboxPolicies3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxSyncManager(::windows::runtime::IInspectable);
+pub struct IEmailMailboxSyncManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1367000410, 13713, 19293, [133, 188, 199, 29, 222, 134, 34, 99]);
@@ -5110,7 +6390,7 @@ pub struct IEmailMailboxSyncManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMailboxSyncManager2(::windows::runtime::IInspectable);
+pub struct IEmailMailboxSyncManager2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMailboxSyncManager2 {
     type Vtable = IEmailMailboxSyncManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3448621438, 38337, 20361, [129, 183, 230, 174, 203, 102, 149, 252]);
@@ -5132,7 +6412,7 @@ pub struct IEmailMailboxSyncManager2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailManagerForUser(::windows::runtime::IInspectable);
+pub struct IEmailManagerForUser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerForUser {
     type Vtable = IEmailManagerForUser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4151565983, 15525, 19215, [144, 193, 21, 110, 64, 23, 76, 229]);
@@ -5155,7 +6435,7 @@ pub struct IEmailManagerForUser_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailManagerStatics(::windows::runtime::IInspectable);
+pub struct IEmailManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics {
     type Vtable = IEmailManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4111631956, 21957, 18576, [168, 36, 33, 108, 38, 24, 206, 127]);
@@ -5174,7 +6454,7 @@ pub struct IEmailManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailManagerStatics2(::windows::runtime::IInspectable);
+pub struct IEmailManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics2 {
     type Vtable = IEmailManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2886020515, 45460, 16989, [182, 217, 208, 240, 65, 53, 237, 162]);
@@ -5193,7 +6473,7 @@ pub struct IEmailManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailManagerStatics3(::windows::runtime::IInspectable);
+pub struct IEmailManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailManagerStatics3 {
     type Vtable = IEmailManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1248994197, 33854, 18757, [179, 170, 52, 158, 7, 163, 98, 197]);
@@ -5212,7 +6492,7 @@ pub struct IEmailManagerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMeetingInfo(::windows::runtime::IInspectable);
+pub struct IEmailMeetingInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo {
     type Vtable = IEmailMeetingInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(834682793, 31027, 16735, [162, 117, 209, 101, 186, 7, 2, 107]);
@@ -5269,7 +6549,7 @@ pub struct IEmailMeetingInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMeetingInfo2(::windows::runtime::IInspectable);
+pub struct IEmailMeetingInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMeetingInfo2 {
     type Vtable = IEmailMeetingInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119776365, 45273, 20453, [134, 124, 227, 30, 210, 181, 136, 184]);
@@ -5287,7 +6567,7 @@ pub struct IEmailMeetingInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessage(::windows::runtime::IInspectable);
+pub struct IEmailMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage {
     type Vtable = IEmailMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1819120781, 32949, 18680, [176, 177, 224, 78, 67, 15, 68, 229]);
@@ -5316,7 +6596,7 @@ pub struct IEmailMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessage2(::windows::runtime::IInspectable);
+pub struct IEmailMessage2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage2 {
     type Vtable = IEmailMessage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4257752203, 40730, 17627, [189, 60, 101, 195, 132, 119, 15, 134]);
@@ -5382,7 +6662,7 @@ pub struct IEmailMessage2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessage3(::windows::runtime::IInspectable);
+pub struct IEmailMessage3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage3 {
     type Vtable = IEmailMessage3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2716493660, 58776, 19753, [160, 24, 252, 123, 126, 236, 224, 161]);
@@ -5405,7 +6685,7 @@ pub struct IEmailMessage3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessage4(::windows::runtime::IInspectable);
+pub struct IEmailMessage4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessage4 {
     type Vtable = IEmailMessage4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(830271873, 15999, 18949, [131, 148, 62, 16, 51, 109, 212, 53]);
@@ -5426,7 +6706,7 @@ pub struct IEmailMessage4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessageBatch(::windows::runtime::IInspectable);
+pub struct IEmailMessageBatch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageBatch {
     type Vtable = IEmailMessageBatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1616695439, 9689, 20251, [158, 81, 5, 20, 192, 20, 150, 83]);
@@ -5446,7 +6726,7 @@ pub struct IEmailMessageBatch_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailMessageReader(::windows::runtime::IInspectable);
+pub struct IEmailMessageReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailMessageReader {
     type Vtable = IEmailMessageReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(793427615, 25107, 19077, [163, 176, 249, 45, 26, 131, 157, 25]);
@@ -5465,7 +6745,7 @@ pub struct IEmailMessageReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailQueryOptions(::windows::runtime::IInspectable);
+pub struct IEmailQueryOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptions {
     type Vtable = IEmailQueryOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1162890139, 15999, 19794, [182, 221, 214, 253, 78, 31, 189, 154]);
@@ -5491,7 +6771,7 @@ pub struct IEmailQueryOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailQueryOptionsFactory(::windows::runtime::IInspectable);
+pub struct IEmailQueryOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryOptionsFactory {
     type Vtable = IEmailQueryOptionsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297536952, 30891, 20200, [180, 227, 4, 109, 110, 47, 229, 226]);
@@ -5510,7 +6790,7 @@ pub struct IEmailQueryOptionsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailQueryTextSearch(::windows::runtime::IInspectable);
+pub struct IEmailQueryTextSearch(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2678104712, 15453, 18085, [166, 226, 49, 214, 253, 23, 229, 64]);
@@ -5533,7 +6813,7 @@ pub struct IEmailQueryTextSearch_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailRecipient(::windows::runtime::IInspectable);
+pub struct IEmailRecipient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipient {
     type Vtable = IEmailRecipient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3404211635, 17528, 18452, [185, 0, 201, 2, 181, 225, 155, 83]);
@@ -5554,7 +6834,7 @@ pub struct IEmailRecipient_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailRecipientFactory(::windows::runtime::IInspectable);
+pub struct IEmailRecipientFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientFactory {
     type Vtable = IEmailRecipientFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1426110541, 51098, 20216, [185, 9, 114, 46, 24, 227, 147, 93]);
@@ -5573,7 +6853,7 @@ pub struct IEmailRecipientFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailRecipientResolutionResult(::windows::runtime::IInspectable);
+pub struct IEmailRecipientResolutionResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441296122, 36237, 17779, [128, 209, 7, 23, 42, 52, 185, 141]);
@@ -5593,7 +6873,7 @@ pub struct IEmailRecipientResolutionResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailRecipientResolutionResult2(::windows::runtime::IInspectable);
+pub struct IEmailRecipientResolutionResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailRecipientResolutionResult2 {
     type Vtable = IEmailRecipientResolutionResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1581386678, 52827, 19422, [185, 212, 225, 109, 160, 176, 159, 202]);
@@ -5613,7 +6893,7 @@ pub struct IEmailRecipientResolutionResult2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailStore(::windows::runtime::IInspectable);
+pub struct IEmailStore(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStore {
     type Vtable = IEmailStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4160954990, 37175, 20363, [164, 112, 39, 154, 195, 5, 142, 182]);
@@ -5648,7 +6928,7 @@ pub struct IEmailStore_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEmailStoreNotificationTriggerDetails(::windows::runtime::IInspectable);
+pub struct IEmailStoreNotificationTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEmailStoreNotificationTriggerDetails {
     type Vtable = IEmailStoreNotificationTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457635900, 18150, 17353, [150, 247, 250, 207, 125, 215, 16, 203]);

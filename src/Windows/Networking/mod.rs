@@ -41,8 +41,8 @@ impl ::windows::runtime::DefaultType for DomainNameType {
 }
 #[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EndpointPair(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EndpointPair(pub ::windows::runtime::IInspectable);
 impl EndpointPair {
     #[doc = "*Required features: `Networking`*"]
     pub fn LocalHostName(&self) -> ::windows::runtime::Result<HostName> {
@@ -118,12 +118,52 @@ unsafe impl ::windows::runtime::Interface for EndpointPair {
 impl ::windows::runtime::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
 }
+impl ::std::convert::From<EndpointPair> for ::windows::runtime::IUnknown {
+    fn from(value: EndpointPair) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EndpointPair> for ::windows::runtime::IUnknown {
+    fn from(value: &EndpointPair) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EndpointPair {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EndpointPair {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EndpointPair> for ::windows::runtime::IInspectable {
+    fn from(value: EndpointPair) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EndpointPair> for ::windows::runtime::IInspectable {
+    fn from(value: &EndpointPair) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EndpointPair {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EndpointPair {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for EndpointPair {}
 unsafe impl ::std::marker::Sync for EndpointPair {}
 #[doc = "*Required features: `Networking`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HostName(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HostName(pub ::windows::runtime::IInspectable);
 impl HostName {
     #[cfg(feature = "Networking_Connectivity")]
     #[doc = "*Required features: `Networking`, `Networking_Connectivity`*"]
@@ -215,6 +255,46 @@ unsafe impl ::windows::runtime::Interface for HostName {
 }
 impl ::windows::runtime::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";
+}
+impl ::std::convert::From<HostName> for ::windows::runtime::IUnknown {
+    fn from(value: HostName) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HostName> for ::windows::runtime::IUnknown {
+    fn from(value: &HostName) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HostName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HostName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HostName> for ::windows::runtime::IInspectable {
+    fn from(value: HostName) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HostName> for ::windows::runtime::IInspectable {
+    fn from(value: &HostName) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HostName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HostName {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<HostName> for super::Foundation::IStringable {
@@ -320,7 +400,7 @@ impl ::windows::runtime::DefaultType for HostNameType {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEndpointPair(::windows::runtime::IInspectable);
+pub struct IEndpointPair(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPair {
     type Vtable = IEndpointPair_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(866167350, 63738, 19248, [184, 86, 118, 81, 124, 59, 208, 109]);
@@ -345,7 +425,7 @@ pub struct IEndpointPair_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEndpointPairFactory(::windows::runtime::IInspectable);
+pub struct IEndpointPairFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEndpointPairFactory {
     type Vtable = IEndpointPairFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3054098801, 25824, 17451, [170, 111, 204, 140, 143, 24, 31, 120]);
@@ -363,7 +443,7 @@ pub struct IEndpointPairFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHostName(::windows::runtime::IInspectable);
+pub struct IHostName(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostName {
     type Vtable = IHostName_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3213806253, 60822, 18855, [144, 132, 212, 22, 202, 232, 141, 203]);
@@ -387,7 +467,7 @@ pub struct IHostName_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHostNameFactory(::windows::runtime::IInspectable);
+pub struct IHostNameFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameFactory {
     type Vtable = IHostNameFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1166812141, 28975, 17782, [173, 241, 194, 11, 44, 100, 53, 88]);
@@ -405,7 +485,7 @@ pub struct IHostNameFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHostNameStatics(::windows::runtime::IInspectable);
+pub struct IHostNameStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostNameStatics {
     type Vtable = IHostNameStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4136424639, 41864, 20107, [145, 234, 84, 221, 109, 217, 1, 192]);

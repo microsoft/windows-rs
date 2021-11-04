@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Adc_Provider`*"]
-pub struct IAdcControllerProvider(::windows::runtime::IInspectable);
+pub struct IAdcControllerProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcControllerProvider {
     type Vtable = IAdcControllerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3193198632, 33133, 19941, [160, 72, 171, 160, 105, 88, 170, 168]);
@@ -83,6 +83,46 @@ impl IAdcControllerProvider {
 unsafe impl ::windows::runtime::RuntimeType for IAdcControllerProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{be545828-816d-4de5-a048-aba06958aaa8}");
 }
+impl ::std::convert::From<IAdcControllerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IAdcControllerProvider) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IAdcControllerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IAdcControllerProvider) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdcControllerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAdcControllerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IAdcControllerProvider> for ::windows::runtime::IInspectable {
+    fn from(value: IAdcControllerProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAdcControllerProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &IAdcControllerProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdcControllerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdcControllerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAdcControllerProvider_abi(
@@ -104,9 +144,9 @@ pub struct IAdcControllerProvider_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, channelnumber: i32, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Adc_Provider`*"]
-pub struct IAdcProvider(::windows::runtime::IInspectable);
+pub struct IAdcProvider(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAdcProvider {
     type Vtable = IAdcProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680867432, 37721, 19543, [188, 136, 226, 117, 232, 22, 56, 201]);
@@ -124,6 +164,46 @@ impl IAdcProvider {
 }
 unsafe impl ::windows::runtime::RuntimeType for IAdcProvider {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{28953668-9359-4c57-bc88-e275e81638c9}");
+}
+impl ::std::convert::From<IAdcProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IAdcProvider) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IAdcProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IAdcProvider) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAdcProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAdcProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IAdcProvider> for ::windows::runtime::IInspectable {
+    fn from(value: IAdcProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAdcProvider> for ::windows::runtime::IInspectable {
+    fn from(value: &IAdcProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IAdcProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IAdcProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

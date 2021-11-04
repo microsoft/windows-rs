@@ -88,7 +88,7 @@ impl ::windows::runtime::RuntimeName for CommunicationBlockingAppManager {
 pub struct CommunicationBlockingContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAccessManagerStatics(::windows::runtime::IInspectable);
+pub struct ICommunicationBlockingAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAccessManagerStatics {
     type Vtable = ICommunicationBlockingAccessManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(479631768, 40234, 23991, [237, 213, 12, 228, 7, 252, 37, 149]);
@@ -114,7 +114,7 @@ pub struct ICommunicationBlockingAccessManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStatics(::windows::runtime::IInspectable);
+pub struct ICommunicationBlockingAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppManagerStatics {
     type Vtable = ICommunicationBlockingAppManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2010863852, 5286, 19370, [148, 42, 106, 103, 61, 153, 155, 242]);
@@ -133,7 +133,7 @@ pub struct ICommunicationBlockingAppManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStatics2(::windows::runtime::IInspectable);
+pub struct ICommunicationBlockingAppManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICommunicationBlockingAppManagerStatics2 {
     type Vtable = ICommunicationBlockingAppManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(346459869, 60808, 17786, [163, 100, 163, 99, 77, 111, 22, 109]);

@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerDisableScannerRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerDisableScannerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerDisableScannerRequest {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -51,12 +51,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerReques
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
 }
+impl ::std::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerDisableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerDisableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerDisableScannerRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerDisableScannerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerDisableScannerRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerDisableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerDisableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerDisableScannerRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerDisableScannerRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerDisableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerDisableScannerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerDisableScannerRequest> {
@@ -86,12 +126,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerDisableScannerReques
 impl ::windows::runtime::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerDisableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerDisableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerDisableScannerRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerDisableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerDisableScannerRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerDisableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerDisableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerDisableScannerRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerDisableScannerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerEnableScannerRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerEnableScannerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerEnableScannerRequest {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -140,12 +220,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequest
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
 }
+impl ::std::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerEnableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerEnableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerEnableScannerRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerEnableScannerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerEnableScannerRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerEnableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerEnableScannerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerEnableScannerRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerEnableScannerRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerEnableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerEnableScannerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerEnableScannerRequest> {
@@ -175,12 +295,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerEnableScannerRequest
 impl ::windows::runtime::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerEnableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerEnableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerEnableScannerRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerEnableScannerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerEnableScannerRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerEnableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerEnableScannerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerEnableScannerRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerFrameReader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerFrameReader(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerFrameReader {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -249,6 +409,46 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReader {
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
 }
+impl ::std::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerFrameReader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerFrameReader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerFrameReader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerFrameReader> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerFrameReader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerFrameReader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BarcodeScannerFrameReader> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -279,8 +479,8 @@ unsafe impl ::std::marker::Send for BarcodeScannerFrameReader {}
 unsafe impl ::std::marker::Sync for BarcodeScannerFrameReader {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -302,12 +502,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerFrameReaderFrameArri
 impl ::windows::runtime::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerFrameReaderFrameArrivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerFrameReaderFrameArrivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerGetSymbologyAttributesRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerGetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequest {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Symbology(&self) -> ::windows::runtime::Result<u32> {
@@ -364,12 +604,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
 }
+impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerGetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerGetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerGetSymbologyAttributesRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerGetSymbologyAttributesRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerGetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerGetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerGetSymbologyAttributesRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerGetSymbologyAttributesRequest> {
@@ -399,12 +679,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerGetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerGetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerGetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerGetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerHideVideoPreviewRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerHideVideoPreviewRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequest {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -453,12 +773,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequ
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
 }
+impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerHideVideoPreviewRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerHideVideoPreviewRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerHideVideoPreviewRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerHideVideoPreviewRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerHideVideoPreviewRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerHideVideoPreviewRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerHideVideoPreviewRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerHideVideoPreviewRequest> {
@@ -488,12 +848,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerHideVideoPreviewRequ
 impl ::windows::runtime::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerHideVideoPreviewRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerHideVideoPreviewRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerHideVideoPreviewRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerHideVideoPreviewRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerHideVideoPreviewRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerHideVideoPreviewRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerProviderConnection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerProviderConnection(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerProviderConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -764,6 +1164,46 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderConnection {
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
 }
+impl ::std::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerProviderConnection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerProviderConnection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerProviderConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerProviderConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BarcodeScannerProviderConnection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -794,8 +1234,8 @@ unsafe impl ::std::marker::Send for BarcodeScannerProviderConnection {}
 unsafe impl ::std::marker::Sync for BarcodeScannerProviderConnection {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerProviderTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerProviderTriggerDetails {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<BarcodeScannerProviderConnection> {
@@ -816,12 +1256,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerProviderTriggerDetai
 impl ::windows::runtime::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
 }
+impl ::std::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerProviderTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerProviderTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerSetActiveSymbologiesRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerSetActiveSymbologiesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequest {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation_Collections`*"]
@@ -879,12 +1359,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologies
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
 }
+impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerSetActiveSymbologiesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerSetActiveSymbologiesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerSetActiveSymbologiesRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerSetActiveSymbologiesRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerSetActiveSymbologiesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerSetActiveSymbologiesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerSetActiveSymbologiesRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerSetActiveSymbologiesRequest> {
@@ -914,12 +1434,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetActiveSymbologies
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetActiveSymbologiesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerSetActiveSymbologiesRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerSetSymbologyAttributesRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerSetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequest {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Symbology(&self) -> ::windows::runtime::Result<u32> {
@@ -984,12 +1544,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
 }
+impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerSetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerSetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerSetSymbologyAttributesRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerSetSymbologyAttributesRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerSetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerSetSymbologyAttributesRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerSetSymbologyAttributesRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerSetSymbologyAttributesRequest> {
@@ -1019,12 +1619,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerSetSymbologyAttribut
 impl ::windows::runtime::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerSetSymbologyAttributesRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerSetSymbologyAttributesRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerSetSymbologyAttributesRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerStartSoftwareTriggerRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerStartSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequest {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -1073,12 +1713,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTrigger
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
 }
+impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerStartSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerStartSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerStartSoftwareTriggerRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerStartSoftwareTriggerRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerStartSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerStartSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerStartSoftwareTriggerRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerStartSoftwareTriggerRequest> {
@@ -1108,12 +1788,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStartSoftwareTrigger
 impl ::windows::runtime::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStartSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerStartSoftwareTriggerRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerStopSoftwareTriggerRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerStopSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequest {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -1162,12 +1882,52 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerR
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
 }
+impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerStopSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerStopSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerStopSoftwareTriggerRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerStopSoftwareTriggerRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerStopSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerStopSoftwareTriggerRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerStopSoftwareTriggerRequest {}
 unsafe impl ::std::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<BarcodeScannerStopSoftwareTriggerRequest> {
@@ -1197,6 +1957,46 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerStopSoftwareTriggerR
 impl ::windows::runtime::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
 }
+impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerStopSoftwareTriggerRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerStopSoftwareTriggerRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 unsafe impl ::std::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
@@ -1223,8 +2023,8 @@ impl ::windows::runtime::DefaultType for BarcodeScannerTriggerState {
 }
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeScannerVideoFrame(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeScannerVideoFrame(pub ::windows::runtime::IInspectable);
 impl BarcodeScannerVideoFrame {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_PointOfService_Provider`, `Foundation`*"]
@@ -1277,6 +2077,46 @@ unsafe impl ::windows::runtime::Interface for BarcodeScannerVideoFrame {
 impl ::windows::runtime::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
 }
+impl ::std::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeScannerVideoFrame) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeScannerVideoFrame) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeScannerVideoFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeScannerVideoFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeScannerVideoFrame) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeScannerVideoFrame> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeScannerVideoFrame) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeScannerVideoFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeScannerVideoFrame {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<BarcodeScannerVideoFrame> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1307,8 +2147,8 @@ unsafe impl ::std::marker::Send for BarcodeScannerVideoFrame {}
 unsafe impl ::std::marker::Sync for BarcodeScannerVideoFrame {}
 #[doc = "*Required features: `Devices_PointOfService_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BarcodeSymbologyAttributesBuilder(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BarcodeSymbologyAttributesBuilder(pub ::windows::runtime::IInspectable);
 impl BarcodeSymbologyAttributesBuilder {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1375,11 +2215,51 @@ unsafe impl ::windows::runtime::Interface for BarcodeSymbologyAttributesBuilder 
 impl ::windows::runtime::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";
 }
+impl ::std::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BarcodeSymbologyAttributesBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BarcodeSymbologyAttributesBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
+    fn from(value: BarcodeSymbologyAttributesBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BarcodeSymbologyAttributesBuilder> for ::windows::runtime::IInspectable {
+    fn from(value: &BarcodeSymbologyAttributesBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BarcodeSymbologyAttributesBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BarcodeSymbologyAttributesBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BarcodeSymbologyAttributesBuilder {}
 unsafe impl ::std::marker::Sync for BarcodeSymbologyAttributesBuilder {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerDisableScannerRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerDisableScannerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2297231296, 14265, 17013, [142, 119, 200, 229, 42, 229, 169, 200]);
@@ -1400,7 +2280,7 @@ pub struct IBarcodeScannerDisableScannerRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerDisableScannerRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerDisableScannerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequest2 {
     type Vtable = IBarcodeScannerDisableScannerRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3437225509, 26051, 19660, [180, 87, 243, 156, 122, 158, 166, 13]);
@@ -1421,7 +2301,7 @@ pub struct IBarcodeScannerDisableScannerRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerDisableScannerRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerDisableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1879499074, 59394, 18165, [182, 4, 53, 42, 21, 206, 146, 50]);
@@ -1441,7 +2321,7 @@ pub struct IBarcodeScannerDisableScannerRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerEnableScannerRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerEnableScannerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3233016250, 33130, 17707, [189, 119, 183, 228, 83, 236, 68, 109]);
@@ -1462,7 +2342,7 @@ pub struct IBarcodeScannerEnableScannerRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerEnableScannerRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerEnableScannerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequest2 {
     type Vtable = IBarcodeScannerEnableScannerRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1906635432, 39173, 16812, [145, 33, 182, 69, 145, 106, 132, 161]);
@@ -1483,7 +2363,7 @@ pub struct IBarcodeScannerEnableScannerRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerEnableScannerRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerEnableScannerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2506920985, 31566, 17489, [140, 65, 142, 16, 207, 188, 91, 65]);
@@ -1503,7 +2383,7 @@ pub struct IBarcodeScannerEnableScannerRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerFrameReader(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerFrameReader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3687262983, 25795, 18475, [147, 200, 101, 251, 51, 194, 34, 8]);
@@ -1531,7 +2411,7 @@ pub struct IBarcodeScannerFrameReader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2965100036, 21757, 17261, [134, 41, 113, 46, 120, 114, 35, 221]);
@@ -1550,7 +2430,7 @@ pub struct IBarcodeScannerFrameReaderFrameArrivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerGetSymbologyAttributesRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerGetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2541012074, 22756, 19551, [184, 233, 228, 20, 103, 99, 39, 0]);
@@ -1572,7 +2452,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerGetSymbologyAttributesRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerGetSymbologyAttributesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequest2 {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1785342739, 30120, 18939, [184, 82, 191, 185, 61, 118, 10, 247]);
@@ -1593,7 +2473,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2139741758, 64349, 18748, [180, 2, 53, 107, 36, 213, 116, 166]);
@@ -1613,7 +2493,7 @@ pub struct IBarcodeScannerGetSymbologyAttributesRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerHideVideoPreviewRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerHideVideoPreviewRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4199464575, 26224, 16609, [185, 11, 187, 16, 216, 212, 37, 250]);
@@ -1634,7 +2514,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerHideVideoPreviewRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerHideVideoPreviewRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequest2 {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2116567901, 38932, 17181, [162, 242, 214, 36, 140, 90, 212, 181]);
@@ -1655,7 +2535,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(379748860, 54974, 19399, [157, 241, 51, 116, 31, 62, 173, 234]);
@@ -1675,7 +2555,7 @@ pub struct IBarcodeScannerHideVideoPreviewRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerProviderConnection(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024800749, 2874, 20387, [134, 197, 73, 30, 163, 7, 128, 235]);
@@ -1743,7 +2623,7 @@ pub struct IBarcodeScannerProviderConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerProviderConnection2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerProviderConnection2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderConnection2 {
     type Vtable = IBarcodeScannerProviderConnection2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3197850573, 4404, 16780, [160, 107, 4, 66, 58, 115, 243, 215]);
@@ -1766,7 +2646,7 @@ pub struct IBarcodeScannerProviderConnection2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerProviderTriggerDetails(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350921602, 9443, 18638, [153, 199, 112, 170, 193, 203, 201, 247]);
@@ -1784,7 +2664,7 @@ pub struct IBarcodeScannerProviderTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetActiveSymbologiesRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetActiveSymbologiesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3678352057, 63450, 16801, [159, 121, 7, 188, 217, 95, 11, 223]);
@@ -1807,7 +2687,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetActiveSymbologiesRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetActiveSymbologiesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequest2 {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4127157983, 64154, 18249, [177, 27, 232, 252, 203, 117, 188, 107]);
@@ -1828,7 +2708,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103832314, 31734, 19794, [128, 26, 51, 2, 114, 246, 10, 225]);
@@ -1848,7 +2728,7 @@ pub struct IBarcodeScannerSetActiveSymbologiesRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetSymbologyAttributesRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetSymbologyAttributesRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(855343439, 41855, 18608, [172, 234, 220, 225, 72, 15, 18, 174]);
@@ -1871,7 +2751,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetSymbologyAttributesRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetSymbologyAttributesRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequest2 {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3757817793, 56232, 19319, [190, 30, 181, 108, 215, 47, 101, 179]);
@@ -1892,7 +2772,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2998441993, 38948, 18388, [133, 189, 208, 7, 123, 170, 123, 210]);
@@ -1912,7 +2792,7 @@ pub struct IBarcodeScannerSetSymbologyAttributesRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStartSoftwareTriggerRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStartSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3824843559, 65378, 17492, [175, 74, 203, 97, 68, 163, 227, 247]);
@@ -1933,7 +2813,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStartSoftwareTriggerRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStartSoftwareTriggerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequest2 {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3950158428, 26200, 18277, [166, 142, 50, 116, 130, 101, 61, 235]);
@@ -1954,7 +2834,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(587585603, 51343, 20283, [140, 59, 211, 223, 7, 16, 81, 236]);
@@ -1974,7 +2854,7 @@ pub struct IBarcodeScannerStartSoftwareTriggerRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStopSoftwareTriggerRequest(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStopSoftwareTriggerRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1872736053, 57991, 19624, [183, 13, 90, 145, 214, 148, 246, 104]);
@@ -1995,7 +2875,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStopSoftwareTriggerRequest2(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStopSoftwareTriggerRequest2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequest2 {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3411527133, 65104, 18936, [160, 180, 189, 194, 48, 129, 77, 162]);
@@ -2016,7 +2896,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequest2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938665552, 20151, 18458, [146, 115, 20, 122, 39, 59, 153, 184]);
@@ -2036,7 +2916,7 @@ pub struct IBarcodeScannerStopSoftwareTriggerRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeScannerVideoFrame(::windows::runtime::IInspectable);
+pub struct IBarcodeScannerVideoFrame(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2119717448, 40439, 16673, [161, 117, 128, 29, 128, 0, 17, 46]);
@@ -2059,7 +2939,7 @@ pub struct IBarcodeScannerVideoFrame_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBarcodeSymbologyAttributesBuilder(::windows::runtime::IInspectable);
+pub struct IBarcodeSymbologyAttributesBuilder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3313175743, 58613, 16569, [132, 207, 230, 63, 186, 234, 66, 180]);

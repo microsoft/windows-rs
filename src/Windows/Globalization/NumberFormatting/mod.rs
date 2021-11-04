@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CurrencyFormatter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CurrencyFormatter(pub ::windows::runtime::IInspectable);
 impl CurrencyFormatter {
     #[doc = "*Required features: `Globalization_NumberFormatting`*"]
     pub fn Currency(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -278,6 +278,46 @@ unsafe impl ::windows::runtime::Interface for CurrencyFormatter {
 impl ::windows::runtime::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
 }
+impl ::std::convert::From<CurrencyFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: CurrencyFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CurrencyFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &CurrencyFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CurrencyFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CurrencyFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CurrencyFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: CurrencyFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CurrencyFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &CurrencyFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CurrencyFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CurrencyFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<CurrencyFormatter> for INumberFormatter {
     type Error = ::windows::runtime::Error;
     fn try_from(value: CurrencyFormatter) -> ::windows::runtime::Result<Self> {
@@ -458,8 +498,8 @@ impl ::windows::runtime::DefaultType for CurrencyFormatterMode {
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DecimalFormatter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DecimalFormatter(pub ::windows::runtime::IInspectable);
 impl DecimalFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -703,6 +743,46 @@ unsafe impl ::windows::runtime::Interface for DecimalFormatter {
 impl ::windows::runtime::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
 }
+impl ::std::convert::From<DecimalFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: DecimalFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DecimalFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &DecimalFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DecimalFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DecimalFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DecimalFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: DecimalFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DecimalFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &DecimalFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DecimalFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DecimalFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<DecimalFormatter> for INumberFormatter {
     fn from(value: DecimalFormatter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -859,7 +939,7 @@ unsafe impl ::std::marker::Send for DecimalFormatter {}
 unsafe impl ::std::marker::Sync for DecimalFormatter {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyFormatter(::windows::runtime::IInspectable);
+pub struct ICurrencyFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter {
     type Vtable = ICurrencyFormatter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(292752549, 19200, 16818, [179, 50, 115, 177, 42, 73, 125, 84]);
@@ -878,7 +958,7 @@ pub struct ICurrencyFormatter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyFormatter2(::windows::runtime::IInspectable);
+pub struct ICurrencyFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatter2 {
     type Vtable = ICurrencyFormatter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(120336157, 59322, 16791, [146, 14, 36, 124, 146, 247, 222, 166]);
@@ -898,7 +978,7 @@ pub struct ICurrencyFormatter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrencyFormatterFactory(::windows::runtime::IInspectable);
+pub struct ICurrencyFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrencyFormatterFactory {
     type Vtable = ICurrencyFormatterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2261209982, 47416, 19106, [132, 176, 44, 51, 220, 91, 20, 80]);
@@ -918,7 +998,7 @@ pub struct ICurrencyFormatterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDecimalFormatterFactory(::windows::runtime::IInspectable);
+pub struct IDecimalFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDecimalFormatterFactory {
     type Vtable = IDecimalFormatterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(218205338, 58259, 18104, [184, 48, 122, 105, 200, 248, 159, 187]);
@@ -937,7 +1017,7 @@ pub struct IDecimalFormatterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIncrementNumberRounder(::windows::runtime::IInspectable);
+pub struct IIncrementNumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIncrementNumberRounder {
     type Vtable = IIncrementNumberRounder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889947640, 26283, 16725, [157, 161, 115, 158, 70, 118, 69, 67]);
@@ -957,9 +1037,9 @@ pub struct IIncrementNumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberFormatter(::windows::runtime::IInspectable);
+pub struct INumberFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter {
     type Vtable = INumberFormatter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2768272457, 30326, 19895, [134, 49, 27, 111, 242, 101, 202, 169]);
@@ -993,6 +1073,46 @@ impl INumberFormatter {
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatter {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{a5007c49-7676-4db7-8631-1b6ff265caa9}");
 }
+impl ::std::convert::From<INumberFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: INumberFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: INumberFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatter_abi(
@@ -1007,9 +1127,9 @@ pub struct INumberFormatter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberFormatter2(::windows::runtime::IInspectable);
+pub struct INumberFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatter2 {
     type Vtable = INumberFormatter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3567829488, 32976, 19213, [168, 158, 136, 44, 30, 143, 131, 16]);
@@ -1043,6 +1163,46 @@ impl INumberFormatter2 {
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatter2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310}");
 }
+impl ::std::convert::From<INumberFormatter2> for ::windows::runtime::IUnknown {
+    fn from(value: INumberFormatter2) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberFormatter2> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberFormatter2) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberFormatter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberFormatter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberFormatter2> for ::windows::runtime::IInspectable {
+    fn from(value: INumberFormatter2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberFormatter2> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberFormatter2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberFormatter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberFormatter2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatter2_abi(
@@ -1057,9 +1217,9 @@ pub struct INumberFormatter2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberFormatterOptions(::windows::runtime::IInspectable);
+pub struct INumberFormatterOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberFormatterOptions {
     type Vtable = INumberFormatterOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2150837537, 44769, 19001, [186, 162, 7, 237, 140, 150, 218, 246]);
@@ -1167,6 +1327,46 @@ impl INumberFormatterOptions {
 unsafe impl ::windows::runtime::RuntimeType for INumberFormatterOptions {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{80332d21-aee1-4a39-baa2-07ed8c96daf6}");
 }
+impl ::std::convert::From<INumberFormatterOptions> for ::windows::runtime::IUnknown {
+    fn from(value: INumberFormatterOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberFormatterOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberFormatterOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberFormatterOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberFormatterOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberFormatterOptions> for ::windows::runtime::IInspectable {
+    fn from(value: INumberFormatterOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberFormatterOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberFormatterOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberFormatterOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberFormatterOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberFormatterOptions_abi(
@@ -1193,9 +1393,9 @@ pub struct INumberFormatterOptions_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberParser(::windows::runtime::IInspectable);
+pub struct INumberParser(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberParser {
     type Vtable = INumberParser_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865416722, 18963, 19027, [131, 161, 57, 47, 190, 76, 255, 159]);
@@ -1232,6 +1432,46 @@ impl INumberParser {
 unsafe impl ::windows::runtime::RuntimeType for INumberParser {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e6659412-4a13-4a53-83a1-392fbe4cff9f}");
 }
+impl ::std::convert::From<INumberParser> for ::windows::runtime::IUnknown {
+    fn from(value: INumberParser) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberParser> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberParser) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberParser> for ::windows::runtime::IInspectable {
+    fn from(value: INumberParser) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberParser> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberParser) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberParser {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberParser_abi(
@@ -1249,9 +1489,9 @@ pub struct INumberParser_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberRounder(::windows::runtime::IInspectable);
+pub struct INumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounder {
     type Vtable = INumberRounder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1416872821, 14573, 17969, [184, 12, 239, 52, 252, 72, 183, 245]);
@@ -1309,6 +1549,46 @@ impl INumberRounder {
 unsafe impl ::windows::runtime::RuntimeType for INumberRounder {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{5473c375-38ed-4631-b80c-ef34fc48b7f5}");
 }
+impl ::std::convert::From<INumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: INumberRounder) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberRounder) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: INumberRounder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberRounder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberRounder_abi(
@@ -1326,9 +1606,9 @@ pub struct INumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: f64, result__: *mut f64) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct INumberRounderOption(::windows::runtime::IInspectable);
+pub struct INumberRounderOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumberRounderOption {
     type Vtable = INumberRounderOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(990413875, 25711, 20222, [141, 72, 102, 235, 46, 73, 231, 54]);
@@ -1351,6 +1631,46 @@ impl INumberRounderOption {
 unsafe impl ::windows::runtime::RuntimeType for INumberRounderOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3b088433-646f-4efe-8d48-66eb2e49e736}");
 }
+impl ::std::convert::From<INumberRounderOption> for ::windows::runtime::IUnknown {
+    fn from(value: INumberRounderOption) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&INumberRounderOption> for ::windows::runtime::IUnknown {
+    fn from(value: &INumberRounderOption) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INumberRounderOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INumberRounderOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<INumberRounderOption> for ::windows::runtime::IInspectable {
+    fn from(value: INumberRounderOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INumberRounderOption> for ::windows::runtime::IInspectable {
+    fn from(value: &INumberRounderOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for INumberRounderOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a INumberRounderOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INumberRounderOption_abi(
@@ -1365,7 +1685,7 @@ pub struct INumberRounderOption_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INumeralSystemTranslator(::windows::runtime::IInspectable);
+pub struct INumeralSystemTranslator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(687193132, 35875, 16948, [173, 46, 250, 90, 58, 66, 110, 155]);
@@ -1388,7 +1708,7 @@ pub struct INumeralSystemTranslator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INumeralSystemTranslatorFactory(::windows::runtime::IInspectable);
+pub struct INumeralSystemTranslatorFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INumeralSystemTranslatorFactory {
     type Vtable = INumeralSystemTranslatorFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2519779546, 14063, 19848, [168, 92, 111, 13, 152, 214, 32, 166]);
@@ -1407,7 +1727,7 @@ pub struct INumeralSystemTranslatorFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPercentFormatterFactory(::windows::runtime::IInspectable);
+pub struct IPercentFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPercentFormatterFactory {
     type Vtable = IPercentFormatterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3078785775, 65236, 16408, [166, 226, 224, 153, 97, 224, 55, 101]);
@@ -1426,7 +1746,7 @@ pub struct IPercentFormatterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPermilleFormatterFactory(::windows::runtime::IInspectable);
+pub struct IPermilleFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPermilleFormatterFactory {
     type Vtable = IPermilleFormatterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(725071020, 58936, 20181, [169, 152, 98, 246, 176, 106, 73, 174]);
@@ -1444,9 +1764,9 @@ pub struct IPermilleFormatterFactory_abi(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct ISignedZeroOption(::windows::runtime::IInspectable);
+pub struct ISignedZeroOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignedZeroOption {
     type Vtable = ISignedZeroOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4246527281, 2620, 18884, [166, 66, 150, 161, 86, 79, 79, 48]);
@@ -1469,6 +1789,46 @@ impl ISignedZeroOption {
 unsafe impl ::windows::runtime::RuntimeType for ISignedZeroOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{fd1cdd31-0a3c-49c4-a642-96a1564f4f30}");
 }
+impl ::std::convert::From<ISignedZeroOption> for ::windows::runtime::IUnknown {
+    fn from(value: ISignedZeroOption) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISignedZeroOption> for ::windows::runtime::IUnknown {
+    fn from(value: &ISignedZeroOption) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISignedZeroOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISignedZeroOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISignedZeroOption> for ::windows::runtime::IInspectable {
+    fn from(value: ISignedZeroOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISignedZeroOption> for ::windows::runtime::IInspectable {
+    fn from(value: &ISignedZeroOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISignedZeroOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISignedZeroOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignedZeroOption_abi(
@@ -1483,7 +1843,7 @@ pub struct ISignedZeroOption_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISignificantDigitsNumberRounder(::windows::runtime::IInspectable);
+pub struct ISignificantDigitsNumberRounder(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsNumberRounder {
     type Vtable = ISignificantDigitsNumberRounder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4120124362, 26182, 18707, [140, 118, 27, 25, 31, 249, 77, 253]);
@@ -1503,9 +1863,9 @@ pub struct ISignificantDigitsNumberRounder_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
-pub struct ISignificantDigitsOption(::windows::runtime::IInspectable);
+pub struct ISignificantDigitsOption(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISignificantDigitsOption {
     type Vtable = ISignificantDigitsOption_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(491650269, 11587, 20200, [187, 241, 193, 178, 106, 113, 26, 88]);
@@ -1528,6 +1888,46 @@ impl ISignificantDigitsOption {
 unsafe impl ::windows::runtime::RuntimeType for ISignificantDigitsOption {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58}");
 }
+impl ::std::convert::From<ISignificantDigitsOption> for ::windows::runtime::IUnknown {
+    fn from(value: ISignificantDigitsOption) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IUnknown {
+    fn from(value: &ISignificantDigitsOption) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ISignificantDigitsOption> for ::windows::runtime::IInspectable {
+    fn from(value: ISignificantDigitsOption) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISignificantDigitsOption> for ::windows::runtime::IInspectable {
+    fn from(value: &ISignificantDigitsOption) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISignificantDigitsOption_abi(
@@ -1542,8 +1942,8 @@ pub struct ISignificantDigitsOption_abi(
 );
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IncrementNumberRounder(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IncrementNumberRounder(pub ::windows::runtime::IInspectable);
 impl IncrementNumberRounder {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1637,6 +2037,46 @@ unsafe impl ::windows::runtime::Interface for IncrementNumberRounder {
 impl ::windows::runtime::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
 }
+impl ::std::convert::From<IncrementNumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: IncrementNumberRounder) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IncrementNumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: &IncrementNumberRounder) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IncrementNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IncrementNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IncrementNumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: IncrementNumberRounder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IncrementNumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: &IncrementNumberRounder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IncrementNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IncrementNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IncrementNumberRounder> for INumberRounder {
     fn from(value: IncrementNumberRounder) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1661,8 +2101,8 @@ unsafe impl ::std::marker::Send for IncrementNumberRounder {}
 unsafe impl ::std::marker::Sync for IncrementNumberRounder {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NumeralSystemTranslator(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NumeralSystemTranslator(pub ::windows::runtime::IInspectable);
 impl NumeralSystemTranslator {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1732,12 +2172,52 @@ unsafe impl ::windows::runtime::Interface for NumeralSystemTranslator {
 impl ::windows::runtime::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
 }
+impl ::std::convert::From<NumeralSystemTranslator> for ::windows::runtime::IUnknown {
+    fn from(value: NumeralSystemTranslator) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IUnknown {
+    fn from(value: &NumeralSystemTranslator) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NumeralSystemTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NumeralSystemTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NumeralSystemTranslator> for ::windows::runtime::IInspectable {
+    fn from(value: NumeralSystemTranslator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NumeralSystemTranslator> for ::windows::runtime::IInspectable {
+    fn from(value: &NumeralSystemTranslator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NumeralSystemTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NumeralSystemTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::std::marker::Sync for NumeralSystemTranslator {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PercentFormatter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PercentFormatter(pub ::windows::runtime::IInspectable);
 impl PercentFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1981,6 +2461,46 @@ unsafe impl ::windows::runtime::Interface for PercentFormatter {
 impl ::windows::runtime::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
 }
+impl ::std::convert::From<PercentFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: PercentFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PercentFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &PercentFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PercentFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PercentFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PercentFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: PercentFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PercentFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &PercentFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PercentFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PercentFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<PercentFormatter> for INumberFormatter {
     fn from(value: PercentFormatter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2137,8 +2657,8 @@ unsafe impl ::std::marker::Send for PercentFormatter {}
 unsafe impl ::std::marker::Sync for PercentFormatter {}
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PermilleFormatter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PermilleFormatter(pub ::windows::runtime::IInspectable);
 impl PermilleFormatter {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2382,6 +2902,46 @@ unsafe impl ::windows::runtime::Interface for PermilleFormatter {
 impl ::windows::runtime::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
 }
+impl ::std::convert::From<PermilleFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: PermilleFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PermilleFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &PermilleFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PermilleFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PermilleFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PermilleFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: PermilleFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PermilleFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &PermilleFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PermilleFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PermilleFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<PermilleFormatter> for INumberFormatter {
     fn from(value: PermilleFormatter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2569,8 +3129,8 @@ impl ::windows::runtime::DefaultType for RoundingAlgorithm {
 }
 #[doc = "*Required features: `Globalization_NumberFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct SignificantDigitsNumberRounder(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct SignificantDigitsNumberRounder(pub ::windows::runtime::IInspectable);
 impl SignificantDigitsNumberRounder {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2663,6 +3223,46 @@ unsafe impl ::windows::runtime::Interface for SignificantDigitsNumberRounder {
 }
 impl ::windows::runtime::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";
+}
+impl ::std::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: SignificantDigitsNumberRounder) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IUnknown {
+    fn from(value: &SignificantDigitsNumberRounder) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for SignificantDigitsNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a SignificantDigitsNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: SignificantDigitsNumberRounder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&SignificantDigitsNumberRounder> for ::windows::runtime::IInspectable {
+    fn from(value: &SignificantDigitsNumberRounder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for SignificantDigitsNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a SignificantDigitsNumberRounder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<SignificantDigitsNumberRounder> for INumberRounder {
     fn from(value: SignificantDigitsNumberRounder) -> Self {

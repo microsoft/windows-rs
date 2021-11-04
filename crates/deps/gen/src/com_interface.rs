@@ -48,7 +48,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let methods = method_bases.rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_method(base_offset + vtable_offset, &method, &mut method_names, gen));
 
-        let mut conversions = TokenStream::with_capacity();
+        let mut conversions = gen_unknown(&name);
 
         for base in &bases {
             let into = gen_type_name(base, gen);
@@ -72,13 +72,13 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
+                        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 #cfg
                 impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
                     fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
                     }
                 }
             });
@@ -108,8 +108,8 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
         quote! {
             #doc
             #[repr(transparent)]
-            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug, ::windows::runtime::DeriveInterface)]
-            pub struct #name(::windows::runtime::IUnknown);
+            #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
+            pub struct #name(pub ::windows::runtime::IUnknown);
             impl #name {
                 #(#methods)*
             }
@@ -134,7 +134,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             #[repr(transparent)]
             #[derive(::std::cmp::PartialEq, ::std::cmp::Eq, ::std::clone::Clone, ::std::fmt::Debug)]
             #[doc(hidden)]
-            pub struct #name(::windows::runtime::IUnknown);
+            pub struct #name(pub ::windows::runtime::IUnknown);
             unsafe impl ::windows::runtime::Interface for #name {
                 type Vtable = <::windows::runtime::IUnknown as ::windows::runtime::Interface>::Vtable;
                 const IID: ::windows::runtime::GUID = #guid;

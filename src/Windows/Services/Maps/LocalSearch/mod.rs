@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalCategoriesStatics(::windows::runtime::IInspectable);
+pub struct ILocalCategoriesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalCategoriesStatics {
     type Vtable = ILocalCategoriesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4103313909, 33377, 17185, [153, 116, 239, 146, 212, 154, 141, 202]);
@@ -26,7 +26,7 @@ pub struct ILocalCategoriesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocation(::windows::runtime::IInspectable);
+pub struct ILocalLocation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation {
     type Vtable = ILocalLocation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3138382251, 17666, 20268, [148, 169, 13, 96, 222, 14, 33, 99]);
@@ -51,7 +51,7 @@ pub struct ILocalLocation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocation2(::windows::runtime::IInspectable);
+pub struct ILocalLocation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocation2 {
     type Vtable = ILocalLocation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1855860860, 60597, 20476, [187, 140, 186, 80, 186, 140, 45, 198]);
@@ -72,7 +72,7 @@ pub struct ILocalLocation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocationFinderResult(::windows::runtime::IInspectable);
+pub struct ILocalLocationFinderResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3499846854, 62264, 16785, [159, 216, 84, 64, 185, 166, 143, 82]);
@@ -92,7 +92,7 @@ pub struct ILocalLocationFinderResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocationFinderStatics(::windows::runtime::IInspectable);
+pub struct ILocalLocationFinderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationFinderStatics {
     type Vtable = ILocalLocationFinderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3538907972, 41182, 18634, [129, 168, 7, 199, 220, 253, 55, 171]);
@@ -111,7 +111,7 @@ pub struct ILocalLocationFinderStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocationHoursOfOperationItem(::windows::runtime::IInspectable);
+pub struct ILocalLocationHoursOfOperationItem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(592743538, 41415, 17393, [164, 240, 16, 145, 195, 158, 198, 64]);
@@ -134,7 +134,7 @@ pub struct ILocalLocationHoursOfOperationItem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILocalLocationRatingInfo(::windows::runtime::IInspectable);
+pub struct ILocalLocationRatingInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3407719254, 13140, 17169, [139, 192, 162, 212, 213, 235, 128, 110]);
@@ -156,7 +156,7 @@ pub struct ILocalLocationRatingInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPlaceInfoHelperStatics(::windows::runtime::IInspectable);
+pub struct IPlaceInfoHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPlaceInfoHelperStatics {
     type Vtable = IPlaceInfoHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709643175, 43462, 18715, [188, 9, 232, 15, 206, 164, 142, 230]);
@@ -241,8 +241,8 @@ impl ::windows::runtime::RuntimeName for LocalCategories {
 }
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LocalLocation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LocalLocation(pub ::windows::runtime::IInspectable);
 impl LocalLocation {
     #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
     pub fn Address(&self) -> ::windows::runtime::Result<super::MapAddress> {
@@ -337,6 +337,46 @@ unsafe impl ::windows::runtime::Interface for LocalLocation {
 impl ::windows::runtime::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
 }
+impl ::std::convert::From<LocalLocation> for ::windows::runtime::IUnknown {
+    fn from(value: LocalLocation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LocalLocation> for ::windows::runtime::IUnknown {
+    fn from(value: &LocalLocation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LocalLocation> for ::windows::runtime::IInspectable {
+    fn from(value: LocalLocation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocalLocation> for ::windows::runtime::IInspectable {
+    fn from(value: &LocalLocation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocalLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocalLocation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LocalLocation {}
 unsafe impl ::std::marker::Sync for LocalLocation {}
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
@@ -360,8 +400,8 @@ impl ::windows::runtime::RuntimeName for LocalLocationFinder {
 }
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LocalLocationFinderResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LocalLocationFinderResult(pub ::windows::runtime::IInspectable);
 impl LocalLocationFinderResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation_Collections`*"]
@@ -390,6 +430,46 @@ unsafe impl ::windows::runtime::Interface for LocalLocationFinderResult {
 }
 impl ::windows::runtime::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
+}
+impl ::std::convert::From<LocalLocationFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: LocalLocationFinderResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LocalLocationFinderResult> for ::windows::runtime::IUnknown {
+    fn from(value: &LocalLocationFinderResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LocalLocationFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: LocalLocationFinderResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocalLocationFinderResult> for ::windows::runtime::IInspectable {
+    fn from(value: &LocalLocationFinderResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocalLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocalLocationFinderResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::std::marker::Sync for LocalLocationFinderResult {}
@@ -423,8 +503,8 @@ impl ::windows::runtime::DefaultType for LocalLocationFinderStatus {
 }
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LocalLocationHoursOfOperationItem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LocalLocationHoursOfOperationItem(pub ::windows::runtime::IInspectable);
 impl LocalLocationHoursOfOperationItem {
     #[cfg(feature = "Globalization")]
     #[doc = "*Required features: `Services_Maps_LocalSearch`, `Globalization`*"]
@@ -464,12 +544,52 @@ unsafe impl ::windows::runtime::Interface for LocalLocationHoursOfOperationItem 
 impl ::windows::runtime::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
 }
+impl ::std::convert::From<LocalLocationHoursOfOperationItem> for ::windows::runtime::IUnknown {
+    fn from(value: LocalLocationHoursOfOperationItem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::runtime::IUnknown {
+    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalLocationHoursOfOperationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalLocationHoursOfOperationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LocalLocationHoursOfOperationItem> for ::windows::runtime::IInspectable {
+    fn from(value: LocalLocationHoursOfOperationItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::runtime::IInspectable {
+    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocalLocationHoursOfOperationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocalLocationHoursOfOperationItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LocalLocationHoursOfOperationItem {}
 unsafe impl ::std::marker::Sync for LocalLocationHoursOfOperationItem {}
 #[doc = "*Required features: `Services_Maps_LocalSearch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LocalLocationRatingInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LocalLocationRatingInfo(pub ::windows::runtime::IInspectable);
 impl LocalLocationRatingInfo {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Services_Maps_LocalSearch`, `Foundation`*"]
@@ -507,6 +627,46 @@ unsafe impl ::windows::runtime::Interface for LocalLocationRatingInfo {
 }
 impl ::windows::runtime::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";
+}
+impl ::std::convert::From<LocalLocationRatingInfo> for ::windows::runtime::IUnknown {
+    fn from(value: LocalLocationRatingInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LocalLocationRatingInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &LocalLocationRatingInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LocalLocationRatingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LocalLocationRatingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LocalLocationRatingInfo> for ::windows::runtime::IInspectable {
+    fn from(value: LocalLocationRatingInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LocalLocationRatingInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &LocalLocationRatingInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LocalLocationRatingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LocalLocationRatingInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::std::marker::Sync for LocalLocationRatingInfo {}

@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Enterprise(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Enterprise(pub ::windows::runtime::IInspectable);
 impl Enterprise {
     #[doc = "*Required features: `Phone_Management_Deployment`*"]
     pub fn Id(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -65,6 +65,46 @@ unsafe impl ::windows::runtime::Interface for Enterprise {
 impl ::windows::runtime::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
 }
+impl ::std::convert::From<Enterprise> for ::windows::runtime::IUnknown {
+    fn from(value: Enterprise) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Enterprise> for ::windows::runtime::IUnknown {
+    fn from(value: &Enterprise) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Enterprise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Enterprise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Enterprise> for ::windows::runtime::IInspectable {
+    fn from(value: Enterprise) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Enterprise> for ::windows::runtime::IInspectable {
+    fn from(value: &Enterprise) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Enterprise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Enterprise {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Enterprise {}
 unsafe impl ::std::marker::Sync for Enterprise {}
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
@@ -119,8 +159,8 @@ impl ::windows::runtime::RuntimeName for EnterpriseEnrollmentManager {
 }
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct EnterpriseEnrollmentResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct EnterpriseEnrollmentResult(pub ::windows::runtime::IInspectable);
 impl EnterpriseEnrollmentResult {
     #[doc = "*Required features: `Phone_Management_Deployment`*"]
     pub fn EnrolledEnterprise(&self) -> ::windows::runtime::Result<Enterprise> {
@@ -148,6 +188,46 @@ unsafe impl ::windows::runtime::Interface for EnterpriseEnrollmentResult {
 }
 impl ::windows::runtime::RuntimeName for EnterpriseEnrollmentResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult";
+}
+impl ::std::convert::From<EnterpriseEnrollmentResult> for ::windows::runtime::IUnknown {
+    fn from(value: EnterpriseEnrollmentResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&EnterpriseEnrollmentResult> for ::windows::runtime::IUnknown {
+    fn from(value: &EnterpriseEnrollmentResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for EnterpriseEnrollmentResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a EnterpriseEnrollmentResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<EnterpriseEnrollmentResult> for ::windows::runtime::IInspectable {
+    fn from(value: EnterpriseEnrollmentResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&EnterpriseEnrollmentResult> for ::windows::runtime::IInspectable {
+    fn from(value: &EnterpriseEnrollmentResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for EnterpriseEnrollmentResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a EnterpriseEnrollmentResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -198,7 +278,7 @@ impl ::windows::runtime::DefaultType for EnterpriseStatus {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEnterprise(::windows::runtime::IInspectable);
+pub struct IEnterprise(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterprise {
     type Vtable = IEnterprise_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522427277, 34156, 17446, [169, 71, 176, 99, 7, 113, 128, 120]);
@@ -223,7 +303,7 @@ pub struct IEnterprise_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEnterpriseEnrollmentManager(::windows::runtime::IInspectable);
+pub struct IEnterpriseEnrollmentManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentManager {
     type Vtable = IEnterpriseEnrollmentManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(553251728, 11369, 16856, [136, 230, 228, 179, 136, 64, 38, 203]);
@@ -249,7 +329,7 @@ pub struct IEnterpriseEnrollmentManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IEnterpriseEnrollmentResult(::windows::runtime::IInspectable);
+pub struct IEnterpriseEnrollmentResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IEnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683772134, 37083, 17218, [179, 38, 23, 41, 170, 145, 48, 28]);
@@ -268,7 +348,7 @@ pub struct IEnterpriseEnrollmentResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInstallationManagerStatics(::windows::runtime::IInspectable);
+pub struct IInstallationManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics {
     type Vtable = IInstallationManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459608888, 36169, 17068, [128, 201, 180, 173, 121, 60, 67, 242]);
@@ -295,7 +375,7 @@ pub struct IInstallationManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInstallationManagerStatics2(::windows::runtime::IInspectable);
+pub struct IInstallationManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInstallationManagerStatics2 {
     type Vtable = IInstallationManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2087464125, 64074, 19598, [171, 151, 217, 89, 69, 47, 25, 229]);
@@ -318,7 +398,7 @@ pub struct IInstallationManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageInstallResult(::windows::runtime::IInspectable);
+pub struct IPackageInstallResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult {
     type Vtable = IPackageInstallResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(870903509, 3966, 17523, [150, 124, 125, 110, 28, 14, 125, 225]);
@@ -338,7 +418,7 @@ pub struct IPackageInstallResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPackageInstallResult2(::windows::runtime::IInspectable);
+pub struct IPackageInstallResult2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPackageInstallResult2 {
     type Vtable = IPackageInstallResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1900665097, 16377, 16877, [167, 23, 43, 198, 95, 252, 97, 210]);
@@ -445,8 +525,8 @@ impl ::windows::runtime::RuntimeName for InstallationManager {
 }
 #[doc = "*Required features: `Phone_Management_Deployment`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PackageInstallResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PackageInstallResult(pub ::windows::runtime::IInspectable);
 impl PackageInstallResult {
     #[doc = "*Required features: `Phone_Management_Deployment`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -483,4 +563,44 @@ unsafe impl ::windows::runtime::Interface for PackageInstallResult {
 }
 impl ::windows::runtime::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";
+}
+impl ::std::convert::From<PackageInstallResult> for ::windows::runtime::IUnknown {
+    fn from(value: PackageInstallResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PackageInstallResult> for ::windows::runtime::IUnknown {
+    fn from(value: &PackageInstallResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PackageInstallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PackageInstallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PackageInstallResult> for ::windows::runtime::IInspectable {
+    fn from(value: PackageInstallResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PackageInstallResult> for ::windows::runtime::IInspectable {
+    fn from(value: &PackageInstallResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PackageInstallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PackageInstallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

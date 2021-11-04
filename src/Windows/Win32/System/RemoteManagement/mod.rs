@@ -1023,8 +1023,8 @@ pub const ERROR_WSMAN_WMI_SVC_ACCESS_DENIED: u32 = 2150859012u32;
 pub const ERROR_WSMAN_WRONG_METADATA: u32 = 2150859233u32;
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSMan(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSMan(pub ::windows::runtime::IUnknown);
 impl IWSMan {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -1055,6 +1055,26 @@ unsafe impl ::windows::runtime::Interface for IWSMan {
     type Vtable = IWSMan_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(420316727, 23763, 18797, [173, 36, 105, 99, 107, 181, 163, 181]);
 }
+impl ::std::convert::From<IWSMan> for ::windows::runtime::IUnknown {
+    fn from(value: IWSMan) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSMan> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSMan) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSMan {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSMan {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSMan> for super::Ole::Automation::IDispatch {
     fn from(value: IWSMan) -> Self {
@@ -1070,13 +1090,13 @@ impl ::std::convert::From<&IWSMan> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSMan {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1104,8 +1124,8 @@ pub struct IWSMan_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManConnectionOptions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManConnectionOptions(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -1128,6 +1148,26 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptions {
     type Vtable = IWSManConnectionOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4144293985, 40530, 17999, [183, 134, 218, 94, 178, 50, 15, 221]);
 }
+impl ::std::convert::From<IWSManConnectionOptions> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManConnectionOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManConnectionOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManConnectionOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptions) -> Self {
@@ -1143,13 +1183,13 @@ impl ::std::convert::From<&IWSManConnectionOptions> for super::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1175,8 +1215,8 @@ pub struct IWSManConnectionOptions_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManConnectionOptionsEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManConnectionOptionsEx(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1231,6 +1271,26 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx {
     type Vtable = IWSManConnectionOptionsEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4014206455, 10824, 19859, [149, 38, 139, 214, 171, 109, 74, 107]);
 }
+impl ::std::convert::From<IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManConnectionOptionsEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManConnectionOptionsEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManConnectionOptionsEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptionsEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptionsEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSManConnectionOptionsEx> for IWSManConnectionOptions {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1243,12 +1303,12 @@ impl ::std::convert::From<&IWSManConnectionOptionsEx> for IWSManConnectionOption
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptions>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptions>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1266,13 +1326,13 @@ impl ::std::convert::From<&IWSManConnectionOptionsEx> for super::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptionsEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1302,8 +1362,8 @@ pub struct IWSManConnectionOptionsEx_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManConnectionOptionsEx2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManConnectionOptionsEx2(pub ::windows::runtime::IUnknown);
 impl IWSManConnectionOptionsEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1398,6 +1458,26 @@ unsafe impl ::windows::runtime::Interface for IWSManConnectionOptionsEx2 {
     type Vtable = IWSManConnectionOptionsEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4110469612, 9454, 18603, [179, 141, 252, 154, 22, 76, 101, 142]);
 }
+impl ::std::convert::From<IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManConnectionOptionsEx2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManConnectionOptionsEx2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManConnectionOptionsEx2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManConnectionOptionsEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManConnectionOptionsEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptionsEx {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1410,12 +1490,12 @@ impl ::std::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptionsEx> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptionsEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptionsEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptionsEx> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptionsEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptionsEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSManConnectionOptionsEx2> for IWSManConnectionOptions {
@@ -1430,12 +1510,12 @@ impl ::std::convert::From<&IWSManConnectionOptionsEx2> for IWSManConnectionOptio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptions>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManConnectionOptions> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManConnectionOptions>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1453,13 +1533,13 @@ impl ::std::convert::From<&IWSManConnectionOptionsEx2> for super::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManConnectionOptionsEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1498,8 +1578,8 @@ pub struct IWSManConnectionOptionsEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManEnumerator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManEnumerator(pub ::windows::runtime::IUnknown);
 impl IWSManEnumerator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -1523,6 +1603,26 @@ unsafe impl ::windows::runtime::Interface for IWSManEnumerator {
     type Vtable = IWSManEnumerator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4081417385, 43961, 20389, [184, 80, 144, 232, 202, 48, 14, 127]);
 }
+impl ::std::convert::From<IWSManEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManEnumerator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManEnumerator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManEnumerator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSManEnumerator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEnumerator) -> Self {
@@ -1538,13 +1638,13 @@ impl ::std::convert::From<&IWSManEnumerator> for super::Ole::Automation::IDispat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEnumerator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1569,8 +1669,8 @@ pub struct IWSManEnumerator_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManEx(pub ::windows::runtime::IUnknown);
 impl IWSManEx {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1724,6 +1824,26 @@ unsafe impl ::windows::runtime::Interface for IWSManEx {
     type Vtable = IWSManEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(760462762, 31118, 18918, [161, 170, 116, 208, 18, 86, 244, 17]);
 }
+impl ::std::convert::From<IWSManEx> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSManEx> for IWSMan {
     fn from(value: IWSManEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1736,12 +1856,12 @@ impl ::std::convert::From<&IWSManEx> for IWSMan {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1759,13 +1879,13 @@ impl ::std::convert::From<&IWSManEx> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1815,8 +1935,8 @@ pub struct IWSManEx_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManEx2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManEx2(pub ::windows::runtime::IUnknown);
 impl IWSManEx2 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -1975,6 +2095,26 @@ unsafe impl ::windows::runtime::Interface for IWSManEx2 {
     type Vtable = IWSManEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(488332000, 17113, 16417, [130, 97, 57, 135, 97, 149, 18, 233]);
 }
+impl ::std::convert::From<IWSManEx2> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManEx2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManEx2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManEx2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSManEx2> for IWSManEx {
     fn from(value: IWSManEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1987,12 +2127,12 @@ impl ::std::convert::From<&IWSManEx2> for IWSManEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSManEx2> for IWSMan {
@@ -2007,12 +2147,12 @@ impl ::std::convert::From<&IWSManEx2> for IWSMan {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2030,13 +2170,13 @@ impl ::std::convert::From<&IWSManEx2> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2087,8 +2227,8 @@ pub struct IWSManEx2_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManEx3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManEx3(pub ::windows::runtime::IUnknown);
 impl IWSManEx3 {
     #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2282,6 +2422,26 @@ unsafe impl ::windows::runtime::Interface for IWSManEx3 {
     type Vtable = IWSManEx3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677781350, 285, 20140, [132, 116, 4, 158, 8, 72, 175, 173]);
 }
+impl ::std::convert::From<IWSManEx3> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManEx3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManEx3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManEx3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManEx3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManEx3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWSManEx3> for IWSManEx2 {
     fn from(value: IWSManEx3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2294,12 +2454,12 @@ impl ::std::convert::From<&IWSManEx3> for IWSManEx2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx2> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx2> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSManEx3> for IWSManEx {
@@ -2314,12 +2474,12 @@ impl ::std::convert::From<&IWSManEx3> for IWSManEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSManEx> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSManEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSManEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWSManEx3> for IWSMan {
@@ -2334,12 +2494,12 @@ impl ::std::convert::From<&IWSManEx3> for IWSMan {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWSMan> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWSMan>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2357,13 +2517,13 @@ impl ::std::convert::From<&IWSManEx3> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2421,8 +2581,8 @@ pub struct IWSManEx3_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManInternal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManInternal(pub ::windows::runtime::IUnknown);
 impl IWSManInternal {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2434,6 +2594,26 @@ impl IWSManInternal {
 unsafe impl ::windows::runtime::Interface for IWSManInternal {
     type Vtable = IWSManInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(78523165, 39252, 19865, [148, 169, 169, 97, 231, 44, 58, 19]);
+}
+impl ::std::convert::From<IWSManInternal> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManInternal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManInternal> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManInternal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSManInternal> for super::Ole::Automation::IDispatch {
@@ -2450,13 +2630,13 @@ impl ::std::convert::From<&IWSManInternal> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManInternal {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2478,8 +2658,8 @@ pub struct IWSManInternal_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManResourceLocator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManResourceLocator(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
@@ -2554,6 +2734,26 @@ unsafe impl ::windows::runtime::Interface for IWSManResourceLocator {
     type Vtable = IWSManResourceLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2812394024, 56897, 18026, [173, 10, 196, 5, 158, 173, 116, 40]);
 }
+impl ::std::convert::From<IWSManResourceLocator> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManResourceLocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManResourceLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManResourceLocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManResourceLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManResourceLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSManResourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManResourceLocator) -> Self {
@@ -2569,13 +2769,13 @@ impl ::std::convert::From<&IWSManResourceLocator> for super::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManResourceLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2619,12 +2819,32 @@ pub struct IWSManResourceLocator_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManResourceLocatorInternal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManResourceLocatorInternal(pub ::windows::runtime::IUnknown);
 impl IWSManResourceLocatorInternal {}
 unsafe impl ::windows::runtime::Interface for IWSManResourceLocatorInternal {
     type Vtable = IWSManResourceLocatorInternal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026198743, 32456, 18198, [185, 190, 242, 231, 233, 251, 74, 219]);
+}
+impl ::std::convert::From<IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManResourceLocatorInternal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManResourceLocatorInternal> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManResourceLocatorInternal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManResourceLocatorInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManResourceLocatorInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2635,8 +2855,8 @@ pub struct IWSManResourceLocatorInternal_abi(
 );
 #[doc = "*Required features: `Win32_System_RemoteManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSManSession(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSManSession(pub ::windows::runtime::IUnknown);
 impl IWSManSession {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2708,6 +2928,26 @@ unsafe impl ::windows::runtime::Interface for IWSManSession {
     type Vtable = IWSManSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4236573784, 4742, 16580, [157, 160, 200, 239, 110, 194, 65, 224]);
 }
+impl ::std::convert::From<IWSManSession> for ::windows::runtime::IUnknown {
+    fn from(value: IWSManSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSManSession> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSManSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSManSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSManSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSManSession> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManSession) -> Self {
@@ -2723,13 +2963,13 @@ impl ::std::convert::From<&IWSManSession> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

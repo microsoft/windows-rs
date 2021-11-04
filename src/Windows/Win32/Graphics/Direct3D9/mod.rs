@@ -5078,8 +5078,8 @@ pub unsafe fn Direct3DCreate9Ex(sdkversion: u32) -> ::windows::runtime::Result<I
 }
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3D9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3D9(pub ::windows::runtime::IUnknown);
 impl IDirect3D9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -5147,6 +5147,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3D9 {
     type Vtable = IDirect3D9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2176699338, 25812, 17005, [174, 141, 173, 1, 71, 244, 39, 92]);
 }
+impl ::std::convert::From<IDirect3D9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3D9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3D9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3D9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3D9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3D9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3D9_abi(
@@ -5175,8 +5195,8 @@ pub struct IDirect3D9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3D9Ex(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3D9Ex(pub ::windows::runtime::IUnknown);
 impl IDirect3D9Ex {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -5276,6 +5296,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3D9Ex {
     type Vtable = IDirect3D9Ex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(35091009, 27132, 16396, [143, 241, 147, 164, 77, 246, 134, 29]);
 }
+impl ::std::convert::From<IDirect3D9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3D9Ex) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3D9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3D9Ex) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3D9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3D9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3D9Ex> for IDirect3D9 {
     fn from(value: IDirect3D9Ex) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5288,12 +5328,12 @@ impl ::std::convert::From<&IDirect3D9Ex> for IDirect3D9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3D9> for IDirect3D9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3D9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3D9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3D9> for &IDirect3D9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3D9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3D9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5331,8 +5371,8 @@ pub struct IDirect3D9Ex_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DBaseTexture9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DBaseTexture9(pub ::windows::runtime::IUnknown);
 impl IDirect3DBaseTexture9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -5396,6 +5436,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DBaseTexture9 {
     type Vtable = IDirect3DBaseTexture9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477224574, 7484, 19796, [153, 29, 183, 211, 227, 194, 152, 206]);
 }
+impl ::std::convert::From<IDirect3DBaseTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DBaseTexture9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DBaseTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DBaseTexture9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DBaseTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DBaseTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DBaseTexture9> for IDirect3DResource9 {
     fn from(value: IDirect3DBaseTexture9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5408,12 +5468,12 @@ impl ::std::convert::From<&IDirect3DBaseTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DBaseTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DBaseTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5439,8 +5499,8 @@ pub struct IDirect3DBaseTexture9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DCubeTexture9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DCubeTexture9(pub ::windows::runtime::IUnknown);
 impl IDirect3DCubeTexture9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -5527,6 +5587,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DCubeTexture9 {
     type Vtable = IDirect3DCubeTexture9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4294127489, 55635, 18234, [146, 35, 147, 214, 82, 171, 169, 63]);
 }
+impl ::std::convert::From<IDirect3DCubeTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DCubeTexture9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DCubeTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DCubeTexture9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DCubeTexture9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5539,12 +5619,12 @@ impl ::std::convert::From<&IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DCubeTexture9> for IDirect3DResource9 {
@@ -5559,12 +5639,12 @@ impl ::std::convert::From<&IDirect3DCubeTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DCubeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5597,8 +5677,8 @@ pub struct IDirect3DCubeTexture9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DDevice9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DDevice9(pub ::windows::runtime::IUnknown);
 impl IDirect3DDevice9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
@@ -6160,6 +6240,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DDevice9 {
     type Vtable = IDirect3DDevice9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3491904406, 49018, 17405, [146, 189, 164, 59, 13, 130, 185, 235]);
 }
+impl ::std::convert::From<IDirect3DDevice9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DDevice9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DDevice9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DDevice9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DDevice9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DDevice9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DDevice9_abi(
@@ -6315,8 +6415,8 @@ pub struct IDirect3DDevice9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DDevice9Ex(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DDevice9Ex(pub ::windows::runtime::IUnknown);
 impl IDirect3DDevice9Ex {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::runtime::Result<()> {
@@ -6968,6 +7068,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DDevice9Ex {
     type Vtable = IDirect3DDevice9Ex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2978681038, 9801, 16474, [135, 15, 149, 247, 119, 212, 49, 58]);
 }
+impl ::std::convert::From<IDirect3DDevice9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DDevice9Ex) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DDevice9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DDevice9Ex) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DDevice9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DDevice9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DDevice9Ex> for IDirect3DDevice9 {
     fn from(value: IDirect3DDevice9Ex) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6980,12 +7100,12 @@ impl ::std::convert::From<&IDirect3DDevice9Ex> for IDirect3DDevice9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DDevice9> for IDirect3DDevice9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DDevice9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DDevice9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DDevice9> for &IDirect3DDevice9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DDevice9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DDevice9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7164,8 +7284,8 @@ pub struct IDirect3DDevice9Ex_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DIndexBuffer9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DIndexBuffer9(pub ::windows::runtime::IUnknown);
 impl IDirect3DIndexBuffer9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7217,6 +7337,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DIndexBuffer9 {
     type Vtable = IDirect3DIndexBuffer9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2090718814, 54263, 17705, [172, 238, 120, 88, 48, 172, 222, 53]);
 }
+impl ::std::convert::From<IDirect3DIndexBuffer9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DIndexBuffer9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DIndexBuffer9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DIndexBuffer9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DIndexBuffer9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DIndexBuffer9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DIndexBuffer9> for IDirect3DResource9 {
     fn from(value: IDirect3DIndexBuffer9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7229,12 +7369,12 @@ impl ::std::convert::From<&IDirect3DIndexBuffer9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DIndexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DIndexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7257,8 +7397,8 @@ pub struct IDirect3DIndexBuffer9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DPixelShader9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DPixelShader9(pub ::windows::runtime::IUnknown);
 impl IDirect3DPixelShader9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7274,6 +7414,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DPixelShader9 {
     type Vtable = IDirect3DPixelShader9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1832639452, 23298, 17429, [184, 82, 206, 94, 139, 204, 178, 137]);
 }
+impl ::std::convert::From<IDirect3DPixelShader9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DPixelShader9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DPixelShader9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DPixelShader9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DPixelShader9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DPixelShader9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DPixelShader9_abi(
@@ -7285,8 +7445,8 @@ pub struct IDirect3DPixelShader9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DQuery9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DQuery9(pub ::windows::runtime::IUnknown);
 impl IDirect3DQuery9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7314,6 +7474,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DQuery9 {
     type Vtable = IDirect3DQuery9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3648459872, 42645, 20262, [187, 211, 39, 184, 64, 181, 65, 204]);
 }
+impl ::std::convert::From<IDirect3DQuery9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DQuery9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DQuery9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DQuery9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DQuery9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DQuery9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DQuery9_abi(
@@ -7328,8 +7508,8 @@ pub struct IDirect3DQuery9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DResource9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DResource9(pub ::windows::runtime::IUnknown);
 impl IDirect3DResource9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7369,6 +7549,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DResource9 {
     type Vtable = IDirect3DResource9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(99532893, 36733, 17250, [185, 153, 209, 186, 243, 87, 199, 4]);
 }
+impl ::std::convert::From<IDirect3DResource9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DResource9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DResource9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DResource9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DResource9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DResource9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DResource9_abi(
@@ -7386,8 +7586,8 @@ pub struct IDirect3DResource9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DStateBlock9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DStateBlock9(pub ::windows::runtime::IUnknown);
 impl IDirect3DStateBlock9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7407,6 +7607,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DStateBlock9 {
     type Vtable = IDirect3DStateBlock9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2960936933, 12557, 19368, [162, 60, 79, 15, 32, 111, 33, 139]);
 }
+impl ::std::convert::From<IDirect3DStateBlock9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DStateBlock9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DStateBlock9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DStateBlock9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DStateBlock9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DStateBlock9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DStateBlock9_abi(
@@ -7419,8 +7639,8 @@ pub struct IDirect3DStateBlock9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DSurface9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DSurface9(pub ::windows::runtime::IUnknown);
 impl IDirect3DSurface9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7487,6 +7707,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DSurface9 {
     type Vtable = IDirect3DSurface9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(217820986, 40950, 17050, [153, 179, 162, 121, 106, 248, 184, 155]);
 }
+impl ::std::convert::From<IDirect3DSurface9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DSurface9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DSurface9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DSurface9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DSurface9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DSurface9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DSurface9> for IDirect3DResource9 {
     fn from(value: IDirect3DSurface9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7499,12 +7739,12 @@ impl ::std::convert::From<&IDirect3DSurface9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DSurface9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DSurface9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7533,8 +7773,8 @@ pub struct IDirect3DSurface9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DSwapChain9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DSwapChain9(pub ::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -7574,6 +7814,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DSwapChain9 {
     type Vtable = IDirect3DSwapChain9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2034847986, 44540, 17802, [144, 94, 16, 161, 11, 11, 80, 59]);
 }
+impl ::std::convert::From<IDirect3DSwapChain9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DSwapChain9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DSwapChain9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DSwapChain9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DSwapChain9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DSwapChain9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DSwapChain9_abi(
@@ -7593,8 +7853,8 @@ pub struct IDirect3DSwapChain9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DSwapChain9Ex(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DSwapChain9Ex(pub ::windows::runtime::IUnknown);
 impl IDirect3DSwapChain9Ex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
@@ -7646,6 +7906,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DSwapChain9Ex {
     type Vtable = IDirect3DSwapChain9Ex_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2441637039, 7229, 19758, [160, 171, 62, 76, 125, 141, 51, 3]);
 }
+impl ::std::convert::From<IDirect3DSwapChain9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DSwapChain9Ex) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DSwapChain9Ex> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DSwapChain9Ex) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DSwapChain9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DSwapChain9Ex {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
     fn from(value: IDirect3DSwapChain9Ex) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7658,12 +7938,12 @@ impl ::std::convert::From<&IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DSwapChain9> for IDirect3DSwapChain9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DSwapChain9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DSwapChain9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DSwapChain9> for &IDirect3DSwapChain9Ex {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DSwapChain9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DSwapChain9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7688,8 +7968,8 @@ pub struct IDirect3DSwapChain9Ex_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DTexture9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DTexture9(pub ::windows::runtime::IUnknown);
 impl IDirect3DTexture9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7776,6 +8056,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DTexture9 {
     type Vtable = IDirect3DTexture9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2244153895, 15845, 20224, [155, 58, 241, 26, 195, 140, 24, 181]);
 }
+impl ::std::convert::From<IDirect3DTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DTexture9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DTexture9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DTexture9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7788,12 +8088,12 @@ impl ::std::convert::From<&IDirect3DTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DTexture9> for IDirect3DResource9 {
@@ -7808,12 +8108,12 @@ impl ::std::convert::From<&IDirect3DTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7846,8 +8146,8 @@ pub struct IDirect3DTexture9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DVertexBuffer9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DVertexBuffer9(pub ::windows::runtime::IUnknown);
 impl IDirect3DVertexBuffer9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7899,6 +8199,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DVertexBuffer9 {
     type Vtable = IDirect3DVertexBuffer9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3058414005, 64880, 19958, [191, 145, 25, 208, 161, 36, 85, 227]);
 }
+impl ::std::convert::From<IDirect3DVertexBuffer9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DVertexBuffer9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DVertexBuffer9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DVertexBuffer9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DVertexBuffer9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DVertexBuffer9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DVertexBuffer9> for IDirect3DResource9 {
     fn from(value: IDirect3DVertexBuffer9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7911,12 +8231,12 @@ impl ::std::convert::From<&IDirect3DVertexBuffer9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DVertexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DVertexBuffer9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7939,8 +8259,8 @@ pub struct IDirect3DVertexBuffer9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DVertexDeclaration9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DVertexDeclaration9(pub ::windows::runtime::IUnknown);
 impl IDirect3DVertexDeclaration9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7956,6 +8276,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DVertexDeclaration9 {
     type Vtable = IDirect3DVertexDeclaration9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709060508, 14074, 16536, [168, 251, 199, 237, 57, 220, 133, 70]);
 }
+impl ::std::convert::From<IDirect3DVertexDeclaration9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DVertexDeclaration9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DVertexDeclaration9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DVertexDeclaration9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DVertexDeclaration9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DVertexDeclaration9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexDeclaration9_abi(
@@ -7967,8 +8307,8 @@ pub struct IDirect3DVertexDeclaration9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DVertexShader9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DVertexShader9(pub ::windows::runtime::IUnknown);
 impl IDirect3DVertexShader9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -7984,6 +8324,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DVertexShader9 {
     type Vtable = IDirect3DVertexShader9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4022687102, 25189, 17939, [138, 148, 67, 133, 120, 137, 235, 54]);
 }
+impl ::std::convert::From<IDirect3DVertexShader9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DVertexShader9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DVertexShader9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DVertexShader9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DVertexShader9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DVertexShader9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVertexShader9_abi(
@@ -7995,8 +8355,8 @@ pub struct IDirect3DVertexShader9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DVolume9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DVolume9(pub ::windows::runtime::IUnknown);
 impl IDirect3DVolume9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -8036,6 +8396,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DVolume9 {
     type Vtable = IDirect3DVolume9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(619976422, 8039, 19111, [184, 142, 211, 63, 111, 49, 40, 161]);
 }
+impl ::std::convert::From<IDirect3DVolume9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DVolume9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DVolume9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DVolume9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DVolume9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DVolume9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirect3DVolume9_abi(
@@ -8053,8 +8433,8 @@ pub struct IDirect3DVolume9_abi(
 );
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirect3DVolumeTexture9(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirect3DVolumeTexture9(pub ::windows::runtime::IUnknown);
 impl IDirect3DVolumeTexture9 {
     #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IDirect3DDevice9> {
@@ -8139,6 +8519,26 @@ unsafe impl ::windows::runtime::Interface for IDirect3DVolumeTexture9 {
     type Vtable = IDirect3DVolumeTexture9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622350956, 59273, 16657, [167, 185, 71, 239, 50, 141, 19, 230]);
 }
+impl ::std::convert::From<IDirect3DVolumeTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: IDirect3DVolumeTexture9) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirect3DVolumeTexture9> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirect3DVolumeTexture9) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DVolumeTexture9) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8151,12 +8551,12 @@ impl ::std::convert::From<&IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DBaseTexture9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DBaseTexture9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirect3DVolumeTexture9> for IDirect3DResource9 {
@@ -8171,12 +8571,12 @@ impl ::std::convert::From<&IDirect3DVolumeTexture9> for IDirect3DResource9 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirect3DResource9> for &IDirect3DVolumeTexture9 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirect3DResource9> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirect3DResource9>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

@@ -279,8 +279,8 @@ unsafe impl ::windows::runtime::Abi for HTOUCHINPUT {
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IInertiaProcessor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IInertiaProcessor(pub ::windows::runtime::IUnknown);
 impl IInertiaProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn InitialOriginX(&self) -> ::windows::runtime::Result<f32> {
@@ -509,6 +509,26 @@ unsafe impl ::windows::runtime::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(414190701, 50670, 16817, [144, 169, 157, 74, 146, 144, 149, 173]);
 }
+impl ::std::convert::From<IInertiaProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: IInertiaProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IInertiaProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IInertiaProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInertiaProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IInertiaProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IInertiaProcessor_abi(
@@ -569,8 +589,8 @@ pub struct IInertiaProcessor_abi(
 );
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IManipulationProcessor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IManipulationProcessor(pub ::windows::runtime::IUnknown);
 impl IManipulationProcessor {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn SupportedManipulations(&self) -> ::windows::runtime::Result<MANIPULATION_PROCESSOR_MANIPULATIONS> {
@@ -669,6 +689,26 @@ impl IManipulationProcessor {
 unsafe impl ::windows::runtime::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2720711961, 33536, 18592, [190, 244, 241, 190, 135, 55, 219, 164]);
+}
+impl ::std::convert::From<IManipulationProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: IManipulationProcessor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IManipulationProcessor> for ::windows::runtime::IUnknown {
+    fn from(value: &IManipulationProcessor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IManipulationProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IManipulationProcessor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -966,8 +1006,8 @@ pub unsafe fn UnregisterTouchWindow<'a, Param0: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _IManipulationEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _IManipulationEvents(pub ::windows::runtime::IUnknown);
 impl _IManipulationEvents {
     #[doc = "*Required features: `Win32_UI_Input_Touch`*"]
     pub unsafe fn ManipulationStarted(&self, x: f32, y: f32) -> ::windows::runtime::Result<()> {
@@ -1010,6 +1050,26 @@ impl _IManipulationEvents {
 unsafe impl ::windows::runtime::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1331874010, 40019, 19234, [147, 223, 146, 122, 134, 43, 187, 3]);
+}
+impl ::std::convert::From<_IManipulationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IManipulationEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_IManipulationEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IManipulationEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IManipulationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IManipulationEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

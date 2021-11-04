@@ -4366,8 +4366,8 @@ pub const IDSI_FLAG_SECURE: u32 = 2u32;
 pub const IDSI_FLAG_TUNNEL: u32 = 8u32;
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDialBranding(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDialBranding(pub ::windows::runtime::IUnknown);
 impl IDialBranding {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -4385,6 +4385,26 @@ unsafe impl ::windows::runtime::Interface for IDialBranding {
     type Vtable = IDialBranding_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2330767273, 17158, 17356, [140, 90, 118, 95, 41, 121, 204, 22]);
 }
+impl ::std::convert::From<IDialBranding> for ::windows::runtime::IUnknown {
+    fn from(value: IDialBranding) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDialBranding> for ::windows::runtime::IUnknown {
+    fn from(value: &IDialBranding) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialBranding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDialBranding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialBranding_abi(
@@ -4398,8 +4418,8 @@ pub struct IDialBranding_abi(
 );
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDialEngine(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDialEngine(pub ::windows::runtime::IUnknown);
 impl IDialEngine {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -4439,6 +4459,26 @@ unsafe impl ::windows::runtime::Interface for IDialEngine {
     type Vtable = IDialEngine_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(972912683, 30981, 16597, [145, 72, 60, 155, 25, 4, 35, 213]);
 }
+impl ::std::convert::From<IDialEngine> for ::windows::runtime::IUnknown {
+    fn from(value: IDialEngine) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDialEngine> for ::windows::runtime::IUnknown {
+    fn from(value: &IDialEngine) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDialEngine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDialEngine_abi(
@@ -4458,8 +4498,8 @@ pub struct IDialEngine_abi(
 );
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDialEventSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDialEventSink(pub ::windows::runtime::IUnknown);
 impl IDialEventSink {
     #[doc = "*Required features: `Win32_Networking_WinInet`*"]
     pub unsafe fn OnEvent(&self, dwevent: u32, dwstatus: u32) -> ::windows::runtime::Result<()> {
@@ -4469,6 +4509,26 @@ impl IDialEventSink {
 unsafe impl ::windows::runtime::Interface for IDialEventSink {
     type Vtable = IDialEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(763819263, 28205, 17544, [178, 233, 105, 52, 175, 212, 27, 234]);
+}
+impl ::std::convert::From<IDialEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: IDialEventSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDialEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IDialEventSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDialEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDialEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7113,8 +7173,8 @@ unsafe impl ::windows::runtime::Abi for INTERNET_VERSION_INFO {
 }
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProofOfPossessionCookieInfoManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProofOfPossessionCookieInfoManager(pub ::windows::runtime::IUnknown);
 impl IProofOfPossessionCookieInfoManager {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -7125,6 +7185,26 @@ impl IProofOfPossessionCookieInfoManager {
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450785366, 20191, 17375, [177, 19, 136, 228, 85, 111, 161, 187]);
+}
+impl ::std::convert::From<IProofOfPossessionCookieInfoManager> for ::windows::runtime::IUnknown {
+    fn from(value: IProofOfPossessionCookieInfoManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProofOfPossessionCookieInfoManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IProofOfPossessionCookieInfoManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProofOfPossessionCookieInfoManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProofOfPossessionCookieInfoManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -7137,8 +7217,8 @@ pub struct IProofOfPossessionCookieInfoManager_abi(
 );
 #[doc = "*Required features: `Win32_Networking_WinInet`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProofOfPossessionCookieInfoManager2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProofOfPossessionCookieInfoManager2(pub ::windows::runtime::IUnknown);
 impl IProofOfPossessionCookieInfoManager2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Networking_WinInet`, `Win32_Foundation`*"]
@@ -7149,6 +7229,26 @@ impl IProofOfPossessionCookieInfoManager2 {
 unsafe impl ::windows::runtime::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367268871, 46127, 19175, [153, 102, 52, 160, 135, 178, 215, 19]);
+}
+impl ::std::convert::From<IProofOfPossessionCookieInfoManager2> for ::windows::runtime::IUnknown {
+    fn from(value: IProofOfPossessionCookieInfoManager2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProofOfPossessionCookieInfoManager2> for ::windows::runtime::IUnknown {
+    fn from(value: &IProofOfPossessionCookieInfoManager2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProofOfPossessionCookieInfoManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProofOfPossessionCookieInfoManager2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

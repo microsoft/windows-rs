@@ -33,8 +33,8 @@ pub mod Windows {
             type DefaultType = Self;
         }
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-        pub struct IPropertyValue(::windows::runtime::IInspectable);
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        pub struct IPropertyValue(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValue {
             type Vtable = IPropertyValue_abi;
             const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1272349405, 30036, 16617, [154, 155, 130, 101, 78, 222, 126, 98]);
@@ -260,6 +260,46 @@ pub mod Windows {
         unsafe impl ::windows::runtime::RuntimeType for IPropertyValue {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
         }
+        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IUnknown {
+            fn from(value: IPropertyValue) -> Self {
+                value.0 .0
+            }
+        }
+        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IUnknown {
+            fn from(value: &IPropertyValue) -> Self {
+                value.0 .0.clone()
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyValue {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Owned(self.0 .0)
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IPropertyValue {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Borrowed(&self.0 .0)
+            }
+        }
+        impl ::std::convert::From<IPropertyValue> for ::windows::runtime::IInspectable {
+            fn from(value: IPropertyValue) -> Self {
+                value.0
+            }
+        }
+        impl ::std::convert::From<&IPropertyValue> for ::windows::runtime::IInspectable {
+            fn from(value: &IPropertyValue) -> Self {
+                value.0.clone()
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPropertyValue {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Owned(self.0)
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPropertyValue {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Borrowed(&self.0)
+            }
+        }
         #[repr(C)]
         #[doc(hidden)]
         pub struct IPropertyValue_abi(
@@ -311,7 +351,7 @@ pub mod Windows {
         );
         #[repr(transparent)]
         #[doc(hidden)]
-        pub struct IPropertyValueStatics(::windows::runtime::IInspectable);
+        pub struct IPropertyValueStatics(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IPropertyValueStatics {
             type Vtable = IPropertyValueStatics_abi;
             const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1654381512, 55602, 20468, [150, 185, 141, 150, 197, 193, 232, 88]);
@@ -366,8 +406,8 @@ pub mod Windows {
             pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value_array_size: u32, value: *const Rect, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
         );
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-        pub struct IReference<T>(::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        pub struct IReference<T>(pub ::windows::runtime::IInspectable, ::std::marker::PhantomData<T>)
         where
             T: ::windows::runtime::RuntimeType + 'static;
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::Interface for IReference<T> {
@@ -602,6 +642,46 @@ pub mod Windows {
         unsafe impl<T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::RuntimeType for IReference<T> {
             const SIGNATURE: ::windows::runtime::ConstBuffer = { ::windows::runtime::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::runtime::RuntimeType>::SIGNATURE).push_slice(b")") };
         }
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IUnknown {
+            fn from(value: IReference<T>) -> Self {
+                value.0 .0
+            }
+        }
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IUnknown {
+            fn from(value: &IReference<T>) -> Self {
+                value.0 .0.clone()
+            }
+        }
+        impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IReference<T> {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Owned(self.0 .0)
+            }
+        }
+        impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IReference<T> {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Borrowed(&self.0 .0)
+            }
+        }
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<IReference<T>> for ::windows::runtime::IInspectable {
+            fn from(value: IReference<T>) -> Self {
+                value.0
+            }
+        }
+        impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::From<&IReference<T>> for ::windows::runtime::IInspectable {
+            fn from(value: &IReference<T>) -> Self {
+                value.0.clone()
+            }
+        }
+        impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IReference<T> {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Owned(self.0)
+            }
+        }
+        impl<'a, T: ::windows::runtime::RuntimeType + 'static> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IReference<T> {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Borrowed(&self.0)
+            }
+        }
         impl<T: ::windows::runtime::RuntimeType + 'static> ::std::convert::TryFrom<IReference<T>> for IPropertyValue {
             type Error = ::windows::runtime::Error;
             fn try_from(value: IReference<T>) -> ::windows::runtime::Result<Self> {
@@ -639,8 +719,8 @@ pub mod Windows {
         where
             T: ::windows::runtime::RuntimeType + 'static;
         #[repr(transparent)]
-        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-        pub struct IStringable(::windows::runtime::IInspectable);
+        #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+        pub struct IStringable(pub ::windows::runtime::IInspectable);
         unsafe impl ::windows::runtime::Interface for IStringable {
             type Vtable = IStringable_abi;
             const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2520162132, 36534, 18672, [171, 206, 193, 178, 17, 230, 39, 195]);
@@ -656,6 +736,46 @@ pub mod Windows {
         }
         unsafe impl ::windows::runtime::RuntimeType for IStringable {
             const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
+        }
+        impl ::std::convert::From<IStringable> for ::windows::runtime::IUnknown {
+            fn from(value: IStringable) -> Self {
+                value.0 .0
+            }
+        }
+        impl ::std::convert::From<&IStringable> for ::windows::runtime::IUnknown {
+            fn from(value: &IStringable) -> Self {
+                value.0 .0.clone()
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStringable {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Owned(self.0 .0)
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStringable {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                ::windows::runtime::Param::Borrowed(&self.0 .0)
+            }
+        }
+        impl ::std::convert::From<IStringable> for ::windows::runtime::IInspectable {
+            fn from(value: IStringable) -> Self {
+                value.0
+            }
+        }
+        impl ::std::convert::From<&IStringable> for ::windows::runtime::IInspectable {
+            fn from(value: &IStringable) -> Self {
+                value.0.clone()
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IStringable {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Owned(self.0)
+            }
+        }
+        impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IStringable {
+            fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+                ::windows::runtime::Param::Borrowed(&self.0)
+            }
         }
         #[repr(C)]
         #[doc(hidden)]
@@ -1630,12 +1750,32 @@ pub mod Windows {
                     unimplemented!("Unsupported target OS");
                 }
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct IAgileObject(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct IAgileObject(pub ::windows::runtime::IUnknown);
                 impl IAgileObject {}
                 unsafe impl ::windows::runtime::Interface for IAgileObject {
                     type Vtable = IAgileObject_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2498374548, 59852, 18912, [192, 255, 238, 100, 202, 143, 91, 144]);
+                }
+                impl ::std::convert::From<IAgileObject> for ::windows::runtime::IUnknown {
+                    fn from(value: IAgileObject) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&IAgileObject> for ::windows::runtime::IUnknown {
+                    fn from(value: &IAgileObject) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAgileObject {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAgileObject {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
                 }
                 #[repr(C)]
                 #[doc(hidden)]
@@ -1874,8 +2014,8 @@ pub mod Windows {
                         unimplemented!("Unsupported target OS");
                     }
                     #[repr(transparent)]
-                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                    pub struct IErrorInfo(::windows::runtime::IUnknown);
+                    #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                    pub struct IErrorInfo(pub ::windows::runtime::IUnknown);
                     impl IErrorInfo {
                         pub unsafe fn GetGUID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
                             let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -1901,6 +2041,26 @@ pub mod Windows {
                     unsafe impl ::windows::runtime::Interface for IErrorInfo {
                         type Vtable = IErrorInfo_abi;
                         const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(485667104, 21629, 4123, [142, 101, 8, 0, 43, 43, 209, 25]);
+                    }
+                    impl ::std::convert::From<IErrorInfo> for ::windows::runtime::IUnknown {
+                        fn from(value: IErrorInfo) -> Self {
+                            value.0
+                        }
+                    }
+                    impl ::std::convert::From<&IErrorInfo> for ::windows::runtime::IUnknown {
+                        fn from(value: &IErrorInfo) -> Self {
+                            value.0.clone()
+                        }
+                    }
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorInfo {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                            ::windows::runtime::Param::Owned(self.0)
+                        }
+                    }
+                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorInfo {
+                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                            ::windows::runtime::Param::Borrowed(&self.0)
+                        }
                     }
                     #[repr(C)]
                     #[doc(hidden)]
@@ -1972,8 +2132,8 @@ pub mod Windows {
             }
             pub mod WinRT {
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct ILanguageExceptionErrorInfo(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct ILanguageExceptionErrorInfo(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
                         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -1984,6 +2144,26 @@ pub mod Windows {
                     type Vtable = ILanguageExceptionErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(77782003, 57219, 4460, [9, 70, 8, 18, 171, 246, 224, 125]);
                 }
+                impl ::std::convert::From<ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: ILanguageExceptionErrorInfo) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&ILanguageExceptionErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: &ILanguageExceptionErrorInfo) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILanguageExceptionErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILanguageExceptionErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
+                }
                 #[repr(C)]
                 #[doc(hidden)]
                 pub struct ILanguageExceptionErrorInfo_abi(
@@ -1993,8 +2173,8 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, languageexception: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct ILanguageExceptionErrorInfo2(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct ILanguageExceptionErrorInfo2(pub ::windows::runtime::IUnknown);
                 impl ILanguageExceptionErrorInfo2 {
                     pub unsafe fn GetLanguageException(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
                         let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -2016,6 +2196,26 @@ pub mod Windows {
                     type Vtable = ILanguageExceptionErrorInfo2_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1464264132, 23447, 16972, [182, 32, 40, 34, 145, 87, 52, 221]);
                 }
+                impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                    fn from(value: ILanguageExceptionErrorInfo2) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&ILanguageExceptionErrorInfo2> for ::windows::runtime::IUnknown {
+                    fn from(value: &ILanguageExceptionErrorInfo2) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILanguageExceptionErrorInfo2 {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILanguageExceptionErrorInfo2 {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
+                }
                 impl ::std::convert::From<ILanguageExceptionErrorInfo2> for ILanguageExceptionErrorInfo {
                     fn from(value: ILanguageExceptionErrorInfo2) -> Self {
                         unsafe { ::std::mem::transmute(value) }
@@ -2028,12 +2228,12 @@ pub mod Windows {
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(self))
+                        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 impl<'a> ::windows::runtime::IntoParam<'a, ILanguageExceptionErrorInfo> for &ILanguageExceptionErrorInfo2 {
                     fn into_param(self) -> ::windows::runtime::Param<'a, ILanguageExceptionErrorInfo> {
-                        ::windows::runtime::Param::Owned(::std::convert::Into::<ILanguageExceptionErrorInfo>::into(::std::clone::Clone::clone(self)))
+                        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
                     }
                 }
                 #[repr(C)]
@@ -2048,8 +2248,8 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propagatedlanguageexceptionerrorinfohead: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct IRestrictedErrorInfo(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct IRestrictedErrorInfo(pub ::windows::runtime::IUnknown);
                 impl IRestrictedErrorInfo {
                     pub unsafe fn GetErrorDetails(&self, description: *mut super::super::Foundation::BSTR, error: *mut ::windows::runtime::HRESULT, restricteddescription: *mut super::super::Foundation::BSTR, capabilitysid: *mut super::super::Foundation::BSTR) -> ::windows::runtime::Result<()> {
                         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(description), ::std::mem::transmute(error), ::std::mem::transmute(restricteddescription), ::std::mem::transmute(capabilitysid)).ok()
@@ -2063,6 +2263,26 @@ pub mod Windows {
                     type Vtable = IRestrictedErrorInfo_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2193256594, 19592, 17021, [167, 188, 22, 221, 147, 254, 182, 126]);
                 }
+                impl ::std::convert::From<IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: IRestrictedErrorInfo) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&IRestrictedErrorInfo> for ::windows::runtime::IUnknown {
+                    fn from(value: &IRestrictedErrorInfo) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IRestrictedErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IRestrictedErrorInfo {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
+                }
                 unsafe impl ::std::marker::Send for IRestrictedErrorInfo {}
                 unsafe impl ::std::marker::Sync for IRestrictedErrorInfo {}
                 #[repr(C)]
@@ -2075,8 +2295,8 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, reference: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct IWeakReference(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct IWeakReference(pub ::windows::runtime::IUnknown);
                 impl IWeakReference {
                     pub unsafe fn Resolve<T: ::windows::runtime::Interface>(&self) -> ::windows::runtime::Result<T> {
                         let mut result__ = ::std::option::Option::None;
@@ -2087,6 +2307,26 @@ pub mod Windows {
                     type Vtable = IWeakReference_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(55, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
                 }
+                impl ::std::convert::From<IWeakReference> for ::windows::runtime::IUnknown {
+                    fn from(value: IWeakReference) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&IWeakReference> for ::windows::runtime::IUnknown {
+                    fn from(value: &IWeakReference) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWeakReference {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWeakReference {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
+                }
                 #[repr(C)]
                 #[doc(hidden)]
                 pub struct IWeakReference_abi(
@@ -2096,8 +2336,8 @@ pub mod Windows {
                     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, objectreference: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
                 );
                 #[repr(transparent)]
-                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-                pub struct IWeakReferenceSource(::windows::runtime::IUnknown);
+                #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+                pub struct IWeakReferenceSource(pub ::windows::runtime::IUnknown);
                 impl IWeakReferenceSource {
                     pub unsafe fn GetWeakReference(&self) -> ::windows::runtime::Result<IWeakReference> {
                         let mut result__: <IWeakReference as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -2107,6 +2347,26 @@ pub mod Windows {
                 unsafe impl ::windows::runtime::Interface for IWeakReferenceSource {
                     type Vtable = IWeakReferenceSource_abi;
                     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(56, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
+                }
+                impl ::std::convert::From<IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                    fn from(value: IWeakReferenceSource) -> Self {
+                        value.0
+                    }
+                }
+                impl ::std::convert::From<&IWeakReferenceSource> for ::windows::runtime::IUnknown {
+                    fn from(value: &IWeakReferenceSource) -> Self {
+                        value.0.clone()
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWeakReferenceSource {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Owned(self.0)
+                    }
+                }
+                impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWeakReferenceSource {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                        ::windows::runtime::Param::Borrowed(&self.0)
+                    }
                 }
                 #[repr(C)]
                 #[doc(hidden)]

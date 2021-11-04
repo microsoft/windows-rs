@@ -19,7 +19,7 @@ impl ::windows::runtime::RuntimeName for HtmlUtilities {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHtmlUtilities(::windows::runtime::IInspectable);
+pub struct IHtmlUtilities(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHtmlUtilities {
     type Vtable = IHtmlUtilities_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4273998557, 9113, 20396, [181, 167, 5, 233, 172, 215, 24, 29]);

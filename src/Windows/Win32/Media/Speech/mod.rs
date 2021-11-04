@@ -946,8 +946,8 @@ unsafe impl ::windows::runtime::Abi for DISPID_SpeechXMLRecoResult {
 }
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumSpObjectTokens(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumSpObjectTokens(pub ::windows::runtime::IUnknown);
 impl IEnumSpObjectTokens {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Next(&self, celt: u32, pelt: *mut ::std::option::Option<ISpObjectToken>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -980,6 +980,26 @@ unsafe impl ::windows::runtime::Interface for IEnumSpObjectTokens {
     type Vtable = IEnumSpObjectTokens_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(112611230, 32730, 4562, [180, 242, 0, 192, 79, 121, 115, 150]);
 }
+impl ::std::convert::From<IEnumSpObjectTokens> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumSpObjectTokens) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumSpObjectTokens> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumSpObjectTokens) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumSpObjectTokens {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumSpObjectTokens {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumSpObjectTokens_abi(
@@ -995,8 +1015,8 @@ pub struct IEnumSpObjectTokens_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpAudio(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpAudio(pub ::windows::runtime::IUnknown);
 impl ISpAudio {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1107,6 +1127,26 @@ unsafe impl ::windows::runtime::Interface for ISpAudio {
     type Vtable = ISpAudio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3227285135, 64232, 20162, [142, 7, 51, 131, 33, 193, 36, 82]);
 }
+impl ::std::convert::From<ISpAudio> for ::windows::runtime::IUnknown {
+    fn from(value: ISpAudio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpAudio> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpAudio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpAudio> for ISpStreamFormat {
     fn from(value: ISpAudio) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1119,12 +1159,12 @@ impl ::std::convert::From<&ISpAudio> for ISpStreamFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for &ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1142,13 +1182,13 @@ impl ::std::convert::From<&ISpAudio> for super::super::System::Com::IStream {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1166,13 +1206,13 @@ impl ::std::convert::From<&ISpAudio> for super::super::System::Com::ISequentialS
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &ISpAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1215,8 +1255,8 @@ pub struct ISpAudio_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpContainerLexicon(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpContainerLexicon(pub ::windows::runtime::IUnknown);
 impl ISpContainerLexicon {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1256,6 +1296,26 @@ unsafe impl ::windows::runtime::Interface for ISpContainerLexicon {
     type Vtable = ISpContainerLexicon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238011183, 49300, 16844, [181, 110, 16, 189, 156, 63, 240, 68]);
 }
+impl ::std::convert::From<ISpContainerLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: ISpContainerLexicon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpContainerLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpContainerLexicon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpContainerLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpContainerLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpContainerLexicon> for ISpLexicon {
     fn from(value: ISpContainerLexicon) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1268,12 +1328,12 @@ impl ::std::convert::From<&ISpContainerLexicon> for ISpLexicon {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpLexicon> for ISpContainerLexicon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpLexicon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpLexicon>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpLexicon> for &ISpContainerLexicon {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpLexicon> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpLexicon>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1297,8 +1357,8 @@ pub struct ISpContainerLexicon_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpDataKey(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpDataKey(pub ::windows::runtime::IUnknown);
 impl ISpDataKey {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1370,6 +1430,26 @@ unsafe impl ::windows::runtime::Interface for ISpDataKey {
     type Vtable = ISpDataKey_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335897985, 57708, 4562, [187, 144, 0, 192, 79, 142, 230, 192]);
 }
+impl ::std::convert::From<ISpDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: ISpDataKey) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpDataKey) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDataKey_abi(
@@ -1403,8 +1483,8 @@ pub struct ISpDataKey_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpDisplayAlternates(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpDisplayAlternates(pub ::windows::runtime::IUnknown);
 impl ISpDisplayAlternates {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1420,6 +1500,26 @@ unsafe impl ::windows::runtime::Interface for ISpDisplayAlternates {
     type Vtable = ISpDisplayAlternates_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3369584610, 3550, 17591, [175, 227, 176, 201, 145, 251, 235, 94]);
 }
+impl ::std::convert::From<ISpDisplayAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: ISpDisplayAlternates) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpDisplayAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpDisplayAlternates) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpDisplayAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpDisplayAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpDisplayAlternates_abi(
@@ -1432,8 +1532,8 @@ pub struct ISpDisplayAlternates_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpEnginePronunciation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpEnginePronunciation(pub ::windows::runtime::IUnknown);
 impl ISpEnginePronunciation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1450,6 +1550,26 @@ unsafe impl ::windows::runtime::Interface for ISpEnginePronunciation {
     type Vtable = ISpEnginePronunciation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3277901387, 30417, 16916, [173, 104, 82, 101, 125, 80, 131, 218]);
 }
+impl ::std::convert::From<ISpEnginePronunciation> for ::windows::runtime::IUnknown {
+    fn from(value: ISpEnginePronunciation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpEnginePronunciation> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpEnginePronunciation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpEnginePronunciation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpEnginePronunciation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEnginePronunciation_abi(
@@ -1463,8 +1583,8 @@ pub struct ISpEnginePronunciation_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpEventSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpEventSink(pub ::windows::runtime::IUnknown);
 impl ISpEventSink {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1480,6 +1600,26 @@ unsafe impl ::windows::runtime::Interface for ISpEventSink {
     type Vtable = ISpEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195706569, 24478, 4562, [150, 15, 0, 192, 79, 142, 230, 40]);
 }
+impl ::std::convert::From<ISpEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: ISpEventSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpEventSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpEventSink_abi(
@@ -1492,8 +1632,8 @@ pub struct ISpEventSink_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpEventSource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpEventSource(pub ::windows::runtime::IUnknown);
 impl ISpEventSource {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::runtime::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::runtime::Result<()> {
@@ -1545,6 +1685,26 @@ unsafe impl ::windows::runtime::Interface for ISpEventSource {
     type Vtable = ISpEventSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3195706574, 24478, 4562, [150, 15, 0, 192, 79, 142, 230, 40]);
 }
+impl ::std::convert::From<ISpEventSource> for ::windows::runtime::IUnknown {
+    fn from(value: ISpEventSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpEventSource> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpEventSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpEventSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpEventSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpEventSource> for ISpNotifySource {
     fn from(value: ISpEventSource) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1557,12 +1717,12 @@ impl ::std::convert::From<&ISpEventSource> for ISpNotifySource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for ISpEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for &ISpEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1589,8 +1749,8 @@ pub struct ISpEventSource_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpEventSource2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpEventSource2(pub ::windows::runtime::IUnknown);
 impl ISpEventSource2 {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::runtime::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::runtime::Result<()> {
@@ -1647,6 +1807,26 @@ unsafe impl ::windows::runtime::Interface for ISpEventSource2 {
     type Vtable = ISpEventSource2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(594781237, 27211, 17054, [166, 172, 212, 35, 26, 97, 151, 91]);
 }
+impl ::std::convert::From<ISpEventSource2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpEventSource2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpEventSource2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpEventSource2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpEventSource2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpEventSource2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpEventSource2> for ISpEventSource {
     fn from(value: ISpEventSource2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1659,12 +1839,12 @@ impl ::std::convert::From<&ISpEventSource2> for ISpEventSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for ISpEventSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for &ISpEventSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpEventSource2> for ISpNotifySource {
@@ -1679,12 +1859,12 @@ impl ::std::convert::From<&ISpEventSource2> for ISpNotifySource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for ISpEventSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for &ISpEventSource2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1713,8 +1893,8 @@ pub struct ISpEventSource2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpGrammarBuilder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpGrammarBuilder(pub ::windows::runtime::IUnknown);
 impl ISpGrammarBuilder {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows::runtime::Result<()> {
@@ -1757,6 +1937,26 @@ unsafe impl ::windows::runtime::Interface for ISpGrammarBuilder {
     type Vtable = ISpGrammarBuilder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2167898767, 22810, 19010, [190, 88, 73, 234, 126, 186, 172, 104]);
 }
+impl ::std::convert::From<ISpGrammarBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: ISpGrammarBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpGrammarBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpGrammarBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpGrammarBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpGrammarBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpGrammarBuilder_abi(
@@ -1778,8 +1978,8 @@ pub struct ISpGrammarBuilder_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpGrammarBuilder2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpGrammarBuilder2(pub ::windows::runtime::IUnknown);
 impl ISpGrammarBuilder2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1795,6 +1995,26 @@ unsafe impl ::windows::runtime::Interface for ISpGrammarBuilder2 {
     type Vtable = ISpGrammarBuilder2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326855718, 8396, 19232, [140, 34, 164, 156, 155, 167, 143, 96]);
 }
+impl ::std::convert::From<ISpGrammarBuilder2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpGrammarBuilder2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpGrammarBuilder2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpGrammarBuilder2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpGrammarBuilder2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpGrammarBuilder2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpGrammarBuilder2_abi(
@@ -1807,8 +2027,8 @@ pub struct ISpGrammarBuilder2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpLexicon(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpLexicon(pub ::windows::runtime::IUnknown);
 impl ISpLexicon {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -1844,6 +2064,26 @@ unsafe impl ::windows::runtime::Interface for ISpLexicon {
     type Vtable = ISpLexicon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3661735874, 21379, 19890, [145, 107, 108, 23, 25, 227, 219, 88]);
 }
+impl ::std::convert::From<ISpLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: ISpLexicon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpLexicon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpLexicon_abi(
@@ -1864,8 +2104,8 @@ pub struct ISpLexicon_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpMMSysAudio(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpMMSysAudio(pub ::windows::runtime::IUnknown);
 impl ISpMMSysAudio {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1996,6 +2236,26 @@ unsafe impl ::windows::runtime::Interface for ISpMMSysAudio {
     type Vtable = ISpMMSysAudio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(360738670, 7536, 19272, [152, 230, 59, 26, 0, 117, 9, 171]);
 }
+impl ::std::convert::From<ISpMMSysAudio> for ::windows::runtime::IUnknown {
+    fn from(value: ISpMMSysAudio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpMMSysAudio> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpMMSysAudio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpMMSysAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpMMSysAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpMMSysAudio> for ISpAudio {
     fn from(value: ISpMMSysAudio) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2008,12 +2268,12 @@ impl ::std::convert::From<&ISpMMSysAudio> for ISpAudio {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpAudio> for ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpAudio> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpAudio>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpAudio> for &ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpAudio> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpAudio>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpMMSysAudio> for ISpStreamFormat {
@@ -2028,12 +2288,12 @@ impl ::std::convert::From<&ISpMMSysAudio> for ISpStreamFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for &ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2051,13 +2311,13 @@ impl ::std::convert::From<&ISpMMSysAudio> for super::super::System::Com::IStream
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2075,13 +2335,13 @@ impl ::std::convert::From<&ISpMMSysAudio> for super::super::System::Com::ISequen
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &ISpMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2129,8 +2389,8 @@ pub struct ISpMMSysAudio_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpNotifyCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpNotifyCallback(pub ::windows::runtime::IUnknown);
 impl ISpNotifyCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -2141,6 +2401,26 @@ impl ISpNotifyCallback {
 unsafe impl ::windows::runtime::Interface for ISpNotifyCallback {
     type Vtable = ISpNotifyCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<ISpNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: ISpNotifyCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpNotifyCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpNotifyCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpNotifyCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2153,8 +2433,8 @@ pub struct ISpNotifyCallback_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpNotifySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpNotifySink(pub ::windows::runtime::IUnknown);
 impl ISpNotifySink {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Notify(&self) -> ::windows::runtime::Result<()> {
@@ -2164,6 +2444,26 @@ impl ISpNotifySink {
 unsafe impl ::windows::runtime::Interface for ISpNotifySink {
     type Vtable = ISpNotifySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(630621404, 14275, 4562, [150, 3, 0, 192, 79, 142, 230, 40]);
+}
+impl ::std::convert::From<ISpNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: ISpNotifySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpNotifySink> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpNotifySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpNotifySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -2175,8 +2475,8 @@ pub struct ISpNotifySink_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpNotifySource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpNotifySource(pub ::windows::runtime::IUnknown);
 impl ISpNotifySource {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::runtime::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::runtime::Result<()> {
@@ -2215,6 +2515,26 @@ unsafe impl ::windows::runtime::Interface for ISpNotifySource {
     type Vtable = ISpNotifySource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1593789167, 33927, 4562, [150, 28, 0, 192, 79, 142, 230, 40]);
 }
+impl ::std::convert::From<ISpNotifySource> for ::windows::runtime::IUnknown {
+    fn from(value: ISpNotifySource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpNotifySource> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpNotifySource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpNotifySource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpNotifySource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpNotifySource_abi(
@@ -2235,8 +2555,8 @@ pub struct ISpNotifySource_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpNotifyTranslator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpNotifyTranslator(pub ::windows::runtime::IUnknown);
 impl ISpNotifyTranslator {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Notify(&self) -> ::windows::runtime::Result<()> {
@@ -2276,6 +2596,26 @@ unsafe impl ::windows::runtime::Interface for ISpNotifyTranslator {
     type Vtable = ISpNotifyTranslator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2896258580, 23869, 4562, [150, 14, 0, 192, 79, 142, 230, 40]);
 }
+impl ::std::convert::From<ISpNotifyTranslator> for ::windows::runtime::IUnknown {
+    fn from(value: ISpNotifyTranslator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpNotifyTranslator> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpNotifyTranslator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpNotifyTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpNotifyTranslator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpNotifyTranslator> for ISpNotifySink {
     fn from(value: ISpNotifyTranslator) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2288,12 +2628,12 @@ impl ::std::convert::From<&ISpNotifyTranslator> for ISpNotifySink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySink> for ISpNotifyTranslator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySink> for &ISpNotifyTranslator {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2317,8 +2657,8 @@ pub struct ISpNotifyTranslator_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpObjectToken(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpObjectToken(pub ::windows::runtime::IUnknown);
 impl ISpObjectToken {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -2448,6 +2788,26 @@ unsafe impl ::windows::runtime::Interface for ISpObjectToken {
     type Vtable = ISpObjectToken_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(335897993, 57708, 4562, [187, 144, 0, 192, 79, 142, 230, 192]);
 }
+impl ::std::convert::From<ISpObjectToken> for ::windows::runtime::IUnknown {
+    fn from(value: ISpObjectToken) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpObjectToken> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpObjectToken) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpObjectToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpObjectToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpObjectToken> for ISpDataKey {
     fn from(value: ISpObjectToken) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2460,12 +2820,12 @@ impl ::std::convert::From<&ISpObjectToken> for ISpDataKey {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for ISpObjectToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for &ISpObjectToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2518,8 +2878,8 @@ pub struct ISpObjectToken_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpObjectTokenCategory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpObjectTokenCategory(pub ::windows::runtime::IUnknown);
 impl ISpObjectTokenCategory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -2624,6 +2984,26 @@ unsafe impl ::windows::runtime::Interface for ISpObjectTokenCategory {
     type Vtable = ISpObjectTokenCategory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758986821, 14767, 18512, [187, 249, 64, 180, 151, 128, 1, 29]);
 }
+impl ::std::convert::From<ISpObjectTokenCategory> for ::windows::runtime::IUnknown {
+    fn from(value: ISpObjectTokenCategory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpObjectTokenCategory> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpObjectTokenCategory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpObjectTokenCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpObjectTokenCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpObjectTokenCategory> for ISpDataKey {
     fn from(value: ISpObjectTokenCategory) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2636,12 +3016,12 @@ impl ::std::convert::From<&ISpObjectTokenCategory> for ISpDataKey {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for ISpObjectTokenCategory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for &ISpObjectTokenCategory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2688,8 +3068,8 @@ pub struct ISpObjectTokenCategory_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpObjectTokenInit(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpObjectTokenInit(pub ::windows::runtime::IUnknown);
 impl ISpObjectTokenInit {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -2824,6 +3204,26 @@ unsafe impl ::windows::runtime::Interface for ISpObjectTokenInit {
     type Vtable = ISpObjectTokenInit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3098194127, 13423, 18904, [148, 153, 200, 176, 63, 22, 29, 81]);
 }
+impl ::std::convert::From<ISpObjectTokenInit> for ::windows::runtime::IUnknown {
+    fn from(value: ISpObjectTokenInit) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpObjectTokenInit> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpObjectTokenInit) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpObjectTokenInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpObjectTokenInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpObjectTokenInit> for ISpObjectToken {
     fn from(value: ISpObjectTokenInit) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2836,12 +3236,12 @@ impl ::std::convert::From<&ISpObjectTokenInit> for ISpObjectToken {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpObjectToken> for ISpObjectTokenInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpObjectToken> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpObjectToken>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpObjectToken> for &ISpObjectTokenInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpObjectToken> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpObjectToken>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpObjectTokenInit> for ISpDataKey {
@@ -2856,12 +3256,12 @@ impl ::std::convert::From<&ISpObjectTokenInit> for ISpDataKey {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for ISpObjectTokenInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for &ISpObjectTokenInit {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2916,8 +3316,8 @@ pub struct ISpObjectTokenInit_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpObjectWithToken(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpObjectWithToken(pub ::windows::runtime::IUnknown);
 impl ISpObjectWithToken {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetObjectToken<'a, Param0: ::windows::runtime::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::runtime::Result<()> {
@@ -2933,6 +3333,26 @@ unsafe impl ::windows::runtime::Interface for ISpObjectWithToken {
     type Vtable = ISpObjectWithToken_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1532337984, 59730, 4562, [187, 145, 0, 192, 79, 142, 230, 192]);
 }
+impl ::std::convert::From<ISpObjectWithToken> for ::windows::runtime::IUnknown {
+    fn from(value: ISpObjectWithToken) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpObjectWithToken> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpObjectWithToken) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpObjectWithToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpObjectWithToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpObjectWithToken_abi(
@@ -2944,8 +3364,8 @@ pub struct ISpObjectWithToken_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhoneConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhoneConverter(pub ::windows::runtime::IUnknown);
 impl ISpPhoneConverter {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetObjectToken<'a, Param0: ::windows::runtime::IntoParam<'a, ISpObjectToken>>(&self, ptoken: Param0) -> ::windows::runtime::Result<()> {
@@ -2972,6 +3392,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhoneConverter {
     type Vtable = ISpPhoneConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219165057, 3244, 19000, [171, 254, 155, 44, 226, 130, 100, 85]);
 }
+impl ::std::convert::From<ISpPhoneConverter> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhoneConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhoneConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhoneConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhoneConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhoneConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpPhoneConverter> for ISpObjectWithToken {
     fn from(value: ISpPhoneConverter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2984,12 +3424,12 @@ impl ::std::convert::From<&ISpPhoneConverter> for ISpObjectWithToken {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpObjectWithToken> for ISpPhoneConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpObjectWithToken> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpObjectWithToken>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpObjectWithToken> for &ISpPhoneConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpObjectWithToken> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpObjectWithToken>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3007,8 +3447,8 @@ pub struct ISpPhoneConverter_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhoneticAlphabetConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhoneticAlphabetConverter(pub ::windows::runtime::IUnknown);
 impl ISpPhoneticAlphabetConverter {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetLangId(&self) -> ::windows::runtime::Result<u16> {
@@ -3038,6 +3478,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhoneticAlphabetConverter {
     type Vtable = ISpPhoneticAlphabetConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(322624724, 6580, 16416, [159, 220, 132, 46, 120, 37, 59, 23]);
 }
+impl ::std::convert::From<ISpPhoneticAlphabetConverter> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhoneticAlphabetConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhoneticAlphabetConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhoneticAlphabetConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhoneticAlphabetConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhoneticAlphabetConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetConverter_abi(
@@ -3053,8 +3513,8 @@ pub struct ISpPhoneticAlphabetConverter_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhoneticAlphabetSelection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhoneticAlphabetSelection(pub ::windows::runtime::IUnknown);
 impl ISpPhoneticAlphabetSelection {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -3072,6 +3532,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhoneticAlphabetSelection {
     type Vtable = ISpPhoneticAlphabetSelection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2993970941, 17102, 18634, [129, 241, 169, 110, 2, 83, 138, 144]);
 }
+impl ::std::convert::From<ISpPhoneticAlphabetSelection> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhoneticAlphabetSelection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhoneticAlphabetSelection> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhoneticAlphabetSelection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhoneticAlphabetSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhoneticAlphabetSelection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhoneticAlphabetSelection_abi(
@@ -3085,8 +3565,8 @@ pub struct ISpPhoneticAlphabetSelection_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhrase(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhrase(pub ::windows::runtime::IUnknown);
 impl ISpPhrase {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3113,6 +3593,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhrase {
     type Vtable = ISpPhrase_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(442237780, 46625, 19290, [135, 145, 211, 6, 237, 55, 158, 83]);
 }
+impl ::std::convert::From<ISpPhrase> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhrase) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhrase> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhrase) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhrase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhrase {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpPhrase_abi(
@@ -3128,8 +3628,8 @@ pub struct ISpPhrase_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhrase2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhrase2(pub ::windows::runtime::IUnknown);
 impl ISpPhrase2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3171,6 +3671,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhrase2 {
     type Vtable = ISpPhrase2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4066695762, 58455, 18070, [184, 86, 167, 55, 183, 23, 175, 121]);
 }
+impl ::std::convert::From<ISpPhrase2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhrase2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhrase2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhrase2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhrase2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhrase2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpPhrase2> for ISpPhrase {
     fn from(value: ISpPhrase2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3183,12 +3703,12 @@ impl ::std::convert::From<&ISpPhrase2> for ISpPhrase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for ISpPhrase2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for &ISpPhrase2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3211,8 +3731,8 @@ pub struct ISpPhrase2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpPhraseAlt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpPhraseAlt(pub ::windows::runtime::IUnknown);
 impl ISpPhraseAlt {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3247,6 +3767,26 @@ unsafe impl ::windows::runtime::Interface for ISpPhraseAlt {
     type Vtable = ISpPhraseAlt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412690584, 20041, 16487, [156, 108, 216, 106, 14, 9, 46, 61]);
 }
+impl ::std::convert::From<ISpPhraseAlt> for ::windows::runtime::IUnknown {
+    fn from(value: ISpPhraseAlt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpPhraseAlt> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpPhraseAlt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpPhraseAlt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpPhraseAlt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpPhraseAlt> for ISpPhrase {
     fn from(value: ISpPhraseAlt) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3259,12 +3799,12 @@ impl ::std::convert::From<&ISpPhraseAlt> for ISpPhrase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for ISpPhraseAlt {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for &ISpPhraseAlt {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3284,8 +3824,8 @@ pub struct ISpPhraseAlt_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpProperties(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpProperties(pub ::windows::runtime::IUnknown);
 impl ISpProperties {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -3313,6 +3853,26 @@ unsafe impl ::windows::runtime::Interface for ISpProperties {
     type Vtable = ISpProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1531951473, 45333, 19937, [173, 151, 228, 130, 227, 191, 110, 228]);
 }
+impl ::std::convert::From<ISpProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ISpProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpProperties_abi(
@@ -3330,8 +3890,8 @@ pub struct ISpProperties_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoContext(pub ::windows::runtime::IUnknown);
 impl ISpRecoContext {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::runtime::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::runtime::Result<()> {
@@ -3464,6 +4024,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoContext {
     type Vtable = ISpRecoContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4148209199, 31765, 18590, [130, 52, 148, 10, 51, 217, 39, 45]);
 }
+impl ::std::convert::From<ISpRecoContext> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoContext> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRecoContext> for ISpEventSource {
     fn from(value: ISpRecoContext) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3476,12 +4056,12 @@ impl ::std::convert::From<&ISpRecoContext> for ISpEventSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for ISpRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for &ISpRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpRecoContext> for ISpNotifySource {
@@ -3496,12 +4076,12 @@ impl ::std::convert::From<&ISpRecoContext> for ISpNotifySource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for ISpRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for &ISpRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3551,8 +4131,8 @@ pub struct ISpRecoContext_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoContext2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoContext2(pub ::windows::runtime::IUnknown);
 impl ISpRecoContext2 {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetGrammarOptions(&self, egrammaroptions: u32) -> ::windows::runtime::Result<()> {
@@ -3572,6 +4152,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoContext2 {
     type Vtable = ISpRecoContext2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199021340, 21247, 17279, [148, 100, 107, 33, 5, 76, 167, 61]);
 }
+impl ::std::convert::From<ISpRecoContext2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoContext2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoContext2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoContext2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoContext2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoContext2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoContext2_abi(
@@ -3585,8 +4185,8 @@ pub struct ISpRecoContext2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoGrammar(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoGrammar(pub ::windows::runtime::IUnknown);
 impl ISpRecoGrammar {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn ResetGrammar(&self, newlanguage: u16) -> ::windows::runtime::Result<()> {
@@ -3712,6 +4312,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoGrammar {
     type Vtable = ISpRecoGrammar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561503017, 32581, 18384, [133, 84, 6, 126, 145, 200, 5, 2]);
 }
+impl ::std::convert::From<ISpRecoGrammar> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoGrammar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoGrammar> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoGrammar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoGrammar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoGrammar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRecoGrammar> for ISpGrammarBuilder {
     fn from(value: ISpRecoGrammar) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3724,12 +4344,12 @@ impl ::std::convert::From<&ISpRecoGrammar> for ISpGrammarBuilder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpGrammarBuilder> for ISpRecoGrammar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpGrammarBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpGrammarBuilder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpGrammarBuilder> for &ISpRecoGrammar {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpGrammarBuilder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpGrammarBuilder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3780,8 +4400,8 @@ pub struct ISpRecoGrammar_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoGrammar2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoGrammar2(pub ::windows::runtime::IUnknown);
 impl ISpRecoGrammar2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -3826,6 +4446,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoGrammar2 {
     type Vtable = ISpRecoGrammar2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1261943966, 40662, 17571, [147, 211, 24, 240, 34, 183, 158, 195]);
 }
+impl ::std::convert::From<ISpRecoGrammar2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoGrammar2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoGrammar2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoGrammar2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoGrammar2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoGrammar2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecoGrammar2_abi(
@@ -3849,8 +4489,8 @@ pub struct ISpRecoGrammar2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoResult(pub ::windows::runtime::IUnknown);
 impl ISpRecoResult {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -3909,6 +4549,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoResult {
     type Vtable = ISpRecoResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(548426686, 57909, 17357, [154, 42, 141, 23, 164, 139, 120, 66]);
 }
+impl ::std::convert::From<ISpRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRecoResult> for ISpPhrase {
     fn from(value: ISpRecoResult) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -3921,12 +4581,12 @@ impl ::std::convert::From<&ISpRecoResult> for ISpPhrase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for ISpRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for &ISpRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3953,8 +4613,8 @@ pub struct ISpRecoResult_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecoResult2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecoResult2(pub ::windows::runtime::IUnknown);
 impl ISpRecoResult2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -4028,6 +4688,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecoResult2 {
     type Vtable = ISpRecoResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667600580, 35058, 16882, [136, 23, 12, 149, 229, 159, 30, 110]);
 }
+impl ::std::convert::From<ISpRecoResult2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecoResult2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecoResult2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecoResult2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecoResult2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecoResult2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRecoResult2> for ISpRecoResult {
     fn from(value: ISpRecoResult2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4040,12 +4720,12 @@ impl ::std::convert::From<&ISpRecoResult2> for ISpRecoResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpRecoResult> for ISpRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpRecoResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpRecoResult> for &ISpRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpRecoResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpRecoResult2> for ISpPhrase {
@@ -4060,12 +4740,12 @@ impl ::std::convert::From<&ISpRecoResult2> for ISpPhrase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for ISpRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for &ISpRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4097,8 +4777,8 @@ pub struct ISpRecoResult2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecognizer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecognizer(pub ::windows::runtime::IUnknown);
 impl ISpRecognizer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -4199,6 +4879,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecognizer {
     type Vtable = ISpRecognizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3266703937, 55968, 17671, [158, 22, 90, 30, 170, 43, 122, 92]);
 }
+impl ::std::convert::From<ISpRecognizer> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecognizer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecognizer> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecognizer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecognizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecognizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRecognizer> for ISpProperties {
     fn from(value: ISpRecognizer) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4211,12 +4911,12 @@ impl ::std::convert::From<&ISpRecognizer> for ISpProperties {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpProperties> for ISpRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpProperties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpProperties>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpProperties> for &ISpRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpProperties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpProperties>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4256,8 +4956,8 @@ pub struct ISpRecognizer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRecognizer2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRecognizer2(pub ::windows::runtime::IUnknown);
 impl ISpRecognizer2 {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn EmulateRecognitionEx<'a, Param0: ::windows::runtime::IntoParam<'a, ISpPhrase>>(&self, pphrase: Param0, dwcompareflags: u32) -> ::windows::runtime::Result<()> {
@@ -4277,6 +4977,26 @@ unsafe impl ::windows::runtime::Interface for ISpRecognizer2 {
     type Vtable = ISpRecognizer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2412173684, 51230, 16536, [147, 197, 1, 71, 246, 30, 212, 211]);
 }
+impl ::std::convert::From<ISpRecognizer2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRecognizer2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRecognizer2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRecognizer2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRecognizer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRecognizer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpRecognizer2_abi(
@@ -4290,8 +5010,8 @@ pub struct ISpRecognizer2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpRegDataKey(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpRegDataKey(pub ::windows::runtime::IUnknown);
 impl ISpRegDataKey {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -4368,6 +5088,26 @@ unsafe impl ::windows::runtime::Interface for ISpRegDataKey {
     type Vtable = ISpRegDataKey_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2460380715, 51248, 16713, [131, 223, 111, 194, 186, 30, 122, 91]);
 }
+impl ::std::convert::From<ISpRegDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: ISpRegDataKey) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpRegDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpRegDataKey) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpRegDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpRegDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpRegDataKey> for ISpDataKey {
     fn from(value: ISpRegDataKey) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4380,12 +5120,12 @@ impl ::std::convert::From<&ISpRegDataKey> for ISpDataKey {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for ISpRegDataKey {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpDataKey> for &ISpRegDataKey {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpDataKey> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpDataKey>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4423,8 +5163,8 @@ pub struct ISpRegDataKey_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpResourceManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpResourceManager(pub ::windows::runtime::IUnknown);
 impl ISpResourceManager {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn QueryService(&self, guidservice: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -4444,6 +5184,26 @@ unsafe impl ::windows::runtime::Interface for ISpResourceManager {
     type Vtable = ISpResourceManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2469940760, 20500, 17365, [173, 187, 167, 142, 5, 89, 38, 189]);
 }
+impl ::std::convert::From<ISpResourceManager> for ::windows::runtime::IUnknown {
+    fn from(value: ISpResourceManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpResourceManager> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpResourceManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpResourceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpResourceManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<ISpResourceManager> for super::super::System::Com::IServiceProvider {
     fn from(value: ISpResourceManager) -> Self {
@@ -4459,13 +5219,13 @@ impl ::std::convert::From<&ISpResourceManager> for super::super::System::Com::IS
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for ISpResourceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IServiceProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IServiceProvider> for &ISpResourceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IServiceProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4481,8 +5241,8 @@ pub struct ISpResourceManager_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpSerializeState(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpSerializeState(pub ::windows::runtime::IUnknown);
 impl ISpSerializeState {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetSerializedState(&self, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
@@ -4497,6 +5257,26 @@ unsafe impl ::windows::runtime::Interface for ISpSerializeState {
     type Vtable = ISpSerializeState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(565510560, 3783, 18121, [146, 195, 162, 188, 120, 76, 84, 185]);
 }
+impl ::std::convert::From<ISpSerializeState> for ::windows::runtime::IUnknown {
+    fn from(value: ISpSerializeState) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpSerializeState> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpSerializeState) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpSerializeState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpSerializeState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpSerializeState_abi(
@@ -4508,8 +5288,8 @@ pub struct ISpSerializeState_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpShortcut(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpShortcut(pub ::windows::runtime::IUnknown);
 impl ISpShortcut {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -4556,6 +5336,26 @@ unsafe impl ::windows::runtime::Interface for ISpShortcut {
     type Vtable = ISpShortcut_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1039565282, 59990, 4569, [139, 222, 246, 107, 173, 30, 63, 58]);
 }
+impl ::std::convert::From<ISpShortcut> for ::windows::runtime::IUnknown {
+    fn from(value: ISpShortcut) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpShortcut> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpShortcut) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpShortcut {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpShortcut {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpShortcut_abi(
@@ -4580,8 +5380,8 @@ pub struct ISpShortcut_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpStream(pub ::windows::runtime::IUnknown);
 impl ISpStream {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4665,6 +5465,26 @@ unsafe impl ::windows::runtime::Interface for ISpStream {
     type Vtable = ISpStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316918953, 29976, 17605, [165, 231, 186, 90, 121, 203, 146, 158]);
 }
+impl ::std::convert::From<ISpStream> for ::windows::runtime::IUnknown {
+    fn from(value: ISpStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpStream> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpStream> for ISpStreamFormat {
     fn from(value: ISpStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4677,12 +5497,12 @@ impl ::std::convert::From<&ISpStream> for ISpStreamFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for &ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4700,13 +5520,13 @@ impl ::std::convert::From<&ISpStream> for super::super::System::Com::IStream {
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4724,13 +5544,13 @@ impl ::std::convert::From<&ISpStream> for super::super::System::Com::ISequential
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &ISpStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4766,8 +5586,8 @@ pub struct ISpStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpStreamFormat(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpStreamFormat(pub ::windows::runtime::IUnknown);
 impl ISpStreamFormat {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4831,6 +5651,26 @@ unsafe impl ::windows::runtime::Interface for ISpStreamFormat {
     type Vtable = ISpStreamFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3201642686, 9734, 20301, [161, 192, 84, 197, 205, 165, 86, 111]);
 }
+impl ::std::convert::From<ISpStreamFormat> for ::windows::runtime::IUnknown {
+    fn from(value: ISpStreamFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpStreamFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpStreamFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpStreamFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpStreamFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<ISpStreamFormat> for super::super::System::Com::IStream {
     fn from(value: ISpStreamFormat) -> Self {
@@ -4846,13 +5686,13 @@ impl ::std::convert::From<&ISpStreamFormat> for super::super::System::Com::IStre
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for ISpStreamFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &ISpStreamFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4870,13 +5710,13 @@ impl ::std::convert::From<&ISpStreamFormat> for super::super::System::Com::ISequ
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for ISpStreamFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &ISpStreamFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4905,8 +5745,8 @@ pub struct ISpStreamFormat_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpStreamFormatConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpStreamFormatConverter(pub ::windows::runtime::IUnknown);
 impl ISpStreamFormatConverter {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -4999,6 +5839,26 @@ unsafe impl ::windows::runtime::Interface for ISpStreamFormatConverter {
     type Vtable = ISpStreamFormatConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1737134892, 60017, 17478, [155, 65, 120, 253, 166, 40, 10, 41]);
 }
+impl ::std::convert::From<ISpStreamFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: ISpStreamFormatConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpStreamFormatConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpStreamFormatConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpStreamFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpStreamFormatConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpStreamFormatConverter> for ISpStreamFormat {
     fn from(value: ISpStreamFormatConverter) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5011,12 +5871,12 @@ impl ::std::convert::From<&ISpStreamFormatConverter> for ISpStreamFormat {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpStreamFormat> for &ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpStreamFormat> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpStreamFormat>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5034,13 +5894,13 @@ impl ::std::convert::From<&ISpStreamFormatConverter> for super::super::System::C
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream> for &ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5058,13 +5918,13 @@ impl ::std::convert::From<&ISpStreamFormatConverter> for super::super::System::C
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream> for &ISpStreamFormatConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5101,8 +5961,8 @@ pub struct ISpStreamFormatConverter_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpTranscript(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpTranscript(pub ::windows::runtime::IUnknown);
 impl ISpTranscript {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -5120,6 +5980,26 @@ unsafe impl ::windows::runtime::Interface for ISpTranscript {
     type Vtable = ISpTranscript_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284572622, 8218, 4563, [172, 112, 0, 192, 79, 142, 230, 192]);
 }
+impl ::std::convert::From<ISpTranscript> for ::windows::runtime::IUnknown {
+    fn from(value: ISpTranscript) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpTranscript> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpTranscript) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpTranscript {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpTranscript {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISpTranscript_abi(
@@ -5133,8 +6013,8 @@ pub struct ISpTranscript_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpVoice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpVoice(pub ::windows::runtime::IUnknown);
 impl ISpVoice {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetNotifySink<'a, Param0: ::windows::runtime::IntoParam<'a, ISpNotifySink>>(&self, pnotifysink: Param0) -> ::windows::runtime::Result<()> {
@@ -5299,6 +6179,26 @@ unsafe impl ::windows::runtime::Interface for ISpVoice {
     type Vtable = ISpVoice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1816452980, 29369, 18834, [161, 236, 239, 153, 110, 4, 34, 212]);
 }
+impl ::std::convert::From<ISpVoice> for ::windows::runtime::IUnknown {
+    fn from(value: ISpVoice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpVoice> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpVoice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpVoice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpVoice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpVoice> for ISpEventSource {
     fn from(value: ISpVoice) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5311,12 +6211,12 @@ impl ::std::convert::From<&ISpVoice> for ISpEventSource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for ISpVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpEventSource> for &ISpVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpEventSource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpEventSource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpVoice> for ISpNotifySource {
@@ -5331,12 +6231,12 @@ impl ::std::convert::From<&ISpVoice> for ISpNotifySource {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for ISpVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpNotifySource> for &ISpVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpNotifySource> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpNotifySource>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5396,8 +6296,8 @@ pub struct ISpVoice_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpXMLRecoResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpXMLRecoResult(pub ::windows::runtime::IUnknown);
 impl ISpXMLRecoResult {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -5466,6 +6366,26 @@ unsafe impl ::windows::runtime::Interface for ISpXMLRecoResult {
     type Vtable = ISpXMLRecoResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2922985003, 17832, 16500, [155, 158, 204, 244, 154, 162, 208, 182]);
 }
+impl ::std::convert::From<ISpXMLRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: ISpXMLRecoResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpXMLRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpXMLRecoResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpXMLRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpXMLRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpXMLRecoResult> for ISpRecoResult {
     fn from(value: ISpXMLRecoResult) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5478,12 +6398,12 @@ impl ::std::convert::From<&ISpXMLRecoResult> for ISpRecoResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpRecoResult> for ISpXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpRecoResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpRecoResult> for &ISpXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpRecoResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpXMLRecoResult> for ISpPhrase {
@@ -5498,12 +6418,12 @@ impl ::std::convert::From<&ISpXMLRecoResult> for ISpPhrase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for ISpXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpPhrase> for &ISpXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpPhrase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpPhrase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5534,8 +6454,8 @@ pub struct ISpXMLRecoResult_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechAudio(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechAudio(pub ::windows::runtime::IUnknown);
 impl ISpeechAudio {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5631,6 +6551,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechAudio {
     type Vtable = ISpeechAudio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3489194357, 414, 4563, [160, 142, 0, 192, 79, 142, 249, 181]);
 }
+impl ::std::convert::From<ISpeechAudio> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechAudio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechAudio> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechAudio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechAudio> for ISpeechBaseStream {
     fn from(value: ISpeechAudio) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5643,12 +6583,12 @@ impl ::std::convert::From<&ISpeechAudio> for ISpeechBaseStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for ISpeechAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for &ISpeechAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5666,13 +6606,13 @@ impl ::std::convert::From<&ISpeechAudio> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5709,8 +6649,8 @@ pub struct ISpeechAudio_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechAudioBufferInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechAudioBufferInfo(pub ::windows::runtime::IUnknown);
 impl ISpeechAudioBufferInfo {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn MinNotification(&self) -> ::windows::runtime::Result<i32> {
@@ -5744,6 +6684,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechAudioBufferInfo {
     type Vtable = ISpeechAudioBufferInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296813528, 4418, 20191, [160, 147, 130, 251, 57, 21, 248, 204]);
 }
+impl ::std::convert::From<ISpeechAudioBufferInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechAudioBufferInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechAudioBufferInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechAudioBufferInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechAudioBufferInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechAudioBufferInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechAudioBufferInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechAudioBufferInfo) -> Self {
@@ -5759,13 +6719,13 @@ impl ::std::convert::From<&ISpeechAudioBufferInfo> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechAudioBufferInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechAudioBufferInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5791,8 +6751,8 @@ pub struct ISpeechAudioBufferInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechAudioFormat(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechAudioFormat(pub ::windows::runtime::IUnknown);
 impl ISpeechAudioFormat {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<SpeechAudioFormatType> {
@@ -5828,6 +6788,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechAudioFormat {
     type Vtable = ISpeechAudioFormat_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3874080144, 15896, 16611, [130, 153, 6, 31, 152, 189, 231, 199]);
 }
+impl ::std::convert::From<ISpeechAudioFormat> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechAudioFormat) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechAudioFormat> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechAudioFormat) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechAudioFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechAudioFormat {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechAudioFormat> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechAudioFormat) -> Self {
@@ -5843,13 +6823,13 @@ impl ::std::convert::From<&ISpeechAudioFormat> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechAudioFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechAudioFormat {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5877,8 +6857,8 @@ pub struct ISpeechAudioFormat_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechAudioStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechAudioStatus(pub ::windows::runtime::IUnknown);
 impl ISpeechAudioStatus {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn FreeBufferSpace(&self) -> ::windows::runtime::Result<i32> {
@@ -5912,6 +6892,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechAudioStatus {
     type Vtable = ISpeechAudioStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3324877969, 29784, 18422, [134, 45, 30, 248, 111, 176, 178, 120]);
 }
+impl ::std::convert::From<ISpeechAudioStatus> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechAudioStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechAudioStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechAudioStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechAudioStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechAudioStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechAudioStatus> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechAudioStatus) -> Self {
@@ -5927,13 +6927,13 @@ impl ::std::convert::From<&ISpeechAudioStatus> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechAudioStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechAudioStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5960,8 +6960,8 @@ pub struct ISpeechAudioStatus_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechBaseStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechBaseStream(pub ::windows::runtime::IUnknown);
 impl ISpeechBaseStream {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Format(&self) -> ::windows::runtime::Result<ISpeechAudioFormat> {
@@ -5994,6 +6994,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechBaseStream {
     type Vtable = ISpeechBaseStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1682977647, 32073, 19693, [128, 151, 73, 214, 222, 227, 114, 148]);
 }
+impl ::std::convert::From<ISpeechBaseStream> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechBaseStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechBaseStream> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechBaseStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechBaseStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechBaseStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechBaseStream> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechBaseStream) -> Self {
@@ -6009,13 +7029,13 @@ impl ::std::convert::From<&ISpeechBaseStream> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechBaseStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechBaseStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6043,8 +7063,8 @@ pub struct ISpeechBaseStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechCustomStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechCustomStream(pub ::windows::runtime::IUnknown);
 impl ISpeechCustomStream {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6107,6 +7127,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechCustomStream {
     type Vtable = ISpeechCustomStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(446603087, 4175, 19896, [161, 21, 239, 215, 253, 12, 151, 174]);
 }
+impl ::std::convert::From<ISpeechCustomStream> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechCustomStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechCustomStream> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechCustomStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechCustomStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechCustomStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechCustomStream> for ISpeechBaseStream {
     fn from(value: ISpeechCustomStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6119,12 +7159,12 @@ impl ::std::convert::From<&ISpeechCustomStream> for ISpeechBaseStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for ISpeechCustomStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for &ISpeechCustomStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6142,13 +7182,13 @@ impl ::std::convert::From<&ISpeechCustomStream> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechCustomStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechCustomStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6178,8 +7218,8 @@ pub struct ISpeechCustomStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechDataKey(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechDataKey(pub ::windows::runtime::IUnknown);
 impl ISpeechDataKey {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6253,6 +7293,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechDataKey {
     type Vtable = ISpeechDataKey_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3457663131, 20218, 17621, [164, 201, 89, 217, 88, 90, 176, 205]);
 }
+impl ::std::convert::From<ISpeechDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechDataKey) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechDataKey> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechDataKey) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechDataKey {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechDataKey> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechDataKey) -> Self {
@@ -6268,13 +7328,13 @@ impl ::std::convert::From<&ISpeechDataKey> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechDataKey {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechDataKey {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6318,8 +7378,8 @@ pub struct ISpeechDataKey_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechFileStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechFileStream(pub ::windows::runtime::IUnknown);
 impl ISpeechFileStream {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6382,6 +7442,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechFileStream {
     type Vtable = ISpeechFileStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2942824741, 43833, 20115, [180, 162, 204, 46, 102, 225, 130, 167]);
 }
+impl ::std::convert::From<ISpeechFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechFileStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechFileStream> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechFileStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechFileStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechFileStream> for ISpeechBaseStream {
     fn from(value: ISpeechFileStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6394,12 +7474,12 @@ impl ::std::convert::From<&ISpeechFileStream> for ISpeechBaseStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for ISpeechFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for &ISpeechFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6417,13 +7497,13 @@ impl ::std::convert::From<&ISpeechFileStream> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechFileStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6454,8 +7534,8 @@ pub struct ISpeechFileStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechGrammarRule(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechGrammarRule(pub ::windows::runtime::IUnknown);
 impl ISpeechGrammarRule {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Attributes(&self) -> ::windows::runtime::Result<SpeechRuleAttributes> {
@@ -6497,6 +7577,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechGrammarRule {
     type Vtable = ISpeechGrammarRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2951158223, 24017, 17650, [153, 156, 122, 57, 159, 28, 252, 204]);
 }
+impl ::std::convert::From<ISpeechGrammarRule> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechGrammarRule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechGrammarRule> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechGrammarRule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechGrammarRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechGrammarRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechGrammarRule> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechGrammarRule) -> Self {
@@ -6512,13 +7612,13 @@ impl ::std::convert::From<&ISpeechGrammarRule> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechGrammarRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechGrammarRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6547,8 +7647,8 @@ pub struct ISpeechGrammarRule_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechGrammarRuleState(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechGrammarRuleState(pub ::windows::runtime::IUnknown);
 impl ISpeechGrammarRuleState {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Rule(&self) -> ::windows::runtime::Result<ISpeechGrammarRule> {
@@ -6590,6 +7690,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleState {
     type Vtable = ISpeechGrammarRuleState_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3559419692, 61031, 17838, [185, 40, 40, 214, 149, 54, 46, 218]);
 }
+impl ::std::convert::From<ISpeechGrammarRuleState> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechGrammarRuleState) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechGrammarRuleState> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechGrammarRuleState) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechGrammarRuleState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechGrammarRuleState {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechGrammarRuleState> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechGrammarRuleState) -> Self {
@@ -6605,13 +7725,13 @@ impl ::std::convert::From<&ISpeechGrammarRuleState> for super::super::System::Ol
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechGrammarRuleState {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechGrammarRuleState {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6640,8 +7760,8 @@ pub struct ISpeechGrammarRuleState_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechGrammarRuleStateTransition(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechGrammarRuleStateTransition(pub ::windows::runtime::IUnknown);
 impl ISpeechGrammarRuleStateTransition {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<SpeechGrammarRuleStateTransitionType> {
@@ -6692,6 +7812,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleStateTransition 
     type Vtable = ISpeechGrammarRuleStateTransition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3405585841, 16849, 18950, [152, 99, 226, 232, 29, 161, 122, 154]);
 }
+impl ::std::convert::From<ISpeechGrammarRuleStateTransition> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechGrammarRuleStateTransition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechGrammarRuleStateTransition> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechGrammarRuleStateTransition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechGrammarRuleStateTransition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechGrammarRuleStateTransition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechGrammarRuleStateTransition> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechGrammarRuleStateTransition) -> Self {
@@ -6707,13 +7847,13 @@ impl ::std::convert::From<&ISpeechGrammarRuleStateTransition> for super::super::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechGrammarRuleStateTransition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechGrammarRuleStateTransition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6745,8 +7885,8 @@ pub struct ISpeechGrammarRuleStateTransition_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechGrammarRuleStateTransitions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechGrammarRuleStateTransitions(pub ::windows::runtime::IUnknown);
 impl ISpeechGrammarRuleStateTransitions {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6768,6 +7908,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechGrammarRuleStateTransitions
     type Vtable = ISpeechGrammarRuleStateTransitions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3938248279, 30140, 17570, [170, 127, 197, 100, 118, 116, 41, 99]);
 }
+impl ::std::convert::From<ISpeechGrammarRuleStateTransitions> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechGrammarRuleStateTransitions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechGrammarRuleStateTransitions> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechGrammarRuleStateTransitions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechGrammarRuleStateTransitions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechGrammarRuleStateTransitions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechGrammarRuleStateTransitions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechGrammarRuleStateTransitions) -> Self {
@@ -6783,13 +7943,13 @@ impl ::std::convert::From<&ISpeechGrammarRuleStateTransitions> for super::super:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechGrammarRuleStateTransitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechGrammarRuleStateTransitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6812,8 +7972,8 @@ pub struct ISpeechGrammarRuleStateTransitions_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechGrammarRules(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechGrammarRules(pub ::windows::runtime::IUnknown);
 impl ISpeechGrammarRules {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -6861,6 +8021,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechGrammarRules {
     type Vtable = ISpeechGrammarRules_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1878670148, 64557, 16593, [138, 252, 50, 145, 28, 127, 26, 209]);
 }
+impl ::std::convert::From<ISpeechGrammarRules> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechGrammarRules) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechGrammarRules> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechGrammarRules) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechGrammarRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechGrammarRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechGrammarRules> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechGrammarRules) -> Self {
@@ -6876,13 +8056,13 @@ impl ::std::convert::From<&ISpeechGrammarRules> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechGrammarRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechGrammarRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6913,8 +8093,8 @@ pub struct ISpeechGrammarRules_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechLexicon(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechLexicon(pub ::windows::runtime::IUnknown);
 impl ISpeechLexicon {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GenerationId(&self) -> ::windows::runtime::Result<i32> {
@@ -6960,6 +8140,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechLexicon {
     type Vtable = ISpeechLexicon_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1034379898, 51118, 19235, [135, 8, 99, 140, 80, 54, 44, 37]);
 }
+impl ::std::convert::From<ISpeechLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechLexicon) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechLexicon> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechLexicon) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechLexicon {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechLexicon> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechLexicon) -> Self {
@@ -6975,13 +8175,13 @@ impl ::std::convert::From<&ISpeechLexicon> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechLexicon {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechLexicon {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7014,8 +8214,8 @@ pub struct ISpeechLexicon_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechLexiconPronunciation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechLexiconPronunciation(pub ::windows::runtime::IUnknown);
 impl ISpeechLexiconPronunciation {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Type(&self) -> ::windows::runtime::Result<SpeechLexiconType> {
@@ -7049,6 +8249,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechLexiconPronunciation {
     type Vtable = ISpeechLexiconPronunciation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2502241373, 40515, 20298, [152, 153, 72, 238, 115, 53, 47, 159]);
 }
+impl ::std::convert::From<ISpeechLexiconPronunciation> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechLexiconPronunciation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechLexiconPronunciation> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechLexiconPronunciation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechLexiconPronunciation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechLexiconPronunciation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechLexiconPronunciation> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechLexiconPronunciation) -> Self {
@@ -7064,13 +8284,13 @@ impl ::std::convert::From<&ISpeechLexiconPronunciation> for super::super::System
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechLexiconPronunciation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechLexiconPronunciation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7097,8 +8317,8 @@ pub struct ISpeechLexiconPronunciation_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechLexiconPronunciations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechLexiconPronunciations(pub ::windows::runtime::IUnknown);
 impl ISpeechLexiconPronunciations {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7120,6 +8340,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechLexiconPronunciations {
     type Vtable = ISpeechLexiconPronunciations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1921159464, 22146, 18180, [160, 212, 62, 43, 182, 242, 234, 211]);
 }
+impl ::std::convert::From<ISpeechLexiconPronunciations> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechLexiconPronunciations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechLexiconPronunciations> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechLexiconPronunciations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechLexiconPronunciations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechLexiconPronunciations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechLexiconPronunciations> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechLexiconPronunciations) -> Self {
@@ -7135,13 +8375,13 @@ impl ::std::convert::From<&ISpeechLexiconPronunciations> for super::super::Syste
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechLexiconPronunciations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechLexiconPronunciations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7164,8 +8404,8 @@ pub struct ISpeechLexiconPronunciations_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechLexiconWord(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechLexiconWord(pub ::windows::runtime::IUnknown);
 impl ISpeechLexiconWord {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn LangId(&self) -> ::windows::runtime::Result<i32> {
@@ -7193,6 +8433,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechLexiconWord {
     type Vtable = ISpeechLexiconWord_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1314624316, 51646, 18669, [136, 66, 30, 229, 27, 177, 212, 255]);
 }
+impl ::std::convert::From<ISpeechLexiconWord> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechLexiconWord) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechLexiconWord> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechLexiconWord) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechLexiconWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechLexiconWord {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechLexiconWord> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechLexiconWord) -> Self {
@@ -7208,13 +8468,13 @@ impl ::std::convert::From<&ISpeechLexiconWord> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechLexiconWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechLexiconWord {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7239,8 +8499,8 @@ pub struct ISpeechLexiconWord_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechLexiconWords(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechLexiconWords(pub ::windows::runtime::IUnknown);
 impl ISpeechLexiconWords {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7262,6 +8522,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechLexiconWords {
     type Vtable = ISpeechLexiconWords_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2367264866, 16734, 18389, [172, 79, 250, 166, 8, 180, 36, 230]);
 }
+impl ::std::convert::From<ISpeechLexiconWords> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechLexiconWords) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechLexiconWords> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechLexiconWords) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechLexiconWords {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechLexiconWords {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechLexiconWords> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechLexiconWords) -> Self {
@@ -7277,13 +8557,13 @@ impl ::std::convert::From<&ISpeechLexiconWords> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechLexiconWords {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechLexiconWords {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7306,8 +8586,8 @@ pub struct ISpeechLexiconWords_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechMMSysAudio(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechMMSysAudio(pub ::windows::runtime::IUnknown);
 impl ISpeechMMSysAudio {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7426,6 +8706,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechMMSysAudio {
     type Vtable = ISpeechMMSysAudio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1014411117, 8151, 18481, [129, 209, 59, 113, 213, 161, 60, 68]);
 }
+impl ::std::convert::From<ISpeechMMSysAudio> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechMMSysAudio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechMMSysAudio> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechMMSysAudio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechMMSysAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechMMSysAudio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechMMSysAudio> for ISpeechAudio {
     fn from(value: ISpeechMMSysAudio) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7438,12 +8738,12 @@ impl ::std::convert::From<&ISpeechMMSysAudio> for ISpeechAudio {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechAudio> for ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechAudio> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechAudio>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechAudio> for &ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechAudio> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechAudio>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<ISpeechMMSysAudio> for ISpeechBaseStream {
@@ -7458,12 +8758,12 @@ impl ::std::convert::From<&ISpeechMMSysAudio> for ISpeechBaseStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for &ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7481,13 +8781,13 @@ impl ::std::convert::From<&ISpeechMMSysAudio> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechMMSysAudio {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7529,8 +8829,8 @@ pub struct ISpeechMMSysAudio_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechMemoryStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechMemoryStream(pub ::windows::runtime::IUnknown);
 impl ISpeechMemoryStream {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7595,6 +8895,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechMemoryStream {
     type Vtable = ISpeechMemoryStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4004596584, 32907, 19134, [165, 234, 181, 29, 167, 88, 128, 8]);
 }
+impl ::std::convert::From<ISpeechMemoryStream> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechMemoryStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechMemoryStream> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechMemoryStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechMemoryStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechMemoryStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechMemoryStream> for ISpeechBaseStream {
     fn from(value: ISpeechMemoryStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7607,12 +8927,12 @@ impl ::std::convert::From<&ISpeechMemoryStream> for ISpeechBaseStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for ISpeechMemoryStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechBaseStream> for &ISpeechMemoryStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechBaseStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechBaseStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7630,13 +8950,13 @@ impl ::std::convert::From<&ISpeechMemoryStream> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechMemoryStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechMemoryStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7668,8 +8988,8 @@ pub struct ISpeechMemoryStream_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechObjectToken(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechObjectToken(pub ::windows::runtime::IUnknown);
 impl ISpeechObjectToken {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -7747,6 +9067,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechObjectToken {
     type Vtable = ISpeechObjectToken_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3343530716, 46887, 17664, [168, 74, 181, 38, 114, 28, 139, 140]);
 }
+impl ::std::convert::From<ISpeechObjectToken> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechObjectToken) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechObjectToken> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechObjectToken) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechObjectToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechObjectToken {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechObjectToken> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechObjectToken) -> Self {
@@ -7762,13 +9102,13 @@ impl ::std::convert::From<&ISpeechObjectToken> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechObjectToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechObjectToken {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7811,8 +9151,8 @@ pub struct ISpeechObjectToken_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechObjectTokenCategory(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechObjectTokenCategory(pub ::windows::runtime::IUnknown);
 impl ISpeechObjectTokenCategory {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -7852,6 +9192,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechObjectTokenCategory {
     type Vtable = ISpeechObjectTokenCategory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3397299280, 11521, 16709, [134, 212, 90, 231, 215, 15, 68, 105]);
 }
+impl ::std::convert::From<ISpeechObjectTokenCategory> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechObjectTokenCategory) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechObjectTokenCategory> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechObjectTokenCategory) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechObjectTokenCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechObjectTokenCategory {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechObjectTokenCategory> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechObjectTokenCategory) -> Self {
@@ -7867,13 +9227,13 @@ impl ::std::convert::From<&ISpeechObjectTokenCategory> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechObjectTokenCategory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechObjectTokenCategory {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7904,8 +9264,8 @@ pub struct ISpeechObjectTokenCategory_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechObjectTokens(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechObjectTokens(pub ::windows::runtime::IUnknown);
 impl ISpeechObjectTokens {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -7927,6 +9287,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechObjectTokens {
     type Vtable = ISpeechObjectTokens_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2458236790, 11899, 19392, [181, 62, 88, 14, 182, 250, 150, 127]);
 }
+impl ::std::convert::From<ISpeechObjectTokens> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechObjectTokens) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechObjectTokens> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechObjectTokens) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechObjectTokens {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechObjectTokens {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechObjectTokens> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechObjectTokens) -> Self {
@@ -7942,13 +9322,13 @@ impl ::std::convert::From<&ISpeechObjectTokens> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechObjectTokens {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechObjectTokens {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7971,8 +9351,8 @@ pub struct ISpeechObjectTokens_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhoneConverter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhoneConverter(pub ::windows::runtime::IUnknown);
 impl ISpeechPhoneConverter {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn LanguageId(&self) -> ::windows::runtime::Result<i32> {
@@ -8000,6 +9380,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhoneConverter {
     type Vtable = ISpeechPhoneConverter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286561619, 17215, 17366, [137, 161, 106, 98, 167, 5, 76, 61]);
 }
+impl ::std::convert::From<ISpeechPhoneConverter> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhoneConverter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhoneConverter> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhoneConverter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhoneConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhoneConverter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhoneConverter> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhoneConverter) -> Self {
@@ -8015,13 +9415,13 @@ impl ::std::convert::From<&ISpeechPhoneConverter> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhoneConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhoneConverter {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8047,8 +9447,8 @@ pub struct ISpeechPhoneConverter_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseAlternate(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseAlternate(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseAlternate {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn RecoResult(&self) -> ::windows::runtime::Result<ISpeechRecoResult> {
@@ -8079,6 +9479,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseAlternate {
     type Vtable = ISpeechPhraseAlternate_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(663112234, 11167, 19640, [146, 211, 13, 39, 34, 253, 30, 115]);
 }
+impl ::std::convert::From<ISpeechPhraseAlternate> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseAlternate) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseAlternate> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseAlternate) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseAlternate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseAlternate {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseAlternate> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseAlternate) -> Self {
@@ -8094,13 +9514,13 @@ impl ::std::convert::From<&ISpeechPhraseAlternate> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseAlternate {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseAlternate {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8125,8 +9545,8 @@ pub struct ISpeechPhraseAlternate_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseAlternates(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseAlternates(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseAlternates {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -8148,6 +9568,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseAlternates {
     type Vtable = ISpeechPhraseAlternates_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2990061269, 62070, 19517, [166, 193, 41, 116, 128, 28, 60, 194]);
 }
+impl ::std::convert::From<ISpeechPhraseAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseAlternates) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseAlternates> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseAlternates) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseAlternates {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseAlternates> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseAlternates) -> Self {
@@ -8163,13 +9603,13 @@ impl ::std::convert::From<&ISpeechPhraseAlternates> for super::super::System::Ol
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseAlternates {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8192,8 +9632,8 @@ pub struct ISpeechPhraseAlternates_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseElement(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseElement(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseElement {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn AudioTimeOffset(&self) -> ::windows::runtime::Result<i32> {
@@ -8268,6 +9708,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseElement {
     type Vtable = ISpeechPhraseElement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3860295574, 58227, 18433, [178, 35, 59, 98, 192, 104, 192, 180]);
 }
+impl ::std::convert::From<ISpeechPhraseElement> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseElement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseElement> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseElement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseElement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseElement> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseElement) -> Self {
@@ -8283,13 +9743,13 @@ impl ::std::convert::From<&ISpeechPhraseElement> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseElement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8325,8 +9785,8 @@ pub struct ISpeechPhraseElement_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseElements(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseElements(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseElements {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -8348,6 +9808,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseElements {
     type Vtable = ISpeechPhraseElements_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(103199528, 13432, 18045, [160, 179, 208, 133, 59, 147, 221, 163]);
 }
+impl ::std::convert::From<ISpeechPhraseElements> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseElements) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseElements> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseElements) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseElements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseElements> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseElements) -> Self {
@@ -8363,13 +9843,13 @@ impl ::std::convert::From<&ISpeechPhraseElements> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseElements {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseElements {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8392,8 +9872,8 @@ pub struct ISpeechPhraseElements_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseInfo(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseInfo {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn LanguageId(&self) -> ::windows::runtime::Result<i32> {
@@ -8487,6 +9967,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseInfo {
     type Vtable = ISpeechPhraseInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2517981647, 20071, 18018, [139, 240, 217, 63, 31, 205, 97, 179]);
 }
+impl ::std::convert::From<ISpeechPhraseInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseInfo> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseInfo) -> Self {
@@ -8502,13 +10002,13 @@ impl ::std::convert::From<&ISpeechPhraseInfo> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8551,8 +10051,8 @@ pub struct ISpeechPhraseInfo_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseInfoBuilder(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseInfoBuilder(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseInfoBuilder {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8564,6 +10064,26 @@ impl ISpeechPhraseInfoBuilder {
 unsafe impl ::windows::runtime::Interface for ISpeechPhraseInfoBuilder {
     type Vtable = ISpeechPhraseInfoBuilder_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(991238198, 57146, 19978, [132, 108, 210, 173, 201, 51, 67, 51]);
+}
+impl ::std::convert::From<ISpeechPhraseInfoBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseInfoBuilder) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseInfoBuilder> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseInfoBuilder) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseInfoBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseInfoBuilder {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseInfoBuilder> for super::super::System::Ole::Automation::IDispatch {
@@ -8580,13 +10100,13 @@ impl ::std::convert::From<&ISpeechPhraseInfoBuilder> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseInfoBuilder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseInfoBuilder {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8608,8 +10128,8 @@ pub struct ISpeechPhraseInfoBuilder_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseProperties(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseProperties(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseProperties {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -8631,6 +10151,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseProperties {
     type Vtable = ISpeechPhraseProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(135686983, 4142, 19235, [165, 153, 189, 185, 141, 191, 209, 244]);
 }
+impl ::std::convert::From<ISpeechPhraseProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseProperties> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseProperties) -> Self {
@@ -8646,13 +10186,13 @@ impl ::std::convert::From<&ISpeechPhraseProperties> for super::super::System::Ol
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8675,8 +10215,8 @@ pub struct ISpeechPhraseProperties_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseProperty(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseProperty(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseProperty {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -8730,6 +10270,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseProperty {
     type Vtable = ISpeechPhraseProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3461758280, 38430, 18226, [162, 225, 55, 138, 66, 180, 48, 190]);
 }
+impl ::std::convert::From<ISpeechPhraseProperty> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseProperty) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseProperty) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseProperty> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseProperty) -> Self {
@@ -8745,13 +10305,13 @@ impl ::std::convert::From<&ISpeechPhraseProperty> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8782,8 +10342,8 @@ pub struct ISpeechPhraseProperty_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseReplacement(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseReplacement(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseReplacement {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn DisplayAttributes(&self) -> ::windows::runtime::Result<SpeechDisplayAttributes> {
@@ -8811,6 +10371,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseReplacement {
     type Vtable = ISpeechPhraseReplacement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(680567824, 21415, 20405, [148, 236, 6, 212, 153, 142, 61, 2]);
 }
+impl ::std::convert::From<ISpeechPhraseReplacement> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseReplacement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseReplacement> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseReplacement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseReplacement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseReplacement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseReplacement> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseReplacement) -> Self {
@@ -8826,13 +10406,13 @@ impl ::std::convert::From<&ISpeechPhraseReplacement> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseReplacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseReplacement {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8857,8 +10437,8 @@ pub struct ISpeechPhraseReplacement_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseReplacements(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseReplacements(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseReplacements {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -8880,6 +10460,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseReplacements {
     type Vtable = ISpeechPhraseReplacements_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951871023, 8791, 17701, [149, 158, 32, 105, 210, 89, 108, 5]);
 }
+impl ::std::convert::From<ISpeechPhraseReplacements> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseReplacements) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseReplacements> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseReplacements) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseReplacements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseReplacements {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseReplacements> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseReplacements) -> Self {
@@ -8895,13 +10495,13 @@ impl ::std::convert::From<&ISpeechPhraseReplacements> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseReplacements {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseReplacements {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8924,8 +10524,8 @@ pub struct ISpeechPhraseReplacements_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseRule(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseRule(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseRule {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -8973,6 +10573,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseRule {
     type Vtable = ISpeechPhraseRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2814370066, 42144, 18649, [182, 2, 195, 19, 132, 63, 105, 100]);
 }
+impl ::std::convert::From<ISpeechPhraseRule> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseRule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseRule> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseRule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseRule> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseRule) -> Self {
@@ -8988,13 +10608,13 @@ impl ::std::convert::From<&ISpeechPhraseRule> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9023,8 +10643,8 @@ pub struct ISpeechPhraseRule_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechPhraseRules(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechPhraseRules(pub ::windows::runtime::IUnknown);
 impl ISpeechPhraseRules {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
@@ -9046,6 +10666,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechPhraseRules {
     type Vtable = ISpeechPhraseRules_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420626835, 477, 19314, [129, 163, 228, 160, 202, 105, 244, 7]);
 }
+impl ::std::convert::From<ISpeechPhraseRules> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechPhraseRules) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechPhraseRules> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechPhraseRules) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechPhraseRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechPhraseRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechPhraseRules> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechPhraseRules) -> Self {
@@ -9061,13 +10701,13 @@ impl ::std::convert::From<&ISpeechPhraseRules> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechPhraseRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechPhraseRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9090,8 +10730,8 @@ pub struct ISpeechPhraseRules_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoContext(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoContext {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Recognizer(&self) -> ::windows::runtime::Result<ISpeechRecognizer> {
@@ -9216,6 +10856,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoContext {
     type Vtable = ISpeechRecoContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477092509, 32286, 18441, [184, 226, 87, 218, 128, 97, 4, 184]);
 }
+impl ::std::convert::From<ISpeechRecoContext> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoContext> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecoContext> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecoContext) -> Self {
@@ -9231,13 +10891,13 @@ impl ::std::convert::From<&ISpeechRecoContext> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9287,8 +10947,8 @@ pub struct ISpeechRecoContext_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoGrammar(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoGrammar(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoGrammar {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9386,6 +11046,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoGrammar {
     type Vtable = ISpeechRecoGrammar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3067541407, 8536, 20048, [181, 188, 154, 156, 205, 133, 42, 9]);
 }
+impl ::std::convert::From<ISpeechRecoGrammar> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoGrammar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoGrammar> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoGrammar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoGrammar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoGrammar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecoGrammar> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecoGrammar) -> Self {
@@ -9401,13 +11081,13 @@ impl ::std::convert::From<&ISpeechRecoGrammar> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoGrammar {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoGrammar {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9456,8 +11136,8 @@ pub struct ISpeechRecoGrammar_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoResult(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoResult {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn RecoContext(&self) -> ::windows::runtime::Result<ISpeechRecoContext> {
@@ -9513,6 +11193,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoResult {
     type Vtable = ISpeechRecoResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978852815, 52953, 20198, [165, 52, 222, 1, 145, 213, 70, 141]);
 }
+impl ::std::convert::From<ISpeechRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecoResult> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecoResult) -> Self {
@@ -9528,13 +11228,13 @@ impl ::std::convert::From<&ISpeechRecoResult> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9565,8 +11265,8 @@ pub struct ISpeechRecoResult_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoResult2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoResult2(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoResult2 {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9648,6 +11348,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoResult2 {
     type Vtable = ISpeechRecoResult2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2383029357, 54216, 17886, [134, 87, 4, 41, 12, 69, 140, 60]);
 }
+impl ::std::convert::From<ISpeechRecoResult2> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoResult2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoResult2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoResult2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoResult2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoResult2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechRecoResult2> for ISpeechRecoResult {
     fn from(value: ISpeechRecoResult2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9660,12 +11380,12 @@ impl ::std::convert::From<&ISpeechRecoResult2> for ISpeechRecoResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecoResult> for ISpeechRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechRecoResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecoResult> for &ISpeechRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechRecoResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9683,13 +11403,13 @@ impl ::std::convert::From<&ISpeechRecoResult2> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoResult2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9722,8 +11442,8 @@ pub struct ISpeechRecoResult2_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoResultDispatch(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoResultDispatch(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoResultDispatch {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn RecoContext(&self) -> ::windows::runtime::Result<ISpeechRecoContext> {
@@ -9795,6 +11515,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoResultDispatch {
     type Vtable = ISpeechRecoResultDispatch_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1835068260, 44269, 16550, [187, 243, 78, 85, 127, 113, 222, 226]);
 }
+impl ::std::convert::From<ISpeechRecoResultDispatch> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoResultDispatch) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoResultDispatch> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoResultDispatch) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoResultDispatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoResultDispatch {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecoResultDispatch> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecoResultDispatch) -> Self {
@@ -9810,13 +11550,13 @@ impl ::std::convert::From<&ISpeechRecoResultDispatch> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoResultDispatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoResultDispatch {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9853,8 +11593,8 @@ pub struct ISpeechRecoResultDispatch_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecoResultTimes(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecoResultTimes(pub ::windows::runtime::IUnknown);
 impl ISpeechRecoResultTimes {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9884,6 +11624,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecoResultTimes {
     type Vtable = ISpeechRecoResultTimes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1655945467, 63207, 16830, [189, 203, 5, 107, 28, 41, 239, 192]);
 }
+impl ::std::convert::From<ISpeechRecoResultTimes> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecoResultTimes) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecoResultTimes> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecoResultTimes) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecoResultTimes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecoResultTimes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecoResultTimes> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecoResultTimes) -> Self {
@@ -9899,13 +11659,13 @@ impl ::std::convert::From<&ISpeechRecoResultTimes> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecoResultTimes {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecoResultTimes {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9932,8 +11692,8 @@ pub struct ISpeechRecoResultTimes_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecognizer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecognizer(pub ::windows::runtime::IUnknown);
 impl ISpeechRecognizer {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn putref_Recognizer<'a, Param0: ::windows::runtime::IntoParam<'a, ISpeechObjectToken>>(&self, recognizer: Param0) -> ::windows::runtime::Result<()> {
@@ -10070,6 +11830,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecognizer {
     type Vtable = ISpeechRecognizer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(761207820, 48501, 19208, [148, 120, 59, 17, 254, 162, 88, 108]);
 }
+impl ::std::convert::From<ISpeechRecognizer> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecognizer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecognizer> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecognizer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecognizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecognizer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecognizer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecognizer) -> Self {
@@ -10085,13 +11865,13 @@ impl ::std::convert::From<&ISpeechRecognizer> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecognizer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10147,8 +11927,8 @@ pub struct ISpeechRecognizer_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechRecognizerStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechRecognizerStatus(pub ::windows::runtime::IUnknown);
 impl ISpeechRecognizerStatus {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn AudioStatus(&self) -> ::windows::runtime::Result<ISpeechAudioStatus> {
@@ -10188,6 +11968,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechRecognizerStatus {
     type Vtable = ISpeechRecognizerStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3220825985, 21484, 18510, [187, 138, 14, 27, 85, 81, 227, 92]);
 }
+impl ::std::convert::From<ISpeechRecognizerStatus> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechRecognizerStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechRecognizerStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechRecognizerStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechRecognizerStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechRecognizerStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechRecognizerStatus> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechRecognizerStatus) -> Self {
@@ -10203,13 +12003,13 @@ impl ::std::convert::From<&ISpeechRecognizerStatus> for super::super::System::Ol
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechRecognizerStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechRecognizerStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10238,8 +12038,8 @@ pub struct ISpeechRecognizerStatus_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechResourceLoader(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechResourceLoader(pub ::windows::runtime::IUnknown);
 impl ISpeechResourceLoader {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Media_Speech`, `Win32_Foundation`*"]
@@ -10261,6 +12061,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechResourceLoader {
     type Vtable = ISpeechResourceLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115079555, 64720, 19233, [177, 25, 180, 248, 218, 143, 210, 195]);
 }
+impl ::std::convert::From<ISpeechResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechResourceLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechResourceLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechResourceLoader> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechResourceLoader) -> Self {
@@ -10276,13 +12096,13 @@ impl ::std::convert::From<&ISpeechResourceLoader> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechResourceLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechResourceLoader {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10308,8 +12128,8 @@ pub struct ISpeechResourceLoader_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechTextSelectionInformation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechTextSelectionInformation(pub ::windows::runtime::IUnknown);
 impl ISpeechTextSelectionInformation {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn SetActiveOffset(&self, activeoffset: i32) -> ::windows::runtime::Result<()> {
@@ -10352,6 +12172,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechTextSelectionInformation {
     type Vtable = ISpeechTextSelectionInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1000111738, 28398, 19949, [144, 146, 17, 101, 114, 121, 173, 190]);
 }
+impl ::std::convert::From<ISpeechTextSelectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechTextSelectionInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechTextSelectionInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechTextSelectionInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechTextSelectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechTextSelectionInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechTextSelectionInformation> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechTextSelectionInformation) -> Self {
@@ -10367,13 +12207,13 @@ impl ::std::convert::From<&ISpeechTextSelectionInformation> for super::super::Sy
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechTextSelectionInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechTextSelectionInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10401,8 +12241,8 @@ pub struct ISpeechTextSelectionInformation_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechVoice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechVoice(pub ::windows::runtime::IUnknown);
 impl ISpeechVoice {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<ISpeechVoiceStatus> {
@@ -10562,6 +12402,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechVoice {
     type Vtable = ISpeechVoice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647173848, 22461, 4562, [158, 238, 0, 192, 79, 121, 115, 150]);
 }
+impl ::std::convert::From<ISpeechVoice> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechVoice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechVoice> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechVoice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechVoice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechVoice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechVoice> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechVoice) -> Self {
@@ -10577,13 +12437,13 @@ impl ::std::convert::From<&ISpeechVoice> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechVoice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10641,8 +12501,8 @@ pub struct ISpeechVoice_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechVoiceStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechVoiceStatus(pub ::windows::runtime::IUnknown);
 impl ISpeechVoiceStatus {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn CurrentStreamNumber(&self) -> ::windows::runtime::Result<i32> {
@@ -10710,6 +12570,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechVoiceStatus {
     type Vtable = ISpeechVoiceStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2347006727, 22518, 4562, [158, 238, 0, 192, 79, 121, 115, 150]);
 }
+impl ::std::convert::From<ISpeechVoiceStatus> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechVoiceStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechVoiceStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechVoiceStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechVoiceStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechVoiceStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechVoiceStatus> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechVoiceStatus) -> Self {
@@ -10725,13 +12605,13 @@ impl ::std::convert::From<&ISpeechVoiceStatus> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechVoiceStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechVoiceStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10764,8 +12644,8 @@ pub struct ISpeechVoiceStatus_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechWaveFormatEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechWaveFormatEx(pub ::windows::runtime::IUnknown);
 impl ISpeechWaveFormatEx {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn FormatTag(&self) -> ::windows::runtime::Result<i16> {
@@ -10837,6 +12717,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechWaveFormatEx {
     type Vtable = ISpeechWaveFormatEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2048848085, 5505, 18241, [136, 228, 32, 154, 73, 241, 26, 16]);
 }
+impl ::std::convert::From<ISpeechWaveFormatEx> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechWaveFormatEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechWaveFormatEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechWaveFormatEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechWaveFormatEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechWaveFormatEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISpeechWaveFormatEx> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: ISpeechWaveFormatEx) -> Self {
@@ -10852,13 +12752,13 @@ impl ::std::convert::From<&ISpeechWaveFormatEx> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechWaveFormatEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechWaveFormatEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10894,8 +12794,8 @@ pub struct ISpeechWaveFormatEx_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISpeechXMLRecoResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISpeechXMLRecoResult(pub ::windows::runtime::IUnknown);
 impl ISpeechXMLRecoResult {
     #[doc = "*Required features: `Win32_Media_Speech`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10983,6 +12883,26 @@ unsafe impl ::windows::runtime::Interface for ISpeechXMLRecoResult {
     type Vtable = ISpeechXMLRecoResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2867614895, 36741, 18724, [148, 77, 183, 157, 57, 215, 46, 25]);
 }
+impl ::std::convert::From<ISpeechXMLRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: ISpeechXMLRecoResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISpeechXMLRecoResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ISpeechXMLRecoResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISpeechXMLRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISpeechXMLRecoResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISpeechXMLRecoResult> for ISpeechRecoResult {
     fn from(value: ISpeechXMLRecoResult) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10995,12 +12915,12 @@ impl ::std::convert::From<&ISpeechXMLRecoResult> for ISpeechRecoResult {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecoResult> for ISpeechXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechRecoResult>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISpeechRecoResult> for &ISpeechXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISpeechRecoResult> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISpeechRecoResult>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11018,13 +12938,13 @@ impl ::std::convert::From<&ISpeechXMLRecoResult> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISpeechXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISpeechXMLRecoResult {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14188,12 +16108,32 @@ pub const Speech_StreamPos_Asap: i32 = 0i32;
 pub const Speech_StreamPos_RealTime: i32 = -1i32;
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _ISpeechRecoContextEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _ISpeechRecoContextEvents(pub ::windows::runtime::IUnknown);
 impl _ISpeechRecoContextEvents {}
 unsafe impl ::windows::runtime::Interface for _ISpeechRecoContextEvents {
     type Vtable = _ISpeechRecoContextEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2073021250, 3741, 20224, [160, 72, 123, 4, 214, 23, 157, 61]);
+}
+impl ::std::convert::From<_ISpeechRecoContextEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _ISpeechRecoContextEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_ISpeechRecoContextEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_ISpeechRecoContextEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ISpeechRecoContextEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ISpeechRecoContextEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_ISpeechRecoContextEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -14210,13 +16150,13 @@ impl ::std::convert::From<&_ISpeechRecoContextEvents> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for _ISpeechRecoContextEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &_ISpeechRecoContextEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -14236,12 +16176,32 @@ pub struct _ISpeechRecoContextEvents_abi(
 );
 #[doc = "*Required features: `Win32_Media_Speech`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _ISpeechVoiceEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _ISpeechVoiceEvents(pub ::windows::runtime::IUnknown);
 impl _ISpeechVoiceEvents {}
 unsafe impl ::windows::runtime::Interface for _ISpeechVoiceEvents {
     type Vtable = _ISpeechVoiceEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2742201553, 15343, 19389, [143, 251, 203, 62, 43, 65, 106, 248]);
+}
+impl ::std::convert::From<_ISpeechVoiceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _ISpeechVoiceEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_ISpeechVoiceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_ISpeechVoiceEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _ISpeechVoiceEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _ISpeechVoiceEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_ISpeechVoiceEvents> for super::super::System::Ole::Automation::IDispatch {
@@ -14258,13 +16218,13 @@ impl ::std::convert::From<&_ISpeechVoiceEvents> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for _ISpeechVoiceEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &_ISpeechVoiceEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

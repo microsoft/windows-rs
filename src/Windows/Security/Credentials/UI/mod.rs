@@ -63,8 +63,8 @@ impl ::windows::runtime::RuntimeName for CredentialPicker {
 }
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CredentialPickerOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CredentialPickerOptions(pub ::windows::runtime::IInspectable);
 impl CredentialPickerOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -216,10 +216,50 @@ unsafe impl ::windows::runtime::Interface for CredentialPickerOptions {
 impl ::windows::runtime::RuntimeName for CredentialPickerOptions {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerOptions";
 }
+impl ::std::convert::From<CredentialPickerOptions> for ::windows::runtime::IUnknown {
+    fn from(value: CredentialPickerOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CredentialPickerOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &CredentialPickerOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CredentialPickerOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CredentialPickerOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CredentialPickerOptions> for ::windows::runtime::IInspectable {
+    fn from(value: CredentialPickerOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CredentialPickerOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &CredentialPickerOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CredentialPickerOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CredentialPickerOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CredentialPickerResults(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CredentialPickerResults(pub ::windows::runtime::IInspectable);
 impl CredentialPickerResults {
     #[doc = "*Required features: `Security_Credentials_UI`*"]
     pub fn ErrorCode(&self) -> ::windows::runtime::Result<u32> {
@@ -289,6 +329,46 @@ unsafe impl ::windows::runtime::Interface for CredentialPickerResults {
 impl ::windows::runtime::RuntimeName for CredentialPickerResults {
     const NAME: &'static str = "Windows.Security.Credentials.UI.CredentialPickerResults";
 }
+impl ::std::convert::From<CredentialPickerResults> for ::windows::runtime::IUnknown {
+    fn from(value: CredentialPickerResults) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CredentialPickerResults> for ::windows::runtime::IUnknown {
+    fn from(value: &CredentialPickerResults) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CredentialPickerResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CredentialPickerResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CredentialPickerResults> for ::windows::runtime::IInspectable {
+    fn from(value: CredentialPickerResults) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CredentialPickerResults> for ::windows::runtime::IInspectable {
+    fn from(value: &CredentialPickerResults) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CredentialPickerResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CredentialPickerResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Security_Credentials_UI`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -314,7 +394,7 @@ impl ::windows::runtime::DefaultType for CredentialSaveOption {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICredentialPickerOptions(::windows::runtime::IInspectable);
+pub struct ICredentialPickerOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerOptions {
     type Vtable = ICredentialPickerOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522483532, 38394, 18047, [153, 43, 11, 34, 229, 133, 155, 246]);
@@ -353,7 +433,7 @@ pub struct ICredentialPickerOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICredentialPickerResults(::windows::runtime::IInspectable);
+pub struct ICredentialPickerResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerResults {
     type Vtable = ICredentialPickerResults_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(424212890, 52272, 16652, [156, 56, 204, 8, 132, 197, 179, 215]);
@@ -378,7 +458,7 @@ pub struct ICredentialPickerResults_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICredentialPickerStatics(::windows::runtime::IInspectable);
+pub struct ICredentialPickerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICredentialPickerStatics {
     type Vtable = ICredentialPickerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2855951475, 51690, 18306, [153, 251, 230, 215, 233, 56, 225, 45]);
@@ -401,7 +481,7 @@ pub struct ICredentialPickerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserConsentVerifierStatics(::windows::runtime::IInspectable);
+pub struct IUserConsentVerifierStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserConsentVerifierStatics {
     type Vtable = IUserConsentVerifierStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2941206417, 22092, 19932, [184, 181, 151, 52, 71, 98, 124, 101]);

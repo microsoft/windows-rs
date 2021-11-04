@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbBulkInEndpointDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbBulkInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1013860422, 1743, 17065, [157, 194, 151, 28, 27, 20, 182, 227]);
@@ -21,7 +21,7 @@ pub struct IUsbBulkInEndpointDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbBulkInPipe(::windows::runtime::IInspectable);
+pub struct IUsbBulkInPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4028443963, 17736, 19792, [179, 38, 216, 44, 218, 190, 18, 32]);
@@ -47,7 +47,7 @@ pub struct IUsbBulkInPipe_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbBulkOutEndpointDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbBulkOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673219706, 65518, 20320, [155, 225, 149, 108, 172, 62, 203, 101]);
@@ -67,7 +67,7 @@ pub struct IUsbBulkOutEndpointDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbBulkOutPipe(::windows::runtime::IInspectable);
+pub struct IUsbBulkOutPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2833903214, 277, 17834, [139, 33, 55, 178, 37, 188, 206, 231]);
@@ -91,7 +91,7 @@ pub struct IUsbBulkOutPipe_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbConfiguration(::windows::runtime::IInspectable);
+pub struct IUsbConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfiguration {
     type Vtable = IUsbConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746367529, 13993, 18135, [184, 115, 252, 104, 146, 81, 236, 48]);
@@ -113,7 +113,7 @@ pub struct IUsbConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbConfigurationDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbConfigurationDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061621650, 46146, 16506, [130, 7, 125, 100, 108, 3, 133, 243]);
@@ -134,7 +134,7 @@ pub struct IUsbConfigurationDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbConfigurationDescriptorStatics(::windows::runtime::IInspectable);
+pub struct IUsbConfigurationDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbConfigurationDescriptorStatics {
     type Vtable = IUsbConfigurationDescriptorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1112337811, 59200, 16545, [146, 189, 218, 18, 14, 160, 73, 20]);
@@ -153,7 +153,7 @@ pub struct IUsbConfigurationDescriptorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbControlRequestType(::windows::runtime::IInspectable);
+pub struct IUsbControlRequestType(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbControlRequestType {
     type Vtable = IUsbControlRequestType_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2392090022, 55101, 18142, [148, 190, 170, 231, 240, 124, 15, 92]);
@@ -178,7 +178,7 @@ pub struct IUsbControlRequestType_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDescriptor {
     type Vtable = IUsbDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(176812566, 24477, 18548, [137, 4, 218, 154, 211, 245, 82, 143]);
@@ -199,7 +199,7 @@ pub struct IUsbDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDevice(::windows::runtime::IInspectable);
+pub struct IUsbDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDevice {
     type Vtable = IUsbDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1380563346, 50262, 17621, [173, 94, 36, 245, 160, 137, 246, 59]);
@@ -227,7 +227,7 @@ pub struct IUsbDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDeviceClass(::windows::runtime::IInspectable);
+pub struct IUsbDeviceClass(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClass {
     type Vtable = IUsbDeviceClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(85541625, 33886, 18411, [177, 42, 56, 242, 246, 23, 175, 231]);
@@ -254,7 +254,7 @@ pub struct IUsbDeviceClass_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDeviceClasses(::windows::runtime::IInspectable);
+pub struct IUsbDeviceClasses(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1752143197, 39826, 19248, [151, 129, 194, 44, 85, 172, 53, 203]);
@@ -271,7 +271,7 @@ pub struct IUsbDeviceClasses_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDeviceClassesStatics(::windows::runtime::IInspectable);
+pub struct IUsbDeviceClassesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceClassesStatics {
     type Vtable = IUsbDeviceClassesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2987066663, 50560, 17817, [161, 101, 152, 27, 79, 208, 50, 48]);
@@ -297,7 +297,7 @@ pub struct IUsbDeviceClassesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDeviceDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbDeviceDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(524866038, 47767, 17186, [185, 44, 181, 177, 137, 33, 101, 136]);
@@ -320,7 +320,7 @@ pub struct IUsbDeviceDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbDeviceStatics(::windows::runtime::IInspectable);
+pub struct IUsbDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbDeviceStatics {
     type Vtable = IUsbDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107709858, 2487, 17478, [133, 2, 111, 230, 220, 170, 115, 9]);
@@ -343,7 +343,7 @@ pub struct IUsbDeviceStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbEndpointDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1799906009, 36343, 19264, [172, 131, 87, 143, 19, 159, 5, 117]);
@@ -367,7 +367,7 @@ pub struct IUsbEndpointDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbEndpointDescriptorStatics(::windows::runtime::IInspectable);
+pub struct IUsbEndpointDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbEndpointDescriptorStatics {
     type Vtable = IUsbEndpointDescriptorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3364925953, 39530, 18782, [168, 44, 41, 91, 158, 112, 129, 6]);
@@ -386,7 +386,7 @@ pub struct IUsbEndpointDescriptorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterface(::windows::runtime::IInspectable);
+pub struct IUsbInterface(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterface {
     type Vtable = IUsbInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687642517, 32583, 18603, [167, 39, 103, 140, 37, 190, 33, 18]);
@@ -416,7 +416,7 @@ pub struct IUsbInterface_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterfaceDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbInterfaceDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(429289671, 47086, 20368, [140, 213, 148, 162, 226, 87, 89, 138]);
@@ -438,7 +438,7 @@ pub struct IUsbInterfaceDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterfaceDescriptorStatics(::windows::runtime::IInspectable);
+pub struct IUsbInterfaceDescriptorStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceDescriptorStatics {
     type Vtable = IUsbInterfaceDescriptorStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813318645, 30678, 18614, [176, 190, 22, 198, 66, 35, 22, 254]);
@@ -457,7 +457,7 @@ pub struct IUsbInterfaceDescriptorStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterfaceSetting(::windows::runtime::IInspectable);
+pub struct IUsbInterfaceSetting(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(405257127, 36263, 19191, [143, 76, 127, 48, 50, 231, 129, 245]);
@@ -488,7 +488,7 @@ pub struct IUsbInterfaceSetting_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterruptInEndpointDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbInterruptInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3226634599, 51473, 19514, [134, 178, 65, 156, 45, 168, 144, 57]);
@@ -510,7 +510,7 @@ pub struct IUsbInterruptInEndpointDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterruptInEventArgs(::windows::runtime::IInspectable);
+pub struct IUsbInterruptInEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081781394, 5144, 18742, [130, 9, 41, 156, 245, 96, 85, 131]);
@@ -529,7 +529,7 @@ pub struct IUsbInterruptInEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterruptInPipe(::windows::runtime::IInspectable);
+pub struct IUsbInterruptInPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4194332950, 34007, 18631, [138, 63, 76, 11, 35, 95, 46, 166]);
@@ -553,7 +553,7 @@ pub struct IUsbInterruptInPipe_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterruptOutEndpointDescriptor(::windows::runtime::IInspectable);
+pub struct IUsbInterruptOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3433033089, 4298, 17715, [149, 45, 158, 39, 131, 65, 232, 15]);
@@ -575,7 +575,7 @@ pub struct IUsbInterruptOutEndpointDescriptor_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbInterruptOutPipe(::windows::runtime::IInspectable);
+pub struct IUsbInterruptOutPipe(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3917793449, 43769, 18896, [185, 108, 246, 97, 171, 74, 127, 149]);
@@ -599,7 +599,7 @@ pub struct IUsbInterruptOutPipe_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbSetupPacket(::windows::runtime::IInspectable);
+pub struct IUsbSetupPacket(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacket {
     type Vtable = IUsbSetupPacket_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(273391922, 51087, 19537, [182, 84, 228, 157, 2, 242, 203, 3]);
@@ -626,7 +626,7 @@ pub struct IUsbSetupPacket_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUsbSetupPacketFactory(::windows::runtime::IInspectable);
+pub struct IUsbSetupPacketFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUsbSetupPacketFactory {
     type Vtable = IUsbSetupPacketFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3374677328, 6958, 19009, [162, 167, 51, 143, 12, 239, 60, 20]);
@@ -645,8 +645,8 @@ pub struct IUsbSetupPacketFactory_abi(
 );
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbBulkInEndpointDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbBulkInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbBulkInEndpointDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn MaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -683,12 +683,52 @@ unsafe impl ::windows::runtime::Interface for UsbBulkInEndpointDescriptor {
 impl ::windows::runtime::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
 }
+impl ::std::convert::From<UsbBulkInEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbBulkInEndpointDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbBulkInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbBulkInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbBulkInEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbBulkInEndpointDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbBulkInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbBulkInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbBulkInEndpointDescriptor {}
 unsafe impl ::std::marker::Sync for UsbBulkInEndpointDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbBulkInPipe(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbBulkInPipe(pub ::windows::runtime::IInspectable);
 impl UsbBulkInPipe {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn MaxTransferSizeBytes(&self) -> ::windows::runtime::Result<u32> {
@@ -753,12 +793,52 @@ unsafe impl ::windows::runtime::Interface for UsbBulkInPipe {
 impl ::windows::runtime::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
 }
+impl ::std::convert::From<UsbBulkInPipe> for ::windows::runtime::IUnknown {
+    fn from(value: UsbBulkInPipe) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbBulkInPipe> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbBulkInPipe) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbBulkInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbBulkInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbBulkInPipe> for ::windows::runtime::IInspectable {
+    fn from(value: UsbBulkInPipe) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbBulkInPipe> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbBulkInPipe) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbBulkInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbBulkInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbBulkInPipe {}
 unsafe impl ::std::marker::Sync for UsbBulkInPipe {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbBulkOutEndpointDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbBulkOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbBulkOutEndpointDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn MaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -795,12 +875,52 @@ unsafe impl ::windows::runtime::Interface for UsbBulkOutEndpointDescriptor {
 impl ::windows::runtime::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
 }
+impl ::std::convert::From<UsbBulkOutEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbBulkOutEndpointDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbBulkOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbBulkOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbBulkOutEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbBulkOutEndpointDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbBulkOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbBulkOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbBulkOutEndpointDescriptor {}
 unsafe impl ::std::marker::Sync for UsbBulkOutEndpointDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbBulkOutPipe(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbBulkOutPipe(pub ::windows::runtime::IInspectable);
 impl UsbBulkOutPipe {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn EndpointDescriptor(&self) -> ::windows::runtime::Result<UsbBulkOutEndpointDescriptor> {
@@ -852,12 +972,52 @@ unsafe impl ::windows::runtime::Interface for UsbBulkOutPipe {
 impl ::windows::runtime::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
 }
+impl ::std::convert::From<UsbBulkOutPipe> for ::windows::runtime::IUnknown {
+    fn from(value: UsbBulkOutPipe) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbBulkOutPipe> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbBulkOutPipe) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbBulkOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbBulkOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbBulkOutPipe> for ::windows::runtime::IInspectable {
+    fn from(value: UsbBulkOutPipe) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbBulkOutPipe> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbBulkOutPipe) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbBulkOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbBulkOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbBulkOutPipe {}
 unsafe impl ::std::marker::Sync for UsbBulkOutPipe {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbConfiguration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbConfiguration(pub ::windows::runtime::IInspectable);
 impl UsbConfiguration {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Usb`, `Foundation_Collections`*"]
@@ -896,12 +1056,52 @@ unsafe impl ::windows::runtime::Interface for UsbConfiguration {
 impl ::windows::runtime::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
 }
+impl ::std::convert::From<UsbConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: UsbConfiguration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbConfiguration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: UsbConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbConfiguration {}
 unsafe impl ::std::marker::Sync for UsbConfiguration {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbConfigurationDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbConfigurationDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbConfigurationDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn ConfigurationValue(&self) -> ::windows::runtime::Result<u8> {
@@ -964,6 +1164,46 @@ unsafe impl ::windows::runtime::Interface for UsbConfigurationDescriptor {
 impl ::windows::runtime::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
 }
+impl ::std::convert::From<UsbConfigurationDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbConfigurationDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbConfigurationDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbConfigurationDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbConfigurationDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbConfigurationDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbConfigurationDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbConfigurationDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbConfigurationDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbConfigurationDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbConfigurationDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbConfigurationDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::std::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
@@ -993,8 +1233,8 @@ impl ::windows::runtime::DefaultType for UsbControlRecipient {
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbControlRequestType(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbControlRequestType(pub ::windows::runtime::IInspectable);
 impl UsbControlRequestType {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1066,6 +1306,46 @@ unsafe impl ::windows::runtime::Interface for UsbControlRequestType {
 impl ::windows::runtime::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
 }
+impl ::std::convert::From<UsbControlRequestType> for ::windows::runtime::IUnknown {
+    fn from(value: UsbControlRequestType) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbControlRequestType> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbControlRequestType) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbControlRequestType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbControlRequestType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbControlRequestType> for ::windows::runtime::IInspectable {
+    fn from(value: UsbControlRequestType) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbControlRequestType> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbControlRequestType) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbControlRequestType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbControlRequestType {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbControlRequestType {}
 unsafe impl ::std::marker::Sync for UsbControlRequestType {}
 #[doc = "*Required features: `Devices_Usb`*"]
@@ -1093,8 +1373,8 @@ impl ::windows::runtime::DefaultType for UsbControlTransferType {
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn Length(&self) -> ::windows::runtime::Result<u8> {
@@ -1129,12 +1409,52 @@ unsafe impl ::windows::runtime::Interface for UsbDescriptor {
 impl ::windows::runtime::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
 }
+impl ::std::convert::From<UsbDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbDescriptor {}
 unsafe impl ::std::marker::Sync for UsbDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbDevice(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbDevice(pub ::windows::runtime::IInspectable);
 impl UsbDevice {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Devices_Usb`, `Foundation`, `Storage_Streams`*"]
@@ -1253,6 +1573,46 @@ unsafe impl ::windows::runtime::Interface for UsbDevice {
 impl ::windows::runtime::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
 }
+impl ::std::convert::From<UsbDevice> for ::windows::runtime::IUnknown {
+    fn from(value: UsbDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbDevice> for ::windows::runtime::IInspectable {
+    fn from(value: UsbDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<UsbDevice> for super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -1283,8 +1643,8 @@ unsafe impl ::std::marker::Send for UsbDevice {}
 unsafe impl ::std::marker::Sync for UsbDevice {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbDeviceClass(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbDeviceClass(pub ::windows::runtime::IInspectable);
 impl UsbDeviceClass {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1347,12 +1707,52 @@ unsafe impl ::windows::runtime::Interface for UsbDeviceClass {
 impl ::windows::runtime::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
 }
+impl ::std::convert::From<UsbDeviceClass> for ::windows::runtime::IUnknown {
+    fn from(value: UsbDeviceClass) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbDeviceClass> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbDeviceClass) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbDeviceClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbDeviceClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbDeviceClass> for ::windows::runtime::IInspectable {
+    fn from(value: UsbDeviceClass) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbDeviceClass> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbDeviceClass) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbDeviceClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbDeviceClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbDeviceClass {}
 unsafe impl ::std::marker::Sync for UsbDeviceClass {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbDeviceClasses(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbDeviceClasses(pub ::windows::runtime::IInspectable);
 impl UsbDeviceClasses {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn CdcControl() -> ::windows::runtime::Result<UsbDeviceClass> {
@@ -1432,12 +1832,52 @@ unsafe impl ::windows::runtime::Interface for UsbDeviceClasses {
 impl ::windows::runtime::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
 }
+impl ::std::convert::From<UsbDeviceClasses> for ::windows::runtime::IUnknown {
+    fn from(value: UsbDeviceClasses) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbDeviceClasses> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbDeviceClasses) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbDeviceClasses {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbDeviceClasses {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbDeviceClasses> for ::windows::runtime::IInspectable {
+    fn from(value: UsbDeviceClasses) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbDeviceClasses> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbDeviceClasses) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbDeviceClasses {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbDeviceClasses {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbDeviceClasses {}
 unsafe impl ::std::marker::Sync for UsbDeviceClasses {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbDeviceDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbDeviceDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbDeviceDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn BcdUsb(&self) -> ::windows::runtime::Result<u32> {
@@ -1498,12 +1938,52 @@ unsafe impl ::windows::runtime::Interface for UsbDeviceDescriptor {
 impl ::windows::runtime::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
 }
+impl ::std::convert::From<UsbDeviceDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbDeviceDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbDeviceDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbDeviceDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbDeviceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbDeviceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbDeviceDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbDeviceDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbDeviceDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbDeviceDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbDeviceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbDeviceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbDeviceDescriptor {}
 unsafe impl ::std::marker::Sync for UsbDeviceDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbEndpointDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbEndpointDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbEndpointDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn EndpointNumber(&self) -> ::windows::runtime::Result<u8> {
@@ -1590,6 +2070,46 @@ unsafe impl ::windows::runtime::Interface for UsbEndpointDescriptor {
 impl ::windows::runtime::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
 }
+impl ::std::convert::From<UsbEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbEndpointDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbEndpointDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbEndpointDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbEndpointDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::std::marker::Sync for UsbEndpointDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
@@ -1618,8 +2138,8 @@ impl ::windows::runtime::DefaultType for UsbEndpointType {
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterface(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterface(pub ::windows::runtime::IInspectable);
 impl UsbInterface {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Usb`, `Foundation_Collections`*"]
@@ -1694,12 +2214,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterface {
 impl ::windows::runtime::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
 }
+impl ::std::convert::From<UsbInterface> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterface) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterface) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterface> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterface> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterface {}
 unsafe impl ::std::marker::Sync for UsbInterface {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterfaceDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterfaceDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbInterfaceDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn ClassCode(&self) -> ::windows::runtime::Result<u8> {
@@ -1770,12 +2330,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterfaceDescriptor {
 impl ::windows::runtime::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
 }
+impl ::std::convert::From<UsbInterfaceDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterfaceDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterfaceDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterfaceDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterfaceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterfaceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterfaceDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterfaceDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterfaceDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterfaceDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterfaceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterfaceDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterfaceDescriptor {}
 unsafe impl ::std::marker::Sync for UsbInterfaceDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterfaceSetting(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterfaceSetting(pub ::windows::runtime::IInspectable);
 impl UsbInterfaceSetting {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Devices_Usb`, `Foundation_Collections`*"]
@@ -1858,12 +2458,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterfaceSetting {
 impl ::windows::runtime::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
 }
+impl ::std::convert::From<UsbInterfaceSetting> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterfaceSetting) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterfaceSetting> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterfaceSetting) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterfaceSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterfaceSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterfaceSetting> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterfaceSetting) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterfaceSetting> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterfaceSetting) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterfaceSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterfaceSetting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterfaceSetting {}
 unsafe impl ::std::marker::Sync for UsbInterfaceSetting {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterruptInEndpointDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterruptInEndpointDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbInterruptInEndpointDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn MaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -1909,12 +2549,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterruptInEndpointDescriptor {
 impl ::windows::runtime::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
 }
+impl ::std::convert::From<UsbInterruptInEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterruptInEndpointDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterruptInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterruptInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterruptInEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterruptInEndpointDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterruptInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterruptInEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterruptInEndpointDescriptor {}
 unsafe impl ::std::marker::Sync for UsbInterruptInEndpointDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterruptInEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterruptInEventArgs(pub ::windows::runtime::IInspectable);
 impl UsbInterruptInEventArgs {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Usb`, `Storage_Streams`*"]
@@ -1936,12 +2616,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterruptInEventArgs {
 impl ::windows::runtime::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
 }
+impl ::std::convert::From<UsbInterruptInEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterruptInEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterruptInEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterruptInEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterruptInEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterruptInEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterruptInEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterruptInEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterruptInEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterruptInEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterruptInEventArgs {}
 unsafe impl ::std::marker::Sync for UsbInterruptInEventArgs {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterruptInPipe(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterruptInPipe(pub ::windows::runtime::IInspectable);
 impl UsbInterruptInPipe {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn EndpointDescriptor(&self) -> ::windows::runtime::Result<UsbInterruptInEndpointDescriptor> {
@@ -1986,12 +2706,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterruptInPipe {
 impl ::windows::runtime::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
 }
+impl ::std::convert::From<UsbInterruptInPipe> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterruptInPipe) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInPipe> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterruptInPipe) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterruptInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterruptInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterruptInPipe> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterruptInPipe) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterruptInPipe> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterruptInPipe) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterruptInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterruptInPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterruptInPipe {}
 unsafe impl ::std::marker::Sync for UsbInterruptInPipe {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterruptOutEndpointDescriptor(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterruptOutEndpointDescriptor(pub ::windows::runtime::IInspectable);
 impl UsbInterruptOutEndpointDescriptor {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn MaxPacketSize(&self) -> ::windows::runtime::Result<u32> {
@@ -2037,12 +2797,52 @@ unsafe impl ::windows::runtime::Interface for UsbInterruptOutEndpointDescriptor 
 impl ::windows::runtime::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
 }
+impl ::std::convert::From<UsbInterruptOutEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterruptOutEndpointDescriptor) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterruptOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterruptOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterruptOutEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterruptOutEndpointDescriptor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterruptOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterruptOutEndpointDescriptor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UsbInterruptOutEndpointDescriptor {}
 unsafe impl ::std::marker::Sync for UsbInterruptOutEndpointDescriptor {}
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbInterruptOutPipe(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbInterruptOutPipe(pub ::windows::runtime::IInspectable);
 impl UsbInterruptOutPipe {
     #[doc = "*Required features: `Devices_Usb`*"]
     pub fn EndpointDescriptor(&self) -> ::windows::runtime::Result<UsbInterruptOutEndpointDescriptor> {
@@ -2093,6 +2893,46 @@ unsafe impl ::windows::runtime::Interface for UsbInterruptOutPipe {
 }
 impl ::windows::runtime::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
+}
+impl ::std::convert::From<UsbInterruptOutPipe> for ::windows::runtime::IUnknown {
+    fn from(value: UsbInterruptOutPipe) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbInterruptOutPipe> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbInterruptOutPipe) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbInterruptOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbInterruptOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbInterruptOutPipe> for ::windows::runtime::IInspectable {
+    fn from(value: UsbInterruptOutPipe) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbInterruptOutPipe> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbInterruptOutPipe) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbInterruptOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbInterruptOutPipe {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::std::marker::Sync for UsbInterruptOutPipe {}
@@ -2151,8 +2991,8 @@ impl ::std::ops::Not for UsbReadOptions {
 }
 #[doc = "*Required features: `Devices_Usb`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UsbSetupPacket(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UsbSetupPacket(pub ::windows::runtime::IInspectable);
 impl UsbSetupPacket {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2248,6 +3088,46 @@ unsafe impl ::windows::runtime::Interface for UsbSetupPacket {
 }
 impl ::windows::runtime::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";
+}
+impl ::std::convert::From<UsbSetupPacket> for ::windows::runtime::IUnknown {
+    fn from(value: UsbSetupPacket) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UsbSetupPacket> for ::windows::runtime::IUnknown {
+    fn from(value: &UsbSetupPacket) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UsbSetupPacket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UsbSetupPacket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UsbSetupPacket> for ::windows::runtime::IInspectable {
+    fn from(value: UsbSetupPacket) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UsbSetupPacket> for ::windows::runtime::IInspectable {
+    fn from(value: &UsbSetupPacket) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UsbSetupPacket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UsbSetupPacket {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UsbSetupPacket {}
 unsafe impl ::std::marker::Sync for UsbSetupPacket {}

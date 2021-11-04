@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSCDefaultProduct(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSCDefaultProduct(pub ::windows::runtime::IUnknown);
 impl IWSCDefaultProduct {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`*"]
@@ -13,6 +13,26 @@ impl IWSCDefaultProduct {
 unsafe impl ::windows::runtime::Interface for IWSCDefaultProduct {
     type Vtable = IWSCDefaultProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(74897052, 61978, 4581, [156, 233, 94, 85, 23, 80, 124, 102]);
+}
+impl ::std::convert::From<IWSCDefaultProduct> for ::windows::runtime::IUnknown {
+    fn from(value: IWSCDefaultProduct) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSCDefaultProduct> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSCDefaultProduct) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSCDefaultProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSCDefaultProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSCDefaultProduct> for super::Ole::Automation::IDispatch {
@@ -29,13 +49,13 @@ impl ::std::convert::From<&IWSCDefaultProduct> for super::Ole::Automation::IDisp
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSCDefaultProduct {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSCDefaultProduct {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -57,8 +77,8 @@ pub struct IWSCDefaultProduct_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWSCProductList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWSCProductList(pub ::windows::runtime::IUnknown);
 impl IWSCProductList {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
     pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::runtime::Result<()> {
@@ -79,6 +99,26 @@ unsafe impl ::windows::runtime::Interface for IWSCProductList {
     type Vtable = IWSCProductList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1915368332, 28302, 20082, [172, 39, 20, 23, 251, 12, 129, 194]);
 }
+impl ::std::convert::From<IWSCProductList> for ::windows::runtime::IUnknown {
+    fn from(value: IWSCProductList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWSCProductList> for ::windows::runtime::IUnknown {
+    fn from(value: &IWSCProductList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWSCProductList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWSCProductList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWSCProductList> for super::Ole::Automation::IDispatch {
     fn from(value: IWSCProductList) -> Self {
@@ -94,13 +134,13 @@ impl ::std::convert::From<&IWSCProductList> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSCProductList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSCProductList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -123,8 +163,8 @@ pub struct IWSCProductList_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWscProduct(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWscProduct(pub ::windows::runtime::IUnknown);
 impl IWscProduct {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`*"]
@@ -171,6 +211,26 @@ unsafe impl ::windows::runtime::Interface for IWscProduct {
     type Vtable = IWscProduct_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2352489262, 14917, 18983, [146, 176, 26, 22, 169, 117, 246, 105]);
 }
+impl ::std::convert::From<IWscProduct> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWscProduct> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWscProduct {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWscProduct> for super::Ole::Automation::IDispatch {
     fn from(value: IWscProduct) -> Self {
@@ -186,13 +246,13 @@ impl ::std::convert::From<&IWscProduct> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWscProduct {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWscProduct {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -224,8 +284,8 @@ pub struct IWscProduct_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWscProduct2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWscProduct2(pub ::windows::runtime::IUnknown);
 impl IWscProduct2 {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -323,6 +383,26 @@ unsafe impl ::windows::runtime::Interface for IWscProduct2 {
     type Vtable = IWscProduct2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4170631764, 65033, 17411, [134, 212, 35, 203, 72, 141, 129, 216]);
 }
+impl ::std::convert::From<IWscProduct2> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWscProduct2> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWscProduct2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWscProduct2> for IWscProduct {
     fn from(value: IWscProduct2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -335,12 +415,12 @@ impl ::std::convert::From<&IWscProduct2> for IWscProduct {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct> for IWscProduct2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct> for &IWscProduct2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -358,13 +438,13 @@ impl ::std::convert::From<&IWscProduct2> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWscProduct2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWscProduct2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -402,8 +482,8 @@ pub struct IWscProduct2_abi(
 );
 #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWscProduct3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWscProduct3(pub ::windows::runtime::IUnknown);
 impl IWscProduct3 {
     #[doc = "*Required features: `Win32_System_SecurityCenter`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -506,6 +586,26 @@ unsafe impl ::windows::runtime::Interface for IWscProduct3 {
     type Vtable = IWscProduct3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1431528740, 53713, 18214, [140, 124, 4, 153, 106, 25, 4, 231]);
 }
+impl ::std::convert::From<IWscProduct3> for ::windows::runtime::IUnknown {
+    fn from(value: IWscProduct3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWscProduct3> for ::windows::runtime::IUnknown {
+    fn from(value: &IWscProduct3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWscProduct3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWscProduct3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWscProduct3> for IWscProduct2 {
     fn from(value: IWscProduct3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -518,12 +618,12 @@ impl ::std::convert::From<&IWscProduct3> for IWscProduct2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct2> for IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct2> for &IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IWscProduct3> for IWscProduct {
@@ -538,12 +638,12 @@ impl ::std::convert::From<&IWscProduct3> for IWscProduct {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct> for IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWscProduct> for &IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWscProduct> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWscProduct>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -561,13 +661,13 @@ impl ::std::convert::From<&IWscProduct3> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWscProduct3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

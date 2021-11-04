@@ -66,8 +66,8 @@ impl ::std::ops::Not for DataClasses {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESim(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESim(pub ::windows::runtime::IInspectable);
 impl ESim {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -214,12 +214,52 @@ unsafe impl ::windows::runtime::Interface for ESim {
 impl ::windows::runtime::RuntimeName for ESim {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
 }
+impl ::std::convert::From<ESim> for ::windows::runtime::IUnknown {
+    fn from(value: ESim) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESim> for ::windows::runtime::IUnknown {
+    fn from(value: &ESim) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESim {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESim {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESim> for ::windows::runtime::IInspectable {
+    fn from(value: ESim) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESim> for ::windows::runtime::IInspectable {
+    fn from(value: &ESim) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESim {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESim {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESim {}
 unsafe impl ::std::marker::Sync for ESim {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimAddedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimAddedEventArgs(pub ::windows::runtime::IInspectable);
 impl ESimAddedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn ESim(&self) -> ::windows::runtime::Result<ESim> {
@@ -239,6 +279,46 @@ unsafe impl ::windows::runtime::Interface for ESimAddedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for ESimAddedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
+}
+impl ::std::convert::From<ESimAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ESimAddedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimAddedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ESimAddedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimAddedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimAddedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ESimAddedEventArgs {}
 unsafe impl ::std::marker::Sync for ESimAddedEventArgs {}
@@ -267,8 +347,8 @@ impl ::windows::runtime::DefaultType for ESimAuthenticationPreference {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimDiscoverEvent(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimDiscoverEvent(pub ::windows::runtime::IInspectable);
 impl ESimDiscoverEvent {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn MatchingId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -297,12 +377,52 @@ unsafe impl ::windows::runtime::Interface for ESimDiscoverEvent {
 impl ::windows::runtime::RuntimeName for ESimDiscoverEvent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
 }
+impl ::std::convert::From<ESimDiscoverEvent> for ::windows::runtime::IUnknown {
+    fn from(value: ESimDiscoverEvent) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimDiscoverEvent> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimDiscoverEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimDiscoverEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimDiscoverEvent> for ::windows::runtime::IInspectable {
+    fn from(value: ESimDiscoverEvent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimDiscoverEvent> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimDiscoverEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimDiscoverEvent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimDiscoverEvent {}
 unsafe impl ::std::marker::Sync for ESimDiscoverEvent {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimDiscoverResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimDiscoverResult(pub ::windows::runtime::IInspectable);
 impl ESimDiscoverResult {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -348,6 +468,46 @@ unsafe impl ::windows::runtime::Interface for ESimDiscoverResult {
 impl ::windows::runtime::RuntimeName for ESimDiscoverResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
 }
+impl ::std::convert::From<ESimDiscoverResult> for ::windows::runtime::IUnknown {
+    fn from(value: ESimDiscoverResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimDiscoverResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimDiscoverResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimDiscoverResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimDiscoverResult> for ::windows::runtime::IInspectable {
+    fn from(value: ESimDiscoverResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimDiscoverResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimDiscoverResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimDiscoverResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimDiscoverResult {}
 unsafe impl ::std::marker::Sync for ESimDiscoverResult {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -375,8 +535,8 @@ impl ::windows::runtime::DefaultType for ESimDiscoverResultKind {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimDownloadProfileMetadataResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimDownloadProfileMetadataResult(pub ::windows::runtime::IInspectable);
 impl ESimDownloadProfileMetadataResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Result(&self) -> ::windows::runtime::Result<ESimOperationResult> {
@@ -404,6 +564,46 @@ unsafe impl ::windows::runtime::Interface for ESimDownloadProfileMetadataResult 
 }
 impl ::windows::runtime::RuntimeName for ESimDownloadProfileMetadataResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
+}
+impl ::std::convert::From<ESimDownloadProfileMetadataResult> for ::windows::runtime::IUnknown {
+    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimDownloadProfileMetadataResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimDownloadProfileMetadataResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimDownloadProfileMetadataResult> for ::windows::runtime::IInspectable {
+    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimDownloadProfileMetadataResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimDownloadProfileMetadataResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ESimDownloadProfileMetadataResult {}
 unsafe impl ::std::marker::Sync for ESimDownloadProfileMetadataResult {}
@@ -447,8 +647,8 @@ impl ::windows::runtime::RuntimeName for ESimManager {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimOperationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimOperationResult(pub ::windows::runtime::IInspectable);
 impl ESimOperationResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ESimOperationStatus> {
@@ -468,6 +668,46 @@ unsafe impl ::windows::runtime::Interface for ESimOperationResult {
 }
 impl ::windows::runtime::RuntimeName for ESimOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
+}
+impl ::std::convert::From<ESimOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: ESimOperationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimOperationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: ESimOperationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimOperationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ESimOperationResult {}
 unsafe impl ::std::marker::Sync for ESimOperationResult {}
@@ -522,8 +762,8 @@ impl ::windows::runtime::DefaultType for ESimOperationStatus {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimPolicy(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimPolicy(pub ::windows::runtime::IInspectable);
 impl ESimPolicy {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn ShouldEnableManagingUi(&self) -> ::windows::runtime::Result<bool> {
@@ -544,12 +784,52 @@ unsafe impl ::windows::runtime::Interface for ESimPolicy {
 impl ::windows::runtime::RuntimeName for ESimPolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
 }
+impl ::std::convert::From<ESimPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: ESimPolicy) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimPolicy> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimPolicy) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: ESimPolicy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimPolicy> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimPolicy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimPolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimPolicy {}
 unsafe impl ::std::marker::Sync for ESimPolicy {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimProfile(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimProfile(pub ::windows::runtime::IInspectable);
 impl ESimProfile {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Class(&self) -> ::windows::runtime::Result<ESimProfileClass> {
@@ -654,6 +934,46 @@ unsafe impl ::windows::runtime::Interface for ESimProfile {
 impl ::windows::runtime::RuntimeName for ESimProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
 }
+impl ::std::convert::From<ESimProfile> for ::windows::runtime::IUnknown {
+    fn from(value: ESimProfile) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimProfile> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimProfile) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimProfile> for ::windows::runtime::IInspectable {
+    fn from(value: ESimProfile) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimProfile> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimProfile) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimProfile {}
 unsafe impl ::std::marker::Sync for ESimProfile {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -714,8 +1034,8 @@ impl ::windows::runtime::DefaultType for ESimProfileInstallProgress {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimProfileMetadata(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimProfileMetadata(pub ::windows::runtime::IInspectable);
 impl ESimProfileMetadata {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn IsConfirmationCodeRequired(&self) -> ::windows::runtime::Result<bool> {
@@ -836,6 +1156,46 @@ unsafe impl ::windows::runtime::Interface for ESimProfileMetadata {
 impl ::windows::runtime::RuntimeName for ESimProfileMetadata {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
 }
+impl ::std::convert::From<ESimProfileMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: ESimProfileMetadata) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimProfileMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimProfileMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimProfileMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimProfileMetadata> for ::windows::runtime::IInspectable {
+    fn from(value: ESimProfileMetadata) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimProfileMetadata> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimProfileMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimProfileMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimProfileMetadata {}
 unsafe impl ::std::marker::Sync for ESimProfileMetadata {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -868,8 +1228,8 @@ impl ::windows::runtime::DefaultType for ESimProfileMetadataState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimProfilePolicy(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimProfilePolicy(pub ::windows::runtime::IInspectable);
 impl ESimProfilePolicy {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn CanDelete(&self) -> ::windows::runtime::Result<bool> {
@@ -906,6 +1266,46 @@ unsafe impl ::windows::runtime::Interface for ESimProfilePolicy {
 impl ::windows::runtime::RuntimeName for ESimProfilePolicy {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
 }
+impl ::std::convert::From<ESimProfilePolicy> for ::windows::runtime::IUnknown {
+    fn from(value: ESimProfilePolicy) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimProfilePolicy> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimProfilePolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimProfilePolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimProfilePolicy> for ::windows::runtime::IInspectable {
+    fn from(value: ESimProfilePolicy) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimProfilePolicy> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimProfilePolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimProfilePolicy {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimProfilePolicy {}
 unsafe impl ::std::marker::Sync for ESimProfilePolicy {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -934,8 +1334,8 @@ impl ::windows::runtime::DefaultType for ESimProfileState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimRemovedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimRemovedEventArgs(pub ::windows::runtime::IInspectable);
 impl ESimRemovedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn ESim(&self) -> ::windows::runtime::Result<ESim> {
@@ -956,12 +1356,52 @@ unsafe impl ::windows::runtime::Interface for ESimRemovedEventArgs {
 impl ::windows::runtime::RuntimeName for ESimRemovedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
 }
+impl ::std::convert::From<ESimRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ESimRemovedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimRemovedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ESimRemovedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimRemovedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimRemovedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimRemovedEventArgs {}
 unsafe impl ::std::marker::Sync for ESimRemovedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimServiceInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimServiceInfo(pub ::windows::runtime::IInspectable);
 impl ESimServiceInfo {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn AuthenticationPreference(&self) -> ::windows::runtime::Result<ESimAuthenticationPreference> {
@@ -989,6 +1429,46 @@ unsafe impl ::windows::runtime::Interface for ESimServiceInfo {
 }
 impl ::windows::runtime::RuntimeName for ESimServiceInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
+}
+impl ::std::convert::From<ESimServiceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ESimServiceInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimServiceInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimServiceInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimServiceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimServiceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimServiceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: ESimServiceInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimServiceInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimServiceInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimServiceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimServiceInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ESimServiceInfo {}
 unsafe impl ::std::marker::Sync for ESimServiceInfo {}
@@ -1018,8 +1498,8 @@ impl ::windows::runtime::DefaultType for ESimState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimUpdatedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl ESimUpdatedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn ESim(&self) -> ::windows::runtime::Result<ESim> {
@@ -1040,12 +1520,52 @@ unsafe impl ::windows::runtime::Interface for ESimUpdatedEventArgs {
 impl ::windows::runtime::RuntimeName for ESimUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
 }
+impl ::std::convert::From<ESimUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ESimUpdatedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ESimUpdatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimUpdatedEventArgs {}
 unsafe impl ::std::marker::Sync for ESimUpdatedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ESimWatcher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ESimWatcher(pub ::windows::runtime::IInspectable);
 impl ESimWatcher {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ESimWatcherStatus> {
@@ -1151,6 +1671,46 @@ unsafe impl ::windows::runtime::Interface for ESimWatcher {
 impl ::windows::runtime::RuntimeName for ESimWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
 }
+impl ::std::convert::From<ESimWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: ESimWatcher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ESimWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: &ESimWatcher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ESimWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ESimWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ESimWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: ESimWatcher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ESimWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: &ESimWatcher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ESimWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ESimWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ESimWatcher {}
 unsafe impl ::std::marker::Sync for ESimWatcher {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -1199,8 +1759,8 @@ impl ::windows::runtime::RuntimeName for FdnAccessManager {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HotspotAuthenticationContext(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HotspotAuthenticationContext(pub ::windows::runtime::IInspectable);
 impl HotspotAuthenticationContext {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn WirelessNetworkId(&self) -> ::windows::runtime::Result<::windows::runtime::Array<u8>> {
@@ -1297,10 +1857,50 @@ unsafe impl ::windows::runtime::Interface for HotspotAuthenticationContext {
 impl ::windows::runtime::RuntimeName for HotspotAuthenticationContext {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
 }
+impl ::std::convert::From<HotspotAuthenticationContext> for ::windows::runtime::IUnknown {
+    fn from(value: HotspotAuthenticationContext) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HotspotAuthenticationContext> for ::windows::runtime::IUnknown {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HotspotAuthenticationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HotspotAuthenticationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HotspotAuthenticationContext> for ::windows::runtime::IInspectable {
+    fn from(value: HotspotAuthenticationContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HotspotAuthenticationContext> for ::windows::runtime::IInspectable {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HotspotAuthenticationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HotspotAuthenticationContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HotspotAuthenticationEventDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HotspotAuthenticationEventDetails(pub ::windows::runtime::IInspectable);
 impl HotspotAuthenticationEventDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn EventToken(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1320,6 +1920,46 @@ unsafe impl ::windows::runtime::Interface for HotspotAuthenticationEventDetails 
 }
 impl ::windows::runtime::RuntimeName for HotspotAuthenticationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
+}
+impl ::std::convert::From<HotspotAuthenticationEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: HotspotAuthenticationEventDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HotspotAuthenticationEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HotspotAuthenticationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HotspotAuthenticationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HotspotAuthenticationEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: HotspotAuthenticationEventDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HotspotAuthenticationEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HotspotAuthenticationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HotspotAuthenticationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1350,8 +1990,8 @@ impl ::windows::runtime::DefaultType for HotspotAuthenticationResponseCode {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HotspotCredentialsAuthenticationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HotspotCredentialsAuthenticationResult(pub ::windows::runtime::IInspectable);
 impl HotspotCredentialsAuthenticationResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn HasNetworkErrorOccurred(&self) -> ::windows::runtime::Result<bool> {
@@ -1398,9 +2038,49 @@ unsafe impl ::windows::runtime::Interface for HotspotCredentialsAuthenticationRe
 impl ::windows::runtime::RuntimeName for HotspotCredentialsAuthenticationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
 }
+impl ::std::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::runtime::IUnknown {
+    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HotspotCredentialsAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HotspotCredentialsAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::runtime::IInspectable {
+    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HotspotCredentialsAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HotspotCredentialsAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESim(::windows::runtime::IInspectable);
+pub struct IESim(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim {
     type Vtable = IESim_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1869508134, 61731, 17277, [140, 237, 220, 29, 43, 192, 195, 169]);
@@ -1436,7 +2116,7 @@ pub struct IESim_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESim2(::windows::runtime::IInspectable);
+pub struct IESim2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESim2 {
     type Vtable = IESim2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176124576, 50831, 22251, [185, 155, 143, 52, 184, 16, 2, 153]);
@@ -1459,7 +2139,7 @@ pub struct IESim2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimAddedEventArgs(::windows::runtime::IInspectable);
+pub struct IESimAddedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimAddedEventArgs {
     type Vtable = IESimAddedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(951913048, 19802, 19720, [141, 167, 231, 62, 255, 54, 157, 221]);
@@ -1477,7 +2157,7 @@ pub struct IESimAddedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimDiscoverEvent(::windows::runtime::IInspectable);
+pub struct IESimDiscoverEvent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverEvent {
     type Vtable = IESimDiscoverEvent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3852125155, 14780, 24431, [147, 33, 13, 74, 24, 45, 38, 27]);
@@ -1496,7 +2176,7 @@ pub struct IESimDiscoverEvent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimDiscoverResult(::windows::runtime::IInspectable);
+pub struct IESimDiscoverResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDiscoverResult {
     type Vtable = IESimDiscoverResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1454685022, 43823, 23238, [179, 89, 221, 90, 142, 35, 121, 38]);
@@ -1518,7 +2198,7 @@ pub struct IESimDiscoverResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimDownloadProfileMetadataResult(::windows::runtime::IInspectable);
+pub struct IESimDownloadProfileMetadataResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimDownloadProfileMetadataResult {
     type Vtable = IESimDownloadProfileMetadataResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3290647966, 23254, 17005, [141, 0, 68, 52, 244, 73, 175, 236]);
@@ -1537,7 +2217,7 @@ pub struct IESimDownloadProfileMetadataResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimManagerStatics(::windows::runtime::IInspectable);
+pub struct IESimManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimManagerStatics {
     type Vtable = IESimManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(200944652, 57224, 17969, [191, 4, 193, 46, 40, 27, 57, 98]);
@@ -1560,7 +2240,7 @@ pub struct IESimManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimOperationResult(::windows::runtime::IInspectable);
+pub struct IESimOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimOperationResult {
     type Vtable = IESimOperationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2793104305, 12443, 20087, [158, 126, 205, 147, 241, 221, 199, 185]);
@@ -1578,7 +2258,7 @@ pub struct IESimOperationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimPolicy(::windows::runtime::IInspectable);
+pub struct IESimPolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimPolicy {
     type Vtable = IESimPolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1105312157, 53118, 17173, [136, 43, 111, 30, 116, 176, 211, 143]);
@@ -1596,7 +2276,7 @@ pub struct IESimPolicy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimProfile(::windows::runtime::IInspectable);
+pub struct IESimProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfile {
     type Vtable = IESimProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3994974336, 1705, 16423, [180, 248, 221, 178, 61, 120, 16, 224]);
@@ -1628,7 +2308,7 @@ pub struct IESimProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimProfileMetadata(::windows::runtime::IInspectable);
+pub struct IESimProfileMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfileMetadata {
     type Vtable = IESimProfileMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3978658591, 37083, 18829, [167, 180, 235, 206, 128, 125, 60, 35]);
@@ -1665,7 +2345,7 @@ pub struct IESimProfileMetadata_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimProfilePolicy(::windows::runtime::IInspectable);
+pub struct IESimProfilePolicy(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimProfilePolicy {
     type Vtable = IESimProfilePolicy_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3873247005, 40028, 18117, [162, 137, 169, 72, 153, 155, 240, 98]);
@@ -1685,7 +2365,7 @@ pub struct IESimProfilePolicy_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimRemovedEventArgs(::windows::runtime::IInspectable);
+pub struct IESimRemovedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimRemovedEventArgs {
     type Vtable = IESimRemovedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3737462651, 12249, 20185, [131, 118, 217, 181, 228, 18, 120, 163]);
@@ -1703,7 +2383,7 @@ pub struct IESimRemovedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimServiceInfo(::windows::runtime::IInspectable);
+pub struct IESimServiceInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimServiceInfo {
     type Vtable = IESimServiceInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4050299855, 32601, 19025, [132, 148, 189, 137, 213, 255, 80, 238]);
@@ -1722,7 +2402,7 @@ pub struct IESimServiceInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IESimUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimUpdatedEventArgs {
     type Vtable = IESimUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1276271852, 20621, 19336, [131, 203, 104, 190, 248, 22, 141, 18]);
@@ -1740,7 +2420,7 @@ pub struct IESimUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IESimWatcher(::windows::runtime::IInspectable);
+pub struct IESimWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IESimWatcher {
     type Vtable = IESimWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3254275307, 41613, 20415, [151, 113, 110, 49, 184, 28, 207, 34]);
@@ -1780,7 +2460,7 @@ pub struct IESimWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFdnAccessManagerStatics(::windows::runtime::IInspectable);
+pub struct IFdnAccessManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFdnAccessManagerStatics {
     type Vtable = IFdnAccessManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4071244693, 61926, 17177, [170, 62, 71, 124, 166, 75, 43, 223]);
@@ -1799,7 +2479,7 @@ pub struct IFdnAccessManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHotspotAuthenticationContext(::windows::runtime::IInspectable);
+pub struct IHotspotAuthenticationContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext {
     type Vtable = IHotspotAuthenticationContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4099, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
@@ -1829,7 +2509,7 @@ pub struct IHotspotAuthenticationContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHotspotAuthenticationContext2(::windows::runtime::IInspectable);
+pub struct IHotspotAuthenticationContext2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContext2 {
     type Vtable = IHotspotAuthenticationContext2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4100, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
@@ -1848,7 +2528,7 @@ pub struct IHotspotAuthenticationContext2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHotspotAuthenticationContextStatics(::windows::runtime::IInspectable);
+pub struct IHotspotAuthenticationContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationContextStatics {
     type Vtable = IHotspotAuthenticationContextStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4098, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
@@ -1866,7 +2546,7 @@ pub struct IHotspotAuthenticationContextStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHotspotAuthenticationEventDetails(::windows::runtime::IInspectable);
+pub struct IHotspotAuthenticationEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotAuthenticationEventDetails {
     type Vtable = IHotspotAuthenticationEventDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4097, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
@@ -1884,7 +2564,7 @@ pub struct IHotspotAuthenticationEventDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHotspotCredentialsAuthenticationResult(::windows::runtime::IInspectable);
+pub struct IHotspotCredentialsAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHotspotCredentialsAuthenticationResult {
     type Vtable = IHotspotCredentialsAuthenticationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3881224081, 4101, 19941, [131, 199, 222, 97, 216, 136, 49, 208]);
@@ -1907,7 +2587,7 @@ pub struct IHotspotCredentialsAuthenticationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownCSimFilePathsStatics(::windows::runtime::IInspectable);
+pub struct IKnownCSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownCSimFilePathsStatics {
     type Vtable = IKnownCSimFilePathsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3025710829, 18929, 19490, [176, 115, 150, 213, 17, 191, 156, 53]);
@@ -1930,7 +2610,7 @@ pub struct IKnownCSimFilePathsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownRuimFilePathsStatics(::windows::runtime::IInspectable);
+pub struct IKnownRuimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownRuimFilePathsStatics {
     type Vtable = IKnownRuimFilePathsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(948160697, 65316, 17777, [168, 103, 9, 249, 96, 66, 110, 20]);
@@ -1953,7 +2633,7 @@ pub struct IKnownRuimFilePathsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownSimFilePathsStatics(::windows::runtime::IInspectable);
+pub struct IKnownSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownSimFilePathsStatics {
     type Vtable = IKnownSimFilePathsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2160925283, 14245, 17363, [128, 163, 204, 210, 62, 143, 236, 238]);
@@ -1978,7 +2658,7 @@ pub struct IKnownSimFilePathsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownUSimFilePathsStatics(::windows::runtime::IInspectable);
+pub struct IKnownUSimFilePathsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownUSimFilePathsStatics {
     type Vtable = IKnownUSimFilePathsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2083841409, 7963, 17396, [149, 48, 139, 9, 45, 50, 215, 31]);
@@ -2005,7 +2685,7 @@ pub struct IKnownUSimFilePathsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccount(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount {
     type Vtable = IMobileBroadbandAccount_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(918703309, 52962, 17376, [166, 3, 238, 134, 163, 109, 101, 112]);
@@ -2027,7 +2707,7 @@ pub struct IMobileBroadbandAccount_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccount2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccount2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount2 {
     type Vtable = IMobileBroadbandAccount2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(955592476, 4406, 16983, [149, 159, 182, 88, 163, 82, 182, 212]);
@@ -2046,7 +2726,7 @@ pub struct IMobileBroadbandAccount2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccount3(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccount3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccount3 {
     type Vtable = IMobileBroadbandAccount3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(153755169, 37753, 19355, [173, 49, 213, 254, 226, 247, 72, 198]);
@@ -2065,7 +2745,7 @@ pub struct IMobileBroadbandAccount3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccountEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccountEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountEventArgs {
     type Vtable = IMobileBroadbandAccountEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945014912, 30686, 19460, [190, 173, 161, 35, 176, 140, 159, 89]);
@@ -2083,7 +2763,7 @@ pub struct IMobileBroadbandAccountEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccountStatics(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccountStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountStatics {
     type Vtable = IMobileBroadbandAccountStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2860469540, 44993, 20424, [174, 154, 169, 23, 83, 16, 250, 173]);
@@ -2103,7 +2783,7 @@ pub struct IMobileBroadbandAccountStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccountUpdatedEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccountUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountUpdatedEventArgs {
     type Vtable = IMobileBroadbandAccountUpdatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2076384648, 42685, 18913, [128, 171, 107, 145, 53, 74, 87, 212]);
@@ -2123,7 +2803,7 @@ pub struct IMobileBroadbandAccountUpdatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAccountWatcher(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAccountWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAccountWatcher {
     type Vtable = IMobileBroadbandAccountWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1811100510, 9141, 17567, [146, 141, 94, 13, 62, 4, 71, 29]);
@@ -2163,7 +2843,7 @@ pub struct IMobileBroadbandAccountWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAntennaSar(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAntennaSar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSar {
     type Vtable = IMobileBroadbandAntennaSar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115273086, 52217, 16649, [144, 190, 92, 6, 191, 213, 19, 182]);
@@ -2182,7 +2862,7 @@ pub struct IMobileBroadbandAntennaSar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandAntennaSarFactory(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandAntennaSarFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandAntennaSarFactory {
     type Vtable = IMobileBroadbandAntennaSarFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2837321494, 49229, 18977, [134, 152, 20, 89, 220, 103, 44, 110]);
@@ -2200,7 +2880,7 @@ pub struct IMobileBroadbandAntennaSarFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellCdma(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellCdma(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellCdma {
     type Vtable = IMobileBroadbandCellCdma_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(100774836, 16666, 20270, [130, 135, 118, 245, 101, 12, 96, 205]);
@@ -2233,7 +2913,7 @@ pub struct IMobileBroadbandCellCdma_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellGsm(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellGsm(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellGsm {
     type Vtable = IMobileBroadbandCellGsm_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3432087302, 32480, 18360, [158, 31, 195, 180, 141, 249, 223, 91]);
@@ -2263,7 +2943,7 @@ pub struct IMobileBroadbandCellGsm_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellLte(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellLte(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellLte {
     type Vtable = IMobileBroadbandCellLte_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2442643579, 11128, 17773, [139, 83, 170, 162, 93, 10, 247, 65]);
@@ -2295,7 +2975,7 @@ pub struct IMobileBroadbandCellLte_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellNR(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellNR(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellNR {
     type Vtable = IMobileBroadbandCellNR_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2705264107, 26364, 19275, [131, 169, 164, 135, 163, 165, 160, 166]);
@@ -2329,7 +3009,7 @@ pub struct IMobileBroadbandCellNR_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellTdscdma(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellTdscdma(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellTdscdma {
     type Vtable = IMobileBroadbandCellTdscdma_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(249173589, 56078, 16770, [140, 218, 204, 65, 154, 123, 222, 8]);
@@ -2361,7 +3041,7 @@ pub struct IMobileBroadbandCellTdscdma_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellUmts(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellUmts(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellUmts {
     type Vtable = IMobileBroadbandCellUmts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008331694, 18888, 20245, [178, 133, 76, 38, 167, 246, 114, 21]);
@@ -2393,7 +3073,7 @@ pub struct IMobileBroadbandCellUmts_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellsInfo(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellsInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo {
     type Vtable = IMobileBroadbandCellsInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2309576234, 58482, 19877, [146, 156, 222, 97, 113, 29, 210, 97]);
@@ -2430,7 +3110,7 @@ pub struct IMobileBroadbandCellsInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCellsInfo2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCellsInfo2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCellsInfo2 {
     type Vtable = IMobileBroadbandCellsInfo2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1713395986, 47263, 19986, [187, 182, 213, 207, 9, 168, 32, 202]);
@@ -2451,7 +3131,7 @@ pub struct IMobileBroadbandCellsInfo2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandCurrentSlotIndexChangedEventArgs {
     type Vtable = IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4145590660, 50032, 24532, [166, 112, 24, 70, 203, 155, 206, 71]);
@@ -2469,7 +3149,7 @@ pub struct IMobileBroadbandCurrentSlotIndexChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceInformation(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation {
     type Vtable = IMobileBroadbandDeviceInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3872424296, 58241, 19566, [155, 232, 254, 21, 105, 105, 164, 70]);
@@ -2502,7 +3182,7 @@ pub struct IMobileBroadbandDeviceInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceInformation2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation2 {
     type Vtable = IMobileBroadbandDeviceInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(776370929, 63794, 18231, [167, 34, 3, 186, 114, 55, 12, 184]);
@@ -2522,7 +3202,7 @@ pub struct IMobileBroadbandDeviceInformation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceInformation3(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceInformation3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation3 {
     type Vtable = IMobileBroadbandDeviceInformation3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3767252157, 23856, 19290, [146, 204, 213, 77, 248, 129, 212, 158]);
@@ -2542,7 +3222,7 @@ pub struct IMobileBroadbandDeviceInformation3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceInformation4(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceInformation4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceInformation4 {
     type Vtable = IMobileBroadbandDeviceInformation4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641675602, 31645, 22572, [177, 124, 248, 10, 96, 181, 0, 49]);
@@ -2560,7 +3240,7 @@ pub struct IMobileBroadbandDeviceInformation4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceService(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceService(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceService {
     type Vtable = IMobileBroadbandDeviceService_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(582883922, 48512, 16556, [142, 31, 46, 7, 131, 106, 61, 189]);
@@ -2582,7 +3262,7 @@ pub struct IMobileBroadbandDeviceService_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceCommandResult(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceCommandResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandResult {
     type Vtable = IMobileBroadbandDeviceServiceCommandResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2968808123, 38102, 17593, [165, 56, 240, 129, 11, 100, 83, 137]);
@@ -2602,7 +3282,7 @@ pub struct IMobileBroadbandDeviceServiceCommandResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceCommandSession(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceCommandSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceCommandSession {
     type Vtable = IMobileBroadbandDeviceServiceCommandSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4228483653, 37179, 18708, [182, 195, 174, 99, 4, 89, 62, 117]);
@@ -2624,7 +3304,7 @@ pub struct IMobileBroadbandDeviceServiceCommandSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataReceivedEventArgs {
     type Vtable = IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3064599518, 4992, 16611, [134, 24, 115, 203, 202, 72, 19, 140]);
@@ -2643,7 +3323,7 @@ pub struct IMobileBroadbandDeviceServiceDataReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceDataSession(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceDataSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceDataSession {
     type Vtable = IMobileBroadbandDeviceServiceDataSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3671466803, 35791, 17033, [138, 55, 4, 92, 33, 105, 72, 106]);
@@ -2667,7 +3347,7 @@ pub struct IMobileBroadbandDeviceServiceDataSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceInformation(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceInformation {
     type Vtable = IMobileBroadbandDeviceServiceInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1406573403, 50413, 17904, [128, 58, 217, 65, 122, 109, 152, 70]);
@@ -2687,7 +3367,7 @@ pub struct IMobileBroadbandDeviceServiceInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandDeviceServiceTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandDeviceServiceTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandDeviceServiceTriggerDetails {
     type Vtable = IMobileBroadbandDeviceServiceTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1241865072, 47534, 17496, [146, 65, 166, 165, 251, 241, 138, 12]);
@@ -2708,7 +3388,7 @@ pub struct IMobileBroadbandDeviceServiceTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModem(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModem(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem {
     type Vtable = IMobileBroadbandModem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3493161234, 59897, 20327, [160, 61, 67, 24, 154, 49, 107, 241]);
@@ -2738,7 +3418,7 @@ pub struct IMobileBroadbandModem_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModem2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModem2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem2 {
     type Vtable = IMobileBroadbandModem2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(310782760, 47595, 20194, [187, 227, 113, 31, 83, 238, 163, 115]);
@@ -2759,7 +3439,7 @@ pub struct IMobileBroadbandModem2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModem3(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModem3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModem3 {
     type Vtable = IMobileBroadbandModem3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3925788394, 12084, 17794, [145, 2, 195, 20, 210, 168, 126, 236]);
@@ -2783,7 +3463,7 @@ pub struct IMobileBroadbandModem3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModemConfiguration(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModemConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration {
     type Vtable = IMobileBroadbandModemConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4242552227, 54989, 17184, [185, 130, 190, 157, 62, 199, 137, 15]);
@@ -2803,7 +3483,7 @@ pub struct IMobileBroadbandModemConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModemConfiguration2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModemConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemConfiguration2 {
     type Vtable = IMobileBroadbandModemConfiguration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(839906757, 58464, 17070, [170, 81, 105, 98, 30, 122, 68, 119]);
@@ -2821,7 +3501,7 @@ pub struct IMobileBroadbandModemConfiguration2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModemIsolation(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModemIsolation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolation {
     type Vtable = IMobileBroadbandModemIsolation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3043069932, 58977, 17200, [155, 180, 52, 128, 33, 46, 195, 84]);
@@ -2844,7 +3524,7 @@ pub struct IMobileBroadbandModemIsolation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModemIsolationFactory(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModemIsolationFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemIsolationFactory {
     type Vtable = IMobileBroadbandModemIsolationFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(567798872, 49841, 19503, [160, 48, 114, 130, 10, 36, 236, 217]);
@@ -2862,7 +3542,7 @@ pub struct IMobileBroadbandModemIsolationFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandModemStatics(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandModemStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandModemStatics {
     type Vtable = IMobileBroadbandModemStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4187936311, 55025, 19064, [140, 188, 100, 33, 166, 80, 99, 200]);
@@ -2882,7 +3562,7 @@ pub struct IMobileBroadbandModemStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandNetwork(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandNetwork(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork {
     type Vtable = IMobileBroadbandNetwork_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3412300428, 777, 19638, [168, 193, 106, 90, 60, 142, 31, 246]);
@@ -2910,7 +3590,7 @@ pub struct IMobileBroadbandNetwork_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandNetwork2(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandNetwork2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork2 {
     type Vtable = IMobileBroadbandNetwork2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1515576098, 25335, 19421, [186, 29, 71, 116, 65, 150, 11, 160]);
@@ -2931,7 +3611,7 @@ pub struct IMobileBroadbandNetwork2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandNetwork3(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandNetwork3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetwork3 {
     type Vtable = IMobileBroadbandNetwork3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(862390922, 51183, 17484, [171, 108, 223, 126, 247, 163, 144, 254]);
@@ -2950,7 +3630,7 @@ pub struct IMobileBroadbandNetwork3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandNetworkRegistrationStateChange(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandNetworkRegistrationStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChange {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3199177953, 38415, 18868, [160, 141, 125, 133, 233, 104, 199, 236]);
@@ -2969,7 +3649,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChange_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2299747583, 10424, 18090, [177, 55, 28, 75, 15, 33, 237, 254]);
@@ -2988,7 +3668,7 @@ pub struct IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPco(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPco(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPco {
     type Vtable = IMobileBroadbandPco_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3571776702, 58275, 17349, [168, 123, 108, 134, 210, 41, 215, 250]);
@@ -3009,7 +3689,7 @@ pub struct IMobileBroadbandPco_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPcoDataChangeTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPcoDataChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPcoDataChangeTriggerDetails {
     type Vtable = IMobileBroadbandPcoDataChangeTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(641683732, 25824, 17555, [144, 155, 45, 20, 160, 25, 98, 177]);
@@ -3027,7 +3707,7 @@ pub struct IMobileBroadbandPcoDataChangeTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPin(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPin(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPin {
     type Vtable = IMobileBroadbandPin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3865171721, 59257, 17855, [130, 129, 117, 50, 61, 249, 227, 33]);
@@ -3061,7 +3741,7 @@ pub struct IMobileBroadbandPin_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPinLockStateChange(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPinLockStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChange {
     type Vtable = IMobileBroadbandPinLockStateChange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189139262, 7940, 20373, [139, 144, 231, 245, 89, 221, 231, 229]);
@@ -3081,7 +3761,7 @@ pub struct IMobileBroadbandPinLockStateChange_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPinLockStateChangeTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPinLockStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinLockStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandPinLockStateChangeTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3543711889, 16017, 19768, [144, 54, 174, 232, 58, 110, 121, 173]);
@@ -3100,7 +3780,7 @@ pub struct IMobileBroadbandPinLockStateChangeTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPinManager(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPinManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinManager {
     type Vtable = IMobileBroadbandPinManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2203483869, 28191, 19355, [164, 19, 43, 31, 80, 204, 54, 223]);
@@ -3120,7 +3800,7 @@ pub struct IMobileBroadbandPinManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandPinOperationResult(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandPinOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandPinOperationResult {
     type Vtable = IMobileBroadbandPinOperationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(299752498, 12775, 18933, [182, 99, 18, 61, 59, 239, 3, 98]);
@@ -3139,7 +3819,7 @@ pub struct IMobileBroadbandPinOperationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandRadioStateChange(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandRadioStateChange(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChange {
     type Vtable = IMobileBroadbandRadioStateChange_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2958337377, 38963, 19181, [151, 23, 67, 72, 178, 26, 36, 179]);
@@ -3158,7 +3838,7 @@ pub struct IMobileBroadbandRadioStateChange_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandRadioStateChangeTriggerDetails(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandRadioStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandRadioStateChangeTriggerDetails {
     type Vtable = IMobileBroadbandRadioStateChangeTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1898977998, 2364, 17094, [176, 219, 173, 31, 117, 166, 84, 69]);
@@ -3177,7 +3857,7 @@ pub struct IMobileBroadbandRadioStateChangeTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandSarManager(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandSarManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSarManager {
     type Vtable = IMobileBroadbandSarManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3853674547, 38526, 16585, [164, 133, 25, 192, 221, 32, 158, 34]);
@@ -3219,7 +3899,7 @@ pub struct IMobileBroadbandSarManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandSlotInfo(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandSlotInfo(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfo {
     type Vtable = IMobileBroadbandSlotInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3174370098, 34862, 21546, [177, 125, 11, 177, 180, 155, 174, 158]);
@@ -3238,7 +3918,7 @@ pub struct IMobileBroadbandSlotInfo_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandSlotInfoChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandSlotInfoChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotInfoChangedEventArgs {
     type Vtable = IMobileBroadbandSlotInfoChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(827884447, 38156, 21710, [164, 141, 186, 69, 41, 180, 143, 15]);
@@ -3256,7 +3936,7 @@ pub struct IMobileBroadbandSlotInfoChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandSlotManager(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandSlotManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandSlotManager {
     type Vtable = IMobileBroadbandSlotManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953163478, 8217, 24449, [162, 148, 204, 54, 74, 17, 208, 178]);
@@ -3287,7 +3967,7 @@ pub struct IMobileBroadbandSlotManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandTransmissionStateChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandTransmissionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandTransmissionStateChangedEventArgs {
     type Vtable = IMobileBroadbandTransmissionStateChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1630419061, 1034, 20377, [164, 249, 97, 215, 195, 45, 161, 41]);
@@ -3305,7 +3985,7 @@ pub struct IMobileBroadbandTransmissionStateChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandUicc(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandUicc(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUicc {
     type Vtable = IMobileBroadbandUicc_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3862230673, 21082, 19682, [143, 206, 170, 65, 98, 87, 145, 84]);
@@ -3325,7 +4005,7 @@ pub struct IMobileBroadbandUicc_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandUiccApp(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandUiccApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccApp {
     type Vtable = IMobileBroadbandUiccApp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293354326, 39073, 17373, [178, 236, 80, 201, 12, 242, 72, 223]);
@@ -3349,7 +4029,7 @@ pub struct IMobileBroadbandUiccApp_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandUiccAppReadRecordResult(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandUiccAppReadRecordResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppReadRecordResult {
     type Vtable = IMobileBroadbandUiccAppReadRecordResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1690915461, 13710, 18373, [130, 73, 105, 95, 56, 59, 43, 219]);
@@ -3369,7 +4049,7 @@ pub struct IMobileBroadbandUiccAppReadRecordResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandUiccAppRecordDetailsResult(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandUiccAppRecordDetailsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppRecordDetailsResult {
     type Vtable = IMobileBroadbandUiccAppRecordDetailsResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3642320943, 48660, 18740, [152, 29, 47, 87, 185, 237, 131, 230]);
@@ -3392,7 +4072,7 @@ pub struct IMobileBroadbandUiccAppRecordDetailsResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMobileBroadbandUiccAppsResult(::windows::runtime::IInspectable);
+pub struct IMobileBroadbandUiccAppsResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMobileBroadbandUiccAppsResult {
     type Vtable = IMobileBroadbandUiccAppsResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1950953707, 33111, 19009, [132, 148, 107, 245, 76, 155, 29, 43]);
@@ -3412,7 +4092,7 @@ pub struct IMobileBroadbandUiccAppsResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorDataUsageTriggerDetails(::windows::runtime::IInspectable);
+pub struct INetworkOperatorDataUsageTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorDataUsageTriggerDetails {
     type Vtable = INetworkOperatorDataUsageTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1357058669, 42085, 20203, [147, 23, 40, 161, 103, 99, 12, 234]);
@@ -3430,7 +4110,7 @@ pub struct INetworkOperatorDataUsageTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorNotificationEventDetails(::windows::runtime::IInspectable);
+pub struct INetworkOperatorNotificationEventDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorNotificationEventDetails {
     type Vtable = INetworkOperatorNotificationEventDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3160975825, 33505, 17544, [159, 44, 18, 118, 194, 70, 143, 172]);
@@ -3454,7 +4134,7 @@ pub struct INetworkOperatorNotificationEventDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringAccessPointConfiguration(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringAccessPointConfiguration(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(197919364, 16686, 16445, [172, 198, 183, 87, 227, 71, 116, 164]);
@@ -3475,7 +4155,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringAccessPointConfiguration2(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringAccessPointConfiguration2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringAccessPointConfiguration2 {
     type Vtable = INetworkOperatorTetheringAccessPointConfiguration2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2977993026, 29240, 22944, [146, 139, 116, 171, 70, 253, 100, 182]);
@@ -3497,7 +4177,7 @@ pub struct INetworkOperatorTetheringAccessPointConfiguration2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringClient(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringClient(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClient {
     type Vtable = INetworkOperatorTetheringClient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1889346892, 22879, 18503, [187, 48, 100, 105, 53, 84, 41, 24]);
@@ -3517,7 +4197,7 @@ pub struct INetworkOperatorTetheringClient_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringClientManager(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringClientManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringClientManager {
     type Vtable = INetworkOperatorTetheringClientManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2444312598, 36298, 16933, [187, 237, 238, 248, 184, 215, 24, 215]);
@@ -3536,7 +4216,7 @@ pub struct INetworkOperatorTetheringClientManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringEntitlementCheck(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringEntitlementCheck(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringEntitlementCheck {
     type Vtable = INetworkOperatorTetheringEntitlementCheck_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17338733, 40602, 19190, [141, 163, 96, 73, 59, 25, 194, 4]);
@@ -3554,7 +4234,7 @@ pub struct INetworkOperatorTetheringEntitlementCheck_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringManager(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManager {
     type Vtable = INetworkOperatorTetheringManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3562704288, 3718, 19864, [139, 164, 221, 112, 212, 183, 100, 211]);
@@ -3581,7 +4261,7 @@ pub struct INetworkOperatorTetheringManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringManagerStatics(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics {
     type Vtable = INetworkOperatorTetheringManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1052555980, 63683, 16476, [153, 100, 112, 161, 238, 171, 225, 148]);
@@ -3600,7 +4280,7 @@ pub struct INetworkOperatorTetheringManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringManagerStatics2(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics2 {
     type Vtable = INetworkOperatorTetheringManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1529041938, 13808, 18919, [155, 8, 22, 210, 120, 251, 170, 66]);
@@ -3621,7 +4301,7 @@ pub struct INetworkOperatorTetheringManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringManagerStatics3(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringManagerStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics3 {
     type Vtable = INetworkOperatorTetheringManagerStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2413473206, 19193, 20257, [155, 88, 213, 62, 159, 36, 35, 30]);
@@ -3640,7 +4320,7 @@ pub struct INetworkOperatorTetheringManagerStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringManagerStatics4(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringManagerStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringManagerStatics4 {
     type Vtable = INetworkOperatorTetheringManagerStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3015309776, 60415, 18084, [168, 71, 214, 99, 216, 176, 151, 126]);
@@ -3664,7 +4344,7 @@ pub struct INetworkOperatorTetheringManagerStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct INetworkOperatorTetheringOperationResult(::windows::runtime::IInspectable);
+pub struct INetworkOperatorTetheringOperationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for INetworkOperatorTetheringOperationResult {
     type Vtable = INetworkOperatorTetheringOperationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3956409249, 442, 18285, [180, 179, 191, 61, 18, 200, 248, 12]);
@@ -3683,7 +4363,7 @@ pub struct INetworkOperatorTetheringOperationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProvisionFromXmlDocumentResults(::windows::runtime::IInspectable);
+pub struct IProvisionFromXmlDocumentResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionFromXmlDocumentResults {
     type Vtable = IProvisionFromXmlDocumentResults_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33283, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
@@ -3702,7 +4382,7 @@ pub struct IProvisionFromXmlDocumentResults_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProvisionedProfile(::windows::runtime::IInspectable);
+pub struct IProvisionedProfile(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisionedProfile {
     type Vtable = IProvisionedProfile_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33282, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
@@ -3723,7 +4403,7 @@ pub struct IProvisionedProfile_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProvisioningAgent(::windows::runtime::IInspectable);
+pub struct IProvisioningAgent(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgent {
     type Vtable = IProvisioningAgent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33281, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
@@ -3743,7 +4423,7 @@ pub struct IProvisioningAgent_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProvisioningAgentStaticMethods(::windows::runtime::IInspectable);
+pub struct IProvisioningAgentStaticMethods(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProvisioningAgentStaticMethods {
     type Vtable = IProvisioningAgentStaticMethods_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(561447136, 33025, 4575, [173, 185, 244, 206, 70, 45, 145, 55]);
@@ -3761,7 +4441,7 @@ pub struct IProvisioningAgentStaticMethods_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITetheringEntitlementCheckTriggerDetails(::windows::runtime::IInspectable);
+pub struct ITetheringEntitlementCheckTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITetheringEntitlementCheckTriggerDetails {
     type Vtable = ITetheringEntitlementCheckTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(63331997, 22822, 16883, [169, 78, 181, 9, 38, 252, 66, 27]);
@@ -3781,7 +4461,7 @@ pub struct ITetheringEntitlementCheckTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUssdMessage(::windows::runtime::IInspectable);
+pub struct IUssdMessage(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessage {
     type Vtable = IUssdMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8196, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
@@ -3804,7 +4484,7 @@ pub struct IUssdMessage_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUssdMessageFactory(::windows::runtime::IInspectable);
+pub struct IUssdMessageFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdMessageFactory {
     type Vtable = IUssdMessageFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 4099, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
@@ -3822,7 +4502,7 @@ pub struct IUssdMessageFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUssdReply(::windows::runtime::IInspectable);
+pub struct IUssdReply(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdReply {
     type Vtable = IUssdReply_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8197, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
@@ -3841,7 +4521,7 @@ pub struct IUssdReply_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUssdSession(::windows::runtime::IInspectable);
+pub struct IUssdSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSession {
     type Vtable = IUssdSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 8194, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
@@ -3861,7 +4541,7 @@ pub struct IUssdSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUssdSessionStatics(::windows::runtime::IInspectable);
+pub struct IUssdSessionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUssdSessionStatics {
     type Vtable = IUssdSessionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(798674818, 4097, 19805, [191, 129, 42, 186, 27, 75, 228, 168]);
@@ -4047,8 +4727,8 @@ impl ::windows::runtime::RuntimeName for KnownUSimFilePaths {
 pub struct LegacyNetworkOperatorsContract(pub u8);
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandAccount(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandAccount(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandAccount {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NetworkAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4138,10 +4818,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandAccount {
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccount {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccount";
 }
+impl ::std::convert::From<MobileBroadbandAccount> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandAccount) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccount> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandAccount) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandAccount> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandAccount) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccount> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandAccount) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandAccountEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandAccountEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandAccountEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NetworkAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4162,10 +4882,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountEventArgs {
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandAccountEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandAccountEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandAccountEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandAccountEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandAccountEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandAccountEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandAccountEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandAccountEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandAccountEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandAccountUpdatedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandAccountUpdatedEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandAccountUpdatedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NetworkAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -4202,10 +4962,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountUpdatedEvent
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountUpdatedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountUpdatedEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandAccountUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandAccountUpdatedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandAccountUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandAccountUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandAccountUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandAccountUpdatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountUpdatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandAccountUpdatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandAccountUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandAccountUpdatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandAccountWatcher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandAccountWatcher(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandAccountWatcher {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -4318,6 +5118,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandAccountWatcher {
 impl ::windows::runtime::RuntimeName for MobileBroadbandAccountWatcher {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcher";
 }
+impl ::std::convert::From<MobileBroadbandAccountWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandAccountWatcher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandAccountWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandAccountWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandAccountWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandAccountWatcher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAccountWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandAccountWatcher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandAccountWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandAccountWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -4345,8 +5185,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandAccountWatcherStatus {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandAntennaSar(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandAntennaSar(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandAntennaSar {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn AntennaIndex(&self) -> ::windows::runtime::Result<i32> {
@@ -4386,12 +5226,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandAntennaSar {
 impl ::windows::runtime::RuntimeName for MobileBroadbandAntennaSar {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandAntennaSar";
 }
+impl ::std::convert::From<MobileBroadbandAntennaSar> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandAntennaSar) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAntennaSar> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandAntennaSar) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandAntennaSar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandAntennaSar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandAntennaSar> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandAntennaSar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandAntennaSar> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandAntennaSar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandAntennaSar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandAntennaSar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandAntennaSar {}
 unsafe impl ::std::marker::Sync for MobileBroadbandAntennaSar {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellCdma(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellCdma(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellCdma {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4476,12 +5356,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellCdma {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellCdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellCdma";
 }
+impl ::std::convert::From<MobileBroadbandCellCdma> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellCdma) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellCdma> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellCdma) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellCdma> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellCdma) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellCdma> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellCdma) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellCdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellCdma {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellCdma {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellGsm(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellGsm(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellGsm {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4556,12 +5476,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellGsm {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellGsm {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellGsm";
 }
+impl ::std::convert::From<MobileBroadbandCellGsm> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellGsm) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellGsm> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellGsm) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellGsm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellGsm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellGsm> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellGsm) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellGsm> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellGsm) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellGsm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellGsm {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellGsm {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellGsm {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellLte(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellLte(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellLte {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4645,12 +5605,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellLte {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellLte {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellLte";
 }
+impl ::std::convert::From<MobileBroadbandCellLte> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellLte) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellLte> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellLte) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellLte {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellLte {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellLte> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellLte) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellLte> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellLte) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellLte {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellLte {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellLte {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellLte {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellNR(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellNR(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellNR {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4743,12 +5743,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellNR {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellNR {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellNR";
 }
+impl ::std::convert::From<MobileBroadbandCellNR> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellNR) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellNR> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellNR) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellNR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellNR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellNR> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellNR) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellNR> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellNR) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellNR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellNR {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellNR {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellNR {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellTdscdma(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellTdscdma(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellTdscdma {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4832,12 +5872,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellTdscdma {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellTdscdma {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellTdscdma";
 }
+impl ::std::convert::From<MobileBroadbandCellTdscdma> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellTdscdma) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellTdscdma> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellTdscdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellTdscdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellTdscdma> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellTdscdma) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellTdscdma> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellTdscdma) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellTdscdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellTdscdma {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellTdscdma {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellTdscdma {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellUmts(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellUmts(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellUmts {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -4921,12 +6001,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellUmts {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellUmts {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellUmts";
 }
+impl ::std::convert::From<MobileBroadbandCellUmts> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellUmts) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellUmts> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellUmts) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellUmts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellUmts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellUmts> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellUmts) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellUmts> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellUmts) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellUmts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellUmts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellUmts {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellUmts {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCellsInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCellsInfo(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCellsInfo {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -5047,12 +6167,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCellsInfo {
 impl ::windows::runtime::RuntimeName for MobileBroadbandCellsInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCellsInfo";
 }
+impl ::std::convert::From<MobileBroadbandCellsInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCellsInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellsInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCellsInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCellsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCellsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCellsInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCellsInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCellsInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCellsInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCellsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCellsInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCellsInfo {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCellsInfo {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandCurrentSlotIndexChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandCurrentSlotIndexChangedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn CurrentSlotIndex(&self) -> ::windows::runtime::Result<i32> {
@@ -5073,12 +6233,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandCurrentSlotIndexCha
 impl ::windows::runtime::RuntimeName for MobileBroadbandCurrentSlotIndexChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandCurrentSlotIndexChangedEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandCurrentSlotIndexChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandCurrentSlotIndexChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandCurrentSlotIndexChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MobileBroadbandCurrentSlotIndexChangedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceInformation(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceInformation {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NetworkDeviceStatus(&self) -> ::windows::runtime::Result<NetworkDeviceStatus> {
@@ -5261,10 +6461,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceInformation {
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceInformation";
 }
+impl ::std::convert::From<MobileBroadbandDeviceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceService(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceService(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceService {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5310,12 +6550,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceService {
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceService {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceService";
 }
+impl ::std::convert::From<MobileBroadbandDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceService) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceService> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceService) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceService) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceService> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceService) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceService {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceService {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceService {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceCommandResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceCommandResult(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceCommandResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn StatusCode(&self) -> ::windows::runtime::Result<u32> {
@@ -5345,12 +6625,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceComman
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceCommandResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandResult";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceCommandResult> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceCommandResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceCommandResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceCommandResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceCommandResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceCommandResult> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceCommandResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceCommandResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceCommandResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceCommandResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceCommandResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceCommandResult {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceCommandResult {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceCommandSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceCommandSession(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceCommandSession {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`, `Storage_Streams`*"]
@@ -5386,12 +6706,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceComman
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceCommandSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceCommandSession";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceCommandSession> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceCommandSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceCommandSession> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceCommandSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceCommandSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceCommandSession> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceCommandSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceCommandSession> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceCommandSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceCommandSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceCommandSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceCommandSession {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceCommandSession {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceDataReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceDataReceivedEventArgs {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Storage_Streams`*"]
@@ -5413,12 +6773,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceDataRe
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataReceivedEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceDataReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceDataReceivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceDataReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceDataReceivedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceDataSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceDataSession(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceDataSession {
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`, `Storage_Streams`*"]
@@ -5460,12 +6860,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceDataSe
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceDataSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceDataSession";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceDataSession> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceDataSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceDataSession> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceDataSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceDataSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceDataSession> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceDataSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceDataSession> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceDataSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceDataSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceDataSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceDataSession {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceDataSession {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceInformation(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceInformation {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceServiceId(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -5502,12 +6942,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceInform
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceInformation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceInformation";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceInformation {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceInformation {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandDeviceServiceTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandDeviceServiceTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandDeviceServiceTriggerDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -5545,6 +7025,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandDeviceServiceTrigge
 impl ::windows::runtime::RuntimeName for MobileBroadbandDeviceServiceTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandDeviceServiceTriggerDetails";
 }
+impl ::std::convert::From<MobileBroadbandDeviceServiceTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandDeviceServiceTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandDeviceServiceTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandDeviceServiceTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandDeviceServiceTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandDeviceServiceTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandDeviceServiceTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandDeviceServiceTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandDeviceServiceTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandDeviceServiceTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceTriggerDetails {}
 unsafe impl ::std::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -5573,8 +7093,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandDeviceType {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandModem(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandModem(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandModem {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn CurrentAccount(&self) -> ::windows::runtime::Result<MobileBroadbandAccount> {
@@ -5745,12 +7265,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandModem {
 impl ::windows::runtime::RuntimeName for MobileBroadbandModem {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModem";
 }
+impl ::std::convert::From<MobileBroadbandModem> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandModem) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModem> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandModem) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandModem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandModem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandModem> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandModem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModem> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandModem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandModem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandModem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandModem {}
 unsafe impl ::std::marker::Sync for MobileBroadbandModem {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandModemConfiguration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandModemConfiguration(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandModemConfiguration {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Uicc(&self) -> ::windows::runtime::Result<MobileBroadbandUicc> {
@@ -5795,10 +7355,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandModemConfiguration 
 impl ::windows::runtime::RuntimeName for MobileBroadbandModemConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemConfiguration";
 }
+impl ::std::convert::From<MobileBroadbandModemConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandModemConfiguration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModemConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandModemConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandModemConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandModemConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandModemConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModemConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandModemConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandModemConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandModemConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandModemIsolation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandModemIsolation(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandModemIsolation {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn AddAllowedHost<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostName>>(&self, host: Param0) -> ::windows::runtime::Result<()> {
@@ -5850,6 +7450,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandModemIsolation {
 impl ::windows::runtime::RuntimeName for MobileBroadbandModemIsolation {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandModemIsolation";
 }
+impl ::std::convert::From<MobileBroadbandModemIsolation> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandModemIsolation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModemIsolation> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandModemIsolation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandModemIsolation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandModemIsolation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandModemIsolation> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandModemIsolation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandModemIsolation> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandModemIsolation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandModemIsolation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandModemIsolation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::std::marker::Sync for MobileBroadbandModemIsolation {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -5878,8 +7518,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandModemStatus {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandNetwork(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandNetwork(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandNetwork {
     #[cfg(feature = "Networking_Connectivity")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Networking_Connectivity`*"]
@@ -5997,10 +7637,50 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandNetwork {
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetwork {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetwork";
 }
+impl ::std::convert::From<MobileBroadbandNetwork> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandNetwork) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetwork> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandNetwork) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandNetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandNetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandNetwork> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandNetwork) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetwork> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandNetwork) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandNetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandNetwork {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandNetworkRegistrationStateChange(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandNetworkRegistrationStateChange(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandNetworkRegistrationStateChange {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -6029,12 +7709,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandNetworkRegistration
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetworkRegistrationStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChange";
 }
+impl ::std::convert::From<MobileBroadbandNetworkRegistrationStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandNetworkRegistrationStateChange) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandNetworkRegistrationStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandNetworkRegistrationStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandNetworkRegistrationStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandNetworkRegistrationStateChange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetworkRegistrationStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandNetworkRegistrationStateChange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandNetworkRegistrationStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandNetworkRegistrationStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandNetworkRegistrationStateChange {}
 unsafe impl ::std::marker::Sync for MobileBroadbandNetworkRegistrationStateChange {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandNetworkRegistrationStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -6056,12 +7776,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandNetworkRegistration
 impl ::windows::runtime::RuntimeName for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandNetworkRegistrationStateChangeTriggerDetails";
 }
+impl ::std::convert::From<MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandNetworkRegistrationStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandNetworkRegistrationStateChangeTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 unsafe impl ::std::marker::Sync for MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPco(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPco(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPco {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Storage_Streams`*"]
@@ -6099,12 +7859,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPco {
 impl ::windows::runtime::RuntimeName for MobileBroadbandPco {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPco";
 }
+impl ::std::convert::From<MobileBroadbandPco> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPco) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPco> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPco) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPco {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPco {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPco> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPco) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPco> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPco) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPco {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPco {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPco {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPco {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPcoDataChangeTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPcoDataChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPcoDataChangeTriggerDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn UpdatedData(&self) -> ::windows::runtime::Result<MobileBroadbandPco> {
@@ -6125,12 +7925,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPcoDataChangeTrigge
 impl ::windows::runtime::RuntimeName for MobileBroadbandPcoDataChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPcoDataChangeTriggerDetails";
 }
+impl ::std::convert::From<MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPcoDataChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPcoDataChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPcoDataChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPcoDataChangeTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPcoDataChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPcoDataChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPcoDataChangeTriggerDetails {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPcoDataChangeTriggerDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPin(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPin(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPin {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Type(&self) -> ::windows::runtime::Result<MobileBroadbandPinType> {
@@ -6244,6 +8084,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPin {
 impl ::windows::runtime::RuntimeName for MobileBroadbandPin {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPin";
 }
+impl ::std::convert::From<MobileBroadbandPin> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPin) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPin> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPin) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPin> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPin> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPin {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPin {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -6295,8 +8175,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandPinLockState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPinLockStateChange(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPinLockStateChange(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPinLockStateChange {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -6333,12 +8213,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChange 
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChange";
 }
+impl ::std::convert::From<MobileBroadbandPinLockStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPinLockStateChange) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPinLockStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPinLockStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPinLockStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPinLockStateChange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPinLockStateChange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPinLockStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPinLockStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPinLockStateChange {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPinLockStateChange {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPinLockStateChangeTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPinLockStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPinLockStateChangeTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -6360,12 +8280,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPinLockStateChangeT
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinLockStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinLockStateChangeTriggerDetails";
 }
+impl ::std::convert::From<MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPinLockStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPinLockStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinLockStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPinLockStateChangeTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPinLockStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPinLockStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPinLockStateChangeTriggerDetails {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPinLockStateChangeTriggerDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPinManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPinManager(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPinManager {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -6395,12 +8355,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPinManager {
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinManager";
 }
+impl ::std::convert::From<MobileBroadbandPinManager> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPinManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinManager> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPinManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPinManager> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPinManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinManager> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPinManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPinManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandPinManager {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPinManager {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandPinOperationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandPinOperationResult(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandPinOperationResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn IsSuccessful(&self) -> ::windows::runtime::Result<bool> {
@@ -6428,6 +8428,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandPinOperationResult 
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandPinOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandPinOperationResult";
+}
+impl ::std::convert::From<MobileBroadbandPinOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandPinOperationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandPinOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandPinOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandPinOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandPinOperationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandPinOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandPinOperationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandPinOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandPinOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::std::marker::Sync for MobileBroadbandPinOperationResult {}
@@ -6486,8 +8526,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandRadioState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandRadioStateChange(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandRadioStateChange(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandRadioStateChange {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DeviceId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -6516,12 +8556,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChange {
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChange {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChange";
 }
+impl ::std::convert::From<MobileBroadbandRadioStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandRadioStateChange) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChange> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandRadioStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandRadioStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandRadioStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandRadioStateChange) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChange> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandRadioStateChange) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandRadioStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandRadioStateChange {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandRadioStateChange {}
 unsafe impl ::std::marker::Sync for MobileBroadbandRadioStateChange {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandRadioStateChangeTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandRadioStateChangeTriggerDetails(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandRadioStateChangeTriggerDetails {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -6543,12 +8623,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandRadioStateChangeTri
 impl ::windows::runtime::RuntimeName for MobileBroadbandRadioStateChangeTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandRadioStateChangeTriggerDetails";
 }
+impl ::std::convert::From<MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandRadioStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandRadioStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandRadioStateChangeTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandRadioStateChangeTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandRadioStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandRadioStateChangeTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandRadioStateChangeTriggerDetails {}
 unsafe impl ::std::marker::Sync for MobileBroadbandRadioStateChangeTriggerDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandSarManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandSarManager(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandSarManager {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn IsBackoffEnabled(&self) -> ::windows::runtime::Result<bool> {
@@ -6682,12 +8802,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandSarManager {
 impl ::windows::runtime::RuntimeName for MobileBroadbandSarManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSarManager";
 }
+impl ::std::convert::From<MobileBroadbandSarManager> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandSarManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSarManager> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandSarManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandSarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandSarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandSarManager> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandSarManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSarManager> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandSarManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandSarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandSarManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandSarManager {}
 unsafe impl ::std::marker::Sync for MobileBroadbandSarManager {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandSlotInfo(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandSlotInfo(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandSlotInfo {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Index(&self) -> ::windows::runtime::Result<i32> {
@@ -6716,12 +8876,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotInfo {
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotInfo {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfo";
 }
+impl ::std::convert::From<MobileBroadbandSlotInfo> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandSlotInfo) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandSlotInfo) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandSlotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandSlotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandSlotInfo> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandSlotInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotInfo> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandSlotInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandSlotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandSlotInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandSlotInfo {}
 unsafe impl ::std::marker::Sync for MobileBroadbandSlotInfo {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandSlotInfoChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandSlotInfoChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandSlotInfoChangedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn SlotInfo(&self) -> ::windows::runtime::Result<MobileBroadbandSlotInfo> {
@@ -6742,12 +8942,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotInfoChangedEven
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotInfoChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotInfoChangedEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandSlotInfoChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandSlotInfoChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandSlotInfoChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandSlotInfoChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandSlotInfoChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandSlotInfoChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotInfoChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandSlotInfoChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandSlotInfoChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandSlotInfoChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandSlotInfoChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MobileBroadbandSlotInfoChangedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandSlotManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandSlotManager(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandSlotManager {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation_Collections`*"]
@@ -6824,6 +9064,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandSlotManager {
 impl ::windows::runtime::RuntimeName for MobileBroadbandSlotManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandSlotManager";
 }
+impl ::std::convert::From<MobileBroadbandSlotManager> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandSlotManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotManager> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandSlotManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandSlotManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandSlotManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandSlotManager> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandSlotManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandSlotManager> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandSlotManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandSlotManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandSlotManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::std::marker::Sync for MobileBroadbandSlotManager {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -6858,8 +9138,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandSlotState {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandTransmissionStateChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandTransmissionStateChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandTransmissionStateChangedEventArgs {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn IsTransmitting(&self) -> ::windows::runtime::Result<bool> {
@@ -6880,12 +9160,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandTransmissionStateCh
 impl ::windows::runtime::RuntimeName for MobileBroadbandTransmissionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandTransmissionStateChangedEventArgs";
 }
+impl ::std::convert::From<MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandTransmissionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandTransmissionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandTransmissionStateChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandTransmissionStateChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandTransmissionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandTransmissionStateChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandTransmissionStateChangedEventArgs {}
 unsafe impl ::std::marker::Sync for MobileBroadbandTransmissionStateChangedEventArgs {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandUicc(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandUicc(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandUicc {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn SimIccId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -6915,12 +9235,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandUicc {
 impl ::windows::runtime::RuntimeName for MobileBroadbandUicc {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUicc";
 }
+impl ::std::convert::From<MobileBroadbandUicc> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandUicc) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUicc> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandUicc) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandUicc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandUicc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandUicc> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandUicc) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUicc> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandUicc) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandUicc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandUicc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandUicc {}
 unsafe impl ::std::marker::Sync for MobileBroadbandUicc {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandUiccApp(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandUiccApp(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandUiccApp {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Storage_Streams`*"]
@@ -6968,6 +9328,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccApp {
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccApp {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccApp";
 }
+impl ::std::convert::From<MobileBroadbandUiccApp> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandUiccApp) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccApp> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandUiccApp) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandUiccApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandUiccApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandUiccApp> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandUiccApp) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccApp> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandUiccApp) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandUiccApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandUiccApp {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::std::marker::Sync for MobileBroadbandUiccApp {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
@@ -6996,8 +9396,8 @@ impl ::windows::runtime::DefaultType for MobileBroadbandUiccAppOperationStatus {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandUiccAppReadRecordResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandUiccAppReadRecordResult(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandUiccAppReadRecordResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MobileBroadbandUiccAppOperationStatus> {
@@ -7027,12 +9427,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppReadRecordRe
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppReadRecordResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppReadRecordResult";
 }
+impl ::std::convert::From<MobileBroadbandUiccAppReadRecordResult> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandUiccAppReadRecordResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppReadRecordResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandUiccAppReadRecordResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandUiccAppReadRecordResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandUiccAppReadRecordResult> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandUiccAppReadRecordResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppReadRecordResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandUiccAppReadRecordResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandUiccAppReadRecordResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandUiccAppReadRecordResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandUiccAppReadRecordResult {}
 unsafe impl ::std::marker::Sync for MobileBroadbandUiccAppReadRecordResult {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandUiccAppRecordDetailsResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandUiccAppRecordDetailsResult(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandUiccAppRecordDetailsResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MobileBroadbandUiccAppOperationStatus> {
@@ -7093,12 +9533,52 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppRecordDetail
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppRecordDetailsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppRecordDetailsResult";
 }
+impl ::std::convert::From<MobileBroadbandUiccAppRecordDetailsResult> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandUiccAppRecordDetailsResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandUiccAppRecordDetailsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandUiccAppRecordDetailsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandUiccAppRecordDetailsResult> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandUiccAppRecordDetailsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppRecordDetailsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandUiccAppRecordDetailsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandUiccAppRecordDetailsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandUiccAppRecordDetailsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for MobileBroadbandUiccAppRecordDetailsResult {}
 unsafe impl ::std::marker::Sync for MobileBroadbandUiccAppRecordDetailsResult {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MobileBroadbandUiccAppsResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MobileBroadbandUiccAppsResult(pub ::windows::runtime::IInspectable);
 impl MobileBroadbandUiccAppsResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<MobileBroadbandUiccAppOperationStatus> {
@@ -7127,6 +9607,46 @@ unsafe impl ::windows::runtime::Interface for MobileBroadbandUiccAppsResult {
 }
 impl ::windows::runtime::RuntimeName for MobileBroadbandUiccAppsResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.MobileBroadbandUiccAppsResult";
+}
+impl ::std::convert::From<MobileBroadbandUiccAppsResult> for ::windows::runtime::IUnknown {
+    fn from(value: MobileBroadbandUiccAppsResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppsResult> for ::windows::runtime::IUnknown {
+    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MobileBroadbandUiccAppsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MobileBroadbandUiccAppsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MobileBroadbandUiccAppsResult> for ::windows::runtime::IInspectable {
+    fn from(value: MobileBroadbandUiccAppsResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MobileBroadbandUiccAppsResult> for ::windows::runtime::IInspectable {
+    fn from(value: &MobileBroadbandUiccAppsResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MobileBroadbandUiccAppsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MobileBroadbandUiccAppsResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::std::marker::Sync for MobileBroadbandUiccAppsResult {}
@@ -7181,8 +9701,8 @@ impl ::windows::runtime::DefaultType for NetworkOperatorDataUsageNotificationKin
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorDataUsageTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorDataUsageTriggerDetails(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorDataUsageTriggerDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NotificationKind(&self) -> ::windows::runtime::Result<NetworkOperatorDataUsageNotificationKind> {
@@ -7202,6 +9722,46 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorDataUsageTriggerDet
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorDataUsageTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorDataUsageTriggerDetails";
+}
+impl ::std::convert::From<NetworkOperatorDataUsageTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorDataUsageTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorDataUsageTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorDataUsageTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorDataUsageTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorDataUsageTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorDataUsageTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorDataUsageTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorDataUsageTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorDataUsageTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorDataUsageTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::std::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
@@ -7240,8 +9800,8 @@ impl ::windows::runtime::DefaultType for NetworkOperatorEventMessageType {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorNotificationEventDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorNotificationEventDetails(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorNotificationEventDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NotificationType(&self) -> ::windows::runtime::Result<NetworkOperatorEventMessageType> {
@@ -7308,12 +9868,52 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorNotificationEventDe
 impl ::windows::runtime::RuntimeName for NetworkOperatorNotificationEventDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorNotificationEventDetails";
 }
+impl ::std::convert::From<NetworkOperatorNotificationEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorNotificationEventDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorNotificationEventDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorNotificationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorNotificationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorNotificationEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorNotificationEventDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorNotificationEventDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorNotificationEventDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorNotificationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorNotificationEventDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for NetworkOperatorNotificationEventDetails {}
 unsafe impl ::std::marker::Sync for NetworkOperatorNotificationEventDetails {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorTetheringAccessPointConfiguration(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorTetheringAccessPointConfiguration(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorTetheringAccessPointConfiguration {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7389,12 +9989,52 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringAccessPoin
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringAccessPointConfiguration {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringAccessPointConfiguration";
 }
+impl ::std::convert::From<NetworkOperatorTetheringAccessPointConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorTetheringAccessPointConfiguration) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorTetheringAccessPointConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorTetheringAccessPointConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorTetheringAccessPointConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorTetheringAccessPointConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringAccessPointConfiguration> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorTetheringAccessPointConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorTetheringAccessPointConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorTetheringAccessPointConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for NetworkOperatorTetheringAccessPointConfiguration {}
 unsafe impl ::std::marker::Sync for NetworkOperatorTetheringAccessPointConfiguration {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorTetheringClient(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorTetheringClient(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorTetheringClient {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn MacAddress(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -7424,12 +10064,52 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringClient {
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringClient {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringClient";
 }
+impl ::std::convert::From<NetworkOperatorTetheringClient> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorTetheringClient) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringClient> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorTetheringClient) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorTetheringClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorTetheringClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorTetheringClient> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorTetheringClient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringClient> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorTetheringClient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorTetheringClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorTetheringClient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for NetworkOperatorTetheringClient {}
 unsafe impl ::std::marker::Sync for NetworkOperatorTetheringClient {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorTetheringManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorTetheringManager(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorTetheringManager {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn MaxClientCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7595,10 +10275,50 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringManager {
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringManager {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringManager";
 }
+impl ::std::convert::From<NetworkOperatorTetheringManager> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorTetheringManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringManager> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorTetheringManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorTetheringManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorTetheringManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorTetheringManager> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorTetheringManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringManager> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorTetheringManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorTetheringManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorTetheringManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct NetworkOperatorTetheringOperationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct NetworkOperatorTetheringOperationResult(pub ::windows::runtime::IInspectable);
 impl NetworkOperatorTetheringOperationResult {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<TetheringOperationStatus> {
@@ -7626,6 +10346,46 @@ unsafe impl ::windows::runtime::Interface for NetworkOperatorTetheringOperationR
 }
 impl ::windows::runtime::RuntimeName for NetworkOperatorTetheringOperationResult {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.NetworkOperatorTetheringOperationResult";
+}
+impl ::std::convert::From<NetworkOperatorTetheringOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: NetworkOperatorTetheringOperationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringOperationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for NetworkOperatorTetheringOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a NetworkOperatorTetheringOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<NetworkOperatorTetheringOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: NetworkOperatorTetheringOperationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&NetworkOperatorTetheringOperationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &NetworkOperatorTetheringOperationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for NetworkOperatorTetheringOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a NetworkOperatorTetheringOperationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
@@ -7723,8 +10483,8 @@ impl ::windows::runtime::DefaultType for ProfileUsage {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProvisionFromXmlDocumentResults(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProvisionFromXmlDocumentResults(pub ::windows::runtime::IInspectable);
 impl ProvisionFromXmlDocumentResults {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn AllElementsProvisioned(&self) -> ::windows::runtime::Result<bool> {
@@ -7753,10 +10513,50 @@ unsafe impl ::windows::runtime::Interface for ProvisionFromXmlDocumentResults {
 impl ::windows::runtime::RuntimeName for ProvisionFromXmlDocumentResults {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionFromXmlDocumentResults";
 }
+impl ::std::convert::From<ProvisionFromXmlDocumentResults> for ::windows::runtime::IUnknown {
+    fn from(value: ProvisionFromXmlDocumentResults) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProvisionFromXmlDocumentResults> for ::windows::runtime::IUnknown {
+    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProvisionFromXmlDocumentResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProvisionFromXmlDocumentResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProvisionFromXmlDocumentResults> for ::windows::runtime::IInspectable {
+    fn from(value: ProvisionFromXmlDocumentResults) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProvisionFromXmlDocumentResults> for ::windows::runtime::IInspectable {
+    fn from(value: &ProvisionFromXmlDocumentResults) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProvisionFromXmlDocumentResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProvisionFromXmlDocumentResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProvisionedProfile(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProvisionedProfile(pub ::windows::runtime::IInspectable);
 impl ProvisionedProfile {
     #[cfg(feature = "Networking_Connectivity")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Networking_Connectivity`*"]
@@ -7781,10 +10581,50 @@ unsafe impl ::windows::runtime::Interface for ProvisionedProfile {
 impl ::windows::runtime::RuntimeName for ProvisionedProfile {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisionedProfile";
 }
+impl ::std::convert::From<ProvisionedProfile> for ::windows::runtime::IUnknown {
+    fn from(value: ProvisionedProfile) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProvisionedProfile> for ::windows::runtime::IUnknown {
+    fn from(value: &ProvisionedProfile) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProvisionedProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProvisionedProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProvisionedProfile> for ::windows::runtime::IInspectable {
+    fn from(value: ProvisionedProfile) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProvisionedProfile> for ::windows::runtime::IInspectable {
+    fn from(value: &ProvisionedProfile) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProvisionedProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProvisionedProfile {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProvisioningAgent(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProvisioningAgent(pub ::windows::runtime::IInspectable);
 impl ProvisioningAgent {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -7832,6 +10672,46 @@ unsafe impl ::windows::runtime::Interface for ProvisioningAgent {
 impl ::windows::runtime::RuntimeName for ProvisioningAgent {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.ProvisioningAgent";
 }
+impl ::std::convert::From<ProvisioningAgent> for ::windows::runtime::IUnknown {
+    fn from(value: ProvisioningAgent) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProvisioningAgent> for ::windows::runtime::IUnknown {
+    fn from(value: &ProvisioningAgent) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProvisioningAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProvisioningAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProvisioningAgent> for ::windows::runtime::IInspectable {
+    fn from(value: ProvisioningAgent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProvisioningAgent> for ::windows::runtime::IInspectable {
+    fn from(value: &ProvisioningAgent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProvisioningAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProvisioningAgent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -7862,8 +10742,8 @@ impl ::windows::runtime::DefaultType for TetheringCapability {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TetheringEntitlementCheckTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TetheringEntitlementCheckTriggerDetails(pub ::windows::runtime::IInspectable);
 impl TetheringEntitlementCheckTriggerDetails {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn NetworkAccountId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -7893,6 +10773,46 @@ unsafe impl ::windows::runtime::Interface for TetheringEntitlementCheckTriggerDe
 }
 impl ::windows::runtime::RuntimeName for TetheringEntitlementCheckTriggerDetails {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.TetheringEntitlementCheckTriggerDetails";
+}
+impl ::std::convert::From<TetheringEntitlementCheckTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: TetheringEntitlementCheckTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TetheringEntitlementCheckTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TetheringEntitlementCheckTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TetheringEntitlementCheckTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TetheringEntitlementCheckTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: TetheringEntitlementCheckTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TetheringEntitlementCheckTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &TetheringEntitlementCheckTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TetheringEntitlementCheckTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TetheringEntitlementCheckTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::std::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
@@ -8052,8 +10972,8 @@ impl ::windows::runtime::DefaultType for UiccAppRecordKind {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UssdMessage(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UssdMessage(pub ::windows::runtime::IInspectable);
 impl UssdMessage {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn DataCodingScheme(&self) -> ::windows::runtime::Result<u8> {
@@ -8116,12 +11036,52 @@ unsafe impl ::windows::runtime::Interface for UssdMessage {
 impl ::windows::runtime::RuntimeName for UssdMessage {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
 }
+impl ::std::convert::From<UssdMessage> for ::windows::runtime::IUnknown {
+    fn from(value: UssdMessage) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UssdMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &UssdMessage) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UssdMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UssdMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UssdMessage> for ::windows::runtime::IInspectable {
+    fn from(value: UssdMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UssdMessage> for ::windows::runtime::IInspectable {
+    fn from(value: &UssdMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UssdMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UssdMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UssdMessage {}
 unsafe impl ::std::marker::Sync for UssdMessage {}
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UssdReply(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UssdReply(pub ::windows::runtime::IInspectable);
 impl UssdReply {
     #[doc = "*Required features: `Networking_NetworkOperators`*"]
     pub fn ResultCode(&self) -> ::windows::runtime::Result<UssdResultCode> {
@@ -8149,6 +11109,46 @@ unsafe impl ::windows::runtime::Interface for UssdReply {
 }
 impl ::windows::runtime::RuntimeName for UssdReply {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
+}
+impl ::std::convert::From<UssdReply> for ::windows::runtime::IUnknown {
+    fn from(value: UssdReply) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UssdReply> for ::windows::runtime::IUnknown {
+    fn from(value: &UssdReply) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UssdReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UssdReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UssdReply> for ::windows::runtime::IInspectable {
+    fn from(value: UssdReply) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UssdReply> for ::windows::runtime::IInspectable {
+    fn from(value: &UssdReply) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UssdReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UssdReply {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -8178,8 +11178,8 @@ impl ::windows::runtime::DefaultType for UssdResultCode {
 }
 #[doc = "*Required features: `Networking_NetworkOperators`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UssdSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UssdSession(pub ::windows::runtime::IInspectable);
 impl UssdSession {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Networking_NetworkOperators`, `Foundation`*"]
@@ -8223,4 +11223,44 @@ unsafe impl ::windows::runtime::Interface for UssdSession {
 }
 impl ::windows::runtime::RuntimeName for UssdSession {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
+}
+impl ::std::convert::From<UssdSession> for ::windows::runtime::IUnknown {
+    fn from(value: UssdSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UssdSession> for ::windows::runtime::IUnknown {
+    fn from(value: &UssdSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UssdSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UssdSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UssdSession> for ::windows::runtime::IInspectable {
+    fn from(value: UssdSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UssdSession> for ::windows::runtime::IInspectable {
+    fn from(value: &UssdSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UssdSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UssdSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }

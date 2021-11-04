@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisement(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisement(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisement {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -95,12 +95,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisement {
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
 }
+impl ::std::convert::From<BluetoothLEAdvertisement> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisement) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisement> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisement) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisement> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisement) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisement> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisement) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisement {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisement {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisement {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementBytePattern(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementBytePattern(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementBytePattern {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -173,12 +213,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementBytePatter
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementBytePattern> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementBytePattern) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementBytePattern> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementBytePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementBytePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementBytePattern> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementBytePattern) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementBytePattern> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementBytePattern) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementBytePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementBytePattern {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementBytePattern {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementDataSection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementDataSection(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementDataSection {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -237,6 +317,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementDataSectio
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
+}
+impl ::std::convert::From<BluetoothLEAdvertisementDataSection> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementDataSection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementDataSection> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementDataSection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementDataSection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementDataSection> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementDataSection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementDataSection> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementDataSection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementDataSection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementDataSection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementDataSection {}
@@ -407,8 +527,8 @@ impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementDataTypes {
 }
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementFilter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementFilter(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementFilter {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -449,6 +569,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementFilter {
 }
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
+}
+impl ::std::convert::From<BluetoothLEAdvertisementFilter> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementFilter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementFilter> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementFilter> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementFilter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementFilter> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementFilter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementFilter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementFilter {}
@@ -508,8 +668,8 @@ impl ::std::ops::Not for BluetoothLEAdvertisementFlags {
 }
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementPublisher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementPublisher(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementPublisher {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -635,6 +795,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisher 
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementPublisher> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementPublisher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisher> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementPublisher> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementPublisher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisher> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementPublisher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementPublisher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementPublisher {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
@@ -665,8 +865,8 @@ impl ::windows::runtime::DefaultType for BluetoothLEAdvertisementPublisherStatus
 }
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<BluetoothLEAdvertisementPublisherStatus> {
@@ -704,12 +904,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementPublisherS
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementPublisherStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementPublisherStatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementReceivedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementReceivedEventArgs(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementReceivedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
     pub fn RawSignalStrengthInDBm(&self) -> ::windows::runtime::Result<i16> {
@@ -820,6 +1060,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementReceivedEv
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementReceivedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementReceivedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementReceivedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementReceivedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementReceivedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
@@ -850,8 +1130,8 @@ impl ::windows::runtime::DefaultType for BluetoothLEAdvertisementType {
 }
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementWatcher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementWatcher(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementWatcher {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1018,6 +1298,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcher {
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementWatcher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcher> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementWatcher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcher> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementWatcher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementWatcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementWatcher {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
@@ -1047,8 +1367,8 @@ impl ::windows::runtime::DefaultType for BluetoothLEAdvertisementWatcherStatus {
 }
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(pub ::windows::runtime::IInspectable);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
     #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
     pub fn Error(&self) -> ::windows::runtime::Result<super::BluetoothError> {
@@ -1069,12 +1389,52 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEAdvertisementWatcherSto
 impl ::windows::runtime::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
 }
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEAdvertisementWatcherStoppedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEAdvertisementWatcherStoppedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl ::std::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BluetoothLEManufacturerData(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BluetoothLEManufacturerData(pub ::windows::runtime::IInspectable);
 impl BluetoothLEManufacturerData {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1134,6 +1494,46 @@ unsafe impl ::windows::runtime::Interface for BluetoothLEManufacturerData {
 impl ::windows::runtime::RuntimeName for BluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";
 }
+impl ::std::convert::From<BluetoothLEManufacturerData> for ::windows::runtime::IUnknown {
+    fn from(value: BluetoothLEManufacturerData) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BluetoothLEManufacturerData> for ::windows::runtime::IUnknown {
+    fn from(value: &BluetoothLEManufacturerData) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BluetoothLEManufacturerData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BluetoothLEManufacturerData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BluetoothLEManufacturerData> for ::windows::runtime::IInspectable {
+    fn from(value: BluetoothLEManufacturerData) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BluetoothLEManufacturerData> for ::windows::runtime::IInspectable {
+    fn from(value: &BluetoothLEManufacturerData) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BluetoothLEManufacturerData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BluetoothLEManufacturerData {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::std::marker::Sync for BluetoothLEManufacturerData {}
 #[doc = "*Required features: `Devices_Bluetooth_Advertisement`*"]
@@ -1161,7 +1561,7 @@ impl ::windows::runtime::DefaultType for BluetoothLEScanningMode {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisement(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisement(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisement {
     type Vtable = IBluetoothLEAdvertisement_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(107983543, 13265, 20093, [131, 103, 207, 129, 208, 247, 150, 83]);
@@ -1194,7 +1594,7 @@ pub struct IBluetoothLEAdvertisement_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementBytePattern(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementBytePattern(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementBytePattern {
     type Vtable = IBluetoothLEAdvertisementBytePattern_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4227520498, 47557, 18952, [188, 81, 80, 47, 142, 246, 138, 121]);
@@ -1219,7 +1619,7 @@ pub struct IBluetoothLEAdvertisementBytePattern_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementBytePatternFactory(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementBytePatternFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementBytePatternFactory {
     type Vtable = IBluetoothLEAdvertisementBytePatternFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3269610867, 64860, 20163, [190, 42, 156, 166, 250, 17, 183, 189]);
@@ -1238,7 +1638,7 @@ pub struct IBluetoothLEAdvertisementBytePatternFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementDataSection(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementDataSection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementDataSection {
     type Vtable = IBluetoothLEAdvertisementDataSection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3609277204, 14915, 16633, [182, 240, 146, 191, 239, 195, 74, 227]);
@@ -1261,7 +1661,7 @@ pub struct IBluetoothLEAdvertisementDataSection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementDataSectionFactory(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementDataSectionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementDataSectionFactory {
     type Vtable = IBluetoothLEAdvertisementDataSectionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3886287170, 43077, 16453, [191, 126, 62, 153, 113, 219, 138, 107]);
@@ -1280,7 +1680,7 @@ pub struct IBluetoothLEAdvertisementDataSectionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementDataTypesStatics(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementDataTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementDataTypesStatics {
     type Vtable = IBluetoothLEAdvertisementDataTypesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001801519, 1542, 17227, [167, 110, 116, 21, 159, 6, 132, 211]);
@@ -1319,7 +1719,7 @@ pub struct IBluetoothLEAdvertisementDataTypesStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementFilter(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementFilter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementFilter {
     type Vtable = IBluetoothLEAdvertisementFilter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(320778451, 53326, 18353, [131, 126, 73, 64, 91, 246, 248, 15]);
@@ -1340,7 +1740,7 @@ pub struct IBluetoothLEAdvertisementFilter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisher(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisher {
     type Vtable = IBluetoothLEAdvertisementPublisher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454542073, 55802, 17366, [162, 100, 221, 216, 183, 218, 139, 120]);
@@ -1365,7 +1765,7 @@ pub struct IBluetoothLEAdvertisementPublisher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisher2(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisher2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisher2 {
     type Vtable = IBluetoothLEAdvertisementPublisher2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4225455198, 22257, 20751, [164, 52, 33, 127, 189, 158, 123, 210]);
@@ -1392,7 +1792,7 @@ pub struct IBluetoothLEAdvertisementPublisher2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherFactory(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisherFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherFactory {
     type Vtable = IBluetoothLEAdvertisementPublisherFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1549731422, 47203, 18817, [161, 175, 28, 84, 77, 139, 12, 13]);
@@ -1410,7 +1810,7 @@ pub struct IBluetoothLEAdvertisementPublisherFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(163757471, 11775, 19235, [134, 238, 13, 20, 251, 148, 174, 174]);
@@ -1429,7 +1829,7 @@ pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2 {
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2405595406, 56456, 23691, [179, 78, 16, 179, 33, 133, 15, 136]);
@@ -1448,7 +1848,7 @@ pub struct IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementReceivedEventArgs(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementReceivedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementReceivedEventArgs {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664305119, 58774, 16830, [141, 67, 158, 103, 49, 212, 169, 19]);
@@ -1471,7 +1871,7 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementReceivedEventArgs2(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementReceivedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementReceivedEventArgs2 {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(316262523, 921, 24334, [163, 72, 83, 176, 43, 107, 22, 46]);
@@ -1496,7 +1896,7 @@ pub struct IBluetoothLEAdvertisementReceivedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcher(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementWatcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcher {
     type Vtable = IBluetoothLEAdvertisementWatcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2796303215, 62419, 17047, [141, 108, 200, 30, 166, 98, 63, 64]);
@@ -1538,7 +1938,7 @@ pub struct IBluetoothLEAdvertisementWatcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcher2(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementWatcher2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcher2 {
     type Vtable = IBluetoothLEAdvertisementWatcher2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(29304508, 45412, 22533, [144, 163, 232, 167, 153, 127, 242, 37]);
@@ -1557,7 +1957,7 @@ pub struct IBluetoothLEAdvertisementWatcher2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherFactory(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementWatcherFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherFactory {
     type Vtable = IBluetoothLEAdvertisementWatcherFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2595171670, 14764, 17726, [179, 42, 133, 198, 87, 224, 23, 241]);
@@ -1575,7 +1975,7 @@ pub struct IBluetoothLEAdvertisementWatcherFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgs(::windows::runtime::IInspectable);
+pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEAdvertisementWatcherStoppedEventArgs {
     type Vtable = IBluetoothLEAdvertisementWatcherStoppedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3712022605, 59321, 17379, [156, 4, 6, 133, 208, 133, 253, 140]);
@@ -1593,7 +1993,7 @@ pub struct IBluetoothLEAdvertisementWatcherStoppedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEManufacturerData(::windows::runtime::IInspectable);
+pub struct IBluetoothLEManufacturerData(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEManufacturerData {
     type Vtable = IBluetoothLEManufacturerData_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2435693080, 26979, 17715, [176, 97, 70, 148, 218, 251, 52, 229]);
@@ -1616,7 +2016,7 @@ pub struct IBluetoothLEManufacturerData_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBluetoothLEManufacturerDataFactory(::windows::runtime::IInspectable);
+pub struct IBluetoothLEManufacturerDataFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBluetoothLEManufacturerDataFactory {
     type Vtable = IBluetoothLEManufacturerDataFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3231398392, 12698, 17438, [141, 229, 102, 168, 30, 135, 122, 108]);

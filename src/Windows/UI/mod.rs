@@ -66,8 +66,8 @@ impl ::windows::runtime::DefaultType for Color {
 }
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ColorHelper(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ColorHelper(pub ::windows::runtime::IInspectable);
 impl ColorHelper {
     #[doc = "*Required features: `UI`*"]
     pub fn FromArgb(a: u8, r: u8, g: u8, b: u8) -> ::windows::runtime::Result<Color> {
@@ -102,12 +102,52 @@ unsafe impl ::windows::runtime::Interface for ColorHelper {
 impl ::windows::runtime::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
 }
+impl ::std::convert::From<ColorHelper> for ::windows::runtime::IUnknown {
+    fn from(value: ColorHelper) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ColorHelper> for ::windows::runtime::IUnknown {
+    fn from(value: &ColorHelper) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ColorHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ColorHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ColorHelper> for ::windows::runtime::IInspectable {
+    fn from(value: ColorHelper) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ColorHelper> for ::windows::runtime::IInspectable {
+    fn from(value: &ColorHelper) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ColorHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ColorHelper {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ColorHelper {}
 unsafe impl ::std::marker::Sync for ColorHelper {}
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Colors(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Colors(pub ::windows::runtime::IInspectable);
 impl Colors {
     #[doc = "*Required features: `UI`*"]
     pub fn AliceBlue() -> ::windows::runtime::Result<Color> {
@@ -1111,11 +1151,51 @@ unsafe impl ::windows::runtime::Interface for Colors {
 impl ::windows::runtime::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
 }
+impl ::std::convert::From<Colors> for ::windows::runtime::IUnknown {
+    fn from(value: Colors) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Colors> for ::windows::runtime::IUnknown {
+    fn from(value: &Colors) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Colors {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Colors {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Colors> for ::windows::runtime::IInspectable {
+    fn from(value: Colors) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Colors> for ::windows::runtime::IInspectable {
+    fn from(value: &Colors) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Colors {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Colors {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for Colors {}
 unsafe impl ::std::marker::Sync for Colors {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelper(::windows::runtime::IInspectable);
+pub struct IColorHelper(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelper {
     type Vtable = IColorHelper_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(423427047, 26055, 17728, [173, 8, 98, 131, 186, 118, 135, 154]);
@@ -1132,7 +1212,7 @@ pub struct IColorHelper_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelperStatics(::windows::runtime::IInspectable);
+pub struct IColorHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelperStatics {
     type Vtable = IColorHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2231688170, 64362, 16708, [166, 194, 51, 73, 156, 146, 132, 245]);
@@ -1150,7 +1230,7 @@ pub struct IColorHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorHelperStatics2(::windows::runtime::IInspectable);
+pub struct IColorHelperStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorHelperStatics2 {
     type Vtable = IColorHelperStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(618245890, 28336, 19348, [133, 92, 252, 240, 129, 141, 154, 22]);
@@ -1168,7 +1248,7 @@ pub struct IColorHelperStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColors(::windows::runtime::IInspectable);
+pub struct IColors(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColors {
     type Vtable = IColors_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2609681190, 19622, 19685, [137, 148, 158, 255, 101, 202, 189, 204]);
@@ -1185,7 +1265,7 @@ pub struct IColors_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IColorsStatics(::windows::runtime::IInspectable);
+pub struct IColorsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IColorsStatics {
     type Vtable = IColorsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3488951812, 52390, 17940, [161, 126, 117, 73, 16, 200, 74, 153]);
@@ -1343,7 +1423,7 @@ pub struct IColorsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIContentRoot(::windows::runtime::IInspectable);
+pub struct IUIContentRoot(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIContentRoot {
     type Vtable = IUIContentRoot_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(503102150, 45931, 23737, [155, 197, 43, 122, 14, 221, 195, 120]);
@@ -1361,7 +1441,7 @@ pub struct IUIContentRoot_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIContext(::windows::runtime::IInspectable);
+pub struct IUIContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIContext {
     type Vtable = IUIContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3143432909, 23512, 22992, [165, 158, 28, 23, 164, 214, 210, 67]);
@@ -1378,8 +1458,8 @@ pub struct IUIContext_abi(
 );
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UIContentRoot(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UIContentRoot(pub ::windows::runtime::IInspectable);
 impl UIContentRoot {
     #[doc = "*Required features: `UI`*"]
     pub fn UIContext(&self) -> ::windows::runtime::Result<UIContext> {
@@ -1400,12 +1480,52 @@ unsafe impl ::windows::runtime::Interface for UIContentRoot {
 impl ::windows::runtime::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
 }
+impl ::std::convert::From<UIContentRoot> for ::windows::runtime::IUnknown {
+    fn from(value: UIContentRoot) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UIContentRoot> for ::windows::runtime::IUnknown {
+    fn from(value: &UIContentRoot) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UIContentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UIContentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UIContentRoot> for ::windows::runtime::IInspectable {
+    fn from(value: UIContentRoot) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UIContentRoot> for ::windows::runtime::IInspectable {
+    fn from(value: &UIContentRoot) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UIContentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UIContentRoot {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UIContentRoot {}
 unsafe impl ::std::marker::Sync for UIContentRoot {}
 #[doc = "*Required features: `UI`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UIContext(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UIContext(pub ::windows::runtime::IInspectable);
 impl UIContext {}
 unsafe impl ::windows::runtime::RuntimeType for UIContext {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.UIContext;{bb5cfacd-5bd8-59d0-a59e-1c17a4d6d243})");
@@ -1416,6 +1536,46 @@ unsafe impl ::windows::runtime::Interface for UIContext {
 }
 impl ::windows::runtime::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";
+}
+impl ::std::convert::From<UIContext> for ::windows::runtime::IUnknown {
+    fn from(value: UIContext) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UIContext> for ::windows::runtime::IUnknown {
+    fn from(value: &UIContext) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UIContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UIContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UIContext> for ::windows::runtime::IInspectable {
+    fn from(value: UIContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UIContext> for ::windows::runtime::IInspectable {
+    fn from(value: &UIContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UIContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UIContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UIContext {}
 unsafe impl ::std::marker::Sync for UIContext {}

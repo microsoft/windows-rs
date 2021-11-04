@@ -346,7 +346,7 @@ impl ::windows::runtime::DefaultType for FulfillmentResult {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentApp(::windows::runtime::IInspectable);
+pub struct ICurrentApp(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp {
     type Vtable = ICurrentApp_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3576545381, 55871, 18053, [153, 94, 155, 72, 46, 181, 230, 3]);
@@ -377,7 +377,7 @@ pub struct ICurrentApp_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentApp2Statics(::windows::runtime::IInspectable);
+pub struct ICurrentApp2Statics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentApp2Statics {
     type Vtable = ICurrentApp2Statics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3746459181, 12657, 19155, [134, 20, 44, 97, 36, 67, 115, 203]);
@@ -398,7 +398,7 @@ pub struct ICurrentApp2Statics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppSimulator(::windows::runtime::IInspectable);
+pub struct ICurrentAppSimulator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulator {
     type Vtable = ICurrentAppSimulator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4051672497, 29901, 18311, [151, 135, 25, 134, 110, 154, 85, 89]);
@@ -431,7 +431,7 @@ pub struct ICurrentAppSimulator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppSimulatorStaticsWithFiltering(::windows::runtime::IInspectable);
+pub struct ICurrentAppSimulatorStaticsWithFiltering(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorStaticsWithFiltering {
     type Vtable = ICurrentAppSimulatorStaticsWithFiltering_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1635676386, 63599, 19284, [150, 102, 221, 226, 133, 9, 44, 104]);
@@ -452,7 +452,7 @@ pub struct ICurrentAppSimulatorStaticsWithFiltering_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppSimulatorWithCampaignId(::windows::runtime::IInspectable);
+pub struct ICurrentAppSimulatorWithCampaignId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithCampaignId {
     type Vtable = ICurrentAppSimulatorWithCampaignId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221378115, 57088, 18034, [164, 63, 178, 91, 20, 65, 207, 207]);
@@ -471,7 +471,7 @@ pub struct ICurrentAppSimulatorWithCampaignId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppSimulatorWithConsumables(::windows::runtime::IInspectable);
+pub struct ICurrentAppSimulatorWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppSimulatorWithConsumables {
     type Vtable = ICurrentAppSimulatorWithConsumables_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1313992875, 8423, 17426, [155, 133, 89, 187, 120, 56, 134, 103]);
@@ -496,7 +496,7 @@ pub struct ICurrentAppSimulatorWithConsumables_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppStaticsWithFiltering(::windows::runtime::IInspectable);
+pub struct ICurrentAppStaticsWithFiltering(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppStaticsWithFiltering {
     type Vtable = ICurrentAppStaticsWithFiltering_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3547161922, 36997, 17294, [151, 186, 162, 92, 151, 107, 226, 253]);
@@ -518,7 +518,7 @@ pub struct ICurrentAppStaticsWithFiltering_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppWithCampaignId(::windows::runtime::IInspectable);
+pub struct ICurrentAppWithCampaignId(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithCampaignId {
     type Vtable = ICurrentAppWithCampaignId_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825183440, 14017, 17574, [179, 43, 67, 45, 96, 142, 77, 214]);
@@ -537,7 +537,7 @@ pub struct ICurrentAppWithCampaignId_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICurrentAppWithConsumables(::windows::runtime::IInspectable);
+pub struct ICurrentAppWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICurrentAppWithConsumables {
     type Vtable = ICurrentAppWithConsumables_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2219704433, 40527, 20345, [153, 90, 95, 145, 23, 46, 108, 239]);
@@ -562,7 +562,7 @@ pub struct ICurrentAppWithConsumables_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILicenseInformation(::windows::runtime::IInspectable);
+pub struct ILicenseInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILicenseInformation {
     type Vtable = ILicenseInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2394414128, 61808, 20181, [142, 33, 21, 22, 218, 63, 211, 103]);
@@ -589,7 +589,7 @@ pub struct ILicenseInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IListingInformation(::windows::runtime::IInspectable);
+pub struct IListingInformation(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation {
     type Vtable = IListingInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1485523647, 48244, 17283, [183, 140, 153, 96, 99, 35, 222, 206]);
@@ -613,7 +613,7 @@ pub struct IListingInformation_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IListingInformation2(::windows::runtime::IInspectable);
+pub struct IListingInformation2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IListingInformation2 {
     type Vtable = IListingInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3237817373, 45838, 17284, [132, 234, 114, 254, 250, 130, 34, 62]);
@@ -635,7 +635,7 @@ pub struct IListingInformation2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductLicense(::windows::runtime::IInspectable);
+pub struct IProductLicense(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicense {
     type Vtable = IProductLicense_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(909314247, 11215, 19470, [143, 47, 232, 8, 170, 168, 249, 157]);
@@ -656,7 +656,7 @@ pub struct IProductLicense_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductLicenseWithFulfillment(::windows::runtime::IInspectable);
+pub struct IProductLicenseWithFulfillment(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductLicenseWithFulfillment {
     type Vtable = IProductLicenseWithFulfillment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4233321610, 63079, 16627, [186, 60, 4, 90, 99, 171, 179, 172]);
@@ -674,7 +674,7 @@ pub struct IProductLicenseWithFulfillment_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductListing(::windows::runtime::IInspectable);
+pub struct IProductListing(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing {
     type Vtable = IProductListing_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1168627373, 51024, 19868, [148, 124, 176, 13, 203, 249, 233, 194]);
@@ -694,7 +694,7 @@ pub struct IProductListing_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductListing2(::windows::runtime::IInspectable);
+pub struct IProductListing2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListing2 {
     type Vtable = IProductListing2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4171114767, 29694, 18765, [169, 57, 8, 169, 178, 73, 90, 190]);
@@ -716,7 +716,7 @@ pub struct IProductListing2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductListingWithConsumables(::windows::runtime::IInspectable);
+pub struct IProductListingWithConsumables(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithConsumables {
     type Vtable = IProductListingWithConsumables_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3953039248, 36715, 18463, [147, 167, 92, 58, 99, 6, 129, 73]);
@@ -734,7 +734,7 @@ pub struct IProductListingWithConsumables_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductListingWithMetadata(::windows::runtime::IInspectable);
+pub struct IProductListingWithMetadata(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductListingWithMetadata {
     type Vtable = IProductListingWithMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(307078503, 9208, 16958, [149, 50, 24, 153, 67, 196, 10, 206]);
@@ -758,7 +758,7 @@ pub struct IProductListingWithMetadata_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductPurchaseDisplayProperties(::windows::runtime::IInspectable);
+pub struct IProductPurchaseDisplayProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayProperties {
     type Vtable = IProductPurchaseDisplayProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3607852064, 48274, 16411, [168, 9, 201, 178, 229, 219, 189, 175]);
@@ -783,7 +783,7 @@ pub struct IProductPurchaseDisplayProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProductPurchaseDisplayPropertiesFactory(::windows::runtime::IInspectable);
+pub struct IProductPurchaseDisplayPropertiesFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProductPurchaseDisplayPropertiesFactory {
     type Vtable = IProductPurchaseDisplayPropertiesFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1867062772, 13014, 19264, [180, 116, 184, 48, 56, 164, 217, 207]);
@@ -801,7 +801,7 @@ pub struct IProductPurchaseDisplayPropertiesFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPurchaseResults(::windows::runtime::IInspectable);
+pub struct IPurchaseResults(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPurchaseResults {
     type Vtable = IPurchaseResults_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3981489022, 34390, 20325, [184, 200, 172, 126, 12, 177, 161, 194]);
@@ -822,7 +822,7 @@ pub struct IPurchaseResults_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUnfulfilledConsumable(::windows::runtime::IInspectable);
+pub struct IUnfulfilledConsumable(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnfulfilledConsumable {
     type Vtable = IUnfulfilledConsumable_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771226555, 7389, 19640, [160, 20, 123, 156, 248, 152, 105, 39]);
@@ -915,8 +915,8 @@ impl<F: FnMut() -> ::windows::runtime::Result<()> + 'static> LicenseChangedEvent
 }
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LicenseInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LicenseInformation(pub ::windows::runtime::IInspectable);
 impl LicenseInformation {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `ApplicationModel_Store`, `Foundation_Collections`*"]
@@ -978,12 +978,52 @@ unsafe impl ::windows::runtime::Interface for LicenseInformation {
 impl ::windows::runtime::RuntimeName for LicenseInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseInformation";
 }
+impl ::std::convert::From<LicenseInformation> for ::windows::runtime::IUnknown {
+    fn from(value: LicenseInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LicenseInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &LicenseInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LicenseInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LicenseInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LicenseInformation> for ::windows::runtime::IInspectable {
+    fn from(value: LicenseInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LicenseInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &LicenseInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LicenseInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LicenseInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LicenseInformation {}
 unsafe impl ::std::marker::Sync for LicenseInformation {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ListingInformation(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ListingInformation(pub ::windows::runtime::IInspectable);
 impl ListingInformation {
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn CurrentMarket(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1078,12 +1118,52 @@ unsafe impl ::windows::runtime::Interface for ListingInformation {
 impl ::windows::runtime::RuntimeName for ListingInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ListingInformation";
 }
+impl ::std::convert::From<ListingInformation> for ::windows::runtime::IUnknown {
+    fn from(value: ListingInformation) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ListingInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &ListingInformation) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ListingInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ListingInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ListingInformation> for ::windows::runtime::IInspectable {
+    fn from(value: ListingInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ListingInformation> for ::windows::runtime::IInspectable {
+    fn from(value: &ListingInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ListingInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ListingInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ListingInformation {}
 unsafe impl ::std::marker::Sync for ListingInformation {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProductLicense(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProductLicense(pub ::windows::runtime::IInspectable);
 impl ProductLicense {
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1129,12 +1209,52 @@ unsafe impl ::windows::runtime::Interface for ProductLicense {
 impl ::windows::runtime::RuntimeName for ProductLicense {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductLicense";
 }
+impl ::std::convert::From<ProductLicense> for ::windows::runtime::IUnknown {
+    fn from(value: ProductLicense) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProductLicense> for ::windows::runtime::IUnknown {
+    fn from(value: &ProductLicense) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProductLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProductLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProductLicense> for ::windows::runtime::IInspectable {
+    fn from(value: ProductLicense) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProductLicense> for ::windows::runtime::IInspectable {
+    fn from(value: &ProductLicense) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProductLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProductLicense {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProductLicense {}
 unsafe impl ::std::marker::Sync for ProductLicense {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProductListing(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProductListing(pub ::windows::runtime::IInspectable);
 impl ProductListing {
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1246,12 +1366,52 @@ unsafe impl ::windows::runtime::Interface for ProductListing {
 impl ::windows::runtime::RuntimeName for ProductListing {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductListing";
 }
+impl ::std::convert::From<ProductListing> for ::windows::runtime::IUnknown {
+    fn from(value: ProductListing) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProductListing> for ::windows::runtime::IUnknown {
+    fn from(value: &ProductListing) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProductListing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProductListing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProductListing> for ::windows::runtime::IInspectable {
+    fn from(value: ProductListing) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProductListing> for ::windows::runtime::IInspectable {
+    fn from(value: &ProductListing) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProductListing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProductListing {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProductListing {}
 unsafe impl ::std::marker::Sync for ProductListing {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ProductPurchaseDisplayProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ProductPurchaseDisplayProperties(pub ::windows::runtime::IInspectable);
 impl ProductPurchaseDisplayProperties {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1323,6 +1483,46 @@ unsafe impl ::windows::runtime::Interface for ProductPurchaseDisplayProperties {
 impl ::windows::runtime::RuntimeName for ProductPurchaseDisplayProperties {
     const NAME: &'static str = "Windows.ApplicationModel.Store.ProductPurchaseDisplayProperties";
 }
+impl ::std::convert::From<ProductPurchaseDisplayProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ProductPurchaseDisplayProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ProductPurchaseDisplayProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ProductPurchaseDisplayProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ProductPurchaseDisplayProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ProductPurchaseDisplayProperties> for ::windows::runtime::IInspectable {
+    fn from(value: ProductPurchaseDisplayProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ProductPurchaseDisplayProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &ProductPurchaseDisplayProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ProductPurchaseDisplayProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ProductPurchaseDisplayProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::std::marker::Sync for ProductPurchaseDisplayProperties {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
@@ -1374,8 +1574,8 @@ impl ::windows::runtime::DefaultType for ProductType {
 }
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PurchaseResults(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PurchaseResults(pub ::windows::runtime::IInspectable);
 impl PurchaseResults {
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<ProductPurchaseStatus> {
@@ -1420,12 +1620,52 @@ unsafe impl ::windows::runtime::Interface for PurchaseResults {
 impl ::windows::runtime::RuntimeName for PurchaseResults {
     const NAME: &'static str = "Windows.ApplicationModel.Store.PurchaseResults";
 }
+impl ::std::convert::From<PurchaseResults> for ::windows::runtime::IUnknown {
+    fn from(value: PurchaseResults) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PurchaseResults> for ::windows::runtime::IUnknown {
+    fn from(value: &PurchaseResults) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PurchaseResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PurchaseResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PurchaseResults> for ::windows::runtime::IInspectable {
+    fn from(value: PurchaseResults) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PurchaseResults> for ::windows::runtime::IInspectable {
+    fn from(value: &PurchaseResults) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PurchaseResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PurchaseResults {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PurchaseResults {}
 unsafe impl ::std::marker::Sync for PurchaseResults {}
 #[doc = "*Required features: `ApplicationModel_Store`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UnfulfilledConsumable(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UnfulfilledConsumable(pub ::windows::runtime::IInspectable);
 impl UnfulfilledConsumable {
     #[doc = "*Required features: `ApplicationModel_Store`*"]
     pub fn ProductId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1461,6 +1701,46 @@ unsafe impl ::windows::runtime::Interface for UnfulfilledConsumable {
 }
 impl ::windows::runtime::RuntimeName for UnfulfilledConsumable {
     const NAME: &'static str = "Windows.ApplicationModel.Store.UnfulfilledConsumable";
+}
+impl ::std::convert::From<UnfulfilledConsumable> for ::windows::runtime::IUnknown {
+    fn from(value: UnfulfilledConsumable) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UnfulfilledConsumable> for ::windows::runtime::IUnknown {
+    fn from(value: &UnfulfilledConsumable) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnfulfilledConsumable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UnfulfilledConsumable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UnfulfilledConsumable> for ::windows::runtime::IInspectable {
+    fn from(value: UnfulfilledConsumable) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnfulfilledConsumable> for ::windows::runtime::IInspectable {
+    fn from(value: &UnfulfilledConsumable) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnfulfilledConsumable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnfulfilledConsumable {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UnfulfilledConsumable {}
 unsafe impl ::std::marker::Sync for UnfulfilledConsumable {}

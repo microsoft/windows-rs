@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMessageDialog(::windows::runtime::IInspectable);
+pub struct IMessageDialog(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialog {
     type Vtable = IMessageDialog_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(871734017, 21285, 17323, [154, 179, 189, 174, 68, 14, 65, 33]);
@@ -32,7 +32,7 @@ pub struct IMessageDialog_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMessageDialogFactory(::windows::runtime::IInspectable);
+pub struct IMessageDialogFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMessageDialogFactory {
     type Vtable = IMessageDialogFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(756422519, 42607, 20133, [187, 135, 121, 63, 250, 73, 65, 242]);
@@ -51,7 +51,7 @@ pub struct IMessageDialogFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPopupMenu(::windows::runtime::IInspectable);
+pub struct IPopupMenu(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPopupMenu {
     type Vtable = IPopupMenu_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318831836, 34829, 18428, [160, 161, 114, 182, 57, 230, 37, 89]);
@@ -75,9 +75,9 @@ pub struct IPopupMenu_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Popups`*"]
-pub struct IUICommand(::windows::runtime::IInspectable);
+pub struct IUICommand(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommand {
     type Vtable = IUICommand_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1341733493, 16709, 18431, [172, 127, 223, 241, 193, 250, 91, 15]);
@@ -126,6 +126,46 @@ impl IUICommand {
 unsafe impl ::windows::runtime::RuntimeType for IUICommand {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
 }
+impl ::std::convert::From<IUICommand> for ::windows::runtime::IUnknown {
+    fn from(value: IUICommand) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IUICommand> for ::windows::runtime::IUnknown {
+    fn from(value: &IUICommand) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IUICommand> for ::windows::runtime::IInspectable {
+    fn from(value: IUICommand) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IUICommand> for ::windows::runtime::IInspectable {
+    fn from(value: &IUICommand) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IUICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IUICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUICommand_abi(
@@ -144,7 +184,7 @@ pub struct IUICommand_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUICommandFactory(::windows::runtime::IInspectable);
+pub struct IUICommandFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUICommandFactory {
     type Vtable = IUICommandFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2719646089, 9904, 18038, [174, 148, 84, 4, 27, 193, 37, 232]);
@@ -164,8 +204,8 @@ pub struct IUICommandFactory_abi(
 );
 #[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MessageDialog(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MessageDialog(pub ::windows::runtime::IInspectable);
 impl MessageDialog {
     #[doc = "*Required features: `UI_Popups`*"]
     pub fn Title(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -279,6 +319,46 @@ unsafe impl ::windows::runtime::Interface for MessageDialog {
 impl ::windows::runtime::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
 }
+impl ::std::convert::From<MessageDialog> for ::windows::runtime::IUnknown {
+    fn from(value: MessageDialog) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MessageDialog> for ::windows::runtime::IUnknown {
+    fn from(value: &MessageDialog) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MessageDialog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MessageDialog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MessageDialog> for ::windows::runtime::IInspectable {
+    fn from(value: MessageDialog) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MessageDialog> for ::windows::runtime::IInspectable {
+    fn from(value: &MessageDialog) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MessageDialog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MessageDialog {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_Popups`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
@@ -356,8 +436,8 @@ impl ::windows::runtime::DefaultType for Placement {
 }
 #[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PopupMenu(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PopupMenu(pub ::windows::runtime::IInspectable);
 impl PopupMenu {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -413,10 +493,50 @@ unsafe impl ::windows::runtime::Interface for PopupMenu {
 impl ::windows::runtime::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
 }
+impl ::std::convert::From<PopupMenu> for ::windows::runtime::IUnknown {
+    fn from(value: PopupMenu) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PopupMenu> for ::windows::runtime::IUnknown {
+    fn from(value: &PopupMenu) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PopupMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PopupMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PopupMenu> for ::windows::runtime::IInspectable {
+    fn from(value: PopupMenu) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PopupMenu> for ::windows::runtime::IInspectable {
+    fn from(value: &PopupMenu) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PopupMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PopupMenu {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UICommand(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UICommand(pub ::windows::runtime::IInspectable);
 impl UICommand {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -499,6 +619,46 @@ unsafe impl ::windows::runtime::Interface for UICommand {
 }
 impl ::windows::runtime::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
+}
+impl ::std::convert::From<UICommand> for ::windows::runtime::IUnknown {
+    fn from(value: UICommand) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UICommand> for ::windows::runtime::IUnknown {
+    fn from(value: &UICommand) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UICommand> for ::windows::runtime::IInspectable {
+    fn from(value: UICommand) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UICommand> for ::windows::runtime::IInspectable {
+    fn from(value: &UICommand) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UICommand {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<UICommand> for IUICommand {
     fn from(value: UICommand) -> Self {
@@ -597,8 +757,8 @@ impl<F: FnMut(&::std::option::Option<IUICommand>) -> ::windows::runtime::Result<
 }
 #[doc = "*Required features: `UI_Popups`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UICommandSeparator(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UICommandSeparator(pub ::windows::runtime::IInspectable);
 impl UICommandSeparator {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -656,6 +816,46 @@ unsafe impl ::windows::runtime::Interface for UICommandSeparator {
 }
 impl ::windows::runtime::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";
+}
+impl ::std::convert::From<UICommandSeparator> for ::windows::runtime::IUnknown {
+    fn from(value: UICommandSeparator) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UICommandSeparator> for ::windows::runtime::IUnknown {
+    fn from(value: &UICommandSeparator) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UICommandSeparator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UICommandSeparator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UICommandSeparator> for ::windows::runtime::IInspectable {
+    fn from(value: UICommandSeparator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UICommandSeparator> for ::windows::runtime::IInspectable {
+    fn from(value: &UICommandSeparator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UICommandSeparator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UICommandSeparator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<UICommandSeparator> for IUICommand {
     fn from(value: UICommandSeparator) -> Self {

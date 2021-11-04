@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskDataProviderConnection(::windows::runtime::IInspectable);
+pub struct IUserDataTaskDataProviderConnection(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderConnection {
     type Vtable = IUserDataTaskDataProviderConnection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2683542813, 42055, 17035, [175, 233, 229, 64, 43, 222, 176, 65]);
@@ -39,7 +39,7 @@ pub struct IUserDataTaskDataProviderConnection_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskDataProviderTriggerDetails(::windows::runtime::IInspectable);
+pub struct IUserDataTaskDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskDataProviderTriggerDetails {
     type Vtable = IUserDataTaskDataProviderTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921804290, 45513, 17726, [175, 197, 179, 10, 243, 189, 33, 125]);
@@ -57,7 +57,7 @@ pub struct IUserDataTaskDataProviderTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCompleteTaskRequest(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListCompleteTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequest {
     type Vtable = IUserDataTaskListCompleteTaskRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4133360803, 6722, 18906, [133, 82, 40, 115, 229, 44, 85, 235]);
@@ -80,7 +80,7 @@ pub struct IUserDataTaskListCompleteTaskRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCompleteTaskRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListCompleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCompleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCompleteTaskRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3615242557, 19698, 18605, [135, 253, 150, 63, 14, 170, 122, 149]);
@@ -100,7 +100,7 @@ pub struct IUserDataTaskListCompleteTaskRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequest(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequest {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(557020972, 21954, 17152, [130, 121, 4, 50, 110, 7, 204, 228]);
@@ -123,7 +123,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     type Vtable = IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(314923602, 58232, 16795, [174, 56, 165, 233, 230, 4, 71, 110]);
@@ -143,7 +143,7 @@ pub struct IUserDataTaskListCreateOrUpdateTaskRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListDeleteTaskRequest(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListDeleteTaskRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequest {
     type Vtable = IUserDataTaskListDeleteTaskRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1267088488, 30295, 20285, [176, 116, 212, 126, 200, 223, 7, 231]);
@@ -166,7 +166,7 @@ pub struct IUserDataTaskListDeleteTaskRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListDeleteTaskRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListDeleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListDeleteTaskRequestEventArgs {
     type Vtable = IUserDataTaskListDeleteTaskRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1617156825, 62818, 16709, [142, 254, 213, 0, 120, 201, 43, 127]);
@@ -186,7 +186,7 @@ pub struct IUserDataTaskListDeleteTaskRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSkipOccurrenceRequest(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListSkipOccurrenceRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequest {
     type Vtable = IUserDataTaskListSkipOccurrenceRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2877809485, 7379, 17180, [159, 88, 8, 154, 164, 51, 141, 133]);
@@ -209,7 +209,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSkipOccurrenceRequestEventArgs {
     type Vtable = IUserDataTaskListSkipOccurrenceRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2050724426, 52271, 20091, [170, 205, 165, 185, 210, 156, 250, 78]);
@@ -229,7 +229,7 @@ pub struct IUserDataTaskListSkipOccurrenceRequestEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSyncManagerSyncRequest(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequest {
     type Vtable = IUserDataTaskListSyncManagerSyncRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1084700679, 30096, 16713, [174, 25, 178, 17, 67, 26, 159, 72]);
@@ -251,7 +251,7 @@ pub struct IUserDataTaskListSyncManagerSyncRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
+pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUserDataTaskListSyncManagerSyncRequestEventArgs {
     type Vtable = IUserDataTaskListSyncManagerSyncRequestEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2393709586, 30350, 17341, [131, 133, 92, 220, 53, 31, 253, 234]);
@@ -271,8 +271,8 @@ pub struct IUserDataTaskListSyncManagerSyncRequestEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskDataProviderConnection(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskDataProviderConnection(pub ::windows::runtime::IInspectable);
 impl UserDataTaskDataProviderConnection {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`, `Foundation`*"]
@@ -365,12 +365,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskDataProviderConnection
 impl ::windows::runtime::RuntimeName for UserDataTaskDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection";
 }
+impl ::std::convert::From<UserDataTaskDataProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskDataProviderConnection) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskDataProviderConnection> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskDataProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskDataProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskDataProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskDataProviderConnection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskDataProviderConnection> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskDataProviderConnection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskDataProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskDataProviderConnection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskDataProviderConnection {}
 unsafe impl ::std::marker::Sync for UserDataTaskDataProviderConnection {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskDataProviderTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskDataProviderTriggerDetails(pub ::windows::runtime::IInspectable);
 impl UserDataTaskDataProviderTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Connection(&self) -> ::windows::runtime::Result<UserDataTaskDataProviderConnection> {
@@ -391,12 +431,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskDataProviderTriggerDet
 impl ::windows::runtime::RuntimeName for UserDataTaskDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails";
 }
+impl ::std::convert::From<UserDataTaskDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskDataProviderTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskDataProviderTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskDataProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskDataProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskDataProviderTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskDataProviderTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskDataProviderTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskDataProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskDataProviderTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskDataProviderTriggerDetails {}
 unsafe impl ::std::marker::Sync for UserDataTaskDataProviderTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListCompleteTaskRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListCompleteTaskRequest(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListCompleteTaskRequest {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn TaskListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -443,12 +523,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListCompleteTaskReques
 impl ::windows::runtime::RuntimeName for UserDataTaskListCompleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest";
 }
+impl ::std::convert::From<UserDataTaskListCompleteTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListCompleteTaskRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCompleteTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListCompleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListCompleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListCompleteTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListCompleteTaskRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCompleteTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListCompleteTaskRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListCompleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListCompleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListCompleteTaskRequest {}
 unsafe impl ::std::marker::Sync for UserDataTaskListCompleteTaskRequest {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListCompleteTaskRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListCompleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListCompleteTaskRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserDataTaskListCompleteTaskRequest> {
@@ -478,12 +598,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListCompleteTaskReques
 impl ::windows::runtime::RuntimeName for UserDataTaskListCompleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs";
 }
+impl ::std::convert::From<UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListCompleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListCompleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCompleteTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListCompleteTaskRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListCompleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListCompleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListCompleteTaskRequestEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataTaskListCompleteTaskRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListCreateOrUpdateTaskRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListCreateOrUpdateTaskRequest(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListCreateOrUpdateTaskRequest {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn TaskListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -530,12 +690,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListCreateOrUpdateTask
 impl ::windows::runtime::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest";
 }
+impl ::std::convert::From<UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListCreateOrUpdateTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListCreateOrUpdateTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCreateOrUpdateTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListCreateOrUpdateTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListCreateOrUpdateTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListCreateOrUpdateTaskRequest {}
 unsafe impl ::std::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequest {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListCreateOrUpdateTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserDataTaskListCreateOrUpdateTaskRequest> {
@@ -565,12 +765,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListCreateOrUpdateTask
 impl ::windows::runtime::RuntimeName for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs";
 }
+impl ::std::convert::From<UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListCreateOrUpdateTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListCreateOrUpdateTaskRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataTaskListCreateOrUpdateTaskRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListDeleteTaskRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListDeleteTaskRequest(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListDeleteTaskRequest {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn TaskListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -617,12 +857,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListDeleteTaskRequest 
 impl ::windows::runtime::RuntimeName for UserDataTaskListDeleteTaskRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest";
 }
+impl ::std::convert::From<UserDataTaskListDeleteTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListDeleteTaskRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListDeleteTaskRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListDeleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListDeleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListDeleteTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListDeleteTaskRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListDeleteTaskRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListDeleteTaskRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListDeleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListDeleteTaskRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListDeleteTaskRequest {}
 unsafe impl ::std::marker::Sync for UserDataTaskListDeleteTaskRequest {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListDeleteTaskRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListDeleteTaskRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListDeleteTaskRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserDataTaskListDeleteTaskRequest> {
@@ -652,12 +932,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListDeleteTaskRequestE
 impl ::windows::runtime::RuntimeName for UserDataTaskListDeleteTaskRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs";
 }
+impl ::std::convert::From<UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListDeleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListDeleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListDeleteTaskRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListDeleteTaskRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListDeleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListDeleteTaskRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListDeleteTaskRequestEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataTaskListDeleteTaskRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListSkipOccurrenceRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListSkipOccurrenceRequest(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListSkipOccurrenceRequest {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn TaskListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -704,12 +1024,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListSkipOccurrenceRequ
 impl ::windows::runtime::RuntimeName for UserDataTaskListSkipOccurrenceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest";
 }
+impl ::std::convert::From<UserDataTaskListSkipOccurrenceRequest> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListSkipOccurrenceRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSkipOccurrenceRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListSkipOccurrenceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListSkipOccurrenceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListSkipOccurrenceRequest> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListSkipOccurrenceRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSkipOccurrenceRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListSkipOccurrenceRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListSkipOccurrenceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListSkipOccurrenceRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListSkipOccurrenceRequest {}
 unsafe impl ::std::marker::Sync for UserDataTaskListSkipOccurrenceRequest {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListSkipOccurrenceRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListSkipOccurrenceRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserDataTaskListSkipOccurrenceRequest> {
@@ -739,12 +1099,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListSkipOccurrenceRequ
 impl ::windows::runtime::RuntimeName for UserDataTaskListSkipOccurrenceRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs";
 }
+impl ::std::convert::From<UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListSkipOccurrenceRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListSkipOccurrenceRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSkipOccurrenceRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListSkipOccurrenceRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListSkipOccurrenceRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListSkipOccurrenceRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataTaskListSkipOccurrenceRequestEventArgs {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListSyncManagerSyncRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListSyncManagerSyncRequest(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListSyncManagerSyncRequest {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn TaskListId(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -783,12 +1183,52 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListSyncManagerSyncReq
 impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest";
 }
+impl ::std::convert::From<UserDataTaskListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListSyncManagerSyncRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSyncManagerSyncRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListSyncManagerSyncRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListSyncManagerSyncRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListSyncManagerSyncRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSyncManagerSyncRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListSyncManagerSyncRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListSyncManagerSyncRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListSyncManagerSyncRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UserDataTaskListSyncManagerSyncRequest {}
 unsafe impl ::std::marker::Sync for UserDataTaskListSyncManagerSyncRequest {}
 #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UserDataTaskListSyncManagerSyncRequestEventArgs(pub ::windows::runtime::IInspectable);
 impl UserDataTaskListSyncManagerSyncRequestEventArgs {
     #[doc = "*Required features: `ApplicationModel_UserDataTasks_DataProvider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<UserDataTaskListSyncManagerSyncRequest> {
@@ -817,6 +1257,46 @@ unsafe impl ::windows::runtime::Interface for UserDataTaskListSyncManagerSyncReq
 }
 impl ::windows::runtime::RuntimeName for UserDataTaskListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs";
+}
+impl ::std::convert::From<UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UserDataTaskListSyncManagerSyncRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UserDataTaskListSyncManagerSyncRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UserDataTaskListSyncManagerSyncRequestEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UserDataTaskListSyncManagerSyncRequestEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UserDataTaskListSyncManagerSyncRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UserDataTaskListSyncManagerSyncRequestEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UserDataTaskListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::std::marker::Sync for UserDataTaskListSyncManagerSyncRequestEventArgs {}

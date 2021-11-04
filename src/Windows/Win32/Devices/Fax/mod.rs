@@ -3442,8 +3442,8 @@ pub const GUID_ScanImage: ::windows::runtime::GUID = ::windows::runtime::GUID::f
 pub const GUID_ScanPrintImage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3024221221, 35950, 4562, [151, 122, 0, 0, 248, 122, 146, 111]);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccount(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccount(pub ::windows::runtime::IUnknown);
 impl IFaxAccount {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -3470,6 +3470,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccount {
     type Vtable = IFaxAccount_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1750293299, 24004, 16518, [190, 38, 183, 111, 155, 113, 16, 6]);
 }
+impl ::std::convert::From<IFaxAccount> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccount) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccount> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccount) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccount {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccount> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccount) -> Self {
@@ -3485,13 +3505,13 @@ impl ::std::convert::From<&IFaxAccount> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccount {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccount {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3516,8 +3536,8 @@ pub struct IFaxAccount_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountFolders(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountFolders(pub ::windows::runtime::IUnknown);
 impl IFaxAccountFolders {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn OutgoingQueue(&self) -> ::windows::runtime::Result<IFaxAccountOutgoingQueue> {
@@ -3544,6 +3564,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountFolders {
     type Vtable = IFaxAccountFolders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1684273309, 9176, 18089, [143, 134, 196, 123, 119, 202, 121, 38]);
 }
+impl ::std::convert::From<IFaxAccountFolders> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountFolders) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountFolders> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountFolders) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountFolders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountFolders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountFolders> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountFolders) -> Self {
@@ -3559,13 +3599,13 @@ impl ::std::convert::From<&IFaxAccountFolders> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountFolders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountFolders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3589,8 +3629,8 @@ pub struct IFaxAccountFolders_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountIncomingArchive(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountIncomingArchive(pub ::windows::runtime::IUnknown);
 impl IFaxAccountIncomingArchive {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::runtime::Result<i32> {
@@ -3622,6 +3662,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountIncomingArchive {
     type Vtable = IFaxAccountIncomingArchive_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2829432559, 57558, 19182, [149, 92, 145, 98, 91, 236, 157, 180]);
 }
+impl ::std::convert::From<IFaxAccountIncomingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountIncomingArchive) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountIncomingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountIncomingArchive) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountIncomingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountIncomingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountIncomingArchive> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountIncomingArchive) -> Self {
@@ -3637,13 +3697,13 @@ impl ::std::convert::From<&IFaxAccountIncomingArchive> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountIncomingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountIncomingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3669,8 +3729,8 @@ pub struct IFaxAccountIncomingArchive_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountIncomingQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountIncomingQueue(pub ::windows::runtime::IUnknown);
 impl IFaxAccountIncomingQueue {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetJobs(&self) -> ::windows::runtime::Result<IFaxIncomingJobs> {
@@ -3688,6 +3748,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountIncomingQueue {
     type Vtable = IFaxAccountIncomingQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3709087122, 390, 19093, [160, 144, 203, 195, 234, 219, 166, 180]);
 }
+impl ::std::convert::From<IFaxAccountIncomingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountIncomingQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountIncomingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountIncomingQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountIncomingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountIncomingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountIncomingQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountIncomingQueue) -> Self {
@@ -3703,13 +3783,13 @@ impl ::std::convert::From<&IFaxAccountIncomingQueue> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountIncomingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountIncomingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3732,12 +3812,32 @@ pub struct IFaxAccountIncomingQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountNotify(pub ::windows::runtime::IUnknown);
 impl IFaxAccountNotify {}
 unsafe impl ::windows::runtime::Interface for IFaxAccountNotify {
     type Vtable = IFaxAccountNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(190733265, 47273, 18336, [163, 35, 239, 74, 41, 59, 160, 106]);
+}
+impl ::std::convert::From<IFaxAccountNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountNotify> for super::super::System::Ole::Automation::IDispatch {
@@ -3754,13 +3854,13 @@ impl ::std::convert::From<&IFaxAccountNotify> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3780,8 +3880,8 @@ pub struct IFaxAccountNotify_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountOutgoingArchive(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountOutgoingArchive(pub ::windows::runtime::IUnknown);
 impl IFaxAccountOutgoingArchive {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::runtime::Result<i32> {
@@ -3813,6 +3913,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountOutgoingArchive {
     type Vtable = IFaxAccountOutgoingArchive_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415776109, 60436, 18719, [146, 110, 179, 206, 218, 94, 86, 98]);
 }
+impl ::std::convert::From<IFaxAccountOutgoingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountOutgoingArchive) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountOutgoingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountOutgoingArchive) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountOutgoingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountOutgoingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountOutgoingArchive> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountOutgoingArchive) -> Self {
@@ -3828,13 +3948,13 @@ impl ::std::convert::From<&IFaxAccountOutgoingArchive> for super::super::System:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountOutgoingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountOutgoingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3860,8 +3980,8 @@ pub struct IFaxAccountOutgoingArchive_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountOutgoingQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountOutgoingQueue(pub ::windows::runtime::IUnknown);
 impl IFaxAccountOutgoingQueue {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetJobs(&self) -> ::windows::runtime::Result<IFaxOutgoingJobs> {
@@ -3879,6 +3999,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountOutgoingQueue {
     type Vtable = IFaxAccountOutgoingQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(252978409, 61997, 17747, [183, 165, 13, 36, 189, 13, 126, 70]);
 }
+impl ::std::convert::From<IFaxAccountOutgoingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountOutgoingQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountOutgoingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountOutgoingQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountOutgoingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountOutgoingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountOutgoingQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountOutgoingQueue) -> Self {
@@ -3894,13 +4034,13 @@ impl ::std::convert::From<&IFaxAccountOutgoingQueue> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountOutgoingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountOutgoingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3923,8 +4063,8 @@ pub struct IFaxAccountOutgoingQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccountSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccountSet(pub ::windows::runtime::IUnknown);
 impl IFaxAccountSet {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetAccounts(&self) -> ::windows::runtime::Result<IFaxAccounts> {
@@ -3953,6 +4093,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccountSet {
     type Vtable = IFaxAccountSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1948842926, 33822, 18360, [134, 244, 34, 136, 148, 109, 202, 27]);
 }
+impl ::std::convert::From<IFaxAccountSet> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccountSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccountSet> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccountSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccountSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccountSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccountSet> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccountSet) -> Self {
@@ -3968,13 +4128,13 @@ impl ::std::convert::From<&IFaxAccountSet> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccountSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccountSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4001,8 +4161,8 @@ pub struct IFaxAccountSet_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxAccounts(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxAccounts(pub ::windows::runtime::IUnknown);
 impl IFaxAccounts {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4025,6 +4185,26 @@ unsafe impl ::windows::runtime::Interface for IFaxAccounts {
     type Vtable = IFaxAccounts_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2481619298, 35815, 17105, [174, 123, 236, 116, 226, 217, 137, 218]);
 }
+impl ::std::convert::From<IFaxAccounts> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxAccounts) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxAccounts> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxAccounts) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxAccounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxAccounts {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxAccounts> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxAccounts) -> Self {
@@ -4040,13 +4220,13 @@ impl ::std::convert::From<&IFaxAccounts> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxAccounts {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxAccounts {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4070,8 +4250,8 @@ pub struct IFaxAccounts_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxActivity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxActivity(pub ::windows::runtime::IUnknown);
 impl IFaxActivity {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn IncomingMessages(&self) -> ::windows::runtime::Result<i32> {
@@ -4102,6 +4282,26 @@ unsafe impl ::windows::runtime::Interface for IFaxActivity {
     type Vtable = IFaxActivity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259368343, 15861, 16626, [188, 60, 68, 203, 129, 21, 235, 223]);
 }
+impl ::std::convert::From<IFaxActivity> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxActivity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxActivity> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxActivity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxActivity> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxActivity) -> Self {
@@ -4117,13 +4317,13 @@ impl ::std::convert::From<&IFaxActivity> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxActivity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxActivity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4148,8 +4348,8 @@ pub struct IFaxActivity_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxActivityLogging(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxActivityLogging(pub ::windows::runtime::IUnknown);
 impl IFaxActivityLogging {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn LogIncoming(&self) -> ::windows::runtime::Result<i16> {
@@ -4193,6 +4393,26 @@ unsafe impl ::windows::runtime::Interface for IFaxActivityLogging {
     type Vtable = IFaxActivityLogging_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(506005387, 23145, 18811, [149, 146, 73, 183, 231, 250, 221, 181]);
 }
+impl ::std::convert::From<IFaxActivityLogging> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxActivityLogging) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxActivityLogging> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxActivityLogging) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxActivityLogging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxActivityLogging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxActivityLogging> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxActivityLogging) -> Self {
@@ -4208,13 +4428,13 @@ impl ::std::convert::From<&IFaxActivityLogging> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxActivityLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxActivityLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4244,8 +4464,8 @@ pub struct IFaxActivityLogging_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxConfiguration(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxConfiguration(pub ::windows::runtime::IUnknown);
 impl IFaxConfiguration {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::runtime::Result<i16> {
@@ -4443,6 +4663,26 @@ unsafe impl ::windows::runtime::Interface for IFaxConfiguration {
     type Vtable = IFaxConfiguration_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(284479735, 2452, 17731, [171, 110, 80, 105, 73, 18, 140, 64]);
 }
+impl ::std::convert::From<IFaxConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxConfiguration) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxConfiguration> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxConfiguration) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxConfiguration {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxConfiguration> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxConfiguration) -> Self {
@@ -4458,13 +4698,13 @@ impl ::std::convert::From<&IFaxConfiguration> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4528,8 +4768,8 @@ pub struct IFaxConfiguration_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDevice(pub ::windows::runtime::IUnknown);
 impl IFaxDevice {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Id(&self) -> ::windows::runtime::Result<i32> {
@@ -4667,6 +4907,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDevice {
     type Vtable = IFaxDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1227910233, 46382, 18535, [157, 244, 202, 88, 65, 201, 86, 208]);
 }
+impl ::std::convert::From<IFaxDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDevice> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDevice) -> Self {
@@ -4682,13 +4942,13 @@ impl ::std::convert::From<&IFaxDevice> for super::super::System::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4746,8 +5006,8 @@ pub struct IFaxDevice_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDeviceIds(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDeviceIds(pub ::windows::runtime::IUnknown);
 impl IFaxDeviceIds {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4781,6 +5041,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDeviceIds {
     type Vtable = IFaxDeviceIds_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789545279, 19689, 17470, [140, 161, 115, 140, 250, 238, 225, 73]);
 }
+impl ::std::convert::From<IFaxDeviceIds> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDeviceIds) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDeviceIds> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDeviceIds) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDeviceIds {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDeviceIds {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDeviceIds> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDeviceIds) -> Self {
@@ -4796,13 +5076,13 @@ impl ::std::convert::From<&IFaxDeviceIds> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDeviceIds {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDeviceIds {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4828,8 +5108,8 @@ pub struct IFaxDeviceIds_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDeviceProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDeviceProvider(pub ::windows::runtime::IUnknown);
 impl IFaxDeviceProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -4901,6 +5181,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDeviceProvider {
     type Vtable = IFaxDeviceProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(688827491, 33772, 17564, [132, 23, 241, 72, 223, 140, 104, 42]);
 }
+impl ::std::convert::From<IFaxDeviceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDeviceProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDeviceProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDeviceProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDeviceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDeviceProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDeviceProvider> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDeviceProvider) -> Self {
@@ -4916,13 +5216,13 @@ impl ::std::convert::From<&IFaxDeviceProvider> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDeviceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4959,8 +5259,8 @@ pub struct IFaxDeviceProvider_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDeviceProviders(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDeviceProviders(pub ::windows::runtime::IUnknown);
 impl IFaxDeviceProviders {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4983,6 +5283,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDeviceProviders {
     type Vtable = IFaxDeviceProviders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2679598946, 19582, 17317, [182, 253, 80, 40, 147, 247, 225, 62]);
 }
+impl ::std::convert::From<IFaxDeviceProviders> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDeviceProviders) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDeviceProviders> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDeviceProviders) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDeviceProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDeviceProviders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDeviceProviders> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDeviceProviders) -> Self {
@@ -4998,13 +5318,13 @@ impl ::std::convert::From<&IFaxDeviceProviders> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDeviceProviders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDeviceProviders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5028,8 +5348,8 @@ pub struct IFaxDeviceProviders_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDevices(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDevices(pub ::windows::runtime::IUnknown);
 impl IFaxDevices {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -5057,6 +5377,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDevices {
     type Vtable = IFaxDevices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2655418430, 62287, 18478, [163, 96, 4, 22, 190, 203, 189, 150]);
 }
+impl ::std::convert::From<IFaxDevices> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDevices) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDevices> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDevices) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDevices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDevices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDevices> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDevices) -> Self {
@@ -5072,13 +5412,13 @@ impl ::std::convert::From<&IFaxDevices> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDevices {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5103,8 +5443,8 @@ pub struct IFaxDevices_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDocument(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDocument(pub ::windows::runtime::IUnknown);
 impl IFaxDocument {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -5282,6 +5622,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDocument {
     type Vtable = IFaxDocument_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2986844742, 2531, 19022, [167, 220, 254, 163, 29, 41, 69, 143]);
 }
+impl ::std::convert::From<IFaxDocument> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDocument) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDocument> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDocument) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDocument {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxDocument> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxDocument) -> Self {
@@ -5297,13 +5657,13 @@ impl ::std::convert::From<&IFaxDocument> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDocument {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5373,8 +5733,8 @@ pub struct IFaxDocument_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxDocument2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxDocument2(pub ::windows::runtime::IUnknown);
 impl IFaxDocument2 {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5600,6 +5960,26 @@ unsafe impl ::windows::runtime::Interface for IFaxDocument2 {
     type Vtable = IFaxDocument2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3778311777, 63983, 19821, [180, 165, 192, 160, 104, 182, 92, 255]);
 }
+impl ::std::convert::From<IFaxDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxDocument2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxDocument2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxDocument2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxDocument2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IFaxDocument2> for IFaxDocument {
     fn from(value: IFaxDocument2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5612,12 +5992,12 @@ impl ::std::convert::From<&IFaxDocument2> for IFaxDocument {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxDocument> for IFaxDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxDocument> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxDocument>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxDocument> for &IFaxDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxDocument> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxDocument>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5635,13 +6015,13 @@ impl ::std::convert::From<&IFaxDocument2> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxDocument2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5721,8 +6101,8 @@ pub struct IFaxDocument2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxEventLogging(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxEventLogging(pub ::windows::runtime::IUnknown);
 impl IFaxEventLogging {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn InitEventsLevel(&self) -> ::windows::runtime::Result<FAX_LOG_LEVEL_ENUM> {
@@ -5773,6 +6153,26 @@ unsafe impl ::windows::runtime::Interface for IFaxEventLogging {
     type Vtable = IFaxEventLogging_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(142661989, 8424, 17124, [142, 23, 148, 79, 25, 44, 170, 212]);
 }
+impl ::std::convert::From<IFaxEventLogging> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxEventLogging) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxEventLogging> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxEventLogging) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxEventLogging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxEventLogging {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxEventLogging> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxEventLogging) -> Self {
@@ -5788,13 +6188,13 @@ impl ::std::convert::From<&IFaxEventLogging> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxEventLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxEventLogging {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5824,8 +6224,8 @@ pub struct IFaxEventLogging_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxFolders(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxFolders(pub ::windows::runtime::IUnknown);
 impl IFaxFolders {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn OutgoingQueue(&self) -> ::windows::runtime::Result<IFaxOutgoingQueue> {
@@ -5852,6 +6252,26 @@ unsafe impl ::windows::runtime::Interface for IFaxFolders {
     type Vtable = IFaxFolders_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3705909928, 42923, 17084, [157, 10, 49, 73, 69, 114, 97, 160]);
 }
+impl ::std::convert::From<IFaxFolders> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxFolders) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxFolders> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxFolders) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxFolders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxFolders {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxFolders> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxFolders) -> Self {
@@ -5867,13 +6287,13 @@ impl ::std::convert::From<&IFaxFolders> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxFolders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxFolders {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5897,8 +6317,8 @@ pub struct IFaxFolders_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxInboundRouting(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxInboundRouting(pub ::windows::runtime::IUnknown);
 impl IFaxInboundRouting {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetExtensions(&self) -> ::windows::runtime::Result<IFaxInboundRoutingExtensions> {
@@ -5915,6 +6335,26 @@ unsafe impl ::windows::runtime::Interface for IFaxInboundRouting {
     type Vtable = IFaxInboundRouting_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2169029135, 40274, 17841, [191, 150, 56, 252, 18, 113, 53, 39]);
 }
+impl ::std::convert::From<IFaxInboundRouting> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxInboundRouting) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxInboundRouting> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxInboundRouting) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxInboundRouting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxInboundRouting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxInboundRouting> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxInboundRouting) -> Self {
@@ -5930,13 +6370,13 @@ impl ::std::convert::From<&IFaxInboundRouting> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxInboundRouting {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxInboundRouting {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5958,8 +6398,8 @@ pub struct IFaxInboundRouting_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxInboundRoutingExtension(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxInboundRoutingExtension(pub ::windows::runtime::IUnknown);
 impl IFaxInboundRoutingExtension {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -6025,6 +6465,26 @@ unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingExtension {
     type Vtable = IFaxInboundRoutingExtension_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2287689224, 49772, 20217, [175, 131, 81, 88, 10, 117, 11, 225]);
 }
+impl ::std::convert::From<IFaxInboundRoutingExtension> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxInboundRoutingExtension) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxInboundRoutingExtension> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxInboundRoutingExtension) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxInboundRoutingExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxInboundRoutingExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxInboundRoutingExtension> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxInboundRoutingExtension) -> Self {
@@ -6040,13 +6500,13 @@ impl ::std::convert::From<&IFaxInboundRoutingExtension> for super::super::System
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxInboundRoutingExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxInboundRoutingExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6081,8 +6541,8 @@ pub struct IFaxInboundRoutingExtension_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxInboundRoutingExtensions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxInboundRoutingExtensions(pub ::windows::runtime::IUnknown);
 impl IFaxInboundRoutingExtensions {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -6105,6 +6565,26 @@ unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingExtensions {
     type Vtable = IFaxInboundRoutingExtensions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(795645555, 31526, 17118, [142, 176, 145, 93, 205, 42, 79, 76]);
 }
+impl ::std::convert::From<IFaxInboundRoutingExtensions> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxInboundRoutingExtensions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxInboundRoutingExtensions> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxInboundRoutingExtensions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxInboundRoutingExtensions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxInboundRoutingExtensions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxInboundRoutingExtensions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxInboundRoutingExtensions) -> Self {
@@ -6120,13 +6600,13 @@ impl ::std::convert::From<&IFaxInboundRoutingExtensions> for super::super::Syste
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxInboundRoutingExtensions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxInboundRoutingExtensions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6150,8 +6630,8 @@ pub struct IFaxInboundRoutingExtensions_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxInboundRoutingMethod(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxInboundRoutingMethod(pub ::windows::runtime::IUnknown);
 impl IFaxInboundRoutingMethod {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -6205,6 +6685,26 @@ unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingMethod {
     type Vtable = IFaxInboundRoutingMethod_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1164968033, 44445, 18294, [168, 196, 100, 6, 84, 146, 207, 75]);
 }
+impl ::std::convert::From<IFaxInboundRoutingMethod> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxInboundRoutingMethod) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxInboundRoutingMethod> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxInboundRoutingMethod) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxInboundRoutingMethod {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxInboundRoutingMethod {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxInboundRoutingMethod> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxInboundRoutingMethod) -> Self {
@@ -6220,13 +6720,13 @@ impl ::std::convert::From<&IFaxInboundRoutingMethod> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxInboundRoutingMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxInboundRoutingMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6260,8 +6760,8 @@ pub struct IFaxInboundRoutingMethod_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxInboundRoutingMethods(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxInboundRoutingMethods(pub ::windows::runtime::IUnknown);
 impl IFaxInboundRoutingMethods {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -6284,6 +6784,26 @@ unsafe impl ::windows::runtime::Interface for IFaxInboundRoutingMethods {
     type Vtable = IFaxInboundRoutingMethods_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2017446416, 35080, 17523, [157, 105, 246, 127, 190, 160, 198, 185]);
 }
+impl ::std::convert::From<IFaxInboundRoutingMethods> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxInboundRoutingMethods) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxInboundRoutingMethods> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxInboundRoutingMethods) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxInboundRoutingMethods {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxInboundRoutingMethods {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxInboundRoutingMethods> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxInboundRoutingMethods) -> Self {
@@ -6299,13 +6819,13 @@ impl ::std::convert::From<&IFaxInboundRoutingMethods> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxInboundRoutingMethods {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxInboundRoutingMethods {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6329,8 +6849,8 @@ pub struct IFaxInboundRoutingMethods_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingArchive(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingArchive(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingArchive {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::runtime::Result<i16> {
@@ -6422,6 +6942,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingArchive {
     type Vtable = IFaxIncomingArchive_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1980116167, 63252, 20413, [170, 6, 237, 110, 74, 75, 112, 243]);
 }
+impl ::std::convert::From<IFaxIncomingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingArchive) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingArchive) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingArchive> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingArchive) -> Self {
@@ -6437,13 +6977,13 @@ impl ::std::convert::From<&IFaxIncomingArchive> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6484,8 +7024,8 @@ pub struct IFaxIncomingArchive_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingJob(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingJob(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingJob {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Size(&self) -> ::windows::runtime::Result<i32> {
@@ -6591,6 +7131,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingJob {
     type Vtable = IFaxIncomingJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(544549350, 25930, 18710, [159, 136, 77, 35, 46, 232, 161, 7]);
 }
+impl ::std::convert::From<IFaxIncomingJob> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingJob) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingJob) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingJob> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingJob) -> Self {
@@ -6606,13 +7166,13 @@ impl ::std::convert::From<&IFaxIncomingJob> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6658,8 +7218,8 @@ pub struct IFaxIncomingJob_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingJobs(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingJobs(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingJobs {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -6682,6 +7242,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingJobs {
     type Vtable = IFaxIncomingJobs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(18810089, 20438, 19491, [149, 19, 182, 182, 107, 178, 107, 233]);
 }
+impl ::std::convert::From<IFaxIncomingJobs> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingJobs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingJobs> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingJobs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingJobs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingJobs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingJobs> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingJobs) -> Self {
@@ -6697,13 +7277,13 @@ impl ::std::convert::From<&IFaxIncomingJobs> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6727,8 +7307,8 @@ pub struct IFaxIncomingJobs_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingMessage(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingMessage(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingMessage {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -6805,6 +7385,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingMessage {
     type Vtable = IFaxIncomingMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2091616506, 12025, 18513, [178, 243, 29, 20, 143, 237, 132, 71]);
 }
+impl ::std::convert::From<IFaxIncomingMessage> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingMessage> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingMessage) -> Self {
@@ -6820,13 +7420,13 @@ impl ::std::convert::From<&IFaxIncomingMessage> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6866,8 +7466,8 @@ pub struct IFaxIncomingMessage_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingMessage2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingMessage2(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingMessage2 {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7044,6 +7644,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingMessage2 {
     type Vtable = IFaxIncomingMessage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4179657987, 58044, 18675, [158, 192, 230, 35, 111, 155, 80, 154]);
 }
+impl ::std::convert::From<IFaxIncomingMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingMessage2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingMessage2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IFaxIncomingMessage2> for IFaxIncomingMessage {
     fn from(value: IFaxIncomingMessage2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7056,12 +7676,12 @@ impl ::std::convert::From<&IFaxIncomingMessage2> for IFaxIncomingMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxIncomingMessage> for IFaxIncomingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxIncomingMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxIncomingMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxIncomingMessage> for &IFaxIncomingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxIncomingMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxIncomingMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7079,13 +7699,13 @@ impl ::std::convert::From<&IFaxIncomingMessage2> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7149,8 +7769,8 @@ pub struct IFaxIncomingMessage2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingMessageIterator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingMessageIterator(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingMessageIterator {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Message(&self) -> ::windows::runtime::Result<IFaxIncomingMessage> {
@@ -7184,6 +7804,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingMessageIterator {
     type Vtable = IFaxIncomingMessageIterator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252232900, 28422, 20306, [130, 168, 247, 186, 6, 174, 49, 8]);
 }
+impl ::std::convert::From<IFaxIncomingMessageIterator> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingMessageIterator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingMessageIterator> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingMessageIterator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingMessageIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingMessageIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingMessageIterator> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingMessageIterator) -> Self {
@@ -7199,13 +7839,13 @@ impl ::std::convert::From<&IFaxIncomingMessageIterator> for super::super::System
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingMessageIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingMessageIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7231,8 +7871,8 @@ pub struct IFaxIncomingMessageIterator_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxIncomingQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxIncomingQueue(pub ::windows::runtime::IUnknown);
 impl IFaxIncomingQueue {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Blocked(&self) -> ::windows::runtime::Result<i16> {
@@ -7267,6 +7907,26 @@ unsafe impl ::windows::runtime::Interface for IFaxIncomingQueue {
     type Vtable = IFaxIncomingQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2418959599, 36824, 19317, [151, 37, 96, 20, 223, 22, 21, 69]);
 }
+impl ::std::convert::From<IFaxIncomingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxIncomingQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxIncomingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxIncomingQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxIncomingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxIncomingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxIncomingQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxIncomingQueue) -> Self {
@@ -7282,13 +7942,13 @@ impl ::std::convert::From<&IFaxIncomingQueue> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxIncomingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxIncomingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7315,8 +7975,8 @@ pub struct IFaxIncomingQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxJobStatus(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxJobStatus(pub ::windows::runtime::IUnknown);
 impl IFaxJobStatus {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Status(&self) -> ::windows::runtime::Result<FAX_JOB_STATUS_ENUM> {
@@ -7413,6 +8073,26 @@ unsafe impl ::windows::runtime::Interface for IFaxJobStatus {
     type Vtable = IFaxJobStatus_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2340877445, 64895, 18468, [136, 107, 64, 197, 202, 166, 23, 204]);
 }
+impl ::std::convert::From<IFaxJobStatus> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxJobStatus) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxJobStatus> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxJobStatus) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxJobStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxJobStatus {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxJobStatus> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxJobStatus) -> Self {
@@ -7428,13 +8108,13 @@ impl ::std::convert::From<&IFaxJobStatus> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxJobStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxJobStatus {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7476,8 +8156,8 @@ pub struct IFaxJobStatus_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxLoggingOptions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxLoggingOptions(pub ::windows::runtime::IUnknown);
 impl IFaxLoggingOptions {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn EventLogging(&self) -> ::windows::runtime::Result<IFaxEventLogging> {
@@ -7494,6 +8174,26 @@ unsafe impl ::windows::runtime::Interface for IFaxLoggingOptions {
     type Vtable = IFaxLoggingOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(887508921, 27441, 19762, [139, 39, 210, 134, 192, 195, 54, 6]);
 }
+impl ::std::convert::From<IFaxLoggingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxLoggingOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxLoggingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxLoggingOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxLoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxLoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxLoggingOptions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxLoggingOptions) -> Self {
@@ -7509,13 +8209,13 @@ impl ::std::convert::From<&IFaxLoggingOptions> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxLoggingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxLoggingOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7537,8 +8237,8 @@ pub struct IFaxLoggingOptions_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutboundRouting(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutboundRouting(pub ::windows::runtime::IUnknown);
 impl IFaxOutboundRouting {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetGroups(&self) -> ::windows::runtime::Result<IFaxOutboundRoutingGroups> {
@@ -7555,6 +8255,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutboundRouting {
     type Vtable = IFaxOutboundRouting_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635176356, 39177, 16829, [169, 91, 126, 93, 29, 236, 29, 67]);
 }
+impl ::std::convert::From<IFaxOutboundRouting> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutboundRouting) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutboundRouting> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutboundRouting) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutboundRouting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutboundRouting {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutboundRouting> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutboundRouting) -> Self {
@@ -7570,13 +8290,13 @@ impl ::std::convert::From<&IFaxOutboundRouting> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutboundRouting {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutboundRouting {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7598,8 +8318,8 @@ pub struct IFaxOutboundRouting_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutboundRoutingGroup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutboundRoutingGroup(pub ::windows::runtime::IUnknown);
 impl IFaxOutboundRoutingGroup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -7622,6 +8342,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingGroup {
     type Vtable = IFaxOutboundRoutingGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3395455393, 32293, 20359, [154, 11, 147, 54, 87, 52, 150, 44]);
 }
+impl ::std::convert::From<IFaxOutboundRoutingGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutboundRoutingGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutboundRoutingGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutboundRoutingGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutboundRoutingGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutboundRoutingGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutboundRoutingGroup> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutboundRoutingGroup) -> Self {
@@ -7637,13 +8377,13 @@ impl ::std::convert::From<&IFaxOutboundRoutingGroup> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutboundRoutingGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutboundRoutingGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7667,8 +8407,8 @@ pub struct IFaxOutboundRoutingGroup_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutboundRoutingGroups(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutboundRoutingGroups(pub ::windows::runtime::IUnknown);
 impl IFaxOutboundRoutingGroups {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7702,6 +8442,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingGroups {
     type Vtable = IFaxOutboundRoutingGroups_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(593280759, 49886, 19453, [184, 218, 117, 9, 124, 130, 200, 127]);
 }
+impl ::std::convert::From<IFaxOutboundRoutingGroups> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutboundRoutingGroups) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutboundRoutingGroups> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutboundRoutingGroups) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutboundRoutingGroups {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutboundRoutingGroups {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutboundRoutingGroups> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutboundRoutingGroups) -> Self {
@@ -7717,13 +8477,13 @@ impl ::std::convert::From<&IFaxOutboundRoutingGroups> for super::super::System::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutboundRoutingGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutboundRoutingGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7751,8 +8511,8 @@ pub struct IFaxOutboundRoutingGroups_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutboundRoutingRule(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutboundRoutingRule(pub ::windows::runtime::IUnknown);
 impl IFaxOutboundRoutingRule {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn CountryCode(&self) -> ::windows::runtime::Result<i32> {
@@ -7811,6 +8571,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingRule {
     type Vtable = IFaxOutboundRoutingRule_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3791099349, 1986, 18079, [176, 39, 172, 172, 194, 50, 25, 218]);
 }
+impl ::std::convert::From<IFaxOutboundRoutingRule> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutboundRoutingRule) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutboundRoutingRule> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutboundRoutingRule) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutboundRoutingRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutboundRoutingRule {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutboundRoutingRule> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutboundRoutingRule) -> Self {
@@ -7826,13 +8606,13 @@ impl ::std::convert::From<&IFaxOutboundRoutingRule> for super::super::System::Ol
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutboundRoutingRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutboundRoutingRule {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7865,8 +8645,8 @@ pub struct IFaxOutboundRoutingRule_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutboundRoutingRules(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutboundRoutingRules(pub ::windows::runtime::IUnknown);
 impl IFaxOutboundRoutingRules {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -7907,6 +8687,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutboundRoutingRules {
     type Vtable = IFaxOutboundRoutingRules_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3706692071, 44669, 20182, [133, 33, 54, 158, 220, 202, 81, 32]);
 }
+impl ::std::convert::From<IFaxOutboundRoutingRules> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutboundRoutingRules) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutboundRoutingRules> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutboundRoutingRules) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutboundRoutingRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutboundRoutingRules {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutboundRoutingRules> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutboundRoutingRules) -> Self {
@@ -7922,13 +8722,13 @@ impl ::std::convert::From<&IFaxOutboundRoutingRules> for super::super::System::O
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutboundRoutingRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutboundRoutingRules {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7956,8 +8756,8 @@ pub struct IFaxOutboundRoutingRules_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingArchive(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingArchive(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingArchive {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::runtime::Result<i16> {
@@ -8049,6 +8849,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingArchive {
     type Vtable = IFaxOutgoingArchive_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3384971072, 36224, 20051, [129, 15, 154, 121, 145, 155, 73, 253]);
 }
+impl ::std::convert::From<IFaxOutgoingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingArchive) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingArchive> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingArchive) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingArchive {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingArchive> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingArchive) -> Self {
@@ -8064,13 +8884,13 @@ impl ::std::convert::From<&IFaxOutgoingArchive> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingArchive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8111,8 +8931,8 @@ pub struct IFaxOutgoingArchive_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingJob(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingJob(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingJob {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -8276,6 +9096,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingJob {
     type Vtable = IFaxOutgoingJob_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1666636461, 26132, 17795, [191, 122, 58, 214, 123, 191, 199, 28]);
 }
+impl ::std::convert::From<IFaxOutgoingJob> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingJob) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingJob> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingJob) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingJob {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingJob> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingJob) -> Self {
@@ -8291,13 +9131,13 @@ impl ::std::convert::From<&IFaxOutgoingJob> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8356,8 +9196,8 @@ pub struct IFaxOutgoingJob_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingJob2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingJob2(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingJob2 {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8558,6 +9398,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingJob2 {
     type Vtable = IFaxOutgoingJob2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1099599254, 22944, 18313, [177, 118, 237, 243, 220, 143, 168, 247]);
 }
+impl ::std::convert::From<IFaxOutgoingJob2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingJob2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingJob2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingJob2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingJob2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingJob2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IFaxOutgoingJob2> for IFaxOutgoingJob {
     fn from(value: IFaxOutgoingJob2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8570,12 +9430,12 @@ impl ::std::convert::From<&IFaxOutgoingJob2> for IFaxOutgoingJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxOutgoingJob> for IFaxOutgoingJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxOutgoingJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxOutgoingJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxOutgoingJob> for &IFaxOutgoingJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxOutgoingJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxOutgoingJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8593,13 +9453,13 @@ impl ::std::convert::From<&IFaxOutgoingJob2> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingJob2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8662,8 +9522,8 @@ pub struct IFaxOutgoingJob2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingJobs(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingJobs(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingJobs {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -8686,6 +9546,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingJobs {
     type Vtable = IFaxOutgoingJobs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(743889126, 35887, 17779, [148, 76, 229, 5, 248, 245, 174, 237]);
 }
+impl ::std::convert::From<IFaxOutgoingJobs> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingJobs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingJobs> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingJobs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingJobs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingJobs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingJobs> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingJobs) -> Self {
@@ -8701,13 +9581,13 @@ impl ::std::convert::From<&IFaxOutgoingJobs> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingJobs {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8731,8 +9611,8 @@ pub struct IFaxOutgoingJobs_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingMessage(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingMessage(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingMessage {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -8840,6 +9720,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessage {
     type Vtable = IFaxOutgoingMessage_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041881054, 51877, 19068, [130, 199, 43, 96, 186, 95, 43, 226]);
 }
+impl ::std::convert::From<IFaxOutgoingMessage> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingMessage) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingMessage> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingMessage) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingMessage {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingMessage> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingMessage) -> Self {
@@ -8855,13 +9755,13 @@ impl ::std::convert::From<&IFaxOutgoingMessage> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8908,8 +9808,8 @@ pub struct IFaxOutgoingMessage_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingMessage2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingMessage2(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingMessage2 {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9071,6 +9971,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessage2 {
     type Vtable = IFaxOutgoingMessage2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3011376775, 48264, 19270, [179, 190, 180, 88, 179, 234, 158, 127]);
 }
+impl ::std::convert::From<IFaxOutgoingMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingMessage2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingMessage2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingMessage2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingMessage2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IFaxOutgoingMessage2> for IFaxOutgoingMessage {
     fn from(value: IFaxOutgoingMessage2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9083,12 +10003,12 @@ impl ::std::convert::From<&IFaxOutgoingMessage2> for IFaxOutgoingMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxOutgoingMessage> for IFaxOutgoingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxOutgoingMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxOutgoingMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxOutgoingMessage> for &IFaxOutgoingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxOutgoingMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxOutgoingMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9106,13 +10026,13 @@ impl ::std::convert::From<&IFaxOutgoingMessage2> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingMessage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9167,8 +10087,8 @@ pub struct IFaxOutgoingMessage2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingMessageIterator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingMessageIterator(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingMessageIterator {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Message(&self) -> ::windows::runtime::Result<IFaxOutgoingMessage> {
@@ -9202,6 +10122,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingMessageIterator {
     type Vtable = IFaxOutgoingMessageIterator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4125908303, 47168, 17199, [153, 128, 17, 47, 228, 42, 155, 122]);
 }
+impl ::std::convert::From<IFaxOutgoingMessageIterator> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingMessageIterator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingMessageIterator> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingMessageIterator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingMessageIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingMessageIterator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingMessageIterator> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingMessageIterator) -> Self {
@@ -9217,13 +10157,13 @@ impl ::std::convert::From<&IFaxOutgoingMessageIterator> for super::super::System
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingMessageIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingMessageIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9249,8 +10189,8 @@ pub struct IFaxOutgoingMessageIterator_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxOutgoingQueue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxOutgoingQueue(pub ::windows::runtime::IUnknown);
 impl IFaxOutgoingQueue {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn Blocked(&self) -> ::windows::runtime::Result<i16> {
@@ -9366,6 +10306,26 @@ unsafe impl ::windows::runtime::Interface for IFaxOutgoingQueue {
     type Vtable = IFaxOutgoingQueue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2159140644, 55724, 17203, [179, 115, 72, 124, 237, 200, 12, 229]);
 }
+impl ::std::convert::From<IFaxOutgoingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxOutgoingQueue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxOutgoingQueue> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxOutgoingQueue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxOutgoingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxOutgoingQueue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxOutgoingQueue> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxOutgoingQueue) -> Self {
@@ -9381,13 +10341,13 @@ impl ::std::convert::From<&IFaxOutgoingQueue> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxOutgoingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxOutgoingQueue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9432,8 +10392,8 @@ pub struct IFaxOutgoingQueue_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxReceiptOptions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxReceiptOptions(pub ::windows::runtime::IUnknown);
 impl IFaxReceiptOptions {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn AuthenticationType(&self) -> ::windows::runtime::Result<FAX_SMTP_AUTHENTICATION_TYPE_ENUM> {
@@ -9528,6 +10488,26 @@ unsafe impl ::windows::runtime::Interface for IFaxReceiptOptions {
     type Vtable = IFaxReceiptOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932117227, 24523, 19195, [178, 238, 225, 110, 128, 97, 68, 135]);
 }
+impl ::std::convert::From<IFaxReceiptOptions> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxReceiptOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxReceiptOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxReceiptOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxReceiptOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxReceiptOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxReceiptOptions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxReceiptOptions) -> Self {
@@ -9543,13 +10523,13 @@ impl ::std::convert::From<&IFaxReceiptOptions> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxReceiptOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxReceiptOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9595,8 +10575,8 @@ pub struct IFaxReceiptOptions_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxRecipient(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxRecipient(pub ::windows::runtime::IUnknown);
 impl IFaxRecipient {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -9625,6 +10605,26 @@ unsafe impl ::windows::runtime::Interface for IFaxRecipient {
     type Vtable = IFaxRecipient_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2587730848, 21389, 17078, [148, 68, 170, 165, 125, 12, 226, 188]);
 }
+impl ::std::convert::From<IFaxRecipient> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxRecipient) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxRecipient> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxRecipient) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxRecipient {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxRecipient> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxRecipient) -> Self {
@@ -9640,13 +10640,13 @@ impl ::std::convert::From<&IFaxRecipient> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxRecipient {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxRecipient {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9674,8 +10674,8 @@ pub struct IFaxRecipient_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxRecipients(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxRecipients(pub ::windows::runtime::IUnknown);
 impl IFaxRecipients {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -9707,6 +10707,26 @@ unsafe impl ::windows::runtime::Interface for IFaxRecipients {
     type Vtable = IFaxRecipients_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3117014618, 35150, 17554, [159, 163, 8, 198, 39, 193, 29, 93]);
 }
+impl ::std::convert::From<IFaxRecipients> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxRecipients) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxRecipients> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxRecipients) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxRecipients {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxRecipients {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxRecipients> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxRecipients) -> Self {
@@ -9722,13 +10742,13 @@ impl ::std::convert::From<&IFaxRecipients> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxRecipients {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxRecipients {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9754,8 +10774,8 @@ pub struct IFaxRecipients_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxSecurity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxSecurity(pub ::windows::runtime::IUnknown);
 impl IFaxSecurity {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9795,6 +10815,26 @@ unsafe impl ::windows::runtime::Interface for IFaxSecurity {
     type Vtable = IFaxSecurity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2008352961, 2496, 18338, [145, 235, 252, 231, 253, 242, 105, 14]);
 }
+impl ::std::convert::From<IFaxSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxSecurity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxSecurity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxSecurity> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxSecurity) -> Self {
@@ -9810,13 +10850,13 @@ impl ::std::convert::From<&IFaxSecurity> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9845,8 +10885,8 @@ pub struct IFaxSecurity_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxSecurity2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxSecurity2(pub ::windows::runtime::IUnknown);
 impl IFaxSecurity2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9886,6 +10926,26 @@ unsafe impl ::windows::runtime::Interface for IFaxSecurity2 {
     type Vtable = IFaxSecurity2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(400052724, 53403, 18684, [153, 201, 143, 36, 196, 219, 154, 177]);
 }
+impl ::std::convert::From<IFaxSecurity2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxSecurity2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxSecurity2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxSecurity2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxSecurity2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxSecurity2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxSecurity2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxSecurity2) -> Self {
@@ -9901,13 +10961,13 @@ impl ::std::convert::From<&IFaxSecurity2> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxSecurity2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxSecurity2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9936,8 +10996,8 @@ pub struct IFaxSecurity2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxSender(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxSender(pub ::windows::runtime::IUnknown);
 impl IFaxSender {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -10128,6 +11188,26 @@ unsafe impl ::windows::runtime::Interface for IFaxSender {
     type Vtable = IFaxSender_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(226991485, 62842, 19654, [166, 249, 62, 229, 213, 39, 180, 106]);
 }
+impl ::std::convert::From<IFaxSender> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxSender) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxSender> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxSender) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxSender {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxSender {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxSender> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxSender) -> Self {
@@ -10143,13 +11223,13 @@ impl ::std::convert::From<&IFaxSender> for super::super::System::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxSender {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxSender {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10235,8 +11315,8 @@ pub struct IFaxSender_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxServer(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxServer(pub ::windows::runtime::IUnknown);
 impl IFaxServer {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -10373,6 +11453,26 @@ unsafe impl ::windows::runtime::Interface for IFaxServer {
     type Vtable = IFaxServer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1197171817, 37029, 18552, [165, 119, 23, 168, 110, 142, 52, 98]);
 }
+impl ::std::convert::From<IFaxServer> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxServer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxServer> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxServer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxServer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxServer> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IFaxServer) -> Self {
@@ -10388,13 +11488,13 @@ impl ::std::convert::From<&IFaxServer> for super::super::System::Ole::Automation
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxServer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxServer {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10449,8 +11549,8 @@ pub struct IFaxServer_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxServer2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxServer2(pub ::windows::runtime::IUnknown);
 impl IFaxServer2 {
     #[doc = "*Required features: `Win32_Devices_Fax`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10628,6 +11728,26 @@ unsafe impl ::windows::runtime::Interface for IFaxServer2 {
     type Vtable = IFaxServer2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1461513487, 22025, 20288, [145, 118, 84, 126, 58, 114, 202, 124]);
 }
+impl ::std::convert::From<IFaxServer2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxServer2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxServer2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxServer2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxServer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxServer2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IFaxServer2> for IFaxServer {
     fn from(value: IFaxServer2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10640,12 +11760,12 @@ impl ::std::convert::From<&IFaxServer2> for IFaxServer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxServer> for IFaxServer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxServer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxServer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFaxServer> for &IFaxServer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFaxServer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFaxServer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10663,13 +11783,13 @@ impl ::std::convert::From<&IFaxServer2> for super::super::System::Ole::Automatio
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxServer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxServer2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10728,12 +11848,32 @@ pub struct IFaxServer2_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxServerNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxServerNotify(pub ::windows::runtime::IUnknown);
 impl IFaxServerNotify {}
 unsafe impl ::windows::runtime::Interface for IFaxServerNotify {
     type Vtable = IFaxServerNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(771980071, 53130, 19133, [177, 224, 87, 4, 148, 59, 234, 111]);
+}
+impl ::std::convert::From<IFaxServerNotify> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxServerNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxServerNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxServerNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxServerNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxServerNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxServerNotify> for super::super::System::Ole::Automation::IDispatch {
@@ -10750,13 +11890,13 @@ impl ::std::convert::From<&IFaxServerNotify> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxServerNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxServerNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10776,12 +11916,32 @@ pub struct IFaxServerNotify_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IFaxServerNotify2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IFaxServerNotify2(pub ::windows::runtime::IUnknown);
 impl IFaxServerNotify2 {}
 unsafe impl ::windows::runtime::Interface for IFaxServerNotify2 {
     type Vtable = IFaxServerNotify2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1634511062, 42874, 16482, [171, 253, 14, 71, 18, 65, 199, 170]);
+}
+impl ::std::convert::From<IFaxServerNotify2> for ::windows::runtime::IUnknown {
+    fn from(value: IFaxServerNotify2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFaxServerNotify2> for ::windows::runtime::IUnknown {
+    fn from(value: &IFaxServerNotify2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IFaxServerNotify2> for super::super::System::Ole::Automation::IDispatch {
@@ -10798,13 +11958,13 @@ impl ::std::convert::From<&IFaxServerNotify2> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IFaxServerNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IFaxServerNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10826,8 +11986,8 @@ pub struct IFaxServerNotify2_abi(
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IStiDevice(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IStiDevice(pub ::windows::runtime::IUnknown);
 impl IStiDevice {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -10911,6 +12071,26 @@ unsafe impl ::windows::runtime::Interface for IStiDevice {
     type Vtable = IStiDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1828346496, 11720, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
 }
+impl ::std::convert::From<IStiDevice> for ::windows::runtime::IUnknown {
+    fn from(value: IStiDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IStiDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &IStiDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStiDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStiDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStiDevice_abi(
@@ -10943,8 +12123,8 @@ pub struct IStiDevice_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IStiDeviceControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IStiDeviceControl(pub ::windows::runtime::IUnknown);
 impl IStiDeviceControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -11003,6 +12183,26 @@ unsafe impl ::windows::runtime::Interface for IStiDeviceControl {
     type Vtable = IStiDeviceControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(311072864, 21212, 4560, [158, 223, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IStiDeviceControl> for ::windows::runtime::IUnknown {
+    fn from(value: IStiDeviceControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IStiDeviceControl> for ::windows::runtime::IUnknown {
+    fn from(value: &IStiDeviceControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStiDeviceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStiDeviceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStiDeviceControl_abi(
@@ -11034,8 +12234,8 @@ pub struct IStiDeviceControl_abi(
 pub struct IStiDeviceW(pub u8);
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IStiUSD(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IStiUSD(pub ::windows::runtime::IUnknown);
 impl IStiUSD {
     #[cfg(feature = "Win32_System_Registry")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_System_Registry`*"]
@@ -11116,6 +12316,26 @@ unsafe impl ::windows::runtime::Interface for IStiUSD {
     type Vtable = IStiUSD_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(211530848, 20908, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
 }
+impl ::std::convert::From<IStiUSD> for ::windows::runtime::IUnknown {
+    fn from(value: IStiUSD) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IStiUSD> for ::windows::runtime::IUnknown {
+    fn from(value: &IStiUSD) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStiUSD {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStiUSD {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStiUSD_abi(
@@ -11147,8 +12367,8 @@ pub struct IStiUSD_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IStillImageW(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IStillImageW(pub ::windows::runtime::IUnknown);
 impl IStillImageW {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -11229,6 +12449,26 @@ impl IStillImageW {
 unsafe impl ::windows::runtime::Interface for IStillImageW {
     type Vtable = IStillImageW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1679546496, 11720, 4560, [144, 234, 0, 170, 0, 96, 248, 108]);
+}
+impl ::std::convert::From<IStillImageW> for ::windows::runtime::IUnknown {
+    fn from(value: IStillImageW) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IStillImageW> for ::windows::runtime::IUnknown {
+    fn from(value: &IStillImageW) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStillImageW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStillImageW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -12040,8 +13280,8 @@ unsafe impl ::windows::runtime::Abi for _ERROR_INFOW {
 }
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _IFaxAccountNotify(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _IFaxAccountNotify(pub ::windows::runtime::IUnknown);
 impl _IFaxAccountNotify {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -12102,6 +13342,26 @@ unsafe impl ::windows::runtime::Interface for _IFaxAccountNotify {
     type Vtable = _IFaxAccountNotify_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3115564161, 44059, 18163, [179, 157, 10, 220, 48, 225, 183, 136]);
 }
+impl ::std::convert::From<_IFaxAccountNotify> for ::windows::runtime::IUnknown {
+    fn from(value: _IFaxAccountNotify) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_IFaxAccountNotify> for ::windows::runtime::IUnknown {
+    fn from(value: &_IFaxAccountNotify) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IFaxAccountNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IFaxAccountNotify {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_IFaxAccountNotify> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: _IFaxAccountNotify) -> Self {
@@ -12117,13 +13377,13 @@ impl ::std::convert::From<&_IFaxAccountNotify> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for _IFaxAccountNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &_IFaxAccountNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -12164,8 +13424,8 @@ pub struct _IFaxAccountNotify_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Fax`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct _IFaxServerNotify2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct _IFaxServerNotify2(pub ::windows::runtime::IUnknown);
 impl _IFaxServerNotify2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Fax`, `Win32_Foundation`*"]
@@ -12287,6 +13547,26 @@ unsafe impl ::windows::runtime::Interface for _IFaxServerNotify2 {
     type Vtable = _IFaxServerNotify2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3969673657, 24551, 18437, [148, 103, 130, 252, 217, 106, 249, 3]);
 }
+impl ::std::convert::From<_IFaxServerNotify2> for ::windows::runtime::IUnknown {
+    fn from(value: _IFaxServerNotify2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&_IFaxServerNotify2> for ::windows::runtime::IUnknown {
+    fn from(value: &_IFaxServerNotify2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a _IFaxServerNotify2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<_IFaxServerNotify2> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: _IFaxServerNotify2) -> Self {
@@ -12302,13 +13582,13 @@ impl ::std::convert::From<&_IFaxServerNotify2> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for _IFaxServerNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &_IFaxServerNotify2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

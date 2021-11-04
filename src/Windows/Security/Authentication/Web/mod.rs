@@ -5,7 +5,7 @@ pub mod Core;
 pub mod Provider;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStatics(::windows::runtime::IInspectable);
+pub struct IWebAuthenticationBrokerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics {
     type Vtable = IWebAuthenticationBrokerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(789880602, 58995, 16565, [188, 34, 32, 26, 104, 100, 163, 123]);
@@ -28,7 +28,7 @@ pub struct IWebAuthenticationBrokerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAuthenticationBrokerStatics2(::windows::runtime::IInspectable);
+pub struct IWebAuthenticationBrokerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationBrokerStatics2 {
     type Vtable = IWebAuthenticationBrokerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1942879134, 5351, 16858, [169, 113, 170, 244, 65, 11, 98, 30]);
@@ -55,7 +55,7 @@ pub struct IWebAuthenticationBrokerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWebAuthenticationResult(::windows::runtime::IInspectable);
+pub struct IWebAuthenticationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1677732683, 60905, 18186, [165, 205, 3, 35, 250, 246, 226, 98]);
@@ -221,8 +221,8 @@ impl ::std::ops::Not for WebAuthenticationOptions {
 }
 #[doc = "*Required features: `Security_Authentication_Web`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WebAuthenticationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WebAuthenticationResult(pub ::windows::runtime::IInspectable);
 impl WebAuthenticationResult {
     #[doc = "*Required features: `Security_Authentication_Web`*"]
     pub fn ResponseData(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -258,6 +258,46 @@ unsafe impl ::windows::runtime::Interface for WebAuthenticationResult {
 }
 impl ::windows::runtime::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";
+}
+impl ::std::convert::From<WebAuthenticationResult> for ::windows::runtime::IUnknown {
+    fn from(value: WebAuthenticationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WebAuthenticationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &WebAuthenticationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WebAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WebAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WebAuthenticationResult> for ::windows::runtime::IInspectable {
+    fn from(value: WebAuthenticationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WebAuthenticationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &WebAuthenticationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WebAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WebAuthenticationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `Security_Authentication_Web`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

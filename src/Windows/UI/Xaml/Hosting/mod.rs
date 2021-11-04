@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesignerAppExitedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesignerAppExitedEventArgs(pub ::windows::runtime::IInspectable);
 impl DesignerAppExitedEventArgs {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn ExitCode(&self) -> ::windows::runtime::Result<u32> {
@@ -23,12 +23,52 @@ unsafe impl ::windows::runtime::Interface for DesignerAppExitedEventArgs {
 impl ::windows::runtime::RuntimeName for DesignerAppExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppExitedEventArgs";
 }
+impl ::std::convert::From<DesignerAppExitedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: DesignerAppExitedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesignerAppExitedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &DesignerAppExitedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesignerAppExitedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesignerAppExitedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesignerAppExitedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: DesignerAppExitedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesignerAppExitedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &DesignerAppExitedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesignerAppExitedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesignerAppExitedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DesignerAppExitedEventArgs {}
 unsafe impl ::std::marker::Sync for DesignerAppExitedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesignerAppManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesignerAppManager(pub ::windows::runtime::IInspectable);
 impl DesignerAppManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Hosting`, `Foundation`*"]
@@ -99,6 +139,46 @@ unsafe impl ::windows::runtime::Interface for DesignerAppManager {
 impl ::windows::runtime::RuntimeName for DesignerAppManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppManager";
 }
+impl ::std::convert::From<DesignerAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: DesignerAppManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesignerAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: &DesignerAppManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesignerAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesignerAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesignerAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: DesignerAppManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesignerAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: &DesignerAppManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesignerAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesignerAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DesignerAppManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -129,8 +209,8 @@ unsafe impl ::std::marker::Send for DesignerAppManager {}
 unsafe impl ::std::marker::Sync for DesignerAppManager {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesignerAppView(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesignerAppView(pub ::windows::runtime::IInspectable);
 impl DesignerAppView {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Hosting`, `Foundation`*"]
@@ -191,6 +271,46 @@ unsafe impl ::windows::runtime::Interface for DesignerAppView {
 impl ::windows::runtime::RuntimeName for DesignerAppView {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppView";
 }
+impl ::std::convert::From<DesignerAppView> for ::windows::runtime::IUnknown {
+    fn from(value: DesignerAppView) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesignerAppView> for ::windows::runtime::IUnknown {
+    fn from(value: &DesignerAppView) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesignerAppView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesignerAppView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesignerAppView> for ::windows::runtime::IInspectable {
+    fn from(value: DesignerAppView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesignerAppView> for ::windows::runtime::IInspectable {
+    fn from(value: &DesignerAppView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesignerAppView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesignerAppView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DesignerAppView> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -243,8 +363,8 @@ impl ::windows::runtime::DefaultType for DesignerAppViewState {
 }
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesktopWindowXamlSource(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesktopWindowXamlSource(pub ::windows::runtime::IInspectable);
 impl DesktopWindowXamlSource {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Hosting`, `Foundation`*"]
@@ -333,6 +453,46 @@ unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSource {
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSource {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSource";
 }
+impl ::std::convert::From<DesktopWindowXamlSource> for ::windows::runtime::IUnknown {
+    fn from(value: DesktopWindowXamlSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSource> for ::windows::runtime::IUnknown {
+    fn from(value: &DesktopWindowXamlSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesktopWindowXamlSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesktopWindowXamlSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesktopWindowXamlSource> for ::windows::runtime::IInspectable {
+    fn from(value: DesktopWindowXamlSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSource> for ::windows::runtime::IInspectable {
+    fn from(value: &DesktopWindowXamlSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesktopWindowXamlSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesktopWindowXamlSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<DesktopWindowXamlSource> for super::super::super::Foundation::IClosable {
     type Error = ::windows::runtime::Error;
@@ -363,8 +523,8 @@ unsafe impl ::std::marker::Send for DesktopWindowXamlSource {}
 unsafe impl ::std::marker::Sync for DesktopWindowXamlSource {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesktopWindowXamlSourceGotFocusEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesktopWindowXamlSourceGotFocusEventArgs(pub ::windows::runtime::IInspectable);
 impl DesktopWindowXamlSourceGotFocusEventArgs {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<XamlSourceFocusNavigationRequest> {
@@ -385,12 +545,52 @@ unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSourceGotFocusEve
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSourceGotFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceGotFocusEventArgs";
 }
+impl ::std::convert::From<DesktopWindowXamlSourceGotFocusEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: DesktopWindowXamlSourceGotFocusEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSourceGotFocusEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &DesktopWindowXamlSourceGotFocusEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesktopWindowXamlSourceGotFocusEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesktopWindowXamlSourceGotFocusEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesktopWindowXamlSourceGotFocusEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: DesktopWindowXamlSourceGotFocusEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSourceGotFocusEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &DesktopWindowXamlSourceGotFocusEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesktopWindowXamlSourceGotFocusEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesktopWindowXamlSourceGotFocusEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DesktopWindowXamlSourceGotFocusEventArgs {}
 unsafe impl ::std::marker::Sync for DesktopWindowXamlSourceGotFocusEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub ::windows::runtime::IInspectable);
 impl DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<XamlSourceFocusNavigationRequest> {
@@ -411,12 +611,52 @@ unsafe impl ::windows::runtime::Interface for DesktopWindowXamlSourceTakeFocusRe
 impl ::windows::runtime::RuntimeName for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgs";
 }
+impl ::std::convert::From<DesktopWindowXamlSourceTakeFocusRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: DesktopWindowXamlSourceTakeFocusRequestedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSourceTakeFocusRequestedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &DesktopWindowXamlSourceTakeFocusRequestedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DesktopWindowXamlSourceTakeFocusRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: DesktopWindowXamlSourceTakeFocusRequestedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DesktopWindowXamlSourceTakeFocusRequestedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &DesktopWindowXamlSourceTakeFocusRequestedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
 unsafe impl ::std::marker::Sync for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ElementCompositionPreview(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ElementCompositionPreview(pub ::windows::runtime::IInspectable);
 impl ElementCompositionPreview {
     #[cfg(feature = "UI_Composition")]
     #[doc = "*Required features: `UI_Xaml_Hosting`, `UI_Composition`*"]
@@ -505,6 +745,46 @@ unsafe impl ::windows::runtime::Interface for ElementCompositionPreview {
 impl ::windows::runtime::RuntimeName for ElementCompositionPreview {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.ElementCompositionPreview";
 }
+impl ::std::convert::From<ElementCompositionPreview> for ::windows::runtime::IUnknown {
+    fn from(value: ElementCompositionPreview) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ElementCompositionPreview> for ::windows::runtime::IUnknown {
+    fn from(value: &ElementCompositionPreview) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ElementCompositionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ElementCompositionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ElementCompositionPreview> for ::windows::runtime::IInspectable {
+    fn from(value: ElementCompositionPreview) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ElementCompositionPreview> for ::windows::runtime::IInspectable {
+    fn from(value: &ElementCompositionPreview) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ElementCompositionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ElementCompositionPreview {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ElementCompositionPreview {}
 unsafe impl ::std::marker::Sync for ElementCompositionPreview {}
 #[repr(C)]
@@ -512,7 +792,7 @@ unsafe impl ::std::marker::Sync for ElementCompositionPreview {}
 pub struct HostingContract(pub u8);
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignerAppExitedEventArgs(::windows::runtime::IInspectable);
+pub struct IDesignerAppExitedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppExitedEventArgs {
     type Vtable = IDesignerAppExitedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4138387562, 3245, 16652, [143, 98, 220, 41, 54, 21, 28, 116]);
@@ -530,7 +810,7 @@ pub struct IDesignerAppExitedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignerAppManager(::windows::runtime::IInspectable);
+pub struct IDesignerAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManager {
     type Vtable = IDesignerAppManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2787585194, 54726, 16587, [171, 217, 39, 186, 67, 131, 27, 183]);
@@ -556,7 +836,7 @@ pub struct IDesignerAppManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignerAppManagerFactory(::windows::runtime::IInspectable);
+pub struct IDesignerAppManagerFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppManagerFactory {
     type Vtable = IDesignerAppManagerFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409456443, 4710, 19470, [132, 153, 13, 184, 91, 189, 76, 67]);
@@ -574,7 +854,7 @@ pub struct IDesignerAppManagerFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesignerAppView(::windows::runtime::IInspectable);
+pub struct IDesignerAppView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesignerAppView {
     type Vtable = IDesignerAppView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1551334634, 56689, 19076, [165, 111, 218, 203, 75, 20, 112, 111]);
@@ -598,7 +878,7 @@ pub struct IDesignerAppView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSource(::windows::runtime::IInspectable);
+pub struct IDesktopWindowXamlSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSource {
     type Vtable = IDesktopWindowXamlSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3582312417, 255, 20926, [186, 29, 161, 50, 153, 86, 234, 10]);
@@ -627,7 +907,7 @@ pub struct IDesktopWindowXamlSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceFactory(::windows::runtime::IInspectable);
+pub struct IDesktopWindowXamlSourceFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceFactory {
     type Vtable = IDesktopWindowXamlSourceFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1557536192, 9569, 22241, [142, 117, 110, 68, 23, 56, 5, 227]);
@@ -645,7 +925,7 @@ pub struct IDesktopWindowXamlSourceFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceGotFocusEventArgs(::windows::runtime::IInspectable);
+pub struct IDesktopWindowXamlSourceGotFocusEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceGotFocusEventArgs {
     type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(968771657, 55756, 23408, [143, 5, 26, 217, 164, 170, 163, 66]);
@@ -663,7 +943,7 @@ pub struct IDesktopWindowXamlSourceGotFocusEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::runtime::IInspectable);
+pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4267828409, 42927, 21171, [189, 185, 195, 48, 92, 11, 141, 242]);
@@ -681,7 +961,7 @@ pub struct IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IElementCompositionPreview(::windows::runtime::IInspectable);
+pub struct IElementCompositionPreview(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreview {
     type Vtable = IElementCompositionPreview_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3069290102, 53222, 18092, [172, 246, 196, 104, 123, 182, 94, 96]);
@@ -698,7 +978,7 @@ pub struct IElementCompositionPreview_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStatics(::windows::runtime::IInspectable);
+pub struct IElementCompositionPreviewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics {
     type Vtable = IElementCompositionPreviewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(147401528, 60569, 19541, [188, 133, 161, 193, 128, 178, 118, 70]);
@@ -723,7 +1003,7 @@ pub struct IElementCompositionPreviewStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStatics2(::windows::runtime::IInspectable);
+pub struct IElementCompositionPreviewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics2 {
     type Vtable = IElementCompositionPreviewStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(605327291, 9174, 20279, [186, 12, 7, 51, 231, 153, 114, 45]);
@@ -747,7 +1027,7 @@ pub struct IElementCompositionPreviewStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IElementCompositionPreviewStatics3(::windows::runtime::IInspectable);
+pub struct IElementCompositionPreviewStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IElementCompositionPreviewStatics3 {
     type Vtable = IElementCompositionPreviewStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2218509507, 49413, 23038, [163, 209, 55, 60, 29, 62, 111, 188]);
@@ -768,7 +1048,7 @@ pub struct IElementCompositionPreviewStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowsXamlManager(::windows::runtime::IInspectable);
+pub struct IWindowsXamlManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManager {
     type Vtable = IWindowsXamlManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1443458097, 6816, 21128, [136, 24, 110, 116, 162, 220, 175, 245]);
@@ -785,7 +1065,7 @@ pub struct IWindowsXamlManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IWindowsXamlManagerStatics(::windows::runtime::IInspectable);
+pub struct IWindowsXamlManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IWindowsXamlManagerStatics {
     type Vtable = IWindowsXamlManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(673548818, 32130, 20571, [178, 16, 113, 43, 4, 165, 136, 130]);
@@ -803,7 +1083,7 @@ pub struct IWindowsXamlManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationRequest(::windows::runtime::IInspectable);
+pub struct IXamlSourceFocusNavigationRequest(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequest {
     type Vtable = IXamlSourceFocusNavigationRequest_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4223220661, 5270, 23168, [172, 0, 231, 87, 53, 151, 85, 230]);
@@ -824,7 +1104,7 @@ pub struct IXamlSourceFocusNavigationRequest_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationRequestFactory(::windows::runtime::IInspectable);
+pub struct IXamlSourceFocusNavigationRequestFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationRequestFactory {
     type Vtable = IXamlSourceFocusNavigationRequestFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3880168335, 46319, 21392, [151, 229, 204, 10, 39, 121, 197, 116]);
@@ -846,7 +1126,7 @@ pub struct IXamlSourceFocusNavigationRequestFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationResult(::windows::runtime::IInspectable);
+pub struct IXamlSourceFocusNavigationResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResult {
     type Vtable = IXamlSourceFocusNavigationResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2295683679, 38403, 23951, [156, 199, 209, 196, 7, 13, 152, 1]);
@@ -864,7 +1144,7 @@ pub struct IXamlSourceFocusNavigationResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlSourceFocusNavigationResultFactory(::windows::runtime::IInspectable);
+pub struct IXamlSourceFocusNavigationResultFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlSourceFocusNavigationResultFactory {
     type Vtable = IXamlSourceFocusNavigationResultFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1136373183, 63969, 21799, [184, 197, 9, 51, 159, 242, 202, 118]);
@@ -882,7 +1162,7 @@ pub struct IXamlSourceFocusNavigationResultFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlUIPresenter(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenter {
     type Vtable = IXamlUIPresenter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2803143754, 5657, 20422, [179, 27, 137, 81, 46, 240, 34, 162]);
@@ -907,9 +1187,9 @@ pub struct IXamlUIPresenter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
-pub struct IXamlUIPresenterHost(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenterHost(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost {
     type Vtable = IXamlUIPresenterHost_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2868610253, 40813, 20352, [172, 44, 14, 108, 185, 243, 22, 89]);
@@ -927,6 +1207,46 @@ impl IXamlUIPresenterHost {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{aafb84cd-9f6d-4f80-ac2c-0e6cb9f31659}");
 }
+impl ::std::convert::From<IXamlUIPresenterHost> for ::windows::runtime::IUnknown {
+    fn from(value: IXamlUIPresenterHost) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost> for ::windows::runtime::IUnknown {
+    fn from(value: &IXamlUIPresenterHost) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IXamlUIPresenterHost> for ::windows::runtime::IInspectable {
+    fn from(value: IXamlUIPresenterHost) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost> for ::windows::runtime::IInspectable {
+    fn from(value: &IXamlUIPresenterHost) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost_abi(
@@ -939,9 +1259,9 @@ pub struct IXamlUIPresenterHost_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
-pub struct IXamlUIPresenterHost2(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenterHost2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost2 {
     type Vtable = IXamlUIPresenterHost2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1633244786, 31908, 18977, [181, 106, 136, 244, 129, 35, 136, 202]);
@@ -959,6 +1279,46 @@ impl IXamlUIPresenterHost2 {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost2 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{61595672-7ca4-4a21-b56a-88f4812388ca}");
 }
+impl ::std::convert::From<IXamlUIPresenterHost2> for ::windows::runtime::IUnknown {
+    fn from(value: IXamlUIPresenterHost2) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost2> for ::windows::runtime::IUnknown {
+    fn from(value: &IXamlUIPresenterHost2) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IXamlUIPresenterHost2> for ::windows::runtime::IInspectable {
+    fn from(value: IXamlUIPresenterHost2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost2> for ::windows::runtime::IInspectable {
+    fn from(value: &IXamlUIPresenterHost2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost2_abi(
@@ -971,9 +1331,9 @@ pub struct IXamlUIPresenterHost2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
-pub struct IXamlUIPresenterHost3(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenterHost3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterHost3 {
     type Vtable = IXamlUIPresenterHost3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2973930175, 29472, 16827, [159, 38, 77, 111, 211, 77, 180, 90]);
@@ -991,6 +1351,46 @@ impl IXamlUIPresenterHost3 {
 unsafe impl ::windows::runtime::RuntimeType for IXamlUIPresenterHost3 {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{b14292bf-7320-41bb-9f26-4d6fd34db45a}");
 }
+impl ::std::convert::From<IXamlUIPresenterHost3> for ::windows::runtime::IUnknown {
+    fn from(value: IXamlUIPresenterHost3) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost3> for ::windows::runtime::IUnknown {
+    fn from(value: &IXamlUIPresenterHost3) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IXamlUIPresenterHost3> for ::windows::runtime::IInspectable {
+    fn from(value: IXamlUIPresenterHost3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IXamlUIPresenterHost3> for ::windows::runtime::IInspectable {
+    fn from(value: &IXamlUIPresenterHost3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IXamlUIPresenterHost3_abi(
@@ -1004,7 +1404,7 @@ pub struct IXamlUIPresenterHost3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterStatics(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics {
     type Vtable = IXamlUIPresenterStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1911220936, 17889, 16786, [133, 170, 58, 66, 46, 221, 35, 207]);
@@ -1025,7 +1425,7 @@ pub struct IXamlUIPresenterStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IXamlUIPresenterStatics2(::windows::runtime::IInspectable);
+pub struct IXamlUIPresenterStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IXamlUIPresenterStatics2 {
     type Vtable = IXamlUIPresenterStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550543058, 53020, 20307, [191, 9, 106, 116, 95, 122, 151, 3]);
@@ -1057,8 +1457,8 @@ pub struct IXamlUIPresenterStatics2_abi(
 );
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct WindowsXamlManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct WindowsXamlManager(pub ::windows::runtime::IInspectable);
 impl WindowsXamlManager {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_Xaml_Hosting`, `Foundation`*"]
@@ -1087,6 +1487,46 @@ unsafe impl ::windows::runtime::Interface for WindowsXamlManager {
 }
 impl ::windows::runtime::RuntimeName for WindowsXamlManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.WindowsXamlManager";
+}
+impl ::std::convert::From<WindowsXamlManager> for ::windows::runtime::IUnknown {
+    fn from(value: WindowsXamlManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&WindowsXamlManager> for ::windows::runtime::IUnknown {
+    fn from(value: &WindowsXamlManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for WindowsXamlManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a WindowsXamlManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<WindowsXamlManager> for ::windows::runtime::IInspectable {
+    fn from(value: WindowsXamlManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&WindowsXamlManager> for ::windows::runtime::IInspectable {
+    fn from(value: &WindowsXamlManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for WindowsXamlManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a WindowsXamlManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Foundation")]
 impl ::std::convert::TryFrom<WindowsXamlManager> for super::super::super::Foundation::IClosable {
@@ -1146,8 +1586,8 @@ impl ::windows::runtime::DefaultType for XamlSourceFocusNavigationReason {
 }
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct XamlSourceFocusNavigationRequest(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct XamlSourceFocusNavigationRequest(pub ::windows::runtime::IInspectable);
 impl XamlSourceFocusNavigationRequest {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn Reason(&self) -> ::windows::runtime::Result<XamlSourceFocusNavigationReason> {
@@ -1212,12 +1652,52 @@ unsafe impl ::windows::runtime::Interface for XamlSourceFocusNavigationRequest {
 impl ::windows::runtime::RuntimeName for XamlSourceFocusNavigationRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest";
 }
+impl ::std::convert::From<XamlSourceFocusNavigationRequest> for ::windows::runtime::IUnknown {
+    fn from(value: XamlSourceFocusNavigationRequest) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&XamlSourceFocusNavigationRequest> for ::windows::runtime::IUnknown {
+    fn from(value: &XamlSourceFocusNavigationRequest) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlSourceFocusNavigationRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XamlSourceFocusNavigationRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<XamlSourceFocusNavigationRequest> for ::windows::runtime::IInspectable {
+    fn from(value: XamlSourceFocusNavigationRequest) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XamlSourceFocusNavigationRequest> for ::windows::runtime::IInspectable {
+    fn from(value: &XamlSourceFocusNavigationRequest) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlSourceFocusNavigationRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlSourceFocusNavigationRequest {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for XamlSourceFocusNavigationRequest {}
 unsafe impl ::std::marker::Sync for XamlSourceFocusNavigationRequest {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct XamlSourceFocusNavigationResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct XamlSourceFocusNavigationResult(pub ::windows::runtime::IInspectable);
 impl XamlSourceFocusNavigationResult {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn WasFocusMoved(&self) -> ::windows::runtime::Result<bool> {
@@ -1249,12 +1729,52 @@ unsafe impl ::windows::runtime::Interface for XamlSourceFocusNavigationResult {
 impl ::windows::runtime::RuntimeName for XamlSourceFocusNavigationResult {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationResult";
 }
+impl ::std::convert::From<XamlSourceFocusNavigationResult> for ::windows::runtime::IUnknown {
+    fn from(value: XamlSourceFocusNavigationResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&XamlSourceFocusNavigationResult> for ::windows::runtime::IUnknown {
+    fn from(value: &XamlSourceFocusNavigationResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlSourceFocusNavigationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XamlSourceFocusNavigationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<XamlSourceFocusNavigationResult> for ::windows::runtime::IInspectable {
+    fn from(value: XamlSourceFocusNavigationResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XamlSourceFocusNavigationResult> for ::windows::runtime::IInspectable {
+    fn from(value: &XamlSourceFocusNavigationResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlSourceFocusNavigationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlSourceFocusNavigationResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for XamlSourceFocusNavigationResult {}
 unsafe impl ::std::marker::Sync for XamlSourceFocusNavigationResult {}
 #[doc = "*Required features: `UI_Xaml_Hosting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct XamlUIPresenter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct XamlUIPresenter(pub ::windows::runtime::IInspectable);
 impl XamlUIPresenter {
     #[doc = "*Required features: `UI_Xaml_Hosting`*"]
     pub fn RootElement(&self) -> ::windows::runtime::Result<super::UIElement> {
@@ -1371,6 +1891,46 @@ unsafe impl ::windows::runtime::Interface for XamlUIPresenter {
 }
 impl ::windows::runtime::RuntimeName for XamlUIPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlUIPresenter";
+}
+impl ::std::convert::From<XamlUIPresenter> for ::windows::runtime::IUnknown {
+    fn from(value: XamlUIPresenter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&XamlUIPresenter> for ::windows::runtime::IUnknown {
+    fn from(value: &XamlUIPresenter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XamlUIPresenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a XamlUIPresenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<XamlUIPresenter> for ::windows::runtime::IInspectable {
+    fn from(value: XamlUIPresenter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&XamlUIPresenter> for ::windows::runtime::IInspectable {
+    fn from(value: &XamlUIPresenter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for XamlUIPresenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a XamlUIPresenter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for XamlUIPresenter {}
 unsafe impl ::std::marker::Sync for XamlUIPresenter {}

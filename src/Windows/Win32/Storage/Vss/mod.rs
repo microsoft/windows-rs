@@ -16,8 +16,8 @@ pub unsafe fn CreateVssExpressWriterInternal() -> ::windows::runtime::Result<IVs
 }
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssAdmin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssAdmin(pub ::windows::runtime::IUnknown);
 impl IVssAdmin {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn RegisterProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, pproviderid: Param0, classid: Param1, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: Param5) -> ::windows::runtime::Result<()> {
@@ -41,6 +41,26 @@ unsafe impl ::windows::runtime::Interface for IVssAdmin {
     type Vtable = IVssAdmin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2012043670, 12131, 4563, [138, 57, 0, 192, 79, 114, 216, 227]);
 }
+impl ::std::convert::From<IVssAdmin> for ::windows::runtime::IUnknown {
+    fn from(value: IVssAdmin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssAdmin> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssAdmin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssAdmin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssAdmin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssAdmin_abi(
@@ -54,8 +74,8 @@ pub struct IVssAdmin_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssAdminEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssAdminEx(pub ::windows::runtime::IUnknown);
 impl IVssAdminEx {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn RegisterProvider<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, pproviderid: Param0, classid: Param1, pwszprovidername: *const u16, eprovidertype: VSS_PROVIDER_TYPE, pwszproviderversion: *const u16, providerversionid: Param5) -> ::windows::runtime::Result<()> {
@@ -93,6 +113,26 @@ unsafe impl ::windows::runtime::Interface for IVssAdminEx {
     type Vtable = IVssAdminEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2019076600, 45562, 16806, [150, 79, 185, 179, 107, 140, 216, 216]);
 }
+impl ::std::convert::From<IVssAdminEx> for ::windows::runtime::IUnknown {
+    fn from(value: IVssAdminEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssAdminEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssAdminEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssAdminEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssAdminEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssAdminEx> for IVssAdmin {
     fn from(value: IVssAdminEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -105,12 +145,12 @@ impl ::std::convert::From<&IVssAdminEx> for IVssAdmin {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssAdmin> for IVssAdminEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssAdmin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssAdmin>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssAdmin> for &IVssAdminEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssAdmin> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssAdmin>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -129,8 +169,8 @@ pub struct IVssAdminEx_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssAsync(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssAsync(pub ::windows::runtime::IUnknown);
 impl IVssAsync {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -149,6 +189,26 @@ unsafe impl ::windows::runtime::Interface for IVssAsync {
     type Vtable = IVssAsync_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350318004, 53083, 20117, [176, 175, 20, 235, 151, 103, 70, 126]);
 }
+impl ::std::convert::From<IVssAsync> for ::windows::runtime::IUnknown {
+    fn from(value: IVssAsync) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssAsync> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssAsync) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssAsync {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssAsync {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssAsync_abi(
@@ -161,8 +221,8 @@ pub struct IVssAsync_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssComponent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssComponent(pub ::windows::runtime::IUnknown);
 impl IVssComponent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -364,6 +424,26 @@ unsafe impl ::windows::runtime::Interface for IVssComponent {
     type Vtable = IVssComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3536268438, 49441, 17688, [182, 39, 229, 169, 61, 1, 14, 173]);
 }
+impl ::std::convert::From<IVssComponent> for ::windows::runtime::IUnknown {
+    fn from(value: IVssComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssComponent_abi(
@@ -444,8 +524,8 @@ pub struct IVssComponent_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssComponentEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssComponentEx(pub ::windows::runtime::IUnknown);
 impl IVssComponentEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -685,6 +765,26 @@ unsafe impl ::windows::runtime::Interface for IVssComponentEx {
     type Vtable = IVssComponentEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(359435102, 61745, 19415, [156, 151, 209, 146, 59, 231, 225, 250]);
 }
+impl ::std::convert::From<IVssComponentEx> for ::windows::runtime::IUnknown {
+    fn from(value: IVssComponentEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssComponentEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssComponentEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssComponentEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssComponentEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssComponentEx> for IVssComponent {
     fn from(value: IVssComponentEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -697,12 +797,12 @@ impl ::std::convert::From<&IVssComponentEx> for IVssComponent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for IVssComponentEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for &IVssComponentEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -798,8 +898,8 @@ pub struct IVssComponentEx_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssComponentEx2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssComponentEx2(pub ::windows::runtime::IUnknown);
 impl IVssComponentEx2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -1049,6 +1149,26 @@ unsafe impl ::windows::runtime::Interface for IVssComponentEx2 {
     type Vtable = IVssComponentEx2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(995877106, 1961, 20043, [189, 211, 207, 220, 142, 44, 13, 45]);
 }
+impl ::std::convert::From<IVssComponentEx2> for ::windows::runtime::IUnknown {
+    fn from(value: IVssComponentEx2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssComponentEx2> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssComponentEx2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssComponentEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssComponentEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssComponentEx2> for IVssComponentEx {
     fn from(value: IVssComponentEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1061,12 +1181,12 @@ impl ::std::convert::From<&IVssComponentEx2> for IVssComponentEx {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponentEx> for IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponentEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponentEx>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponentEx> for &IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponentEx> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponentEx>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVssComponentEx2> for IVssComponent {
@@ -1081,12 +1201,12 @@ impl ::std::convert::From<&IVssComponentEx2> for IVssComponent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssComponent> for &IVssComponentEx2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssComponent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssComponent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1186,8 +1306,8 @@ pub struct IVssComponentEx2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssCreateExpressWriterMetadata(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssCreateExpressWriterMetadata(pub ::windows::runtime::IUnknown);
 impl IVssCreateExpressWriterMetadata {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -1272,6 +1392,26 @@ unsafe impl ::windows::runtime::Interface for IVssCreateExpressWriterMetadata {
     type Vtable = IVssCreateExpressWriterMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625056375, 45678, 17023, [146, 221, 201, 150, 244, 30, 165, 227]);
 }
+impl ::std::convert::From<IVssCreateExpressWriterMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: IVssCreateExpressWriterMetadata) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssCreateExpressWriterMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssCreateExpressWriterMetadata) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssCreateExpressWriterMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssCreateExpressWriterMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssCreateExpressWriterMetadata_abi(
@@ -1294,8 +1434,8 @@ pub struct IVssCreateExpressWriterMetadata_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssCreateWriterMetadata(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssCreateWriterMetadata(pub ::windows::runtime::IUnknown);
 impl IVssCreateWriterMetadata {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -1405,6 +1545,26 @@ unsafe impl ::windows::runtime::Interface for IVssCreateWriterMetadata {
     type Vtable = IVssCreateWriterMetadata_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IVssCreateWriterMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: IVssCreateWriterMetadata) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssCreateWriterMetadata> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssCreateWriterMetadata) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssCreateWriterMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssCreateWriterMetadata {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssCreateWriterMetadata_abi(
@@ -1437,8 +1597,8 @@ pub struct IVssCreateWriterMetadata_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssDifferentialSoftwareSnapshotMgmt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssDifferentialSoftwareSnapshotMgmt(pub ::windows::runtime::IUnknown);
 impl IVssDifferentialSoftwareSnapshotMgmt {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::runtime::Result<()> {
@@ -1473,6 +1633,26 @@ unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMg
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(558501672, 46903, 16422, [184, 71, 79, 158, 55, 215, 149, 41]);
 }
+impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: IVssDifferentialSoftwareSnapshotMgmt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssDifferentialSoftwareSnapshotMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssDifferentialSoftwareSnapshotMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssDifferentialSoftwareSnapshotMgmt_abi(
@@ -1488,8 +1668,8 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssDifferentialSoftwareSnapshotMgmt2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssDifferentialSoftwareSnapshotMgmt2(pub ::windows::runtime::IUnknown);
 impl IVssDifferentialSoftwareSnapshotMgmt2 {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::runtime::Result<()> {
@@ -1542,6 +1722,26 @@ unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMg
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2493346643, 26463, 17013, [137, 105, 240, 68, 198, 39, 120, 21]);
 }
+impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt2> for ::windows::runtime::IUnknown {
+    fn from(value: IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt2> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssDifferentialSoftwareSnapshotMgmt2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssDifferentialSoftwareSnapshotMgmt2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt2> for IVssDifferentialSoftwareSnapshotMgmt {
     fn from(value: IVssDifferentialSoftwareSnapshotMgmt2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1554,12 +1754,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt2> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for IVssDifferentialSoftwareSnapshotMgmt2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for &IVssDifferentialSoftwareSnapshotMgmt2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1582,8 +1782,8 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssDifferentialSoftwareSnapshotMgmt3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssDifferentialSoftwareSnapshotMgmt3(pub ::windows::runtime::IUnknown);
 impl IVssDifferentialSoftwareSnapshotMgmt3 {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn AddDiffArea(&self, pwszvolumename: *const u16, pwszdiffareavolumename: *const u16, llmaximumdiffspace: i64) -> ::windows::runtime::Result<()> {
@@ -1658,6 +1858,26 @@ unsafe impl ::windows::runtime::Interface for IVssDifferentialSoftwareSnapshotMg
     type Vtable = IVssDifferentialSoftwareSnapshotMgmt3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(943685233, 42181, 16415, [178, 127, 248, 38, 40, 159, 132, 88]);
 }
+impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for ::windows::runtime::IUnknown {
+    fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssDifferentialSoftwareSnapshotMgmt3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssDifferentialSoftwareSnapshotMgmt3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt2 {
     fn from(value: IVssDifferentialSoftwareSnapshotMgmt3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1670,12 +1890,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt2> for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt2> for &IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IVssDifferentialSoftwareSnapshotMgmt3> for IVssDifferentialSoftwareSnapshotMgmt {
@@ -1690,12 +1910,12 @@ impl ::std::convert::From<&IVssDifferentialSoftwareSnapshotMgmt3> for IVssDiffer
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssDifferentialSoftwareSnapshotMgmt> for &IVssDifferentialSoftwareSnapshotMgmt3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssDifferentialSoftwareSnapshotMgmt> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssDifferentialSoftwareSnapshotMgmt>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1724,8 +1944,8 @@ pub struct IVssDifferentialSoftwareSnapshotMgmt3_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssEnumMgmtObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssEnumMgmtObject(pub ::windows::runtime::IUnknown);
 impl IVssEnumMgmtObject {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut VSS_MGMT_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1748,6 +1968,26 @@ unsafe impl ::windows::runtime::Interface for IVssEnumMgmtObject {
     type Vtable = IVssEnumMgmtObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(26562155, 37460, 20078, [128, 140, 201, 224, 93, 0, 118, 150]);
 }
+impl ::std::convert::From<IVssEnumMgmtObject> for ::windows::runtime::IUnknown {
+    fn from(value: IVssEnumMgmtObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssEnumMgmtObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssEnumMgmtObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssEnumMgmtObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssEnumMgmtObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssEnumMgmtObject_abi(
@@ -1761,8 +2001,8 @@ pub struct IVssEnumMgmtObject_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssEnumObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssEnumObject(pub ::windows::runtime::IUnknown);
 impl IVssEnumObject {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut VSS_OBJECT_PROP, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1785,6 +2025,26 @@ unsafe impl ::windows::runtime::Interface for IVssEnumObject {
     type Vtable = IVssEnumObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2921099536, 12128, 4563, [138, 57, 0, 192, 79, 114, 216, 227]);
 }
+impl ::std::convert::From<IVssEnumObject> for ::windows::runtime::IUnknown {
+    fn from(value: IVssEnumObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssEnumObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssEnumObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssEnumObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssEnumObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssEnumObject_abi(
@@ -1801,8 +2061,8 @@ pub struct IVssEnumObject_abi(
 pub struct IVssExamineWriterMetadata(pub u8);
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssExpressWriter(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssExpressWriter(pub ::windows::runtime::IUnknown);
 impl IVssExpressWriter {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -1828,6 +2088,26 @@ unsafe impl ::windows::runtime::Interface for IVssExpressWriter {
     type Vtable = IVssExpressWriter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3812294620, 22983, 18353, [151, 213, 66, 102, 89, 143, 98, 53]);
 }
+impl ::std::convert::From<IVssExpressWriter> for ::windows::runtime::IUnknown {
+    fn from(value: IVssExpressWriter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssExpressWriter> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssExpressWriter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssExpressWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssExpressWriter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssExpressWriter_abi(
@@ -1843,8 +2123,8 @@ pub struct IVssExpressWriter_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssFileShareSnapshotProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssFileShareSnapshotProvider(pub ::windows::runtime::IUnknown);
 impl IVssFileShareSnapshotProvider {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn SetContext(&self, lcontext: i32) -> ::windows::runtime::Result<()> {
@@ -1890,6 +2170,26 @@ unsafe impl ::windows::runtime::Interface for IVssFileShareSnapshotProvider {
     type Vtable = IVssFileShareSnapshotProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3361955936, 31790, 4575, [140, 74, 8, 0, 32, 12, 154, 102]);
 }
+impl ::std::convert::From<IVssFileShareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IVssFileShareSnapshotProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssFileShareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssFileShareSnapshotProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssFileShareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssFileShareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssFileShareSnapshotProvider_abi(
@@ -1911,8 +2211,8 @@ pub struct IVssFileShareSnapshotProvider_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssHardwareSnapshotProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssHardwareSnapshotProvider(pub ::windows::runtime::IUnknown);
 impl IVssHardwareSnapshotProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`, `Win32_Storage_VirtualDiskService`*"]
@@ -1949,6 +2249,26 @@ unsafe impl ::windows::runtime::Interface for IVssHardwareSnapshotProvider {
     type Vtable = IVssHardwareSnapshotProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2509480279, 17641, 17220, [187, 235, 68, 251, 249, 176, 107, 16]);
 }
+impl ::std::convert::From<IVssHardwareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IVssHardwareSnapshotProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssHardwareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssHardwareSnapshotProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssHardwareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssHardwareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssHardwareSnapshotProvider_abi(
@@ -1970,8 +2290,8 @@ pub struct IVssHardwareSnapshotProvider_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssHardwareSnapshotProviderEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssHardwareSnapshotProviderEx(pub ::windows::runtime::IUnknown);
 impl IVssHardwareSnapshotProviderEx {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_VirtualDiskService"))]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`, `Win32_Storage_VirtualDiskService`*"]
@@ -2029,6 +2349,26 @@ unsafe impl ::windows::runtime::Interface for IVssHardwareSnapshotProviderEx {
     type Vtable = IVssHardwareSnapshotProviderEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2136713509, 52657, 19729, [167, 31, 51, 158, 183, 231, 9, 253]);
 }
+impl ::std::convert::From<IVssHardwareSnapshotProviderEx> for ::windows::runtime::IUnknown {
+    fn from(value: IVssHardwareSnapshotProviderEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssHardwareSnapshotProviderEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssHardwareSnapshotProviderEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssHardwareSnapshotProviderEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssHardwareSnapshotProviderEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IVssHardwareSnapshotProviderEx> for IVssHardwareSnapshotProvider {
     fn from(value: IVssHardwareSnapshotProviderEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2041,12 +2381,12 @@ impl ::std::convert::From<&IVssHardwareSnapshotProviderEx> for IVssHardwareSnaps
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssHardwareSnapshotProvider> for IVssHardwareSnapshotProviderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssHardwareSnapshotProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssHardwareSnapshotProvider>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVssHardwareSnapshotProvider> for &IVssHardwareSnapshotProviderEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVssHardwareSnapshotProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVssHardwareSnapshotProvider>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2077,8 +2417,8 @@ pub struct IVssHardwareSnapshotProviderEx_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssProviderCreateSnapshotSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssProviderCreateSnapshotSet(pub ::windows::runtime::IUnknown);
 impl IVssProviderCreateSnapshotSet {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn EndPrepareSnapshots<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, snapshotsetid: Param0) -> ::windows::runtime::Result<()> {
@@ -2113,6 +2453,26 @@ unsafe impl ::windows::runtime::Interface for IVssProviderCreateSnapshotSet {
     type Vtable = IVssProviderCreateSnapshotSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1602834011, 7737, 18296, [142, 35, 154, 186, 217, 240, 224, 140]);
 }
+impl ::std::convert::From<IVssProviderCreateSnapshotSet> for ::windows::runtime::IUnknown {
+    fn from(value: IVssProviderCreateSnapshotSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssProviderCreateSnapshotSet> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssProviderCreateSnapshotSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssProviderCreateSnapshotSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssProviderCreateSnapshotSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssProviderCreateSnapshotSet_abi(
@@ -2129,8 +2489,8 @@ pub struct IVssProviderCreateSnapshotSet_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssProviderNotifications(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssProviderNotifications(pub ::windows::runtime::IUnknown);
 impl IVssProviderNotifications {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn OnLoad<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcallback: Param0) -> ::windows::runtime::Result<()> {
@@ -2146,6 +2506,26 @@ unsafe impl ::windows::runtime::Interface for IVssProviderNotifications {
     type Vtable = IVssProviderNotifications_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3848376351, 933, 19198, [134, 208, 114, 186, 238, 206, 112, 4]);
 }
+impl ::std::convert::From<IVssProviderNotifications> for ::windows::runtime::IUnknown {
+    fn from(value: IVssProviderNotifications) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssProviderNotifications> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssProviderNotifications) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssProviderNotifications {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssProviderNotifications {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssProviderNotifications_abi(
@@ -2158,8 +2538,8 @@ pub struct IVssProviderNotifications_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssSnapshotMgmt(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssSnapshotMgmt(pub ::windows::runtime::IUnknown);
 impl IVssSnapshotMgmt {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn GetProviderMgmtInterface<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, providerid: Param0, interfaceid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2181,6 +2561,26 @@ unsafe impl ::windows::runtime::Interface for IVssSnapshotMgmt {
     type Vtable = IVssSnapshotMgmt_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4202559305, 26343, 18822, [162, 127, 226, 240, 74, 229, 55, 114]);
 }
+impl ::std::convert::From<IVssSnapshotMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: IVssSnapshotMgmt) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssSnapshotMgmt> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssSnapshotMgmt) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssSnapshotMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssSnapshotMgmt {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssSnapshotMgmt_abi(
@@ -2193,8 +2593,8 @@ pub struct IVssSnapshotMgmt_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssSnapshotMgmt2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssSnapshotMgmt2(pub ::windows::runtime::IUnknown);
 impl IVssSnapshotMgmt2 {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn GetMinDiffAreaSize(&self) -> ::windows::runtime::Result<i64> {
@@ -2206,6 +2606,26 @@ unsafe impl ::windows::runtime::Interface for IVssSnapshotMgmt2 {
     type Vtable = IVssSnapshotMgmt2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(258075705, 65154, 17906, [163, 240, 118, 139, 93, 66, 113, 2]);
 }
+impl ::std::convert::From<IVssSnapshotMgmt2> for ::windows::runtime::IUnknown {
+    fn from(value: IVssSnapshotMgmt2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssSnapshotMgmt2> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssSnapshotMgmt2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssSnapshotMgmt2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssSnapshotMgmt2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssSnapshotMgmt2_abi(
@@ -2216,8 +2636,8 @@ pub struct IVssSnapshotMgmt2_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssSoftwareSnapshotProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssSoftwareSnapshotProvider(pub ::windows::runtime::IUnknown);
 impl IVssSoftwareSnapshotProvider {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn SetContext(&self, lcontext: i32) -> ::windows::runtime::Result<()> {
@@ -2272,6 +2692,26 @@ unsafe impl ::windows::runtime::Interface for IVssSoftwareSnapshotProvider {
     type Vtable = IVssSoftwareSnapshotProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620972094, 11354, 17619, [143, 1, 11, 29, 154, 71, 209, 255]);
 }
+impl ::std::convert::From<IVssSoftwareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IVssSoftwareSnapshotProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssSoftwareSnapshotProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssSoftwareSnapshotProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssSoftwareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssSoftwareSnapshotProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssSoftwareSnapshotProvider_abi(
@@ -2295,8 +2735,8 @@ pub struct IVssSoftwareSnapshotProvider_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssWMDependency(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssWMDependency(pub ::windows::runtime::IUnknown);
 impl IVssWMDependency {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn GetWriterId(&self, pwriterid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -2317,6 +2757,26 @@ unsafe impl ::windows::runtime::Interface for IVssWMDependency {
     type Vtable = IVssWMDependency_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IVssWMDependency> for ::windows::runtime::IUnknown {
+    fn from(value: IVssWMDependency) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssWMDependency> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssWMDependency) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssWMDependency {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssWMDependency {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssWMDependency_abi(
@@ -2331,8 +2791,8 @@ pub struct IVssWMDependency_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssWMFiledesc(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssWMFiledesc(pub ::windows::runtime::IUnknown);
 impl IVssWMFiledesc {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -2367,6 +2827,26 @@ unsafe impl ::windows::runtime::Interface for IVssWMFiledesc {
     type Vtable = IVssWMFiledesc_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IVssWMFiledesc> for ::windows::runtime::IUnknown {
+    fn from(value: IVssWMFiledesc) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssWMFiledesc> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssWMFiledesc) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssWMFiledesc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssWMFiledesc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssWMFiledesc_abi(
@@ -2384,8 +2864,8 @@ pub struct IVssWMFiledesc_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssWriterComponents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssWriterComponents(pub ::windows::runtime::IUnknown);
 impl IVssWriterComponents {
     #[doc = "*Required features: `Win32_Storage_Vss`*"]
     pub unsafe fn GetComponentCount(&self, pccomponents: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2405,6 +2885,26 @@ unsafe impl ::windows::runtime::Interface for IVssWriterComponents {
     type Vtable = IVssWriterComponents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
 }
+impl ::std::convert::From<IVssWriterComponents> for ::windows::runtime::IUnknown {
+    fn from(value: IVssWriterComponents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssWriterComponents> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssWriterComponents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssWriterComponents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssWriterComponents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IVssWriterComponents_abi(
@@ -2417,8 +2917,8 @@ pub struct IVssWriterComponents_abi(
 );
 #[doc = "*Required features: `Win32_Storage_Vss`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IVssWriterImpl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IVssWriterImpl(pub ::windows::runtime::IUnknown);
 impl IVssWriterImpl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_Vss`, `Win32_Foundation`*"]
@@ -2548,6 +3048,26 @@ impl IVssWriterImpl {
 unsafe impl ::windows::runtime::Interface for IVssWriterImpl {
     type Vtable = IVssWriterImpl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::zeroed();
+}
+impl ::std::convert::From<IVssWriterImpl> for ::windows::runtime::IUnknown {
+    fn from(value: IVssWriterImpl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IVssWriterImpl> for ::windows::runtime::IUnknown {
+    fn from(value: &IVssWriterImpl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IVssWriterImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IVssWriterImpl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -17,7 +17,7 @@ impl ::windows::runtime::RuntimeName for CorePerceptionAutomation {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICorePerceptionAutomationStatics(::windows::runtime::IInspectable);
+pub struct ICorePerceptionAutomationStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICorePerceptionAutomationStatics {
     type Vtable = ICorePerceptionAutomationStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(196101441, 19682, 18723, [154, 118, 129, 135, 236, 197, 145, 18]);

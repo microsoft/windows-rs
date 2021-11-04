@@ -8631,8 +8631,8 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput2A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput2A(pub ::windows::runtime::IUnknown);
 impl IDirectInput2A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -8667,6 +8667,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput2A {
     type Vtable = IDirectInput2A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687650, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInput2A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput2A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput2A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput2A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput2A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput2A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInput2A> for IDirectInputA {
     fn from(value: IDirectInput2A) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8679,12 +8699,12 @@ impl ::std::convert::From<&IDirectInput2A> for IDirectInputA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8706,8 +8726,8 @@ pub struct IDirectInput2A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput2W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput2W(pub ::windows::runtime::IUnknown);
 impl IDirectInput2W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -8742,6 +8762,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput2W {
     type Vtable = IDirectInput2W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687651, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInput2W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput2W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput2W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput2W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput2W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput2W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInput2W> for IDirectInputW {
     fn from(value: IDirectInput2W) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8754,12 +8794,12 @@ impl ::std::convert::From<&IDirectInput2W> for IDirectInputW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8781,8 +8821,8 @@ pub struct IDirectInput2W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput7A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput7A(pub ::windows::runtime::IUnknown);
 impl IDirectInput7A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -8821,6 +8861,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput7A {
     type Vtable = IDirectInput7A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718724, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
+impl ::std::convert::From<IDirectInput7A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput7A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput7A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput7A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput7A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput7A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInput7A> for IDirectInput2A {
     fn from(value: IDirectInput7A) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8833,12 +8893,12 @@ impl ::std::convert::From<&IDirectInput7A> for IDirectInput2A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInput7A> for IDirectInputA {
@@ -8853,12 +8913,12 @@ impl ::std::convert::From<&IDirectInput7A> for IDirectInputA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8881,8 +8941,8 @@ pub struct IDirectInput7A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput7W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput7W(pub ::windows::runtime::IUnknown);
 impl IDirectInput7W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -8921,6 +8981,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput7W {
     type Vtable = IDirectInput7W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718725, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
+impl ::std::convert::From<IDirectInput7W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput7W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput7W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput7W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput7W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput7W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInput7W> for IDirectInput2W {
     fn from(value: IDirectInput7W) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8933,12 +9013,12 @@ impl ::std::convert::From<&IDirectInput7W> for IDirectInput2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInput7W> for IDirectInputW {
@@ -8953,12 +9033,12 @@ impl ::std::convert::From<&IDirectInput7W> for IDirectInputW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8981,8 +9061,8 @@ pub struct IDirectInput7W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput8A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput8A(pub ::windows::runtime::IUnknown);
 impl IDirectInput8A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -9027,6 +9107,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput8A {
     type Vtable = IDirectInput8A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410928, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
+impl ::std::convert::From<IDirectInput8A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput8A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput8A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput8A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput8A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput8A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8A_abi(
@@ -9050,8 +9150,8 @@ pub struct IDirectInput8A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInput8W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInput8W(pub ::windows::runtime::IUnknown);
 impl IDirectInput8W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -9096,6 +9196,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInput8W {
     type Vtable = IDirectInput8W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410929, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
+impl ::std::convert::From<IDirectInput8W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInput8W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInput8W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInput8W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput8W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInput8W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8W_abi(
@@ -9119,8 +9239,8 @@ pub struct IDirectInput8W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputA(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputA(pub ::windows::runtime::IUnknown);
 impl IDirectInputA {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -9150,6 +9270,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputA {
     type Vtable = IDirectInputA_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857504, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputA> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputA) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputA> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputA) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputA {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputA {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputA_abi(
@@ -9167,8 +9307,8 @@ pub struct IDirectInputA_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice2A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice2A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice2A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -9281,6 +9421,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687682, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputDevice2A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice2A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice2A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice2A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice2A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice2A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
     fn from(value: IDirectInputDevice2A) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9293,12 +9453,12 @@ impl ::std::convert::From<&IDirectInputDevice2A> for IDirectInputDeviceA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9344,8 +9504,8 @@ pub struct IDirectInputDevice2A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice2W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice2W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice2W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -9455,6 +9615,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687683, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputDevice2W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice2W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice2W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice2W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice2W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice2W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
     fn from(value: IDirectInputDevice2W) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9467,12 +9647,12 @@ impl ::std::convert::From<&IDirectInputDevice2W> for IDirectInputDeviceW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9515,8 +9695,8 @@ pub struct IDirectInputDevice2W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice7A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice7A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice7A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -9639,6 +9819,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758908, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
+impl ::std::convert::From<IDirectInputDevice7A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice7A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice7A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice7A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice7A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice7A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
     fn from(value: IDirectInputDevice7A) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9651,12 +9851,12 @@ impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDevice2A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
@@ -9671,12 +9871,12 @@ impl ::std::convert::From<&IDirectInputDevice7A> for IDirectInputDeviceA {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9726,8 +9926,8 @@ pub struct IDirectInputDevice7A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice7W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice7W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice7W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -9847,6 +10047,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758909, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
+impl ::std::convert::From<IDirectInputDevice7W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice7W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice7W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice7W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice7W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice7W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
     fn from(value: IDirectInputDevice7W) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9859,12 +10079,12 @@ impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDevice2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
@@ -9879,12 +10099,12 @@ impl ::std::convert::From<&IDirectInputDevice7W> for IDirectInputDeviceW {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9931,8 +10151,8 @@ pub struct IDirectInputDevice7W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice8A(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice8A(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice8A {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -10070,6 +10290,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8A_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184000, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
+impl ::std::convert::From<IDirectInputDevice8A> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice8A) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice8A> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice8A) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice8A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice8A {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8A_abi(
@@ -10123,8 +10363,8 @@ pub struct IDirectInputDevice8A_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDevice8W(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDevice8W(pub ::windows::runtime::IUnknown);
 impl IDirectInputDevice8W {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -10259,6 +10499,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8W_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184001, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
+impl ::std::convert::From<IDirectInputDevice8W> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDevice8W) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDevice8W> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDevice8W) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice8W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDevice8W {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8W_abi(
@@ -10309,8 +10569,8 @@ pub struct IDirectInputDevice8W_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDeviceA(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDeviceA(pub ::windows::runtime::IUnknown);
 impl IDirectInputDeviceA {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -10384,6 +10644,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceA_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687680, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputDeviceA> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDeviceA) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDeviceA> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDeviceA) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDeviceA {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDeviceA {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceA_abi(
@@ -10415,8 +10695,8 @@ pub struct IDirectInputDeviceA_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputDeviceW(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputDeviceW(pub ::windows::runtime::IUnknown);
 impl IDirectInputDeviceW {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
@@ -10488,6 +10768,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687681, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputDeviceW> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputDeviceW) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputDeviceW> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputDeviceW) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDeviceW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputDeviceW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceW_abi(
@@ -10517,8 +10817,8 @@ pub struct IDirectInputDeviceW_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputEffect(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputEffect(pub ::windows::runtime::IUnknown);
 impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
@@ -10566,6 +10866,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffect_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890345920, 35026, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
+impl ::std::convert::From<IDirectInputEffect> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputEffect) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputEffect> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputEffect) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputEffect {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffect_abi(
@@ -10586,8 +10906,8 @@ pub struct IDirectInputEffect_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputEffectDriver(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputEffectDriver(pub ::windows::runtime::IUnknown);
 impl IDirectInputEffectDriver {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -10638,6 +10958,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39026992, 35215, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
+impl ::std::convert::From<IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputEffectDriver) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputEffectDriver) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputEffectDriver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputEffectDriver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffectDriver_abi(
@@ -10658,8 +10998,8 @@ pub struct IDirectInputEffectDriver_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputJoyConfig(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputJoyConfig(pub ::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
@@ -10742,6 +11082,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfig_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501295793, 51701, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
+impl ::std::convert::From<IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputJoyConfig) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputJoyConfig) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputJoyConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputJoyConfig {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig_abi(
@@ -10779,8 +11139,8 @@ pub struct IDirectInputJoyConfig_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputJoyConfig8(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputJoyConfig8(pub ::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig8 {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
@@ -10863,6 +11223,26 @@ unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943529978, 6544, 20263, [180, 214, 237, 242, 238, 196, 164, 76]);
 }
+impl ::std::convert::From<IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputJoyConfig8) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputJoyConfig8) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputJoyConfig8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputJoyConfig8 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig8_abi(
@@ -10900,8 +11280,8 @@ pub struct IDirectInputJoyConfig8_abi(
 );
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectInputW(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectInputW(pub ::windows::runtime::IUnknown);
 impl IDirectInputW {
     #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
     pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
@@ -10930,6 +11310,26 @@ impl IDirectInputW {
 unsafe impl ::windows::runtime::Interface for IDirectInputW {
     type Vtable = IDirectInputW_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857505, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+}
+impl ::std::convert::From<IDirectInputW> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectInputW) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectInputW> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectInputW) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectInputW {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

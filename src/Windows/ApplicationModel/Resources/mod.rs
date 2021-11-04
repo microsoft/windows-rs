@@ -5,7 +5,7 @@ pub mod Core;
 pub mod Management;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoader(::windows::runtime::IInspectable);
+pub struct IResourceLoader(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoader {
     type Vtable = IResourceLoader_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(139610376, 5871, 17837, [166, 2, 41, 54, 55, 215, 230, 26]);
@@ -23,7 +23,7 @@ pub struct IResourceLoader_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoader2(::windows::runtime::IInspectable);
+pub struct IResourceLoader2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoader2 {
     type Vtable = IResourceLoader2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(283864774, 33080, 18625, [188, 101, 225, 241, 66, 7, 54, 124]);
@@ -42,7 +42,7 @@ pub struct IResourceLoader2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoaderFactory(::windows::runtime::IInspectable);
+pub struct IResourceLoaderFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderFactory {
     type Vtable = IResourceLoaderFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3275372035, 27100, 17029, [160, 119, 213, 192, 228, 124, 203, 232]);
@@ -60,7 +60,7 @@ pub struct IResourceLoaderFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics(::windows::runtime::IInspectable);
+pub struct IResourceLoaderStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics {
     type Vtable = IResourceLoaderStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212279009, 6600, 18882, [149, 60, 71, 233, 34, 123, 51, 78]);
@@ -79,7 +79,7 @@ pub struct IResourceLoaderStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics2(::windows::runtime::IInspectable);
+pub struct IResourceLoaderStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics2 {
     type Vtable = IResourceLoaderStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(213926209, 25702, 18825, [148, 148, 11, 130, 223, 197, 63, 31]);
@@ -100,7 +100,7 @@ pub struct IResourceLoaderStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics3(::windows::runtime::IInspectable);
+pub struct IResourceLoaderStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics3 {
     type Vtable = IResourceLoaderStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1684053499, 25772, 18715, [129, 0, 14, 85, 141, 97, 193, 208]);
@@ -119,7 +119,7 @@ pub struct IResourceLoaderStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IResourceLoaderStatics4(::windows::runtime::IInspectable);
+pub struct IResourceLoaderStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IResourceLoaderStatics4 {
     type Vtable = IResourceLoaderStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2679335986, 27788, 17174, [150, 46, 144, 149, 57, 181, 194, 89]);
@@ -137,8 +137,8 @@ pub struct IResourceLoaderStatics4_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Resources`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ResourceLoader(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ResourceLoader(pub ::windows::runtime::IInspectable);
 impl ResourceLoader {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -252,6 +252,46 @@ unsafe impl ::windows::runtime::Interface for ResourceLoader {
 }
 impl ::windows::runtime::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";
+}
+impl ::std::convert::From<ResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: ResourceLoader) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ResourceLoader> for ::windows::runtime::IUnknown {
+    fn from(value: &ResourceLoader) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ResourceLoader> for ::windows::runtime::IInspectable {
+    fn from(value: ResourceLoader) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ResourceLoader> for ::windows::runtime::IInspectable {
+    fn from(value: &ResourceLoader) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ResourceLoader {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ResourceLoader {}
 unsafe impl ::std::marker::Sync for ResourceLoader {}

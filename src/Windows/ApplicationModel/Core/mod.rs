@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AppListEntry(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AppListEntry(pub ::windows::runtime::IInspectable);
 impl AppListEntry {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
     pub fn DisplayInfo(&self) -> ::windows::runtime::Result<super::AppDisplayInfo> {
@@ -56,6 +56,46 @@ unsafe impl ::windows::runtime::Interface for AppListEntry {
 }
 impl ::windows::runtime::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
+}
+impl ::std::convert::From<AppListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: AppListEntry) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AppListEntry> for ::windows::runtime::IUnknown {
+    fn from(value: &AppListEntry) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AppListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: AppListEntry) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AppListEntry> for ::windows::runtime::IInspectable {
+    fn from(value: &AppListEntry) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AppListEntry {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for AppListEntry {}
 unsafe impl ::std::marker::Sync for AppListEntry {}
@@ -318,8 +358,8 @@ impl ::windows::runtime::RuntimeName for CoreApplication {
 }
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CoreApplicationView(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CoreApplicationView(pub ::windows::runtime::IInspectable);
 impl CoreApplicationView {
     #[cfg(feature = "UI_Core")]
     #[doc = "*Required features: `ApplicationModel_Core`, `UI_Core`*"]
@@ -430,10 +470,50 @@ unsafe impl ::windows::runtime::Interface for CoreApplicationView {
 impl ::windows::runtime::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
 }
+impl ::std::convert::From<CoreApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: CoreApplicationView) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CoreApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreApplicationView) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CoreApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: CoreApplicationView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreApplicationView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CoreApplicationViewTitleBar(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CoreApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 impl CoreApplicationViewTitleBar {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
     pub fn SetExtendViewIntoTitleBar(&self, value: bool) -> ::windows::runtime::Result<()> {
@@ -521,10 +601,50 @@ unsafe impl ::windows::runtime::Interface for CoreApplicationViewTitleBar {
 impl ::windows::runtime::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
 }
+impl ::std::convert::From<CoreApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: CoreApplicationViewTitleBar) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CoreApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: &CoreApplicationViewTitleBar) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CoreApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: CoreApplicationViewTitleBar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CoreApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: &CoreApplicationViewTitleBar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CoreApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct HostedViewClosingEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct HostedViewClosingEventArgs(pub ::windows::runtime::IInspectable);
 impl HostedViewClosingEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `ApplicationModel_Core`, `Foundation`*"]
@@ -546,11 +666,51 @@ unsafe impl ::windows::runtime::Interface for HostedViewClosingEventArgs {
 impl ::windows::runtime::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
 }
+impl ::std::convert::From<HostedViewClosingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: HostedViewClosingEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&HostedViewClosingEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &HostedViewClosingEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<HostedViewClosingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: HostedViewClosingEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&HostedViewClosingEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &HostedViewClosingEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a HostedViewClosingEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for HostedViewClosingEventArgs {}
 unsafe impl ::std::marker::Sync for HostedViewClosingEventArgs {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppListEntry(::windows::runtime::IInspectable);
+pub struct IAppListEntry(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry {
     type Vtable = IAppListEntry_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009816191, 8456, 18698, [135, 122, 138, 159, 23, 194, 95, 173]);
@@ -570,7 +730,7 @@ pub struct IAppListEntry_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppListEntry2(::windows::runtime::IInspectable);
+pub struct IAppListEntry2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry2 {
     type Vtable = IAppListEntry2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3500546221, 48949, 17068, [172, 6, 134, 238, 235, 65, 208, 75]);
@@ -588,7 +748,7 @@ pub struct IAppListEntry2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppListEntry3(::windows::runtime::IInspectable);
+pub struct IAppListEntry3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry3 {
     type Vtable = IAppListEntry3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1620701837, 64562, 18186, [188, 105, 75, 6, 26, 118, 239, 46]);
@@ -607,7 +767,7 @@ pub struct IAppListEntry3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAppListEntry4(::windows::runtime::IInspectable);
+pub struct IAppListEntry4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAppListEntry4 {
     type Vtable = IAppListEntry4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705896146, 22261, 18556, [134, 151, 81, 102, 243, 179, 61, 160]);
@@ -625,7 +785,7 @@ pub struct IAppListEntry4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplication(::windows::runtime::IInspectable);
+pub struct ICoreApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication {
     type Vtable = ICoreApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179107748, 24093, 18911, [128, 52, 251, 106, 104, 188, 94, 209]);
@@ -657,7 +817,7 @@ pub struct ICoreApplication_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplication2(::windows::runtime::IInspectable);
+pub struct ICoreApplication2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication2 {
     type Vtable = ICoreApplication2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2575729147, 6838, 19327, [190, 74, 154, 6, 69, 34, 76, 4]);
@@ -687,7 +847,7 @@ pub struct ICoreApplication2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplication3(::windows::runtime::IInspectable);
+pub struct ICoreApplication3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplication3 {
     type Vtable = ICoreApplication3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276882745, 22923, 17671, [138, 103, 119, 38, 50, 88, 10, 87]);
@@ -708,7 +868,7 @@ pub struct ICoreApplication3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationExit(::windows::runtime::IInspectable);
+pub struct ICoreApplicationExit(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationExit {
     type Vtable = ICoreApplicationExit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3481683485, 9758, 19314, [154, 205, 68, 237, 42, 206, 106, 41]);
@@ -729,9 +889,9 @@ pub struct ICoreApplicationExit_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
-pub struct ICoreApplicationUnhandledError(::windows::runtime::IInspectable);
+pub struct ICoreApplicationUnhandledError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUnhandledError {
     type Vtable = ICoreApplicationUnhandledError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4041362096, 56585, 17121, [176, 188, 224, 225, 49, 247, 141, 126]);
@@ -756,6 +916,46 @@ impl ICoreApplicationUnhandledError {
 unsafe impl ::windows::runtime::RuntimeType for ICoreApplicationUnhandledError {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
 }
+impl ::std::convert::From<ICoreApplicationUnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: ICoreApplicationUnhandledError) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ICoreApplicationUnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: &ICoreApplicationUnhandledError) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ICoreApplicationUnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: ICoreApplicationUnhandledError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ICoreApplicationUnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: &ICoreApplicationUnhandledError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreApplicationUnhandledError_abi(
@@ -772,7 +972,7 @@ pub struct ICoreApplicationUnhandledError_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationUseCount(::windows::runtime::IInspectable);
+pub struct ICoreApplicationUseCount(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationUseCount {
     type Vtable = ICoreApplicationUseCount_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368245256, 49271, 18267, [128, 158, 11, 192, 197, 126, 75, 116]);
@@ -791,7 +991,7 @@ pub struct ICoreApplicationUseCount_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationView(::windows::runtime::IInspectable);
+pub struct ICoreApplicationView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView {
     type Vtable = ICoreApplicationView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1670099675, 17693, 18017, [176, 153, 65, 79, 52, 255, 185, 241]);
@@ -816,7 +1016,7 @@ pub struct ICoreApplicationView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationView2(::windows::runtime::IInspectable);
+pub struct ICoreApplicationView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView2 {
     type Vtable = ICoreApplicationView2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1760262879, 37247, 18667, [154, 235, 125, 229, 62, 8, 106, 177]);
@@ -835,7 +1035,7 @@ pub struct ICoreApplicationView2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationView3(::windows::runtime::IInspectable);
+pub struct ICoreApplicationView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView3 {
     type Vtable = ICoreApplicationView3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(132899251, 42191, 17744, [171, 112, 176, 126, 133, 51, 11, 200]);
@@ -858,7 +1058,7 @@ pub struct ICoreApplicationView3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationView5(::windows::runtime::IInspectable);
+pub struct ICoreApplicationView5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView5 {
     type Vtable = ICoreApplicationView5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(734041512, 36592, 17517, [158, 96, 58, 62, 4, 40, 198, 113]);
@@ -877,7 +1077,7 @@ pub struct ICoreApplicationView5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationView6(::windows::runtime::IInspectable);
+pub struct ICoreApplicationView6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationView6 {
     type Vtable = ICoreApplicationView6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3239695514, 1657, 18874, [128, 63, 183, 156, 92, 243, 76, 202]);
@@ -896,7 +1096,7 @@ pub struct ICoreApplicationView6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreApplicationViewTitleBar(::windows::runtime::IInspectable);
+pub struct ICoreApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(7157219, 57841, 17179, [149, 8, 41, 185, 105, 38, 172, 83]);
@@ -927,7 +1127,7 @@ pub struct ICoreApplicationViewTitleBar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreImmersiveApplication(::windows::runtime::IInspectable);
+pub struct ICoreImmersiveApplication(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication {
     type Vtable = ICoreImmersiveApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(450498110, 58530, 16675, [180, 81, 220, 150, 191, 128, 4, 25]);
@@ -948,7 +1148,7 @@ pub struct ICoreImmersiveApplication_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreImmersiveApplication2(::windows::runtime::IInspectable);
+pub struct ICoreImmersiveApplication2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication2 {
     type Vtable = ICoreImmersiveApplication2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2190351926, 59875, 19708, [155, 102, 72, 183, 142, 169, 187, 44]);
@@ -966,7 +1166,7 @@ pub struct ICoreImmersiveApplication2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICoreImmersiveApplication3(::windows::runtime::IInspectable);
+pub struct ICoreImmersiveApplication3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICoreImmersiveApplication3 {
     type Vtable = ICoreImmersiveApplication3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(882924335, 60941, 16869, [131, 20, 207, 16, 201, 27, 240, 175]);
@@ -983,9 +1183,9 @@ pub struct ICoreImmersiveApplication3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, viewsource: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
-pub struct IFrameworkView(::windows::runtime::IInspectable);
+pub struct IFrameworkView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkView {
     type Vtable = IFrameworkView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4205534416, 35108, 17836, [173, 15, 160, 143, 174, 93, 3, 36]);
@@ -1021,6 +1221,46 @@ impl IFrameworkView {
 unsafe impl ::windows::runtime::RuntimeType for IFrameworkView {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
 }
+impl ::std::convert::From<IFrameworkView> for ::windows::runtime::IUnknown {
+    fn from(value: IFrameworkView) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IFrameworkView> for ::windows::runtime::IUnknown {
+    fn from(value: &IFrameworkView) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IFrameworkView> for ::windows::runtime::IInspectable {
+    fn from(value: IFrameworkView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFrameworkView> for ::windows::runtime::IInspectable {
+    fn from(value: &IFrameworkView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFrameworkView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkView_abi(
@@ -1038,9 +1278,9 @@ pub struct IFrameworkView_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `ApplicationModel_Core`*"]
-pub struct IFrameworkViewSource(::windows::runtime::IInspectable);
+pub struct IFrameworkViewSource(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFrameworkViewSource {
     type Vtable = IFrameworkViewSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3447129620, 26052, 17004, [148, 148, 52, 252, 67, 85, 72, 98]);
@@ -1058,6 +1298,46 @@ impl IFrameworkViewSource {
 unsafe impl ::windows::runtime::RuntimeType for IFrameworkViewSource {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
 }
+impl ::std::convert::From<IFrameworkViewSource> for ::windows::runtime::IUnknown {
+    fn from(value: IFrameworkViewSource) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IFrameworkViewSource> for ::windows::runtime::IUnknown {
+    fn from(value: &IFrameworkViewSource) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IFrameworkViewSource> for ::windows::runtime::IInspectable {
+    fn from(value: IFrameworkViewSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFrameworkViewSource> for ::windows::runtime::IInspectable {
+    fn from(value: &IFrameworkViewSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFrameworkViewSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFrameworkViewSource_abi(
@@ -1071,7 +1351,7 @@ pub struct IFrameworkViewSource_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IHostedViewClosingEventArgs(::windows::runtime::IInspectable);
+pub struct IHostedViewClosingEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IHostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3526923324, 45646, 18320, [172, 181, 62, 66, 67, 196, 255, 135]);
@@ -1090,7 +1370,7 @@ pub struct IHostedViewClosingEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUnhandledError(::windows::runtime::IInspectable);
+pub struct IUnhandledError(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledError {
     type Vtable = IUnhandledError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2488907558, 21429, 18054, [158, 175, 250, 129, 98, 220, 57, 128]);
@@ -1109,7 +1389,7 @@ pub struct IUnhandledError_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUnhandledErrorDetectedEventArgs(::windows::runtime::IInspectable);
+pub struct IUnhandledErrorDetectedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1738192779, 45878, 18466, [172, 64, 13, 117, 15, 11, 122, 43]);
@@ -1127,8 +1407,8 @@ pub struct IUnhandledErrorDetectedEventArgs_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UnhandledError(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UnhandledError(pub ::windows::runtime::IInspectable);
 impl UnhandledError {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
     pub fn Handled(&self) -> ::windows::runtime::Result<bool> {
@@ -1154,12 +1434,52 @@ unsafe impl ::windows::runtime::Interface for UnhandledError {
 impl ::windows::runtime::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
 }
+impl ::std::convert::From<UnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: UnhandledError) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UnhandledError> for ::windows::runtime::IUnknown {
+    fn from(value: &UnhandledError) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: UnhandledError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnhandledError> for ::windows::runtime::IInspectable {
+    fn from(value: &UnhandledError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnhandledError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UnhandledError {}
 unsafe impl ::std::marker::Sync for UnhandledError {}
 #[doc = "*Required features: `ApplicationModel_Core`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UnhandledErrorDetectedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UnhandledErrorDetectedEventArgs(pub ::windows::runtime::IInspectable);
 impl UnhandledErrorDetectedEventArgs {
     #[doc = "*Required features: `ApplicationModel_Core`*"]
     pub fn UnhandledError(&self) -> ::windows::runtime::Result<UnhandledError> {
@@ -1179,6 +1499,46 @@ unsafe impl ::windows::runtime::Interface for UnhandledErrorDetectedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";
+}
+impl ::std::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UnhandledErrorDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UnhandledErrorDetectedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UnhandledErrorDetectedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UnhandledErrorDetectedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UnhandledErrorDetectedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for UnhandledErrorDetectedEventArgs {}
 unsafe impl ::std::marker::Sync for UnhandledErrorDetectedEventArgs {}

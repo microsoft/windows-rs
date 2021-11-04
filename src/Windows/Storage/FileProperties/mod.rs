@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct BasicProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct BasicProperties(pub ::windows::runtime::IInspectable);
 impl BasicProperties {
     #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Size(&self) -> ::windows::runtime::Result<u64> {
@@ -68,6 +68,46 @@ unsafe impl ::windows::runtime::Interface for BasicProperties {
 impl ::windows::runtime::RuntimeName for BasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
 }
+impl ::std::convert::From<BasicProperties> for ::windows::runtime::IUnknown {
+    fn from(value: BasicProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&BasicProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &BasicProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for BasicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a BasicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<BasicProperties> for ::windows::runtime::IInspectable {
+    fn from(value: BasicProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&BasicProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &BasicProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for BasicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a BasicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<BasicProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: BasicProperties) -> ::windows::runtime::Result<Self> {
@@ -92,8 +132,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Bas
 }
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DocumentProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DocumentProperties(pub ::windows::runtime::IInspectable);
 impl DocumentProperties {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Storage_FileProperties`, `Foundation_Collections`*"]
@@ -177,6 +217,46 @@ unsafe impl ::windows::runtime::Interface for DocumentProperties {
 impl ::windows::runtime::RuntimeName for DocumentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
 }
+impl ::std::convert::From<DocumentProperties> for ::windows::runtime::IUnknown {
+    fn from(value: DocumentProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DocumentProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &DocumentProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DocumentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DocumentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DocumentProperties> for ::windows::runtime::IInspectable {
+    fn from(value: DocumentProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DocumentProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &DocumentProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DocumentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DocumentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<DocumentProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: DocumentProperties) -> ::windows::runtime::Result<Self> {
@@ -236,7 +316,7 @@ impl ::windows::runtime::RuntimeName for GeotagHelper {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IBasicProperties(::windows::runtime::IInspectable);
+pub struct IBasicProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IBasicProperties {
     type Vtable = IBasicProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3495777755, 30814, 19046, [190, 2, 155, 238, 197, 138, 234, 129]);
@@ -258,7 +338,7 @@ pub struct IBasicProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDocumentProperties(::windows::runtime::IInspectable);
+pub struct IDocumentProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDocumentProperties {
     type Vtable = IDocumentProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2125142460, 6177, 18723, [180, 169, 10, 234, 64, 77, 0, 112]);
@@ -283,7 +363,7 @@ pub struct IDocumentProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IGeotagHelperStatics(::windows::runtime::IInspectable);
+pub struct IGeotagHelperStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IGeotagHelperStatics {
     type Vtable = IGeotagHelperStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1095316036, 9508, 18005, [134, 166, 237, 22, 245, 252, 113, 107]);
@@ -306,7 +386,7 @@ pub struct IGeotagHelperStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IImageProperties(::windows::runtime::IInspectable);
+pub struct IImageProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IImageProperties {
     type Vtable = IImageProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1379701796, 64767, 17013, [175, 238, 236, 219, 154, 180, 121, 115]);
@@ -346,7 +426,7 @@ pub struct IImageProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IMusicProperties(::windows::runtime::IInspectable);
+pub struct IMusicProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IMusicProperties {
     type Vtable = IMusicProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3163204450, 26348, 16794, [188, 93, 202, 101, 164, 203, 70, 218]);
@@ -394,7 +474,7 @@ pub struct IMusicProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStorageItemContentProperties(::windows::runtime::IInspectable);
+pub struct IStorageItemContentProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(86592429, 48184, 18623, [133, 215, 119, 14, 14, 42, 224, 186]);
@@ -418,9 +498,9 @@ pub struct IStorageItemContentProperties_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Storage_FileProperties`*"]
-pub struct IStorageItemExtraProperties(::windows::runtime::IInspectable);
+pub struct IStorageItemExtraProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStorageItemExtraProperties {
     type Vtable = IStorageItemExtraProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3309527474, 21709, 17195, [189, 188, 75, 25, 196, 180, 112, 215]);
@@ -457,6 +537,46 @@ impl IStorageItemExtraProperties {
 unsafe impl ::windows::runtime::RuntimeType for IStorageItemExtraProperties {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{c54361b2-54cd-432b-bdbc-4b19c4b470d7}");
 }
+impl ::std::convert::From<IStorageItemExtraProperties> for ::windows::runtime::IUnknown {
+    fn from(value: IStorageItemExtraProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IStorageItemExtraProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &IStorageItemExtraProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStorageItemExtraProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IStorageItemExtraProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IStorageItemExtraProperties> for ::windows::runtime::IInspectable {
+    fn from(value: IStorageItemExtraProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IStorageItemExtraProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &IStorageItemExtraProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IStorageItemExtraProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IStorageItemExtraProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStorageItemExtraProperties_abi(
@@ -475,7 +595,7 @@ pub struct IStorageItemExtraProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IThumbnailProperties(::windows::runtime::IInspectable);
+pub struct IThumbnailProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThumbnailProperties {
     type Vtable = IThumbnailProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1765659695, 56295, 18869, [179, 179, 40, 147, 172, 93, 52, 35]);
@@ -496,7 +616,7 @@ pub struct IThumbnailProperties_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IVideoProperties(::windows::runtime::IInspectable);
+pub struct IVideoProperties(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IVideoProperties {
     type Vtable = IVideoProperties_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1905976583, 26846, 19896, [151, 222, 73, 153, 140, 5, 159, 47]);
@@ -541,8 +661,8 @@ pub struct IVideoProperties_abi(
 );
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ImageProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ImageProperties(pub ::windows::runtime::IInspectable);
 impl ImageProperties {
     #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Rating(&self) -> ::windows::runtime::Result<u32> {
@@ -709,6 +829,46 @@ unsafe impl ::windows::runtime::Interface for ImageProperties {
 impl ::windows::runtime::RuntimeName for ImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.ImageProperties";
 }
+impl ::std::convert::From<ImageProperties> for ::windows::runtime::IUnknown {
+    fn from(value: ImageProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ImageProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &ImageProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ImageProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ImageProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ImageProperties> for ::windows::runtime::IInspectable {
+    fn from(value: ImageProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ImageProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &ImageProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ImageProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ImageProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ImageProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ImageProperties) -> ::windows::runtime::Result<Self> {
@@ -733,8 +893,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Ima
 }
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct MusicProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct MusicProperties(pub ::windows::runtime::IInspectable);
 impl MusicProperties {
     #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Album(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -953,6 +1113,46 @@ unsafe impl ::windows::runtime::Interface for MusicProperties {
 impl ::windows::runtime::RuntimeName for MusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.MusicProperties";
 }
+impl ::std::convert::From<MusicProperties> for ::windows::runtime::IUnknown {
+    fn from(value: MusicProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&MusicProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &MusicProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for MusicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a MusicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<MusicProperties> for ::windows::runtime::IInspectable {
+    fn from(value: MusicProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&MusicProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &MusicProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for MusicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a MusicProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<MusicProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: MusicProperties) -> ::windows::runtime::Result<Self> {
@@ -1060,8 +1260,8 @@ impl ::std::ops::Not for PropertyPrefetchOptions {
 }
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorageItemContentProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorageItemContentProperties(pub ::windows::runtime::IInspectable);
 impl StorageItemContentProperties {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Storage_FileProperties`, `Foundation`*"]
@@ -1137,6 +1337,46 @@ unsafe impl ::windows::runtime::Interface for StorageItemContentProperties {
 impl ::windows::runtime::RuntimeName for StorageItemContentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemContentProperties";
 }
+impl ::std::convert::From<StorageItemContentProperties> for ::windows::runtime::IUnknown {
+    fn from(value: StorageItemContentProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StorageItemContentProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &StorageItemContentProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageItemContentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageItemContentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StorageItemContentProperties> for ::windows::runtime::IInspectable {
+    fn from(value: StorageItemContentProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StorageItemContentProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &StorageItemContentProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageItemContentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageItemContentProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<StorageItemContentProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;
     fn try_from(value: StorageItemContentProperties) -> ::windows::runtime::Result<Self> {
@@ -1162,8 +1402,8 @@ impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemExtraProperties> for &Sto
 #[cfg(feature = "Storage_Streams")]
 #[doc = "*Required features: `Storage_FileProperties`, `Storage_Streams`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StorageItemThumbnail(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StorageItemThumbnail(pub ::windows::runtime::IInspectable);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
     #[cfg(feature = "Foundation")]
@@ -1328,6 +1568,54 @@ unsafe impl ::windows::runtime::Interface for StorageItemThumbnail {
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::runtime::RuntimeName for StorageItemThumbnail {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemThumbnail";
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<StorageItemThumbnail> for ::windows::runtime::IUnknown {
+    fn from(value: StorageItemThumbnail) -> Self {
+        value.0 .0
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<&StorageItemThumbnail> for ::windows::runtime::IUnknown {
+    fn from(value: &StorageItemThumbnail) -> Self {
+        value.0 .0.clone()
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StorageItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StorageItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<StorageItemThumbnail> for ::windows::runtime::IInspectable {
+    fn from(value: StorageItemThumbnail) -> Self {
+        value.0
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl ::std::convert::From<&StorageItemThumbnail> for ::windows::runtime::IInspectable {
+    fn from(value: &StorageItemThumbnail) -> Self {
+        value.0.clone()
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StorageItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+#[cfg(feature = "Storage_Streams")]
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StorageItemThumbnail {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::std::convert::From<StorageItemThumbnail> for super::Streams::IRandomAccessStreamWithContentType {
@@ -1609,8 +1897,8 @@ impl ::windows::runtime::DefaultType for VideoOrientation {
 }
 #[doc = "*Required features: `Storage_FileProperties`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct VideoProperties(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct VideoProperties(pub ::windows::runtime::IInspectable);
 impl VideoProperties {
     #[doc = "*Required features: `Storage_FileProperties`*"]
     pub fn Rating(&self) -> ::windows::runtime::Result<u32> {
@@ -1809,6 +2097,46 @@ unsafe impl ::windows::runtime::Interface for VideoProperties {
 }
 impl ::windows::runtime::RuntimeName for VideoProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.VideoProperties";
+}
+impl ::std::convert::From<VideoProperties> for ::windows::runtime::IUnknown {
+    fn from(value: VideoProperties) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&VideoProperties> for ::windows::runtime::IUnknown {
+    fn from(value: &VideoProperties) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for VideoProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a VideoProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<VideoProperties> for ::windows::runtime::IInspectable {
+    fn from(value: VideoProperties) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&VideoProperties> for ::windows::runtime::IInspectable {
+    fn from(value: &VideoProperties) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for VideoProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a VideoProperties {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::TryFrom<VideoProperties> for IStorageItemExtraProperties {
     type Error = ::windows::runtime::Error;

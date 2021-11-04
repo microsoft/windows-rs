@@ -7799,8 +7799,8 @@ pub unsafe fn HT_Get8BPPMaskPalette<'a, Param1: ::windows::runtime::IntoParam<'a
 }
 #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectDrawKernel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectDrawKernel(pub ::windows::runtime::IUnknown);
 impl IDirectDrawKernel {
     #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn GetCaps(&self, param0: *mut DDKERNELCAPS) -> ::windows::runtime::Result<()> {
@@ -7819,6 +7819,26 @@ unsafe impl ::windows::runtime::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2371272992, 27144, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
 }
+impl ::std::convert::From<IDirectDrawKernel> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawKernel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectDrawKernel> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawKernel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawKernel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectDrawKernel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectDrawKernel_abi(
@@ -7831,8 +7851,8 @@ pub struct IDirectDrawKernel_abi(
 );
 #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDirectDrawSurfaceKernel(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDirectDrawSurfaceKernel(pub ::windows::runtime::IUnknown);
 impl IDirectDrawSurfaceKernel {
     #[doc = "*Required features: `Win32_UI_DisplayDevices`*"]
     pub unsafe fn GetKernelHandle(&self, param0: *mut usize) -> ::windows::runtime::Result<()> {
@@ -7846,6 +7866,26 @@ impl IDirectDrawSurfaceKernel {
 unsafe impl ::windows::runtime::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1618304416, 27200, 4560, [155, 6, 0, 160, 201, 3, 163, 184]);
+}
+impl ::std::convert::From<IDirectDrawSurfaceKernel> for ::windows::runtime::IUnknown {
+    fn from(value: IDirectDrawSurfaceKernel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDirectDrawSurfaceKernel> for ::windows::runtime::IUnknown {
+    fn from(value: &IDirectDrawSurfaceKernel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectDrawSurfaceKernel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDirectDrawSurfaceKernel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -137,8 +137,8 @@ impl ::windows::runtime::DefaultType for CausalityTraceLevel {
 }
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ErrorDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ErrorDetails(pub ::windows::runtime::IInspectable);
 impl ErrorDetails {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Description(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -185,6 +185,46 @@ unsafe impl ::windows::runtime::Interface for ErrorDetails {
 }
 impl ::windows::runtime::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
+}
+impl ::std::convert::From<ErrorDetails> for ::windows::runtime::IUnknown {
+    fn from(value: ErrorDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ErrorDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &ErrorDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ErrorDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ErrorDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ErrorDetails> for ::windows::runtime::IInspectable {
+    fn from(value: ErrorDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ErrorDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &ErrorDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ErrorDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ErrorDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ErrorDetails {}
 unsafe impl ::std::marker::Sync for ErrorDetails {}
@@ -243,8 +283,8 @@ impl ::std::ops::Not for ErrorOptions {
 }
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct FileLoggingSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct FileLoggingSession(pub ::windows::runtime::IInspectable);
 impl FileLoggingSession {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -318,6 +358,46 @@ unsafe impl ::windows::runtime::Interface for FileLoggingSession {
 impl ::windows::runtime::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
 }
+impl ::std::convert::From<FileLoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: FileLoggingSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&FileLoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: &FileLoggingSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for FileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a FileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<FileLoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: FileLoggingSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&FileLoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: &FileLoggingSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for FileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a FileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<FileLoggingSession> for IFileLoggingSession {
     fn from(value: FileLoggingSession) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -364,7 +444,7 @@ unsafe impl ::std::marker::Send for FileLoggingSession {}
 unsafe impl ::std::marker::Sync for FileLoggingSession {}
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAsyncCausalityTracerStatics(::windows::runtime::IInspectable);
+pub struct IAsyncCausalityTracerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAsyncCausalityTracerStatics {
     type Vtable = IAsyncCausalityTracerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1350896422, 9854, 17691, [168, 144, 171, 106, 55, 2, 69, 238]);
@@ -388,7 +468,7 @@ pub struct IAsyncCausalityTracerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IErrorDetails(::windows::runtime::IInspectable);
+pub struct IErrorDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetails {
     type Vtable = IErrorDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(931969793, 11465, 17039, [140, 85, 44, 153, 13, 70, 62, 143]);
@@ -408,7 +488,7 @@ pub struct IErrorDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IErrorDetailsStatics(::windows::runtime::IInspectable);
+pub struct IErrorDetailsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorDetailsStatics {
     type Vtable = IErrorDetailsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3077584720, 2845, 18120, [170, 14, 75, 129, 120, 228, 252, 233]);
@@ -425,9 +505,9 @@ pub struct IErrorDetailsStatics_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, errorcode: i32, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
-pub struct IErrorReportingSettings(::windows::runtime::IInspectable);
+pub struct IErrorReportingSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IErrorReportingSettings {
     type Vtable = IErrorReportingSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(372676498, 45118, 19361, [139, 184, 210, 143, 74, 180, 210, 192]);
@@ -450,6 +530,46 @@ impl IErrorReportingSettings {
 unsafe impl ::windows::runtime::RuntimeType for IErrorReportingSettings {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{16369792-b03e-4ba1-8bb8-d28f4ab4d2c0}");
 }
+impl ::std::convert::From<IErrorReportingSettings> for ::windows::runtime::IUnknown {
+    fn from(value: IErrorReportingSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IErrorReportingSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &IErrorReportingSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IErrorReportingSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IErrorReportingSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IErrorReportingSettings> for ::windows::runtime::IInspectable {
+    fn from(value: IErrorReportingSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IErrorReportingSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &IErrorReportingSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IErrorReportingSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IErrorReportingSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IErrorReportingSettings_abi(
@@ -463,9 +583,9 @@ pub struct IErrorReportingSettings_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ErrorOptions) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
-pub struct IFileLoggingSession(::windows::runtime::IInspectable);
+pub struct IFileLoggingSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSession {
     type Vtable = IFileLoggingSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(617038358, 65234, 16460, [137, 95, 31, 150, 153, 203, 2, 247]);
@@ -525,6 +645,46 @@ impl IFileLoggingSession {
 unsafe impl ::windows::runtime::RuntimeType for IFileLoggingSession {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{24c74216-fed2-404c-895f-1f9699cb02f7}");
 }
+impl ::std::convert::From<IFileLoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: IFileLoggingSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IFileLoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: &IFileLoggingSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IFileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IFileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IFileLoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: IFileLoggingSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IFileLoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: &IFileLoggingSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IFileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IFileLoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<IFileLoggingSession> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: IFileLoggingSession) -> ::windows::runtime::Result<Self> {
@@ -567,7 +727,7 @@ pub struct IFileLoggingSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IFileLoggingSessionFactory(::windows::runtime::IInspectable);
+pub struct IFileLoggingSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IFileLoggingSessionFactory {
     type Vtable = IFileLoggingSessionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003499470, 33863, 19882, [145, 51, 18, 235, 70, 246, 151, 212]);
@@ -585,7 +745,7 @@ pub struct IFileLoggingSessionFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILogFileGeneratedEventArgs(::windows::runtime::IInspectable);
+pub struct ILogFileGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647927663, 3384, 19482, [181, 63, 179, 149, 216, 129, 223, 132]);
@@ -604,7 +764,7 @@ pub struct ILogFileGeneratedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingActivity(::windows::runtime::IInspectable);
+pub struct ILoggingActivity(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity {
     type Vtable = ILoggingActivity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3154323777, 46950, 19637, [152, 72, 151, 172, 107, 166, 214, 12]);
@@ -623,7 +783,7 @@ pub struct ILoggingActivity_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingActivity2(::windows::runtime::IInspectable);
+pub struct ILoggingActivity2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivity2 {
     type Vtable = ILoggingActivity2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(650287112, 25378, 17770, [175, 130, 128, 200, 100, 47, 23, 139]);
@@ -644,7 +804,7 @@ pub struct ILoggingActivity2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingActivityFactory(::windows::runtime::IInspectable);
+pub struct ILoggingActivityFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingActivityFactory {
     type Vtable = ILoggingActivityFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1798550659, 57610, 19544, [151, 213, 16, 251, 69, 16, 116, 251]);
@@ -662,9 +822,9 @@ pub struct ILoggingActivityFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, activityname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, loggingchannel: ::windows::runtime::RawPtr, level: LoggingLevel, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
-pub struct ILoggingChannel(::windows::runtime::IInspectable);
+pub struct ILoggingChannel(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel {
     type Vtable = ILoggingChannel_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3919905603, 4567, 20225, [181, 202, 207, 73, 82, 120, 192, 168]);
@@ -736,6 +896,46 @@ impl ILoggingChannel {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingChannel {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{e9a50343-11d7-4f01-b5ca-cf495278c0a8}");
 }
+impl ::std::convert::From<ILoggingChannel> for ::windows::runtime::IUnknown {
+    fn from(value: ILoggingChannel) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ILoggingChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &ILoggingChannel) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ILoggingChannel> for ::windows::runtime::IInspectable {
+    fn from(value: ILoggingChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILoggingChannel> for ::windows::runtime::IInspectable {
+    fn from(value: &ILoggingChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ILoggingChannel> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ILoggingChannel) -> ::windows::runtime::Result<Self> {
@@ -779,7 +979,7 @@ pub struct ILoggingChannel_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingChannel2(::windows::runtime::IInspectable);
+pub struct ILoggingChannel2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannel2 {
     type Vtable = ILoggingChannel2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2672573683, 2988, 17829, [158, 51, 186, 243, 243, 162, 70, 165]);
@@ -797,7 +997,7 @@ pub struct ILoggingChannel2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingChannelFactory(::windows::runtime::IInspectable);
+pub struct ILoggingChannelFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory {
     type Vtable = ILoggingChannelFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1323064220, 44928, 19099, [176, 220, 57, 143, 154, 229, 32, 123]);
@@ -815,7 +1015,7 @@ pub struct ILoggingChannelFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingChannelFactory2(::windows::runtime::IInspectable);
+pub struct ILoggingChannelFactory2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelFactory2 {
     type Vtable = ILoggingChannelFactory2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1282340317, 15143, 19913, [153, 240, 41, 156, 110, 70, 3, 161]);
@@ -834,7 +1034,7 @@ pub struct ILoggingChannelFactory2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingChannelOptions(::windows::runtime::IInspectable);
+pub struct ILoggingChannelOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3286779903, 3771, 19027, [140, 84, 222, 194, 73, 38, 203, 44]);
@@ -853,7 +1053,7 @@ pub struct ILoggingChannelOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingChannelOptionsFactory(::windows::runtime::IInspectable);
+pub struct ILoggingChannelOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingChannelOptionsFactory {
     type Vtable = ILoggingChannelOptionsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2838581722, 32687, 16785, [135, 85, 94, 134, 220, 101, 216, 150]);
@@ -871,7 +1071,7 @@ pub struct ILoggingChannelOptionsFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingFields(::windows::runtime::IInspectable);
+pub struct ILoggingFields(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingFields {
     type Vtable = ILoggingFields_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3623270319, 30253, 17785, [131, 189, 82, 194, 59, 195, 51, 188]);
@@ -1003,7 +1203,7 @@ pub struct ILoggingFields_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingOptions(::windows::runtime::IInspectable);
+pub struct ILoggingOptions(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptions {
     type Vtable = ILoggingOptions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2428270672, 402, 20317, [172, 38, 0, 106, 218, 202, 18, 216]);
@@ -1032,7 +1232,7 @@ pub struct ILoggingOptions_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingOptionsFactory(::windows::runtime::IInspectable);
+pub struct ILoggingOptionsFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingOptionsFactory {
     type Vtable = ILoggingOptionsFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3608397515, 39083, 17995, [159, 34, 163, 38, 132, 120, 54, 138]);
@@ -1049,9 +1249,9 @@ pub struct ILoggingOptionsFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, keywords: i64, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
-pub struct ILoggingSession(::windows::runtime::IInspectable);
+pub struct ILoggingSession(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSession {
     type Vtable = ILoggingSession_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1646392070, 37760, 19159, [186, 245, 65, 234, 147, 16, 215, 104]);
@@ -1098,6 +1298,46 @@ impl ILoggingSession {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingSession {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{6221f306-9380-4ad7-baf5-41ea9310d768}");
 }
+impl ::std::convert::From<ILoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: ILoggingSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ILoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: &ILoggingSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ILoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: ILoggingSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: &ILoggingSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<ILoggingSession> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: ILoggingSession) -> ::windows::runtime::Result<Self> {
@@ -1138,7 +1378,7 @@ pub struct ILoggingSession_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ILoggingSessionFactory(::windows::runtime::IInspectable);
+pub struct ILoggingSessionFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingSessionFactory {
     type Vtable = ILoggingSessionFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318289125, 22781, 17888, [140, 47, 161, 50, 239, 249, 92, 30]);
@@ -1155,9 +1395,9 @@ pub struct ILoggingSessionFactory_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
-pub struct ILoggingTarget(::windows::runtime::IInspectable);
+pub struct ILoggingTarget(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ILoggingTarget {
     type Vtable = ILoggingTarget_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1710320693, 58248, 20006, [177, 122, 245, 28, 211, 168, 57, 22]);
@@ -1243,6 +1483,46 @@ impl ILoggingTarget {
 unsafe impl ::windows::runtime::RuntimeType for ILoggingTarget {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{65f16c35-e388-4e26-b17a-f51cd3a83916}");
 }
+impl ::std::convert::From<ILoggingTarget> for ::windows::runtime::IUnknown {
+    fn from(value: ILoggingTarget) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ILoggingTarget> for ::windows::runtime::IUnknown {
+    fn from(value: &ILoggingTarget) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILoggingTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILoggingTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ILoggingTarget> for ::windows::runtime::IInspectable {
+    fn from(value: ILoggingTarget) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILoggingTarget> for ::windows::runtime::IInspectable {
+    fn from(value: &ILoggingTarget) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ILoggingTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ILoggingTarget {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILoggingTarget_abi(
@@ -1266,7 +1546,7 @@ pub struct ILoggingTarget_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ITracingStatusChangedEventArgs(::windows::runtime::IInspectable);
+pub struct ITracingStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ITracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1091270417, 65339, 18303, [156, 154, 210, 239, 218, 48, 45, 195]);
@@ -1285,8 +1565,8 @@ pub struct ITracingStatusChangedEventArgs_abi(
 );
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LogFileGeneratedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LogFileGeneratedEventArgs(pub ::windows::runtime::IInspectable);
 impl LogFileGeneratedEventArgs {
     #[cfg(feature = "Storage")]
     #[doc = "*Required features: `Foundation_Diagnostics`, `Storage`*"]
@@ -1308,12 +1588,52 @@ unsafe impl ::windows::runtime::Interface for LogFileGeneratedEventArgs {
 impl ::windows::runtime::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
 }
+impl ::std::convert::From<LogFileGeneratedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: LogFileGeneratedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LogFileGeneratedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &LogFileGeneratedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LogFileGeneratedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LogFileGeneratedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LogFileGeneratedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: LogFileGeneratedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LogFileGeneratedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &LogFileGeneratedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LogFileGeneratedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LogFileGeneratedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LogFileGeneratedEventArgs {}
 unsafe impl ::std::marker::Sync for LogFileGeneratedEventArgs {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingActivity(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingActivity(pub ::windows::runtime::IInspectable);
 impl LoggingActivity {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1464,6 +1784,46 @@ unsafe impl ::windows::runtime::Interface for LoggingActivity {
 impl ::windows::runtime::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
 }
+impl ::std::convert::From<LoggingActivity> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingActivity) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingActivity> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingActivity) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingActivity> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingActivity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingActivity> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingActivity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingActivity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::TryFrom<LoggingActivity> for super::IClosable {
     type Error = ::windows::runtime::Error;
     fn try_from(value: LoggingActivity) -> ::windows::runtime::Result<Self> {
@@ -1512,8 +1872,8 @@ unsafe impl ::std::marker::Send for LoggingActivity {}
 unsafe impl ::std::marker::Sync for LoggingActivity {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingChannel(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingChannel(pub ::windows::runtime::IInspectable);
 impl LoggingChannel {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -1702,6 +2062,46 @@ unsafe impl ::windows::runtime::Interface for LoggingChannel {
 impl ::windows::runtime::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
 }
+impl ::std::convert::From<LoggingChannel> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingChannel) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingChannel> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingChannel) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingChannel> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingChannel) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingChannel> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingChannel) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingChannel {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<LoggingChannel> for ILoggingChannel {
     fn from(value: LoggingChannel) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1770,8 +2170,8 @@ unsafe impl ::std::marker::Send for LoggingChannel {}
 unsafe impl ::std::marker::Sync for LoggingChannel {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingChannelOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingChannelOptions(pub ::windows::runtime::IInspectable);
 impl LoggingChannelOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1814,6 +2214,46 @@ unsafe impl ::windows::runtime::Interface for LoggingChannelOptions {
 }
 impl ::windows::runtime::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
+}
+impl ::std::convert::From<LoggingChannelOptions> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingChannelOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingChannelOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingChannelOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingChannelOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingChannelOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingChannelOptions> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingChannelOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingChannelOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingChannelOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingChannelOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingChannelOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for LoggingChannelOptions {}
 unsafe impl ::std::marker::Sync for LoggingChannelOptions {}
@@ -1858,8 +2298,8 @@ impl ::windows::runtime::DefaultType for LoggingFieldFormat {
 }
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingFields(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingFields(pub ::windows::runtime::IInspectable);
 impl LoggingFields {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2454,6 +2894,46 @@ unsafe impl ::windows::runtime::Interface for LoggingFields {
 impl ::windows::runtime::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
 }
+impl ::std::convert::From<LoggingFields> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingFields) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingFields> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingFields) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingFields {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingFields {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingFields> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingFields) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingFields> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingFields) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingFields {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingFields {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LoggingFields {}
 unsafe impl ::std::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
@@ -2510,8 +2990,8 @@ impl ::windows::runtime::DefaultType for LoggingOpcode {
 }
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingOptions(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingOptions(pub ::windows::runtime::IInspectable);
 impl LoggingOptions {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2620,12 +3100,52 @@ unsafe impl ::windows::runtime::Interface for LoggingOptions {
 impl ::windows::runtime::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
 }
+impl ::std::convert::From<LoggingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingOptions) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingOptions> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingOptions) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingOptions> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingOptions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingOptions> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingOptions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingOptions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for LoggingOptions {}
 unsafe impl ::std::marker::Sync for LoggingOptions {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct LoggingSession(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct LoggingSession(pub ::windows::runtime::IInspectable);
 impl LoggingSession {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Name(&self) -> ::windows::runtime::Result<::windows::runtime::HSTRING> {
@@ -2686,6 +3206,46 @@ unsafe impl ::windows::runtime::Interface for LoggingSession {
 impl ::windows::runtime::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
 }
+impl ::std::convert::From<LoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: LoggingSession) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&LoggingSession> for ::windows::runtime::IUnknown {
+    fn from(value: &LoggingSession) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for LoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a LoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<LoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: LoggingSession) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&LoggingSession> for ::windows::runtime::IInspectable {
+    fn from(value: &LoggingSession) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for LoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a LoggingSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<LoggingSession> for ILoggingSession {
     fn from(value: LoggingSession) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2732,8 +3292,8 @@ unsafe impl ::std::marker::Send for LoggingSession {}
 unsafe impl ::std::marker::Sync for LoggingSession {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct RuntimeBrokerErrorSettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct RuntimeBrokerErrorSettings(pub ::windows::runtime::IInspectable);
 impl RuntimeBrokerErrorSettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -2766,6 +3326,46 @@ unsafe impl ::windows::runtime::Interface for RuntimeBrokerErrorSettings {
 impl ::windows::runtime::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
 }
+impl ::std::convert::From<RuntimeBrokerErrorSettings> for ::windows::runtime::IUnknown {
+    fn from(value: RuntimeBrokerErrorSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&RuntimeBrokerErrorSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for RuntimeBrokerErrorSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a RuntimeBrokerErrorSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<RuntimeBrokerErrorSettings> for ::windows::runtime::IInspectable {
+    fn from(value: RuntimeBrokerErrorSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&RuntimeBrokerErrorSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &RuntimeBrokerErrorSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for RuntimeBrokerErrorSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a RuntimeBrokerErrorSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<RuntimeBrokerErrorSettings> for IErrorReportingSettings {
     fn from(value: RuntimeBrokerErrorSettings) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2790,8 +3390,8 @@ unsafe impl ::std::marker::Send for RuntimeBrokerErrorSettings {}
 unsafe impl ::std::marker::Sync for RuntimeBrokerErrorSettings {}
 #[doc = "*Required features: `Foundation_Diagnostics`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct TracingStatusChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct TracingStatusChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl TracingStatusChangedEventArgs {
     #[doc = "*Required features: `Foundation_Diagnostics`*"]
     pub fn Enabled(&self) -> ::windows::runtime::Result<bool> {
@@ -2819,6 +3419,46 @@ unsafe impl ::windows::runtime::Interface for TracingStatusChangedEventArgs {
 }
 impl ::windows::runtime::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";
+}
+impl ::std::convert::From<TracingStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: TracingStatusChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&TracingStatusChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &TracingStatusChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TracingStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a TracingStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<TracingStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: TracingStatusChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&TracingStatusChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &TracingStatusChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TracingStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TracingStatusChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for TracingStatusChangedEventArgs {}
 unsafe impl ::std::marker::Sync for TracingStatusChangedEventArgs {}

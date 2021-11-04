@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadio(::windows::runtime::IInspectable);
+pub struct IRadio(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadio {
     type Vtable = IRadio_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(622926047, 45886, 16746, [135, 95, 28, 243, 138, 226, 216, 62]);
@@ -27,7 +27,7 @@ pub struct IRadio_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IRadioStatics(::windows::runtime::IInspectable);
+pub struct IRadioStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IRadioStatics {
     type Vtable = IRadioStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1605804334, 26571, 18094, [170, 233, 101, 145, 159, 134, 239, 244]);
@@ -51,8 +51,8 @@ pub struct IRadioStatics_abi(
 );
 #[doc = "*Required features: `Devices_Radios`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct Radio(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct Radio(pub ::windows::runtime::IInspectable);
 impl Radio {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `Devices_Radios`, `Foundation`*"]
@@ -147,6 +147,46 @@ unsafe impl ::windows::runtime::Interface for Radio {
 }
 impl ::windows::runtime::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";
+}
+impl ::std::convert::From<Radio> for ::windows::runtime::IUnknown {
+    fn from(value: Radio) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&Radio> for ::windows::runtime::IUnknown {
+    fn from(value: &Radio) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for Radio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a Radio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<Radio> for ::windows::runtime::IInspectable {
+    fn from(value: Radio) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&Radio> for ::windows::runtime::IInspectable {
+    fn from(value: &Radio) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for Radio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a Radio {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for Radio {}
 unsafe impl ::std::marker::Sync for Radio {}

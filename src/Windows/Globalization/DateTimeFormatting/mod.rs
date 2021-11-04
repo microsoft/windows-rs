@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct DateTimeFormatter(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct DateTimeFormatter(pub ::windows::runtime::IInspectable);
 impl DateTimeFormatter {
     #[cfg(feature = "Foundation_Collections")]
     #[doc = "*Required features: `Globalization_DateTimeFormatting`, `Foundation_Collections`*"]
@@ -275,6 +275,46 @@ unsafe impl ::windows::runtime::Interface for DateTimeFormatter {
 impl ::windows::runtime::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";
 }
+impl ::std::convert::From<DateTimeFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: DateTimeFormatter) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&DateTimeFormatter> for ::windows::runtime::IUnknown {
+    fn from(value: &DateTimeFormatter) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DateTimeFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a DateTimeFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<DateTimeFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: DateTimeFormatter) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&DateTimeFormatter> for ::windows::runtime::IInspectable {
+    fn from(value: &DateTimeFormatter) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for DateTimeFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a DateTimeFormatter {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for DateTimeFormatter {}
 unsafe impl ::std::marker::Sync for DateTimeFormatter {}
 #[doc = "*Required features: `Globalization_DateTimeFormatting`*"]
@@ -347,7 +387,7 @@ impl ::windows::runtime::DefaultType for HourFormat {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDateTimeFormatter(::windows::runtime::IInspectable);
+pub struct IDateTimeFormatter(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter {
     type Vtable = IDateTimeFormatter_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515454480, 29664, 20043, [161, 131, 61, 106, 208, 186, 53, 236]);
@@ -385,7 +425,7 @@ pub struct IDateTimeFormatter_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDateTimeFormatter2(::windows::runtime::IInspectable);
+pub struct IDateTimeFormatter2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatter2 {
     type Vtable = IDateTimeFormatter2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(667490950, 48554, 20432, [158, 54, 103, 29, 90, 165, 238, 3]);
@@ -404,7 +444,7 @@ pub struct IDateTimeFormatter2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDateTimeFormatterFactory(::windows::runtime::IInspectable);
+pub struct IDateTimeFormatterFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterFactory {
     type Vtable = IDateTimeFormatterFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3968698963, 6702, 16685, [136, 21, 59, 116, 95, 177, 162, 160]);
@@ -447,7 +487,7 @@ pub struct IDateTimeFormatterFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IDateTimeFormatterStatics(::windows::runtime::IInspectable);
+pub struct IDateTimeFormatterStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IDateTimeFormatterStatics {
     type Vtable = IDateTimeFormatterStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217942464, 57164, 18990, [144, 18, 244, 125, 175, 63, 18, 18]);

@@ -1316,8 +1316,8 @@ pub unsafe fn HWND_UserUnmarshal64(param0: *const u32, param1: *const u8, param2
 }
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMarshal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMarshal(pub ::windows::runtime::IUnknown);
 impl IMarshal {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::runtime::GUID, pv: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::std::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -1348,6 +1348,26 @@ unsafe impl ::windows::runtime::Interface for IMarshal {
     type Vtable = IMarshal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IMarshal> for ::windows::runtime::IUnknown {
+    fn from(value: IMarshal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMarshal> for ::windows::runtime::IUnknown {
+    fn from(value: &IMarshal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMarshal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshal_abi(
@@ -1363,8 +1383,8 @@ pub struct IMarshal_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMarshal2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMarshal2(pub ::windows::runtime::IUnknown);
 impl IMarshal2 {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
     pub unsafe fn GetUnmarshalClass(&self, riid: *const ::windows::runtime::GUID, pv: *const ::std::ffi::c_void, dwdestcontext: u32, pvdestcontext: *mut ::std::ffi::c_void, mshlflags: u32, pcid: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -1395,6 +1415,26 @@ unsafe impl ::windows::runtime::Interface for IMarshal2 {
     type Vtable = IMarshal2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(463, 0, 0, [192, 0, 0, 0, 0, 0, 0, 70]);
 }
+impl ::std::convert::From<IMarshal2> for ::windows::runtime::IUnknown {
+    fn from(value: IMarshal2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMarshal2> for ::windows::runtime::IUnknown {
+    fn from(value: &IMarshal2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshal2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMarshal2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMarshal2> for IMarshal {
     fn from(value: IMarshal2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1407,12 +1447,12 @@ impl ::std::convert::From<&IMarshal2> for IMarshal {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMarshal> for IMarshal2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMarshal> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMarshal>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMarshal> for &IMarshal2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMarshal> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMarshal>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1430,8 +1470,8 @@ pub struct IMarshal2_abi(
 );
 #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMarshalingStream(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMarshalingStream(pub ::windows::runtime::IUnknown);
 impl IMarshalingStream {
     #[doc = "*Required features: `Win32_System_Com_Marshal`*"]
     pub unsafe fn Read(&self, pv: *mut ::std::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::runtime::Result<()> {
@@ -1491,6 +1531,26 @@ unsafe impl ::windows::runtime::Interface for IMarshalingStream {
     type Vtable = IMarshalingStream_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639801318, 24834, 18531, [159, 38, 56, 154, 70, 118, 239, 222]);
 }
+impl ::std::convert::From<IMarshalingStream> for ::windows::runtime::IUnknown {
+    fn from(value: IMarshalingStream) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMarshalingStream> for ::windows::runtime::IUnknown {
+    fn from(value: &IMarshalingStream) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMarshalingStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMarshalingStream {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IMarshalingStream> for super::IStream {
     fn from(value: IMarshalingStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -1503,12 +1563,12 @@ impl ::std::convert::From<&IMarshalingStream> for super::IStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IStream> for IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IStream> for &IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IMarshalingStream> for super::ISequentialStream {
@@ -1523,12 +1583,12 @@ impl ::std::convert::From<&IMarshalingStream> for super::ISequentialStream {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::ISequentialStream> for IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::ISequentialStream>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::ISequentialStream> for &IMarshalingStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::ISequentialStream> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::ISequentialStream>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]

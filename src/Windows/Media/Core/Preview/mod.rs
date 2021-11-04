@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISoundLevelBrokerStatics(::windows::runtime::IInspectable);
+pub struct ISoundLevelBrokerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISoundLevelBrokerStatics {
     type Vtable = ISoundLevelBrokerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1784887649, 56301, 17996, [160, 154, 51, 65, 47, 92, 170, 63]);

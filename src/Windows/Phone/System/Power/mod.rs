@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPowerManagerStatics(::windows::runtime::IInspectable);
+pub struct IPowerManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics {
     type Vtable = IPowerManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635342800, 7259, 4577, [189, 219, 8, 0, 32, 12, 154, 102]);
@@ -23,7 +23,7 @@ pub struct IPowerManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPowerManagerStatics2(::windows::runtime::IInspectable);
+pub struct IPowerManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPowerManagerStatics2 {
     type Vtable = IPowerManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499608783, 6424, 17745, [164, 102, 197, 26, 174, 55, 59, 248]);

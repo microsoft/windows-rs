@@ -2460,8 +2460,8 @@ unsafe impl ::windows::runtime::Abi for HLOG {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgBindingInterface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingInterface>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2485,6 +2485,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474512, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgBindingInterface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgBindingInterface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingInterface_abi(
@@ -2498,8 +2518,8 @@ pub struct IEnumNetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgBindingPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgBindingPath>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2523,6 +2543,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474513, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgBindingPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgBindingPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgBindingPath_abi(
@@ -2536,8 +2576,8 @@ pub struct IEnumNetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumNetCfgComponent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumNetCfgComponent(pub ::windows::runtime::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut ::std::option::Option<INetCfgComponent>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
@@ -2561,6 +2601,26 @@ unsafe impl ::windows::runtime::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474514, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumNetCfgComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumNetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumNetCfgComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumNetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumNetCfgComponent_abi(
@@ -2578,8 +2638,8 @@ pub const INTERFACE_INFO_REVISION_1: u32 = 1u32;
 pub const INVALID_TRACEID: u32 = 4294967295u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfg(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfg(pub ::windows::runtime::IUnknown);
 impl INetCfg {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Initialize(&self, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
@@ -2617,6 +2677,26 @@ unsafe impl ::windows::runtime::Interface for INetCfg {
     type Vtable = INetCfg_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474515, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfg> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfg) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfg> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfg) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfg {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfg_abi(
@@ -2634,8 +2714,8 @@ pub struct INetCfg_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgBindingInterface(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgBindingInterface(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingInterface {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2658,6 +2738,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterface_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474516, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgBindingInterface) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgBindingInterface> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgBindingInterface) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingInterface {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingInterface_abi(
@@ -2671,8 +2771,8 @@ pub struct INetCfgBindingInterface_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgBindingPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgBindingPath(pub ::windows::runtime::IUnknown);
 impl INetCfgBindingPath {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn IsSamePathAs<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::runtime::Result<()> {
@@ -2717,6 +2817,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474518, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgBindingPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgBindingPath> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgBindingPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgBindingPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgBindingPath_abi(
@@ -2736,8 +2856,8 @@ pub struct INetCfgBindingPath_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClass(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClass(pub ::windows::runtime::IUnknown);
 impl INetCfgClass {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2755,6 +2875,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClass {
     type Vtable = INetCfgClass_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474519, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClass> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClass) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClass> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClass) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClass {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClass_abi(
@@ -2767,8 +2907,8 @@ pub struct INetCfgClass_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClassSetup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClassSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2792,6 +2932,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474525, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClassSetup> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClassSetup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClassSetup> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClassSetup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgClassSetup_abi(
@@ -2807,8 +2967,8 @@ pub struct INetCfgClassSetup_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgClassSetup2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgClassSetup2(pub ::windows::runtime::IUnknown);
 impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2836,6 +2996,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474528, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgClassSetup2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgClassSetup2> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgClassSetup2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgClassSetup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<INetCfgClassSetup2> for INetCfgClassSetup {
     fn from(value: INetCfgClassSetup2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2848,12 +3028,12 @@ impl ::std::convert::From<&INetCfgClassSetup2> for INetCfgClassSetup {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INetCfgClassSetup> for &INetCfgClassSetup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, INetCfgClassSetup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INetCfgClassSetup>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2872,8 +3052,8 @@ pub struct INetCfgClassSetup2_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponent(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponent(pub ::windows::runtime::IUnknown);
 impl INetCfgComponent {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -2946,6 +3126,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponent {
     type Vtable = INetCfgComponent_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474521, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponent) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponent> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponent) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponent {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponent_abi(
@@ -2975,8 +3175,8 @@ pub struct INetCfgComponent_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentBindings(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentBindings(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentBindings {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn BindTo<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::runtime::Result<()> {
@@ -3017,6 +3217,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474526, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentBindings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentBindings> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentBindings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentBindings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentBindings_abi(
@@ -3035,8 +3255,8 @@ pub struct INetCfgComponentBindings_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentControl(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentControl(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentControl {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3060,6 +3280,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493535, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentControl> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentControl) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentControl> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentControl) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentControl_abi(
@@ -3074,8 +3314,8 @@ pub struct INetCfgComponentControl_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentNotifyBinding(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentNotifyBinding(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyBinding {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryBindingPath<'a, Param1: ::windows::runtime::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::runtime::Result<()> {
@@ -3090,6 +3330,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBinding_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493537, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentNotifyBinding) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentNotifyBinding> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentNotifyBinding) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyBinding {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyBinding_abi(
@@ -3101,8 +3361,8 @@ pub struct INetCfgComponentNotifyBinding_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentNotifyGlobal(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentNotifyGlobal(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentNotifyGlobal {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows::runtime::Result<u32> {
@@ -3126,6 +3386,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobal_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493538, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentNotifyGlobal) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentNotifyGlobal> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentNotifyGlobal) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentNotifyGlobal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentNotifyGlobal_abi(
@@ -3139,8 +3419,8 @@ pub struct INetCfgComponentNotifyGlobal_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentPropertyUi(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentPropertyUi(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentPropertyUi {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, punkreserved: Param0) -> ::windows::runtime::Result<()> {
@@ -3173,6 +3453,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUi_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493536, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentPropertyUi) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentPropertyUi> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentPropertyUi) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentPropertyUi {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentPropertyUi_abi(
@@ -3190,8 +3490,8 @@ pub struct INetCfgComponentPropertyUi_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentSetup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentSetup(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::runtime::Result<()> {
@@ -3215,6 +3515,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493539, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentSetup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentSetup> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentSetup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSetup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSetup_abi(
@@ -3229,8 +3549,8 @@ pub struct INetCfgComponentSetup_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentSysPrep(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3247,6 +3567,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474522, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentSysPrep) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentSysPrep) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentSysPrep_abi(
@@ -3260,8 +3600,8 @@ pub struct INetCfgComponentSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgComponentUpperEdge(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgComponentUpperEdge(pub ::windows::runtime::IUnknown);
 impl INetCfgComponentUpperEdge {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::runtime::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
@@ -3280,6 +3620,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdge_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2468493540, 48801, 4560, [146, 152, 0, 192, 79, 201, 157, 207]);
 }
+impl ::std::convert::From<INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgComponentUpperEdge) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgComponentUpperEdge> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgComponentUpperEdge) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgComponentUpperEdge_abi(
@@ -3292,8 +3652,8 @@ pub struct INetCfgComponentUpperEdge_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgLock(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgLock(pub ::windows::runtime::IUnknown);
 impl INetCfgLock {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3316,6 +3676,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgLock {
     type Vtable = INetCfgLock_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474527, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgLock> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgLock) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgLock> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgLock) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgLock {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgLock_abi(
@@ -3330,8 +3710,8 @@ pub struct INetCfgLock_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgPnpReconfigCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgPnpReconfigCallback(pub ::windows::runtime::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3342,6 +3722,26 @@ impl INetCfgPnpReconfigCallback {
 unsafe impl ::windows::runtime::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2374286645, 57895, 4562, [183, 0, 0, 160, 201, 138, 106, 133]);
+}
+impl ::std::convert::From<INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgPnpReconfigCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgPnpReconfigCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgPnpReconfigCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgPnpReconfigCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3354,8 +3754,8 @@ pub struct INetCfgPnpReconfigCallback_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetCfgSysPrep(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetCfgSysPrep(pub ::windows::runtime::IUnknown);
 impl INetCfgSysPrep {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3382,6 +3782,26 @@ unsafe impl ::windows::runtime::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrep_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3236474520, 12398, 4561, [170, 207, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetCfgSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: INetCfgSysPrep) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetCfgSysPrep> for ::windows::runtime::IUnknown {
+    fn from(value: &INetCfgSysPrep) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetCfgSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetCfgSysPrep {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetCfgSysPrep_abi(
@@ -3399,8 +3819,8 @@ pub struct INetCfgSysPrep_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetLanConnectionUiInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetLanConnectionUiInfo(pub ::windows::runtime::IUnknown);
 impl INetLanConnectionUiInfo {
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
     pub unsafe fn GetDeviceGuid(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -3412,6 +3832,26 @@ unsafe impl ::windows::runtime::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3230226086, 7379, 4561, [177, 197, 0, 128, 95, 193, 39, 14]);
 }
+impl ::std::convert::From<INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: INetLanConnectionUiInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetLanConnectionUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &INetLanConnectionUiInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetLanConnectionUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct INetLanConnectionUiInfo_abi(
@@ -3422,8 +3862,8 @@ pub struct INetLanConnectionUiInfo_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct INetRasConnectionIpUiInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct INetRasConnectionIpUiInfo(pub ::windows::runtime::IUnknown);
 impl INetRasConnectionIpUiInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3435,6 +3875,26 @@ impl INetRasConnectionIpUiInfo {
 unsafe impl ::windows::runtime::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4209889112, 12798, 4561, [170, 210, 0, 128, 95, 193, 39, 14]);
+}
+impl ::std::convert::From<INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: INetRasConnectionIpUiInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&INetRasConnectionIpUiInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &INetRasConnectionIpUiInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a INetRasConnectionIpUiInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -3451,8 +3911,8 @@ pub const IPX_PROTOCOL_BASE: u32 = 131071u32;
 pub const IPX_PROTOCOL_RIP: u32 = 131072u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProvisioningDomain(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProvisioningDomain(pub ::windows::runtime::IUnknown);
 impl IProvisioningDomain {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3470,6 +3930,26 @@ unsafe impl ::windows::runtime::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomain_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543376, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
 }
+impl ::std::convert::From<IProvisioningDomain> for ::windows::runtime::IUnknown {
+    fn from(value: IProvisioningDomain) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProvisioningDomain> for ::windows::runtime::IUnknown {
+    fn from(value: &IProvisioningDomain) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningDomain {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IProvisioningDomain_abi(
@@ -3483,8 +3963,8 @@ pub struct IProvisioningDomain_abi(
 );
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IProvisioningProfileWireless(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IProvisioningProfileWireless(pub ::windows::runtime::IUnknown);
 impl IProvisioningProfileWireless {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
@@ -3496,6 +3976,26 @@ impl IProvisioningProfileWireless {
 unsafe impl ::windows::runtime::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWireless_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3379543377, 9437, 4568, [137, 251, 0, 144, 75, 46, 169, 198]);
+}
+impl ::std::convert::From<IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+    fn from(value: IProvisioningProfileWireless) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IProvisioningProfileWireless> for ::windows::runtime::IUnknown {
+    fn from(value: &IProvisioningProfileWireless) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IProvisioningProfileWireless {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

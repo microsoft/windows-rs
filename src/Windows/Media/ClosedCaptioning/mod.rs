@@ -232,7 +232,7 @@ impl ::windows::runtime::DefaultType for ClosedCaptionStyle {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IClosedCaptionPropertiesStatics(::windows::runtime::IInspectable);
+pub struct IClosedCaptionPropertiesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IClosedCaptionPropertiesStatics {
     type Vtable = IClosedCaptionPropertiesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(279584644, 52272, 16705, [181, 3, 82, 114, 40, 158, 12, 32]);

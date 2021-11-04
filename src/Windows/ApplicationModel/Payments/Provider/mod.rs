@@ -1,7 +1,7 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentAppCanMakePaymentTriggerDetails(::windows::runtime::IInspectable);
+pub struct IPaymentAppCanMakePaymentTriggerDetails(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppCanMakePaymentTriggerDetails {
     type Vtable = IPaymentAppCanMakePaymentTriggerDetails_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(216138224, 35731, 20150, [140, 70, 46, 74, 108, 106, 38, 246]);
@@ -20,7 +20,7 @@ pub struct IPaymentAppCanMakePaymentTriggerDetails_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentAppManager(::windows::runtime::IInspectable);
+pub struct IPaymentAppManager(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManager {
     type Vtable = IPaymentAppManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(239577683, 34081, 18793, [169, 87, 223, 37, 56, 163, 169, 143]);
@@ -41,7 +41,7 @@ pub struct IPaymentAppManager_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentAppManagerStatics(::windows::runtime::IInspectable);
+pub struct IPaymentAppManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentAppManagerStatics {
     type Vtable = IPaymentAppManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2738990120, 64649, 17414, [180, 217, 52, 231, 254, 121, 223, 182]);
@@ -59,7 +59,7 @@ pub struct IPaymentAppManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentTransaction(::windows::runtime::IInspectable);
+pub struct IPaymentTransaction(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransaction {
     type Vtable = IPaymentTransaction_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1649941920, 9893, 20123, [166, 235, 102, 96, 108, 240, 1, 211]);
@@ -90,7 +90,7 @@ pub struct IPaymentTransaction_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentTransactionAcceptResult(::windows::runtime::IInspectable);
+pub struct IPaymentTransactionAcceptResult(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionAcceptResult {
     type Vtable = IPaymentTransactionAcceptResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(101593718, 54028, 18455, [149, 162, 223, 122, 233, 39, 59, 86]);
@@ -108,7 +108,7 @@ pub struct IPaymentTransactionAcceptResult_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IPaymentTransactionStatics(::windows::runtime::IInspectable);
+pub struct IPaymentTransactionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPaymentTransactionStatics {
     type Vtable = IPaymentTransactionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2372114256, 60938, 19957, [155, 30, 28, 15, 158, 197, 152, 129]);
@@ -127,8 +127,8 @@ pub struct IPaymentTransactionStatics_abi(
 );
 #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PaymentAppCanMakePaymentTriggerDetails(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PaymentAppCanMakePaymentTriggerDetails(pub ::windows::runtime::IInspectable);
 impl PaymentAppCanMakePaymentTriggerDetails {
     #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Request(&self) -> ::windows::runtime::Result<super::PaymentRequest> {
@@ -154,12 +154,52 @@ unsafe impl ::windows::runtime::Interface for PaymentAppCanMakePaymentTriggerDet
 impl ::windows::runtime::RuntimeName for PaymentAppCanMakePaymentTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails";
 }
+impl ::std::convert::From<PaymentAppCanMakePaymentTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: PaymentAppCanMakePaymentTriggerDetails) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PaymentAppCanMakePaymentTriggerDetails> for ::windows::runtime::IUnknown {
+    fn from(value: &PaymentAppCanMakePaymentTriggerDetails) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentAppCanMakePaymentTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentAppCanMakePaymentTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PaymentAppCanMakePaymentTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: PaymentAppCanMakePaymentTriggerDetails) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PaymentAppCanMakePaymentTriggerDetails> for ::windows::runtime::IInspectable {
+    fn from(value: &PaymentAppCanMakePaymentTriggerDetails) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaymentAppCanMakePaymentTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaymentAppCanMakePaymentTriggerDetails {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PaymentAppCanMakePaymentTriggerDetails {}
 unsafe impl ::std::marker::Sync for PaymentAppCanMakePaymentTriggerDetails {}
 #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PaymentAppManager(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PaymentAppManager(pub ::windows::runtime::IInspectable);
 impl PaymentAppManager {
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     #[doc = "*Required features: `ApplicationModel_Payments_Provider`, `Foundation`, `Foundation_Collections`*"]
@@ -201,12 +241,52 @@ unsafe impl ::windows::runtime::Interface for PaymentAppManager {
 impl ::windows::runtime::RuntimeName for PaymentAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentAppManager";
 }
+impl ::std::convert::From<PaymentAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: PaymentAppManager) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PaymentAppManager> for ::windows::runtime::IUnknown {
+    fn from(value: &PaymentAppManager) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PaymentAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: PaymentAppManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PaymentAppManager> for ::windows::runtime::IInspectable {
+    fn from(value: &PaymentAppManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaymentAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaymentAppManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PaymentAppManager {}
 unsafe impl ::std::marker::Sync for PaymentAppManager {}
 #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PaymentTransaction(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PaymentTransaction(pub ::windows::runtime::IInspectable);
 impl PaymentTransaction {
     #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn PaymentRequest(&self) -> ::windows::runtime::Result<super::PaymentRequest> {
@@ -310,12 +390,52 @@ unsafe impl ::windows::runtime::Interface for PaymentTransaction {
 impl ::windows::runtime::RuntimeName for PaymentTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransaction";
 }
+impl ::std::convert::From<PaymentTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: PaymentTransaction) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PaymentTransaction> for ::windows::runtime::IUnknown {
+    fn from(value: &PaymentTransaction) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PaymentTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: PaymentTransaction) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PaymentTransaction> for ::windows::runtime::IInspectable {
+    fn from(value: &PaymentTransaction) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaymentTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaymentTransaction {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for PaymentTransaction {}
 unsafe impl ::std::marker::Sync for PaymentTransaction {}
 #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct PaymentTransactionAcceptResult(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct PaymentTransactionAcceptResult(pub ::windows::runtime::IInspectable);
 impl PaymentTransactionAcceptResult {
     #[doc = "*Required features: `ApplicationModel_Payments_Provider`*"]
     pub fn Status(&self) -> ::windows::runtime::Result<super::PaymentRequestCompletionStatus> {
@@ -335,6 +455,46 @@ unsafe impl ::windows::runtime::Interface for PaymentTransactionAcceptResult {
 }
 impl ::windows::runtime::RuntimeName for PaymentTransactionAcceptResult {
     const NAME: &'static str = "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult";
+}
+impl ::std::convert::From<PaymentTransactionAcceptResult> for ::windows::runtime::IUnknown {
+    fn from(value: PaymentTransactionAcceptResult) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&PaymentTransactionAcceptResult> for ::windows::runtime::IUnknown {
+    fn from(value: &PaymentTransactionAcceptResult) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PaymentTransactionAcceptResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a PaymentTransactionAcceptResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<PaymentTransactionAcceptResult> for ::windows::runtime::IInspectable {
+    fn from(value: PaymentTransactionAcceptResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&PaymentTransactionAcceptResult> for ::windows::runtime::IInspectable {
+    fn from(value: &PaymentTransactionAcceptResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for PaymentTransactionAcceptResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PaymentTransactionAcceptResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for PaymentTransactionAcceptResult {}
 unsafe impl ::std::marker::Sync for PaymentTransactionAcceptResult {}

@@ -328,8 +328,8 @@ unsafe impl ::windows::runtime::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
 }
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ILocationPermissions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ILocationPermissions(pub ::windows::runtime::IUnknown);
 impl ILocationPermissions {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
@@ -346,6 +346,26 @@ unsafe impl ::windows::runtime::Interface for ILocationPermissions {
     type Vtable = ILocationPermissions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3589999231, 59214, 17653, [142, 2, 72, 6, 134, 58, 39, 79]);
 }
+impl ::std::convert::From<ILocationPermissions> for ::windows::runtime::IUnknown {
+    fn from(value: ILocationPermissions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ILocationPermissions> for ::windows::runtime::IUnknown {
+    fn from(value: &ILocationPermissions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ILocationPermissions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ILocationPermissions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ILocationPermissions_abi(
@@ -358,8 +378,8 @@ pub struct ILocationPermissions_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensor(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensor(pub ::windows::runtime::IUnknown);
 impl ISensor {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
@@ -444,6 +464,26 @@ unsafe impl ::windows::runtime::Interface for ISensor {
     type Vtable = ISensor_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604358016, 9815, 17806, [175, 117, 70, 247, 63, 166, 172, 92]);
 }
+impl ::std::convert::From<ISensor> for ::windows::runtime::IUnknown {
+    fn from(value: ISensor) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensor> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensor) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensor {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensor_abi(
@@ -474,8 +514,8 @@ pub struct ISensor_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensorCollection(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensorCollection(pub ::windows::runtime::IUnknown);
 impl ISensorCollection {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetAt(&self, ulindex: u32) -> ::windows::runtime::Result<ISensor> {
@@ -508,6 +548,26 @@ unsafe impl ::windows::runtime::Interface for ISensorCollection {
     type Vtable = ISensorCollection_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(592911889, 58693, 19928, [163, 55, 184, 155, 244, 75, 16, 223]);
 }
+impl ::std::convert::From<ISensorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: ISensorCollection) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensorCollection> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensorCollection) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorCollection_abi(
@@ -523,8 +583,8 @@ pub struct ISensorCollection_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensorDataReport(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensorDataReport(pub ::windows::runtime::IUnknown);
 impl ISensorDataReport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Devices_Sensors`, `Win32_Foundation`*"]
@@ -549,6 +609,26 @@ unsafe impl ::windows::runtime::Interface for ISensorDataReport {
     type Vtable = ISensorDataReport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(179953563, 50357, 18326, [136, 152, 4, 112, 112, 106, 46, 29]);
 }
+impl ::std::convert::From<ISensorDataReport> for ::windows::runtime::IUnknown {
+    fn from(value: ISensorDataReport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensorDataReport> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensorDataReport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorDataReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorDataReport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorDataReport_abi(
@@ -564,8 +644,8 @@ pub struct ISensorDataReport_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensorEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensorEvents(pub ::windows::runtime::IUnknown);
 impl ISensorEvents {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnStateChanged<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
@@ -589,6 +669,26 @@ unsafe impl ::windows::runtime::Interface for ISensorEvents {
     type Vtable = ISensorEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1569574033, 17985, 18407, [183, 195, 183, 79, 72, 166, 195, 145]);
 }
+impl ::std::convert::From<ISensorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: ISensorEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensorEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorEvents_abi(
@@ -603,8 +703,8 @@ pub struct ISensorEvents_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensorManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensorManager(pub ::windows::runtime::IUnknown);
 impl ISensorManager {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn GetSensorsByCategory(&self, sensorcategory: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<ISensorCollection> {
@@ -635,6 +735,26 @@ unsafe impl ::windows::runtime::Interface for ISensorManager {
     type Vtable = ISensorManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3178748775, 17832, 17116, [141, 0, 109, 207, 21, 248, 55, 122]);
 }
+impl ::std::convert::From<ISensorManager> for ::windows::runtime::IUnknown {
+    fn from(value: ISensorManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensorManager> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensorManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISensorManager_abi(
@@ -650,8 +770,8 @@ pub struct ISensorManager_abi(
 );
 #[doc = "*Required features: `Win32_Devices_Sensors`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISensorManagerEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISensorManagerEvents(pub ::windows::runtime::IUnknown);
 impl ISensorManagerEvents {
     #[doc = "*Required features: `Win32_Devices_Sensors`*"]
     pub unsafe fn OnSensorEnter<'a, Param0: ::windows::runtime::IntoParam<'a, ISensor>>(&self, psensor: Param0, state: SensorState) -> ::windows::runtime::Result<()> {
@@ -661,6 +781,26 @@ impl ISensorManagerEvents {
 unsafe impl ::windows::runtime::Interface for ISensorManagerEvents {
     type Vtable = ISensorManagerEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2604338054, 9834, 19117, [178, 31, 253, 229, 80, 16, 1, 183]);
+}
+impl ::std::convert::From<ISensorManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: ISensorManagerEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISensorManagerEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &ISensorManagerEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISensorManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISensorManagerEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

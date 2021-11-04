@@ -1,8 +1,8 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[doc = "*Required features: `Devices_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct CustomDevice(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct CustomDevice(pub ::windows::runtime::IInspectable);
 impl CustomDevice {
     #[cfg(feature = "Storage_Streams")]
     #[doc = "*Required features: `Devices_Custom`, `Storage_Streams`*"]
@@ -70,6 +70,46 @@ unsafe impl ::windows::runtime::Interface for CustomDevice {
 impl ::windows::runtime::RuntimeName for CustomDevice {
     const NAME: &'static str = "Windows.Devices.Custom.CustomDevice";
 }
+impl ::std::convert::From<CustomDevice> for ::windows::runtime::IUnknown {
+    fn from(value: CustomDevice) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&CustomDevice> for ::windows::runtime::IUnknown {
+    fn from(value: &CustomDevice) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for CustomDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a CustomDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<CustomDevice> for ::windows::runtime::IInspectable {
+    fn from(value: CustomDevice) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&CustomDevice> for ::windows::runtime::IInspectable {
+    fn from(value: &CustomDevice) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for CustomDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a CustomDevice {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for CustomDevice {}
 unsafe impl ::std::marker::Sync for CustomDevice {}
 #[repr(C)]
@@ -122,7 +162,7 @@ impl ::windows::runtime::DefaultType for DeviceSharingMode {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomDevice(::windows::runtime::IInspectable);
+pub struct ICustomDevice(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDevice {
     type Vtable = ICustomDevice_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3710919967, 50315, 17341, [188, 177, 222, 200, 143, 21, 20, 62]);
@@ -147,7 +187,7 @@ pub struct ICustomDevice_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ICustomDeviceStatics(::windows::runtime::IInspectable);
+pub struct ICustomDeviceStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ICustomDeviceStatics {
     type Vtable = ICustomDeviceStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3357672210, 61260, 18097, [165, 142, 238, 179, 8, 220, 137, 23]);
@@ -166,9 +206,9 @@ pub struct ICustomDeviceStatics_abi(
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc = "*Required features: `Devices_Custom`*"]
-pub struct IIOControlCode(::windows::runtime::IInspectable);
+pub struct IIOControlCode(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCode {
     type Vtable = IIOControlCode_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(244668903, 24776, 17269, [167, 97, 127, 136, 8, 6, 108, 96]);
@@ -218,6 +258,46 @@ impl IIOControlCode {
 unsafe impl ::windows::runtime::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
+impl ::std::convert::From<IIOControlCode> for ::windows::runtime::IUnknown {
+    fn from(value: IIOControlCode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IIOControlCode> for ::windows::runtime::IUnknown {
+    fn from(value: &IIOControlCode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IIOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IIOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IIOControlCode> for ::windows::runtime::IInspectable {
+    fn from(value: IIOControlCode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IIOControlCode> for ::windows::runtime::IInspectable {
+    fn from(value: &IIOControlCode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IIOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IIOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IIOControlCode_abi(
@@ -235,7 +315,7 @@ pub struct IIOControlCode_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IIOControlCodeFactory(::windows::runtime::IInspectable);
+pub struct IIOControlCodeFactory(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IIOControlCodeFactory {
     type Vtable = IIOControlCodeFactory_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2238348528, 19473, 17582, [175, 198, 184, 212, 162, 18, 120, 143]);
@@ -253,7 +333,7 @@ pub struct IIOControlCodeFactory_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IKnownDeviceTypesStatics(::windows::runtime::IInspectable);
+pub struct IKnownDeviceTypesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IKnownDeviceTypesStatics {
     type Vtable = IKnownDeviceTypesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3998513602, 21576, 17882, [173, 27, 36, 148, 140, 35, 144, 148]);
@@ -319,8 +399,8 @@ impl ::windows::runtime::DefaultType for IOControlBufferingMethod {
 }
 #[doc = "*Required features: `Devices_Custom`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IOControlCode(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IOControlCode(pub ::windows::runtime::IInspectable);
 impl IOControlCode {
     #[doc = "*Required features: `Devices_Custom`*"]
     pub fn AccessMode(&self) -> ::windows::runtime::Result<IOControlAccessMode> {
@@ -383,6 +463,46 @@ unsafe impl ::windows::runtime::Interface for IOControlCode {
 }
 impl ::windows::runtime::RuntimeName for IOControlCode {
     const NAME: &'static str = "Windows.Devices.Custom.IOControlCode";
+}
+impl ::std::convert::From<IOControlCode> for ::windows::runtime::IUnknown {
+    fn from(value: IOControlCode) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&IOControlCode> for ::windows::runtime::IUnknown {
+    fn from(value: &IOControlCode) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<IOControlCode> for ::windows::runtime::IInspectable {
+    fn from(value: IOControlCode) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IOControlCode> for ::windows::runtime::IInspectable {
+    fn from(value: &IOControlCode) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IOControlCode {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 impl ::std::convert::From<IOControlCode> for IIOControlCode {
     fn from(value: IOControlCode) -> Self {

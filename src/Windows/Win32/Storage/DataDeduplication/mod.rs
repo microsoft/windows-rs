@@ -347,8 +347,8 @@ unsafe impl ::windows::runtime::Abi for DedupStreamEntry {
 }
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupBackupSupport(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupBackupSupport(pub ::windows::runtime::IUnknown);
 impl IDedupBackupSupport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
@@ -359,6 +359,26 @@ impl IDedupBackupSupport {
 unsafe impl ::windows::runtime::Interface for IDedupBackupSupport {
     type Vtable = IDedupBackupSupport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3340360035, 11053, 16734, [172, 247, 126, 183, 202, 89, 111, 244]);
+}
+impl ::std::convert::From<IDedupBackupSupport> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupBackupSupport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupBackupSupport> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupBackupSupport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupBackupSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupBackupSupport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -371,8 +391,8 @@ pub struct IDedupBackupSupport_abi(
 );
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupChunkLibrary(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupChunkLibrary(pub ::windows::runtime::IUnknown);
 impl IDedupChunkLibrary {
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn InitializeForPushBuffers(&self) -> ::windows::runtime::Result<()> {
@@ -397,6 +417,26 @@ unsafe impl ::windows::runtime::Interface for IDedupChunkLibrary {
     type Vtable = IDedupChunkLibrary_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3142665431, 10016, 19916, [135, 119, 120, 89, 116, 22, 236, 35]);
 }
+impl ::std::convert::From<IDedupChunkLibrary> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupChunkLibrary) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupChunkLibrary> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupChunkLibrary) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupChunkLibrary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupChunkLibrary {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupChunkLibrary_abi(
@@ -411,8 +451,8 @@ pub struct IDedupChunkLibrary_abi(
 );
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupDataPort(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupDataPort(pub ::windows::runtime::IUnknown);
 impl IDedupDataPort {
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> ::windows::runtime::Result<()> {
@@ -504,6 +544,26 @@ unsafe impl ::windows::runtime::Interface for IDedupDataPort {
     type Vtable = IDedupDataPort_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2036586292, 16553, 20131, [187, 246, 90, 137, 210, 111, 122, 232]);
 }
+impl ::std::convert::From<IDedupDataPort> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupDataPort) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupDataPort> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupDataPort) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupDataPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupDataPort {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPort_abi(
@@ -530,8 +590,8 @@ pub struct IDedupDataPort_abi(
 );
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupDataPortManager(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupDataPortManager(pub ::windows::runtime::IUnknown);
 impl IDedupDataPortManager {
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn GetConfiguration(&self, pminchunksize: *mut u32, pmaxchunksize: *mut u32, pchunkingalgorithm: *mut DedupChunkingAlgorithm, phashingalgorithm: *mut DedupHashingAlgorithm, pcompressionalgorithm: *mut DedupCompressionAlgorithm) -> ::windows::runtime::Result<()> {
@@ -554,6 +614,26 @@ unsafe impl ::windows::runtime::Interface for IDedupDataPortManager {
     type Vtable = IDedupDataPortManager_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1147630674, 47370, 17502, [129, 146, 205, 207, 232, 21, 17, 251]);
 }
+impl ::std::convert::From<IDedupDataPortManager> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupDataPortManager) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupDataPortManager> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupDataPortManager) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupDataPortManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupDataPortManager {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupDataPortManager_abi(
@@ -568,8 +648,8 @@ pub struct IDedupDataPortManager_abi(
 );
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupIterateChunksHash32(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupIterateChunksHash32(pub ::windows::runtime::IUnknown);
 impl IDedupIterateChunksHash32 {
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
     pub unsafe fn PushBuffer(&self, pbuffer: *const u8, ulbufferlength: u32) -> ::windows::runtime::Result<()> {
@@ -592,6 +672,26 @@ unsafe impl ::windows::runtime::Interface for IDedupIterateChunksHash32 {
     type Vtable = IDedupIterateChunksHash32_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2427815123, 29354, 16399, [151, 103, 202, 216, 102, 165, 162, 216]);
 }
+impl ::std::convert::From<IDedupIterateChunksHash32> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupIterateChunksHash32) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupIterateChunksHash32> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupIterateChunksHash32) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupIterateChunksHash32 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupIterateChunksHash32 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDedupIterateChunksHash32_abi(
@@ -605,8 +705,8 @@ pub struct IDedupIterateChunksHash32_abi(
 );
 #[doc = "*Required features: `Win32_Storage_DataDeduplication`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IDedupReadFileCallback(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IDedupReadFileCallback(pub ::windows::runtime::IUnknown);
 impl IDedupReadFileCallback {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Storage_DataDeduplication`, `Win32_Foundation`*"]
@@ -627,6 +727,26 @@ impl IDedupReadFileCallback {
 unsafe impl ::windows::runtime::Interface for IDedupReadFileCallback {
     type Vtable = IDedupReadFileCallback_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074920570, 12061, 17104, [137, 126, 111, 246, 45, 213, 51, 187]);
+}
+impl ::std::convert::From<IDedupReadFileCallback> for ::windows::runtime::IUnknown {
+    fn from(value: IDedupReadFileCallback) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IDedupReadFileCallback> for ::windows::runtime::IUnknown {
+    fn from(value: &IDedupReadFileCallback) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDedupReadFileCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IDedupReadFileCallback {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

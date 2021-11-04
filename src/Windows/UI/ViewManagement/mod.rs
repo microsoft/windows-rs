@@ -3,8 +3,8 @@
 pub mod Core;
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct AccessibilitySettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct AccessibilitySettings(pub ::windows::runtime::IInspectable);
 impl AccessibilitySettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -55,12 +55,52 @@ unsafe impl ::windows::runtime::Interface for AccessibilitySettings {
 impl ::windows::runtime::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
 }
+impl ::std::convert::From<AccessibilitySettings> for ::windows::runtime::IUnknown {
+    fn from(value: AccessibilitySettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&AccessibilitySettings> for ::windows::runtime::IUnknown {
+    fn from(value: &AccessibilitySettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AccessibilitySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a AccessibilitySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<AccessibilitySettings> for ::windows::runtime::IInspectable {
+    fn from(value: AccessibilitySettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&AccessibilitySettings> for ::windows::runtime::IInspectable {
+    fn from(value: &AccessibilitySettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AccessibilitySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AccessibilitySettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for AccessibilitySettings {}
 unsafe impl ::std::marker::Sync for AccessibilitySettings {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ActivationViewSwitcher(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ActivationViewSwitcher(pub ::windows::runtime::IInspectable);
 impl ActivationViewSwitcher {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -99,12 +139,52 @@ unsafe impl ::windows::runtime::Interface for ActivationViewSwitcher {
 impl ::windows::runtime::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
 }
+impl ::std::convert::From<ActivationViewSwitcher> for ::windows::runtime::IUnknown {
+    fn from(value: ActivationViewSwitcher) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ActivationViewSwitcher> for ::windows::runtime::IUnknown {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ActivationViewSwitcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ActivationViewSwitcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ActivationViewSwitcher> for ::windows::runtime::IInspectable {
+    fn from(value: ActivationViewSwitcher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ActivationViewSwitcher> for ::windows::runtime::IInspectable {
+    fn from(value: &ActivationViewSwitcher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ActivationViewSwitcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ActivationViewSwitcher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ActivationViewSwitcher {}
 unsafe impl ::std::marker::Sync for ActivationViewSwitcher {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationView(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationView(pub ::windows::runtime::IInspectable);
 impl ApplicationView {
     #[doc = "*Required features: `UI_ViewManagement`*"]
     pub fn Orientation(&self) -> ::windows::runtime::Result<ApplicationViewOrientation> {
@@ -512,6 +592,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationView {
 impl ::windows::runtime::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
 }
+impl ::std::convert::From<ApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationView) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationView> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationView) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationView) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationView> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationView) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationView {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ApplicationView {}
 unsafe impl ::std::marker::Sync for ApplicationView {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
@@ -538,8 +658,8 @@ impl ::windows::runtime::DefaultType for ApplicationViewBoundsMode {
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationViewConsolidatedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationViewConsolidatedEventArgs(pub ::windows::runtime::IInspectable);
 impl ApplicationViewConsolidatedEventArgs {
     #[doc = "*Required features: `UI_ViewManagement`*"]
     pub fn IsUserInitiated(&self) -> ::windows::runtime::Result<bool> {
@@ -567,6 +687,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationViewConsolidatedEventAr
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
+}
+impl ::std::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationViewConsolidatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationViewConsolidatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationViewConsolidatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationViewConsolidatedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationViewConsolidatedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationViewConsolidatedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationViewConsolidatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationViewConsolidatedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::std::marker::Sync for ApplicationViewConsolidatedEventArgs {}
@@ -616,8 +776,8 @@ impl ::windows::runtime::DefaultType for ApplicationViewOrientation {
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationViewScaling(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationViewScaling(pub ::windows::runtime::IInspectable);
 impl ApplicationViewScaling {
     #[doc = "*Required features: `UI_ViewManagement`*"]
     pub fn DisableLayoutScaling() -> ::windows::runtime::Result<bool> {
@@ -647,6 +807,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationViewScaling {
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewScaling {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
+}
+impl ::std::convert::From<ApplicationViewScaling> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationViewScaling) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationViewScaling> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationViewScaling {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationViewScaling {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationViewScaling> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationViewScaling) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationViewScaling> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationViewScaling) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationViewScaling {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationViewScaling {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -824,8 +1024,8 @@ impl ::std::ops::Not for ApplicationViewSwitchingOptions {
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationViewTitleBar(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 impl ApplicationViewTitleBar {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -1018,12 +1218,52 @@ unsafe impl ::windows::runtime::Interface for ApplicationViewTitleBar {
 impl ::windows::runtime::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
 }
+impl ::std::convert::From<ApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationViewTitleBar) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationViewTitleBar> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationViewTitleBar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationViewTitleBar> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationViewTitleBar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationViewTitleBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for ApplicationViewTitleBar {}
 unsafe impl ::std::marker::Sync for ApplicationViewTitleBar {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ApplicationViewTransferContext(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ApplicationViewTransferContext(pub ::windows::runtime::IInspectable);
 impl ApplicationViewTransferContext {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1066,6 +1306,46 @@ unsafe impl ::windows::runtime::Interface for ApplicationViewTransferContext {
 }
 impl ::windows::runtime::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
+}
+impl ::std::convert::From<ApplicationViewTransferContext> for ::windows::runtime::IUnknown {
+    fn from(value: ApplicationViewTransferContext) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ApplicationViewTransferContext> for ::windows::runtime::IUnknown {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ApplicationViewTransferContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ApplicationViewTransferContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ApplicationViewTransferContext> for ::windows::runtime::IInspectable {
+    fn from(value: ApplicationViewTransferContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ApplicationViewTransferContext> for ::windows::runtime::IInspectable {
+    fn from(value: &ApplicationViewTransferContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ApplicationViewTransferContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ApplicationViewTransferContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
@@ -1138,7 +1418,7 @@ impl ::windows::runtime::DefaultType for HandPreference {
 }
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IAccessibilitySettings(::windows::runtime::IInspectable);
+pub struct IAccessibilitySettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAccessibilitySettings {
     type Vtable = IAccessibilitySettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4262363463, 50368, 17762, [185, 98, 19, 39, 181, 42, 213, 185]);
@@ -1161,7 +1441,7 @@ pub struct IAccessibilitySettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IActivationViewSwitcher(::windows::runtime::IInspectable);
+pub struct IActivationViewSwitcher(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IActivationViewSwitcher {
     type Vtable = IActivationViewSwitcher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3701939126, 29520, 18731, [170, 199, 200, 161, 61, 114, 36, 173]);
@@ -1183,7 +1463,7 @@ pub struct IActivationViewSwitcher_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView(::windows::runtime::IInspectable);
+pub struct IApplicationView(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView {
     type Vtable = IApplicationView_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3525498137, 17249, 17694, [150, 196, 96, 244, 249, 116, 45, 176]);
@@ -1214,7 +1494,7 @@ pub struct IApplicationView_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView2(::windows::runtime::IInspectable);
+pub struct IApplicationView2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView2 {
     type Vtable = IApplicationView2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3900092822, 42309, 16604, [181, 148, 69, 12, 186, 104, 204, 0]);
@@ -1241,7 +1521,7 @@ pub struct IApplicationView2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView3(::windows::runtime::IInspectable);
+pub struct IApplicationView3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView3 {
     type Vtable = IApplicationView3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2419891429, 31034, 20447, [162, 178, 175, 26, 194, 30, 49, 8]);
@@ -1269,7 +1549,7 @@ pub struct IApplicationView3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView4(::windows::runtime::IInspectable);
+pub struct IApplicationView4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView4 {
     type Vtable = IApplicationView4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(367381484, 40463, 18101, [188, 63, 155, 246, 83, 231, 75, 94]);
@@ -1294,7 +1574,7 @@ pub struct IApplicationView4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView7(::windows::runtime::IInspectable);
+pub struct IApplicationView7(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView7 {
     type Vtable = IApplicationView7_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2687931975, 24495, 23206, [156, 56, 190, 251, 177, 42, 7, 30]);
@@ -1313,7 +1593,7 @@ pub struct IApplicationView7_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationView9(::windows::runtime::IInspectable);
+pub struct IApplicationView9(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationView9 {
     type Vtable = IApplicationView9_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2623870713, 538, 24321, [147, 229, 155, 218, 210, 100, 117, 116]);
@@ -1334,7 +1614,7 @@ pub struct IApplicationView9_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewConsolidatedEventArgs(::windows::runtime::IInspectable);
+pub struct IApplicationViewConsolidatedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewConsolidatedEventArgs {
     type Vtable = IApplicationViewConsolidatedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1363429868, 32418, 19943, [166, 166, 125, 251, 170, 235, 182, 251]);
@@ -1352,7 +1632,7 @@ pub struct IApplicationViewConsolidatedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewConsolidatedEventArgs2(::windows::runtime::IInspectable);
+pub struct IApplicationViewConsolidatedEventArgs2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewConsolidatedEventArgs2 {
     type Vtable = IApplicationViewConsolidatedEventArgs2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(471441100, 28097, 16628, [175, 238, 7, 217, 234, 41, 100, 48]);
@@ -1370,7 +1650,7 @@ pub struct IApplicationViewConsolidatedEventArgs2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewFullscreenStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewFullscreenStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewFullscreenStatics {
     type Vtable = IApplicationViewFullscreenStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3162058429, 25854, 19301, [160, 192, 144, 28, 226, 182, 134, 54]);
@@ -1388,7 +1668,7 @@ pub struct IApplicationViewFullscreenStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewInteropStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewInteropStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewInteropStatics {
     type Vtable = IApplicationViewInteropStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3292986205, 18323, 18582, [168, 226, 190, 87, 168, 187, 15, 80]);
@@ -1407,7 +1687,7 @@ pub struct IApplicationViewInteropStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewScaling(::windows::runtime::IInspectable);
+pub struct IApplicationViewScaling(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewScaling {
     type Vtable = IApplicationViewScaling_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(487447587, 9203, 19245, [132, 254, 116, 191, 55, 180, 139, 102]);
@@ -1424,7 +1704,7 @@ pub struct IApplicationViewScaling_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewScalingStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewScalingStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewScalingStatics {
     type Vtable = IApplicationViewScalingStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2962222320, 47430, 17864, [165, 227, 113, 245, 170, 120, 248, 97]);
@@ -1443,7 +1723,7 @@ pub struct IApplicationViewScalingStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics {
     type Vtable = IApplicationViewStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(17457926, 50227, 17637, [169, 242, 189, 132, 212, 3, 10, 149]);
@@ -1462,7 +1742,7 @@ pub struct IApplicationViewStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewStatics2(::windows::runtime::IInspectable);
+pub struct IApplicationViewStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics2 {
     type Vtable = IApplicationViewStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2939390693, 53092, 16956, [133, 229, 243, 231, 36, 72, 251, 35]);
@@ -1482,7 +1762,7 @@ pub struct IApplicationViewStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewStatics3(::windows::runtime::IInspectable);
+pub struct IApplicationViewStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics3 {
     type Vtable = IApplicationViewStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2727179668, 35905, 19987, [151, 25, 81, 100, 121, 111, 228, 199]);
@@ -1505,7 +1785,7 @@ pub struct IApplicationViewStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewStatics4(::windows::runtime::IInspectable);
+pub struct IApplicationViewStatics4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewStatics4 {
     type Vtable = IApplicationViewStatics4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150834483, 9745, 21302, [163, 21, 217, 142, 99, 102, 201, 219]);
@@ -1524,7 +1804,7 @@ pub struct IApplicationViewStatics4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewSwitcherStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewSwitcherStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics {
     type Vtable = IApplicationViewSwitcherStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2539597598, 58966, 19550, [160, 161, 113, 124, 111, 250, 125, 100]);
@@ -1556,7 +1836,7 @@ pub struct IApplicationViewSwitcherStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewSwitcherStatics2(::windows::runtime::IInspectable);
+pub struct IApplicationViewSwitcherStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics2 {
     type Vtable = IApplicationViewSwitcherStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1625920973, 20418, 18628, [184, 227, 57, 95, 43, 159, 15, 193]);
@@ -1574,7 +1854,7 @@ pub struct IApplicationViewSwitcherStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewSwitcherStatics3(::windows::runtime::IInspectable);
+pub struct IApplicationViewSwitcherStatics3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewSwitcherStatics3 {
     type Vtable = IApplicationViewSwitcherStatics3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2449839136, 32935, 18541, [178, 31, 199, 164, 162, 66, 163, 131]);
@@ -1595,7 +1875,7 @@ pub struct IApplicationViewSwitcherStatics3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewTitleBar(::windows::runtime::IInspectable);
+pub struct IApplicationViewTitleBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTitleBar {
     type Vtable = IApplicationViewTitleBar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(9587392, 37675, 19051, [156, 75, 220, 56, 200, 36, 120, 206]);
@@ -1660,7 +1940,7 @@ pub struct IApplicationViewTitleBar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewTransferContext(::windows::runtime::IInspectable);
+pub struct IApplicationViewTransferContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTransferContext {
     type Vtable = IApplicationViewTransferContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2239020131, 15383, 16526, [148, 8, 138, 26, 158, 168, 27, 250]);
@@ -1679,7 +1959,7 @@ pub struct IApplicationViewTransferContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewTransferContextStatics(::windows::runtime::IInspectable);
+pub struct IApplicationViewTransferContextStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewTransferContextStatics {
     type Vtable = IApplicationViewTransferContextStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(363371922, 56697, 19211, [188, 71, 213, 241, 149, 241, 70, 97]);
@@ -1697,7 +1977,7 @@ pub struct IApplicationViewTransferContextStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IApplicationViewWithContext(::windows::runtime::IInspectable);
+pub struct IApplicationViewWithContext(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApplicationViewWithContext {
     type Vtable = IApplicationViewWithContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3176518930, 40385, 17660, [133, 1, 102, 102, 37, 223, 96, 220]);
@@ -1715,7 +1995,7 @@ pub struct IApplicationViewWithContext_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPane(::windows::runtime::IInspectable);
+pub struct IInputPane(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPane {
     type Vtable = IInputPane_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1678432880, 1779, 19591, [166, 120, 152, 41, 201, 18, 124, 40]);
@@ -1742,7 +2022,7 @@ pub struct IInputPane_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPane2(::windows::runtime::IInspectable);
+pub struct IInputPane2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPane2 {
     type Vtable = IInputPane2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2322284326, 28816, 18323, [148, 76, 195, 242, 205, 226, 98, 118]);
@@ -1761,7 +2041,7 @@ pub struct IInputPane2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPaneControl(::windows::runtime::IInspectable);
+pub struct IInputPaneControl(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneControl {
     type Vtable = IInputPaneControl_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(143372879, 38447, 18589, [170, 110, 198, 190, 26, 10, 110, 82]);
@@ -1780,7 +2060,7 @@ pub struct IInputPaneControl_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPaneStatics(::windows::runtime::IInspectable);
+pub struct IInputPaneStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneStatics {
     type Vtable = IInputPaneStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2515840826, 61255, 16970, [151, 65, 253, 40, 21, 235, 162, 189]);
@@ -1798,7 +2078,7 @@ pub struct IInputPaneStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPaneStatics2(::windows::runtime::IInspectable);
+pub struct IInputPaneStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneStatics2 {
     type Vtable = IInputPaneStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(459494043, 55788, 17713, [132, 69, 113, 186, 185, 251, 130, 142]);
@@ -1816,7 +2096,7 @@ pub struct IInputPaneStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IInputPaneVisibilityEventArgs(::windows::runtime::IInspectable);
+pub struct IInputPaneVisibilityEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IInputPaneVisibilityEventArgs {
     type Vtable = IInputPaneVisibilityEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3527663638, 55559, 20428, [187, 141, 247, 123, 170, 80, 40, 241]);
@@ -1837,7 +2117,7 @@ pub struct IInputPaneVisibilityEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProjectionManagerStatics(::windows::runtime::IInspectable);
+pub struct IProjectionManagerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProjectionManagerStatics {
     type Vtable = IProjectionManagerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3059716413, 58096, 20477, [186, 149, 52, 36, 22, 71, 228, 92]);
@@ -1865,7 +2145,7 @@ pub struct IProjectionManagerStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IProjectionManagerStatics2(::windows::runtime::IInspectable);
+pub struct IProjectionManagerStatics2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IProjectionManagerStatics2 {
     type Vtable = IProjectionManagerStatics2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4080873283, 10057, 19678, [185, 119, 192, 196, 30, 116, 21, 209]);
@@ -1889,7 +2169,7 @@ pub struct IProjectionManagerStatics2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStatusBar(::windows::runtime::IInspectable);
+pub struct IStatusBar(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBar {
     type Vtable = IStatusBar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268223935, 39120, 18532, [177, 232, 179, 244, 2, 11, 232, 180]);
@@ -1931,7 +2211,7 @@ pub struct IStatusBar_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStatusBarProgressIndicator(::windows::runtime::IInspectable);
+pub struct IStatusBarProgressIndicator(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBarProgressIndicator {
     type Vtable = IStatusBarProgressIndicator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1993025136, 41943, 18895, [130, 0, 79, 62, 237, 202, 39, 187]);
@@ -1958,7 +2238,7 @@ pub struct IStatusBarProgressIndicator_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IStatusBarStatics(::windows::runtime::IInspectable);
+pub struct IStatusBarStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IStatusBarStatics {
     type Vtable = IStatusBarStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2336636895, 16943, 17761, [136, 6, 251, 18, 137, 202, 223, 183]);
@@ -1976,7 +2256,7 @@ pub struct IStatusBarStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings(::windows::runtime::IInspectable);
+pub struct IUISettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings {
     type Vtable = IUISettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2234914304, 7267, 17959, [188, 177, 58, 137, 224, 188, 156, 85]);
@@ -2010,7 +2290,7 @@ pub struct IUISettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings2(::windows::runtime::IInspectable);
+pub struct IUISettings2(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings2 {
     type Vtable = IUISettings2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3134727169, 10017, 17657, [187, 145, 43, 178, 40, 190, 68, 47]);
@@ -2032,7 +2312,7 @@ pub struct IUISettings2_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings3(::windows::runtime::IInspectable);
+pub struct IUISettings3(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings3 {
     type Vtable = IUISettings3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(50469860, 21076, 18305, [129, 148, 81, 104, 247, 208, 109, 123]);
@@ -2054,7 +2334,7 @@ pub struct IUISettings3_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings4(::windows::runtime::IInspectable);
+pub struct IUISettings4(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings4 {
     type Vtable = IUISettings4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1387999234, 37275, 19819, [155, 120, 141, 214, 111, 244, 185, 59]);
@@ -2076,7 +2356,7 @@ pub struct IUISettings4_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings5(::windows::runtime::IInspectable);
+pub struct IUISettings5(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings5 {
     type Vtable = IUISettings5_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1397347720, 3253, 24325, [189, 52, 112, 107, 50, 49, 240, 189]);
@@ -2098,7 +2378,7 @@ pub struct IUISettings5_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettings6(::windows::runtime::IInspectable);
+pub struct IUISettings6(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettings6 {
     type Vtable = IUISettings6_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2935069655, 65073, 23044, [173, 164, 70, 154, 174, 198, 223, 169]);
@@ -2123,7 +2403,7 @@ pub struct IUISettings6_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettingsAnimationsEnabledChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IUISettingsAnimationsEnabledChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsAnimationsEnabledChangedEventArgs {
     type Vtable = IUISettingsAnimationsEnabledChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(209406781, 11937, 21310, [137, 77, 65, 91, 197, 36, 60, 41]);
@@ -2140,7 +2420,7 @@ pub struct IUISettingsAnimationsEnabledChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettingsAutoHideScrollBarsChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IUISettingsAutoHideScrollBarsChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsAutoHideScrollBarsChangedEventArgs {
     type Vtable = IUISettingsAutoHideScrollBarsChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2276447410, 37190, 24322, [143, 107, 6, 212, 84, 23, 76, 15]);
@@ -2157,7 +2437,7 @@ pub struct IUISettingsAutoHideScrollBarsChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUISettingsMessageDurationChangedEventArgs(::windows::runtime::IInspectable);
+pub struct IUISettingsMessageDurationChangedEventArgs(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUISettingsMessageDurationChangedEventArgs {
     type Vtable = IUISettingsMessageDurationChangedEventArgs_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(864726354, 19037, 23385, [128, 2, 217, 48, 246, 8, 253, 110]);
@@ -2174,7 +2454,7 @@ pub struct IUISettingsMessageDurationChangedEventArgs_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIViewSettings(::windows::runtime::IInspectable);
+pub struct IUIViewSettings(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIViewSettings {
     type Vtable = IUIViewSettings_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3325450230, 34896, 18189, [136, 248, 69, 94, 22, 234, 44, 38]);
@@ -2192,7 +2472,7 @@ pub struct IUIViewSettings_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IUIViewSettingsStatics(::windows::runtime::IInspectable);
+pub struct IUIViewSettingsStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IUIViewSettingsStatics {
     type Vtable = IUIViewSettingsStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1499240357, 63734, 16847, [176, 251, 170, 205, 184, 31, 213, 246]);
@@ -2210,7 +2490,7 @@ pub struct IUIViewSettingsStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IViewModePreferences(::windows::runtime::IInspectable);
+pub struct IViewModePreferences(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IViewModePreferences {
     type Vtable = IViewModePreferences_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2274348346, 2969, 17097, [132, 208, 211, 241, 212, 3, 85, 75]);
@@ -2233,7 +2513,7 @@ pub struct IViewModePreferences_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IViewModePreferencesStatics(::windows::runtime::IInspectable);
+pub struct IViewModePreferencesStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IViewModePreferencesStatics {
     type Vtable = IViewModePreferencesStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1773537893, 24037, 16600, [131, 6, 56, 51, 223, 122, 34, 116]);
@@ -2251,8 +2531,8 @@ pub struct IViewModePreferencesStatics_abi(
 );
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InputPane(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InputPane(pub ::windows::runtime::IInspectable);
 impl InputPane {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -2355,10 +2635,50 @@ unsafe impl ::windows::runtime::Interface for InputPane {
 impl ::windows::runtime::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
 }
+impl ::std::convert::From<InputPane> for ::windows::runtime::IUnknown {
+    fn from(value: InputPane) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InputPane> for ::windows::runtime::IUnknown {
+    fn from(value: &InputPane) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InputPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InputPane> for ::windows::runtime::IInspectable {
+    fn from(value: InputPane) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InputPane> for ::windows::runtime::IInspectable {
+    fn from(value: &InputPane) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputPane {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct InputPaneVisibilityEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct InputPaneVisibilityEventArgs(pub ::windows::runtime::IInspectable);
 impl InputPaneVisibilityEventArgs {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -2392,6 +2712,46 @@ unsafe impl ::windows::runtime::Interface for InputPaneVisibilityEventArgs {
 }
 impl ::windows::runtime::RuntimeName for InputPaneVisibilityEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
+}
+impl ::std::convert::From<InputPaneVisibilityEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: InputPaneVisibilityEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&InputPaneVisibilityEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for InputPaneVisibilityEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a InputPaneVisibilityEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<InputPaneVisibilityEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: InputPaneVisibilityEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&InputPaneVisibilityEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &InputPaneVisibilityEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for InputPaneVisibilityEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a InputPaneVisibilityEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 pub struct ProjectionManager {}
@@ -2485,8 +2845,8 @@ impl ::windows::runtime::RuntimeName for ProjectionManager {
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StatusBar(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StatusBar(pub ::windows::runtime::IInspectable);
 impl StatusBar {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -2618,12 +2978,52 @@ unsafe impl ::windows::runtime::Interface for StatusBar {
 impl ::windows::runtime::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
 }
+impl ::std::convert::From<StatusBar> for ::windows::runtime::IUnknown {
+    fn from(value: StatusBar) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StatusBar> for ::windows::runtime::IUnknown {
+    fn from(value: &StatusBar) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StatusBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StatusBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StatusBar> for ::windows::runtime::IInspectable {
+    fn from(value: StatusBar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StatusBar> for ::windows::runtime::IInspectable {
+    fn from(value: &StatusBar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StatusBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StatusBar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for StatusBar {}
 unsafe impl ::std::marker::Sync for StatusBar {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct StatusBarProgressIndicator(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct StatusBarProgressIndicator(pub ::windows::runtime::IInspectable);
 impl StatusBarProgressIndicator {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `UI_ViewManagement`, `Foundation`*"]
@@ -2681,6 +3081,46 @@ unsafe impl ::windows::runtime::Interface for StatusBarProgressIndicator {
 }
 impl ::windows::runtime::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
+}
+impl ::std::convert::From<StatusBarProgressIndicator> for ::windows::runtime::IUnknown {
+    fn from(value: StatusBarProgressIndicator) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&StatusBarProgressIndicator> for ::windows::runtime::IUnknown {
+    fn from(value: &StatusBarProgressIndicator) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for StatusBarProgressIndicator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a StatusBarProgressIndicator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<StatusBarProgressIndicator> for ::windows::runtime::IInspectable {
+    fn from(value: StatusBarProgressIndicator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&StatusBarProgressIndicator> for ::windows::runtime::IInspectable {
+    fn from(value: &StatusBarProgressIndicator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for StatusBarProgressIndicator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a StatusBarProgressIndicator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::std::marker::Sync for StatusBarProgressIndicator {}
@@ -2762,8 +3202,8 @@ impl ::windows::runtime::DefaultType for UIElementType {
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UISettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UISettings(pub ::windows::runtime::IInspectable);
 impl UISettings {
     pub fn new() -> ::windows::runtime::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -3013,12 +3453,52 @@ unsafe impl ::windows::runtime::Interface for UISettings {
 impl ::windows::runtime::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
 }
+impl ::std::convert::From<UISettings> for ::windows::runtime::IUnknown {
+    fn from(value: UISettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UISettings> for ::windows::runtime::IUnknown {
+    fn from(value: &UISettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UISettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UISettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UISettings> for ::windows::runtime::IInspectable {
+    fn from(value: UISettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UISettings> for ::windows::runtime::IInspectable {
+    fn from(value: &UISettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UISettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UISettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UISettings {}
 unsafe impl ::std::marker::Sync for UISettings {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UISettingsAnimationsEnabledChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UISettingsAnimationsEnabledChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs;{0c7b4b3d-2ea1-533e-894d-415bc5243c29})");
@@ -3030,12 +3510,52 @@ unsafe impl ::windows::runtime::Interface for UISettingsAnimationsEnabledChanged
 impl ::windows::runtime::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
 }
+impl ::std::convert::From<UISettingsAnimationsEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UISettingsAnimationsEnabledChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UISettingsAnimationsEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UISettingsAnimationsEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UISettingsAnimationsEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UISettingsAnimationsEnabledChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UISettingsAnimationsEnabledChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UISettingsAnimationsEnabledChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UISettingsAnimationsEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UISettingsAnimationsEnabledChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UISettingsAnimationsEnabledChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UISettingsAnimationsEnabledChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UISettingsAutoHideScrollBarsChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UISettingsAutoHideScrollBarsChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs;{87afd4b2-9146-5f02-8f6b-06d454174c0f})");
@@ -3047,12 +3567,52 @@ unsafe impl ::windows::runtime::Interface for UISettingsAutoHideScrollBarsChange
 impl ::windows::runtime::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
 }
+impl ::std::convert::From<UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UISettingsAutoHideScrollBarsChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UISettingsAutoHideScrollBarsChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UISettingsAutoHideScrollBarsChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UISettingsAutoHideScrollBarsChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UISettingsAutoHideScrollBarsChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UISettingsAutoHideScrollBarsChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UISettingsAutoHideScrollBarsChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UISettingsAutoHideScrollBarsChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UISettingsMessageDurationChangedEventArgs(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UISettingsMessageDurationChangedEventArgs(pub ::windows::runtime::IInspectable);
 impl UISettingsMessageDurationChangedEventArgs {}
 unsafe impl ::windows::runtime::RuntimeType for UISettingsMessageDurationChangedEventArgs {
     const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs;{338aad52-4a5d-5b59-8002-d930f608fd6e})");
@@ -3064,12 +3624,52 @@ unsafe impl ::windows::runtime::Interface for UISettingsMessageDurationChangedEv
 impl ::windows::runtime::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
 }
+impl ::std::convert::From<UISettingsMessageDurationChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: UISettingsMessageDurationChangedEventArgs) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UISettingsMessageDurationChangedEventArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UISettingsMessageDurationChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UISettingsMessageDurationChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UISettingsMessageDurationChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: UISettingsMessageDurationChangedEventArgs) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UISettingsMessageDurationChangedEventArgs> for ::windows::runtime::IInspectable {
+    fn from(value: &UISettingsMessageDurationChangedEventArgs) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UISettingsMessageDurationChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UISettingsMessageDurationChangedEventArgs {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UISettingsMessageDurationChangedEventArgs {}
 unsafe impl ::std::marker::Sync for UISettingsMessageDurationChangedEventArgs {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct UIViewSettings(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct UIViewSettings(pub ::windows::runtime::IInspectable);
 impl UIViewSettings {
     #[doc = "*Required features: `UI_ViewManagement`*"]
     pub fn UserInteractionMode(&self) -> ::windows::runtime::Result<UserInteractionMode> {
@@ -3101,6 +3701,46 @@ unsafe impl ::windows::runtime::Interface for UIViewSettings {
 impl ::windows::runtime::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
 }
+impl ::std::convert::From<UIViewSettings> for ::windows::runtime::IUnknown {
+    fn from(value: UIViewSettings) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&UIViewSettings> for ::windows::runtime::IUnknown {
+    fn from(value: &UIViewSettings) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for UIViewSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a UIViewSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<UIViewSettings> for ::windows::runtime::IInspectable {
+    fn from(value: UIViewSettings) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&UIViewSettings> for ::windows::runtime::IInspectable {
+    fn from(value: &UIViewSettings) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for UIViewSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a UIViewSettings {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 unsafe impl ::std::marker::Send for UIViewSettings {}
 unsafe impl ::std::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: `UI_ViewManagement`*"]
@@ -3130,8 +3770,8 @@ impl ::windows::runtime::DefaultType for UserInteractionMode {
 pub struct ViewManagementViewScalingContract(pub u8);
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ViewModePreferences(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ViewModePreferences(pub ::windows::runtime::IInspectable);
 impl ViewModePreferences {
     #[doc = "*Required features: `UI_ViewManagement`*"]
     pub fn ViewSizePreference(&self) -> ::windows::runtime::Result<ViewSizePreference> {
@@ -3182,6 +3822,46 @@ unsafe impl ::windows::runtime::Interface for ViewModePreferences {
 }
 impl ::windows::runtime::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";
+}
+impl ::std::convert::From<ViewModePreferences> for ::windows::runtime::IUnknown {
+    fn from(value: ViewModePreferences) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ViewModePreferences> for ::windows::runtime::IUnknown {
+    fn from(value: &ViewModePreferences) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ViewModePreferences {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ViewModePreferences {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ViewModePreferences> for ::windows::runtime::IInspectable {
+    fn from(value: ViewModePreferences) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ViewModePreferences> for ::windows::runtime::IInspectable {
+    fn from(value: &ViewModePreferences) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ViewModePreferences {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ViewModePreferences {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[doc = "*Required features: `UI_ViewManagement`*"]
 #[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]

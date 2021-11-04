@@ -3554,8 +3554,8 @@ pub unsafe fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE {
 }
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplication(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplication(pub ::windows::runtime::IUnknown);
 impl IAzApplication {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -3895,6 +3895,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplication {
     type Vtable = IAzApplication_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2558248903, 47123, 19751, [190, 222, 107, 165, 174, 134, 126, 149]);
 }
+impl ::std::convert::From<IAzApplication> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplication) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplication> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplication) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplication {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzApplication> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzApplication) -> Self {
@@ -3910,13 +3930,13 @@ impl ::std::convert::From<&IAzApplication> for super::super::System::Ole::Automa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplication {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4053,8 +4073,8 @@ pub struct IAzApplication_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplication2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplication2(pub ::windows::runtime::IUnknown);
 impl IAzApplication2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4427,6 +4447,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplication2 {
     type Vtable = IAzApplication2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(141191343, 41545, 17276, [177, 141, 212, 216, 109, 106, 150, 96]);
 }
+impl ::std::convert::From<IAzApplication2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplication2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplication2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplication2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplication2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplication2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzApplication2> for IAzApplication {
     fn from(value: IAzApplication2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4439,12 +4479,12 @@ impl ::std::convert::From<&IAzApplication2> for IAzApplication {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication> for IAzApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication> for &IAzApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4462,13 +4502,13 @@ impl ::std::convert::From<&IAzApplication2> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplication2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4609,8 +4649,8 @@ pub struct IAzApplication2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplication3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplication3(pub ::windows::runtime::IUnknown);
 impl IAzApplication3 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5059,6 +5099,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplication3 {
     type Vtable = IAzApplication3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(404522078, 29078, 19069, [172, 46, 2, 12, 11, 183, 163, 3]);
 }
+impl ::std::convert::From<IAzApplication3> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplication3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplication3> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplication3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplication3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplication3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzApplication3> for IAzApplication2 {
     fn from(value: IAzApplication3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5071,12 +5131,12 @@ impl ::std::convert::From<&IAzApplication3> for IAzApplication2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication2> for IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication2> for &IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAzApplication3> for IAzApplication {
@@ -5091,12 +5151,12 @@ impl ::std::convert::From<&IAzApplication3> for IAzApplication {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication> for IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplication> for &IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplication> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplication>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5114,13 +5174,13 @@ impl ::std::convert::From<&IAzApplication3> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplication3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5285,8 +5345,8 @@ pub struct IAzApplication3_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplicationGroup(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplicationGroup(pub ::windows::runtime::IUnknown);
 impl IAzApplicationGroup {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -5463,6 +5523,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplicationGroup {
     type Vtable = IAzApplicationGroup_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4055319757, 22694, 19974, [159, 191, 54, 246, 215, 121, 226, 30]);
 }
+impl ::std::convert::From<IAzApplicationGroup> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplicationGroup) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplicationGroup> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplicationGroup) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplicationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplicationGroup {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzApplicationGroup> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzApplicationGroup) -> Self {
@@ -5478,13 +5558,13 @@ impl ::std::convert::From<&IAzApplicationGroup> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplicationGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplicationGroup {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5566,8 +5646,8 @@ pub struct IAzApplicationGroup_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplicationGroup2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplicationGroup2(pub ::windows::runtime::IUnknown);
 impl IAzApplicationGroup2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -5804,6 +5884,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplicationGroup2 {
     type Vtable = IAzApplicationGroup2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1057362940, 46874, 17998, [161, 29, 91, 136, 26, 86, 206, 250]);
 }
+impl ::std::convert::From<IAzApplicationGroup2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplicationGroup2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplicationGroup2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplicationGroup2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplicationGroup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplicationGroup2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzApplicationGroup2> for IAzApplicationGroup {
     fn from(value: IAzApplicationGroup2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5816,12 +5916,12 @@ impl ::std::convert::From<&IAzApplicationGroup2> for IAzApplicationGroup {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplicationGroup> for IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplicationGroup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplicationGroup>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzApplicationGroup> for &IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzApplicationGroup> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzApplicationGroup>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -5839,13 +5939,13 @@ impl ::std::convert::From<&IAzApplicationGroup2> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplicationGroup2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5941,8 +6041,8 @@ pub struct IAzApplicationGroup2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplicationGroups(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplicationGroups(pub ::windows::runtime::IUnknown);
 impl IAzApplicationGroups {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -5965,6 +6065,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplicationGroups {
     type Vtable = IAzApplicationGroups_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290169045, 40764, 18077, [169, 17, 185, 152, 135, 167, 230, 133]);
 }
+impl ::std::convert::From<IAzApplicationGroups> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplicationGroups) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplicationGroups> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplicationGroups) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplicationGroups {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplicationGroups {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzApplicationGroups> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzApplicationGroups) -> Self {
@@ -5980,13 +6100,13 @@ impl ::std::convert::From<&IAzApplicationGroups> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplicationGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplicationGroups {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6010,8 +6130,8 @@ pub struct IAzApplicationGroups_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzApplications(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzApplications(pub ::windows::runtime::IUnknown);
 impl IAzApplications {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6034,6 +6154,26 @@ unsafe impl ::windows::runtime::Interface for IAzApplications {
     type Vtable = IAzApplications_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2459636137, 38341, 19076, [162, 154, 32, 173, 66, 194, 241, 108]);
 }
+impl ::std::convert::From<IAzApplications> for ::windows::runtime::IUnknown {
+    fn from(value: IAzApplications) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzApplications> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzApplications) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzApplications {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzApplications {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzApplications> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzApplications) -> Self {
@@ -6049,13 +6189,13 @@ impl ::std::convert::From<&IAzApplications> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzApplications {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzApplications {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6079,8 +6219,8 @@ pub struct IAzApplications_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzAuthorizationStore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzAuthorizationStore(pub ::windows::runtime::IUnknown);
 impl IAzAuthorizationStore {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -6356,6 +6496,26 @@ unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore {
     type Vtable = IAzAuthorizationStore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3988626601, 39810, 20330, [158, 139, 152, 48, 30, 69, 15, 20]);
 }
+impl ::std::convert::From<IAzAuthorizationStore> for ::windows::runtime::IUnknown {
+    fn from(value: IAzAuthorizationStore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzAuthorizationStore> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzAuthorizationStore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzAuthorizationStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzAuthorizationStore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzAuthorizationStore> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzAuthorizationStore) -> Self {
@@ -6371,13 +6531,13 @@ impl ::std::convert::From<&IAzAuthorizationStore> for super::super::System::Ole:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzAuthorizationStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzAuthorizationStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6491,8 +6651,8 @@ pub struct IAzAuthorizationStore_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzAuthorizationStore2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzAuthorizationStore2(pub ::windows::runtime::IUnknown);
 impl IAzAuthorizationStore2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6801,6 +6961,26 @@ unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore2 {
     type Vtable = IAzAuthorizationStore2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971555204, 54647, 17011, [182, 197, 9, 115, 224, 248, 232, 13]);
 }
+impl ::std::convert::From<IAzAuthorizationStore2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzAuthorizationStore2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzAuthorizationStore2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzAuthorizationStore2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzAuthorizationStore2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzAuthorizationStore2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzAuthorizationStore2> for IAzAuthorizationStore {
     fn from(value: IAzAuthorizationStore2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6813,12 +6993,12 @@ impl ::std::convert::From<&IAzAuthorizationStore2> for IAzAuthorizationStore {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore> for IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore> for &IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -6836,13 +7016,13 @@ impl ::std::convert::From<&IAzAuthorizationStore2> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzAuthorizationStore2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6960,8 +7140,8 @@ pub struct IAzAuthorizationStore2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzAuthorizationStore3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzAuthorizationStore3(pub ::windows::runtime::IUnknown);
 impl IAzAuthorizationStore3 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -7293,6 +7473,26 @@ unsafe impl ::windows::runtime::Interface for IAzAuthorizationStore3 {
     type Vtable = IAzAuthorizationStore3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2881520677, 3206, 20384, [155, 227, 113, 137, 149, 108, 146, 110]);
 }
+impl ::std::convert::From<IAzAuthorizationStore3> for ::windows::runtime::IUnknown {
+    fn from(value: IAzAuthorizationStore3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzAuthorizationStore3> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzAuthorizationStore3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzAuthorizationStore3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzAuthorizationStore3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzAuthorizationStore3> for IAzAuthorizationStore2 {
     fn from(value: IAzAuthorizationStore3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -7305,12 +7505,12 @@ impl ::std::convert::From<&IAzAuthorizationStore3> for IAzAuthorizationStore2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore2> for IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore2> for &IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAzAuthorizationStore3> for IAzAuthorizationStore {
@@ -7325,12 +7525,12 @@ impl ::std::convert::From<&IAzAuthorizationStore3> for IAzAuthorizationStore {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore> for IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzAuthorizationStore> for &IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzAuthorizationStore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzAuthorizationStore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -7348,13 +7548,13 @@ impl ::std::convert::From<&IAzAuthorizationStore3> for super::super::System::Ole
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzAuthorizationStore3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7477,8 +7677,8 @@ pub struct IAzAuthorizationStore3_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzBizRuleContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzBizRuleContext(pub ::windows::runtime::IUnknown);
 impl IAzBizRuleContext {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -7507,6 +7707,26 @@ unsafe impl ::windows::runtime::Interface for IAzBizRuleContext {
     type Vtable = IAzBizRuleContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3784503677, 54687, 17758, [161, 82, 148, 3, 22, 205, 119, 178]);
 }
+impl ::std::convert::From<IAzBizRuleContext> for ::windows::runtime::IUnknown {
+    fn from(value: IAzBizRuleContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzBizRuleContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzBizRuleContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzBizRuleContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzBizRuleContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzBizRuleContext> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzBizRuleContext) -> Self {
@@ -7522,13 +7742,13 @@ impl ::std::convert::From<&IAzBizRuleContext> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzBizRuleContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzBizRuleContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7556,8 +7776,8 @@ pub struct IAzBizRuleContext_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzBizRuleInterfaces(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzBizRuleInterfaces(pub ::windows::runtime::IUnknown);
 impl IAzBizRuleInterfaces {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -7593,6 +7813,26 @@ unsafe impl ::windows::runtime::Interface for IAzBizRuleInterfaces {
     type Vtable = IAzBizRuleInterfaces_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3913361607, 59866, 17612, [176, 189, 83, 3, 111, 58, 171, 61]);
 }
+impl ::std::convert::From<IAzBizRuleInterfaces> for ::windows::runtime::IUnknown {
+    fn from(value: IAzBizRuleInterfaces) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzBizRuleInterfaces> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzBizRuleInterfaces) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzBizRuleInterfaces {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzBizRuleInterfaces {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzBizRuleInterfaces> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzBizRuleInterfaces) -> Self {
@@ -7608,13 +7848,13 @@ impl ::std::convert::From<&IAzBizRuleInterfaces> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzBizRuleInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzBizRuleInterfaces {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7644,8 +7884,8 @@ pub struct IAzBizRuleInterfaces_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzBizRuleParameters(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzBizRuleParameters(pub ::windows::runtime::IUnknown);
 impl IAzBizRuleParameters {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -7682,6 +7922,26 @@ unsafe impl ::windows::runtime::Interface for IAzBizRuleParameters {
     type Vtable = IAzBizRuleParameters_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4229392479, 57949, 19917, [186, 225, 39, 110, 201, 83, 60, 181]);
 }
+impl ::std::convert::From<IAzBizRuleParameters> for ::windows::runtime::IUnknown {
+    fn from(value: IAzBizRuleParameters) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzBizRuleParameters> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzBizRuleParameters) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzBizRuleParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzBizRuleParameters {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzBizRuleParameters> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzBizRuleParameters) -> Self {
@@ -7697,13 +7957,13 @@ impl ::std::convert::From<&IAzBizRuleParameters> for super::super::System::Ole::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzBizRuleParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzBizRuleParameters {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7733,8 +7993,8 @@ pub struct IAzBizRuleParameters_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzClientContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzClientContext(pub ::windows::runtime::IUnknown);
 impl IAzClientContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -7850,6 +8110,26 @@ unsafe impl ::windows::runtime::Interface for IAzClientContext {
     type Vtable = IAzClientContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4025610251, 18570, 18029, [175, 217, 164, 1, 197, 249, 238, 245]);
 }
+impl ::std::convert::From<IAzClientContext> for ::windows::runtime::IUnknown {
+    fn from(value: IAzClientContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzClientContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzClientContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzClientContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzClientContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzClientContext> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzClientContext) -> Self {
@@ -7865,13 +8145,13 @@ impl ::std::convert::From<&IAzClientContext> for super::super::System::Ole::Auto
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzClientContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzClientContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -7929,8 +8209,8 @@ pub struct IAzClientContext_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzClientContext2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzClientContext2(pub ::windows::runtime::IUnknown);
 impl IAzClientContext2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8098,6 +8378,26 @@ unsafe impl ::windows::runtime::Interface for IAzClientContext2 {
     type Vtable = IAzClientContext2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(722244280, 8330, 18570, [143, 129, 228, 237, 178, 33, 17, 205]);
 }
+impl ::std::convert::From<IAzClientContext2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzClientContext2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzClientContext2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzClientContext2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzClientContext2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzClientContext2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzClientContext2> for IAzClientContext {
     fn from(value: IAzClientContext2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8110,12 +8410,12 @@ impl ::std::convert::From<&IAzClientContext2> for IAzClientContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext> for IAzClientContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext> for &IAzClientContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8133,13 +8433,13 @@ impl ::std::convert::From<&IAzClientContext2> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzClientContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzClientContext2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8209,8 +8509,8 @@ pub struct IAzClientContext2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzClientContext3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzClientContext3(pub ::windows::runtime::IUnknown);
 impl IAzClientContext3 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8424,6 +8724,26 @@ unsafe impl ::windows::runtime::Interface for IAzClientContext3 {
     type Vtable = IAzClientContext3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(294211550, 7659, 19275, [137, 7, 109, 28, 218, 31, 93, 79]);
 }
+impl ::std::convert::From<IAzClientContext3> for ::windows::runtime::IUnknown {
+    fn from(value: IAzClientContext3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzClientContext3> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzClientContext3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzClientContext3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzClientContext3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzClientContext3> for IAzClientContext2 {
     fn from(value: IAzClientContext3) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8436,12 +8756,12 @@ impl ::std::convert::From<&IAzClientContext3> for IAzClientContext2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext2> for IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext2>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext2> for &IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext2>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::From<IAzClientContext3> for IAzClientContext {
@@ -8456,12 +8776,12 @@ impl ::std::convert::From<&IAzClientContext3> for IAzClientContext {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext> for IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzClientContext> for &IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzClientContext> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzClientContext>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8479,13 +8799,13 @@ impl ::std::convert::From<&IAzClientContext3> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzClientContext3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8569,8 +8889,8 @@ pub struct IAzClientContext3_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzNameResolver(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzNameResolver(pub ::windows::runtime::IUnknown);
 impl IAzNameResolver {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -8587,6 +8907,26 @@ unsafe impl ::windows::runtime::Interface for IAzNameResolver {
     type Vtable = IAzNameResolver_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1347227413, 29666, 17375, [168, 112, 166, 79, 64, 113, 79, 83]);
 }
+impl ::std::convert::From<IAzNameResolver> for ::windows::runtime::IUnknown {
+    fn from(value: IAzNameResolver) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzNameResolver> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzNameResolver) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzNameResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzNameResolver {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzNameResolver> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzNameResolver) -> Self {
@@ -8602,13 +8942,13 @@ impl ::std::convert::From<&IAzNameResolver> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzNameResolver {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzNameResolver {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8632,8 +8972,8 @@ pub struct IAzNameResolver_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzObjectPicker(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzObjectPicker(pub ::windows::runtime::IUnknown);
 impl IAzObjectPicker {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -8651,6 +8991,26 @@ unsafe impl ::windows::runtime::Interface for IAzObjectPicker {
     type Vtable = IAzObjectPicker_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1662192200, 27034, 17112, [191, 1, 198, 42, 195, 251, 121, 249]);
 }
+impl ::std::convert::From<IAzObjectPicker> for ::windows::runtime::IUnknown {
+    fn from(value: IAzObjectPicker) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzObjectPicker> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzObjectPicker) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzObjectPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzObjectPicker {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzObjectPicker> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzObjectPicker) -> Self {
@@ -8666,13 +9026,13 @@ impl ::std::convert::From<&IAzObjectPicker> for super::super::System::Ole::Autom
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzObjectPicker {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzObjectPicker {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8697,8 +9057,8 @@ pub struct IAzObjectPicker_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzOperation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzOperation(pub ::windows::runtime::IUnknown);
 impl IAzOperation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -8769,6 +9129,26 @@ unsafe impl ::windows::runtime::Interface for IAzOperation {
     type Vtable = IAzOperation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1582740047, 59905, 19809, [190, 68, 196, 155, 94, 78, 175, 116]);
 }
+impl ::std::convert::From<IAzOperation> for ::windows::runtime::IUnknown {
+    fn from(value: IAzOperation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzOperation> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzOperation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzOperation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzOperation> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzOperation) -> Self {
@@ -8784,13 +9164,13 @@ impl ::std::convert::From<&IAzOperation> for super::super::System::Ole::Automati
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -8832,8 +9212,8 @@ pub struct IAzOperation_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzOperation2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzOperation2(pub ::windows::runtime::IUnknown);
 impl IAzOperation2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -8931,6 +9311,26 @@ unsafe impl ::windows::runtime::Interface for IAzOperation2 {
     type Vtable = IAzOperation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(526295071, 17570, 16772, [156, 72, 167, 91, 77, 204, 140, 204]);
 }
+impl ::std::convert::From<IAzOperation2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzOperation2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzOperation2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzOperation2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzOperation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzOperation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzOperation2> for IAzOperation {
     fn from(value: IAzOperation2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -8943,12 +9343,12 @@ impl ::std::convert::From<&IAzOperation2> for IAzOperation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzOperation> for IAzOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzOperation> for &IAzOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -8966,13 +9366,13 @@ impl ::std::convert::From<&IAzOperation2> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9016,8 +9416,8 @@ pub struct IAzOperation2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzOperations(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzOperations(pub ::windows::runtime::IUnknown);
 impl IAzOperations {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9040,6 +9440,26 @@ unsafe impl ::windows::runtime::Interface for IAzOperations {
     type Vtable = IAzOperations_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2431622151, 38662, 18905, [175, 128, 4, 56, 165, 243, 236, 53]);
 }
+impl ::std::convert::From<IAzOperations> for ::windows::runtime::IUnknown {
+    fn from(value: IAzOperations) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzOperations> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzOperations) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzOperations {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzOperations> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzOperations) -> Self {
@@ -9055,13 +9475,13 @@ impl ::std::convert::From<&IAzOperations> for super::super::System::Ole::Automat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzOperations {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9085,8 +9505,8 @@ pub struct IAzOperations_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzPrincipalLocator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzPrincipalLocator(pub ::windows::runtime::IUnknown);
 impl IAzPrincipalLocator {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn NameResolver(&self) -> ::windows::runtime::Result<IAzNameResolver> {
@@ -9103,6 +9523,26 @@ unsafe impl ::windows::runtime::Interface for IAzPrincipalLocator {
     type Vtable = IAzPrincipalLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3854782589, 44394, 18834, [156, 127, 116, 171, 72, 11, 68, 204]);
 }
+impl ::std::convert::From<IAzPrincipalLocator> for ::windows::runtime::IUnknown {
+    fn from(value: IAzPrincipalLocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzPrincipalLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzPrincipalLocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzPrincipalLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzPrincipalLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzPrincipalLocator> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzPrincipalLocator) -> Self {
@@ -9118,13 +9558,13 @@ impl ::std::convert::From<&IAzPrincipalLocator> for super::super::System::Ole::A
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzPrincipalLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzPrincipalLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9146,8 +9586,8 @@ pub struct IAzPrincipalLocator_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRole(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRole(pub ::windows::runtime::IUnknown);
 impl IAzRole {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -9299,6 +9739,26 @@ unsafe impl ::windows::runtime::Interface for IAzRole {
     type Vtable = IAzRole_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2241727885, 25303, 16856, [160, 52, 192, 205, 93, 67, 253, 250]);
 }
+impl ::std::convert::From<IAzRole> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRole) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRole> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRole) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRole {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRole {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzRole> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzRole) -> Self {
@@ -9314,13 +9774,13 @@ impl ::std::convert::From<&IAzRole> for super::super::System::Ole::Automation::I
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRole {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRole {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9394,8 +9854,8 @@ pub struct IAzRole_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRoleAssignment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRoleAssignment(pub ::windows::runtime::IUnknown);
 impl IAzRoleAssignment {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9588,6 +10048,26 @@ unsafe impl ::windows::runtime::Interface for IAzRoleAssignment {
     type Vtable = IAzRoleAssignment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1432649009, 3418, 20387, [180, 172, 43, 95, 154, 213, 171, 118]);
 }
+impl ::std::convert::From<IAzRoleAssignment> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRoleAssignment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRoleAssignment> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRoleAssignment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRoleAssignment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRoleAssignment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzRoleAssignment> for IAzRole {
     fn from(value: IAzRoleAssignment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9600,12 +10080,12 @@ impl ::std::convert::From<&IAzRoleAssignment> for IAzRole {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzRole> for IAzRoleAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzRole> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzRole>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzRole> for &IAzRoleAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzRole> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzRole>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -9623,13 +10103,13 @@ impl ::std::convert::From<&IAzRoleAssignment> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRoleAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRoleAssignment {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9709,8 +10189,8 @@ pub struct IAzRoleAssignment_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRoleAssignments(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRoleAssignments(pub ::windows::runtime::IUnknown);
 impl IAzRoleAssignments {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -9733,6 +10213,26 @@ unsafe impl ::windows::runtime::Interface for IAzRoleAssignments {
     type Vtable = IAzRoleAssignments_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2625681664, 64747, 19827, [160, 244, 200, 59, 11, 191, 36, 129]);
 }
+impl ::std::convert::From<IAzRoleAssignments> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRoleAssignments) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRoleAssignments> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRoleAssignments) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRoleAssignments {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRoleAssignments {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzRoleAssignments> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzRoleAssignments) -> Self {
@@ -9748,13 +10248,13 @@ impl ::std::convert::From<&IAzRoleAssignments> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRoleAssignments {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRoleAssignments {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -9778,8 +10278,8 @@ pub struct IAzRoleAssignments_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRoleDefinition(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRoleDefinition(pub ::windows::runtime::IUnknown);
 impl IAzRoleDefinition {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -9969,6 +10469,26 @@ unsafe impl ::windows::runtime::Interface for IAzRoleDefinition {
     type Vtable = IAzRoleDefinition_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3649031841, 9625, 17649, [159, 195, 88, 233, 251, 224, 148, 102]);
 }
+impl ::std::convert::From<IAzRoleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRoleDefinition) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRoleDefinition> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRoleDefinition) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRoleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRoleDefinition {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzRoleDefinition> for IAzTask {
     fn from(value: IAzRoleDefinition) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -9981,12 +10501,12 @@ impl ::std::convert::From<&IAzRoleDefinition> for IAzTask {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzTask> for IAzRoleDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzTask>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzTask> for &IAzRoleDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzTask>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10004,13 +10524,13 @@ impl ::std::convert::From<&IAzRoleDefinition> for super::super::System::Ole::Aut
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRoleDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRoleDefinition {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10089,8 +10609,8 @@ pub struct IAzRoleDefinition_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRoleDefinitions(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRoleDefinitions(pub ::windows::runtime::IUnknown);
 impl IAzRoleDefinitions {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -10113,6 +10633,26 @@ unsafe impl ::windows::runtime::Interface for IAzRoleDefinitions {
     type Vtable = IAzRoleDefinitions_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2283742629, 55125, 17744, [149, 122, 213, 3, 163, 179, 64, 1]);
 }
+impl ::std::convert::From<IAzRoleDefinitions> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRoleDefinitions) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRoleDefinitions> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRoleDefinitions) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRoleDefinitions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRoleDefinitions {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzRoleDefinitions> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzRoleDefinitions) -> Self {
@@ -10128,13 +10668,13 @@ impl ::std::convert::From<&IAzRoleDefinitions> for super::super::System::Ole::Au
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRoleDefinitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRoleDefinitions {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10158,8 +10698,8 @@ pub struct IAzRoleDefinitions_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzRoles(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzRoles(pub ::windows::runtime::IUnknown);
 impl IAzRoles {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -10182,6 +10722,26 @@ unsafe impl ::windows::runtime::Interface for IAzRoles {
     type Vtable = IAzRoles_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2514546969, 5044, 19886, [182, 95, 47, 125, 96, 216, 34, 228]);
 }
+impl ::std::convert::From<IAzRoles> for ::windows::runtime::IUnknown {
+    fn from(value: IAzRoles) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzRoles> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzRoles) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzRoles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzRoles {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzRoles> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzRoles) -> Self {
@@ -10197,13 +10757,13 @@ impl ::std::convert::From<&IAzRoles> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzRoles {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzRoles {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10227,8 +10787,8 @@ pub struct IAzRoles_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzScope(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzScope(pub ::windows::runtime::IUnknown);
 impl IAzScope {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -10442,6 +11002,26 @@ unsafe impl ::windows::runtime::Interface for IAzScope {
     type Vtable = IAzScope_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(15017095, 57485, 17684, [182, 46, 135, 125, 86, 69, 245, 171]);
 }
+impl ::std::convert::From<IAzScope> for ::windows::runtime::IUnknown {
+    fn from(value: IAzScope) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzScope> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzScope) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzScope {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzScope> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzScope) -> Self {
@@ -10457,13 +11037,13 @@ impl ::std::convert::From<&IAzScope> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzScope {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzScope {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10556,8 +11136,8 @@ pub struct IAzScope_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzScope2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzScope2(pub ::windows::runtime::IUnknown);
 impl IAzScope2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -10836,6 +11416,26 @@ unsafe impl ::windows::runtime::Interface for IAzScope2 {
     type Vtable = IAzScope2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4003457225, 51699, 16610, [170, 18, 209, 216, 89, 151, 39, 253]);
 }
+impl ::std::convert::From<IAzScope2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzScope2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzScope2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzScope2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzScope2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzScope2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzScope2> for IAzScope {
     fn from(value: IAzScope2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -10848,12 +11448,12 @@ impl ::std::convert::From<&IAzScope2> for IAzScope {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzScope> for IAzScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzScope> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzScope>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzScope> for &IAzScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzScope> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzScope>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -10871,13 +11471,13 @@ impl ::std::convert::From<&IAzScope2> for super::super::System::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzScope2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -10984,8 +11584,8 @@ pub struct IAzScope2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzScopes(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzScopes(pub ::windows::runtime::IUnknown);
 impl IAzScopes {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -11008,6 +11608,26 @@ unsafe impl ::windows::runtime::Interface for IAzScopes {
     type Vtable = IAzScopes_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2028030035, 40798, 16493, [155, 145, 107, 219, 166, 151, 53, 16]);
 }
+impl ::std::convert::From<IAzScopes> for ::windows::runtime::IUnknown {
+    fn from(value: IAzScopes) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzScopes> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzScopes) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzScopes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzScopes {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzScopes> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzScopes) -> Self {
@@ -11023,13 +11643,13 @@ impl ::std::convert::From<&IAzScopes> for super::super::System::Ole::Automation:
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzScopes {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzScopes {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11053,8 +11673,8 @@ pub struct IAzScopes_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzTask(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzTask(pub ::windows::runtime::IUnknown);
 impl IAzTask {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11202,6 +11822,26 @@ unsafe impl ::windows::runtime::Interface for IAzTask {
     type Vtable = IAzTask_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3415532946, 11790, 19052, [163, 54, 184, 154, 109, 193, 227, 136]);
 }
+impl ::std::convert::From<IAzTask> for ::windows::runtime::IUnknown {
+    fn from(value: IAzTask) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzTask> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzTask) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzTask {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzTask> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzTask) -> Self {
@@ -11217,13 +11857,13 @@ impl ::std::convert::From<&IAzTask> for super::super::System::Ole::Automation::I
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzTask {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11295,8 +11935,8 @@ pub struct IAzTask_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzTask2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzTask2(pub ::windows::runtime::IUnknown);
 impl IAzTask2 {
     #[doc = "*Required features: `Win32_Security_Authorization`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -11471,6 +12111,26 @@ unsafe impl ::windows::runtime::Interface for IAzTask2 {
     type Vtable = IAzTask2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(61449710, 18632, 18482, [144, 37, 170, 213, 3, 196, 101, 38]);
 }
+impl ::std::convert::From<IAzTask2> for ::windows::runtime::IUnknown {
+    fn from(value: IAzTask2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzTask2> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzTask2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzTask2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzTask2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IAzTask2> for IAzTask {
     fn from(value: IAzTask2) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -11483,12 +12143,12 @@ impl ::std::convert::From<&IAzTask2> for IAzTask {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzTask> for IAzTask2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzTask>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAzTask> for &IAzTask2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAzTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAzTask>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -11506,13 +12166,13 @@ impl ::std::convert::From<&IAzTask2> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzTask2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzTask2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11586,8 +12246,8 @@ pub struct IAzTask2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IAzTasks(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IAzTasks(pub ::windows::runtime::IUnknown);
 impl IAzTasks {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -11610,6 +12270,26 @@ unsafe impl ::windows::runtime::Interface for IAzTasks {
     type Vtable = IAzTasks_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3006844075, 19589, 17288, [140, 10, 197, 133, 146, 186, 211, 152]);
 }
+impl ::std::convert::From<IAzTasks> for ::windows::runtime::IUnknown {
+    fn from(value: IAzTasks) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IAzTasks> for ::windows::runtime::IUnknown {
+    fn from(value: &IAzTasks) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAzTasks {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IAzTasks {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IAzTasks> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IAzTasks) -> Self {
@@ -11625,13 +12305,13 @@ impl ::std::convert::From<&IAzTasks> for super::super::System::Ole::Automation::
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for IAzTasks {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &IAzTasks {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -11655,8 +12335,8 @@ pub struct IAzTasks_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEffectivePermission(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEffectivePermission(pub ::windows::runtime::IUnknown);
 impl IEffectivePermission {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11689,6 +12369,26 @@ unsafe impl ::windows::runtime::Interface for IEffectivePermission {
     type Vtable = IEffectivePermission_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(945020022, 40757, 16508, [136, 161, 209, 147, 68, 54, 95, 188]);
 }
+impl ::std::convert::From<IEffectivePermission> for ::windows::runtime::IUnknown {
+    fn from(value: IEffectivePermission) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEffectivePermission> for ::windows::runtime::IUnknown {
+    fn from(value: &IEffectivePermission) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEffectivePermission {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEffectivePermission {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEffectivePermission_abi(
@@ -11700,8 +12400,8 @@ pub struct IEffectivePermission_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEffectivePermission2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEffectivePermission2(pub ::windows::runtime::IUnknown);
 impl IEffectivePermission2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11745,6 +12445,26 @@ impl IEffectivePermission2 {
 unsafe impl ::windows::runtime::Interface for IEffectivePermission2 {
     type Vtable = IEffectivePermission2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2485103562, 56647, 20426, [144, 187, 176, 225, 2, 85, 242, 13]);
+}
+impl ::std::convert::From<IEffectivePermission2> for ::windows::runtime::IUnknown {
+    fn from(value: IEffectivePermission2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEffectivePermission2> for ::windows::runtime::IUnknown {
+    fn from(value: &IEffectivePermission2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEffectivePermission2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEffectivePermission2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11848,8 +12568,8 @@ pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISecurityInformation(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISecurityInformation(pub ::windows::runtime::IUnknown);
 impl ISecurityInformation {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11890,6 +12610,26 @@ unsafe impl ::windows::runtime::Interface for ISecurityInformation {
     type Vtable = ISecurityInformation_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2522858336, 5887, 4560, [145, 203, 0, 170, 0, 187, 183, 35]);
 }
+impl ::std::convert::From<ISecurityInformation> for ::windows::runtime::IUnknown {
+    fn from(value: ISecurityInformation) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISecurityInformation> for ::windows::runtime::IUnknown {
+    fn from(value: &ISecurityInformation) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation_abi(
@@ -11912,8 +12652,8 @@ pub struct ISecurityInformation_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISecurityInformation2(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISecurityInformation2(pub ::windows::runtime::IUnknown);
 impl ISecurityInformation2 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11930,6 +12670,26 @@ unsafe impl ::windows::runtime::Interface for ISecurityInformation2 {
     type Vtable = ISecurityInformation2_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3284991412, 28552, 4562, [163, 206, 0, 192, 79, 177, 120, 42]);
 }
+impl ::std::convert::From<ISecurityInformation2> for ::windows::runtime::IUnknown {
+    fn from(value: ISecurityInformation2) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISecurityInformation2> for ::windows::runtime::IUnknown {
+    fn from(value: &ISecurityInformation2) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation2_abi(
@@ -11943,8 +12703,8 @@ pub struct ISecurityInformation2_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISecurityInformation3(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISecurityInformation3(pub ::windows::runtime::IUnknown);
 impl ISecurityInformation3 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11962,6 +12722,26 @@ unsafe impl ::windows::runtime::Interface for ISecurityInformation3 {
     type Vtable = ISecurityInformation3_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3805137356, 12733, 20367, [140, 139, 182, 65, 175, 81, 106, 26]);
 }
+impl ::std::convert::From<ISecurityInformation3> for ::windows::runtime::IUnknown {
+    fn from(value: ISecurityInformation3) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISecurityInformation3> for ::windows::runtime::IUnknown {
+    fn from(value: &ISecurityInformation3) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecurityInformation3_abi(
@@ -11975,8 +12755,8 @@ pub struct ISecurityInformation3_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISecurityInformation4(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISecurityInformation4(pub ::windows::runtime::IUnknown);
 impl ISecurityInformation4 {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -11987,6 +12767,26 @@ impl ISecurityInformation4 {
 unsafe impl ::windows::runtime::Interface for ISecurityInformation4 {
     type Vtable = ISecurityInformation4_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3935703152, 52500, 17953, [172, 228, 246, 60, 3, 229, 131, 228]);
+}
+impl ::std::convert::From<ISecurityInformation4> for ::windows::runtime::IUnknown {
+    fn from(value: ISecurityInformation4) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISecurityInformation4> for ::windows::runtime::IUnknown {
+    fn from(value: &ISecurityInformation4) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityInformation4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityInformation4 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -11999,8 +12799,8 @@ pub struct ISecurityInformation4_abi(
 );
 #[doc = "*Required features: `Win32_Security_Authorization`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISecurityObjectTypeInfo(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISecurityObjectTypeInfo(pub ::windows::runtime::IUnknown);
 impl ISecurityObjectTypeInfo {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_Security_Authorization`, `Win32_Foundation`*"]
@@ -12011,6 +12811,26 @@ impl ISecurityObjectTypeInfo {
 unsafe impl ::windows::runtime::Interface for ISecurityObjectTypeInfo {
     type Vtable = ISecurityObjectTypeInfo_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4231030507, 31215, 17483, [145, 17, 209, 138, 117, 235, 242, 250]);
+}
+impl ::std::convert::From<ISecurityObjectTypeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: ISecurityObjectTypeInfo) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISecurityObjectTypeInfo> for ::windows::runtime::IUnknown {
+    fn from(value: &ISecurityObjectTypeInfo) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISecurityObjectTypeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISecurityObjectTypeInfo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]

@@ -7,7 +7,7 @@ pub mod Profile;
 pub mod UserProfile;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemProtectionStatics(::windows::runtime::IInspectable);
+pub struct ISystemProtectionStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemProtectionStatics {
     type Vtable = ISystemProtectionStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1237542240, 38881, 19865, [139, 251, 190, 254, 170, 106, 206, 109]);
@@ -25,7 +25,7 @@ pub struct ISystemProtectionStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct ISystemProtectionUnlockStatics(::windows::runtime::IInspectable);
+pub struct ISystemProtectionUnlockStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for ISystemProtectionUnlockStatics {
     type Vtable = ISystemProtectionUnlockStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(110295615, 36625, 19531, [170, 13, 135, 215, 175, 123, 23, 121]);

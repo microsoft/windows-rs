@@ -3,7 +3,7 @@
 pub mod Core;
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IThreadPoolStatics(::windows::runtime::IInspectable);
+pub struct IThreadPoolStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolStatics {
     type Vtable = IThreadPoolStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3065997277, 33981, 17656, [172, 28, 147, 235, 203, 157, 186, 145]);
@@ -26,7 +26,7 @@ pub struct IThreadPoolStatics_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IThreadPoolTimer(::windows::runtime::IInspectable);
+pub struct IThreadPoolTimer(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimer {
     type Vtable = IThreadPoolTimer_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1498332792, 21994, 19080, [165, 13, 52, 2, 174, 31, 156, 242]);
@@ -48,7 +48,7 @@ pub struct IThreadPoolTimer_abi(
 );
 #[repr(transparent)]
 #[doc(hidden)]
-pub struct IThreadPoolTimerStatics(::windows::runtime::IInspectable);
+pub struct IThreadPoolTimerStatics(pub ::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IThreadPoolTimerStatics {
     type Vtable = IThreadPoolTimerStatics_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(445291778, 58498, 17947, [184, 199, 142, 250, 209, 204, 229, 144]);
@@ -108,8 +108,8 @@ impl ::windows::runtime::RuntimeName for ThreadPool {
 }
 #[doc = "*Required features: `System_Threading`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ThreadPoolTimer(::windows::runtime::IInspectable);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ThreadPoolTimer(pub ::windows::runtime::IInspectable);
 impl ThreadPoolTimer {
     #[cfg(feature = "Foundation")]
     #[doc = "*Required features: `System_Threading`, `Foundation`*"]
@@ -180,6 +180,46 @@ unsafe impl ::windows::runtime::Interface for ThreadPoolTimer {
 }
 impl ::windows::runtime::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";
+}
+impl ::std::convert::From<ThreadPoolTimer> for ::windows::runtime::IUnknown {
+    fn from(value: ThreadPoolTimer) -> Self {
+        value.0 .0
+    }
+}
+impl ::std::convert::From<&ThreadPoolTimer> for ::windows::runtime::IUnknown {
+    fn from(value: &ThreadPoolTimer) -> Self {
+        value.0 .0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ThreadPoolTimer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0 .0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ThreadPoolTimer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0 .0)
+    }
+}
+impl ::std::convert::From<ThreadPoolTimer> for ::windows::runtime::IInspectable {
+    fn from(value: ThreadPoolTimer) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ThreadPoolTimer> for ::windows::runtime::IInspectable {
+    fn from(value: &ThreadPoolTimer) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for ThreadPoolTimer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ThreadPoolTimer {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 unsafe impl ::std::marker::Send for ThreadPoolTimer {}
 unsafe impl ::std::marker::Sync for ThreadPoolTimer {}

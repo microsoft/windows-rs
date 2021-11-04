@@ -32,8 +32,8 @@ unsafe impl ::windows::runtime::Abi for CIMTYPE_ENUMERATION {
 }
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IEnumWbemClassObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IEnumWbemClassObject(pub ::windows::runtime::IUnknown);
 impl IEnumWbemClassObject {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -61,6 +61,26 @@ unsafe impl ::windows::runtime::Interface for IEnumWbemClassObject {
     type Vtable = IEnumWbemClassObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(41502689, 55089, 4558, [163, 87, 0, 0, 0, 0, 0, 1]);
 }
+impl ::std::convert::From<IEnumWbemClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: IEnumWbemClassObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IEnumWbemClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IEnumWbemClassObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IEnumWbemClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IEnumWbemClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IEnumWbemClassObject_abi(
@@ -75,8 +95,8 @@ pub struct IEnumWbemClassObject_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IMofCompiler(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IMofCompiler(pub ::windows::runtime::IUnknown);
 impl IMofCompiler {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -146,6 +166,26 @@ unsafe impl ::windows::runtime::Interface for IMofCompiler {
     type Vtable = IMofCompiler_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1840224078, 11831, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IMofCompiler> for ::windows::runtime::IUnknown {
+    fn from(value: IMofCompiler) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IMofCompiler> for ::windows::runtime::IUnknown {
+    fn from(value: &IMofCompiler) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMofCompiler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IMofCompiler {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMofCompiler_abi(
@@ -161,8 +201,8 @@ pub struct IMofCompiler_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemDateTime(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemDateTime(pub ::windows::runtime::IUnknown);
 impl ISWbemDateTime {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -353,6 +393,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemDateTime {
     type Vtable = ISWbemDateTime_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1586972042, 53111, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
 }
+impl ::std::convert::From<ISWbemDateTime> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemDateTime) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemDateTime> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemDateTime) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemDateTime {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemDateTime {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemDateTime> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemDateTime) -> Self {
@@ -368,13 +428,13 @@ impl ::std::convert::From<&ISWbemDateTime> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemDateTime {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemDateTime {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -438,8 +498,8 @@ pub struct ISWbemDateTime_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemEventSource(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemEventSource(pub ::windows::runtime::IUnknown);
 impl ISWbemEventSource {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn NextEvent(&self, itimeoutms: i32) -> ::windows::runtime::Result<ISWbemObject> {
@@ -456,6 +516,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemEventSource {
     type Vtable = ISWbemEventSource_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(668290450, 3774, 4562, [139, 34, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemEventSource> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemEventSource) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemEventSource> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemEventSource) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemEventSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemEventSource {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemEventSource> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemEventSource) -> Self {
@@ -471,13 +551,13 @@ impl ::std::convert::From<&ISWbemEventSource> for super::Ole::Automation::IDispa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemEventSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -499,8 +579,8 @@ pub struct ISWbemEventSource_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemLastError(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemLastError(pub ::windows::runtime::IUnknown);
 impl ISWbemLastError {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -785,6 +865,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemLastError {
     type Vtable = ISWbemLastError_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3647134596, 54459, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemLastError> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemLastError) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemLastError> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemLastError) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemLastError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemLastError {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISWbemLastError> for ISWbemObject {
     fn from(value: ISWbemLastError) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -797,12 +897,12 @@ impl ::std::convert::From<&ISWbemLastError> for ISWbemObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemObject> for ISWbemLastError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemObject> for &ISWbemLastError {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -820,13 +920,13 @@ impl ::std::convert::From<&ISWbemLastError> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemLastError {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemLastError {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -930,8 +1030,8 @@ pub struct ISWbemLastError_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemLocator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemLocator(pub ::windows::runtime::IUnknown);
 impl ISWbemLocator {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -980,6 +1080,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemLocator {
     type Vtable = ISWbemLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607195, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemLocator> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemLocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemLocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemLocator> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemLocator) -> Self {
@@ -995,13 +1115,13 @@ impl ::std::convert::From<&ISWbemLocator> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemLocator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1036,8 +1156,8 @@ pub struct ISWbemLocator_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemMethod(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemMethod(pub ::windows::runtime::IUnknown);
 impl ISWbemMethod {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -1071,6 +1191,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemMethod {
     type Vtable = ISWbemMethod_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1110347408, 55637, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemMethod> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemMethod) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemMethod> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemMethod) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemMethod {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemMethod {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemMethod> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemMethod) -> Self {
@@ -1086,13 +1226,13 @@ impl ::std::convert::From<&ISWbemMethod> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemMethod {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1119,8 +1259,8 @@ pub struct ISWbemMethod_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemMethodSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemMethodSet(pub ::windows::runtime::IUnknown);
 impl ISWbemMethodSet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -1143,6 +1283,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemMethodSet {
     type Vtable = ISWbemMethodSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3376128658, 55637, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemMethodSet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemMethodSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemMethodSet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemMethodSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemMethodSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemMethodSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemMethodSet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemMethodSet) -> Self {
@@ -1158,13 +1318,13 @@ impl ::std::convert::From<&ISWbemMethodSet> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemMethodSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemMethodSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1188,8 +1348,8 @@ pub struct ISWbemMethodSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemNamedValue(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemNamedValue(pub ::windows::runtime::IUnknown);
 impl ISWbemNamedValue {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -1213,6 +1373,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemNamedValue {
     type Vtable = ISWbemNamedValue_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607204, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemNamedValue> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemNamedValue) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemNamedValue> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemNamedValue) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemNamedValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemNamedValue {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemNamedValue> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemNamedValue) -> Self {
@@ -1228,13 +1408,13 @@ impl ::std::convert::From<&ISWbemNamedValue> for super::Ole::Automation::IDispat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemNamedValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemNamedValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1260,8 +1440,8 @@ pub struct ISWbemNamedValue_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemNamedValueSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemNamedValueSet(pub ::windows::runtime::IUnknown);
 impl ISWbemNamedValueSet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -1304,6 +1484,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemNamedValueSet {
     type Vtable = ISWbemNamedValueSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3475207914, 52876, 4561, [139, 5, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemNamedValueSet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemNamedValueSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemNamedValueSet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemNamedValueSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemNamedValueSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemNamedValueSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemNamedValueSet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemNamedValueSet) -> Self {
@@ -1319,13 +1519,13 @@ impl ::std::convert::From<&ISWbemNamedValueSet> for super::Ole::Automation::IDis
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemNamedValueSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemNamedValueSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1355,8 +1555,8 @@ pub struct ISWbemNamedValueSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemObject(pub ::windows::runtime::IUnknown);
 impl ISWbemObject {
     #[cfg(feature = "Win32_System_Ole_Automation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_System_Ole_Automation`*"]
@@ -1620,6 +1820,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemObject {
     type Vtable = ISWbemObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607194, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemObject> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemObject> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemObject> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemObject) -> Self {
@@ -1635,13 +1855,13 @@ impl ::std::convert::From<&ISWbemObject> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -1745,8 +1965,8 @@ pub struct ISWbemObject_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemObjectEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemObjectEx(pub ::windows::runtime::IUnknown);
 impl ISWbemObjectEx {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -2052,6 +2272,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemObjectEx {
     type Vtable = ISWbemObjectEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(647681386, 35431, 16681, [188, 140, 5, 6, 220, 254, 152, 128]);
 }
+impl ::std::convert::From<ISWbemObjectEx> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemObjectEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemObjectEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemObjectEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemObjectEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemObjectEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISWbemObjectEx> for ISWbemObject {
     fn from(value: ISWbemObjectEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -2064,12 +2304,12 @@ impl ::std::convert::From<&ISWbemObjectEx> for ISWbemObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemObject> for ISWbemObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemObject> for &ISWbemObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2087,13 +2327,13 @@ impl ::std::convert::From<&ISWbemObjectEx> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemObjectEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2204,8 +2444,8 @@ pub struct ISWbemObjectEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemObjectPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemObjectPath(pub ::windows::runtime::IUnknown);
 impl ISWbemObjectPath {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -2334,6 +2574,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemObjectPath {
     type Vtable = ISWbemObjectPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1469168679, 52892, 4561, [151, 191, 0, 0, 248, 30, 132, 156]);
 }
+impl ::std::convert::From<ISWbemObjectPath> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemObjectPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemObjectPath> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemObjectPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemObjectPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemObjectPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemObjectPath> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemObjectPath) -> Self {
@@ -2349,13 +2609,13 @@ impl ::std::convert::From<&ISWbemObjectPath> for super::Ole::Automation::IDispat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemObjectPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemObjectPath {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2415,8 +2675,8 @@ pub struct ISWbemObjectPath_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemObjectSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemObjectSet(pub ::windows::runtime::IUnknown);
 impl ISWbemObjectSet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2449,6 +2709,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemObjectSet {
     type Vtable = ISWbemObjectSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607199, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemObjectSet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemObjectSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemObjectSet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemObjectSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemObjectSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemObjectSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemObjectSet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemObjectSet) -> Self {
@@ -2464,13 +2744,13 @@ impl ::std::convert::From<&ISWbemObjectSet> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemObjectSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemObjectSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2496,8 +2776,8 @@ pub struct ISWbemObjectSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemPrivilege(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemPrivilege(pub ::windows::runtime::IUnknown);
 impl ISWbemPrivilege {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IsEnabled(&self) -> ::windows::runtime::Result<i16> {
@@ -2530,6 +2810,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemPrivilege {
     type Vtable = ISWbemPrivilege_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158333, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemPrivilege> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemPrivilege) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemPrivilege> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemPrivilege) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemPrivilege {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemPrivilege {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemPrivilege> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemPrivilege) -> Self {
@@ -2545,13 +2845,13 @@ impl ::std::convert::From<&ISWbemPrivilege> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemPrivilege {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemPrivilege {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2578,8 +2878,8 @@ pub struct ISWbemPrivilege_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemPrivilegeSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemPrivilegeSet(pub ::windows::runtime::IUnknown);
 impl ISWbemPrivilegeSet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2620,6 +2920,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemPrivilegeSet {
     type Vtable = ISWbemPrivilegeSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(653158335, 22532, 4562, [139, 74, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemPrivilegeSet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemPrivilegeSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemPrivilegeSet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemPrivilegeSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemPrivilegeSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemPrivilegeSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemPrivilegeSet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemPrivilegeSet) -> Self {
@@ -2635,13 +2955,13 @@ impl ::std::convert::From<&ISWbemPrivilegeSet> for super::Ole::Automation::IDisp
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemPrivilegeSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemPrivilegeSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2669,8 +2989,8 @@ pub struct ISWbemPrivilegeSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemProperty(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemProperty(pub ::windows::runtime::IUnknown);
 impl ISWbemProperty {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2720,6 +3040,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemProperty {
     type Vtable = ISWbemProperty_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(439914392, 54458, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemProperty> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemProperty) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemProperty> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemProperty) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemProperty {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemProperty> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemProperty) -> Self {
@@ -2735,13 +3075,13 @@ impl ::std::convert::From<&ISWbemProperty> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemProperty {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2773,8 +3113,8 @@ pub struct ISWbemProperty_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemPropertySet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemPropertySet(pub ::windows::runtime::IUnknown);
 impl ISWbemPropertySet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -2808,6 +3148,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemPropertySet {
     type Vtable = ISWbemPropertySet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3735070642, 54458, 4561, [139, 9, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemPropertySet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemPropertySet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemPropertySet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemPropertySet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemPropertySet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemPropertySet) -> Self {
@@ -2823,13 +3183,13 @@ impl ::std::convert::From<&ISWbemPropertySet> for super::Ole::Automation::IDispa
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2857,8 +3217,8 @@ pub struct ISWbemPropertySet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemQualifier(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemQualifier(pub ::windows::runtime::IUnknown);
 impl ISWbemQualifier {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -2919,6 +3279,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemQualifier {
     type Vtable = ISWbemQualifier_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2041600306, 54199, 4561, [139, 6, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemQualifier> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemQualifier) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemQualifier> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemQualifier) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemQualifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemQualifier {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemQualifier> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemQualifier) -> Self {
@@ -2934,13 +3314,13 @@ impl ::std::convert::From<&ISWbemQualifier> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemQualifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -2974,8 +3354,8 @@ pub struct ISWbemQualifier_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemQualifierSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemQualifierSet(pub ::windows::runtime::IUnknown);
 impl ISWbemQualifierSet {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3009,6 +3389,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemQualifierSet {
     type Vtable = ISWbemQualifierSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2601970966, 54239, 4561, [139, 8, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemQualifierSet> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemQualifierSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemQualifierSet> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemQualifierSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemQualifierSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemQualifierSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemQualifierSet> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemQualifierSet) -> Self {
@@ -3024,13 +3424,13 @@ impl ::std::convert::From<&ISWbemQualifierSet> for super::Ole::Automation::IDisp
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemQualifierSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemQualifierSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3058,8 +3458,8 @@ pub struct ISWbemQualifierSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemRefreshableItem(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemRefreshableItem(pub ::windows::runtime::IUnknown);
 impl ISWbemRefreshableItem {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Index(&self) -> ::windows::runtime::Result<i32> {
@@ -3095,6 +3495,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemRefreshableItem {
     type Vtable = ISWbemRefreshableItem_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1523892114, 55979, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
 }
+impl ::std::convert::From<ISWbemRefreshableItem> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemRefreshableItem) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemRefreshableItem> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemRefreshableItem) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemRefreshableItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemRefreshableItem {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemRefreshableItem> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemRefreshableItem) -> Self {
@@ -3110,13 +3530,13 @@ impl ::std::convert::From<&ISWbemRefreshableItem> for super::Ole::Automation::ID
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemRefreshableItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemRefreshableItem {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3142,8 +3562,8 @@ pub struct ISWbemRefreshableItem_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemRefresher(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemRefresher(pub ::windows::runtime::IUnknown);
 impl ISWbemRefresher {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -3198,6 +3618,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemRefresher {
     type Vtable = ISWbemRefresher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(349709582, 55746, 4563, [179, 143, 0, 16, 90, 31, 71, 58]);
 }
+impl ::std::convert::From<ISWbemRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemRefresher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemRefresher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemRefresher> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemRefresher) -> Self {
@@ -3213,13 +3653,13 @@ impl ::std::convert::From<&ISWbemRefresher> for super::Ole::Automation::IDispatc
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemRefresher {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemRefresher {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3251,8 +3691,8 @@ pub struct ISWbemRefresher_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemSecurity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemSecurity(pub ::windows::runtime::IUnknown);
 impl ISWbemSecurity {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ImpersonationLevel(&self) -> ::windows::runtime::Result<WbemImpersonationLevelEnum> {
@@ -3282,6 +3722,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemSecurity {
     type Vtable = ISWbemSecurity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3041748710, 8839, 4562, [139, 51, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemSecurity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemSecurity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemSecurity> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemSecurity) -> Self {
@@ -3297,13 +3757,13 @@ impl ::std::convert::From<&ISWbemSecurity> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemSecurity {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3328,8 +3788,8 @@ pub struct ISWbemSecurity_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemServices(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemServices(pub ::windows::runtime::IUnknown);
 impl ISWbemServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
@@ -3637,6 +4097,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemServices {
     type Vtable = ISWbemServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1990607196, 52033, 4561, [139, 2, 0, 96, 8, 6, 217, 182]);
 }
+impl ::std::convert::From<ISWbemServices> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemServices) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemServices> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemServices) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemServices> for super::Ole::Automation::IDispatch {
     fn from(value: ISWbemServices) -> Self {
@@ -3652,13 +4132,13 @@ impl ::std::convert::From<&ISWbemServices> for super::Ole::Automation::IDispatch
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -3772,8 +4252,8 @@ pub struct ISWbemServices_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemServicesEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemServicesEx(pub ::windows::runtime::IUnknown);
 impl ISWbemServicesEx {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
@@ -4113,6 +4593,26 @@ unsafe impl ::windows::runtime::Interface for ISWbemServicesEx {
     type Vtable = ISWbemServicesEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3539371075, 34268, 17022, [145, 216, 54, 101, 84, 204, 117, 76]);
 }
+impl ::std::convert::From<ISWbemServicesEx> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemServicesEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemServicesEx> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemServicesEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemServicesEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemServicesEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<ISWbemServicesEx> for ISWbemServices {
     fn from(value: ISWbemServicesEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4125,12 +4625,12 @@ impl ::std::convert::From<&ISWbemServicesEx> for ISWbemServices {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemServices> for ISWbemServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemServices> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemServices>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISWbemServices> for &ISWbemServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISWbemServices> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISWbemServices>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -4148,13 +4648,13 @@ impl ::std::convert::From<&ISWbemServicesEx> for super::Ole::Automation::IDispat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemServicesEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4272,8 +4772,8 @@ pub struct ISWbemServicesEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemSink(pub ::windows::runtime::IUnknown);
 impl ISWbemSink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Cancel(&self) -> ::windows::runtime::Result<()> {
@@ -4283,6 +4783,26 @@ impl ISWbemSink {
 unsafe impl ::windows::runtime::Interface for ISWbemSink {
     type Vtable = ISWbemSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375839, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
+}
+impl ::std::convert::From<ISWbemSink> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemSink> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemSink> for super::Ole::Automation::IDispatch {
@@ -4299,13 +4819,13 @@ impl ::std::convert::From<&ISWbemSink> for super::Ole::Automation::IDispatch {
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4326,12 +4846,32 @@ pub struct ISWbemSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct ISWbemSinkEvents(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct ISWbemSinkEvents(pub ::windows::runtime::IUnknown);
 impl ISWbemSinkEvents {}
 unsafe impl ::windows::runtime::Interface for ISWbemSinkEvents {
     type Vtable = ISWbemSinkEvents_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1970375840, 61481, 4561, [161, 172, 0, 192, 79, 182, 194, 35]);
+}
+impl ::std::convert::From<ISWbemSinkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: ISWbemSinkEvents) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&ISWbemSinkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &ISWbemSinkEvents) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISWbemSinkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a ISWbemSinkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<ISWbemSinkEvents> for super::Ole::Automation::IDispatch {
@@ -4348,13 +4888,13 @@ impl ::std::convert::From<&ISWbemSinkEvents> for super::Ole::Automation::IDispat
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for ISWbemSinkEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &ISWbemSinkEvents {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4374,8 +4914,8 @@ pub struct ISWbemSinkEvents_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IUnsecuredApartment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IUnsecuredApartment(pub ::windows::runtime::IUnknown);
 impl IUnsecuredApartment {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateObjectStub<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -4387,6 +4927,26 @@ unsafe impl ::windows::runtime::Interface for IUnsecuredApartment {
     type Vtable = IUnsecuredApartment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(486193804, 5411, 4561, [173, 121, 0, 192, 79, 216, 253, 255]);
 }
+impl ::std::convert::From<IUnsecuredApartment> for ::windows::runtime::IUnknown {
+    fn from(value: IUnsecuredApartment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IUnsecuredApartment> for ::windows::runtime::IUnknown {
+    fn from(value: &IUnsecuredApartment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IUnsecuredApartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IUnsecuredApartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnsecuredApartment_abi(
@@ -4397,8 +4957,8 @@ pub struct IUnsecuredApartment_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWMIExtension(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWMIExtension(pub ::windows::runtime::IUnknown);
 impl IWMIExtension {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4421,6 +4981,26 @@ unsafe impl ::windows::runtime::Interface for IWMIExtension {
     type Vtable = IWMIExtension_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2915168366, 23678, 4562, [139, 116, 0, 16, 75, 42, 251, 65]);
 }
+impl ::std::convert::From<IWMIExtension> for ::windows::runtime::IUnknown {
+    fn from(value: IWMIExtension) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWMIExtension> for ::windows::runtime::IUnknown {
+    fn from(value: &IWMIExtension) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMIExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWMIExtension {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IWMIExtension> for super::Ole::Automation::IDispatch {
     fn from(value: IWMIExtension) -> Self {
@@ -4436,13 +5016,13 @@ impl ::std::convert::From<&IWMIExtension> for super::Ole::Automation::IDispatch 
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWMIExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWMIExtension {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4466,8 +5046,8 @@ pub struct IWMIExtension_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemAddressResolution(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemAddressResolution(pub ::windows::runtime::IUnknown);
 impl IWbemAddressResolution {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4478,6 +5058,26 @@ impl IWbemAddressResolution {
 unsafe impl ::windows::runtime::Interface for IWbemAddressResolution {
     type Vtable = IWbemAddressResolution_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157484562, 35984, 4561, [158, 123, 0, 192, 79, 195, 36, 168]);
+}
+impl ::std::convert::From<IWbemAddressResolution> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemAddressResolution) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemAddressResolution> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemAddressResolution) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemAddressResolution {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemAddressResolution {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -4490,8 +5090,8 @@ pub struct IWbemAddressResolution_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemBackupRestore(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemBackupRestore(pub ::windows::runtime::IUnknown);
 impl IWbemBackupRestore {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4508,6 +5108,26 @@ unsafe impl ::windows::runtime::Interface for IWbemBackupRestore {
     type Vtable = IWbemBackupRestore_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3298702023, 48267, 4562, [133, 212, 0, 16, 90, 31, 131, 4]);
 }
+impl ::std::convert::From<IWbemBackupRestore> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemBackupRestore) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemBackupRestore> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemBackupRestore) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemBackupRestore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemBackupRestore {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemBackupRestore_abi(
@@ -4521,8 +5141,8 @@ pub struct IWbemBackupRestore_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemBackupRestoreEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemBackupRestoreEx(pub ::windows::runtime::IUnknown);
 impl IWbemBackupRestoreEx {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4547,6 +5167,26 @@ unsafe impl ::windows::runtime::Interface for IWbemBackupRestoreEx {
     type Vtable = IWbemBackupRestoreEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2740575941, 59411, 18484, [138, 42, 186, 127, 29, 119, 125, 118]);
 }
+impl ::std::convert::From<IWbemBackupRestoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemBackupRestoreEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemBackupRestoreEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemBackupRestoreEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemBackupRestoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemBackupRestoreEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemBackupRestoreEx> for IWbemBackupRestore {
     fn from(value: IWbemBackupRestoreEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -4559,12 +5199,12 @@ impl ::std::convert::From<&IWbemBackupRestoreEx> for IWbemBackupRestore {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemBackupRestore> for IWbemBackupRestoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemBackupRestore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemBackupRestore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemBackupRestore> for &IWbemBackupRestoreEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemBackupRestore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemBackupRestore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -4582,8 +5222,8 @@ pub struct IWbemBackupRestoreEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemCallResult(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemCallResult(pub ::windows::runtime::IUnknown);
 impl IWbemCallResult {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetResultObject(&self, ltimeout: i32) -> ::windows::runtime::Result<IWbemClassObject> {
@@ -4611,6 +5251,26 @@ unsafe impl ::windows::runtime::Interface for IWbemCallResult {
     type Vtable = IWbemCallResult_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152165493, 59644, 4560, [160, 124, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemCallResult> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemCallResult) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemCallResult> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemCallResult) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemCallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemCallResult {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemCallResult_abi(
@@ -4625,8 +5285,8 @@ pub struct IWbemCallResult_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemClassObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemClassObject(pub ::windows::runtime::IUnknown);
 impl IWbemClassObject {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetQualifierSet(&self) -> ::windows::runtime::Result<IWbemQualifierSet> {
@@ -4754,6 +5414,26 @@ unsafe impl ::windows::runtime::Interface for IWbemClassObject {
     type Vtable = IWbemClassObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209793, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
 }
+impl ::std::convert::From<IWbemClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemClassObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemClassObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClassObject_abi(
@@ -4802,8 +5482,8 @@ pub struct IWbemClassObject_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemClientConnectionTransport(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemClientConnectionTransport(pub ::windows::runtime::IUnknown);
 impl IWbemClientConnectionTransport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4889,6 +5569,26 @@ unsafe impl ::windows::runtime::Interface for IWbemClientConnectionTransport {
     type Vtable = IWbemClientConnectionTransport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2827601706, 64705, 19102, [175, 97, 237, 7, 19, 51, 251, 91]);
 }
+impl ::std::convert::From<IWbemClientConnectionTransport> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemClientConnectionTransport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemClientConnectionTransport> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemClientConnectionTransport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemClientConnectionTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemClientConnectionTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClientConnectionTransport_abi(
@@ -4932,8 +5632,8 @@ pub struct IWbemClientConnectionTransport_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemClientTransport(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemClientTransport(pub ::windows::runtime::IUnknown);
 impl IWbemClientTransport {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -4981,6 +5681,26 @@ unsafe impl ::windows::runtime::Interface for IWbemClientTransport {
     type Vtable = IWbemClientTransport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4157484561, 35984, 4561, [158, 123, 0, 192, 79, 195, 36, 168]);
 }
+impl ::std::convert::From<IWbemClientTransport> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemClientTransport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemClientTransport> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemClientTransport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemClientTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemClientTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemClientTransport_abi(
@@ -5006,8 +5726,8 @@ pub struct IWbemClientTransport_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemConfigureRefresher(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemConfigureRefresher(pub ::windows::runtime::IUnknown);
 impl IWbemConfigureRefresher {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5036,6 +5756,26 @@ unsafe impl ::windows::runtime::Interface for IWbemConfigureRefresher {
     type Vtable = IWbemConfigureRefresher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225682, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemConfigureRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemConfigureRefresher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemConfigureRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemConfigureRefresher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemConfigureRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemConfigureRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConfigureRefresher_abi(
@@ -5052,8 +5792,8 @@ pub struct IWbemConfigureRefresher_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemConnectorLogin(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemConnectorLogin(pub ::windows::runtime::IUnknown);
 impl IWbemConnectorLogin {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5066,6 +5806,26 @@ unsafe impl ::windows::runtime::Interface for IWbemConnectorLogin {
     type Vtable = IWbemConnectorLogin_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3639385265, 45365, 20240, [139, 27, 199, 24, 139, 176, 209, 134]);
 }
+impl ::std::convert::From<IWbemConnectorLogin> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemConnectorLogin) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemConnectorLogin> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemConnectorLogin) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemConnectorLogin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemConnectorLogin {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConnectorLogin_abi(
@@ -5077,8 +5837,8 @@ pub struct IWbemConnectorLogin_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemConstructClassObject(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemConstructClassObject(pub ::windows::runtime::IUnknown);
 impl IWbemConstructClassObject {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5105,6 +5865,26 @@ unsafe impl ::windows::runtime::Interface for IWbemConstructClassObject {
     type Vtable = IWbemConstructClassObject_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2667012500, 28885, 4561, [173, 144, 0, 192, 79, 216, 253, 255]);
 }
+impl ::std::convert::From<IWbemConstructClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemConstructClassObject) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemConstructClassObject> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemConstructClassObject) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemConstructClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemConstructClassObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemConstructClassObject_abi(
@@ -5122,8 +5902,8 @@ pub struct IWbemConstructClassObject_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemContext(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemContext(pub ::windows::runtime::IUnknown);
 impl IWbemContext {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWbemContext> {
@@ -5174,6 +5954,26 @@ unsafe impl ::windows::runtime::Interface for IWbemContext {
     type Vtable = IWbemContext_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1152165492, 59644, 4560, [160, 124, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemContext> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemContext) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemContext> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemContext) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemContext {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemContext_abi(
@@ -5197,8 +5997,8 @@ pub struct IWbemContext_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemDecoupledBasicEventProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemDecoupledBasicEventProvider(pub ::windows::runtime::IUnknown);
 impl IWbemDecoupledBasicEventProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5233,6 +6033,26 @@ unsafe impl ::windows::runtime::Interface for IWbemDecoupledBasicEventProvider {
     type Vtable = IWbemDecoupledBasicEventProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2251517216, 51729, 18310, [158, 241, 188, 138, 148, 107, 66, 252]);
 }
+impl ::std::convert::From<IWbemDecoupledBasicEventProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemDecoupledBasicEventProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemDecoupledBasicEventProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemDecoupledBasicEventProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemDecoupledBasicEventProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemDecoupledBasicEventProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemDecoupledBasicEventProvider> for IWbemDecoupledRegistrar {
     fn from(value: IWbemDecoupledBasicEventProvider) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5245,12 +6065,12 @@ impl ::std::convert::From<&IWbemDecoupledBasicEventProvider> for IWbemDecoupledR
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemDecoupledRegistrar> for IWbemDecoupledBasicEventProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemDecoupledRegistrar> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemDecoupledRegistrar>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemDecoupledRegistrar> for &IWbemDecoupledBasicEventProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemDecoupledRegistrar> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemDecoupledRegistrar>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5267,8 +6087,8 @@ pub struct IWbemDecoupledBasicEventProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemDecoupledRegistrar(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemDecoupledRegistrar(pub ::windows::runtime::IUnknown);
 impl IWbemDecoupledRegistrar {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5293,6 +6113,26 @@ unsafe impl ::windows::runtime::Interface for IWbemDecoupledRegistrar {
     type Vtable = IWbemDecoupledRegistrar_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(268815311, 58959, 17990, [188, 211, 58, 8, 157, 138, 132, 180]);
 }
+impl ::std::convert::From<IWbemDecoupledRegistrar> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemDecoupledRegistrar) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemDecoupledRegistrar> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemDecoupledRegistrar) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemDecoupledRegistrar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemDecoupledRegistrar {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemDecoupledRegistrar_abi(
@@ -5305,8 +6145,8 @@ pub struct IWbemDecoupledRegistrar_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemEventConsumerProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemEventConsumerProvider(pub ::windows::runtime::IUnknown);
 impl IWbemEventConsumerProvider {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn FindConsumer<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0) -> ::windows::runtime::Result<IWbemUnboundObjectSink> {
@@ -5318,6 +6158,26 @@ unsafe impl ::windows::runtime::Interface for IWbemEventConsumerProvider {
     type Vtable = IWbemEventConsumerProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796242554, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
 }
+impl ::std::convert::From<IWbemEventConsumerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemEventConsumerProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemEventConsumerProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemEventConsumerProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemEventConsumerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemEventConsumerProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventConsumerProvider_abi(
@@ -5328,8 +6188,8 @@ pub struct IWbemEventConsumerProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemEventProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemEventProvider(pub ::windows::runtime::IUnknown);
 impl IWbemEventProvider {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn ProvideEvents<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemObjectSink>>(&self, psink: Param0, lflags: i32) -> ::windows::runtime::Result<()> {
@@ -5339,6 +6199,26 @@ impl IWbemEventProvider {
 unsafe impl ::windows::runtime::Interface for IWbemEventProvider {
     type Vtable = IWbemEventProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796176987, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
+}
+impl ::std::convert::From<IWbemEventProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemEventProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemEventProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemEventProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemEventProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemEventProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5350,8 +6230,8 @@ pub struct IWbemEventProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemEventProviderQuerySink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemEventProviderQuerySink(pub ::windows::runtime::IUnknown);
 impl IWbemEventProviderQuerySink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn NewQuery(&self, dwid: u32, wszquerylanguage: *const u16, wszquery: *const u16) -> ::windows::runtime::Result<()> {
@@ -5366,6 +6246,26 @@ unsafe impl ::windows::runtime::Interface for IWbemEventProviderQuerySink {
     type Vtable = IWbemEventProviderQuerySink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1477102328, 64028, 4560, [173, 114, 0, 192, 79, 216, 253, 255]);
 }
+impl ::std::convert::From<IWbemEventProviderQuerySink> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemEventProviderQuerySink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemEventProviderQuerySink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemEventProviderQuerySink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemEventProviderQuerySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemEventProviderQuerySink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemEventProviderQuerySink_abi(
@@ -5377,8 +6277,8 @@ pub struct IWbemEventProviderQuerySink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemEventProviderSecurity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemEventProviderSecurity(pub ::windows::runtime::IUnknown);
 impl IWbemEventProviderSecurity {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AccessCheck(&self, wszquerylanguage: *const u16, wszquery: *const u16, lsidlength: i32, psid: *const u8) -> ::windows::runtime::Result<()> {
@@ -5388,6 +6288,26 @@ impl IWbemEventProviderSecurity {
 unsafe impl ::windows::runtime::Interface for IWbemEventProviderSecurity {
     type Vtable = IWbemEventProviderSecurity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663008150, 55699, 4562, [179, 57, 0, 16, 90, 31, 74, 175]);
+}
+impl ::std::convert::From<IWbemEventProviderSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemEventProviderSecurity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemEventProviderSecurity> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemEventProviderSecurity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemEventProviderSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemEventProviderSecurity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5399,8 +6319,8 @@ pub struct IWbemEventProviderSecurity_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemEventSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemEventSink(pub ::windows::runtime::IUnknown);
 impl IWbemEventSink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
@@ -5434,6 +6354,26 @@ unsafe impl ::windows::runtime::Interface for IWbemEventSink {
     type Vtable = IWbemEventSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(987760650, 32314, 17254, [191, 137, 15, 238, 220, 147, 22, 89]);
 }
+impl ::std::convert::From<IWbemEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemEventSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemEventSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemEventSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemEventSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemEventSink> for IWbemObjectSink {
     fn from(value: IWbemEventSink) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5446,12 +6386,12 @@ impl ::std::convert::From<&IWbemEventSink> for IWbemObjectSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemObjectSink> for IWbemEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemObjectSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemObjectSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemObjectSink> for &IWbemEventSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemObjectSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemObjectSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5471,8 +6411,8 @@ pub struct IWbemEventSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemHiPerfEnum(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemHiPerfEnum(pub ::windows::runtime::IUnknown);
 impl IWbemHiPerfEnum {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn AddObjects(&self, lflags: i32, unumobjects: u32, apids: *const i32, apobj: *const ::std::option::Option<IWbemObjectAccess>) -> ::windows::runtime::Result<()> {
@@ -5495,6 +6435,26 @@ unsafe impl ::windows::runtime::Interface for IWbemHiPerfEnum {
     type Vtable = IWbemHiPerfEnum_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(654688904, 31150, 4562, [179, 72, 0, 16, 90, 31, 129, 119]);
 }
+impl ::std::convert::From<IWbemHiPerfEnum> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemHiPerfEnum) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemHiPerfEnum> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemHiPerfEnum) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemHiPerfEnum {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemHiPerfEnum {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemHiPerfEnum_abi(
@@ -5508,8 +6468,8 @@ pub struct IWbemHiPerfEnum_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemHiPerfProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemHiPerfProvider(pub ::windows::runtime::IUnknown);
 impl IWbemHiPerfProvider {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5552,6 +6512,26 @@ unsafe impl ::windows::runtime::Interface for IWbemHiPerfProvider {
     type Vtable = IWbemHiPerfProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225683, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemHiPerfProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemHiPerfProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemHiPerfProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemHiPerfProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemHiPerfProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemHiPerfProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemHiPerfProvider_abi(
@@ -5569,8 +6549,8 @@ pub struct IWbemHiPerfProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemLevel1Login(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemLevel1Login(pub ::windows::runtime::IUnknown);
 impl IWbemLevel1Login {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5601,6 +6581,26 @@ unsafe impl ::windows::runtime::Interface for IWbemLevel1Login {
     type Vtable = IWbemLevel1Login_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4077497624, 55402, 4560, [160, 117, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemLevel1Login> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemLevel1Login) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemLevel1Login> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemLevel1Login) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemLevel1Login {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemLevel1Login {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemLevel1Login_abi(
@@ -5618,8 +6618,8 @@ pub struct IWbemLevel1Login_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemLocator(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemLocator(pub ::windows::runtime::IUnknown);
 impl IWbemLocator {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -5640,6 +6640,26 @@ impl IWbemLocator {
 unsafe impl ::windows::runtime::Interface for IWbemLocator {
     type Vtable = IWbemLocator_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209799, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
+}
+impl ::std::convert::From<IWbemLocator> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemLocator) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemLocator> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemLocator) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemLocator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -5663,8 +6683,8 @@ pub struct IWbemLocator_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemObjectAccess(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemObjectAccess(pub ::windows::runtime::IUnknown);
 impl IWbemObjectAccess {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetQualifierSet(&self) -> ::windows::runtime::Result<IWbemQualifierSet> {
@@ -5836,6 +6856,26 @@ unsafe impl ::windows::runtime::Interface for IWbemObjectAccess {
     type Vtable = IWbemObjectAccess_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225690, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemObjectAccess> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemObjectAccess) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemObjectAccess> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemObjectAccess) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemObjectAccess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemObjectAccess {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemObjectAccess> for IWbemClassObject {
     fn from(value: IWbemObjectAccess) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -5848,12 +6888,12 @@ impl ::std::convert::From<&IWbemObjectAccess> for IWbemClassObject {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemClassObject> for IWbemObjectAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemClassObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemClassObject>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemClassObject> for &IWbemObjectAccess {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemClassObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemClassObject>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -5916,8 +6956,8 @@ pub struct IWbemObjectAccess_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemObjectSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemObjectSink(pub ::windows::runtime::IUnknown);
 impl IWbemObjectSink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
@@ -5933,6 +6973,26 @@ unsafe impl ::windows::runtime::Interface for IWbemObjectSink {
     type Vtable = IWbemObjectSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2089121793, 29569, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
 }
+impl ::std::convert::From<IWbemObjectSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemObjectSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemObjectSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemObjectSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemObjectSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemObjectSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectSink_abi(
@@ -5945,8 +7005,8 @@ pub struct IWbemObjectSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemObjectSinkEx(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemObjectSinkEx(pub ::windows::runtime::IUnknown);
 impl IWbemObjectSinkEx {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Indicate(&self, lobjectcount: i32, apobjarray: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
@@ -5988,6 +7048,26 @@ unsafe impl ::windows::runtime::Interface for IWbemObjectSinkEx {
     type Vtable = IWbemObjectSinkEx_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3889388794, 13451, 18526, [181, 36, 37, 39, 37, 214, 151, 202]);
 }
+impl ::std::convert::From<IWbemObjectSinkEx> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemObjectSinkEx) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemObjectSinkEx> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemObjectSinkEx) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemObjectSinkEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemObjectSinkEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemObjectSinkEx> for IWbemObjectSink {
     fn from(value: IWbemObjectSinkEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6000,12 +7080,12 @@ impl ::std::convert::From<&IWbemObjectSinkEx> for IWbemObjectSink {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemObjectSink> for IWbemObjectSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemObjectSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemObjectSink>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWbemObjectSink> for &IWbemObjectSinkEx {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWbemObjectSink> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWbemObjectSink>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
@@ -6029,8 +7109,8 @@ pub struct IWbemObjectSinkEx_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemObjectTextSrc(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemObjectTextSrc(pub ::windows::runtime::IUnknown);
 impl IWbemObjectTextSrc {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -6049,6 +7129,26 @@ unsafe impl ::windows::runtime::Interface for IWbemObjectTextSrc {
     type Vtable = IWbemObjectTextSrc_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3217000506, 51927, 4563, [161, 27, 0, 16, 90, 31, 81, 90]);
 }
+impl ::std::convert::From<IWbemObjectTextSrc> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemObjectTextSrc) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemObjectTextSrc> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemObjectTextSrc) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemObjectTextSrc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemObjectTextSrc {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemObjectTextSrc_abi(
@@ -6062,8 +7162,8 @@ pub struct IWbemObjectTextSrc_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemPath(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemPath(pub ::windows::runtime::IUnknown);
 impl IWbemPath {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -6195,6 +7295,26 @@ unsafe impl ::windows::runtime::Interface for IWbemPath {
     type Vtable = IWbemPath_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1002527474, 29548, 18302, [158, 81, 35, 138, 248, 102, 125, 204]);
 }
+impl ::std::convert::From<IWbemPath> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemPath) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemPath> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemPath) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemPath {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPath_abi(
@@ -6247,8 +7367,8 @@ pub struct IWbemPath_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemPathKeyList(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemPathKeyList(pub ::windows::runtime::IUnknown);
 impl IWbemPathKeyList {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn GetCount(&self) -> ::windows::runtime::Result<u32> {
@@ -6303,6 +7423,26 @@ unsafe impl ::windows::runtime::Interface for IWbemPathKeyList {
     type Vtable = IWbemPathKeyList_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2598774903, 30020, 19376, [170, 38, 161, 56, 36, 101, 158, 214]);
 }
+impl ::std::convert::From<IWbemPathKeyList> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemPathKeyList) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemPathKeyList> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemPathKeyList) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemPathKeyList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemPathKeyList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPathKeyList_abi(
@@ -6328,8 +7468,8 @@ pub struct IWbemPathKeyList_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemPropertyProvider(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemPropertyProvider(pub ::windows::runtime::IUnknown);
 impl IWbemPropertyProvider {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6355,6 +7495,26 @@ unsafe impl ::windows::runtime::Interface for IWbemPropertyProvider {
     type Vtable = IWbemPropertyProvider_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3462522945, 26044, 4560, [182, 189, 0, 170, 0, 50, 64, 199]);
 }
+impl ::std::convert::From<IWbemPropertyProvider> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemPropertyProvider) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemPropertyProvider> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemPropertyProvider) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemPropertyProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemPropertyProvider {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemPropertyProvider_abi(
@@ -6370,8 +7530,8 @@ pub struct IWbemPropertyProvider_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemProviderIdentity(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemProviderIdentity(pub ::windows::runtime::IUnknown);
 impl IWbemProviderIdentity {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetRegistrationObject<'a, Param1: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, lflags: i32, pprovreg: Param1) -> ::windows::runtime::Result<()> {
@@ -6381,6 +7541,26 @@ impl IWbemProviderIdentity {
 unsafe impl ::windows::runtime::Interface for IWbemProviderIdentity {
     type Vtable = IWbemProviderIdentity_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1663008151, 55699, 4562, [179, 57, 0, 16, 90, 31, 74, 175]);
+}
+impl ::std::convert::From<IWbemProviderIdentity> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemProviderIdentity) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemProviderIdentity> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemProviderIdentity) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemProviderIdentity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemProviderIdentity {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6392,8 +7572,8 @@ pub struct IWbemProviderIdentity_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemProviderInit(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemProviderInit(pub ::windows::runtime::IUnknown);
 impl IWbemProviderInit {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -6414,6 +7594,26 @@ unsafe impl ::windows::runtime::Interface for IWbemProviderInit {
     type Vtable = IWbemProviderInit_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467932530, 37341, 4561, [174, 178, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemProviderInit> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemProviderInit) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemProviderInit> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemProviderInit) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemProviderInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemProviderInit {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemProviderInit_abi(
@@ -6425,8 +7625,8 @@ pub struct IWbemProviderInit_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemProviderInitSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemProviderInitSink(pub ::windows::runtime::IUnknown);
 impl IWbemProviderInitSink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn SetStatus(&self, lstatus: i32, lflags: i32) -> ::windows::runtime::Result<()> {
@@ -6436,6 +7636,26 @@ impl IWbemProviderInitSink {
 unsafe impl ::windows::runtime::Interface for IWbemProviderInitSink {
     type Vtable = IWbemProviderInitSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(467932529, 37341, 4561, [174, 178, 0, 192, 79, 182, 136, 32]);
+}
+impl ::std::convert::From<IWbemProviderInitSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemProviderInitSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemProviderInitSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemProviderInitSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemProviderInitSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemProviderInitSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6447,8 +7667,8 @@ pub struct IWbemProviderInitSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemQualifierSet(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemQualifierSet(pub ::windows::runtime::IUnknown);
 impl IWbemQualifierSet {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
@@ -6489,6 +7709,26 @@ unsafe impl ::windows::runtime::Interface for IWbemQualifierSet {
     type Vtable = IWbemQualifierSet_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3692209792, 29567, 4559, [136, 77, 0, 170, 0, 75, 46, 36]);
 }
+impl ::std::convert::From<IWbemQualifierSet> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemQualifierSet) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemQualifierSet> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemQualifierSet) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemQualifierSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemQualifierSet {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemQualifierSet_abi(
@@ -6510,8 +7750,8 @@ pub struct IWbemQualifierSet_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemQuery(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemQuery(pub ::windows::runtime::IUnknown);
 impl IWbemQuery {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Empty(&self) -> ::windows::runtime::Result<()> {
@@ -6547,6 +7787,26 @@ unsafe impl ::windows::runtime::Interface for IWbemQuery {
     type Vtable = IWbemQuery_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2165731160, 56728, 4563, [161, 32, 0, 16, 90, 31, 81, 90]);
 }
+impl ::std::convert::From<IWbemQuery> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemQuery) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemQuery> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemQuery) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemQuery {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemQuery_abi(
@@ -6564,8 +7824,8 @@ pub struct IWbemQuery_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemRefresher(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemRefresher(pub ::windows::runtime::IUnknown);
 impl IWbemRefresher {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Refresh(&self, lflags: i32) -> ::windows::runtime::Result<()> {
@@ -6575,6 +7835,26 @@ impl IWbemRefresher {
 unsafe impl ::windows::runtime::Interface for IWbemRefresher {
     type Vtable = IWbemRefresher_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1228225689, 20843, 4561, [174, 166, 0, 192, 79, 182, 136, 32]);
+}
+impl ::std::convert::From<IWbemRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemRefresher) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemRefresher> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemRefresher) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemRefresher {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6586,8 +7866,8 @@ pub struct IWbemRefresher_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemServices(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemServices(pub ::windows::runtime::IUnknown);
 impl IWbemServices {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -6725,6 +8005,26 @@ unsafe impl ::windows::runtime::Interface for IWbemServices {
     type Vtable = IWbemServices_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2505497753, 33420, 4559, [163, 126, 0, 170, 0, 50, 64, 199]);
 }
+impl ::std::convert::From<IWbemServices> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemServices) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemServices> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemServices) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemServices {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemServices_abi(
@@ -6774,8 +8074,8 @@ pub struct IWbemServices_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemShutdown(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemShutdown(pub ::windows::runtime::IUnknown);
 impl IWbemShutdown {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Shutdown<'a, Param2: ::windows::runtime::IntoParam<'a, IWbemContext>>(&self, ureason: i32, umaxmilliseconds: u32, pctx: Param2) -> ::windows::runtime::Result<()> {
@@ -6785,6 +8085,26 @@ impl IWbemShutdown {
 unsafe impl ::windows::runtime::Interface for IWbemShutdown {
     type Vtable = IWbemShutdown_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3081969145, 54549, 4563, [161, 28, 0, 16, 90, 31, 81, 90]);
+}
+impl ::std::convert::From<IWbemShutdown> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemShutdown) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemShutdown> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemShutdown) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemShutdown {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemShutdown {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6796,8 +8116,8 @@ pub struct IWbemShutdown_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemStatusCodeText(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemStatusCodeText(pub ::windows::runtime::IUnknown);
 impl IWbemStatusCodeText {
     #[cfg(feature = "Win32_Foundation")]
     #[doc = "*Required features: `Win32_System_Wmi`, `Win32_Foundation`*"]
@@ -6816,6 +8136,26 @@ unsafe impl ::windows::runtime::Interface for IWbemStatusCodeText {
     type Vtable = IWbemStatusCodeText_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3951550908, 12851, 4562, [174, 201, 0, 192, 79, 182, 136, 32]);
 }
+impl ::std::convert::From<IWbemStatusCodeText> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemStatusCodeText) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemStatusCodeText> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemStatusCodeText) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemStatusCodeText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemStatusCodeText {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWbemStatusCodeText_abi(
@@ -6829,8 +8169,8 @@ pub struct IWbemStatusCodeText_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemTransport(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemTransport(pub ::windows::runtime::IUnknown);
 impl IWbemTransport {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn Initialize(&self) -> ::windows::runtime::Result<()> {
@@ -6840,6 +8180,26 @@ impl IWbemTransport {
 unsafe impl ::windows::runtime::Interface for IWbemTransport {
     type Vtable = IWbemTransport_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1430250884, 8534, 4560, [182, 174, 0, 170, 0, 50, 64, 199]);
+}
+impl ::std::convert::From<IWbemTransport> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemTransport) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemTransport> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemTransport) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemTransport {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6851,8 +8211,8 @@ pub struct IWbemTransport_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemUnboundObjectSink(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemUnboundObjectSink(pub ::windows::runtime::IUnknown);
 impl IWbemUnboundObjectSink {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn IndicateToConsumer<'a, Param0: ::windows::runtime::IntoParam<'a, IWbemClassObject>>(&self, plogicalconsumer: Param0, lnumobjects: i32, apobjects: *const ::std::option::Option<IWbemClassObject>) -> ::windows::runtime::Result<()> {
@@ -6862,6 +8222,26 @@ impl IWbemUnboundObjectSink {
 unsafe impl ::windows::runtime::Interface for IWbemUnboundObjectSink {
     type Vtable = IWbemUnboundObjectSink_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3796242555, 45166, 4560, [173, 97, 0, 192, 79, 216, 253, 255]);
+}
+impl ::std::convert::From<IWbemUnboundObjectSink> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemUnboundObjectSink) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemUnboundObjectSink> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemUnboundObjectSink) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemUnboundObjectSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemUnboundObjectSink {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
 }
 #[repr(C)]
 #[doc(hidden)]
@@ -6873,8 +8253,8 @@ pub struct IWbemUnboundObjectSink_abi(
 );
 #[doc = "*Required features: `Win32_System_Wmi`*"]
 #[repr(transparent)]
-#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug, :: windows :: runtime :: DeriveInterface)]
-pub struct IWbemUnsecuredApartment(::windows::runtime::IUnknown);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
+pub struct IWbemUnsecuredApartment(pub ::windows::runtime::IUnknown);
 impl IWbemUnsecuredApartment {
     #[doc = "*Required features: `Win32_System_Wmi`*"]
     pub unsafe fn CreateObjectStub<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pobject: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
@@ -6892,6 +8272,26 @@ unsafe impl ::windows::runtime::Interface for IWbemUnsecuredApartment {
     type Vtable = IWbemUnsecuredApartment_abi;
     const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(829660420, 13425, 19700, [154, 124, 87, 164, 74, 231, 25, 86]);
 }
+impl ::std::convert::From<IWbemUnsecuredApartment> for ::windows::runtime::IUnknown {
+    fn from(value: IWbemUnsecuredApartment) -> Self {
+        value.0
+    }
+}
+impl ::std::convert::From<&IWbemUnsecuredApartment> for ::windows::runtime::IUnknown {
+    fn from(value: &IWbemUnsecuredApartment) -> Self {
+        value.0.clone()
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWbemUnsecuredApartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(self.0)
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &'a IWbemUnsecuredApartment {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Borrowed(&self.0)
+    }
+}
 impl ::std::convert::From<IWbemUnsecuredApartment> for IUnsecuredApartment {
     fn from(value: IWbemUnsecuredApartment) -> Self {
         unsafe { ::std::mem::transmute(value) }
@@ -6904,12 +8304,12 @@ impl ::std::convert::From<&IWbemUnsecuredApartment> for IUnsecuredApartment {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUnsecuredApartment> for IWbemUnsecuredApartment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUnsecuredApartment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUnsecuredApartment>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUnsecuredApartment> for &IWbemUnsecuredApartment {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUnsecuredApartment> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUnsecuredApartment>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[repr(C)]
