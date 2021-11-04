@@ -46,8 +46,8 @@ impl ::std::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -188,8 +188,8 @@ unsafe impl ::windows::runtime::Abi for HEAPLIST32 {
 pub const HF32_DEFAULT: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`*"]
 pub const HF32_SHARED: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -203,8 +203,8 @@ pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -218,8 +218,8 @@ pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32ListNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -233,8 +233,8 @@ pub unsafe fn Heap32ListNext<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -356,8 +356,8 @@ impl ::std::cmp::Eq for MODULEENTRY32W {}
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -371,8 +371,8 @@ pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -386,8 +386,8 @@ pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -401,8 +401,8 @@ pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -515,8 +515,8 @@ impl ::std::cmp::Eq for PROCESSENTRY32W {}
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -530,8 +530,8 @@ pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -545,8 +545,8 @@ pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -560,8 +560,8 @@ pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -615,8 +615,8 @@ impl ::std::cmp::Eq for THREADENTRY32 {}
 unsafe impl ::windows::runtime::Abi for THREADENTRY32 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -630,8 +630,8 @@ pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -645,8 +645,8 @@ pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Diagnostics_ToolHelp`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

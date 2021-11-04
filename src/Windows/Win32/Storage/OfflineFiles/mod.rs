@@ -4036,8 +4036,8 @@ pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`*"]
 pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
 pub const OfflineFilesCache: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1220984444, 14449, 17356, [180, 111, 20, 73, 161, 187, 47, 243]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesEnable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(benable: Param0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -4051,8 +4051,8 @@ pub unsafe fn OfflineFilesEnable<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
@@ -4066,8 +4066,8 @@ pub unsafe fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_OfflineFiles`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]

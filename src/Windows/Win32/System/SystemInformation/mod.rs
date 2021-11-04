@@ -130,8 +130,8 @@ impl ::std::convert::From<i32> for DEP_SYSTEM_POLICY_TYPE {
 unsafe impl ::windows::runtime::Abi for DEP_SYSTEM_POLICY_TYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DnsHostnameToComputerNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, computername: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -287,8 +287,8 @@ impl ::std::cmp::Eq for GROUP_RELATIONSHIP {}
 unsafe impl ::windows::runtime::Abi for GROUP_RELATIONSHIP {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -302,8 +302,8 @@ pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super::super::Foundation::PWSTR, nsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -317,8 +317,8 @@ pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -347,8 +347,8 @@ pub unsafe fn GetIntegratedDisplaySize() -> ::windows::runtime::Result<f64> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
     #[cfg(windows)]
@@ -362,8 +362,8 @@ pub unsafe fn GetLocalTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -377,8 +377,8 @@ pub unsafe fn GetLogicalProcessorInformation(buffer: *mut SYSTEM_LOGICAL_PROCESS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -392,8 +392,8 @@ pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(windows)]
@@ -407,8 +407,8 @@ pub unsafe fn GetNativeSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -422,8 +422,8 @@ pub unsafe fn GetOsManufacturingMode(pbenabled: *mut super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -437,8 +437,8 @@ pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> super::super::Foundation::BO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -452,8 +452,8 @@ pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u6
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -467,8 +467,8 @@ pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: *mut SYSTEM_PROCES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProductInfo(dwosmajorversion: u32, dwosminorversion: u32, dwspmajorversion: u32, dwspminorversion: u32, pdwreturnedproducttype: *mut OS_PRODUCT_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -496,8 +496,8 @@ pub unsafe fn GetSystemDEPPolicy() -> DEP_SYSTEM_POLICY_TYPE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -511,8 +511,8 @@ pub unsafe fn GetSystemDirectoryA(lpbuffer: super::super::Foundation::PSTR, usiz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -540,8 +540,8 @@ pub unsafe fn GetSystemFirmwareTable<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(windows)]
@@ -555,8 +555,8 @@ pub unsafe fn GetSystemInfo(lpsysteminfo: *mut SYSTEM_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundation::BOOL, flags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -570,8 +570,8 @@ pub unsafe fn GetSystemLeapSecondInformation(enabled: *mut super::super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMTIME) {
     #[cfg(windows)]
@@ -585,8 +585,8 @@ pub unsafe fn GetSystemTime(lpsystemtime: *mut super::super::Foundation::SYSTEMT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -600,8 +600,8 @@ pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincremen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -615,8 +615,8 @@ pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
     #[cfg(windows)]
@@ -630,8 +630,8 @@ pub unsafe fn GetSystemTimeAsFileTime(lpsystemtimeasfiletime: *mut super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super::super::Foundation::FILETIME) {
     #[cfg(windows)]
@@ -645,8 +645,8 @@ pub unsafe fn GetSystemTimePreciseAsFileTime(lpsystemtimeasfiletime: *mut super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -660,8 +660,8 @@ pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: super::super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -675,8 +675,8 @@ pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: super::super::Foundation::PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR, usize: u32, imagefilemachinetype: u16) -> u32 {
     #[cfg(windows)]
@@ -690,8 +690,8 @@ pub unsafe fn GetSystemWow64Directory2A(lpbuffer: super::super::Foundation::PSTR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWSTR, usize: u32, imagefilemachinetype: u16) -> u32 {
     #[cfg(windows)]
@@ -705,8 +705,8 @@ pub unsafe fn GetSystemWow64Directory2W(lpbuffer: super::super::Foundation::PWST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -720,8 +720,8 @@ pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: super::super::Foundation::PSTR,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -777,8 +777,8 @@ pub unsafe fn GetVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -792,8 +792,8 @@ pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -807,8 +807,8 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -822,8 +822,8 @@ pub unsafe fn GetWindowsDirectoryA(lpbuffer: super::super::Foundation::PSTR, usi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: super::super::Foundation::PWSTR, usize: u32) -> u32 {
     #[cfg(windows)]
@@ -851,8 +851,8 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -866,8 +866,8 @@ pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIRONMENT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -881,8 +881,8 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -2048,8 +2048,8 @@ impl ::std::cmp::Eq for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2063,8 +2063,8 @@ pub unsafe fn SetComputerNameA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, flags: u32, lpbuffer: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2078,8 +2078,8 @@ pub unsafe fn SetComputerNameEx2W<'a, Param2: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2093,8 +2093,8 @@ pub unsafe fn SetComputerNameExA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2108,8 +2108,8 @@ pub unsafe fn SetComputerNameExW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetComputerNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcomputername: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2123,8 +2123,8 @@ pub unsafe fn SetComputerNameW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2138,8 +2138,8 @@ pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2153,8 +2153,8 @@ pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u32, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2168,8 +2168,8 @@ pub unsafe fn SetSystemTimeAdjustment<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemTimeAdjustmentPrecise<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwtimeadjustment: u64, btimeadjustmentdisabled: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2289,8 +2289,8 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2304,8 +2304,8 @@ pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SystemInformation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

@@ -121,8 +121,8 @@ pub const ERROR_TAG_ALREADY_PRESENT: u32 = 15008u32;
 pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`*"]
 pub const MAX_NAME_LEN: u32 = 48u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchEnumTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -136,8 +136,8 @@ pub unsafe fn MatchEnumTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MatchToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -416,8 +416,8 @@ pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::w
 pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PreprocessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -441,8 +441,8 @@ pub unsafe fn PreprocessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
     #[cfg(windows)]
@@ -456,8 +456,8 @@ pub unsafe fn PrintError<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
     #[cfg(windows)]
@@ -471,8 +471,8 @@ pub unsafe fn PrintMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
     #[cfg(windows)]
@@ -486,8 +486,8 @@ pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetShell`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u32 {
     #[cfg(windows)]

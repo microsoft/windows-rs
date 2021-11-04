@@ -26,10 +26,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    let arch = gen.gen_arch_cfg(def.attributes());
-    let features = signature.method_features();
-    let cfg = gen.gen_cfg(&features);
-    let doc = gen.gen_cfg_doc(&features);
+    let cfg = gen.gen_function_cfg(def, &signature);
 
     match signature.kind() {
         SignatureKind::Query => {
@@ -38,9 +35,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #arch
                 #cfg
-                #doc
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params) -> ::windows::runtime::Result<T> {
                     #[cfg(windows)]
@@ -63,9 +58,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #arch
                 #cfg
-                #doc
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::runtime::Interface>(#params result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
@@ -88,9 +81,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let return_type_tokens = gen_win32_result_type(&signature, gen);
 
             quote! {
-                #arch
                 #cfg
-                #doc
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<#return_type_tokens> {
                     #[cfg(windows)]
@@ -112,9 +103,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #arch
                 #cfg
-                #doc
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::runtime::Result<()> {
                     #[cfg(windows)]
@@ -135,9 +124,7 @@ pub fn gen_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #arch
                 #cfg
-                #doc
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]

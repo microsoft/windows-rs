@@ -554,8 +554,8 @@ impl ::std::cmp::Eq for BATTERY_WAIT_STATUS {}
 unsafe impl ::windows::runtime::Abi for BATTERY_WAIT_STATUS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn CallNtPowerInformation(informationlevel: super::SystemServices::POWER_INFORMATION_LEVEL, inputbuffer: *const ::std::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::std::ffi::c_void, outputbufferlength: u32) -> i32 {
     #[cfg(windows)]
@@ -569,8 +569,8 @@ pub unsafe fn CallNtPowerInformation(informationlevel: super::SystemServices::PO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -629,8 +629,8 @@ impl ::std::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 unsafe impl ::windows::runtime::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     type Abi = ::std::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -644,8 +644,8 @@ pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -659,8 +659,8 @@ pub unsafe fn DevicePowerClose() -> super::super::Foundation::BOOLEAN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: u32, queryflags: u32, preturnbuffer: *mut u8, pbuffersize: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -674,8 +674,8 @@ pub unsafe fn DevicePowerEnumDevices(queryindex: u32, queryinterpretationflags: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -689,8 +689,8 @@ pub unsafe fn DevicePowerOpen(debugmask: u32) -> super::super::Foundation::BOOLE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(devicedescription: Param0, setflags: u32, setdata: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1003,8 +1003,8 @@ pub const EnableSysTrayBatteryMeter: u32 = 1u32;
 pub const EnableVideoDimDisplay: u32 = 16u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const EnableWakeOnRing: u32 = 8u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpfn: ::std::option::Option<PWRSCHEMESENUMPROC>, lparam: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1146,8 +1146,8 @@ pub const GUID_DEVICE_SYS_BUTTON: ::windows::runtime::GUID = ::windows::runtime:
 pub const GUID_DEVICE_THERMAL_ZONE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1257913681, 29863, 4560, [190, 94, 0, 160, 201, 6, 40, 87]);
 pub const GUID_DEVINTERFACE_THERMAL_COOLING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3689166653, 15489, 16587, [172, 228, 224, 229, 208, 95, 12, 159]);
 pub const GUID_DEVINTERFACE_THERMAL_MANAGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2457780371, 27044, 19392, [189, 2, 113, 22, 100, 113, 68, 99]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1161,8 +1161,8 @@ pub unsafe fn GetActivePwrScheme(puiid: *mut u32) -> super::super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1176,8 +1176,8 @@ pub unsafe fn GetCurrentPowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDevicePowerState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, pfon: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1191,8 +1191,8 @@ pub unsafe fn GetDevicePowerState<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1206,8 +1206,8 @@ pub unsafe fn GetPwrCapabilities(lpspc: *mut SYSTEM_POWER_CAPABILITIES) -> super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1221,8 +1221,8 @@ pub unsafe fn GetPwrDiskSpindownRange(puimax: *mut u32, puimin: *mut u32) -> sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1304,8 +1304,8 @@ pub const IOCTL_THERMAL_READ_TEMPERATURE: u32 = 2703504u32;
 pub const IOCTL_THERMAL_SET_COOLING_POLICY: u32 = 2719876u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const IOCTL_THERMAL_SET_PASSIVE_LIMIT: u32 = 2719884u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1319,8 +1319,8 @@ pub unsafe fn IsAdminOverrideActive(papp: *const ADMINISTRATOR_POWER_POLICY) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1334,8 +1334,8 @@ pub unsafe fn IsPwrHibernateAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1349,8 +1349,8 @@ pub unsafe fn IsPwrShutdownAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1364,8 +1364,8 @@ pub unsafe fn IsPwrSuspendAllowed() -> super::super::Foundation::BOOLEAN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1975,8 +1975,8 @@ pub unsafe fn PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: *const ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn PowerClearRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: super::SystemServices::POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1990,8 +1990,8 @@ pub unsafe fn PowerClearRequest<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerCreatePossibleSetting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, possiblesettingindex: u32) -> u32 {
     #[cfg(windows)]
@@ -2005,8 +2005,8 @@ pub unsafe fn PowerCreatePossibleSetting<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn PowerCreateRequest(context: *const super::SystemServices::REASON_CONTEXT) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -2020,8 +2020,8 @@ pub unsafe fn PowerCreateRequest(context: *const super::SystemServices::REASON_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerCreateSetting<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2035,8 +2035,8 @@ pub unsafe fn PowerCreateSetting<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerDeleteScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2078,8 +2078,8 @@ pub unsafe fn PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerDuplicateScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, sourceschemeguid: *const ::windows::runtime::GUID, destinationschemeguid: *mut *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2093,8 +2093,8 @@ pub unsafe fn PowerDuplicateScheme<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerEnumerate<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, accessflags: POWER_DATA_ACCESSOR, index: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2108,8 +2108,8 @@ pub unsafe fn PowerEnumerate<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerGetActiveScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, activepolicyguid: *mut *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2123,8 +2123,8 @@ pub unsafe fn PowerGetActiveScheme<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PowerImportPowerScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpowerkey: Param0, importfilenamepath: Param1, destinationschemeguid: *mut *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2138,8 +2138,8 @@ pub unsafe fn PowerImportPowerScheme<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::runtime::GUID, settingguid: *const ::windows::runtime::GUID) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -2153,8 +2153,8 @@ pub unsafe fn PowerIsSettingRangeDefined(subkeyguid: *const ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PowerOpenSystemPowerKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(phsystempowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
     #[cfg(windows)]
@@ -2168,8 +2168,8 @@ pub unsafe fn PowerOpenSystemPowerKey<'a, Param2: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_Registry`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
 pub unsafe fn PowerOpenUserPowerKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(phuserpowerkey: *mut super::Registry::HKEY, access: u32, openexisting: Param2) -> u32 {
     #[cfg(windows)]
@@ -2183,8 +2183,8 @@ pub unsafe fn PowerOpenUserPowerKey<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, acdefaultindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2198,8 +2198,8 @@ pub unsafe fn PowerReadACDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2213,8 +2213,8 @@ pub unsafe fn PowerReadACValue<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadACValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, acvalueindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2228,8 +2228,8 @@ pub unsafe fn PowerReadACValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemepersonalityguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, dcdefaultindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2243,8 +2243,8 @@ pub unsafe fn PowerReadDCDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, r#type: *mut u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2258,8 +2258,8 @@ pub unsafe fn PowerReadDCValue<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDCValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, dcvalueindex: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2273,8 +2273,8 @@ pub unsafe fn PowerReadDCValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2288,8 +2288,8 @@ pub unsafe fn PowerReadDescription<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2303,8 +2303,8 @@ pub unsafe fn PowerReadFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadIconResourceSpecifier<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2318,8 +2318,8 @@ pub unsafe fn PowerReadIconResourceSpecifier<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2333,8 +2333,8 @@ pub unsafe fn PowerReadPossibleDescription<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2348,8 +2348,8 @@ pub unsafe fn PowerReadPossibleFriendlyName<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadPossibleValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, r#type: *mut u32, possiblesettingindex: u32, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2377,8 +2377,8 @@ pub unsafe fn PowerReadSettingAttributes(subgroupguid: *const ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueIncrement<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valueincrement: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2392,8 +2392,8 @@ pub unsafe fn PowerReadValueIncrement<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueMax<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valuemaximum: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2407,8 +2407,8 @@ pub unsafe fn PowerReadValueMax<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueMin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valueminimum: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2422,8 +2422,8 @@ pub unsafe fn PowerReadValueMin<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerReadValueUnitsSpecifier<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *mut u8, buffersize: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -2451,8 +2451,8 @@ pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(version: u32, call
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerRegisterSuspendResumeNotification<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flags: u32, recipient: Param1, registrationhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2494,8 +2494,8 @@ pub unsafe fn PowerReplaceDefaultPowerSchemes() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerReportThermalEvent(event: *const THERMAL_EVENT) -> u32 {
     #[cfg(windows)]
@@ -2537,8 +2537,8 @@ pub unsafe fn PowerRestoreIndividualDefaultPowerScheme(schemeguid: *const ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerSetActiveScheme<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(userrootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -2552,8 +2552,8 @@ pub unsafe fn PowerSetActiveScheme<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn PowerSetRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(powerrequest: Param0, requesttype: super::SystemServices::POWER_REQUEST_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2581,8 +2581,8 @@ pub unsafe fn PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powergui
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: *const ::windows::runtime::GUID, accesstype: super::Registry::REG_SAM_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -2596,8 +2596,8 @@ pub unsafe fn PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PowerSettingRegisterNotification<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(settingguid: *const ::windows::runtime::GUID, flags: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS, recipient: Param2, registrationhandle: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -2653,8 +2653,8 @@ pub unsafe fn PowerUnregisterSuspendResumeNotification<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteACDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, defaultacindex: u32) -> u32 {
     #[cfg(windows)]
@@ -2668,8 +2668,8 @@ pub unsafe fn PowerWriteACDefaultIndex<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteACValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, acvalueindex: u32) -> u32 {
     #[cfg(windows)]
@@ -2683,8 +2683,8 @@ pub unsafe fn PowerWriteACValueIndex<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDCDefaultIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootsystempowerkey: Param0, schemepersonalityguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, defaultdcindex: u32) -> u32 {
     #[cfg(windows)]
@@ -2698,8 +2698,8 @@ pub unsafe fn PowerWriteDCDefaultIndex<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDCValueIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, dcvalueindex: u32) -> u32 {
     #[cfg(windows)]
@@ -2713,8 +2713,8 @@ pub unsafe fn PowerWriteDCValueIndex<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2728,8 +2728,8 @@ pub unsafe fn PowerWriteDescription<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2743,8 +2743,8 @@ pub unsafe fn PowerWriteFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteIconResourceSpecifier<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, schemeguid: *const ::windows::runtime::GUID, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2758,8 +2758,8 @@ pub unsafe fn PowerWriteIconResourceSpecifier<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleDescription<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2773,8 +2773,8 @@ pub unsafe fn PowerWritePossibleDescription<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleFriendlyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2788,8 +2788,8 @@ pub unsafe fn PowerWritePossibleFriendlyName<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWritePossibleValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, r#type: u32, possiblesettingindex: u32, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2817,8 +2817,8 @@ pub unsafe fn PowerWriteSettingAttributes(subgroupguid: *const ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueIncrement<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valueincrement: u32) -> u32 {
     #[cfg(windows)]
@@ -2832,8 +2832,8 @@ pub unsafe fn PowerWriteValueIncrement<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueMax<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valuemaximum: u32) -> u32 {
     #[cfg(windows)]
@@ -2847,8 +2847,8 @@ pub unsafe fn PowerWriteValueMax<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueMin<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, valueminimum: u32) -> u32 {
     #[cfg(windows)]
@@ -2862,8 +2862,8 @@ pub unsafe fn PowerWriteValueMin<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn PowerWriteValueUnitsSpecifier<'a, Param0: ::windows::runtime::IntoParam<'a, super::Registry::HKEY>>(rootpowerkey: Param0, subgroupofpowersettingsguid: *const ::windows::runtime::GUID, powersettingguid: *const ::windows::runtime::GUID, buffer: *const u8, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -2877,8 +2877,8 @@ pub unsafe fn PowerWriteValueUnitsSpecifier<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -2892,8 +2892,8 @@ pub unsafe fn ReadGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *mut MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -2907,8 +2907,8 @@ pub unsafe fn ReadProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -2922,8 +2922,8 @@ pub unsafe fn ReadPwrScheme(uiid: u32, ppowerpolicy: *mut POWER_POLICY) -> super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, powersettingguid: *const ::windows::runtime::GUID, flags: u32) -> HPOWERNOTIFY {
     #[cfg(windows)]
@@ -2937,8 +2937,8 @@ pub unsafe fn RegisterPowerSettingNotification<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hrecipient: Param0, flags: u32) -> HPOWERNOTIFY {
     #[cfg(windows)]
@@ -2952,8 +2952,8 @@ pub unsafe fn RegisterSuspendResumeNotification<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3400,8 +3400,8 @@ pub const SYS_BUTTON_POWER: u32 = 1u32;
 pub const SYS_BUTTON_SLEEP: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Power`*"]
 pub const SYS_BUTTON_WAKE: u32 = 2147483648u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_POWER_POLICY, ppowerpolicy: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -3415,8 +3415,8 @@ pub unsafe fn SetActivePwrScheme(uiid: u32, pglobalpowerpolicy: *const GLOBAL_PO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSuspendState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(bhibernate: Param0, bforce: Param1, bwakeupeventsdisabled: Param2) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -3430,8 +3430,8 @@ pub unsafe fn SetSuspendState<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSystemPowerState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(fsuspend: Param0, fforce: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3766,8 +3766,8 @@ impl ::std::cmp::Eq for USER_POWER_POLICY {}
 unsafe impl ::windows::runtime::Abi for USER_POWER_POLICY {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterPowerSettingNotification<'a, Param0: ::windows::runtime::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3781,8 +3781,8 @@ pub unsafe fn UnregisterPowerSettingNotification<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterSuspendResumeNotification<'a, Param0: ::windows::runtime::IntoParam<'a, HPOWERNOTIFY>>(handle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3796,8 +3796,8 @@ pub unsafe fn UnregisterSuspendResumeNotification<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY, ppowerpolicy: *mut POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -3838,8 +3838,8 @@ impl ::std::cmp::Eq for WAKE_ALARM_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for WAKE_ALARM_INFORMATION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -3853,8 +3853,8 @@ pub unsafe fn WriteGlobalPwrPolicy(pglobalpowerpolicy: *const GLOBAL_POWER_POLIC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *const MACHINE_PROCESSOR_POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -3868,8 +3868,8 @@ pub unsafe fn WriteProcessorPwrScheme(uiid: u32, pmachineprocessorpowerpolicy: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Power`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WritePwrScheme<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(puiid: *const u32, lpszschemename: Param1, lpszdescription: Param2, lpscheme: *const POWER_POLICY) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]

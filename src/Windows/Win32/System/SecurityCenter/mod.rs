@@ -804,8 +804,8 @@ impl ::std::convert::From<i32> for WSC_SECURITY_SIGNATURE_STATUS {
 unsafe impl ::windows::runtime::Abi for WSC_SECURITY_SIGNATURE_STATUS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WscGetAntiMalwareUri() -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -848,8 +848,8 @@ pub unsafe fn WscQueryAntiMalwareUri() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn WscRegisterForChanges(reserved: *mut ::std::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: ::std::option::Option<super::SystemServices::LPTHREAD_START_ROUTINE>, pcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -877,8 +877,8 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::runtime::Result<()
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_SecurityCenter`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WscUnRegisterChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

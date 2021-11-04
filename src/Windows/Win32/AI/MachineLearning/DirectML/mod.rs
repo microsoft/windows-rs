@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn DMLCreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[doc = "*Required features: `Win32_AI_MachineLearning_DirectML`, `Win32_Graphics_Direct3D12`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 #[inline]
 pub unsafe fn DMLCreateDevice1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>, T: ::windows::runtime::Interface>(d3d12device: Param0, flags: DML_CREATE_DEVICE_FLAGS, minimumfeaturelevel: DML_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

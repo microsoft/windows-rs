@@ -1197,8 +1197,8 @@ pub unsafe fn CoEnterServiceDomain<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_ComponentServices`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

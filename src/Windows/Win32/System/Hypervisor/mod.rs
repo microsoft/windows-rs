@@ -13,8 +13,8 @@ pub unsafe fn ApplyGuestMemoryFix(vmsavedstatedumphandle: *mut ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -28,8 +28,8 @@ pub unsafe fn ApplyPendingSavedStateFileReplayLog<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallStackUnwind(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, imageinfo: *const MODULE_INFO, imageinfocount: u32, framecount: u32, callstack: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -81,8 +81,8 @@ unsafe impl ::windows::runtime::Abi for DOS_IMAGE_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(context: *const ::std::ffi::c_void, imageinfo: *const DOS_IMAGE_INFO) -> super::super::Foundation::BOOL;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindSavedStateSymbolFieldInType<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, typename: Param2, fieldname: Param3, offset: *mut u32, found: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -124,8 +124,8 @@ pub unsafe fn ForceArchitecture(vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ForceNestedHostMode<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, hostmode: Param2, oldmode: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -421,8 +421,8 @@ pub unsafe fn GetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNestedVirtualizationMode(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, enabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -464,8 +464,8 @@ pub unsafe fn GetRegisterValue(vmsavedstatedumphandle: *mut ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, typename: Param2, typefieldinfomap: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -479,8 +479,8 @@ pub unsafe fn GetSavedStateSymbolFieldInfo<'a, Param2: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::std::ffi::c_void) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -494,8 +494,8 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: *mut ::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSavedStateSymbolTypeSize<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, typename: Param2, size: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -828,8 +828,8 @@ pub unsafe fn HdvCreateDeviceInstance(devicehosthandle: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(requestor: *const ::std::ffi::c_void, guestphysicaladdress: u64, bytecount: u32, writeprotected: Param3, mappedaddress: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -843,8 +843,8 @@ pub unsafe fn HdvCreateGuestMemoryAperture<'a, Param3: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvCreateSectionBackedMmioRange<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::std::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: u64, lengthinpages: u64, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: Param5, sectionoffsetinpages: u64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -900,8 +900,8 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(requestor: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_HostComputeSystem")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_HostComputeSystem`*"]
+#[cfg(feature = "Win32_System_HostComputeSystem")]
 #[inline]
 pub unsafe fn HdvInitializeDeviceHost<'a, Param0: ::windows::runtime::IntoParam<'a, super::HostComputeSystem::HCS_SYSTEM>>(computesystem: Param0, devicehosthandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -929,8 +929,8 @@ pub unsafe fn HdvReadGuestMemory(requestor: *const ::std::ffi::c_void, guestphys
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HdvRegisterDoorbell<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestor: *const ::std::ffi::c_void, barindex: HDV_PCI_BAR_SELECTOR, baroffset: u64, triggervalue: u64, flags: u64, doorbellevent: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -988,8 +988,8 @@ pub unsafe fn HdvWriteGuestMemory(requestor: *const ::std::ffi::c_void, guestphy
 }
 #[doc = "*Required features: `Win32_System_Hypervisor`*"]
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, inkernelspace: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1003,8 +1003,8 @@ pub unsafe fn InKernelSpace(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, activevirtualtrustlevelenabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1018,8 +1018,8 @@ pub unsafe fn IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: *mut ::st
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::std::ffi::c_void, enabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1033,8 +1033,8 @@ pub unsafe fn IsNestedVirtualizationEnabled(vmsavedstatedumphandle: *mut ::std::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmrsfile: Param0, vmsavedstatedumphandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1048,8 +1048,8 @@ pub unsafe fn LoadSavedStateFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(binfile: Param0, vsvfile: Param1, vmsavedstatedumphandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1063,8 +1063,8 @@ pub unsafe fn LoadSavedStateFiles<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, imagename: Param1, modulename: Param2, baseaddress: u64, sizeofbase: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1078,8 +1078,8 @@ pub unsafe fn LoadSavedStateModuleSymbols<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, imagename: Param1, imagetimestamp: u32, modulename: Param3, baseaddress: u64, sizeofbase: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1093,8 +1093,8 @@ pub unsafe fn LoadSavedStateModuleSymbolsEx<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, usersymbols: Param1, force: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1108,8 +1108,8 @@ pub unsafe fn LoadSavedStateSymbolProvider<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocateSavedStateFiles<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(vmname: Param0, snapshotname: Param1, binpath: *mut super::super::Foundation::PWSTR, vsvpath: *mut super::super::Foundation::PWSTR, vmrspath: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1374,8 +1374,8 @@ pub unsafe fn ReadGuestRawSavedMemory(vmsavedstatedumphandle: *mut ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadSavedStateGlobalVariable<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, globalname: Param2, buffer: *mut ::std::ffi::c_void, buffersize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1417,8 +1417,8 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: *mut ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResolveSavedStateGlobalVariableAddress<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, globalname: Param2, virtualaddress: *mut u64, size: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1461,8 +1461,8 @@ impl ::std::cmp::Eq for SOCKADDR_HV {}
 unsafe impl ::windows::runtime::Abi for SOCKADDR_HV {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanMemoryForDosImages(vmsavedstatedumphandle: *mut ::std::ffi::c_void, vpid: u32, startaddress: u64, endaddress: u64, callbackcontext: *mut ::std::ffi::c_void, foundimagecallback: ::std::option::Option<FOUND_IMAGE_CALLBACK>, standaloneaddress: *const u64, standaloneaddresscount: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1500,8 +1500,8 @@ pub unsafe fn SetMemoryBlockCacheLimit(vmsavedstatedumphandle: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: *mut ::std::ffi::c_void, callback: ::std::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6466,8 +6466,8 @@ impl ::std::cmp::Eq for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {}
 unsafe impl ::windows::runtime::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvAcceptPartitionMigration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(migrationhandle: Param0) -> ::windows::runtime::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
@@ -6496,8 +6496,8 @@ pub unsafe fn WHvAdviseGpaRange<'a, Param0: ::windows::runtime::IntoParam<'a, WH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvAllocateVpciResource(providerid: *const ::windows::runtime::GUID, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: *const ::std::ffi::c_void, resourcedescriptorsizeinbytes: u32) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -6554,8 +6554,8 @@ pub unsafe fn WHvCompletePartitionMigration<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateNotificationPort<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, parameters: *const WHV_NOTIFICATION_PORT_PARAMETERS, eventhandle: Param2, porthandle: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6584,8 +6584,8 @@ pub unsafe fn WHvCreatePartition() -> ::windows::runtime::Result<WHV_PARTITION_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateTrigger<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, parameters: *const WHV_TRIGGER_PARAMETERS, triggerhandle: *mut *mut ::std::ffi::c_void, eventhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6627,8 +6627,8 @@ pub unsafe fn WHvCreateVirtualProcessor2<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvCreateVpciDevice<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, logicaldeviceid: u64, vpciresource: Param2, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6981,8 +6981,8 @@ pub unsafe fn WHvMapGpaRange<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvMapGpaRange2<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, process: Param1, sourceaddress: *const ::std::ffi::c_void, guestaddress: u64, sizeinbytes: u64, flags: WHV_MAP_GPA_RANGE_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7080,8 +7080,8 @@ pub unsafe fn WHvReadVpciDeviceRegister<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvRegisterPartitionDoorbellEvent<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(partition: Param0, matchdata: *const WHV_DOORBELL_MATCH_DATA, eventhandle: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7277,8 +7277,8 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_System_SystemServices`*"]
+#[cfg(feature = "Win32_System_SystemServices")]
 #[inline]
 pub unsafe fn WHvSetVpciDevicePowerState<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0, logicaldeviceid: u64, powerstate: super::SystemServices::DEVICE_POWER_STATE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7306,8 +7306,8 @@ pub unsafe fn WHvSetupPartition<'a, Param0: ::windows::runtime::IntoParam<'a, WH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, WHV_SYNIC_EVENT_PARAMETERS>>(partition: Param0, synicevent: Param1) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -7322,8 +7322,8 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Hypervisor`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WHvStartPartitionMigration<'a, Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>>(partition: Param0) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]

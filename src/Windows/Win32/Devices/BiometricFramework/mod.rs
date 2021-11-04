@@ -4387,8 +4387,8 @@ pub unsafe fn WinBioAsyncMonitorFrameworkChanges(frameworkhandle: u32, changetyp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Param1, messagecode: u32, callbackroutine: ::std::option::Option<PWINBIO_ASYNC_COMPLETION_CALLBACK>, userdata: *const ::std::ffi::c_void, asynchronousopen: Param5) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -4403,8 +4403,8 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param11: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     factor: u32,
@@ -5106,8 +5106,8 @@ pub unsafe fn WinBioVerify(sessionhandle: u32, identity: *const WINBIO_IDENTITY,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_BiometricFramework`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinBioVerifyWithCallback(sessionhandle: u32, identity: *const WINBIO_IDENTITY, subfactor: u8, verifycallback: ::std::option::Option<PWINBIO_VERIFY_CALLBACK>, verifycallbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERFACE_CONTEXT_TABLE) {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn FreeInterfaceContextTable(interfacecontexttable: *const NET_INTERF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetInterfaceContextTableForHostName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hostname: Param0, proxyname: Param1, flags: u32, connectionprofilefilterrawdata: *const u8, connectionprofilefilterrawdatasize: u32) -> ::windows::runtime::Result<*mut NET_INTERFACE_CONTEXT_TABLE> {
     #[cfg(windows)]
@@ -104,8 +104,8 @@ pub const NET_INTERFACE_FLAG_CONNECT_IF_NEEDED: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`*"]
 pub const NET_INTERFACE_FLAG_NONE: u32 = 0u32;
 pub type ONDEMAND_NOTIFICATION_CALLBACK = unsafe extern "system" fn(param0: *const ::std::ffi::c_void);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationhostname: Param0) -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
@@ -120,8 +120,8 @@ pub unsafe fn OnDemandGetRoutingHint<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandRegisterNotification(callback: ::std::option::Option<ONDEMAND_NOTIFICATION_CALLBACK>, callbackcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -136,8 +136,8 @@ pub unsafe fn OnDemandRegisterNotification(callback: ::std::option::Option<ONDEM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OnDemandUnRegisterNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationhandle: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -524,8 +524,8 @@ pub unsafe fn WcmGetProfileList(preserved: *mut ::std::ffi::c_void, ppprofilelis
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, pdwdatasize: *mut u32, ppdata: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -539,8 +539,8 @@ pub unsafe fn WcmQueryProperty<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pprofilelist: *const WCM_PROFILE_INFO_LIST, dwposition: u32, fignoreunknownprofiles: Param2, preserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -554,8 +554,8 @@ pub unsafe fn WcmSetProfileList<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsConnectionManager`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WcmSetProperty<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pinterface: *const ::windows::runtime::GUID, strprofilename: Param1, property: WCM_PROPERTY, preserved: *mut ::std::ffi::c_void, dwdatasize: u32, pbdata: *const u8) -> u32 {
     #[cfg(windows)]

@@ -5767,8 +5767,8 @@ impl ::std::convert::From<i32> for FWP_VSWITCH_NETWORK_TYPE {
 unsafe impl ::windows::runtime::Abi for FWP_VSWITCH_NETWORK_TYPE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, callout: *const FWPM_CALLOUT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5782,8 +5782,8 @@ pub unsafe fn FwpmCalloutAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_CALLOUT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5797,8 +5797,8 @@ pub unsafe fn FwpmCalloutCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u32) -> u32 {
     #[cfg(windows)]
@@ -5812,8 +5812,8 @@ pub unsafe fn FwpmCalloutDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -5827,8 +5827,8 @@ pub unsafe fn FwpmCalloutDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -5842,8 +5842,8 @@ pub unsafe fn FwpmCalloutDestroyEnumHandle0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CALLOUT0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5857,8 +5857,8 @@ pub unsafe fn FwpmCalloutEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u32, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
     #[cfg(windows)]
@@ -5872,8 +5872,8 @@ pub unsafe fn FwpmCalloutGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, callout: *mut *mut FWPM_CALLOUT0) -> u32 {
     #[cfg(windows)]
@@ -5887,8 +5887,8 @@ pub unsafe fn FwpmCalloutGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -5902,8 +5902,8 @@ pub unsafe fn FwpmCalloutGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -5917,8 +5917,8 @@ pub unsafe fn FwpmCalloutSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CALLOUT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_CALLOUT_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5932,8 +5932,8 @@ pub unsafe fn FwpmCalloutSubscribeChanges0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_CALLOUT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5947,8 +5947,8 @@ pub unsafe fn FwpmCalloutSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmCalloutUnsubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -5962,8 +5962,8 @@ pub unsafe fn FwpmCalloutUnsubscribeChanges0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_CONNECTION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -5977,8 +5977,8 @@ pub unsafe fn FwpmConnectionCreateEnumHandle0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -5992,8 +5992,8 @@ pub unsafe fn FwpmConnectionDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_CONNECTION0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6007,8 +6007,8 @@ pub unsafe fn FwpmConnectionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, connection: *mut *mut FWPM_CONNECTION0) -> u32 {
     #[cfg(windows)]
@@ -6022,8 +6022,8 @@ pub unsafe fn FwpmConnectionGetById0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6037,8 +6037,8 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -6052,8 +6052,8 @@ pub unsafe fn FwpmConnectionSetSecurityInfo0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_CONNECTION_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_CONNECTION_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6067,8 +6067,8 @@ pub unsafe fn FwpmConnectionSubscribe0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6082,8 +6082,8 @@ pub unsafe fn FwpmConnectionUnsubscribe0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::std::option::Option<FWPM_DYNAMIC_KEYWORD_CALLBACK0>, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6097,8 +6097,8 @@ pub unsafe fn FwpmDynamicKeywordSubscribe0(flags: u32, callback: ::std::option::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmDynamicKeywordUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(subscriptionhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -6112,8 +6112,8 @@ pub unsafe fn FwpmDynamicKeywordUnsubscribe0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmEngineClose0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -6127,8 +6127,8 @@ pub unsafe fn FwpmEngineClose0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetOption0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, option: FWPM_ENGINE_OPTION, value: *mut *mut FWP_VALUE0) -> u32 {
     #[cfg(windows)]
@@ -6142,8 +6142,8 @@ pub unsafe fn FwpmEngineGetOption0<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6157,8 +6157,8 @@ pub unsafe fn FwpmEngineGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`, `Win32_System_Rpc`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Rpc"))]
 #[inline]
 pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, authnservice: u32, authidentity: *const super::super::System::Rpc::SEC_WINNT_AUTH_IDENTITY_W, session: *const FWPM_SESSION0, enginehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6172,8 +6172,8 @@ pub unsafe fn FwpmEngineOpen0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetOption0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, option: FWPM_ENGINE_OPTION, newvalue: *const FWP_VALUE0) -> u32 {
     #[cfg(windows)]
@@ -6187,8 +6187,8 @@ pub unsafe fn FwpmEngineSetOption0<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmEngineSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -6202,8 +6202,8 @@ pub unsafe fn FwpmEngineSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, filter: *const FWPM_FILTER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -6217,8 +6217,8 @@ pub unsafe fn FwpmFilterAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_FILTER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6232,8 +6232,8 @@ pub unsafe fn FwpmFilterCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
     #[cfg(windows)]
@@ -6247,8 +6247,8 @@ pub unsafe fn FwpmFilterDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -6262,8 +6262,8 @@ pub unsafe fn FwpmFilterDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6277,8 +6277,8 @@ pub unsafe fn FwpmFilterDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_FILTER0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6292,8 +6292,8 @@ pub unsafe fn FwpmFilterEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, filter: *mut *mut FWPM_FILTER0) -> u32 {
     #[cfg(windows)]
@@ -6307,8 +6307,8 @@ pub unsafe fn FwpmFilterGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, filter: *mut *mut FWPM_FILTER0) -> u32 {
     #[cfg(windows)]
@@ -6322,8 +6322,8 @@ pub unsafe fn FwpmFilterGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6337,8 +6337,8 @@ pub unsafe fn FwpmFilterGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -6352,8 +6352,8 @@ pub unsafe fn FwpmFilterSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_FILTER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_FILTER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6367,8 +6367,8 @@ pub unsafe fn FwpmFilterSubscribeChanges0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmFilterSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_FILTER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6382,8 +6382,8 @@ pub unsafe fn FwpmFilterSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmFilterUnsubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6411,8 +6411,8 @@ pub unsafe fn FwpmFreeMemory0(p: *mut *mut ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0, appid: *mut *mut FWP_BYTE_BLOB) -> u32 {
     #[cfg(windows)]
@@ -6426,8 +6426,8 @@ pub unsafe fn FwpmGetAppIdFromFileName0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT0, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT0, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6441,8 +6441,8 @@ pub unsafe fn FwpmIPsecTunnelAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT1, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT1, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6465,8 +6465,8 @@ pub unsafe fn FwpmIPsecTunnelAdd1<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT2, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT2, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6489,8 +6489,8 @@ pub unsafe fn FwpmIPsecTunnelAdd2<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32, mainmodepolicy: *const FWPM_PROVIDER_CONTEXT3_, tunnelpolicy: *const FWPM_PROVIDER_CONTEXT3_, numfilterconditions: u32, filterconditions: *const FWPM_FILTER_CONDITION0, keymodkey: *const ::windows::runtime::GUID, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6513,8 +6513,8 @@ pub unsafe fn FwpmIPsecTunnelAdd3<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -6528,8 +6528,8 @@ pub unsafe fn FwpmIPsecTunnelDeleteByKey0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_LAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6543,8 +6543,8 @@ pub unsafe fn FwpmLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6558,8 +6558,8 @@ pub unsafe fn FwpmLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_LAYER0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6573,8 +6573,8 @@ pub unsafe fn FwpmLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u16, layer: *mut *mut FWPM_LAYER0) -> u32 {
     #[cfg(windows)]
@@ -6588,8 +6588,8 @@ pub unsafe fn FwpmLayerGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, layer: *mut *mut FWPM_LAYER0) -> u32 {
     #[cfg(windows)]
@@ -6603,8 +6603,8 @@ pub unsafe fn FwpmLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6618,8 +6618,8 @@ pub unsafe fn FwpmLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -6633,8 +6633,8 @@ pub unsafe fn FwpmLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_NET_EVENT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6648,8 +6648,8 @@ pub unsafe fn FwpmNetEventCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6663,8 +6663,8 @@ pub unsafe fn FwpmNetEventDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6678,8 +6678,8 @@ pub unsafe fn FwpmNetEventEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT1, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6693,8 +6693,8 @@ pub unsafe fn FwpmNetEventEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT2, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6708,8 +6708,8 @@ pub unsafe fn FwpmNetEventEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT3, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6723,8 +6723,8 @@ pub unsafe fn FwpmNetEventEnum3<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT4_, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6738,8 +6738,8 @@ pub unsafe fn FwpmNetEventEnum4<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_NET_EVENT5_, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6753,8 +6753,8 @@ pub unsafe fn FwpmNetEventEnum5<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6768,8 +6768,8 @@ pub unsafe fn FwpmNetEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK1>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6783,8 +6783,8 @@ pub unsafe fn FwpmNetEventSubscribe1<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK2>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6798,8 +6798,8 @@ pub unsafe fn FwpmNetEventSubscribe2<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK3>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6813,8 +6813,8 @@ pub unsafe fn FwpmNetEventSubscribe3<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_NET_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_NET_EVENT_CALLBACK4>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6828,8 +6828,8 @@ pub unsafe fn FwpmNetEventSubscribe4<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_NET_EVENT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -6843,8 +6843,8 @@ pub unsafe fn FwpmNetEventSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmNetEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -6858,8 +6858,8 @@ pub unsafe fn FwpmNetEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6873,8 +6873,8 @@ pub unsafe fn FwpmNetEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -6888,8 +6888,8 @@ pub unsafe fn FwpmNetEventsSetSecurityInfo0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, provider: *const FWPM_PROVIDER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -6903,8 +6903,8 @@ pub unsafe fn FwpmProviderAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT0, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -6918,8 +6918,8 @@ pub unsafe fn FwpmProviderContextAdd0<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT1, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -6933,8 +6933,8 @@ pub unsafe fn FwpmProviderContextAdd1<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT2, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -6948,8 +6948,8 @@ pub unsafe fn FwpmProviderContextAdd2<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextAdd3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, providercontext: *const FWPM_PROVIDER_CONTEXT3_, sd: *const super::super::Security::SECURITY_DESCRIPTOR, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -6963,8 +6963,8 @@ pub unsafe fn FwpmProviderContextAdd3<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6978,8 +6978,8 @@ pub unsafe fn FwpmProviderContextCreateEnumHandle0<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
     #[cfg(windows)]
@@ -6993,8 +6993,8 @@ pub unsafe fn FwpmProviderContextDeleteById0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -7008,8 +7008,8 @@ pub unsafe fn FwpmProviderContextDeleteByKey0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7023,8 +7023,8 @@ pub unsafe fn FwpmProviderContextDestroyEnumHandle0<'a, Param0: ::windows::runti
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7038,8 +7038,8 @@ pub unsafe fn FwpmProviderContextEnum0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7053,8 +7053,8 @@ pub unsafe fn FwpmProviderContextEnum1<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT2, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7068,8 +7068,8 @@ pub unsafe fn FwpmProviderContextEnum2<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextEnum3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT3_, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7083,8 +7083,8 @@ pub unsafe fn FwpmProviderContextEnum3<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
     #[cfg(windows)]
@@ -7098,8 +7098,8 @@ pub unsafe fn FwpmProviderContextGetById0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
     #[cfg(windows)]
@@ -7113,8 +7113,8 @@ pub unsafe fn FwpmProviderContextGetById1<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
     #[cfg(windows)]
@@ -7128,8 +7128,8 @@ pub unsafe fn FwpmProviderContextGetById2<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetById3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32 {
     #[cfg(windows)]
@@ -7143,8 +7143,8 @@ pub unsafe fn FwpmProviderContextGetById3<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT0) -> u32 {
     #[cfg(windows)]
@@ -7158,8 +7158,8 @@ pub unsafe fn FwpmProviderContextGetByKey0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT1) -> u32 {
     #[cfg(windows)]
@@ -7173,8 +7173,8 @@ pub unsafe fn FwpmProviderContextGetByKey1<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT2) -> u32 {
     #[cfg(windows)]
@@ -7188,8 +7188,8 @@ pub unsafe fn FwpmProviderContextGetByKey2<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetByKey3<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, providercontext: *mut *mut FWPM_PROVIDER_CONTEXT3_) -> u32 {
     #[cfg(windows)]
@@ -7203,8 +7203,8 @@ pub unsafe fn FwpmProviderContextGetByKey3<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -7227,8 +7227,8 @@ pub unsafe fn FwpmProviderContextGetSecurityInfoByKey0<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -7242,8 +7242,8 @@ pub unsafe fn FwpmProviderContextSetSecurityInfoByKey0<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_PROVIDER_CONTEXT_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7257,8 +7257,8 @@ pub unsafe fn FwpmProviderContextSubscribeChanges0<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7272,8 +7272,8 @@ pub unsafe fn FwpmProviderContextSubscriptionsGet0<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderContextUnsubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7287,8 +7287,8 @@ pub unsafe fn FwpmProviderContextUnsubscribeChanges0<'a, Param0: ::windows::runt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_PROVIDER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7302,8 +7302,8 @@ pub unsafe fn FwpmProviderCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -7317,8 +7317,8 @@ pub unsafe fn FwpmProviderDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7332,8 +7332,8 @@ pub unsafe fn FwpmProviderDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_PROVIDER0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7347,8 +7347,8 @@ pub unsafe fn FwpmProviderEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, provider: *mut *mut FWPM_PROVIDER0) -> u32 {
     #[cfg(windows)]
@@ -7362,8 +7362,8 @@ pub unsafe fn FwpmProviderGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -7377,8 +7377,8 @@ pub unsafe fn FwpmProviderGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -7392,8 +7392,8 @@ pub unsafe fn FwpmProviderSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_PROVIDER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_PROVIDER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7407,8 +7407,8 @@ pub unsafe fn FwpmProviderSubscribeChanges0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_PROVIDER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7422,8 +7422,8 @@ pub unsafe fn FwpmProviderSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmProviderUnsubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7437,8 +7437,8 @@ pub unsafe fn FwpmProviderUnsubscribeChanges0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_SESSION_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7452,8 +7452,8 @@ pub unsafe fn FwpmSessionCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSessionDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7467,8 +7467,8 @@ pub unsafe fn FwpmSessionDestroyEnumHandle0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SESSION0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7482,8 +7482,8 @@ pub unsafe fn FwpmSessionEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sublayer: *const FWPM_SUBLAYER0, sd: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -7497,8 +7497,8 @@ pub unsafe fn FwpmSubLayerAdd0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const FWPM_SUBLAYER_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7512,8 +7512,8 @@ pub unsafe fn FwpmSubLayerCreateEnumHandle0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -7527,8 +7527,8 @@ pub unsafe fn FwpmSubLayerDeleteByKey0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7542,8 +7542,8 @@ pub unsafe fn FwpmSubLayerDestroyEnumHandle0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut FWPM_SUBLAYER0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7557,8 +7557,8 @@ pub unsafe fn FwpmSubLayerEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, sublayer: *mut *mut FWPM_SUBLAYER0) -> u32 {
     #[cfg(windows)]
@@ -7572,8 +7572,8 @@ pub unsafe fn FwpmSubLayerGetByKey0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -7587,8 +7587,8 @@ pub unsafe fn FwpmSubLayerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, key: *const ::windows::runtime::GUID, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -7602,8 +7602,8 @@ pub unsafe fn FwpmSubLayerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_SUBLAYER_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_SUBLAYER_CHANGE_CALLBACK0>, context: *const ::std::ffi::c_void, changehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7617,8 +7617,8 @@ pub unsafe fn FwpmSubLayerSubscribeChanges0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut FWPM_SUBLAYER_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7632,8 +7632,8 @@ pub unsafe fn FwpmSubLayerSubscriptionsGet0<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSubLayerUnsubscribeChanges0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, changehandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7647,8 +7647,8 @@ pub unsafe fn FwpmSubLayerUnsubscribeChanges0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sysports: *mut *mut FWPM_SYSTEM_PORTS0) -> u32 {
     #[cfg(windows)]
@@ -7662,8 +7662,8 @@ pub unsafe fn FwpmSystemPortsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *mut ::std::ffi::c_void, callback: ::std::option::Option<FWPM_SYSTEM_PORTS_CALLBACK0>, context: *const ::std::ffi::c_void, sysportshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7677,8 +7677,8 @@ pub unsafe fn FwpmSystemPortsSubscribe0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmSystemPortsUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, sysportshandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7692,8 +7692,8 @@ pub unsafe fn FwpmSystemPortsUnsubscribe0<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionAbort0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -7707,8 +7707,8 @@ pub unsafe fn FwpmTransactionAbort0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionBegin0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -7722,8 +7722,8 @@ pub unsafe fn FwpmTransactionBegin0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -7737,8 +7737,8 @@ pub unsafe fn FwpmTransactionCommit0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const FWPM_VSWITCH_EVENT_SUBSCRIPTION0, callback: ::std::option::Option<FWPM_VSWITCH_EVENT_CALLBACK0>, context: *const ::std::ffi::c_void, subscriptionhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -7752,8 +7752,8 @@ pub unsafe fn FwpmvSwitchEventSubscribe0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FwpmvSwitchEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscriptionhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -7767,8 +7767,8 @@ pub unsafe fn FwpmvSwitchEventUnsubscribe0<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -7782,8 +7782,8 @@ pub unsafe fn FwpmvSwitchEventsGetSecurityInfo0<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FwpmvSwitchEventsSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -15382,8 +15382,8 @@ unsafe impl ::windows::runtime::Abi for IP_OPTION_TIMESTAMP_FLAGS {
 }
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
 pub const IP_VER_MASK: u32 = 240u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -15397,8 +15397,8 @@ pub unsafe fn IPsecDospGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, idpstatistics: *mut IPSEC_DOSP_STATISTICS0) -> u32 {
     #[cfg(windows)]
@@ -15412,8 +15412,8 @@ pub unsafe fn IPsecDospGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecDospSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -15427,8 +15427,8 @@ pub unsafe fn IPsecDospSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_DOSP_STATE_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15442,8 +15442,8 @@ pub unsafe fn IPsecDospStateCreateEnumHandle0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -15457,8 +15457,8 @@ pub unsafe fn IPsecDospStateDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecDospStateEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_DOSP_STATE0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15472,8 +15472,8 @@ pub unsafe fn IPsecDospStateEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ipsecstatistics: *mut IPSEC_STATISTICS0) -> u32 {
     #[cfg(windows)]
@@ -15487,8 +15487,8 @@ pub unsafe fn IPsecGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ipsecstatistics: *mut IPSEC_STATISTICS1) -> u32 {
     #[cfg(windows)]
@@ -15502,8 +15502,8 @@ pub unsafe fn IPsecGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, keymanager: *const IPSEC_KEY_MANAGER0, keymanagercallbacks: *const IPSEC_KEY_MANAGER_CALLBACKS0, keymgmthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15517,8 +15517,8 @@ pub unsafe fn IPsecKeyManagerAddAndRegister0<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -15541,8 +15541,8 @@ pub unsafe fn IPsecKeyManagerGetSecurityInfoByKey0<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, reserved: *const ::std::ffi::c_void, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -15556,8 +15556,8 @@ pub unsafe fn IPsecKeyManagerSetSecurityInfoByKey0<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, keymgmthandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -15571,8 +15571,8 @@ pub unsafe fn IPsecKeyManagerUnregisterAndDelete0<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecKeyManagersGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut IPSEC_KEY_MANAGER0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15586,8 +15586,8 @@ pub unsafe fn IPsecKeyManagersGet0<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
     #[cfg(windows)]
@@ -15601,8 +15601,8 @@ pub unsafe fn IPsecSaContextAddInbound0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddInbound1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, inboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
     #[cfg(windows)]
@@ -15616,8 +15616,8 @@ pub unsafe fn IPsecSaContextAddInbound1<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE0) -> u32 {
     #[cfg(windows)]
@@ -15631,8 +15631,8 @@ pub unsafe fn IPsecSaContextAddOutbound0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextAddOutbound1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, outboundbundle: *const IPSEC_SA_BUNDLE1) -> u32 {
     #[cfg(windows)]
@@ -15646,8 +15646,8 @@ pub unsafe fn IPsecSaContextAddOutbound1<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, outboundtraffic: *const IPSEC_TRAFFIC0, inboundfilterid: *mut u64, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -15661,8 +15661,8 @@ pub unsafe fn IPsecSaContextCreate0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextCreate1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, outboundtraffic: *const IPSEC_TRAFFIC1, virtualiftunnelinfo: *const IPSEC_VIRTUAL_IF_TUNNEL_INFO0, inboundfilterid: *mut u64, id: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -15676,8 +15676,8 @@ pub unsafe fn IPsecSaContextCreate1<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_SA_CONTEXT_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15691,8 +15691,8 @@ pub unsafe fn IPsecSaContextCreateEnumHandle0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
     #[cfg(windows)]
@@ -15706,8 +15706,8 @@ pub unsafe fn IPsecSaContextDeleteById0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -15721,8 +15721,8 @@ pub unsafe fn IPsecSaContextDestroyEnumHandle0<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15736,8 +15736,8 @@ pub unsafe fn IPsecSaContextEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_CONTEXT1, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15751,8 +15751,8 @@ pub unsafe fn IPsecSaContextEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextExpire0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
     #[cfg(windows)]
@@ -15766,8 +15766,8 @@ pub unsafe fn IPsecSaContextExpire0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT0) -> u32 {
     #[cfg(windows)]
@@ -15781,8 +15781,8 @@ pub unsafe fn IPsecSaContextGetById0<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextGetById1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sacontext: *mut *mut IPSEC_SA_CONTEXT1) -> u32 {
     #[cfg(windows)]
@@ -15796,8 +15796,8 @@ pub unsafe fn IPsecSaContextGetById1<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI0, inboundspi: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15811,8 +15811,8 @@ pub unsafe fn IPsecSaContextGetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextGetSpi1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15826,8 +15826,8 @@ pub unsafe fn IPsecSaContextGetSpi1<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, getspi: *const IPSEC_GETSPI1, inboundspi: u32) -> u32 {
     #[cfg(windows)]
@@ -15841,8 +15841,8 @@ pub unsafe fn IPsecSaContextSetSpi0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, subscription: *const IPSEC_SA_CONTEXT_SUBSCRIPTION0, callback: ::std::option::Option<IPSEC_SA_CONTEXT_CALLBACK0>, context: *const ::std::ffi::c_void, eventshandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15856,8 +15856,8 @@ pub unsafe fn IPsecSaContextSubscribe0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextSubscriptionsGet0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, entries: *mut *mut *mut IPSEC_SA_CONTEXT_SUBSCRIPTION0, numentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15871,8 +15871,8 @@ pub unsafe fn IPsecSaContextSubscriptionsGet0<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaContextUnsubscribe0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, eventshandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -15886,8 +15886,8 @@ pub unsafe fn IPsecSaContextUnsubscribe0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaContextUpdate0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, flags: u64, newvalues: *const IPSEC_SA_CONTEXT1) -> u32 {
     #[cfg(windows)]
@@ -15901,8 +15901,8 @@ pub unsafe fn IPsecSaContextUpdate0<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IPSEC_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15916,8 +15916,8 @@ pub unsafe fn IPsecSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -15931,8 +15931,8 @@ pub unsafe fn IPsecSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -15946,8 +15946,8 @@ pub unsafe fn IPsecSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IPsecSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -15961,8 +15961,8 @@ pub unsafe fn IPsecSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15976,8 +15976,8 @@ pub unsafe fn IPsecSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IPsecSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IPSEC_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -15991,8 +15991,8 @@ pub unsafe fn IPsecSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ikeextstatistics: *mut IKEEXT_STATISTICS0) -> u32 {
     #[cfg(windows)]
@@ -16006,8 +16006,8 @@ pub unsafe fn IkeextGetStatistics0<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, ikeextstatistics: *mut IKEEXT_STATISTICS1) -> u32 {
     #[cfg(windows)]
@@ -16021,8 +16021,8 @@ pub unsafe fn IkeextGetStatistics1<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumtemplate: *const IKEEXT_SA_ENUM_TEMPLATE0, enumhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -16036,8 +16036,8 @@ pub unsafe fn IkeextSaCreateEnumHandle0<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *mut super::super::Foundation::PSID, sidgroup: *mut super::super::Foundation::PSID, dacl: *mut *mut super::super::Security::ACL, sacl: *mut *mut super::super::Security::ACL, securitydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -16051,8 +16051,8 @@ pub unsafe fn IkeextSaDbGetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn IkeextSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, securityinfo: u32, sidowner: *const super::super::Security::SID, sidgroup: *const super::super::Security::SID, dacl: *const super::super::Security::ACL, sacl: *const super::super::Security::ACL) -> u32 {
     #[cfg(windows)]
@@ -16066,8 +16066,8 @@ pub unsafe fn IkeextSaDbSetSecurityInfo0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64) -> u32 {
     #[cfg(windows)]
@@ -16081,8 +16081,8 @@ pub unsafe fn IkeextSaDeleteById0<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1) -> u32 {
     #[cfg(windows)]
@@ -16096,8 +16096,8 @@ pub unsafe fn IkeextSaDestroyEnumHandle0<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS0, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16111,8 +16111,8 @@ pub unsafe fn IkeextSaEnum0<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS1, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16126,8 +16126,8 @@ pub unsafe fn IkeextSaEnum1<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, enumhandle: Param1, numentriesrequested: u32, entries: *mut *mut *mut IKEEXT_SA_DETAILS2, numentriesreturned: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -16141,8 +16141,8 @@ pub unsafe fn IkeextSaEnum2<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, sa: *mut *mut IKEEXT_SA_DETAILS0) -> u32 {
     #[cfg(windows)]
@@ -16156,8 +16156,8 @@ pub unsafe fn IkeextSaGetById0<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, salookupcontext: *const ::windows::runtime::GUID, sa: *mut *mut IKEEXT_SA_DETAILS1) -> u32 {
     #[cfg(windows)]
@@ -16171,8 +16171,8 @@ pub unsafe fn IkeextSaGetById1<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFilteringPlatform`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IkeextSaGetById2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(enginehandle: Param0, id: u64, salookupcontext: *const ::windows::runtime::GUID, sa: *mut *mut IKEEXT_SA_DETAILS2) -> u32 {
     #[cfg(windows)]

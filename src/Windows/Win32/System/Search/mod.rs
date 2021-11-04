@@ -19938,8 +19938,8 @@ pub unsafe fn ODBCGetTryWaitValue() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ODBCSetTryWaitValue(dwvalue: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -21660,8 +21660,8 @@ pub const SQLBINARY: u32 = 45u32;
 pub const SQLBIT: u32 = 50u32;
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQLBITN: u32 = 104u32;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i64, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21675,8 +21675,8 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21690,8 +21690,8 @@ pub unsafe fn SQLBindCol(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21714,8 +21714,8 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *mut ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21738,8 +21738,8 @@ pub unsafe fn SQLBindParam(statementhandle: *mut ::std::ffi::c_void, parameternu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u64, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i64, pcbvalue: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21764,8 +21764,8 @@ pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLBindParameter(hstmt: *mut ::std::ffi::c_void, ipar: u16, fparamtype: i16, fctype: i16, fsqltype: i16, cbcoldef: u32, ibscale: i16, rgbvalue: *mut ::std::ffi::c_void, cbvaluemax: i32, pcbvalue: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -21890,8 +21890,8 @@ pub unsafe fn SQLCloseCursor(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0) -> i16 {
     #[cfg(windows)]
@@ -21905,8 +21905,8 @@ pub unsafe fn SQLCloseEnumServers<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21920,8 +21920,8 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, fieldidentifier: u16, characterattribute: *mut ::std::ffi::c_void, bufferlength: i16, stringlength: *mut i16, numericattribute: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -21935,8 +21935,8 @@ pub unsafe fn SQLColAttribute(statementhandle: *mut ::std::ffi::c_void, columnnu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21950,8 +21950,8 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield: i16, pcharattr: *mut ::std::ffi::c_void, cbcharattrmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -21965,8 +21965,8 @@ pub unsafe fn SQLColAttributeA(hstmt: *mut ::std::ffi::c_void, icol: i16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -21980,8 +21980,8 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield: u16, pcharattr: *mut ::std::ffi::c_void, cbdescmax: i16, pcbcharattr: *mut i16, pnumattr: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(windows)]
@@ -21995,8 +21995,8 @@ pub unsafe fn SQLColAttributeW(hstmt: *mut ::std::ffi::c_void, icol: u16, ifield
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -22010,8 +22010,8 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22025,8 +22025,8 @@ pub unsafe fn SQLColAttributes(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesct
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -22040,8 +22040,8 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22055,8 +22055,8 @@ pub unsafe fn SQLColAttributesA(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -22070,8 +22070,8 @@ pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLColAttributesW(hstmt: *mut ::std::ffi::c_void, icol: u16, fdesctype: u16, rgbdesc: *mut ::std::ffi::c_void, cbdescmax: i16, pcbdesc: *mut i16, pfdesc: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -22360,8 +22360,8 @@ pub unsafe fn SQLDataSourcesW(henv: *mut ::std::ffi::c_void, fdirection: u16, sz
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u64, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22385,8 +22385,8 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, columnname: *mut u8, bufferlength: i16, namelength: *mut i16, datatype: *mut i16, columnsize: *mut u32, decimaldigits: *mut i16, nullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22410,8 +22410,8 @@ pub unsafe fn SQLDescribeCol(statementhandle: *mut ::std::ffi::c_void, columnnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22435,8 +22435,8 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u8, cbcolnamemax: i16, pcbcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22460,8 +22460,8 @@ pub unsafe fn SQLDescribeColA(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22485,8 +22485,8 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolname: *mut u16, cchcolnamemax: i16, pcchcolname: *mut i16, pfsqltype: *mut i16, pcbcoldef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22510,8 +22510,8 @@ pub unsafe fn SQLDescribeColW(hstmt: *mut ::std::ffi::c_void, icol: u16, szcolna
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u64, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22525,8 +22525,8 @@ pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqlt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLDescribeParam(hstmt: *mut ::std::ffi::c_void, ipar: u16, pfsqltype: *mut i16, pcbparamdef: *mut u32, pibscale: *mut i16, pfnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -22813,8 +22813,8 @@ pub unsafe fn SQLExecute(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i64, pcrow: *mut u64, rgfrowstatus: *mut u16) -> i16 {
     #[cfg(windows)]
@@ -22828,8 +22828,8 @@ pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLExtendedFetch(hstmt: *mut ::std::ffi::c_void, ffetchtype: u16, irow: i32, pcrow: *mut u32, rgfrowstatus: *mut u16) -> i16 {
     #[cfg(windows)]
@@ -22863,8 +22863,8 @@ pub unsafe fn SQLFetch(statementhandle: *mut ::std::ffi::c_void) -> i16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i64) -> i16 {
     #[cfg(windows)]
@@ -22878,8 +22878,8 @@ pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorie
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLFetchScroll(statementhandle: *mut ::std::ffi::c_void, fetchorientation: i16, fetchoffset: i32) -> i16 {
     #[cfg(windows)]
@@ -23159,8 +23159,8 @@ pub unsafe fn SQLGetCursorNameW(hstmt: *mut ::std::ffi::c_void, szcursor: *mut u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i64, strlen_or_indptr: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -23174,8 +23174,8 @@ pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLGetData(statementhandle: *mut ::std::ffi::c_void, columnnumber: u16, targettype: i16, targetvalue: *mut ::std::ffi::c_void, bufferlength: i32, strlen_or_indptr: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -23231,8 +23231,8 @@ pub unsafe fn SQLGetDescFieldW(hdesc: *mut ::std::ffi::c_void, irecord: i16, ifi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i64, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23258,8 +23258,8 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, name: *mut u8, bufferlength: i16, stringlengthptr: *mut i16, typeptr: *mut i16, subtypeptr: *mut i16, lengthptr: *mut i32, precisionptr: *mut i16, scaleptr: *mut i16, nullableptr: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23285,8 +23285,8 @@ pub unsafe fn SQLGetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23312,8 +23312,8 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u8, cbnamemax: i16, pcbname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23339,8 +23339,8 @@ pub unsafe fn SQLGetDescRecA(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i64, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23366,8 +23366,8 @@ pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, sznam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLGetDescRecW(hdesc: *mut ::std::ffi::c_void, irecord: i16, szname: *mut u16, cchnamemax: i16, pcchname: *mut i16, pftype: *mut i16, pfsubtype: *mut i16, plength: *mut i32, pprecision: *mut i16, pscale: *mut i16, pnullable: *mut i16) -> i16 {
     #[cfg(windows)]
@@ -23547,8 +23547,8 @@ pub unsafe fn SQLGetInfoW(hdbc: *mut ::std::ffi::c_void, finfotype: u16, rgbinfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLGetNextEnumeration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(henumhandle: Param0, prgenumdata: *mut u8, pienumlength: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -23697,8 +23697,8 @@ unsafe impl ::windows::runtime::Abi for SQLINTERVAL {
 }
 #[doc = "*Required features: `Win32_System_Search`*"]
 pub const SQLINTN: u32 = 38u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwchservername: Param0, pwchinstancename: Param1) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -23712,8 +23712,8 @@ pub unsafe fn SQLInitEnumServers<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1, param2: i16) -> i16 {
     #[cfg(windows)]
@@ -23727,8 +23727,8 @@ pub unsafe fn SQLLinkedCatalogsA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SQLLinkedCatalogsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1, param2: i16) -> i16 {
     #[cfg(windows)]
@@ -23870,8 +23870,8 @@ pub unsafe fn SQLParamData(statementhandle: *mut ::std::ffi::c_void, value: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: *mut u64) -> i16 {
     #[cfg(windows)]
@@ -23885,8 +23885,8 @@ pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u64, pirow: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLParamOptions(hstmt: *mut ::std::ffi::c_void, crow: u32, pirow: *mut u32) -> i16 {
     #[cfg(windows)]
@@ -24098,8 +24098,8 @@ pub unsafe fn SQLProceduresW(hstmt: *mut ::std::ffi::c_void, szcatalogname: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i64) -> i16 {
     #[cfg(windows)]
@@ -24113,8 +24113,8 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const ::std::ffi::c_void, strlen_or_ind: i32) -> i16 {
     #[cfg(windows)]
@@ -24128,8 +24128,8 @@ pub unsafe fn SQLPutData(statementhandle: *mut ::std::ffi::c_void, data: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -24143,8 +24143,8 @@ pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLRowCount(statementhandle: *const ::std::ffi::c_void, rowcount: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24200,8 +24200,8 @@ pub unsafe fn SQLSetConnectAttrW(hdbc: *mut ::std::ffi::c_void, fattribute: i32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg(windows)]
@@ -24215,8 +24215,8 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, opt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
@@ -24230,8 +24230,8 @@ pub unsafe fn SQLSetConnectOption(connectionhandle: *mut ::std::ffi::c_void, opt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg(windows)]
@@ -24245,8 +24245,8 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
@@ -24260,8 +24260,8 @@ pub unsafe fn SQLSetConnectOptionA(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u64) -> i16 {
     #[cfg(windows)]
@@ -24275,8 +24275,8 @@ pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetConnectOptionW(hdbc: *mut ::std::ffi::c_void, foption: u16, vparam: u32) -> i16 {
     #[cfg(windows)]
@@ -24360,8 +24360,8 @@ pub unsafe fn SQLSetDescFieldW(descriptorhandle: *mut ::std::ffi::c_void, recnum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i64, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i64, indicator: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -24386,8 +24386,8 @@ pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetDescRec(descriptorhandle: *mut ::std::ffi::c_void, recnumber: i16, r#type: i16, subtype: i16, length: i32, precision: i16, scale: i16, data: *mut ::std::ffi::c_void, stringlength: *mut i32, indicator: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24426,8 +24426,8 @@ pub unsafe fn SQLSetEnvAttr(environmenthandle: *mut ::std::ffi::c_void, attribut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u64, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i64) -> i16 {
     #[cfg(windows)]
@@ -24450,8 +24450,8 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternumber: u16, valuetype: i16, parametertype: i16, lengthprecision: u32, parameterscale: i16, parametervalue: *const ::std::ffi::c_void, strlen_or_ind: *mut i32) -> i16 {
     #[cfg(windows)]
@@ -24474,8 +24474,8 @@ pub unsafe fn SQLSetParam(statementhandle: *mut ::std::ffi::c_void, parameternum
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u64, foption: u16, flock: u16) -> i16 {
     #[cfg(windows)]
@@ -24489,8 +24489,8 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u64, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u16, foption: u16, flock: u16) -> i16 {
     #[cfg(windows)]
@@ -24504,8 +24504,8 @@ pub unsafe fn SQLSetPos(hstmt: *mut ::std::ffi::c_void, irow: u16, foption: u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i64, crowrowset: u16) -> i16 {
     #[cfg(windows)]
@@ -24519,8 +24519,8 @@ pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetScrollOptions(hstmt: *mut ::std::ffi::c_void, fconcurrency: u16, crowkeyset: i32, crowrowset: u16) -> i16 {
     #[cfg(windows)]
@@ -24562,8 +24562,8 @@ pub unsafe fn SQLSetStmtAttrW(hstmt: *mut ::std::ffi::c_void, fattribute: i32, r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u64) -> i16 {
     #[cfg(windows)]
@@ -24577,8 +24577,8 @@ pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "i686",))]
 #[doc = "*Required features: `Win32_System_Search`*"]
+#[cfg(any(target_arch = "i686",))]
 #[inline]
 pub unsafe fn SQLSetStmtOption(statementhandle: *mut ::std::ffi::c_void, option: u16, value: u32) -> i16 {
     #[cfg(windows)]
@@ -29236,8 +29236,8 @@ pub unsafe fn bcp_getcolfmt(param0: *mut ::std::ffi::c_void, param1: i32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_initA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
     #[cfg(windows)]
@@ -29251,8 +29251,8 @@ pub unsafe fn bcp_initA<'a, Param1: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_initW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1, param2: Param2, param3: Param3, param4: i32) -> i16 {
     #[cfg(windows)]
@@ -29280,8 +29280,8 @@ pub unsafe fn bcp_moretext(param0: *mut ::std::ffi::c_void, param1: i32, param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
@@ -29295,8 +29295,8 @@ pub unsafe fn bcp_readfmtA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_readfmtW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
@@ -29338,8 +29338,8 @@ pub unsafe fn bcp_setcolfmt(param0: *mut ::std::ffi::c_void, param1: i32, param2
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
@@ -29353,8 +29353,8 @@ pub unsafe fn bcp_writefmtA<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bcp_writefmtW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: *mut ::std::ffi::c_void, param1: Param1) -> i16 {
     #[cfg(windows)]
@@ -29449,8 +29449,8 @@ impl ::std::cmp::Eq for dbmoney {}
 unsafe impl ::windows::runtime::Abi for dbmoney {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -29464,8 +29464,8 @@ pub unsafe fn dbprtypeA(param0: i32) -> super::super::Foundation::PSTR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Search`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn dbprtypeW(param0: i32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]

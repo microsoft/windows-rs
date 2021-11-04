@@ -3275,8 +3275,8 @@ pub const D3DPBLENDCAPS_BLENDFACTOR: i32 = 8192i32;
 pub const D3DPBLENDCAPS_INVSRCCOLOR2: i32 = 32768i32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`*"]
 pub const D3DPBLENDCAPS_SRCCOLOR2: i32 = 16384i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_BeginEvent<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) -> i32 {
     #[cfg(windows)]
@@ -3318,8 +3318,8 @@ pub unsafe fn D3DPERF_GetStatus() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3333,8 +3333,8 @@ pub unsafe fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_SetMarker<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]
@@ -3362,8 +3362,8 @@ pub unsafe fn D3DPERF_SetOptions(dwoptions: u32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D9`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn D3DPERF_SetRegion<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(col: u32, wszname: Param1) {
     #[cfg(windows)]

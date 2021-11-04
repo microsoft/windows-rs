@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstg: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn BindIFilterFromStorage<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn BindIFilterFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pstm: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -681,8 +681,8 @@ pub const LIFF_FORCE_TEXT_FILTER_FALLBACK: u32 = 3u32;
 pub const LIFF_IMPLEMENT_TEXT_FILTER_FALLBACK_POLICY: u32 = 2u32;
 #[doc = "*Required features: `Win32_Storage_IndexServer`*"]
 pub const LIFF_LOAD_DEFINED_FILTER: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pwcspath: Param0, punkouter: Param1, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -696,8 +696,8 @@ pub unsafe fn LoadIFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_IndexServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadIFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwcspath: Param0, dwflags: u32, riid: *const ::windows::runtime::GUID, ppiunk: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

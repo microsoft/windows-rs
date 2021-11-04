@@ -3,8 +3,8 @@ pub const CLSID_D3D12Debug: ::windows::runtime::GUID = ::windows::runtime::GUID:
 pub const CLSID_D3D12DeviceRemovedExtendedData: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1249229764, 40948, 19160, [159, 24, 171, 174, 132, 220, 95, 242]);
 pub const CLSID_D3D12SDKConfiguration: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2094688970, 41022, 18888, [148, 88, 3, 52, 210, 14, 7, 206]);
 pub const CLSID_D3D12Tools: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3816953521, 15500, 18483, [170, 9, 10, 6, 182, 93, 150, 200]);
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D11On12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pdevice: Param0,
@@ -106,8 +106,8 @@ impl ::std::cmp::Eq for D3D11_RESOURCE_FLAGS {}
 unsafe impl ::windows::runtime::Abi for D3D11_RESOURCE_FLAGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, T: ::windows::runtime::Interface>(padapter: Param0, minimumfeaturelevel: super::Direct3D11::D3D_FEATURE_LEVEL, result__: *mut ::std::option::Option<T>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -195,8 +195,8 @@ pub unsafe fn D3D12GetInterface<T: ::windows::runtime::Interface>(rclsid: *const
 #[cfg(feature = "Win32_Foundation")]
 pub type D3D12MessageFunc = unsafe extern "system" fn(category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR, pcontext: *mut ::std::ffi::c_void);
 pub const D3D12MetaCommand: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3342125438, 32887, 18632, [159, 220, 217, 209, 221, 49, 221, 119]);
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -210,8 +210,8 @@ pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Graphics_Direct3D11`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
 pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>, pperrorblob: *mut ::std::option::Option<super::Direct3D11::ID3DBlob>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14279,8 +14279,8 @@ pub const D3D_SHADER_REQUIRES_WAVE_MMA: u32 = 134217728u32;
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`*"]
 pub const D3D_SHADER_REQUIRES_WAVE_OPS: u32 = 16384u32;
 pub const DXGI_DEBUG_D3D12: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3478759820, 43344, 17190, [145, 239, 155, 186, 161, 123, 253, 149]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> ::std::option::Option<super::Direct3D9::IDirect3D9> {
     #[cfg(windows)]
@@ -14294,8 +14294,8 @@ pub unsafe fn Direct3DCreate9On12(sdkversion: u32, poverridelist: *mut D3D9ON12_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D12`, `Win32_Foundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 #[inline]
 pub unsafe fn Direct3DCreate9On12Ex(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: *mut ::std::option::Option<super::Direct3D9::IDirect3D9Ex>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -288,8 +288,8 @@ impl ::std::convert::From<i32> for ATTACH_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for ATTACH_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, parentpath: Param1) -> u32 {
     #[cfg(windows)]
@@ -303,8 +303,8 @@ pub unsafe fn AddVirtualDiskParent<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const APPLY_SNAPSHOT_VHDSET_PARAMETERS, flags: APPLY_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -318,8 +318,8 @@ pub unsafe fn ApplySnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, flags: ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, parameters: *const ATTACH_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -333,8 +333,8 @@ pub unsafe fn AttachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BreakMirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -856,8 +856,8 @@ impl ::std::convert::From<i32> for CREATE_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for CREATE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: COMPACT_VIRTUAL_DISK_FLAG, parameters: *const COMPACT_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -871,8 +871,8 @@ pub unsafe fn CompactVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -886,8 +886,8 @@ pub unsafe fn CompleteForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_Security`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     virtualstoragetype: *const VIRTUAL_STORAGE_TYPE,
@@ -1142,8 +1142,8 @@ impl ::std::ops::Not for DETACH_VIRTUAL_DISK_FLAG {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const DELETE_SNAPSHOT_VHDSET_PARAMETERS, flags: DELETE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -1157,8 +1157,8 @@ pub unsafe fn DeleteSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -1172,8 +1172,8 @@ pub unsafe fn DeleteVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DetachVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> u32 {
     #[cfg(windows)]
@@ -1312,8 +1312,8 @@ impl ::std::convert::From<i32> for EXPAND_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for EXPAND_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, numberofitems: *mut u32, items: *mut ::windows::runtime::GUID) -> u32 {
     #[cfg(windows)]
@@ -1327,8 +1327,8 @@ pub unsafe fn EnumerateVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ExpandVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: EXPAND_VIRTUAL_DISK_FLAG, parameters: *const EXPAND_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -1486,8 +1486,8 @@ impl ::std::convert::From<i32> for FORK_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for FORK_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ForkVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: FORK_VIRTUAL_DISK_FLAG, parameters: *const FORK_VIRTUAL_DISK_PARAMETERS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -1774,8 +1774,8 @@ impl ::std::convert::From<i32> for GET_VIRTUAL_DISK_INFO_VERSION {
 unsafe impl ::windows::runtime::Abi for GET_VIRTUAL_DISK_INFO_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -1789,8 +1789,8 @@ pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(objecthandle: Param0, flags: GET_STORAGE_DEPENDENCY_FLAG, storagedependencyinfosize: u32, storagedependencyinfo: *mut STORAGE_DEPENDENCY_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1804,8 +1804,8 @@ pub unsafe fn GetStorageDependencyInformation<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfosize: *mut u32, virtualdiskinfo: *mut GET_VIRTUAL_DISK_INFO, sizeused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -1819,8 +1819,8 @@ pub unsafe fn GetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: *mut u32, metadata: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1834,8 +1834,8 @@ pub unsafe fn GetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED, progress: *mut VIRTUAL_DISK_PROGRESS) -> u32 {
     #[cfg(windows)]
@@ -1849,8 +1849,8 @@ pub unsafe fn GetVirtualDiskOperationProgress<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, diskpathsizeinbytes: *mut u32, diskpath: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -2315,8 +2315,8 @@ impl ::std::convert::From<i32> for MODIFY_VHDSET_VERSION {
 unsafe impl ::windows::runtime::Abi for MODIFY_VHDSET_VERSION {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MERGE_VIRTUAL_DISK_FLAG, parameters: *const MERGE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -2330,8 +2330,8 @@ pub unsafe fn MergeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: MIRROR_VIRTUAL_DISK_FLAG, parameters: *const MIRROR_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -2345,8 +2345,8 @@ pub unsafe fn MirrorVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const MODIFY_VHDSET_PARAMETERS, flags: MODIFY_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]
@@ -2585,8 +2585,8 @@ impl ::std::convert::From<i32> for OPEN_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for OPEN_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenVirtualDisk<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualstoragetype: *const VIRTUAL_STORAGE_TYPE, path: Param1, virtualdiskaccessmask: VIRTUAL_DISK_ACCESS_MASK, flags: OPEN_VIRTUAL_DISK_FLAG, parameters: *const OPEN_VIRTUAL_DISK_PARAMETERS, handle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -2669,8 +2669,8 @@ impl ::std::cmp::Eq for QUERY_CHANGES_VIRTUAL_DISK_RANGE {}
 unsafe impl ::windows::runtime::Abi for QUERY_CHANGES_VIRTUAL_DISK_RANGE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryChangesVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualdiskhandle: Param0, changetrackingid: Param1, byteoffset: u64, bytelength: u64, flags: QUERY_CHANGES_VIRTUAL_DISK_FLAG, ranges: *mut QUERY_CHANGES_VIRTUAL_DISK_RANGE, rangecount: *mut u32, processedlength: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -3051,8 +3051,8 @@ impl ::std::convert::From<i32> for RESIZE_VIRTUAL_DISK_VERSION {
 unsafe impl ::windows::runtime::Abi for RESIZE_VIRTUAL_DISK_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const RAW_SCSI_VIRTUAL_DISK_PARAMETERS, flags: RAW_SCSI_VIRTUAL_DISK_FLAG, response: *mut RAW_SCSI_VIRTUAL_DISK_RESPONSE) -> u32 {
     #[cfg(windows)]
@@ -3066,8 +3066,8 @@ pub unsafe fn RawSCSIVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ResizeVirtualDisk<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, flags: RESIZE_VIRTUAL_DISK_FLAG, parameters: *const RESIZE_VIRTUAL_DISK_PARAMETERS, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -3379,8 +3379,8 @@ impl ::std::convert::From<i32> for STORAGE_DEPENDENCY_INFO_VERSION {
 unsafe impl ::windows::runtime::Abi for STORAGE_DEPENDENCY_INFO_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, virtualdiskinfo: *const SET_VIRTUAL_DISK_INFO) -> u32 {
     #[cfg(windows)]
@@ -3394,8 +3394,8 @@ pub unsafe fn SetVirtualDiskInformation<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVirtualDiskMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, item: *const ::windows::runtime::GUID, metadatasize: u32, metadata: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -3534,8 +3534,8 @@ impl ::std::convert::From<i32> for TAKE_SNAPSHOT_VHDSET_VERSION {
 unsafe impl ::windows::runtime::Abi for TAKE_SNAPSHOT_VHDSET_VERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Vhd`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TakeSnapshotVhdSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(virtualdiskhandle: Param0, parameters: *const TAKE_SNAPSHOT_VHDSET_PARAMETERS, flags: TAKE_SNAPSHOT_VHDSET_FLAG) -> u32 {
     #[cfg(windows)]

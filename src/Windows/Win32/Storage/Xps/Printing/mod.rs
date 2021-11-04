@@ -361,8 +361,8 @@ unsafe impl ::windows::runtime::Abi for PrintDocumentPackageStatus {
 }
 pub const PrintDocumentPackageTarget: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1212311198, 39239, 18154, [139, 162, 216, 204, 228, 50, 194, 202]);
 pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(881783165, 27777, 18818, [146, 180, 238, 24, 138, 67, 134, 122]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
     printername: Param0,
@@ -410,8 +410,8 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Xps_Printing`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
     printername: Param0,

@@ -569,8 +569,8 @@ impl ::std::convert::From<i32> for DVASPECT2 {
 unsafe impl ::windows::runtime::Abi for DVASPECT2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DoDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param1: ::windows::runtime::IntoParam<'a, IDropSource>>(pdataobj: Param0, pdropsource: Param1, dwokeffects: u32, pdweffect: *mut u32) -> ::windows::runtime::HRESULT {
     #[cfg(windows)]
@@ -784,8 +784,8 @@ impl ::std::convert::From<i32> for HITRESULT {
 unsafe impl ::windows::runtime::Abi for HITRESULT {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
@@ -799,8 +799,8 @@ pub unsafe fn HRGN_UserFree(param0: *const u32, param1: *const super::super::Gra
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::Graphics::Gdi::HRGN) {
     #[cfg(windows)]
@@ -814,8 +814,8 @@ pub unsafe fn HRGN_UserFree64(param0: *const u32, param1: *const super::super::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -829,8 +829,8 @@ pub unsafe fn HRGN_UserMarshal(param0: *const u32, param1: *mut u8, param2: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *const super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -844,8 +844,8 @@ pub unsafe fn HRGN_UserMarshal64(param0: *const u32, param1: *mut u8, param2: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
     #[cfg(windows)]
@@ -859,8 +859,8 @@ pub unsafe fn HRGN_UserSize(param0: *const u32, param1: u32, param2: *const supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const super::super::Graphics::Gdi::HRGN) -> u32 {
     #[cfg(windows)]
@@ -874,8 +874,8 @@ pub unsafe fn HRGN_UserSize64(param0: *const u32, param1: u32, param2: *const su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -889,8 +889,8 @@ pub unsafe fn HRGN_UserUnmarshal(param0: *const u32, param1: *const u8, param2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HRGN_UserUnmarshal64(param0: *const u32, param1: *const u8, param2: *mut super::super::Graphics::Gdi::HRGN) -> *mut u8 {
     #[cfg(windows)]
@@ -8071,8 +8071,8 @@ pub struct IZoomEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ulzoompercent: u32) -> ::windows::runtime::HRESULT,
 );
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn IsAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HACCEL>>(haccel: Param0, caccelentries: i32, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG, lpwcmd: *mut u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10711,8 +10711,8 @@ pub unsafe fn OleBuildVersion() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreate<'a, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(rclsid: *const ::windows::runtime::GUID, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10740,8 +10740,8 @@ pub unsafe fn OleCreateDefaultHandler<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, super::Com::IClassFactory>>(clsid: *const ::windows::runtime::GUID, punkouter: Param1, flags: u32, pcf: Param3, riid: *const ::windows::runtime::GUID, lplpobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10755,8 +10755,8 @@ pub unsafe fn OleCreateEmbeddingHelper<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateEx<'a, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -10797,8 +10797,8 @@ pub unsafe fn OleCreateEx<'a, Param7: ::windows::runtime::IntoParam<'a, super::C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::windows::runtime::GUID, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10812,8 +10812,8 @@ pub unsafe fn OleCreateFontIndirect(lpfontdesc: *mut FONTDESC, riid: *const ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10827,8 +10827,8 @@ pub unsafe fn OleCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     psrcdataobj: Param0,
@@ -10869,8 +10869,8 @@ pub unsafe fn OleCreateFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param6: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -10893,8 +10893,8 @@ pub unsafe fn OleCreateFromFile<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param10: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param11: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     rclsid: *const ::windows::runtime::GUID,
@@ -10937,8 +10937,8 @@ pub unsafe fn OleCreateFromFileEx<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pmklinksrc: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -10952,8 +10952,8 @@ pub unsafe fn OleCreateLink<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IMoniker>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     pmklinksrc: Param0,
@@ -10994,8 +10994,8 @@ pub unsafe fn OleCreateLinkEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11009,8 +11009,8 @@ pub unsafe fn OleCreateLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     psrcdataobj: Param0,
@@ -11051,8 +11051,8 @@ pub unsafe fn OleCreateLinkFromDataEx<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(lpszfilename: Param0, riid: *const ::windows::runtime::GUID, renderopt: u32, lpformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11066,8 +11066,8 @@ pub unsafe fn OleCreateLinkToFile<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::Com::IAdviseSink>, Param9: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param10: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(
     lpszfilename: Param0,
@@ -11108,8 +11108,8 @@ pub unsafe fn OleCreateLinkToFileEx<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>>(hmenucombined: Param0, lpmenuwidths: *mut OleMenuGroupWidths) -> isize {
     #[cfg(windows)]
@@ -11123,8 +11123,8 @@ pub unsafe fn OleCreateMenuDescriptor<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lppictdesc: *mut PICTDESC, riid: *const ::windows::runtime::GUID, fown: Param2, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11138,8 +11138,8 @@ pub unsafe fn OleCreatePictureIndirect<'a, Param2: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleCreatePropertyFrame<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwndowner: Param0, x: u32, y: u32, lpszcaption: Param3, cobjects: u32, ppunk: *mut ::std::option::Option<::windows::runtime::IUnknown>, cpages: u32, ppageclsid: *mut ::windows::runtime::GUID, lcid: u32, dwreserved: u32, pvreserved: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11166,8 +11166,8 @@ pub unsafe fn OleCreatePropertyFrame<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11181,8 +11181,8 @@ pub unsafe fn OleCreatePropertyFrameIndirect(lpparams: *mut OCPFIPARAMS) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleCreateStaticFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>, Param4: ::windows::runtime::IntoParam<'a, IOleClientSite>, Param5: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(psrcdataobj: Param0, iid: *const ::windows::runtime::GUID, renderopt: u32, pformatetc: *mut super::Com::FORMATETC, pclientsite: Param4, pstg: Param5, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11210,8 +11210,8 @@ pub unsafe fn OleDestroyMenuDescriptor(holemenu: isize) -> ::windows::runtime::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleDoAutoConvert<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>>(pstg: Param0, pclsidnew: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11225,8 +11225,8 @@ pub unsafe fn OleDoAutoConvert<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleDraw<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(punknown: Param0, dwaspect: u32, hdcdraw: Param2, lprcbounds: *mut super::super::Foundation::RECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11240,8 +11240,8 @@ pub unsafe fn OleDraw<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleDuplicateData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsrc: Param0, cfformat: u16, uiflags: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -11283,8 +11283,8 @@ pub unsafe fn OleGetAutoConvert(clsidold: *const ::windows::runtime::GUID, pclsi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleGetClipboard() -> ::windows::runtime::Result<super::Com::IDataObject> {
     #[cfg(windows)]
@@ -11299,8 +11299,8 @@ pub unsafe fn OleGetClipboard() -> ::windows::runtime::Result<super::Com::IDataO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::std::option::Option<super::Com::IDataObject>, dataenterpriseid: *mut super::super::Foundation::PWSTR, sourcedescription: *mut super::super::Foundation::PWSTR, targetdescription: *mut super::super::Foundation::PWSTR, datadescription: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11314,8 +11314,8 @@ pub unsafe fn OleGetClipboardWithEnterpriseInfo(dataobject: *mut ::std::option::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::runtime::GUID, lpszlabel: Param1, fusetypeaslabel: Param2) -> isize {
     #[cfg(windows)]
@@ -11329,8 +11329,8 @@ pub unsafe fn OleGetIconOfClass<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleGetIconOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszpath: Param0, fusefileaslabel: Param1) -> isize {
     #[cfg(windows)]
@@ -11344,8 +11344,8 @@ pub unsafe fn OleGetIconOfFile<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleIconToCursor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(hinstexe: Param0, hicon: Param1) -> super::super::UI::WindowsAndMessaging::HCURSOR {
     #[cfg(windows)]
@@ -11373,8 +11373,8 @@ pub unsafe fn OleInitialize(pvreserved: *mut ::std::ffi::c_void) -> ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11388,8 +11388,8 @@ pub unsafe fn OleIsCurrentClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>>(pobject: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11403,8 +11403,8 @@ pub unsafe fn OleIsRunning<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObj
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn OleLoad<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::runtime::IntoParam<'a, IOleClientSite>>(pstg: Param0, riid: *const ::windows::runtime::GUID, pclientsite: Param2, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11418,8 +11418,8 @@ pub unsafe fn OleLoad<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(pstm: Param0, iidinterface: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11433,8 +11433,8 @@ pub unsafe fn OleLoadFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::runtime::GUID, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11448,8 +11448,8 @@ pub unsafe fn OleLoadPicture<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpstream: Param0, lsize: i32, frunmode: Param2, riid: *const ::windows::runtime::GUID, xsizedesired: u32, ysizedesired: u32, dwflags: u32, lplpvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11463,8 +11463,8 @@ pub unsafe fn OleLoadPictureEx<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0) -> ::windows::runtime::Result<Automation::IDispatch> {
     #[cfg(windows)]
@@ -11479,8 +11479,8 @@ pub unsafe fn OleLoadPictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(varfilename: Param0, xsizedesired: u32, ysizedesired: u32, dwflags: u32) -> ::windows::runtime::Result<Automation::IDispatch> {
     #[cfg(windows)]
@@ -11495,8 +11495,8 @@ pub unsafe fn OleLoadPictureFileEx<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(szurlorpath: Param0, punkcaller: Param1, dwreserved: u32, clrreserved: u32, riid: *const ::windows::runtime::GUID, ppvret: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11510,8 +11510,8 @@ pub unsafe fn OleLoadPicturePath<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleLockRunning<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, flock: Param1, flastunlockcloses: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11551,8 +11551,8 @@ impl ::std::cmp::Eq for OleMenuGroupWidths {}
 unsafe impl ::windows::runtime::Abi for OleMenuGroupWidths {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleMetafilePictFromIconAndLabel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hicon: Param0, lpszlabel: Param1, lpszsourcefile: Param2, iiconindex: u32) -> isize {
     #[cfg(windows)]
@@ -11566,8 +11566,8 @@ pub unsafe fn OleMetafilePictFromIconAndLabel<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleNoteObjectVisible<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fvisible: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11581,8 +11581,8 @@ pub unsafe fn OleNoteObjectVisible<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11596,8 +11596,8 @@ pub unsafe fn OleQueryCreateFromData<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(psrcdataobject: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11611,8 +11611,8 @@ pub unsafe fn OleQueryLinkFromData<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleRegEnumFormatEtc(clsid: *const ::windows::runtime::GUID, dwdirection: u32) -> ::windows::runtime::Result<super::Com::IEnumFORMATETC> {
     #[cfg(windows)]
@@ -11656,8 +11656,8 @@ pub unsafe fn OleRegGetMiscStatus(clsid: *const ::windows::runtime::GUID, dwaspe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleRegGetUserType(clsid: *const ::windows::runtime::GUID, dwformoftype: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -11686,8 +11686,8 @@ pub unsafe fn OleRun<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn OleSave<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IPersistStorage>, Param1: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pps: Param0, pstg: Param1, fsameasload: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11701,8 +11701,8 @@ pub unsafe fn OleSave<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn OleSavePictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, Automation::IDispatch>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(lpdisppicture: Param0, bstrfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11716,8 +11716,8 @@ pub unsafe fn OleSavePictureFile<'a, Param0: ::windows::runtime::IntoParam<'a, A
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleSaveToStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IPersistStream>, Param1: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(ppstm: Param0, pstm: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11745,8 +11745,8 @@ pub unsafe fn OleSetAutoConvert(clsidold: *const ::windows::runtime::GUID, clsid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn OleSetClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IDataObject>>(pdataobj: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11760,8 +11760,8 @@ pub unsafe fn OleSetClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleSetContainedObject<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(punknown: Param0, fcontained: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11775,8 +11775,8 @@ pub unsafe fn OleSetContainedObject<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleSetMenuDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, IOleInPlaceFrame>, Param4: ::windows::runtime::IntoParam<'a, IOleInPlaceActiveObject>>(holemenu: isize, hwndframe: Param1, hwndactiveobject: Param2, lpframe: Param3, lpactiveobj: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11790,8 +11790,8 @@ pub unsafe fn OleSetMenuDescriptor<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleTranslateAccelerator<'a, Param0: ::windows::runtime::IntoParam<'a, IOleInPlaceFrame>>(lpframe: Param0, lpframeinfo: *mut OIFI, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11805,8 +11805,8 @@ pub unsafe fn OleTranslateAccelerator<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OleTranslateColor<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HPALETTE>>(clr: u32, hpal: Param1, lpcolorref: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11820,8 +11820,8 @@ pub unsafe fn OleTranslateColor<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpoleobj: Param0,
@@ -11855,8 +11855,8 @@ pub unsafe fn OleUIAddVerbMenuA<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIAddVerbMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, IOleObject>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::UI::WindowsAndMessaging::HMENU>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     lpoleobj: Param0,
@@ -11890,8 +11890,8 @@ pub unsafe fn OleUIAddVerbMenuW<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     #[cfg(windows)]
@@ -11905,8 +11905,8 @@ pub unsafe fn OleUIBusyA(param0: *const OLEUIBUSYA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Media_Audio_CoreAudio`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     #[cfg(windows)]
@@ -11920,8 +11920,8 @@ pub unsafe fn OleUIBusyW(param0: *const OLEUIBUSYW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(rclsid: *const ::windows::runtime::GUID, fislinkedobject: Param1, wformat: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11935,8 +11935,8 @@ pub unsafe fn OleUICanConvertOrActivateAs<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     #[cfg(windows)]
@@ -11950,8 +11950,8 @@ pub unsafe fn OleUIChangeIconA(param0: *const OLEUICHANGEICONA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     #[cfg(windows)]
@@ -11965,8 +11965,8 @@ pub unsafe fn OleUIChangeIconW(param0: *const OLEUICHANGEICONW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg(windows)]
@@ -11980,8 +11980,8 @@ pub unsafe fn OleUIChangeSourceA(param0: *const OLEUICHANGESOURCEA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`, `Win32_UI_Controls_Dialogs`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg(windows)]
@@ -11995,8 +11995,8 @@ pub unsafe fn OleUIChangeSourceW(param0: *const OLEUICHANGESOURCEW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     #[cfg(windows)]
@@ -12010,8 +12010,8 @@ pub unsafe fn OleUIConvertA(param0: *const OLEUICONVERTA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     #[cfg(windows)]
@@ -12025,8 +12025,8 @@ pub unsafe fn OleUIConvertW(param0: *const OLEUICONVERTW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg(windows)]
@@ -12040,8 +12040,8 @@ pub unsafe fn OleUIEditLinksA(param0: *const OLEUIEDITLINKSA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg(windows)]
@@ -12055,8 +12055,8 @@ pub unsafe fn OleUIEditLinksW(param0: *const OLEUIEDITLINKSW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg(windows)]
@@ -12070,8 +12070,8 @@ pub unsafe fn OleUIInsertObjectA(param0: *const OLEUIINSERTOBJECTA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg(windows)]
@@ -12085,8 +12085,8 @@ pub unsafe fn OleUIInsertObjectW(param0: *const OLEUIINSERTOBJECTW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg(windows)]
@@ -12100,8 +12100,8 @@ pub unsafe fn OleUIObjectPropertiesA(param0: *const OLEUIOBJECTPROPSA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_UI_Controls`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg(windows)]
@@ -12115,8 +12115,8 @@ pub unsafe fn OleUIObjectPropertiesW(param0: *const OLEUIOBJECTPROPSW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg(windows)]
@@ -12130,8 +12130,8 @@ pub unsafe fn OleUIPasteSpecialA(param0: *const OLEUIPASTESPECIALA) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_LibraryLoader`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_LibraryLoader"))]
 #[inline]
 pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg(windows)]
@@ -12145,8 +12145,8 @@ pub unsafe fn OleUIPasteSpecialW(param0: *const OLEUIPASTESPECIALW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIPromptUserA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
     #[cfg(windows)]
@@ -12160,8 +12160,8 @@ pub unsafe fn OleUIPromptUserA<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIPromptUserW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(ntemplate: i32, hwndparent: Param1) -> i32 {
     #[cfg(windows)]
@@ -12175,8 +12175,8 @@ pub unsafe fn OleUIPromptUserW<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIUpdateLinksA<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerA>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12190,8 +12190,8 @@ pub unsafe fn OleUIUpdateLinksA<'a, Param0: ::windows::runtime::IntoParam<'a, IO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OleUIUpdateLinksW<'a, Param0: ::windows::runtime::IntoParam<'a, IOleUILinkContainerW>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpoleuilinkcntr: Param0, hwndparent: Param1, lpsztitle: Param2, clinks: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12901,8 +12901,8 @@ impl ::std::convert::From<i32> for READYSTATE {
 unsafe impl ::windows::runtime::Abi for READYSTATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, IDropTarget>>(hwnd: Param0, pdroptarget: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12916,8 +12916,8 @@ pub unsafe fn RegisterDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     #[cfg(windows)]
@@ -12931,8 +12931,8 @@ pub unsafe fn ReleaseStgMedium(param0: *mut super::Com::STGMEDIUM) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Ole`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RevokeDragDrop<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

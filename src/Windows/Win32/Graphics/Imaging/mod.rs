@@ -6537,8 +6537,8 @@ pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::runtime::GUID, hsection: Param3, stride: u32, offset: u32) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
@@ -6553,8 +6553,8 @@ pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::runtime::GUID, hsection: Param3, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::runtime::Result<IWICBitmap> {
     #[cfg(windows)]
@@ -7434,8 +7434,8 @@ impl ::std::convert::From<i32> for WICJpegYCrCbSubsamplingOption {
 unsafe impl ::windows::runtime::Abi for WICJpegYCrCbSubsamplingOption {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guid: *const ::windows::runtime::GUID, cchname: u32, wzname: Param2, pcchactual: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7449,8 +7449,8 @@ pub unsafe fn WICMapGuidToShortName<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(guidmetadataformat: *const ::windows::runtime::GUID, pwzschema: Param1, cchname: u32, wzname: Param3, pcchactual: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7464,8 +7464,8 @@ pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wzname: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -7480,8 +7480,8 @@ pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::runtime::GUID, pguidvendor: *const ::windows::runtime::GUID, pistream: Param2) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -8380,8 +8380,8 @@ impl ::std::ops::Not for WICSectionAccessLevel {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Graphics_Imaging`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::runtime::IntoParam<'a, IWICMetadataWriter>, Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::runtime::GUID, piwriter: Param1, dwpersistoptions: u32, pistream: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

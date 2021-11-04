@@ -5346,8 +5346,8 @@ pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: `Win32_Devices_Usb`*"]
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
 pub const WinUSB_TestGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665898495, 4803, 18082, [142, 43, 219, 211, 183, 131, 76, 67]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5361,8 +5361,8 @@ pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::std::ffi::c_void, pipei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::runtime::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::std::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5376,8 +5376,8 @@ pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_FlushPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5391,8 +5391,8 @@ pub unsafe fn WinUsb_FlushPipe(interfacehandle: *const ::std::ffi::c_void, pipei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Free(interfacehandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5406,8 +5406,8 @@ pub unsafe fn WinUsb_Free(interfacehandle: *const ::std::ffi::c_void) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5421,8 +5421,8 @@ pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timest
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::std::ffi::c_void, associatedinterfaceindex: u8, associatedinterfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5436,8 +5436,8 @@ pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5451,8 +5451,8 @@ pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::std::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::std::ffi::c_void, currentframenumber: *mut u32, timestamp: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5466,8 +5466,8 @@ pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::std::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::std::ffi::c_void, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5481,8 +5481,8 @@ pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::std::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::std::ffi::c_void, descriptortype: u8, index: u8, languageid: u16, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5496,8 +5496,8 @@ pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::std::ffi::c_void, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::std::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5511,8 +5511,8 @@ pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5526,8 +5526,8 @@ pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: *const ::std::ffi::c_void, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5541,8 +5541,8 @@ pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5592,8 +5592,8 @@ pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::std::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::std::ffi::c_void, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5607,8 +5607,8 @@ pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5622,8 +5622,8 @@ pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipe(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5637,8 +5637,8 @@ pub unsafe fn WinUsb_QueryPipe(interfacehandle: *const ::std::ffi::c_void, alter
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: *const ::std::ffi::c_void, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5652,8 +5652,8 @@ pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: *const ::std::ffi::c_void, alt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5667,8 +5667,8 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::std::ffi::c_void, offs
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: Param3, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5682,8 +5682,8 @@ pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_ReadPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5697,8 +5697,8 @@ pub unsafe fn WinUsb_ReadPipe(interfacehandle: *const ::std::ffi::c_void, pipeid
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, isochbufferhandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5712,8 +5712,8 @@ pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_ResetPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5727,8 +5727,8 @@ pub unsafe fn WinUsb_ResetPipe(interfacehandle: *const ::std::ffi::c_void, pipei
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5742,8 +5742,8 @@ pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::std::f
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5757,8 +5757,8 @@ pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::std::ffi::c_void, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5772,8 +5772,8 @@ pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5787,8 +5787,8 @@ pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::std::ffi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5802,8 +5802,8 @@ pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5817,8 +5817,8 @@ pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::std::ffi:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5832,8 +5832,8 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::std::ffi::c_void, off
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -5847,8 +5847,8 @@ pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Devices_Usb`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WinUsb_WritePipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *const u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

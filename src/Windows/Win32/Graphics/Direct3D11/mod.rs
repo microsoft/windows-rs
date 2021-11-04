@@ -2,8 +2,8 @@
 #[repr(C)]
 #[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct CD3D11_VIDEO_DEFAULT(pub u8);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
 pub unsafe fn D3D11CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     padapter: Param0,
@@ -40,8 +40,8 @@ pub unsafe fn D3D11CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[doc = "*Required features: `Win32_Graphics_Direct3D11`, `Win32_Foundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
 #[inline]
 pub unsafe fn D3D11CreateDeviceAndSwapChain<'a, Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIAdapter>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(
     padapter: Param0,

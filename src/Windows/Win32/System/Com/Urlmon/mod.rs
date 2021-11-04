@@ -426,8 +426,8 @@ unsafe impl ::windows::runtime::Abi for CONFIRMSAFETY {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetClassObjectFromURL<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(
     rclassid: *const ::windows::runtime::GUID,
@@ -478,8 +478,8 @@ pub unsafe fn CoInternetCombineIUri<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzbaseurl: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -493,8 +493,8 @@ pub unsafe fn CoInternetCombineUrl<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbaseuri: Param0, pwzrelativeurl: Param1, dwcombineflags: u32, ppcombineduri: *mut ::std::option::Option<super::IUri>, dwreserved: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -508,8 +508,8 @@ pub unsafe fn CoInternetCombineUrlEx<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetCompareUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl1: Param0, pwzurl2: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -551,8 +551,8 @@ pub unsafe fn CoInternetCreateZoneManager<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, pdwflags: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -566,8 +566,8 @@ pub unsafe fn CoInternetGetProtocolFlags<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetGetSecurityUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0, ppwszsecurl: *mut super::super::super::Foundation::PWSTR, psuaction: PSUACTION, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -637,8 +637,8 @@ pub unsafe fn CoInternetIsFeatureEnabledForIUri<'a, Param2: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(featureentry: INTERNETFEATURELIST, dwflags: u32, szurl: Param2, psecmgr: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -652,8 +652,8 @@ pub unsafe fn CoInternetIsFeatureEnabledForUrl<'a, Param2: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IInternetSecurityManager>>(szfromurl: Param0, sztourl: Param1, psecmgr: Param2, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -667,8 +667,8 @@ pub unsafe fn CoInternetIsFeatureZoneElevationEnabled<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, super::IUri>>(piuri: Param0, parseaction: PARSEACTION, dwflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: usize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -682,8 +682,8 @@ pub unsafe fn CoInternetParseIUri<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, parseaction: PARSEACTION, dwflags: u32, pszresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -697,8 +697,8 @@ pub unsafe fn CoInternetParseUrl<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwzurl: Param0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut ::std::ffi::c_void, cbbuffer: u32, pcbbuffer: *mut u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -712,8 +712,8 @@ pub unsafe fn CoInternetQueryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoInternetSetFeatureEnabled<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(featureentry: INTERNETFEATURELIST, dwflags: u32, fenable: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -755,8 +755,8 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const ::windows::runtime::GUID, pdwc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtime::Result<super::BINDINFO> {
     #[cfg(windows)]
@@ -771,8 +771,8 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::runtime::Result<super::STGMEDIUM> {
     #[cfg(windows)]
@@ -831,8 +831,8 @@ pub unsafe fn CreateFormatEnumerator(cfmtetc: u32, rgfmtetc: *const super::FORMA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1) -> ::windows::runtime::Result<super::IMoniker> {
     #[cfg(windows)]
@@ -847,8 +847,8 @@ pub unsafe fn CreateURLMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateURLMonikerEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pmkctx: Param0, szurl: Param1, ppmk: *mut ::std::option::Option<super::IMoniker>, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -933,8 +933,8 @@ pub const FMFD_RETURNUPDATEDIMGMIMES: u32 = 32u32;
 pub const FMFD_SERVERMIME: u32 = 8u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const FMFD_URLASFILENAME: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pclassspec: *const super::uCLSSPEC, pquery: *mut super::QUERYCONTEXT, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -948,8 +948,8 @@ pub unsafe fn FaultInIEFeature<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(rgsztypes: Param0) -> ::windows::runtime::Result<u16> {
     #[cfg(windows)]
@@ -964,8 +964,8 @@ pub unsafe fn FindMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pbc: Param0, sztype: Param1, pclsid: *mut ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -979,8 +979,8 @@ pub unsafe fn FindMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindMimeFromData<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, pwzurl: Param1, pbuffer: *const ::std::ffi::c_void, cbsize: u32, pwzmimeproposed: Param4, dwmimeflags: u32, ppwzmimeout: *mut super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1010,8 +1010,8 @@ pub const GET_FEATURE_FROM_THREAD_LOCALMACHINE: u32 = 8u32;
 pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szfilename: Param1, pbuffer: *const ::std::ffi::c_void, cbsize: u32, szmime: Param4, dwreserved: u32) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -1026,8 +1026,8 @@ pub unsafe fn GetClassFileOrMime<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szurl: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -1042,8 +1042,8 @@ pub unsafe fn GetClassURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> ::windows::runtime::Result<super::super::super::Foundation::PSTR> {
     #[cfg(windows)]
@@ -1058,8 +1058,8 @@ pub unsafe fn GetComponentIDFromCLSSPEC(pclassspec: *const super::uCLSSPEC) -> :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSoftwareUpdateInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0) -> ::windows::runtime::Result<SOFTDISTINFO> {
     #[cfg(windows)]
@@ -1153,8 +1153,8 @@ pub unsafe fn HlinkNavigateMoniker<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(punk: Param0, sztarget: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1168,8 +1168,8 @@ pub unsafe fn HlinkNavigateString<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super::IMoniker>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(
     pmktarget: Param0,
@@ -1192,8 +1192,8 @@ pub unsafe fn HlinkSimpleNavigateToMoniker<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HlinkSimpleNavigateToString<
     'a,
@@ -1670,8 +1670,8 @@ pub struct IDataFilter_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenclevel: u32) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IEGetUserPrivateNamespaceName() -> super::super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -4873,8 +4873,8 @@ pub unsafe fn IsAsyncMoniker<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4888,8 +4888,8 @@ pub unsafe fn IsLoggingEnabledA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwszurl: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4903,8 +4903,8 @@ pub unsafe fn IsLoggingEnabledW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szurl: Param1, dwreserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4961,8 +4961,8 @@ pub const MUTZ_NOSAVEDFILECHECK: u32 = 1u32;
 pub const MUTZ_REQUIRESAVEDFILECHECK: u32 = 1024u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const MUTZ_RESERVED: u32 = 512u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MkParseDisplayNameEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pbc: Param0, szdisplayname: Param1, pcheaten: *mut u32, ppmk: *mut ::std::option::Option<super::IMoniker>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4990,8 +4990,8 @@ impl ::std::convert::From<i32> for OIBDG_FLAGS {
 unsafe impl ::windows::runtime::Abi for OIBDG_FLAGS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: super::super::super::Foundation::PSTR, cbsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5310,8 +5310,8 @@ pub unsafe fn RegisterFormatEnumerator<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::IBindCtx>>(pbc: Param0, ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgclsid: *const ::windows::runtime::GUID, reserved: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5325,8 +5325,8 @@ pub unsafe fn RegisterMediaTypeClass<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::super::Foundation::PSTR, rgcftypes: *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5340,8 +5340,8 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const super::super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`, `Win32_System_Com_StructuredStorage`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut super::BINDINFO) {
     #[cfg(windows)]
@@ -5607,8 +5607,8 @@ unsafe impl ::windows::runtime::Abi for SZM_FLAGS {
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const S_ASYNCHRONOUS: i32 = 262632i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hobject: Param0, ieobjecttype: IEObjectType, dwaccessmask: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5622,8 +5622,8 @@ pub unsafe fn SetAccessForIEAppContainer<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSoftwareUpdateAdvertisementState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(szdistunit: Param0, dwadstate: u32, dwadvertisedversionms: u32, dwadvertisedversionls: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5951,8 +5951,8 @@ pub const URLACTION_WINDOWS_BROWSER_APPLICATIONS: u32 = 9216u32;
 pub const URLACTION_WINFX_SETUP: u32 = 9728u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URLACTION_XPS_DOCUMENTS: u32 = 9217u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5966,8 +5966,8 @@ pub unsafe fn URLDownloadToCacheFileA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: super::super::super::Foundation::PWSTR, cchfilename: u32, param4: u32, param5: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5981,8 +5981,8 @@ pub unsafe fn URLDownloadToCacheFileW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -5996,8 +5996,8 @@ pub unsafe fn URLDownloadToFileA<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLDownloadToFileW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: Param2, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6027,8 +6027,8 @@ pub const URLOSTRM_GETNEWESTVERSION: u32 = 3u32;
 pub const URLOSTRM_USECACHEDCOPY: u32 = 2u32;
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const URLOSTRM_USECACHEDCOPY_ONLY: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::std::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6042,8 +6042,8 @@ pub unsafe fn URLOpenBlockingStreamA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: *mut ::std::option::Option<super::IStream>, param3: u32, param4: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6057,8 +6057,8 @@ pub unsafe fn URLOpenBlockingStreamW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6072,8 +6072,8 @@ pub unsafe fn URLOpenPullStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6087,8 +6087,8 @@ pub unsafe fn URLOpenPullStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6102,8 +6102,8 @@ pub unsafe fn URLOpenStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn URLOpenStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::IBindStatusCallback>>(param0: Param0, param1: Param1, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -6320,8 +6320,8 @@ pub unsafe fn UrlMkSetSessionOption(dwoption: u32, pbuffer: *const ::std::ffi::c
 }
 #[doc = "*Required features: `Win32_System_Com_Urlmon`*"]
 pub const WININETINFO_OPTION_LOCK_HANDLE: u32 = 65534u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_Urlmon`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteHitLogging(lplogginginfo: *const HIT_LOGGING_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

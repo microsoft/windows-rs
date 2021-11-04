@@ -5812,8 +5812,8 @@ pub const DI_TRUNCATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESUL
 pub const DI_TRUNCATEDANDRESTARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(12i32 as _);
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const DI_WRITEPROTECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(19i32 as _);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectInput8Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::std::ffi::c_void, punkouter: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7913,8 +7913,8 @@ unsafe impl ::windows::runtime::Abi for HID_XFER_PACKET {
 }
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`*"]
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_FlushQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -7928,8 +7928,8 @@ pub unsafe fn HidD_FlushQueue<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -7943,8 +7943,8 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -7958,8 +7958,8 @@ pub unsafe fn HidD_GetAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -7973,8 +7973,8 @@ pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8002,8 +8002,8 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8017,8 +8017,8 @@ pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8032,8 +8032,8 @@ pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8047,8 +8047,8 @@ pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8062,8 +8062,8 @@ pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8077,8 +8077,8 @@ pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8092,8 +8092,8 @@ pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8107,8 +8107,8 @@ pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8122,8 +8122,8 @@ pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8137,8 +8137,8 @@ pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8152,8 +8152,8 @@ pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8167,8 +8167,8 @@ pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8182,8 +8182,8 @@ pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -8197,8 +8197,8 @@ pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8223,8 +8223,8 @@ pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8238,8 +8238,8 @@ pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8253,8 +8253,8 @@ pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8268,8 +8268,8 @@ pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8283,8 +8283,8 @@ pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8298,8 +8298,8 @@ pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_CO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8313,8 +8313,8 @@ pub unsafe fn HidP_GetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8328,8 +8328,8 @@ pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8343,8 +8343,8 @@ pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8358,8 +8358,8 @@ pub unsafe fn HidP_GetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: Param4, usagevaluebytelength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8384,8 +8384,8 @@ pub unsafe fn HidP_GetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8399,8 +8399,8 @@ pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetUsagesEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: Param5, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8414,8 +8414,8 @@ pub unsafe fn HidP_GetUsagesEx<'a, Param5: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8429,8 +8429,8 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8472,8 +8472,8 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8498,8 +8498,8 @@ pub unsafe fn HidP_SetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetData<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: Param4, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8513,8 +8513,8 @@ pub unsafe fn HidP_SetData<'a, Param4: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8528,8 +8528,8 @@ pub unsafe fn HidP_SetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8543,8 +8543,8 @@ pub unsafe fn HidP_SetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: Param4, usagevaluebytelength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8569,8 +8569,8 @@ pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8584,8 +8584,8 @@ pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::std::option::Option<PHIDP_INSERT_SCANCODES>, insertcodescontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8599,8 +8599,8 @@ pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8614,8 +8614,8 @@ pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Devices_HumanInterfaceDevice`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

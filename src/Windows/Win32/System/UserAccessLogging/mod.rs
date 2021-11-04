@@ -36,8 +36,8 @@ impl ::std::cmp::Eq for UAL_DATA_BLOB {}
 unsafe impl ::windows::runtime::Abi for UAL_DATA_BLOB {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_System_UserAccessLogging`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -51,8 +51,8 @@ pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> ::windows::runtime::R
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_UserAccessLogging`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UalRegisterProduct<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszproductname: Param0, wszrolename: Param1, wszguid: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -66,8 +66,8 @@ pub unsafe fn UalRegisterProduct<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_System_UserAccessLogging`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -81,8 +81,8 @@ pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_System_UserAccessLogging`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

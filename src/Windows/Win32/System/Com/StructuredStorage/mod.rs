@@ -694,8 +694,8 @@ unsafe impl ::windows::runtime::Abi for CLIPDATA {
 }
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const CWCSTORAGENAME: u32 = 32u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::runtime::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: Param5, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -709,8 +709,8 @@ pub unsafe fn CoGetInstanceFromFile<'a, Param2: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CoGetInstanceFromIStorage<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param4: ::windows::runtime::IntoParam<'a, IStorage>>(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows::runtime::GUID, punkouter: Param2, dwclsctx: super::CLSCTX, pstg: Param4, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -739,8 +739,8 @@ pub unsafe fn CoGetInterfaceAndReleaseStream<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::runtime::Result<ILockBytes> {
     #[cfg(windows)]
@@ -755,8 +755,8 @@ pub unsafe fn CreateILockBytesOnHGlobal<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(hglobal: isize, fdeleteonrelease: Param1) -> ::windows::runtime::Result<super::IStream> {
     #[cfg(windows)]
@@ -771,8 +771,8 @@ pub unsafe fn CreateStreamOnHGlobal<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::runtime::GUID, oszname: super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -786,8 +786,8 @@ pub unsafe fn FmtIdToPropStgName(pfmtid: *const ::windows::runtime::GUID, osznam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1806,8 +1806,8 @@ pub unsafe fn OleConvertIStorageToOLESTREAM<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, Param0: ::windows::runtime::IntoParam<'a, IStorage>>(pstg: Param0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1835,8 +1835,8 @@ pub unsafe fn OleConvertOLESTREAMToIStorage<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, Param1: ::windows::runtime::IntoParam<'a, IStorage>>(polestm: *mut OLESTREAM, pstg: Param1, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2304,8 +2304,8 @@ unsafe impl ::windows::runtime::Abi for PROPVARIANT_0_0_0 {
 }
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const PRSPEC_INVALID: u32 = 4294967295u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(oszname: Param0) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
@@ -2320,8 +2320,8 @@ pub unsafe fn PropStgNameToFmtId<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2335,8 +2335,8 @@ pub unsafe fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::runtime::Re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2380,8 +2380,8 @@ pub unsafe fn ReadClassStm<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadFmtUserTypeStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStorage>>(pstg: Param0, pcf: *mut u16, lplpszusertype: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2657,8 +2657,8 @@ unsafe impl ::windows::runtime::Abi for STGOPTIONS {
 }
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`*"]
 pub const STGOPTIONS_VERSION: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetConvertStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStorage>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(pstg: Param0, fconvert: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2672,8 +2672,8 @@ pub unsafe fn SetConvertStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStora
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -2687,8 +2687,8 @@ pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOLEAN>>(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: Param5, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE {
     #[cfg(windows)]
@@ -2702,8 +2702,8 @@ pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, reserved: u32) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
@@ -2763,8 +2763,8 @@ pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::runtime::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::runtime::GUID, ppobjectopen: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2778,8 +2778,8 @@ pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::runtime::Result<PROPVARIANT> {
     #[cfg(windows)]
@@ -2794,8 +2794,8 @@ pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgGetIFillLockBytesOnFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::runtime::Result<IFillLockBytes> {
     #[cfg(windows)]
@@ -2825,8 +2825,8 @@ pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgIsStorageFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2869,8 +2869,8 @@ pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgOpenLayoutDocfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsdfname: Param0, grfmode: u32, reserved: u32) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
@@ -2900,8 +2900,8 @@ pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::runtime::IntoParam<'a, ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgOpenStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IStorage>>(pwcsname: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::runtime::Result<IStorage> {
     #[cfg(windows)]
@@ -2916,8 +2916,8 @@ pub unsafe fn StgOpenStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::runtime::GUID, ppobjectopen: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2960,8 +2960,8 @@ pub unsafe fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -2975,8 +2975,8 @@ pub unsafe fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StgSetTimes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(lpszname: Param0, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3045,8 +3045,8 @@ pub unsafe fn WriteClassStm<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Com_StructuredStorage`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteFmtUserTypeStg<'a, Param0: ::windows::runtime::IntoParam<'a, IStorage>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pstg: Param0, cf: u16, lpszusertype: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

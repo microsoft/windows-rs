@@ -1101,8 +1101,8 @@ impl ::std::cmp::Eq for AUDIO_VOLUME_NOTIFICATION_DATA {}
 unsafe impl ::windows::runtime::Abi for AUDIO_VOLUME_NOTIFICATION_DATA {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn ActivateAudioInterfaceAsync<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IActivateAudioInterfaceCompletionHandler>>(deviceinterfacepath: Param0, riid: *const ::windows::runtime::GUID, activationparams: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: Param3) -> ::windows::runtime::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg(windows)]
@@ -1489,8 +1489,8 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
@@ -1550,8 +1550,8 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::runtime::Result<IAudioStateMonitor> {
     #[cfg(windows)]
@@ -22401,8 +22401,8 @@ pub const KS_iPALETTE_COLORS: u32 = 256u32;
 pub const KS_iRED: u32 = 0u32;
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`*"]
 pub const KS_iTRUECOLOR: u32 = 16u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22416,8 +22416,8 @@ pub unsafe fn KsCreateAllocator<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, allocatorframing: *const KSALLOCATOR_FRAMING) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22432,8 +22432,8 @@ pub unsafe fn KsCreateAllocator2<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22447,8 +22447,8 @@ pub unsafe fn KsCreateClock<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateClock2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(connectionhandle: Param0, clockcreate: *const KSCLOCK_CREATE) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22463,8 +22463,8 @@ pub unsafe fn KsCreateClock2<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22478,8 +22478,8 @@ pub unsafe fn KsCreatePin<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreatePin2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filterhandle: Param0, connect: *const KSPIN_CONNECT, desiredaccess: u32) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -22494,8 +22494,8 @@ pub unsafe fn KsCreatePin2<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -22509,8 +22509,8 @@ pub unsafe fn KsCreateTopologyNode<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn KsCreateTopologyNode2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(parenthandle: Param0, nodecreate: *const KSNODE_CREATE, desiredaccess: u32) -> ::windows::runtime::Result<super::super::super::Foundation::HANDLE> {
     #[cfg(windows)]
@@ -26454,8 +26454,8 @@ impl ::std::convert::From<i32> for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 
 unsafe impl ::windows::runtime::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciDriverNotify<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hwndcallback: Param0, wdeviceid: u32, ustatus: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26483,8 +26483,8 @@ pub unsafe fn mciDriverYield(wdeviceid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciFreeCommandResource(wtable: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26512,8 +26512,8 @@ pub unsafe fn mciGetCreatorTask(mciid: u32) -> HTASK {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
@@ -26527,8 +26527,8 @@ pub unsafe fn mciGetDeviceIDA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
@@ -26542,8 +26542,8 @@ pub unsafe fn mciGetDeviceIDFromElementIDA<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(dwelementid: u32, lpstrtype: Param1) -> u32 {
     #[cfg(windows)]
@@ -26557,8 +26557,8 @@ pub unsafe fn mciGetDeviceIDFromElementIDW<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetDeviceIDW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pszdevice: Param0) -> u32 {
     #[cfg(windows)]
@@ -26586,8 +26586,8 @@ pub unsafe fn mciGetDriverData(wdeviceid: u32) -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::super::Foundation::PSTR, cchtext: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26601,8 +26601,8 @@ pub unsafe fn mciGetErrorStringA(mcierr: u32, psztext: super::super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: u32, psztext: super::super::super::Foundation::PWSTR, cchtext: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26630,8 +26630,8 @@ pub unsafe fn mciGetYieldProc(mciid: u32, pdwyielddata: *const u32) -> ::std::op
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciLoadCommandResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(hinstance: Param0, lpresname: Param1, wtype: u32) -> u32 {
     #[cfg(windows)]
@@ -26673,8 +26673,8 @@ pub unsafe fn mciSendCommandW(mciid: u32, umsg: u32, dwparam1: usize, dwparam2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::super::Foundation::PSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
@@ -26688,8 +26688,8 @@ pub unsafe fn mciSendStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSendStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(lpstrcommand: Param0, lpstrreturnstring: super::super::super::Foundation::PWSTR, ureturnlength: u32, hwndcallback: Param3) -> u32 {
     #[cfg(windows)]
@@ -26703,8 +26703,8 @@ pub unsafe fn mciSendStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -26718,8 +26718,8 @@ pub unsafe fn mciSetDriverData(wdeviceid: u32, dwdata: usize) -> super::super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_CoreAudio`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mciSetYieldProc(mciid: u32, fpyieldproc: ::std::option::Option<YIELDPROC>, dwyielddata: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]

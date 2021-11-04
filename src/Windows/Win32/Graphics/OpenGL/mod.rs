@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ppfd: *const PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
@@ -14,8 +14,8 @@ pub unsafe fn ChoosePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn DescribePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, ipixelformat: i32, nbytes: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> i32 {
     #[cfg(windows)]
@@ -1522,8 +1522,8 @@ pub const GL_ZERO: u32 = 0u32;
 pub const GL_ZOOM_X: u32 = 3350u32;
 #[doc = "*Required features: `Win32_Graphics_OpenGL`*"]
 pub const GL_ZOOM_Y: u32 = 3351u32;
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HENHMETAFILE>>(hemf: Param0, cbbuffer: u32, ppfd: *mut PIXELFORMATDESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -1537,8 +1537,8 @@ pub unsafe fn GetEnhMetaFilePixelFormat<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn GetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -1808,8 +1808,8 @@ impl ::std::cmp::Eq for POINTFLOAT {}
 unsafe impl ::windows::runtime::Abi for POINTFLOAT {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(hdc: Param0, format: i32, ppfd: *const PIXELFORMATDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1823,8 +1823,8 @@ pub unsafe fn SetPixelFormat<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SwapBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -6788,8 +6788,8 @@ pub unsafe fn gluErrorString(errcode: u32) -> *mut u8 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn gluErrorUnicodeStringEXT(errcode: u32) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -7315,8 +7315,8 @@ pub unsafe fn gluUnProject(winx: f64, winy: f64, winz: f64, modelmatrix: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglCopyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1, param2: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7330,8 +7330,8 @@ pub unsafe fn wglCopyContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglCreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0) -> HGLRC {
     #[cfg(windows)]
@@ -7345,8 +7345,8 @@ pub unsafe fn wglCreateContext<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32) -> HGLRC {
     #[cfg(windows)]
@@ -7360,8 +7360,8 @@ pub unsafe fn wglCreateLayerContext<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglDeleteContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7375,8 +7375,8 @@ pub unsafe fn wglDeleteContext<'a, Param0: ::windows::runtime::IntoParam<'a, HGL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglDescribeLayerPlane<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: u32, param4: *mut LAYERPLANEDESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7404,8 +7404,8 @@ pub unsafe fn wglGetCurrentContext() -> HGLRC {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     #[cfg(windows)]
@@ -7419,8 +7419,8 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7434,8 +7434,8 @@ pub unsafe fn wglGetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> ::std::option::Option<super::super::Foundation::PROC> {
     #[cfg(windows)]
@@ -7449,8 +7449,8 @@ pub unsafe fn wglGetProcAddress<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7464,8 +7464,8 @@ pub unsafe fn wglMakeCurrent<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(param0: Param0, param1: i32, param2: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7479,8 +7479,8 @@ pub unsafe fn wglRealizeLayerPalette<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32 {
     #[cfg(windows)]
@@ -7494,8 +7494,8 @@ pub unsafe fn wglSetLayerPaletteEntries<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn wglShareLists<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>, Param1: ::windows::runtime::IntoParam<'a, HGLRC>>(param0: Param0, param1: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7509,8 +7509,8 @@ pub unsafe fn wglShareLists<'a, Param0: ::windows::runtime::IntoParam<'a, HGLRC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7524,8 +7524,8 @@ pub unsafe fn wglSwapLayerBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7539,8 +7539,8 @@ pub unsafe fn wglUseFontBitmapsA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7554,8 +7554,8 @@ pub unsafe fn wglUseFontBitmapsW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7569,8 +7569,8 @@ pub unsafe fn wglUseFontOutlinesA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_OpenGL`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn wglUseFontOutlinesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::Gdi::HDC>>(param0: Param0, param1: u32, param2: u32, param3: u32, param4: f32, param5: f32, param6: i32, param7: *mut GLYPHMETRICSFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

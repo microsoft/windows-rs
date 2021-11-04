@@ -1110,8 +1110,8 @@ pub unsafe fn PrjCompleteCommand<'a, Param0: ::windows::runtime::IntoParam<'a, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
@@ -1126,8 +1126,8 @@ pub unsafe fn PrjDeleteFile<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1141,8 +1141,8 @@ pub unsafe fn PrjDoesNameContainWildCards<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filename1: Param0, filename2: Param1) -> i32 {
     #[cfg(windows)]
@@ -1156,8 +1156,8 @@ pub unsafe fn PrjFileNameCompare<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filenametocheck: Param0, pattern: Param1) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
@@ -1171,8 +1171,8 @@ pub unsafe fn PrjFileNameMatch<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>>(filename: Param0, filebasicinfo: *const PRJ_FILE_BASIC_INFO, direntrybufferhandle: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1186,8 +1186,8 @@ pub unsafe fn PrjFillDirEntryBuffer<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjFillDirEntryBuffer2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_DIR_ENTRY_BUFFER_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(direntrybufferhandle: Param0, filename: Param1, filebasicinfo: *const PRJ_FILE_BASIC_INFO, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1215,8 +1215,8 @@ pub unsafe fn PrjFreeAlignedBuffer(buffer: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjGetOnDiskFileState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(destinationfilename: Param0) -> ::windows::runtime::Result<PRJ_FILE_STATE> {
     #[cfg(windows)]
@@ -1246,8 +1246,8 @@ pub unsafe fn PrjGetVirtualizationInstanceInfo<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpathname: Param0, targetpathname: Param1, versioninfo: *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1261,8 +1261,8 @@ pub unsafe fn PrjMarkDirectoryAsPlaceholder<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjStartVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(virtualizationrootpath: Param0, callbacks: *const PRJ_CALLBACKS, instancecontext: *const ::std::ffi::c_void, options: *const PRJ_STARTVIRTUALIZING_OPTIONS) -> ::windows::runtime::Result<PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT> {
     #[cfg(windows)]
@@ -1291,8 +1291,8 @@ pub unsafe fn PrjStopVirtualizing<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjUpdateFileIfNeeded<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, updateflags: PRJ_UPDATE_TYPES) -> ::windows::runtime::Result<PRJ_UPDATE_FAILURE_CAUSES> {
     #[cfg(windows)]
@@ -1321,8 +1321,8 @@ pub unsafe fn PrjWriteFileData<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1336,8 +1336,8 @@ pub unsafe fn PrjWritePlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_ProjectedFileSystem`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrjWritePlaceholderInfo2<'a, Param0: ::windows::runtime::IntoParam<'a, PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(namespacevirtualizationcontext: Param0, destinationfilename: Param1, placeholderinfo: *const PRJ_PLACEHOLDER_INFO, placeholderinfosize: u32, extendedinfo: *const PRJ_EXTENDED_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -330,8 +330,8 @@ pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::super::System::SystemServices::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcallback: ::std::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
@@ -357,8 +357,8 @@ pub unsafe fn DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::super::System::SystemServices::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcallback: ::std::option::Option<PDEV_QUERY_RESULT_CALLBACK>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<*mut HDEVQUERY__> {
     #[cfg(windows)]
@@ -386,8 +386,8 @@ pub unsafe fn DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromId<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     objecttype: DEV_OBJECT_TYPE,
@@ -424,8 +424,8 @@ pub unsafe fn DevCreateObjectQueryFromId<'a, Param1: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIdEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     objecttype: DEV_OBJECT_TYPE,
@@ -479,8 +479,8 @@ pub unsafe fn DevCreateObjectQueryFromIdEx<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIds<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     objecttype: DEV_OBJECT_TYPE,
@@ -517,8 +517,8 @@ pub unsafe fn DevCreateObjectQueryFromIds<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     objecttype: DEV_OBJECT_TYPE,
@@ -572,8 +572,8 @@ pub unsafe fn DevCreateObjectQueryFromIdsEx<'a, Param1: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevFindProperty<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pkey: *const super::super::System::SystemServices::DEVPROPKEY, store: super::super::System::SystemServices::DEVPROPSTORE, pszlocalename: Param2, cproperties: u32, pproperties: *const super::super::System::SystemServices::DEVPROPERTY) -> *mut super::super::System::SystemServices::DEVPROPERTY {
     #[cfg(windows)]
@@ -587,8 +587,8 @@ pub unsafe fn DevFindProperty<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const super::super::System::SystemServices::DEVPROPERTY) {
     #[cfg(windows)]
@@ -602,8 +602,8 @@ pub unsafe fn DevFreeObjectProperties(cpropertycount: u32, pproperties: *const s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     #[cfg(windows)]
@@ -617,8 +617,8 @@ pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevGetObjectProperties<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(objecttype: DEV_OBJECT_TYPE, pszobjectid: Param1, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::super::System::SystemServices::DEVPROPCOMPKEY, pcpropertycount: *mut u32, ppproperties: *mut *mut super::super::System::SystemServices::DEVPROPERTY) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -632,8 +632,8 @@ pub unsafe fn DevGetObjectProperties<'a, Param1: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevGetObjectPropertiesEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     objecttype: DEV_OBJECT_TYPE,
@@ -668,8 +668,8 @@ pub unsafe fn DevGetObjectPropertiesEx<'a, Param1: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::super::System::SystemServices::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -693,8 +693,8 @@ pub unsafe fn DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: u32, creque
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[doc = "*Required features: `Win32_Devices_DeviceQuery`, `Win32_Foundation`, `Win32_System_SystemServices`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
 pub unsafe fn DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: u32, crequestedproperties: u32, prequestedproperties: *const super::super::System::SystemServices::DEVPROPCOMPKEY, cfilterexpressioncount: u32, pfilter: *const DEVPROP_FILTER_EXPRESSION, cextendedparametercount: u32, pextendedparameters: *const DEV_QUERY_PARAMETER, pcobjectcount: *mut u32, ppobjects: *mut *mut DEV_OBJECT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

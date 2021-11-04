@@ -249,8 +249,8 @@ impl ::std::cmp::Eq for AXISINFOW {}
 unsafe impl ::windows::runtime::Abi for AXISINFOW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AbortPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -264,8 +264,8 @@ pub unsafe fn AbortPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontMemResourceEx(pfileview: *const ::std::ffi::c_void, cjsize: u32, pvresrved: *mut ::std::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ pub unsafe fn AddFontMemResourceEx(pfileview: *const ::std::ffi::c_void, cjsize:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> i32 {
     #[cfg(windows)]
@@ -294,8 +294,8 @@ pub unsafe fn AddFontResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -309,8 +309,8 @@ pub unsafe fn AddFontResourceExA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -324,8 +324,8 @@ pub unsafe fn AddFontResourceExW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0) -> i32 {
     #[cfg(windows)]
@@ -339,8 +339,8 @@ pub unsafe fn AddFontResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlphaBlend<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>, Param10: ::windows::runtime::IntoParam<'a, BLENDFUNCTION>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -366,8 +366,8 @@ pub unsafe fn AlphaBlend<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AngleArc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -381,8 +381,8 @@ pub unsafe fn AngleArc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AnimatePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALETTE>>(hpal: Param0, istartindex: u32, centries: u32, ppe: *const PALETTEENTRY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -396,8 +396,8 @@ pub unsafe fn AnimatePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Arc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -411,8 +411,8 @@ pub unsafe fn Arc<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ArcTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -910,8 +910,8 @@ pub const BS_PATTERN: u32 = 3u32;
 pub const BS_PATTERN8X8: u32 = 7u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const BS_SOLID: u32 = 0u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPaint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppaint: *mut PAINTSTRUCT) -> HDC {
     #[cfg(windows)]
@@ -925,8 +925,8 @@ pub unsafe fn BeginPaint<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -940,8 +940,8 @@ pub unsafe fn BeginPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BitBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: Param5, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1384,8 +1384,8 @@ impl ::std::ops::Not for CREATE_POLYGON_RGN_MODE {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CancelDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1399,8 +1399,8 @@ pub unsafe fn CancelDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg(windows)]
@@ -1414,8 +1414,8 @@ pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszdevicename: Param0, lpdevmode: *const DEVMODEA, hwnd: Param2, dwflags: CDS_TYPE, lparam: *const ::std::ffi::c_void) -> DISP_CHANGE {
     #[cfg(windows)]
@@ -1429,8 +1429,8 @@ pub unsafe fn ChangeDisplaySettingsExA<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszdevicename: Param0, lpdevmode: *const DEVMODEW, hwnd: Param2, dwflags: CDS_TYPE, lparam: *const ::std::ffi::c_void) -> DISP_CHANGE {
     #[cfg(windows)]
@@ -1444,8 +1444,8 @@ pub unsafe fn ChangeDisplaySettingsExW<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE {
     #[cfg(windows)]
@@ -1459,8 +1459,8 @@ pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Chord<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1474,8 +1474,8 @@ pub unsafe fn Chord<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClientToScreen<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1503,8 +1503,8 @@ pub unsafe fn CloseEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseFigure<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1546,8 +1546,8 @@ pub unsafe fn CombineRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1561,8 +1561,8 @@ pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyEnhMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(henh: Param0, lpfilename: Param1) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -1576,8 +1576,8 @@ pub unsafe fn CopyEnhMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HEN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyEnhMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(henh: Param0, lpfilename: Param1) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -1591,8 +1591,8 @@ pub unsafe fn CopyEnhMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HEN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HMETAFILE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> HMETAFILE {
     #[cfg(windows)]
@@ -1606,8 +1606,8 @@ pub unsafe fn CopyMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HMETAF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HMETAFILE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> HMETAFILE {
     #[cfg(windows)]
@@ -1621,8 +1621,8 @@ pub unsafe fn CopyMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HMETAF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1706,8 +1706,8 @@ pub unsafe fn CreateCompatibleDC<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pwszdriver: Param0, pwszdevice: Param1, pszport: Param2, pdm: *const DEVMODEA) -> CreatedHDC {
     #[cfg(windows)]
@@ -1721,8 +1721,8 @@ pub unsafe fn CreateDCA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszdriver: Param0, pwszdevice: Param1, pszport: Param2, pdm: *const DEVMODEW) -> CreatedHDC {
     #[cfg(windows)]
@@ -1764,8 +1764,8 @@ pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::std::ffi::c_void, iu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDIBSection<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdc: Param0, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::std::ffi::c_void, hsection: Param4, offset: u32) -> HBITMAP {
     #[cfg(windows)]
@@ -1821,8 +1821,8 @@ pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg(windows)]
@@ -1836,8 +1836,8 @@ pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpfilename: Param1, lprc: *const super::super::Foundation::RECT, lpdesc: Param3) -> HdcMetdataEnhFileHandle {
     #[cfg(windows)]
@@ -1851,8 +1851,8 @@ pub unsafe fn CreateEnhMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpfilename: Param1, lprc: *const super::super::Foundation::RECT, lpdesc: Param3) -> HdcMetdataEnhFileHandle {
     #[cfg(windows)]
@@ -1866,8 +1866,8 @@ pub unsafe fn CreateEnhMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontA<'a, Param13: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: Param13) -> HFONT {
     #[cfg(windows)]
@@ -1896,8 +1896,8 @@ pub unsafe fn CreateFontA<'a, Param13: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     #[cfg(windows)]
@@ -1911,8 +1911,8 @@ pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     #[cfg(windows)]
@@ -2022,8 +2022,8 @@ pub unsafe fn CreateFontPackage(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontW<'a, Param13: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: Param13) -> HFONT {
     #[cfg(windows)]
@@ -2080,8 +2080,8 @@ pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszdriver: Param0, pszdevice: Param1, pszport: Param2, pdm: *const DEVMODEA) -> CreatedHDC {
     #[cfg(windows)]
@@ -2095,8 +2095,8 @@ pub unsafe fn CreateICA<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdriver: Param0, pszdevice: Param1, pszport: Param2, pdm: *const DEVMODEW) -> CreatedHDC {
     #[cfg(windows)]
@@ -2110,8 +2110,8 @@ pub unsafe fn CreateICW<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0) -> HdcMetdataFileHandle {
     #[cfg(windows)]
@@ -2125,8 +2125,8 @@ pub unsafe fn CreateMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0) -> HdcMetdataFileHandle {
     #[cfg(windows)]
@@ -2182,8 +2182,8 @@ pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     #[cfg(windows)]
@@ -2197,8 +2197,8 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: *const i32, cpoly: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg(windows)]
@@ -2212,8 +2212,8 @@ pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpoint: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
     #[cfg(windows)]
@@ -2241,8 +2241,8 @@ pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
     #[cfg(windows)]
@@ -2270,8 +2270,8 @@ pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(fdwhidden: u32, lpszfont: Param1, lpszfile: Param2, lpszpath: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -2285,8 +2285,8 @@ pub unsafe fn CreateScalableFontResourceA<'a, Param1: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(fdwhidden: u32, lpszfont: Param1, lpszfile: Param2, lpszpath: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3616,8 +3616,8 @@ pub const DM_YRESOLUTION: i32 = 8192i32;
 pub const DOWNLOADFACE: u32 = 514u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DOWNLOADHEADER: u32 = 4111u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DPtoLP<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3955,8 +3955,8 @@ pub const DT_RASCAMERA: u32 = 3u32;
 pub const DT_RASDISPLAY: u32 = 1u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const DT_RASPRINTER: u32 = 2u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteDC<'a, Param0: ::windows::runtime::IntoParam<'a, CreatedHDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3970,8 +3970,8 @@ pub unsafe fn DeleteDC<'a, Param0: ::windows::runtime::IntoParam<'a, CreatedHDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hmf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3985,8 +3985,8 @@ pub unsafe fn DeleteEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HMETAFILE>>(hmf: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4000,8 +4000,8 @@ pub unsafe fn DeleteMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HMETA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ>>(ho: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4015,8 +4015,8 @@ pub unsafe fn DeleteObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawAnimatedRects<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4030,8 +4030,8 @@ pub unsafe fn DrawAnimatedRects<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawCaption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HDC>>(hwnd: Param0, hdc: Param1, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4045,8 +4045,8 @@ pub unsafe fn DrawCaption<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawEdge<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4060,8 +4060,8 @@ pub unsafe fn DrawEdge<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawEscape<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjin: i32, lpin: Param3) -> i32 {
     #[cfg(windows)]
@@ -4075,8 +4075,8 @@ pub unsafe fn DrawEscape<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFocusRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4090,8 +4090,8 @@ pub unsafe fn DrawFocusRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFrameControl<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(param0: Param0, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4105,8 +4105,8 @@ pub unsafe fn DrawFrameControl<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HBRUSH>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>>(hdc: Param0, hbrfore: Param1, qfncallback: ::std::option::Option<DRAWSTATEPROC>, ldata: Param3, wdata: Param4, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4120,8 +4120,8 @@ pub unsafe fn DrawStateA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HBRUSH>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>>(hdc: Param0, hbrfore: Param1, qfncallback: ::std::option::Option<DRAWSTATEPROC>, ldata: Param3, wdata: Param4, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4135,8 +4135,8 @@ pub unsafe fn DrawStateW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
     #[cfg(windows)]
@@ -4150,8 +4150,8 @@ pub unsafe fn DrawTextA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32 {
     #[cfg(windows)]
@@ -4165,8 +4165,8 @@ pub unsafe fn DrawTextExA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32 {
     #[cfg(windows)]
@@ -4180,8 +4180,8 @@ pub unsafe fn DrawTextExW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
     #[cfg(windows)]
@@ -7946,8 +7946,8 @@ pub const E_T2NOFREEMEMORY: i32 = 266i32;
 pub const E_TTC_INDEX_OUT_OF_RANGE: i32 = 24i32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const E_WINDOWSAPI: i32 = 516i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Ellipse<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7961,8 +7961,8 @@ pub unsafe fn Ellipse<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPaint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7976,8 +7976,8 @@ pub unsafe fn EndPaint<'a, Param0: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -7991,8 +7991,8 @@ pub unsafe fn EndPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpdevice: Param0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8006,8 +8006,8 @@ pub unsafe fn EnumDisplayDevicesA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdevice: Param0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8021,8 +8021,8 @@ pub unsafe fn EnumDisplayDevicesW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayMonitors<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lprcclip: *const super::super::Foundation::RECT, lpfnenum: ::std::option::Option<MONITORENUMPROC>, dwdata: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8036,8 +8036,8 @@ pub unsafe fn EnumDisplayMonitors<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8051,8 +8051,8 @@ pub unsafe fn EnumDisplaySettingsA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8066,8 +8066,8 @@ pub unsafe fn EnumDisplaySettingsExA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8081,8 +8081,8 @@ pub unsafe fn EnumDisplaySettingsExW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8096,8 +8096,8 @@ pub unsafe fn EnumDisplaySettingsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hdc: Param0, hmf: Param1, proc: ::std::option::Option<ENHMFENUMPROC>, param3: *const ::std::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8111,8 +8111,8 @@ pub unsafe fn EnumEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: ::std::option::Option<FONTENUMPROCA>, lparam: Param3) -> i32 {
     #[cfg(windows)]
@@ -8126,8 +8126,8 @@ pub unsafe fn EnumFontFamiliesA<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: *const LOGFONTA, lpproc: ::std::option::Option<FONTENUMPROCA>, lparam: Param3, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -8141,8 +8141,8 @@ pub unsafe fn EnumFontFamiliesExA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: *const LOGFONTW, lpproc: ::std::option::Option<FONTENUMPROCW>, lparam: Param3, dwflags: u32) -> i32 {
     #[cfg(windows)]
@@ -8156,8 +8156,8 @@ pub unsafe fn EnumFontFamiliesExW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: ::std::option::Option<FONTENUMPROCW>, lparam: Param3) -> i32 {
     #[cfg(windows)]
@@ -8171,8 +8171,8 @@ pub unsafe fn EnumFontFamiliesW<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: ::std::option::Option<FONTENUMPROCA>, lparam: Param3) -> i32 {
     #[cfg(windows)]
@@ -8186,8 +8186,8 @@ pub unsafe fn EnumFontsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: ::std::option::Option<FONTENUMPROCW>, lparam: Param3) -> i32 {
     #[cfg(windows)]
@@ -8201,8 +8201,8 @@ pub unsafe fn EnumFontsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HMETAFILE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hmf: Param1, proc: ::std::option::Option<MFENUMPROC>, param3: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8216,8 +8216,8 @@ pub unsafe fn EnumMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumObjects<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, ntype: OBJ_TYPE, lpfunc: ::std::option::Option<GOBJENUMPROC>, lparam: Param3) -> i32 {
     #[cfg(windows)]
@@ -8231,8 +8231,8 @@ pub unsafe fn EnumObjects<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8246,8 +8246,8 @@ pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn1: Param0, hrgn2: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8275,8 +8275,8 @@ pub unsafe fn ExcludeClipRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExcludeUpdateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hdc: Param0, hwnd: Param1) -> i32 {
     #[cfg(windows)]
@@ -8304,8 +8304,8 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
     #[cfg(windows)]
@@ -8319,8 +8319,8 @@ pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtFloodFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8348,8 +8348,8 @@ pub unsafe fn ExtSelectClipRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: Param5, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8363,8 +8363,8 @@ pub unsafe fn ExtTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: Param5, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8776,8 +8776,8 @@ pub const FW_THIN: u32 = 100u32;
 pub const FW_ULTRABOLD: u32 = 800u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const FW_ULTRALIGHT: u32 = 200u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8791,8 +8791,8 @@ pub unsafe fn FillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param2: ::windows::runtime::IntoParam<'a, HBRUSH>>(hdc: Param0, lprc: *const super::super::Foundation::RECT, hbr: Param2) -> i32 {
     #[cfg(windows)]
@@ -8806,8 +8806,8 @@ pub unsafe fn FillRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HRGN>, Param2: ::windows::runtime::IntoParam<'a, HBRUSH>>(hdc: Param0, hrgn: Param1, hbr: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8821,8 +8821,8 @@ pub unsafe fn FillRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FixBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, ptl: *const super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8836,8 +8836,8 @@ pub unsafe fn FixBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlattenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8851,8 +8851,8 @@ pub unsafe fn FlattenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FloodFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8866,8 +8866,8 @@ pub unsafe fn FloodFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param2: ::windows::runtime::IntoParam<'a, HBRUSH>>(hdc: Param0, lprc: *const super::super::Foundation::RECT, hbr: Param2) -> i32 {
     #[cfg(windows)]
@@ -8881,8 +8881,8 @@ pub unsafe fn FrameRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HRGN>, Param2: ::windows::runtime::IntoParam<'a, HBRUSH>>(hdc: Param0, hrgn: Param1, hbr: Param2, w: i32, h: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9614,8 +9614,8 @@ pub type GRAYSTRINGPROC = unsafe extern "system" fn(param0: HDC, param1: super::
 pub const GREEK_CHARSET: u32 = 161u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const GS_8BIT_INDICES: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>, Param10: ::windows::runtime::IntoParam<'a, BLENDFUNCTION>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: Param10) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9641,8 +9641,8 @@ pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiComment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9656,8 +9656,8 @@ pub unsafe fn GdiComment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9685,8 +9685,8 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiGradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::std::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9714,8 +9714,8 @@ pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiTransparentBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9755,8 +9755,8 @@ pub unsafe fn GetArcDirection<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAspectRatioFilterEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9784,8 +9784,8 @@ pub unsafe fn GetBitmapBits<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBitmapDimensionEx<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMAP>>(hbit: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9827,8 +9827,8 @@ pub unsafe fn GetBkMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -9842,8 +9842,8 @@ pub unsafe fn GetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9857,8 +9857,8 @@ pub unsafe fn GetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9872,8 +9872,8 @@ pub unsafe fn GetCharABCWidthsA<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9887,8 +9887,8 @@ pub unsafe fn GetCharABCWidthsFloatA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9902,8 +9902,8 @@ pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9917,8 +9917,8 @@ pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9932,8 +9932,8 @@ pub unsafe fn GetCharABCWidthsW<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32A<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9947,8 +9947,8 @@ pub unsafe fn GetCharWidth32A<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32W<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9962,8 +9962,8 @@ pub unsafe fn GetCharWidth32W<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9977,8 +9977,8 @@ pub unsafe fn GetCharWidthA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9992,8 +9992,8 @@ pub unsafe fn GetCharWidthFloatA<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10007,8 +10007,8 @@ pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10022,8 +10022,8 @@ pub unsafe fn GetCharWidthI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10037,8 +10037,8 @@ pub unsafe fn GetCharWidthW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharacterPlacementA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -10052,8 +10052,8 @@ pub unsafe fn GetCharacterPlacementA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharacterPlacementW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -10067,8 +10067,8 @@ pub unsafe fn GetCharacterPlacementW<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipBox<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprect: *mut super::super::Foundation::RECT) -> i32 {
     #[cfg(windows)]
@@ -10096,8 +10096,8 @@ pub unsafe fn GetClipRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorAdjustment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpca: *mut COLORADJUSTMENT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10125,8 +10125,8 @@ pub unsafe fn GetCurrentObject<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPositionEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10140,8 +10140,8 @@ pub unsafe fn GetCurrentPositionEx<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> HDC {
     #[cfg(windows)]
@@ -10169,8 +10169,8 @@ pub unsafe fn GetDCBrushColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hwnd: Param0, hrgnclip: Param1, flags: GET_DCX_FLAGS) -> HDC {
     #[cfg(windows)]
@@ -10184,8 +10184,8 @@ pub unsafe fn GetDCEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10255,8 +10255,8 @@ pub unsafe fn GetDeviceCaps<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -10284,8 +10284,8 @@ pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionA<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, cchbuffer: u32, lpdescription: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -10299,8 +10299,8 @@ pub unsafe fn GetEnhMetaFileDescriptionA<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionW<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, cchbuffer: u32, lpdescription: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -10314,8 +10314,8 @@ pub unsafe fn GetEnhMetaFileDescriptionW<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileHeader<'a, Param0: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, nsize: u32, lpenhmetaheader: *mut ENHMETAHEADER) -> u32 {
     #[cfg(windows)]
@@ -10343,8 +10343,8 @@ pub unsafe fn GetEnhMetaFilePaletteEntries<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -10400,8 +10400,8 @@ pub unsafe fn GetFontUnicodeRanges<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstr: Param1, c: i32, pgi: *mut u16, fl: u32) -> u32 {
     #[cfg(windows)]
@@ -10415,8 +10415,8 @@ pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstr: Param1, c: i32, pgi: *mut u16, fl: u32) -> u32 {
     #[cfg(windows)]
@@ -10430,8 +10430,8 @@ pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::std::ffi::c_void, lpmat2: *const MAT2) -> u32 {
     #[cfg(windows)]
@@ -10445,8 +10445,8 @@ pub unsafe fn GetGlyphOutlineA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::std::ffi::c_void, lpmat2: *const MAT2) -> u32 {
     #[cfg(windows)]
@@ -10530,8 +10530,8 @@ pub unsafe fn GetMapMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMetaFileA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0) -> HMETAFILE {
     #[cfg(windows)]
@@ -10559,8 +10559,8 @@ pub unsafe fn GetMetaFileBitsEx<'a, Param0: ::windows::runtime::IntoParam<'a, HM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMetaFileW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0) -> HMETAFILE {
     #[cfg(windows)]
@@ -10588,8 +10588,8 @@ pub unsafe fn GetMetaRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMiterLimit<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, plimit: *mut f32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10603,8 +10603,8 @@ pub unsafe fn GetMiterLimit<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMONITOR>>(hmonitor: Param0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10618,8 +10618,8 @@ pub unsafe fn GetMonitorInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMON
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, HMONITOR>>(hmonitor: Param0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10703,8 +10703,8 @@ pub unsafe fn GetObjectW<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32 {
     #[cfg(windows)]
@@ -10718,8 +10718,8 @@ pub unsafe fn GetOutlineTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32 {
     #[cfg(windows)]
@@ -10747,8 +10747,8 @@ pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::runtime::IntoParam<'a, HP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32 {
     #[cfg(windows)]
@@ -10818,8 +10818,8 @@ pub unsafe fn GetRandomRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10833,8 +10833,8 @@ pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRegionData<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn: Param0, ncount: u32, lprgndata: *mut RGNDATA) -> u32 {
     #[cfg(windows)]
@@ -10848,8 +10848,8 @@ pub unsafe fn GetRegionData<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRgnBox<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn: Param0, lprc: *mut super::super::Foundation::RECT) -> i32 {
     #[cfg(windows)]
@@ -10933,8 +10933,8 @@ pub unsafe fn GetSystemPaletteUse<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTabbedTextExtentA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32 {
     #[cfg(windows)]
@@ -10948,8 +10948,8 @@ pub unsafe fn GetTabbedTextExtentA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTabbedTextExtentW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32 {
     #[cfg(windows)]
@@ -11005,8 +11005,8 @@ pub unsafe fn GetTextColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpszstring: Param1, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11020,8 +11020,8 @@ pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11035,8 +11035,8 @@ pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpszstring: Param1, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11050,8 +11050,8 @@ pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32A<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11065,8 +11065,8 @@ pub unsafe fn GetTextExtentPoint32A<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32W<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11080,8 +11080,8 @@ pub unsafe fn GetTextExtentPoint32W<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11095,8 +11095,8 @@ pub unsafe fn GetTextExtentPointA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, pgiin: *const u16, cgi: i32, psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11110,8 +11110,8 @@ pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11125,8 +11125,8 @@ pub unsafe fn GetTextExtentPointW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextFaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, c: i32, lpname: super::super::Foundation::PSTR) -> i32 {
     #[cfg(windows)]
@@ -11140,8 +11140,8 @@ pub unsafe fn GetTextFaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextFaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, c: i32, lpname: super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -11155,8 +11155,8 @@ pub unsafe fn GetTextFaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11170,8 +11170,8 @@ pub unsafe fn GetTextMetricsA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11185,8 +11185,8 @@ pub unsafe fn GetTextMetricsW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, lprect: *mut super::super::Foundation::RECT, berase: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11200,8 +11200,8 @@ pub unsafe fn GetUpdateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, berase: Param2) -> i32 {
     #[cfg(windows)]
@@ -11215,8 +11215,8 @@ pub unsafe fn GetUpdateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11230,8 +11230,8 @@ pub unsafe fn GetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11259,8 +11259,8 @@ pub unsafe fn GetWinMetaFileBits<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> HDC {
     #[cfg(windows)]
@@ -11274,8 +11274,8 @@ pub unsafe fn GetWindowDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11289,8 +11289,8 @@ pub unsafe fn GetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11304,8 +11304,8 @@ pub unsafe fn GetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hwnd: Param0, hrgn: Param1) -> i32 {
     #[cfg(windows)]
@@ -11319,8 +11319,8 @@ pub unsafe fn GetWindowRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgnBox<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprc: *mut super::super::Foundation::RECT) -> i32 {
     #[cfg(windows)]
@@ -11334,8 +11334,8 @@ pub unsafe fn GetWindowRgnBox<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *mut XFORM) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11349,8 +11349,8 @@ pub unsafe fn GetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::std::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11364,8 +11364,8 @@ pub unsafe fn GradientFill<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HBRUSH>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hbrush: Param1, lpoutputfunc: ::std::option::Option<GRAYSTRINGPROC>, lpdata: Param3, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11379,8 +11379,8 @@ pub unsafe fn GrayStringA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HBRUSH>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hbrush: Param1, lpoutputfunc: ::std::option::Option<GRAYSTRINGPROC>, lpdata: Param3, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11744,8 +11744,8 @@ pub const ILLUMINANT_MAX_INDEX: u32 = 8u32;
 pub const ILLUMINANT_NTSC: u32 = 3u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11773,8 +11773,8 @@ pub unsafe fn IntersectClipRect<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11788,8 +11788,8 @@ pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, lprect: *const super::super::Foundation::RECT, berase: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11803,8 +11803,8 @@ pub unsafe fn InvalidateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, berase: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11818,8 +11818,8 @@ pub unsafe fn InvalidateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11833,8 +11833,8 @@ pub unsafe fn InvertRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11848,8 +11848,8 @@ pub unsafe fn InvertRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12217,8 +12217,8 @@ pub const LPD_TYPE_RGBA: u32 = 0u32;
 pub type LPFNDEVCAPS = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut DEVMODEA) -> u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDEVMODE = unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LPtoDP<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12232,8 +12232,8 @@ pub unsafe fn LPtoDP<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineDDA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: ::std::option::Option<LINEDDAPROC>, data: Param5) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12247,8 +12247,8 @@ pub unsafe fn LineDDA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12262,8 +12262,8 @@ pub unsafe fn LineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpbitmapname: Param1) -> HBITMAP {
     #[cfg(windows)]
@@ -12277,8 +12277,8 @@ pub unsafe fn LoadBitmapA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpbitmapname: Param1) -> HBITMAP {
     #[cfg(windows)]
@@ -12292,8 +12292,8 @@ pub unsafe fn LoadBitmapW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LockWindowUpdate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndlock: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12743,8 +12743,8 @@ impl ::std::ops::Not for MONITOR_FROM_FLAGS {
 pub const MONO_FONT: u32 = 8u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const MOUSETRAILS: u32 = 39u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MapWindowPoints<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndfrom: Param0, hwndto: Param1, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32 {
     #[cfg(windows)]
@@ -12758,8 +12758,8 @@ pub unsafe fn MapWindowPoints<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MaskBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>, Param8: ::windows::runtime::IntoParam<'a, HBITMAP>>(hdcdest: Param0, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: Param5, xsrc: i32, ysrc: i32, hbmmask: Param8, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12813,8 +12813,8 @@ pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -12828,8 +12828,8 @@ pub unsafe fn ModifyWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(pt: Param0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg(windows)]
@@ -12843,8 +12843,8 @@ pub unsafe fn MonitorFromPoint<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg(windows)]
@@ -12858,8 +12858,8 @@ pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwfla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
     #[cfg(windows)]
@@ -12873,8 +12873,8 @@ pub unsafe fn MonitorFromWindow<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveToEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13410,8 +13410,8 @@ pub unsafe fn OffsetClipRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13439,8 +13439,8 @@ pub unsafe fn OffsetRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -13454,8 +13454,8 @@ pub unsafe fn OffsetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14116,8 +14116,8 @@ pub const PT_CLOSEFIGURE: u32 = 1u32;
 pub const PT_LINETO: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const PT_MOVETO: u32 = 6u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14131,8 +14131,8 @@ pub unsafe fn PaintDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14146,8 +14146,8 @@ pub unsafe fn PaintRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PatBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14175,8 +14175,8 @@ pub unsafe fn PathToRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Pie<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14190,8 +14190,8 @@ pub unsafe fn Pie<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HENHMETAFILE>>(hdc: Param0, hmf: Param1, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14205,8 +14205,8 @@ pub unsafe fn PlayEnhMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, pht: *const HANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14220,8 +14220,8 @@ pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HMETAFILE>>(hdc: Param0, hmf: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14235,8 +14235,8 @@ pub unsafe fn PlayMetaFile<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lphandletable: *const HANDLETABLE, lpmr: *const METARECORD, noobjs: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14250,8 +14250,8 @@ pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlgBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param2: ::windows::runtime::IntoParam<'a, HDC>, Param7: ::windows::runtime::IntoParam<'a, HBITMAP>>(hdcdest: Param0, lppoint: *const super::super::Foundation::POINT, hdcsrc: Param2, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Param7, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14265,8 +14265,8 @@ pub unsafe fn PlgBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezier<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14280,8 +14280,8 @@ pub unsafe fn PolyBezier<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezierTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14295,8 +14295,8 @@ pub unsafe fn PolyBezierTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14310,8 +14310,8 @@ pub unsafe fn PolyDraw<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, asz: *const i32, csz: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14325,8 +14325,8 @@ pub unsafe fn PolyPolygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, asz: *const u32, csz: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14340,8 +14340,8 @@ pub unsafe fn PolyPolyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ppt: *const POLYTEXTA, nstrings: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14355,8 +14355,8 @@ pub unsafe fn PolyTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, ppt: *const POLYTEXTW, nstrings: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14370,8 +14370,8 @@ pub unsafe fn PolyTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14385,8 +14385,8 @@ pub unsafe fn Polygon<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14400,8 +14400,8 @@ pub unsafe fn Polyline<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolylineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14415,8 +14415,8 @@ pub unsafe fn PolylineTo<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRect<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::POINT>>(lprc: *const super::super::Foundation::RECT, pt: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14430,8 +14430,8 @@ pub unsafe fn PtInRect<'a, Param1: ::windows::runtime::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14445,8 +14445,8 @@ pub unsafe fn PtInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtVisible<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14858,8 +14858,8 @@ pub unsafe fn RealizePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14873,8 +14873,8 @@ pub unsafe fn RectInRegion<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectVisible<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14888,8 +14888,8 @@ pub unsafe fn RectVisible<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Rectangle<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14903,8 +14903,8 @@ pub unsafe fn Rectangle<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RedrawWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, HRGN>>(hwnd: Param0, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: Param2, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14918,8 +14918,8 @@ pub unsafe fn RedrawWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HDC>>(hwnd: Param0, hdc: Param1) -> i32 {
     #[cfg(windows)]
@@ -14933,8 +14933,8 @@ pub unsafe fn ReleaseDC<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontMemResourceEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14948,8 +14948,8 @@ pub unsafe fn RemoveFontMemResourceEx<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14963,8 +14963,8 @@ pub unsafe fn RemoveFontResourceA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, fl: u32, pdv: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14978,8 +14978,8 @@ pub unsafe fn RemoveFontResourceExA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, fl: u32, pdv: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -14993,8 +14993,8 @@ pub unsafe fn RemoveFontResourceExW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15008,8 +15008,8 @@ pub unsafe fn RemoveFontResourceW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpdm: *const DEVMODEA) -> HDC {
     #[cfg(windows)]
@@ -15023,8 +15023,8 @@ pub unsafe fn ResetDCA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpdm: *const DEVMODEW) -> HDC {
     #[cfg(windows)]
@@ -15038,8 +15038,8 @@ pub unsafe fn ResetDCW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResizePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALETTE>>(hpal: Param0, n: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15053,8 +15053,8 @@ pub unsafe fn ResizePalette<'a, Param0: ::windows::runtime::IntoParam<'a, HPALET
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestoreDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, nsaveddc: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15068,8 +15068,8 @@ pub unsafe fn RestoreDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoundRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15352,8 +15352,8 @@ pub unsafe fn SaveDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15367,8 +15367,8 @@ pub unsafe fn ScaleViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15382,8 +15382,8 @@ pub unsafe fn ScaleWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScreenToClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15397,8 +15397,8 @@ pub unsafe fn ScreenToClient<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectClipPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15440,8 +15440,8 @@ pub unsafe fn SelectObject<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectPalette<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, HPALETTE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hdc: Param0, hpal: Param1, bforcebkgd: Param2) -> HPALETTE {
     #[cfg(windows)]
@@ -15483,8 +15483,8 @@ pub unsafe fn SetBitmapBits<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBitmapDimensionEx<'a, Param0: ::windows::runtime::IntoParam<'a, HBITMAP>>(hbm: Param0, w: i32, h: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15526,8 +15526,8 @@ pub unsafe fn SetBkMode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -15541,8 +15541,8 @@ pub unsafe fn SetBoundsRect<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15556,8 +15556,8 @@ pub unsafe fn SetBrushOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorAdjustment<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpca: *const COLORADJUSTMENT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15752,8 +15752,8 @@ pub unsafe fn SetMetaRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMiterLimit<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, limit: f32, old: *mut f32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15795,8 +15795,8 @@ pub unsafe fn SetPixel<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPixelV<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15838,8 +15838,8 @@ pub unsafe fn SetROP2<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15853,8 +15853,8 @@ pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, yto
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15868,8 +15868,8 @@ pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectRgn<'a, Param0: ::windows::runtime::IntoParam<'a, HRGN>>(hrgn: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15953,8 +15953,8 @@ pub unsafe fn SetTextColor<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTextJustification<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, extra: i32, count: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15968,8 +15968,8 @@ pub unsafe fn SetTextJustification<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15983,8 +15983,8 @@ pub unsafe fn SetViewportExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -15998,8 +15998,8 @@ pub unsafe fn SetViewportOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16013,8 +16013,8 @@ pub unsafe fn SetWindowExtEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16028,8 +16028,8 @@ pub unsafe fn SetWindowOrgEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, bredraw: Param2) -> i32 {
     #[cfg(windows)]
@@ -16043,8 +16043,8 @@ pub unsafe fn SetWindowRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *const XFORM) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16058,8 +16058,8 @@ pub unsafe fn SetWorldTransform<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StretchBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>>(hdcdest: Param0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16113,8 +16113,8 @@ pub unsafe fn StretchDIBits<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokeAndFillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16128,8 +16128,8 @@ pub unsafe fn StrokeAndFillPath<'a, Param0: ::windows::runtime::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokePath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16143,8 +16143,8 @@ pub unsafe fn StrokePath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -16479,8 +16479,8 @@ pub unsafe fn TTCharToUnicode<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>
 }
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTDeleteEmbeddedFont<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfontreference: Param0, ulflags: u32, pulstatus: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -16630,8 +16630,8 @@ pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     hdc: Param0,
@@ -16673,8 +16673,8 @@ pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfacename: Param0, benable: Param1) -> i32 {
     #[cfg(windows)]
@@ -16744,8 +16744,8 @@ pub unsafe fn TTGetEmbeddingType<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: super::super::Foundation::PWSTR, cchmaxwinname: i32, szmacfamilyname: super::super::Foundation::PSTR, cchmaxmacname: i32) -> i32 {
     #[cfg(windows)]
@@ -16759,8 +16759,8 @@ pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabled<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0, pbenabled: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]
@@ -16774,8 +16774,8 @@ pub unsafe fn TTIsEmbeddingEnabled<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfacename: Param0, pbenabled: *mut super::super::Foundation::BOOL) -> i32 {
     #[cfg(windows)]
@@ -16865,8 +16865,8 @@ pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const TTLOAD_PRIVATE: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTLoadEmbeddedFont<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     phfontreference: *mut super::super::Foundation::HANDLE,
@@ -17080,8 +17080,8 @@ pub const TT_PRIM_LINE: u32 = 1u32;
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const TURKISH_CHARSET: u32 = 162u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TabbedTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32 {
     #[cfg(windows)]
@@ -17095,8 +17095,8 @@ pub unsafe fn TabbedTextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TabbedTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32 {
     #[cfg(windows)]
@@ -17110,8 +17110,8 @@ pub unsafe fn TabbedTextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, c: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17125,8 +17125,8 @@ pub unsafe fn TextOutA<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, c: i32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17140,8 +17140,8 @@ pub unsafe fn TextOutW<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TransparentBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>, Param5: ::windows::runtime::IntoParam<'a, HDC>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17167,8 +17167,8 @@ pub unsafe fn TransparentBlt<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17182,8 +17182,8 @@ pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnrealizeObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDIOBJ>>(h: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17197,8 +17197,8 @@ pub unsafe fn UnrealizeObject<'a, Param0: ::windows::runtime::IntoParam<'a, HGDI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateColors<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17212,8 +17212,8 @@ pub unsafe fn UpdateColors<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17231,8 +17231,8 @@ pub unsafe fn UpdateWindow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
 pub const VARIABLE_PITCH: u32 = 2u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const VIETNAMESE_CHARSET: u32 = 163u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17246,8 +17246,8 @@ pub unsafe fn ValidateRect<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRgn<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, HRGN>>(hwnd: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17384,8 +17384,8 @@ pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
 #[doc = "*Required features: `Win32_Graphics_Gdi`*"]
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
 pub type WRITEEMBEDPROC = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void, param1: *const ::std::ffi::c_void, param2: u32) -> u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WidenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -17399,8 +17399,8 @@ pub unsafe fn WidenPath<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_Gdi`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowFromDC<'a, Param0: ::windows::runtime::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::HWND {
     #[cfg(windows)]

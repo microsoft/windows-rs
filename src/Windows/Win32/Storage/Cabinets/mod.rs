@@ -101,8 +101,8 @@ impl ::std::cmp::Eq for ERF {}
 unsafe impl ::windows::runtime::Abi for ERF {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIAddFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     hfci: *const ::std::ffi::c_void,
@@ -125,8 +125,8 @@ pub unsafe fn FCIAddFile<'a, Param1: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCICreate(
     perf: *const ERF,
@@ -168,8 +168,8 @@ pub unsafe fn FCICreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIDestroy(hfci: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -205,8 +205,8 @@ impl ::std::convert::From<i32> for FCIERROR {
 unsafe impl ::windows::runtime::Abi for FCIERROR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hfci: *const ::std::ffi::c_void, fgetnextcab: Param1, pfnfcignc: ::std::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::std::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -220,8 +220,8 @@ pub unsafe fn FCIFlushCabinet<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FCIFlushFolder(hfci: *const ::std::ffi::c_void, pfnfcignc: ::std::option::Option<PFNFCIGETNEXTCABINET>, pfnfcis: ::std::option::Option<PFNFCISTATUS>) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -326,8 +326,8 @@ impl ::std::ops::Not for FDICREATE_CPU_TYPE {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::std::ffi::c_void, pszcabinet: Param1, pszcabpath: Param2, flags: i32, pfnfdin: ::std::option::Option<PFNFDINOTIFY>, pfnfdid: ::std::option::Option<PFNFDIDECRYPT>, pvuser: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -341,8 +341,8 @@ pub unsafe fn FDICopy<'a, Param1: ::windows::runtime::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDICreate(pfnalloc: ::std::option::Option<PFNALLOC>, pfnfree: ::std::option::Option<PFNFREE>, pfnopen: ::std::option::Option<PFNOPEN>, pfnread: ::std::option::Option<PFNREAD>, pfnwrite: ::std::option::Option<PFNWRITE>, pfnclose: ::std::option::Option<PFNCLOSE>, pfnseek: ::std::option::Option<PFNSEEK>, cputype: FDICREATE_CPU_TYPE, perf: *mut ERF) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -524,8 +524,8 @@ impl ::std::convert::From<i32> for FDIDECRYPTTYPE {
 unsafe impl ::windows::runtime::Abi for FDIDECRYPTTYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIDestroy(hfdi: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -564,8 +564,8 @@ impl ::std::convert::From<i32> for FDIERROR {
 unsafe impl ::windows::runtime::Abi for FDIERROR {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDIIsCabinet(hfdi: *const ::std::ffi::c_void, hf: isize, pfdici: *mut FDICABINETINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -718,8 +718,8 @@ impl ::std::cmp::Eq for FDISPILLFILE {}
 unsafe impl ::windows::runtime::Abi for FDISPILLFILE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Cabinets`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FDITruncateCabinet<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hfdi: *const ::std::ffi::c_void, pszcabinetname: Param1, ifoldertodelete: u16) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

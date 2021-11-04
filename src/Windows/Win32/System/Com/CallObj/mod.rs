@@ -218,8 +218,8 @@ pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::runtime::IntoParam<'a, ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Ole_Automation")]
 #[doc = "*Required features: `Win32_System_Com_CallObj`, `Win32_System_Ole_Automation`*"]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 #[inline]
 pub unsafe fn CoGetInterceptorFromTypeInfo<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Ole::Automation::ITypeInfo>>(iidintercepted: *const ::windows::runtime::GUID, punkouter: Param1, typeinfo: Param2, iid: *const ::windows::runtime::GUID, ppv: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1809,8 +1809,8 @@ impl ::std::cmp::Eq for QOS {}
 unsafe impl ::windows::runtime::Abi for QOS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, destaddr: *const super::super::Networking::WinSock::SOCKADDR, traffictype: QOS_TRAFFIC_TYPE, flags: u32, flowid: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1824,8 +1824,8 @@ pub unsafe fn QOSAddSocketToFlow<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSCancel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1839,8 +1839,8 @@ pub unsafe fn QOSCancel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1854,8 +1854,8 @@ pub unsafe fn QOSCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1869,8 +1869,8 @@ pub unsafe fn QOSCreateHandle(version: *const QOS_VERSION, qoshandle: *mut super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, size: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1884,8 +1884,8 @@ pub unsafe fn QOSEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_NOTIFY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1899,8 +1899,8 @@ pub unsafe fn QOSNotifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_QUERY_FLOW, size: *mut u32, buffer: *mut ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1914,8 +1914,8 @@ pub unsafe fn QOSQueryFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Networking::WinSock::SOCKET>>(qoshandle: Param0, socket: Param1, flowid: u32, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1933,8 +1933,8 @@ pub unsafe fn QOSRemoveSocketFromFlow<'a, Param0: ::windows::runtime::IntoParam<
 pub const QOSSPBASE: u32 = 50000u32;
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`*"]
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, flowid: u32, operation: QOS_SET_FLOW, size: u32, buffer: *const ::std::ffi::c_void, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1948,8 +1948,8 @@ pub unsafe fn QOSSetFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1963,8 +1963,8 @@ pub unsafe fn QOSStartTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_Networking_WinSock`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStopTrackingClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(qoshandle: Param0, destaddr: *const super::super::Networking::WinSock::SOCKADDR, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3994,8 +3994,8 @@ impl ::std::cmp::Eq for TC_SUPPORTED_INFO_BUFFER {}
 unsafe impl ::windows::runtime::Abi for TC_SUPPORTED_INFO_BUFFER {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcAddFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4009,8 +4009,8 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcAddFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4024,8 +4024,8 @@ pub unsafe fn TcAddFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcCloseInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4039,8 +4039,8 @@ pub unsafe fn TcCloseInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filterhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4054,8 +4054,8 @@ pub unsafe fn TcDeleteFilter<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4069,8 +4069,8 @@ pub unsafe fn TcDeleteFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4084,8 +4084,8 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
     #[cfg(windows)]
@@ -4099,8 +4099,8 @@ pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`, `Win32_NetworkManagement_Ndis`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 #[inline]
 pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(clienthandle: Param0, pbuffersize: *mut u32, interfacebuffer: *mut TC_IFC_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
@@ -4114,8 +4114,8 @@ pub unsafe fn TcEnumerateInterfaces<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -4129,8 +4129,8 @@ pub unsafe fn TcGetFlowNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, strsize: u32, pflowname: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -4144,8 +4144,8 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcModifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
     #[cfg(windows)]
@@ -4159,8 +4159,8 @@ pub unsafe fn TcModifyFlow<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4174,8 +4174,8 @@ pub unsafe fn TcOpenInterfaceA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(pinterfacename: Param0, clienthandle: Param1, clifcctx: Param2, pifchandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4189,8 +4189,8 @@ pub unsafe fn TcOpenInterfaceW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4204,8 +4204,8 @@ pub unsafe fn TcQueryFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4219,8 +4219,8 @@ pub unsafe fn TcQueryFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, notifychange: Param2, pbuffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4234,8 +4234,8 @@ pub unsafe fn TcQueryInterface<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(tciversion: u32, clregctx: Param1, clienthandlerlist: *const TCI_CLIENT_FUNC_LIST, pclienthandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4249,8 +4249,8 @@ pub unsafe fn TcRegisterClient<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4264,8 +4264,8 @@ pub unsafe fn TcSetFlowA<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pflowname: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4279,8 +4279,8 @@ pub unsafe fn TcSetFlowW<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_QoS`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TcSetInterface<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, pguidparam: *const ::windows::runtime::GUID, buffersize: u32, buffer: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]

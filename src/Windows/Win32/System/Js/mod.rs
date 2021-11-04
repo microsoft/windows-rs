@@ -157,9 +157,9 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::std::ffi::c_void) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(runtime: *const ::std::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -173,9 +173,9 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(any(target_arch = "i686",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(runtime: *const ::std::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -427,8 +427,8 @@ pub unsafe fn JsEnableRuntimeExecution(runtime: *const ::std::ffi::c_void) -> Js
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsEnumerateHeap(enumerator: *mut ::std::option::Option<super::Diagnostics::Debug::IActiveScriptProfilerHeapEnum>) -> JsErrorCode {
     #[cfg(windows)]
@@ -680,8 +680,8 @@ pub unsafe fn JsGetProperty(object: *const ::std::ffi::c_void, propertyid: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsGetPropertyIdFromName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, propertyid: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -964,8 +964,8 @@ pub unsafe fn JsNumberToDouble(value: *const ::std::ffi::c_void, doublevalue: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsParseScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -979,8 +979,8 @@ pub unsafe fn JsParseScript<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -994,8 +994,8 @@ pub unsafe fn JsParseSerializedScript<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsPointerToString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(stringvalue: Param0, stringlength: usize, value: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1037,8 +1037,8 @@ pub unsafe fn JsRelease(r#ref: *const ::std::ffi::c_void, count: *mut u32) -> Js
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsRunScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, sourcecontext: usize, sourceurl: Param2, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1052,8 +1052,8 @@ pub unsafe fn JsRunScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsRunSerializedScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *const u8, sourcecontext: usize, sourceurl: Param3, result: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]
@@ -1100,8 +1100,8 @@ impl ::std::convert::From<i32> for JsRuntimeVersion {
 unsafe impl ::windows::runtime::Abi for JsRuntimeVersion {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn JsSerializeScript<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(script: Param0, buffer: *mut u8, buffersize: *mut u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -1241,9 +1241,9 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::std::ffi::c_void, memory
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(debugapplication: Param0) -> JsErrorCode {
     #[cfg(windows)]
@@ -1257,9 +1257,9 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[cfg(any(target_arch = "i686",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-#[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(debugapplication: Param0) -> JsErrorCode {
     #[cfg(windows)]
@@ -1273,8 +1273,8 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_System_Diagnostics_Debug`*"]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartProfiling<'a, Param0: ::windows::runtime::IntoParam<'a, super::Diagnostics::Debug::IActiveScriptProfilerCallback>>(callback: Param0, eventmask: super::Diagnostics::Debug::PROFILER_EVENT_MASK, context: u32) -> JsErrorCode {
     #[cfg(windows)]
@@ -1331,8 +1331,8 @@ pub unsafe fn JsStringToPointer(value: *const ::std::ffi::c_void, stringvalue: *
     unimplemented!("Unsupported target OS");
 }
 pub type JsThreadServiceCallback = unsafe extern "system" fn(callback: ::windows::runtime::RawPtr, callbackstate: *const ::std::ffi::c_void) -> bool;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn JsValueToVariant(object: *const ::std::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode {
     #[cfg(windows)]
@@ -1367,8 +1367,8 @@ impl ::std::convert::From<i32> for JsValueType {
 unsafe impl ::windows::runtime::Abi for JsValueType {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_System_Js`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::std::ffi::c_void) -> JsErrorCode {
     #[cfg(windows)]

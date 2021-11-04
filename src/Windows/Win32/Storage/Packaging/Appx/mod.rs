@@ -505,8 +505,8 @@ pub unsafe fn ActivatePackageVirtualizationContext(context: *const PACKAGE_VIRTU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddPackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0, rank: i32, options: AddPackageDependencyOptions, packagedependencycontext: *mut *mut PACKAGEDEPENDENCY_CONTEXT__, packagefullname: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -564,8 +564,8 @@ impl ::std::convert::From<i32> for AppPolicyCreateFileAccess {
 unsafe impl ::windows::runtime::Abi for AppPolicyCreateFileAccess {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyClrCompat) -> i32 {
     #[cfg(windows)]
@@ -579,8 +579,8 @@ pub unsafe fn AppPolicyGetClrCompat<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyCreateFileAccess) -> i32 {
     #[cfg(windows)]
@@ -594,8 +594,8 @@ pub unsafe fn AppPolicyGetCreateFileAccess<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyLifecycleManagement) -> i32 {
     #[cfg(windows)]
@@ -609,8 +609,8 @@ pub unsafe fn AppPolicyGetLifecycleManagement<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyMediaFoundationCodecLoading) -> i32 {
     #[cfg(windows)]
@@ -624,8 +624,8 @@ pub unsafe fn AppPolicyGetMediaFoundationCodecLoading<'a, Param0: ::windows::run
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyProcessTerminationMethod) -> i32 {
     #[cfg(windows)]
@@ -639,8 +639,8 @@ pub unsafe fn AppPolicyGetProcessTerminationMethod<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyShowDeveloperDiagnostic) -> i32 {
     #[cfg(windows)]
@@ -654,8 +654,8 @@ pub unsafe fn AppPolicyGetShowDeveloperDiagnostic<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyThreadInitializationType) -> i32 {
     #[cfg(windows)]
@@ -669,8 +669,8 @@ pub unsafe fn AppPolicyGetThreadInitializationType<'a, Param0: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AppPolicyGetWindowingModel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(processtoken: Param0, policy: *mut AppPolicyWindowingModel) -> i32 {
     #[cfg(windows)]
@@ -775,8 +775,8 @@ pub const AppxEncryptionFactory: ::windows::runtime::GUID = ::windows::runtime::
 pub const AppxFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1480761664, 65439, 16742, [143, 92, 98, 245, 183, 176, 199, 129]);
 pub const AppxPackageEditor: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4026856138, 44732, 19213, [191, 88, 229, 22, 213, 188, 192, 171]);
 pub const AppxPackagingDiagnosticEventSinkManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1355418182, 5512, 16737, [142, 210, 239, 158, 70, 156, 237, 93]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckIsMSIXPackage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -820,8 +820,8 @@ impl ::std::convert::From<i32> for CreatePackageDependencyOptions {
 unsafe impl ::windows::runtime::Abi for CreatePackageDependencyOptions {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePackageVirtualizationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> ::windows::runtime::Result<*mut PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__> {
     #[cfg(windows)]
@@ -866,8 +866,8 @@ pub unsafe fn DeactivatePackageVirtualizationContext(cookie: usize) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -896,8 +896,8 @@ pub unsafe fn DuplicatePackageVirtualizationContext(sourcecontext: *const PACKAG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagefilters: u32, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR, packageproperties: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -911,8 +911,8 @@ pub unsafe fn FindPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagerelativeapplicationid: Param1, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -926,8 +926,8 @@ pub unsafe fn FormatApplicationUserModelId<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -941,8 +941,8 @@ pub unsafe fn GetApplicationUserModelId<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetApplicationUserModelIdFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -956,8 +956,8 @@ pub unsafe fn GetApplicationUserModelIdFromToken<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mut u32, applicationusermodelid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -971,8 +971,8 @@ pub unsafe fn GetCurrentApplicationUserModelId(applicationusermodelidlength: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -986,8 +986,8 @@ pub unsafe fn GetCurrentPackageFamilyName(packagefamilynamelength: *mut u32, pac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackageFullName(packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1043,8 +1043,8 @@ pub unsafe fn GetCurrentPackageInfo2(flags: u32, packagepathtype: PackagePathTyp
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1058,8 +1058,8 @@ pub unsafe fn GetCurrentPackagePath(pathlength: *mut u32, path: super::super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPackagePath2(packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1087,8 +1087,8 @@ pub unsafe fn GetCurrentPackageVirtualizationContext() -> *mut PACKAGE_VIRTUALIZ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetIdForPackageDependencyContext(packagedependencycontext: *const PACKAGEDEPENDENCY_CONTEXT__) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -1117,8 +1117,8 @@ pub unsafe fn GetPackageApplicationIds(packageinforeference: *const _PACKAGE_INF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1132,8 +1132,8 @@ pub unsafe fn GetPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1147,8 +1147,8 @@ pub unsafe fn GetPackageFamilyNameFromToken<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1162,8 +1162,8 @@ pub unsafe fn GetPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(token: Param0, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1177,8 +1177,8 @@ pub unsafe fn GetPackageFullNameFromToken<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackageId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
     #[cfg(windows)]
@@ -1220,8 +1220,8 @@ pub unsafe fn GetPackageInfo2(packageinforeference: *const _PACKAGE_INFO_REFEREN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1235,8 +1235,8 @@ pub unsafe fn GetPackagePath(packageid: *const PACKAGE_ID, reserved: u32, pathle
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1250,8 +1250,8 @@ pub unsafe fn GetPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1265,8 +1265,8 @@ pub unsafe fn GetPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, packagefullnames: *mut super::super::super::Foundation::PWSTR, bufferlength: *mut u32, buffer: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1280,8 +1280,8 @@ pub unsafe fn GetPackagesByPackageFamily<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, count: *mut u32, processes: *mut *mut super::super::super::Foundation::HANDLE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -1295,8 +1295,8 @@ pub unsafe fn GetProcessesInVirtualizationContext<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagedependencyid: Param0) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -1311,8 +1311,8 @@ pub unsafe fn GetResolvedPackageFullNameForPackageDependency<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, origin: *mut PackageOrigin) -> i32 {
     #[cfg(windows)]
@@ -1326,8 +1326,8 @@ pub unsafe fn GetStagedPackageOrigin<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -1341,8 +1341,8 @@ pub unsafe fn GetStagedPackagePathByFullName<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetStagedPackagePathByFullName2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagepathtype: PackagePathType, pathlength: *mut u32, path: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6385,8 +6385,8 @@ pub struct IAppxSourceContentGroupMapReader_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, requiredgroup: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, automaticgroupsenumerator: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
     #[cfg(windows)]
@@ -6400,8 +6400,8 @@ pub unsafe fn OpenPackageInfoByFullName<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenPackageInfoByFullNameForUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(usersid: Param0, packagefullname: Param1, reserved: u32, packageinforeference: *mut *mut _PACKAGE_INFO_REFERENCE) -> i32 {
     #[cfg(windows)]
@@ -6682,8 +6682,8 @@ impl ::std::convert::From<i32> for PackageDependencyProcessorArchitectures {
 unsafe impl ::windows::runtime::Abi for PackageDependencyProcessorArchitectures {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6697,8 +6697,8 @@ pub unsafe fn PackageFamilyNameFromFullName<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6712,8 +6712,8 @@ pub unsafe fn PackageFamilyNameFromId(packageid: *const PACKAGE_ID, packagefamil
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnamelength: *mut u32, packagefullname: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6727,8 +6727,8 @@ pub unsafe fn PackageFullNameFromId(packageid: *const PACKAGE_ID, packagefullnam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0, flags: u32, bufferlength: *mut u32, buffer: *mut u8) -> i32 {
     #[cfg(windows)]
@@ -6742,8 +6742,8 @@ pub unsafe fn PackageIdFromFullName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PackageNameAndPublisherIdFromFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0, packagenamelength: *mut u32, packagename: super::super::super::Foundation::PWSTR, packagepublisheridlength: *mut u32, packagepublisherid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6794,8 +6794,8 @@ impl ::std::convert::From<i32> for PackagePathType {
 unsafe impl ::windows::runtime::Abi for PackagePathType {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ParseApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0, packagefamilynamelength: *mut u32, packagefamilyname: super::super::super::Foundation::PWSTR, packagerelativeapplicationidlength: *mut u32, packagerelativeapplicationid: super::super::super::Foundation::PWSTR) -> i32 {
     #[cfg(windows)]
@@ -6837,8 +6837,8 @@ pub unsafe fn RemovePackageDependency(packagedependencycontext: *const PACKAGEDE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, PACKAGE_VERSION>, Param5: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
     user: Param0,
@@ -6861,8 +6861,8 @@ pub unsafe fn TryCreatePackageDependency<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(applicationusermodelid: Param0) -> i32 {
     #[cfg(windows)]
@@ -6876,8 +6876,8 @@ pub unsafe fn VerifyApplicationUserModelId<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefamilyname: Param0) -> i32 {
     #[cfg(windows)]
@@ -6891,8 +6891,8 @@ pub unsafe fn VerifyPackageFamilyName<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagefullname: Param0) -> i32 {
     #[cfg(windows)]
@@ -6906,8 +6906,8 @@ pub unsafe fn VerifyPackageFullName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32 {
     #[cfg(windows)]
@@ -6921,8 +6921,8 @@ pub unsafe fn VerifyPackageId(packageid: *const PACKAGE_ID) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Storage_Packaging_Appx`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifyPackageRelativeApplicationId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(packagerelativeapplicationid: Param0) -> i32 {
     #[cfg(windows)]

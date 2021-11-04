@@ -817,8 +817,8 @@ impl ::std::cmp::Eq for ATM_TRANSIT_NETWORK_SELECTION_IE {}
 unsafe impl ::windows::runtime::Abi for ATM_TRANSIT_NETWORK_SELECTION_IE {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AcceptEx<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, SOCKET>>(slistensocket: Param0, sacceptsocket: Param1, lpoutputbuffer: *mut ::std::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, lpdwbytesreceived: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1184,8 +1184,8 @@ pub const FD_WRITE: u32 = 2u32;
 pub const FD_WRITE_BIT: u32 = 1u32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const FROM_PROTOCOL_INFO: i32 = -1i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(windows)]
@@ -1199,8 +1199,8 @@ pub unsafe fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(windows)]
@@ -1214,8 +1214,8 @@ pub unsafe fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeAddrInfoW(paddrinfo: *const addrinfoW) {
     #[cfg(windows)]
@@ -1337,8 +1337,8 @@ impl ::std::cmp::Eq for GROUP_SOURCE_REQ {}
 unsafe impl ::windows::runtime::Abi for GROUP_SOURCE_REQ {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::std::ffi::c_void, dwreceivedatalength: u32, dwlocaladdresslength: u32, dwremoteaddresslength: u32, localsockaddr: *mut *mut SOCKADDR, localsockaddrlength: *mut i32, remotesockaddr: *mut *mut SOCKADDR, remotesockaddrlength: *mut i32) {
     #[cfg(windows)]
@@ -1361,8 +1361,8 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::std::ffi::c_void, dw
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     pname: Param0,
@@ -1398,8 +1398,8 @@ pub unsafe fn GetAddrInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
@@ -1413,8 +1413,8 @@ pub unsafe fn GetAddrInfoExCancel(lphandle: *const super::super::Foundation::HAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> i32 {
     #[cfg(windows)]
@@ -1428,8 +1428,8 @@ pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: *const super::super::S
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pname: Param0,
@@ -1465,8 +1465,8 @@ pub unsafe fn GetAddrInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddrInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pnodename: Param0, pservicename: Param1, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32 {
     #[cfg(windows)]
@@ -1480,8 +1480,8 @@ pub unsafe fn GetAddrInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddressByNameA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwnamespace: u32, lpservicetype: *const ::windows::runtime::GUID, lpservicename: Param2, lpiprotocols: *const i32, dwresolution: u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpcsaddrbuffer: *mut ::std::ffi::c_void, lpdwbufferlength: *mut u32, lpaliasbuffer: Param8, lpdwaliasbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -1506,8 +1506,8 @@ pub unsafe fn GetAddressByNameA<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAddressByNameW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     dwnamespace: u32,
@@ -1543,8 +1543,8 @@ pub unsafe fn GetAddressByNameW<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
@@ -1558,8 +1558,8 @@ pub unsafe fn GetHostNameW(name: super::super::Foundation::PWSTR, namelen: i32) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNameByTypeA(lpservicetype: *const ::windows::runtime::GUID, lpservicename: super::super::Foundation::PSTR, dwnamelength: u32) -> i32 {
     #[cfg(windows)]
@@ -1573,8 +1573,8 @@ pub unsafe fn GetNameByTypeA(lpservicetype: *const ::windows::runtime::GUID, lps
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::runtime::GUID, lpservicename: super::super::Foundation::PWSTR, dwnamelength: u32) -> i32 {
     #[cfg(windows)]
@@ -1588,8 +1588,8 @@ pub unsafe fn GetNameByTypeW(lpservicetype: *const ::windows::runtime::GUID, lps
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PWSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PWSTR, servicebuffersize: u32, flags: i32) -> i32 {
     #[cfg(windows)]
@@ -1603,8 +1603,8 @@ pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnod
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetServiceA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwnamespace: u32, lpguid: *const ::windows::runtime::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg(windows)]
@@ -1618,8 +1618,8 @@ pub unsafe fn GetServiceA<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetServiceW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwnamespace: u32, lpguid: *const ::windows::runtime::GUID, lpservicename: Param2, dwproperties: u32, lpbuffer: *mut ::std::ffi::c_void, lpdwbuffersize: *mut u32, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO) -> i32 {
     #[cfg(windows)]
@@ -1633,8 +1633,8 @@ pub unsafe fn GetServiceW<'a, Param2: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTypeByNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -1648,8 +1648,8 @@ pub unsafe fn GetTypeByNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTypeByNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpservicename: Param0, lpservicetype: *mut ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -2874,8 +2874,8 @@ pub const ISO_HIERARCHICAL: u32 = 0u32;
 pub const ISO_MAX_ADDR_LENGTH: u32 = 64u32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const ISO_NON_HIERARCHICAL: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InetNtopW(family: i32, paddr: *const ::std::ffi::c_void, pstringbuf: super::super::Foundation::PWSTR, stringbufsize: usize) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -2889,8 +2889,8 @@ pub unsafe fn InetNtopW(family: i32, paddr: *const ::std::ffi::c_void, pstringbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InetPtonW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -4851,8 +4851,8 @@ unsafe impl ::windows::runtime::Abi for PROTOCOL_INFOW {
 }
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const PVD_CONFIG: u32 = 12289u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ProcessSocketNotifications<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, registrationcount: u32, registrationinfos: *mut SOCK_NOTIFY_REGISTRATION, timeoutms: u32, completioncount: u32, completionportentries: *mut super::super::System::IO::OVERLAPPED_ENTRY, receivedentrycount: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -5706,8 +5706,8 @@ impl ::std::cmp::Eq for RSS_SCALABILITY_INFO {}
 unsafe impl ::windows::runtime::Abi for RSS_SCALABILITY_INFO {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5721,8 +5721,8 @@ pub unsafe fn RtlEthernetAddressToStringA(addr: *const super::super::NetworkMana
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -5736,8 +5736,8 @@ pub unsafe fn RtlEthernetAddressToStringW(addr: *const super::super::NetworkMana
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[inline]
 pub unsafe fn RtlEthernetStringToAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, terminator: *mut super::super::Foundation::PSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32 {
     #[cfg(windows)]
@@ -5751,8 +5751,8 @@ pub unsafe fn RtlEthernetStringToAddressA<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_WindowsFilteringPlatform`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WindowsFilteringPlatform"))]
 #[inline]
 pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, terminator: *mut super::super::Foundation::PWSTR, addr: *mut super::super::NetworkManagement::WindowsFilteringPlatform::DL_EUI48) -> i32 {
     #[cfg(windows)]
@@ -5766,8 +5766,8 @@ pub unsafe fn RtlEthernetStringToAddressW<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5781,8 +5781,8 @@ pub unsafe fn RtlIpv4AddressToStringA(addr: *const IN_ADDR, s: super::super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5796,8 +5796,8 @@ pub unsafe fn RtlIpv4AddressToStringExA(address: *const IN_ADDR, port: u16, addr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5811,8 +5811,8 @@ pub unsafe fn RtlIpv4AddressToStringExW(address: *const IN_ADDR, port: u16, addr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -5826,8 +5826,8 @@ pub unsafe fn RtlIpv4AddressToStringW(addr: *const IN_ADDR, s: super::super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg(windows)]
@@ -5841,8 +5841,8 @@ pub unsafe fn RtlIpv4StringToAddressA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg(windows)]
@@ -5856,8 +5856,8 @@ pub unsafe fn RtlIpv4StringToAddressExA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(addressstring: Param0, strict: Param1, address: *mut IN_ADDR, port: *mut u16) -> i32 {
     #[cfg(windows)]
@@ -5871,8 +5871,8 @@ pub unsafe fn RtlIpv4StringToAddressExW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(s: Param0, strict: Param1, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN_ADDR) -> i32 {
     #[cfg(windows)]
@@ -5886,8 +5886,8 @@ pub unsafe fn RtlIpv4StringToAddressW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -5901,8 +5901,8 @@ pub unsafe fn RtlIpv6AddressToStringA(addr: *const IN6_ADDR, s: super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5916,8 +5916,8 @@ pub unsafe fn RtlIpv6AddressToStringExA(address: *const IN6_ADDR, scopeid: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, port: u16, addressstring: super::super::Foundation::PWSTR, addressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -5931,8 +5931,8 @@ pub unsafe fn RtlIpv6AddressToStringExW(address: *const IN6_ADDR, scopeid: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: super::super::Foundation::PWSTR) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -5946,8 +5946,8 @@ pub unsafe fn RtlIpv6AddressToStringW(addr: *const IN6_ADDR, s: super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, terminator: *mut super::super::Foundation::PSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg(windows)]
@@ -5961,8 +5961,8 @@ pub unsafe fn RtlIpv6StringToAddressA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg(windows)]
@@ -5976,8 +5976,8 @@ pub unsafe fn RtlIpv6StringToAddressExA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(addressstring: Param0, address: *mut IN6_ADDR, scopeid: *mut u32, port: *mut u16) -> i32 {
     #[cfg(windows)]
@@ -5991,8 +5991,8 @@ pub unsafe fn RtlIpv6StringToAddressExW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlIpv6StringToAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(s: Param0, terminator: *mut super::super::Foundation::PWSTR, addr: *mut IN6_ADDR) -> i32 {
     #[cfg(windows)]
@@ -7613,8 +7613,8 @@ pub const SO_UPDATE_ACCEPT_CONTEXT: u32 = 28683u32;
 pub const SO_UPDATE_CONNECT_CONTEXT: u32 = 28688u32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const SO_USELOOPBACK: u32 = 64u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     pname: Param0,
@@ -7654,8 +7654,8 @@ pub unsafe fn SetAddrInfoExA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     pname: Param0,
@@ -7695,8 +7695,8 @@ pub unsafe fn SetAddrInfoExW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOA, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7710,8 +7710,8 @@ pub unsafe fn SetServiceA(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, dwflags: u32, lpserviceinfo: *const SERVICE_INFOW, lpserviceasyncinfo: *const SERVICE_ASYNC_INFO, lpdwstatusflags: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -7725,8 +7725,8 @@ pub unsafe fn SetServiceW(dwnamespace: u32, dwoperation: SET_SERVICE_OPERATION, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSocketMediaStreamingMode<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(value: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8344,8 +8344,8 @@ pub const TT_CBR: u32 = 4u32;
 pub const TT_NOIND: u32 = 0u32;
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const TT_VBR: u32 = 8u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TransmitFile<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsocket: Param0, hfile: Param1, nnumberofbytestowrite: u32, nnumberofbytespersend: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lptransmitbuffers: *const TRANSMIT_FILE_BUFFERS, dwreserved: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8746,8 +8746,8 @@ unsafe impl ::windows::runtime::Abi for WINDOWS_IRDA_DEVICE_INFO {
 }
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const WINDOWS_PF_IRDA: u32 = 26u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WPUCompleteOverlappedRequest<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, dwerror: u32, cbtransferred: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -8761,8 +8761,8 @@ pub unsafe fn WPUCompleteOverlappedRequest<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_QoS`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAAccept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32, lpfncondition: ::std::option::Option<LPCONDITIONPROC>, dwcallbackdata: usize) -> SOCKET {
     #[cfg(windows)]
@@ -8776,8 +8776,8 @@ pub unsafe fn WSAAccept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpszaddressstring: super::super::Foundation::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -8791,8 +8791,8 @@ pub unsafe fn WSAAddressToStringA(lpsaaddress: *const SOCKADDR, dwaddresslength:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength: u32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpszaddressstring: super::super::Foundation::PWSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -8806,8 +8806,8 @@ pub unsafe fn WSAAddressToStringW(lpsaaddress: *const SOCKADDR, dwaddresslength:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::runtime::GUID, pnspv2routine: *const NSPV2_ROUTINE) -> i32 {
     #[cfg(windows)]
@@ -8821,8 +8821,8 @@ pub unsafe fn WSAAdvertiseProvider(puuidproviderid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, addr: Param2, len: i32, r#type: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8836,8 +8836,8 @@ pub unsafe fn WSAAsyncGetHostByAddr<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8851,8 +8851,8 @@ pub unsafe fn WSAAsyncGetHostByName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8866,8 +8866,8 @@ pub unsafe fn WSAAsyncGetProtoByName<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByNumber<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, wmsg: u32, number: i32, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8881,8 +8881,8 @@ pub unsafe fn WSAAsyncGetProtoByNumber<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, name: Param2, proto: Param3, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8896,8 +8896,8 @@ pub unsafe fn WSAAsyncGetServByName<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hwnd: Param0, wmsg: u32, port: i32, proto: Param3, buf: super::super::Foundation::PSTR, buflen: i32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -8911,8 +8911,8 @@ pub unsafe fn WSAAsyncGetServByPort<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAAsyncSelect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(s: Param0, hwnd: Param1, wmsg: u32, levent: i32) -> i32 {
     #[cfg(windows)]
@@ -9182,8 +9182,8 @@ impl ::std::convert::From<i32> for WSACOMPLETIONTYPE {
 unsafe impl ::windows::runtime::Abi for WSACOMPLETIONTYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSACancelAsyncRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hasynctaskhandle: Param0) -> i32 {
     #[cfg(windows)]
@@ -9225,8 +9225,8 @@ pub unsafe fn WSACleanup() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSACloseEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9240,8 +9240,8 @@ pub unsafe fn WSACloseEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_QoS`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAConnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS) -> i32 {
     #[cfg(windows)]
@@ -9255,8 +9255,8 @@ pub unsafe fn WSAConnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, socketaddress: *const SOCKET_ADDRESS_LIST, localaddresslength: *mut u32, localaddress: *mut SOCKADDR, remoteaddresslength: *mut u32, remoteaddress: *mut SOCKADDR, timeout: *const timeval, reserved: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9279,8 +9279,8 @@ pub unsafe fn WSAConnectByList<'a, Param0: ::windows::runtime::IntoParam<'a, SOC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(
     s: Param0,
@@ -9314,8 +9314,8 @@ pub unsafe fn WSAConnectByNameA<'a, Param0: ::windows::runtime::IntoParam<'a, SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     s: Param0,
@@ -9349,8 +9349,8 @@ pub unsafe fn WSAConnectByNameW<'a, Param0: ::windows::runtime::IntoParam<'a, SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -9460,8 +9460,8 @@ impl ::std::cmp::Eq for WSAData {}
 unsafe impl ::windows::runtime::Abi for WSAData {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -9475,8 +9475,8 @@ pub unsafe fn WSADeleteSocketPeerTargetName<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSADuplicateSocketA<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, dwprocessid: u32, lpprotocolinfo: *mut WSAPROTOCOL_INFOA) -> i32 {
     #[cfg(windows)]
@@ -9533,8 +9533,8 @@ impl ::std::convert::From<i32> for WSAESETSERVICEOP {
 unsafe impl ::windows::runtime::Abi for WSAESETSERVICEOP {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOA) -> i32 {
     #[cfg(windows)]
@@ -9548,8 +9548,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersA(lpdwbufferlength: *mut u32, lpnspbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXA) -> i32 {
     #[cfg(windows)]
@@ -9563,8 +9563,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersExA(lpdwbufferlength: *mut u32, lpnspbuff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
     #[cfg(windows)]
@@ -9578,8 +9578,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersExW(lpdwbufferlength: *mut u32, lpnspbuff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
     #[cfg(windows)]
@@ -9593,8 +9593,8 @@ pub unsafe fn WSAEnumNameSpaceProvidersW(lpdwbufferlength: *mut u32, lpnspbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumNetworkEvents<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(s: Param0, heventobject: Param1, lpnetworkevents: *mut WSANETWORKEVENTS) -> i32 {
     #[cfg(windows)]
@@ -9608,8 +9608,8 @@ pub unsafe fn WSAEnumNetworkEvents<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEnumProtocolsA(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOA, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9637,8 +9637,8 @@ pub unsafe fn WSAEnumProtocolsW(lpiprotocols: *const i32, lpprotocolbuffer: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAEventSelect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(s: Param0, heventobject: Param1, lnetworkevents: i32) -> i32 {
     #[cfg(windows)]
@@ -9666,8 +9666,8 @@ pub unsafe fn WSAGetLastError() -> WSA_ERROR {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAGetOverlappedResult<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(s: Param0, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcbtransfer: *mut u32, fwait: Param3, lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9681,8 +9681,8 @@ pub unsafe fn WSAGetOverlappedResult<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_QoS`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAGetQOSByName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpqosname: *const WSABUF, lpqos: *mut super::super::NetworkManagement::QoS::QOS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9696,8 +9696,8 @@ pub unsafe fn WSAGetQOSByName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCK
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::runtime::GUID, lpserviceclassid: *const ::windows::runtime::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOA) -> i32 {
     #[cfg(windows)]
@@ -9711,8 +9711,8 @@ pub unsafe fn WSAGetServiceClassInfoA(lpproviderid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::runtime::GUID, lpserviceclassid: *const ::windows::runtime::GUID, lpdwbufsize: *mut u32, lpserviceclassinfo: *mut WSASERVICECLASSINFOW) -> i32 {
     #[cfg(windows)]
@@ -9726,8 +9726,8 @@ pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::windows::runtime::GUID, lpszserviceclassname: super::super::Foundation::PSTR, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9741,8 +9741,8 @@ pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const ::windows::runtime::GUID, lpszserviceclassname: super::super::Foundation::PWSTR, lpdwbufferlength: *mut u32) -> i32 {
     #[cfg(windows)]
@@ -9784,8 +9784,8 @@ pub unsafe fn WSAHtons<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(socket: Param0, peeraddr: *const SOCKADDR, peeraddrlen: u32) -> i32 {
     #[cfg(windows)]
@@ -9799,8 +9799,8 @@ pub unsafe fn WSAImpersonateSocketPeer<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASSINFOA) -> i32 {
     #[cfg(windows)]
@@ -9814,8 +9814,8 @@ pub unsafe fn WSAInstallServiceClassA(lpserviceclassinfo: *const WSASERVICECLASS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASSINFOW) -> i32 {
     #[cfg(windows)]
@@ -9829,8 +9829,8 @@ pub unsafe fn WSAInstallServiceClassW(lpserviceclassinfo: *const WSASERVICECLASS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, dwiocontrolcode: u32, lpvinbuffer: *const ::std::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::std::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -9854,8 +9854,8 @@ pub unsafe fn WSAIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -9869,8 +9869,8 @@ pub unsafe fn WSAIsBlocking() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_NetworkManagement_QoS`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_QoS"))]
 #[inline]
 pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32, lpcallerdata: *const WSABUF, lpcalleedata: *mut WSABUF, lpsqos: *const super::super::NetworkManagement::QoS::QOS, lpgqos: *const super::super::NetworkManagement::QoS::QOS, dwflags: u32) -> SOCKET {
     #[cfg(windows)]
@@ -9884,8 +9884,8 @@ pub unsafe fn WSAJoinLeaf<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
@@ -9899,8 +9899,8 @@ pub unsafe fn WSALookupServiceBeginA(lpqsrestrictions: *const WSAQUERYSETA, dwco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwcontrolflags: u32, lphlookup: *mut super::super::Foundation::HANDLE) -> i32 {
     #[cfg(windows)]
@@ -9914,8 +9914,8 @@ pub unsafe fn WSALookupServiceBeginW(lpqsrestrictions: *const WSAQUERYSETW, dwco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSALookupServiceEnd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0) -> i32 {
     #[cfg(windows)]
@@ -9929,8 +9929,8 @@ pub unsafe fn WSALookupServiceEnd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceNextA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETA) -> i32 {
     #[cfg(windows)]
@@ -9944,8 +9944,8 @@ pub unsafe fn WSALookupServiceNextA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSALookupServiceNextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolflags: u32, lpdwbufferlength: *mut u32, lpqsresults: *mut WSAQUERYSETW) -> i32 {
     #[cfg(windows)]
@@ -10248,8 +10248,8 @@ impl ::std::cmp::Eq for WSANSCLASSINFOW {}
 unsafe impl ::windows::runtime::Abi for WSANSCLASSINFOW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSANSPIoctl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hlookup: Param0, dwcontrolcode: u32, lpvinbuffer: *const ::std::ffi::c_void, cbinbuffer: u32, lpvoutbuffer: *mut ::std::ffi::c_void, cboutbuffer: u32, lpcbbytesreturned: *mut u32, lpcompletion: *const WSACOMPLETION) -> i32 {
     #[cfg(windows)]
@@ -10568,8 +10568,8 @@ pub unsafe fn WSAPoll(fdarray: *mut WSAPOLLFD, fds: u32, timeout: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAProviderCompleteAsyncCall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hasynccall: Param0, iretcode: i32) -> i32 {
     #[cfg(windows)]
@@ -10583,8 +10583,8 @@ pub unsafe fn WSAProviderCompleteAsyncCall<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::super::Foundation::HANDLE, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -10900,8 +10900,8 @@ impl ::std::cmp::Eq for WSAQUERYSETW {}
 unsafe impl ::windows::runtime::Abi for WSAQUERYSETW {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(socket: Param0, securityquerytemplate: *const SOCKET_SECURITY_QUERY_TEMPLATE, securityquerytemplatelen: u32, securityqueryinfo: *mut SOCKET_SECURITY_QUERY_INFO, securityqueryinfolen: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -10923,8 +10923,8 @@ pub unsafe fn WSAQuerySocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -10938,8 +10938,8 @@ pub unsafe fn WSARecv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSARecvDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpinbounddisconnectdata: *const WSABUF) -> i32 {
     #[cfg(windows)]
@@ -10953,8 +10953,8 @@ pub unsafe fn WSARecvDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSARecvEx<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -10968,8 +10968,8 @@ pub unsafe fn WSARecvEx<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSARecvFrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytesrecvd: *mut u32, lpflags: *mut u32, lpfrom: *mut SOCKADDR, lpfromlen: *mut i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11007,8 +11007,8 @@ pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAResetEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11147,8 +11147,8 @@ unsafe impl ::windows::runtime::Abi for WSASERVICECLASSINFOW {
 }
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
 pub const WSASYS_STATUS_LEN: u32 = 128u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11162,8 +11162,8 @@ pub unsafe fn WSASend<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpoutbounddisconnectdata: *const WSABUF) -> i32 {
     #[cfg(windows)]
@@ -11177,8 +11177,8 @@ pub unsafe fn WSASendDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, SO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(handle: Param0, lpmsg: *const WSAMSG, dwflags: u32, lpnumberofbytessent: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11192,8 +11192,8 @@ pub unsafe fn WSASendMsg<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, lpbuffers: *const WSABUF, dwbuffercount: u32, lpnumberofbytessent: *mut u32, dwflags: u32, lpto: *const SOCKADDR, itolen: i32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11217,8 +11217,8 @@ pub unsafe fn WSASendTo<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASetBlockingHook(lpblockfunc: ::std::option::Option<super::super::Foundation::FARPROC>) -> ::std::option::Option<super::super::Foundation::FARPROC> {
     #[cfg(windows)]
@@ -11232,8 +11232,8 @@ pub unsafe fn WSASetBlockingHook(lpblockfunc: ::std::option::Option<super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASetEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -11261,8 +11261,8 @@ pub unsafe fn WSASetLastError(ierror: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg(windows)]
@@ -11276,8 +11276,8 @@ pub unsafe fn WSASetServiceA(lpqsreginfo: *const WSAQUERYSETA, essoperation: WSA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSAESETSERVICEOP, dwcontrolflags: u32) -> i32 {
     #[cfg(windows)]
@@ -11291,8 +11291,8 @@ pub unsafe fn WSASetServiceW(lpqsreginfo: *const WSAQUERYSETW, essoperation: WSA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(socket: Param0, peertargetname: *const SOCKET_PEER_TARGET_NAME, peertargetnamelen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11306,8 +11306,8 @@ pub unsafe fn WSASetSocketPeerTargetName<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(socket: Param0, securitysettings: *const SOCKET_SECURITY_SETTINGS, securitysettingslen: u32, overlapped: *const super::super::System::IO::OVERLAPPED, completionroutine: ::std::option::Option<LPWSAOVERLAPPED_COMPLETION_ROUTINE>) -> i32 {
     #[cfg(windows)]
@@ -11321,8 +11321,8 @@ pub unsafe fn WSASetSocketSecurity<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSASocketA(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, g: u32, dwflags: u32) -> SOCKET {
     #[cfg(windows)]
@@ -11350,8 +11350,8 @@ pub unsafe fn WSASocketW(af: i32, r#type: i32, protocol: i32, lpprotocolinfo: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32 {
     #[cfg(windows)]
@@ -11365,8 +11365,8 @@ pub unsafe fn WSAStartup(wversionrequested: u16, lpwsadata: *mut WSAData) -> i32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStringToAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOA, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11380,8 +11380,8 @@ pub unsafe fn WSAStringToAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAStringToAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(addressstring: Param0, addressfamily: i32, lpprotocolinfo: *const WSAPROTOCOL_INFOW, lpaddress: *mut SOCKADDR, lpaddresslength: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11484,8 +11484,8 @@ impl ::std::cmp::Eq for WSAVERSION {}
 unsafe impl ::windows::runtime::Abi for WSAVERSION {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSAWaitForMultipleEvents<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(cevents: u32, lphevents: *const super::super::Foundation::HANDLE, fwaitall: Param2, dwtimeout: u32, falertable: Param4) -> u32 {
     #[cfg(windows)]
@@ -11691,8 +11691,8 @@ pub unsafe fn WSCDeinstallProvider(lpproviderid: *const ::windows::runtime::GUID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::runtime::GUID, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11706,8 +11706,8 @@ pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::runtime::GU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCEnableNSProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpproviderid: *const ::windows::runtime::GUID, fenable: Param1) -> i32 {
     #[cfg(windows)]
@@ -11721,9 +11721,9 @@ pub unsafe fn WSCEnableNSProvider<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpproviderid: *const ::windows::runtime::GUID, fenable: Param1) -> i32 {
     #[cfg(windows)]
@@ -11737,9 +11737,9 @@ pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
     #[cfg(windows)]
@@ -11753,9 +11753,9 @@ pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
     #[cfg(windows)]
@@ -11783,8 +11783,8 @@ pub unsafe fn WSCEnumProtocols(lpiprotocols: *const i32, lpprotocolbuffer: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11798,8 +11798,8 @@ pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCGetApplicationCategory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(path: Param0, pathlength: u32, extra: Param2, extralength: u32, ppermittedlspcategories: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11827,8 +11827,8 @@ pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::runtime::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::runtime::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11842,8 +11842,8 @@ pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::runtime::GUID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11857,9 +11857,9 @@ pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::runtime::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11873,8 +11873,8 @@ pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::runtime::GUID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCInstallNameSpace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -11888,9 +11888,9 @@ pub unsafe fn WSCInstallNameSpace<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -11904,8 +11904,8 @@ pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::runtime::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg(windows)]
@@ -11919,9 +11919,9 @@ pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`, `Win32_System_Com`*"]
 #[inline]
 pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::runtime::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
     #[cfg(windows)]
@@ -11935,8 +11935,8 @@ pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11950,9 +11950,9 @@ pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -11966,9 +11966,9 @@ pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpproviderid: *const ::windows::runtime::GUID,
@@ -12002,8 +12002,8 @@ pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCSetApplicationCategory<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(path: Param0, pathlength: u32, extra: Param2, extralength: u32, permittedlspcategories: u32, pprevpermlspcat: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -12031,8 +12031,8 @@ pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::runtime::GUID, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::runtime::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -12060,8 +12060,8 @@ pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::runtime::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::runtime::GUID) -> i32 {
     #[cfg(windows)]
@@ -12075,8 +12075,8 @@ pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::runtime::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -12090,9 +12090,9 @@ pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-#[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
 #[inline]
 pub unsafe fn WSCUpdateProvider32<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::runtime::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -12120,8 +12120,8 @@ pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::runtime::GUID
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::runtime::GUID, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
@@ -12149,8 +12149,8 @@ pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[doc = "*Required features: `Win32_Networking_WinSock`*"]
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[inline]
 pub unsafe fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
@@ -12475,8 +12475,8 @@ pub unsafe fn __WSAFDIsSet<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn accept<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, addr: *mut SOCKADDR, addrlen: *mut i32) -> SOCKET {
     #[cfg(windows)]
@@ -13145,8 +13145,8 @@ impl ::std::cmp::Eq for addrinfoexW {}
 unsafe impl ::windows::runtime::Abi for addrinfoexW {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn bind<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32) -> i32 {
     #[cfg(windows)]
@@ -13202,8 +13202,8 @@ impl ::std::cmp::Eq for cmsghdr {}
 unsafe impl ::windows::runtime::Abi for cmsghdr {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn connect<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *const SOCKADDR, namelen: i32) -> i32 {
     #[cfg(windows)]
@@ -13258,8 +13258,8 @@ impl ::std::cmp::Eq for fd_set {}
 unsafe impl ::windows::runtime::Abi for fd_set {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(windows)]
@@ -13273,8 +13273,8 @@ pub unsafe fn freeaddrinfo(paddrinfo: *const ADDRINFOA) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getaddrinfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pnodename: Param0, pservicename: Param1, phints: *const ADDRINFOA, ppresult: *mut *mut ADDRINFOA) -> i32 {
     #[cfg(windows)]
@@ -13288,8 +13288,8 @@ pub unsafe fn getaddrinfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn gethostbyaddr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(addr: Param0, len: i32, r#type: i32) -> *mut hostent {
     #[cfg(windows)]
@@ -13303,8 +13303,8 @@ pub unsafe fn gethostbyaddr<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn gethostbyname<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0) -> *mut hostent {
     #[cfg(windows)]
@@ -13318,8 +13318,8 @@ pub unsafe fn gethostbyname<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) -> i32 {
     #[cfg(windows)]
@@ -13333,8 +13333,8 @@ pub unsafe fn gethostname(name: super::super::Foundation::PSTR, namelen: i32) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnodebuffer: super::super::Foundation::PSTR, nodebuffersize: u32, pservicebuffer: super::super::Foundation::PSTR, servicebuffersize: u32, flags: i32) -> i32 {
     #[cfg(windows)]
@@ -13348,8 +13348,8 @@ pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: i32, pnode
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getpeername<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *mut SOCKADDR, namelen: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -13363,8 +13363,8 @@ pub unsafe fn getpeername<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getprotobyname<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0) -> *mut protoent {
     #[cfg(windows)]
@@ -13378,8 +13378,8 @@ pub unsafe fn getprotobyname<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
     #[cfg(windows)]
@@ -13393,8 +13393,8 @@ pub unsafe fn getprotobynumber(number: i32) -> *mut protoent {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getservbyname<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, proto: Param1) -> *mut servent {
     #[cfg(windows)]
@@ -13408,8 +13408,8 @@ pub unsafe fn getservbyname<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getservbyport<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(port: i32, proto: Param1) -> *mut servent {
     #[cfg(windows)]
@@ -13423,8 +13423,8 @@ pub unsafe fn getservbyport<'a, Param1: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getsockname<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, name: *mut SOCKADDR, namelen: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -13438,8 +13438,8 @@ pub unsafe fn getsockname<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn getsockopt<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, level: i32, optname: i32, optval: super::super::Foundation::PSTR, optlen: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -13540,8 +13540,8 @@ impl ::std::cmp::Eq for in6_pktinfo_ex {}
 unsafe impl ::windows::runtime::Abi for in6_pktinfo_ex {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn inet_addr<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(cp: Param0) -> u32 {
     #[cfg(windows)]
@@ -13555,8 +13555,8 @@ pub unsafe fn inet_addr<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn inet_ntoa<'a, Param0: ::windows::runtime::IntoParam<'a, IN_ADDR>>(r#in: Param0) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -13570,8 +13570,8 @@ pub unsafe fn inet_ntoa<'a, Param0: ::windows::runtime::IntoParam<'a, IN_ADDR>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn inet_ntop(family: i32, paddr: *const ::std::ffi::c_void, pstringbuf: super::super::Foundation::PSTR, stringbufsize: usize) -> super::super::Foundation::PSTR {
     #[cfg(windows)]
@@ -13585,8 +13585,8 @@ pub unsafe fn inet_ntop(family: i32, paddr: *const ::std::ffi::c_void, pstringbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn inet_pton<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(family: i32, pszaddrstring: Param1, paddrbuf: *mut ::std::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -13754,8 +13754,8 @@ impl ::std::cmp::Eq for protoent {}
 unsafe impl ::windows::runtime::Abi for protoent {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn recv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: i32) -> i32 {
     #[cfg(windows)]
@@ -13769,8 +13769,8 @@ pub unsafe fn recv<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn recvfrom<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>>(s: Param0, buf: super::super::Foundation::PSTR, len: i32, flags: i32, from: *mut SOCKADDR, fromlen: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -13798,8 +13798,8 @@ pub unsafe fn select(nfds: i32, readfds: *mut fd_set, writefds: *mut fd_set, exc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, buf: Param1, len: i32, flags: SEND_FLAGS) -> i32 {
     #[cfg(windows)]
@@ -13813,8 +13813,8 @@ pub unsafe fn send<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sendto<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, buf: Param1, len: i32, flags: i32, to: *const SOCKADDR, tolen: i32) -> i32 {
     #[cfg(windows)]
@@ -13900,8 +13900,8 @@ impl ::std::cmp::Eq for servent {}
 unsafe impl ::windows::runtime::Abi for servent {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WinSock`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn setsockopt<'a, Param0: ::windows::runtime::IntoParam<'a, SOCKET>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(s: Param0, level: i32, optname: i32, optval: Param3, optlen: i32) -> i32 {
     #[cfg(windows)]

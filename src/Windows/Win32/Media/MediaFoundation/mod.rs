@@ -780,8 +780,8 @@ impl ::std::cmp::Eq for CodecAPIEventData {}
 unsafe impl ::windows::runtime::Abi for CodecAPIEventData {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> ::windows::runtime::Result<super::super::System::PropertiesSystem::INamedPropertyStore> {
     #[cfg(windows)]
@@ -796,8 +796,8 @@ pub unsafe fn CreateNamedPropertyStore() -> ::windows::runtime::Result<super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> ::windows::runtime::Result<super::super::System::PropertiesSystem::IPropertyStore> {
     #[cfg(windows)]
@@ -7726,8 +7726,8 @@ pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicem
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVA2CreateVideoService<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdd: Param0, riid: *const ::windows::runtime::GUID, ppservice: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9644,8 +9644,8 @@ impl ::std::cmp::Eq for DXVAHD_CUSTOM_RATE_DATA {}
 unsafe impl ::windows::runtime::Abi for DXVAHD_CUSTOM_RATE_DATA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn DXVAHD_CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>>(pd3ddevice: Param0, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: ::std::option::Option<PDXVAHDSW_Plugin>) -> ::windows::runtime::Result<IDXVAHD_Device> {
     #[cfg(windows)]
@@ -44603,8 +44603,8 @@ unsafe impl ::windows::runtime::Abi for MFBYTESTREAM_SEEK_ORIGIN {
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFBYTESTREAM_SHARE_WRITE: u32 = 1024u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfilepath: Param3, pcallback: Param4, pstate: Param5) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
     #[cfg(windows)]
@@ -44619,8 +44619,8 @@ pub unsafe fn MFBeginCreateFile<'a, Param3: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IMFAsyncCallback>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, pdonecallback: Param3, pdonestate: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -44634,8 +44634,8 @@ pub unsafe fn MFBeginRegisterWorkQueueWithMMCSS<'a, Param1: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFBeginRegisterWorkQueueWithMMCSSEx<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IMFAsyncCallback>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(dwworkqueueid: u32, wszclass: Param1, dwtaskid: u32, lpriority: i32, pdonecallback: Param4, pdonestate: Param5) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -44891,8 +44891,8 @@ unsafe impl ::windows::runtime::Abi for MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT
 }
 #[doc = "*Required features: `Win32_Media_MediaFoundation`*"]
 pub const MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA_FUNCTIONID: u32 = 67108864u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45191,8 +45191,8 @@ pub unsafe fn MFCancelWorkItem(key: u64) -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCombineSamples<'a, Param0: ::windows::runtime::IntoParam<'a, IMFSample>, Param1: ::windows::runtime::IntoParam<'a, IMFSample>>(psample: Param0, psampletoadd: Param1, dwmaxmergeddurationinms: u32) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -45207,8 +45207,8 @@ pub unsafe fn MFCombineSamples<'a, Param0: ::windows::runtime::IntoParam<'a, IMF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>, Param1: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftypefull: Param0, pmftypepartial: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -45222,8 +45222,8 @@ pub unsafe fn MFCompareFullToPartialMediaType<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45237,8 +45237,8 @@ pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdx
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45294,8 +45294,8 @@ pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: Param3) -> ::windows::runtime::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -45355,8 +45355,8 @@ pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[inline]
 pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -45430,8 +45430,8 @@ pub unsafe fn MFCreateASFMediaSink<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateASFMediaSinkActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IMFASFContentInfo>>(pwszfilename: Param0, pcontentinfo: Param1) -> ::windows::runtime::Result<IMFActivate> {
     #[cfg(windows)]
@@ -45625,8 +45625,8 @@ pub unsafe fn MFCreateAttributes(ppmfattributes: *mut ::std::option::Option<IMFA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Multimedia")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<IMFAudioMediaType> {
     #[cfg(windows)]
@@ -45671,8 +45671,8 @@ pub unsafe fn MFCreateAudioRendererActivate() -> ::windows::runtime::Result<IMFA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateCameraOcclusionStateMonitor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IMFCameraOcclusionStateReportCallback>>(symboliclink: Param0, callback: Param1) -> ::windows::runtime::Result<IMFCameraOcclusionStateMonitor> {
     #[cfg(windows)]
@@ -45761,8 +45761,8 @@ pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::runtime::GUID, punksurface: Param1, usubresourceindex: u32, fbottomupwhenlinear: Param3) -> ::windows::runtime::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -45777,8 +45777,8 @@ pub unsafe fn MFCreateDXGISurfaceBuffer<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateDXSurfaceBuffer<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(riid: *const ::windows::runtime::GUID, punksurface: Param1, fbottomupwhenlinear: Param2) -> ::windows::runtime::Result<IMFMediaBuffer> {
     #[cfg(windows)]
@@ -45823,8 +45823,8 @@ pub unsafe fn MFCreateDeviceSourceActivate<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn MFCreateEncryptedMediaExtensionsStoreActivate<'a, Param0: ::windows::runtime::IntoParam<'a, IMFPMPHostApp>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pmphost: Param0, objectstream: Param1, classid: Param2) -> ::windows::runtime::Result<IMFActivate> {
     #[cfg(windows)]
@@ -45899,8 +45899,8 @@ pub unsafe fn MFCreateFMPEG4MediaSink<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateFile<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS, pwszfileurl: Param3) -> ::windows::runtime::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -45915,8 +45915,8 @@ pub unsafe fn MFCreateFile<'a, Param3: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_DirectShow")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_DirectShow`*"]
+#[cfg(feature = "Win32_Graphics_DirectShow")]
 #[inline]
 pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IMFSample>, Param1: ::windows::runtime::IntoParam<'a, IMFMediaBuffer>>(psample: Param0, pmfmediabuffer: Param1, cboffset: u32) -> ::windows::runtime::Result<super::super::Graphics::DirectShow::IMediaBuffer> {
     #[cfg(windows)]
@@ -45931,8 +45931,8 @@ pub unsafe fn MFCreateLegacyMediaBufferOnMFMediaBuffer<'a, Param0: ::windows::ru
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateMFByteStreamOnStream<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pstream: Param0) -> ::windows::runtime::Result<IMFByteStream> {
     #[cfg(windows)]
@@ -45977,8 +45977,8 @@ pub unsafe fn MFCreateMFByteStreamWrapper<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppmfvf: *mut *mut MFVIDEOFORMAT, pcbsize: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46052,8 +46052,8 @@ pub unsafe fn MFCreateMediaBufferWrapper<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::runtime::GUID, hrstatus: ::windows::runtime::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<IMFMediaEvent> {
     #[cfg(windows)]
@@ -46068,8 +46068,8 @@ pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateMediaExtensionActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(szactivatableclassid: Param0, pconfiguration: Param1, riid: *const ::windows::runtime::GUID, ppvobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -46335,8 +46335,8 @@ pub unsafe fn MFCreateProtectedEnvironmentAccess() -> ::windows::runtime::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 #[inline]
 pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>>(pszprotocol: Param0, pproxyconfig: Param1) -> ::windows::runtime::Result<IMFNetProxyLocator> {
     #[cfg(windows)]
@@ -46351,8 +46351,8 @@ pub unsafe fn MFCreateProxyLocator<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateRelativePanelWatcher<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(videodeviceid: Param0, displaymonitordeviceid: Param1) -> ::windows::runtime::Result<IMFRelativePanelWatcher> {
     #[cfg(windows)]
@@ -46442,8 +46442,8 @@ pub unsafe fn MFCreateSensorActivityMonitor<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sensorgroupsymboliclink: Param0) -> ::windows::runtime::Result<IMFSensorGroup> {
     #[cfg(windows)]
@@ -46458,8 +46458,8 @@ pub unsafe fn MFCreateSensorGroup<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSensorProfile<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(profiletype: *const ::windows::runtime::GUID, profileindex: u32, constraints: Param2) -> ::windows::runtime::Result<IMFSensorProfile> {
     #[cfg(windows)]
@@ -46504,8 +46504,8 @@ pub unsafe fn MFCreateSensorStream<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -46565,8 +46565,8 @@ pub unsafe fn MFCreateSinkWriterFromMediaSink<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSinkWriterFromURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IMFByteStream>, Param2: ::windows::runtime::IntoParam<'a, IMFAttributes>>(pwszoutputurl: Param0, pbytestream: Param1, pattributes: Param2) -> ::windows::runtime::Result<IMFSinkWriter> {
     #[cfg(windows)]
@@ -46611,8 +46611,8 @@ pub unsafe fn MFCreateSourceReaderFromMediaSource<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateSourceReaderFromURL<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IMFAttributes>>(pwszurl: Param0, pattributes: Param1) -> ::windows::runtime::Result<IMFSourceReader> {
     #[cfg(windows)]
@@ -46672,8 +46672,8 @@ pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, cmediatypes: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFCreateStreamOnMFByteStream<'a, Param0: ::windows::runtime::IntoParam<'a, IMFByteStream>>(pbytestream: Param0) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
     #[cfg(windows)]
@@ -46822,8 +46822,8 @@ pub unsafe fn MFCreateTranscodeSinkActivate() -> ::windows::runtime::Result<IMFA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateTranscodeTopology<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaSource>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IMFTranscodeProfile>>(psrc: Param0, pwszoutputfilepath: Param1, pprofile: Param2) -> ::windows::runtime::Result<IMFTopology> {
     #[cfg(windows)]
@@ -46868,8 +46868,8 @@ pub unsafe fn MFCreateTransformActivate() -> ::windows::runtime::Result<IMFActiv
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::windows::runtime::Result<IMFVideoMediaType> {
     #[cfg(windows)]
@@ -46884,8 +46884,8 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> ::windows::runtime::Result<IMFVideoMediaType> {
     #[cfg(windows)]
@@ -46911,8 +46911,8 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> ::windows::runtime::Result<IMFVideoMediaType> {
     #[cfg(windows)]
@@ -47010,8 +47010,8 @@ pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const ::windows::runtime::GUI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVideoRendererActivate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(hwndvideo: Param0) -> ::windows::runtime::Result<IMFActivate> {
     #[cfg(windows)]
@@ -47069,8 +47069,8 @@ pub unsafe fn MFCreateVideoSampleFromSurface<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFCreateVirtualCamera<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001,
@@ -47123,8 +47123,8 @@ pub unsafe fn MFCreateWICBitmapBuffer<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::runtime::Result<IMFActivate> {
     #[cfg(windows)]
@@ -47139,8 +47139,8 @@ pub unsafe fn MFCreateWMAEncoderActivate<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_PropertiesSystem`*"]
+#[cfg(feature = "Win32_System_PropertiesSystem")]
 #[inline]
 pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::PropertiesSystem::IPropertyStore>>(pmediatype: Param0, pencodingconfigurationproperties: Param1) -> ::windows::runtime::Result<IMFActivate> {
     #[cfg(windows)]
@@ -47155,8 +47155,8 @@ pub unsafe fn MFCreateWMVEncoderActivate<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Multimedia")]
 #[inline]
 pub unsafe fn MFCreateWaveFormatExFromMFMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, ppwf: *mut *mut super::Multimedia::WAVEFORMATEX, pcbsize: *mut u32, flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47184,8 +47184,8 @@ impl ::std::convert::From<i32> for MFDepthMeasurement {
 unsafe impl ::windows::runtime::Abi for MFDepthMeasurement {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFDeserializeAttributesFromStream<'a, Param0: ::windows::runtime::IntoParam<'a, IMFAttributes>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47417,8 +47417,8 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetLocalId(verifier: *const u8, size: u32) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -47506,8 +47506,8 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -47522,8 +47522,8 @@ pub unsafe fn MFGetSupportedMimeTypes() -> ::windows::runtime::Result<super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`, `Win32_System_Com_StructuredStorage`, `Win32_System_Ole_Automation`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
     #[cfg(windows)]
@@ -47582,8 +47582,8 @@ pub unsafe fn MFGetTimerPeriodicity() -> ::windows::runtime::Result<u32> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFTopologyNode>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pnode: Param0, dwstreamindex: u32, foutput: Param2) -> ::windows::runtime::Result<IMFMediaType> {
     #[cfg(windows)]
@@ -47598,8 +47598,8 @@ pub unsafe fn MFGetTopoNodeCurrentType<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
     #[cfg(windows)]
@@ -47613,8 +47613,8 @@ pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: super::super::Foundation::PWSTR, pcchclass: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47658,8 +47658,8 @@ pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFHeapAlloc<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(nsize: usize, dwflags: u32, pszfile: Param2, line: i32, eat: EAllocationType) -> *mut ::std::ffi::c_void {
     #[cfg(windows)]
@@ -47759,8 +47759,8 @@ unsafe impl ::windows::runtime::Abi for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 }
 pub const MFImageFormat_JPEG: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(434415018, 22114, 20421, [160, 192, 23, 88, 2, 142, 16, 87]);
 pub const MFImageFormat_RGB32: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(22, 0, 16, [128, 0, 0, 170, 0, 56, 155, 113]);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47788,8 +47788,8 @@ pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const super::super::Graphics::DirectShow::AM_MEDIA_TYPE) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47803,8 +47803,8 @@ pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47818,8 +47818,8 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::super::Graphics::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47833,8 +47833,8 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::super::Graphics::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47848,8 +47848,8 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::super::Graphics::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47863,8 +47863,8 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_Graphics_DirectShow`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectShow", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::super::Graphics::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47878,8 +47878,8 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::runtime
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Media_Multimedia")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Media_Multimedia`*"]
+#[cfg(feature = "Win32_Media_Multimedia")]
 #[inline]
 pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::runtime::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pwaveformat: *const super::Multimedia::WAVEFORMATEX, cbbufsize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47893,8 +47893,8 @@ pub unsafe fn MFInitMediaTypeFromWaveFormatEx<'a, Param0: ::windows::runtime::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47908,8 +47908,8 @@ pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFSt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -47937,8 +47937,8 @@ pub unsafe fn MFInvokeCallback<'a, Param0: ::windows::runtime::IntoParam<'a, IMF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -47953,8 +47953,8 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -47968,8 +47968,8 @@ pub unsafe fn MFIsFormatYUV(format: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtualcamera_0000_0000_0001) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -47984,8 +47984,8 @@ pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: __MIDL___MIDL_itf_mfvirtual
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFLoadSignedLibrary<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszname: Param0) -> ::windows::runtime::Result<IMFSignedLibrary> {
     #[cfg(windows)]
@@ -48028,8 +48028,8 @@ pub unsafe fn MFLockPlatform() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFLockSharedWorkQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, basepriority: i32, pdwtaskid: *mut u32, pid: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -48152,8 +48152,8 @@ unsafe impl ::windows::runtime::Abi for MFMPEG2DLNASINKSTATS {
     type Abi = Self;
 }
 pub const MFMPEG4Format_Base: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(0, 30330, 18765, [180, 120, 242, 157, 37, 220, 144, 55]);
-#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::DXGI_FORMAT {
     #[cfg(windows)]
@@ -48167,8 +48167,8 @@ pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dx
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Dxgi`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::DXGI_FORMAT) -> u32 {
     #[cfg(windows)]
@@ -48523,8 +48523,8 @@ impl ::std::cmp::Eq for MFOffset {}
 unsafe impl ::windows::runtime::Abi for MFOffset {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPCreateMediaPlayer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, IMFPMediaPlayerCallback>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(pwszurl: Param0, fstartplayback: Param1, creationoptions: MFP_CREATION_OPTIONS, pcallback: Param3, hwnd: Param4) -> ::windows::runtime::Result<IMFPMediaPlayer> {
     #[cfg(windows)]
@@ -49235,8 +49235,8 @@ impl ::std::cmp::Eq for MFPinholeCameraIntrinsics {}
 unsafe impl ::windows::runtime::Abi for MFPinholeCameraIntrinsics {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFPutWaitingWorkItem<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, IMFAsyncResult>>(hevent: Param0, priority: i32, presult: Param2) -> ::windows::runtime::Result<u64> {
     #[cfg(windows)]
@@ -49407,8 +49407,8 @@ impl ::std::cmp::Eq for MFRatio {}
 unsafe impl ::windows::runtime::Abi for MFRatio {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IMFActivate>>(szfileextension: Param0, szmimetype: Param1, pactivate: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49422,8 +49422,8 @@ pub unsafe fn MFRegisterLocalByteStreamHandler<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IMFActivate>>(szscheme: Param0, pactivate: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49437,8 +49437,8 @@ pub unsafe fn MFRegisterLocalSchemeHandler<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFRegisterPlatformWithMMCSS<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszclass: Param0, pdwtaskid: *mut u32, lpriority: i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49769,8 +49769,8 @@ impl ::std::convert::From<i32> for MFSequencerTopologyFlags {
 unsafe impl ::windows::runtime::Abi for MFSequencerTopologyFlags {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFSerializeAttributesToStream<'a, Param0: ::windows::runtime::IntoParam<'a, IMFAttributes>, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(pattr: Param0, dwoptions: u32, pstm: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -49932,8 +49932,8 @@ pub unsafe fn MFTEnumEx<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(clsidmft: Param0, pszname: *mut super::super::Foundation::PWSTR, ppinputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes: *mut u32, ppoutputtypes: *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes: *mut u32, ppattributes: *mut ::std::option::Option<IMFAttributes>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50037,8 +50037,8 @@ impl ::std::cmp::Eq for MFTOPONODE_ATTRIBUTE_UPDATE_0 {}
 unsafe impl ::windows::runtime::Abi for MFTOPONODE_ATTRIBUTE_UPDATE_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTRegister<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::runtime::IntoParam<'a, IMFAttributes>>(
     clsidmft: Param0,
@@ -50062,8 +50062,8 @@ pub unsafe fn MFTRegister<'a, Param0: ::windows::runtime::IntoParam<'a, ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`, `Win32_System_Com`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IClassFactory>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pclassfactory: Param0, guidcategory: *const ::windows::runtime::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50077,8 +50077,8 @@ pub unsafe fn MFTRegisterLocal<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MFTRegisterLocalByCLSID<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(clisdmft: *const ::windows::runtime::GUID, guidcategory: *const ::windows::runtime::GUID, pszname: Param2, flags: u32, cinputtypes: u32, pinputtypes: *const MFT_REGISTER_TYPE_INFO, coutputtypes: u32, poutputtypes: *const MFT_REGISTER_TYPE_INFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -50106,8 +50106,8 @@ pub unsafe fn MFTUnregister<'a, Param0: ::windows::runtime::IntoParam<'a, ::wind
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Com")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_System_Com`*"]
+#[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn MFTUnregisterLocal<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IClassFactory>>(pclassfactory: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54904,8 +54904,8 @@ unsafe impl ::windows::runtime::Abi for MT_CUSTOM_VIDEO_PRIMARIES {
     type Abi = Self;
 }
 pub const MULawCodecWrapper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2461425792, 24109, 17566, [144, 196, 196, 31, 38, 142, 85, 20]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> ::windows::runtime::Result<IOPMVideoOutput> {
     #[cfg(windows)]
@@ -54920,8 +54920,8 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Gdi::HMONITOR>>(hmonitor: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::std::option::Option<IOPMVideoOutput>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -54935,8 +54935,8 @@ pub unsafe fn OPMGetVideoOutputsFromHMONITOR<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[doc = "*Required features: `Win32_Media_MediaFoundation`, `Win32_Graphics_Direct3D9`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D9")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Graphics::Direct3D9::IDirect3DDevice9>>(pdirect3ddevice9: Param0, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut ::std::option::Option<IOPMVideoOutput>) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

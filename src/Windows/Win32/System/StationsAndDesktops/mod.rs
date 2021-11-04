@@ -129,8 +129,8 @@ impl ::std::cmp::Eq for BSMINFO {}
 unsafe impl ::windows::runtime::Abi for BSMINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: u32, lpinfo: *mut u32, msg: u32, wparam: Param3, lparam: Param4) -> i32 {
     #[cfg(windows)]
@@ -144,8 +144,8 @@ pub unsafe fn BroadcastSystemMessageA<'a, Param3: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageExA<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4, pbsminfo: *mut BSMINFO) -> i32 {
     #[cfg(windows)]
@@ -159,8 +159,8 @@ pub unsafe fn BroadcastSystemMessageExA<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageExW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4, pbsminfo: *mut BSMINFO) -> i32 {
     #[cfg(windows)]
@@ -174,8 +174,8 @@ pub unsafe fn BroadcastSystemMessageExW<'a, Param3: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageW<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::WPARAM>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: *mut BROADCAST_SYSTEM_MESSAGE_INFO, msg: u32, wparam: Param3, lparam: Param4) -> i32 {
     #[cfg(windows)]
@@ -189,8 +189,8 @@ pub unsafe fn BroadcastSystemMessageW<'a, Param3: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -204,8 +204,8 @@ pub unsafe fn CloseDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseWindowStation<'a, Param0: ::windows::runtime::IntoParam<'a, HWINSTA>>(hwinsta: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -219,8 +219,8 @@ pub unsafe fn CloseWindowStation<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK {
     #[cfg(windows)]
@@ -234,8 +234,8 @@ pub unsafe fn CreateDesktopA<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::std::ffi::c_void) -> HDESK {
     #[cfg(windows)]
@@ -249,8 +249,8 @@ pub unsafe fn CreateDesktopExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES, ulheapsize: u32, pvoid: *mut ::std::ffi::c_void) -> HDESK {
     #[cfg(windows)]
@@ -264,8 +264,8 @@ pub unsafe fn CreateDesktopExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Graphics_Gdi`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdesktop: Param0, lpszdevice: Param1, pdevmode: *mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HDESK {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ pub unsafe fn CreateDesktopW<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWindowStationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpwinsta: Param0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA {
     #[cfg(windows)]
@@ -294,8 +294,8 @@ pub unsafe fn CreateWindowStationA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWindowStationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpwinsta: Param0, dwflags: u32, dwdesiredaccess: u32, lpsa: *const super::super::Security::SECURITY_ATTRIBUTES) -> HWINSTA {
     #[cfg(windows)]
@@ -313,8 +313,8 @@ pub unsafe fn CreateWindowStationW<'a, Param0: ::windows::runtime::IntoParam<'a,
 pub type DESKTOPENUMPROCA = unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`, `Win32_UI_WindowsAndMessaging`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn EnumDesktopWindows<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hdesktop: Param0, lpfn: ::std::option::Option<super::super::UI::WindowsAndMessaging::WNDENUMPROC>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -328,8 +328,8 @@ pub unsafe fn EnumDesktopWindows<'a, Param0: ::windows::runtime::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsA<'a, Param0: ::windows::runtime::IntoParam<'a, HWINSTA>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwinsta: Param0, lpenumfunc: ::std::option::Option<DESKTOPENUMPROCA>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -343,8 +343,8 @@ pub unsafe fn EnumDesktopsA<'a, Param0: ::windows::runtime::IntoParam<'a, HWINST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsW<'a, Param0: ::windows::runtime::IntoParam<'a, HWINSTA>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(hwinsta: Param0, lpenumfunc: ::std::option::Option<DESKTOPENUMPROCW>, lparam: Param2) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -358,8 +358,8 @@ pub unsafe fn EnumDesktopsW<'a, Param0: ::windows::runtime::IntoParam<'a, HWINST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::std::option::Option<WINSTAENUMPROCA>, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -373,8 +373,8 @@ pub unsafe fn EnumWindowStationsA<'a, Param1: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LPARAM>>(lpenumfunc: ::std::option::Option<WINSTAENUMPROCW>, lparam: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -416,8 +416,8 @@ pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> HDESK {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserObjectInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::std::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -431,8 +431,8 @@ pub unsafe fn GetUserObjectInformationA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserObjectInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::std::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -470,8 +470,8 @@ unsafe impl ::windows::runtime::Handle for HWINSTA {}
 unsafe impl ::windows::runtime::Abi for HWINSTA {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDesktopA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszdesktop: Param0, dwflags: u32, finherit: Param2, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
@@ -485,8 +485,8 @@ pub unsafe fn OpenDesktopA<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDesktopW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszdesktop: Param0, dwflags: u32, finherit: Param2, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
@@ -500,8 +500,8 @@ pub unsafe fn OpenDesktopW<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenInputDesktop<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(dwflags: u32, finherit: Param1, dwdesiredaccess: u32) -> HDESK {
     #[cfg(windows)]
@@ -515,8 +515,8 @@ pub unsafe fn OpenInputDesktop<'a, Param1: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenWindowStationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszwinsta: Param0, finherit: Param1, dwdesiredaccess: u32) -> HWINSTA {
     #[cfg(windows)]
@@ -530,8 +530,8 @@ pub unsafe fn OpenWindowStationA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenWindowStationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpszwinsta: Param0, finherit: Param1, dwdesiredaccess: u32) -> HWINSTA {
     #[cfg(windows)]
@@ -545,8 +545,8 @@ pub unsafe fn OpenWindowStationW<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessWindowStation<'a, Param0: ::windows::runtime::IntoParam<'a, HWINSTA>>(hwinsta: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -560,8 +560,8 @@ pub unsafe fn SetProcessWindowStation<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -575,8 +575,8 @@ pub unsafe fn SetThreadDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserObjectInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: i32, pvinfo: *const ::std::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -590,8 +590,8 @@ pub unsafe fn SetUserObjectInformationA<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserObjectInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hobj: Param0, nindex: i32, pvinfo: *const ::std::ffi::c_void, nlength: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -605,8 +605,8 @@ pub unsafe fn SetUserObjectInformationW<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_StationsAndDesktops`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwitchDesktop<'a, Param0: ::windows::runtime::IntoParam<'a, HDESK>>(hdesktop: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

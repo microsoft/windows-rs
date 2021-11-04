@@ -72,6 +72,15 @@ impl Gen {
         features
     }
 
+    pub fn gen_function_cfg(&self, def: &MethodDef, signature: &MethodSignature) -> TokenStream {
+        let arch = self.gen_arch_cfg(def.attributes());
+        let features = signature.method_features();
+        let cfg = self.gen_cfg(&features);
+        let doc = self.gen_cfg_doc(&features);
+
+        quote! { #doc #arch #cfg }
+    }
+
     pub fn gen_cfg_doc(&self, features: &BTreeSet<&'static str>) -> TokenStream {
         if self.root.is_empty() {
             return TokenStream::new();

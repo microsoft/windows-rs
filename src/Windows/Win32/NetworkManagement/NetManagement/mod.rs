@@ -2885,8 +2885,8 @@ impl ::std::cmp::Eq for GROUP_USERS_INFO_1 {}
 unsafe impl ::windows::runtime::Abi for GROUP_USERS_INFO_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, ccaccount: u32, wszaccount: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -4509,8 +4509,8 @@ pub struct IProvisioningProfileWireless_abi(
 pub const IR_PROMISCUOUS: u32 = 0u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const IR_PROMISCUOUS_MULTICAST: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn I_NetLogonControl2<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, functioncode: u32, querylevel: u32, data: *const u8, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -4857,8 +4857,8 @@ pub const LOGFLAGS_SEEK: u32 = 2u32;
 pub const LOWER_GET_HINT_MASK: u32 = 65280u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const LOWER_HINT_MASK: u32 = 255u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -4872,8 +4872,8 @@ pub unsafe fn LogErrorA(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -4887,8 +4887,8 @@ pub unsafe fn LogErrorW(dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstri
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PSTR) {
     #[cfg(windows)]
@@ -4902,8 +4902,8 @@ pub unsafe fn LogEventA(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogEventW(weventtype: u32, dwmessageid: u32, cnumberofsubstrings: u32, plpwssubstrings: *const super::super::Foundation::PWSTR) {
     #[cfg(windows)]
@@ -7582,8 +7582,8 @@ pub const NWSAP_EVENT_WANSEM_FAIL: i32 = -1073733298i32;
 pub const NWSAP_EVENT_WANSOCKET_FAILED: i32 = -1073733297i32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const NWSAP_EVENT_WSASTARTUP_FAILED: i32 = -1073733323i32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7597,8 +7597,8 @@ pub unsafe fn NetAccessAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1) -> u32 {
     #[cfg(windows)]
@@ -7612,8 +7612,8 @@ pub unsafe fn NetAccessDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, recursive: u32, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7637,8 +7637,8 @@ pub unsafe fn NetAccessEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7652,8 +7652,8 @@ pub unsafe fn NetAccessGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, ugname: Param1, resource: Param2, perms: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7667,8 +7667,8 @@ pub unsafe fn NetAccessGetUserPerms<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, resource: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7682,8 +7682,8 @@ pub unsafe fn NetAccessSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -7697,8 +7697,8 @@ pub unsafe fn NetAddAlternateComputerName<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, password: Param2, flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7712,8 +7712,8 @@ pub unsafe fn NetAddServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, buffer: *const ::std::ffi::c_void, buffersize: u32) -> u32 {
     #[cfg(windows)]
@@ -7727,8 +7727,8 @@ pub unsafe fn NetAlertRaise<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAlertRaiseEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(alerttype: Param0, variableinfo: *const ::std::ffi::c_void, variableinfosize: u32, servicename: Param3) -> u32 {
     #[cfg(windows)]
@@ -7798,8 +7798,8 @@ pub unsafe fn NetApiBufferSize(buffer: *const ::std::ffi::c_void, bytecount: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, backupfile: Param1, service: Param2) -> u32 {
     #[cfg(windows)]
@@ -7813,8 +7813,8 @@ pub unsafe fn NetAuditClear<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, service: Param1, auditloghandle: *mut HLOG, offset: u32, reserved1: *mut u32, reserved2: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxlen: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7840,8 +7840,8 @@ pub unsafe fn NetAuditRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(r#type: u32, buf: *mut u8, numbytes: u32, service: Param3, reserved: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7855,8 +7855,8 @@ pub unsafe fn NetAuditWrite<'a, Param3: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, parameter: Param2, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7870,8 +7870,8 @@ pub unsafe fn NetConfigGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, component: Param1, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7885,8 +7885,8 @@ pub unsafe fn NetConfigGetAll<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, reserved1: Param1, component: Param2, level: u32, reserved2: u32, buf: *mut u8, reserved3: u32) -> u32 {
     #[cfg(windows)]
@@ -7900,8 +7900,8 @@ pub unsafe fn NetConfigSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_PROVISIONING_PARAMS, pppackagebindata: *mut *mut u8, pdwpackagebindatasize: *mut u32, pppackagetextdata: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7915,8 +7915,8 @@ pub unsafe fn NetCreateProvisioningPackage(pprovisioningparams: *const NETSETUP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, nametype: NET_COMPUTER_NAME_TYPE, reserved: u32, entrycount: *mut u32, computernames: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -7930,8 +7930,8 @@ pub unsafe fn NetEnumerateComputerNames<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7945,8 +7945,8 @@ pub unsafe fn NetEnumerateServiceAccounts<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, backupfile: Param1, reserved: *const u8) -> u32 {
     #[cfg(windows)]
@@ -7960,8 +7960,8 @@ pub unsafe fn NetErrorLogClear<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, reserved1: Param1, errorloghandle: *const HLOG, offset: u32, reserved2: *const u32, reserved3: u32, offsetflag: u32, bufptr: *mut *mut u8, prefmaxsize: u32, bytesread: *mut u32, totalavailable: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -7987,8 +7987,8 @@ pub unsafe fn NetErrorLogRead<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved1: *const u8, code: u32, component: Param2, buffer: *const u8, numbytes: u32, msgbuf: *const u8, strcount: u32, reserved2: *const u8) -> u32 {
     #[cfg(windows)]
@@ -8002,8 +8002,8 @@ pub unsafe fn NetErrorLogWrite<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(windows)]
@@ -8017,8 +8017,8 @@ pub unsafe fn NetFreeAadJoinInformation(pjoininfo: *const DSREG_JOIN_INFO) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`, `Win32_Security_Cryptography`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pcsztenantid: Param0) -> ::windows::runtime::Result<*mut DSREG_JOIN_INFO> {
     #[cfg(windows)]
@@ -8033,8 +8033,8 @@ pub unsafe fn NetGetAadJoinInformation<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8048,8 +8048,8 @@ pub unsafe fn NetGetAnyDCName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, domainname: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8063,8 +8063,8 @@ pub unsafe fn NetGetDCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, prefix: Param2, index: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8078,8 +8078,8 @@ pub unsafe fn NetGetDisplayInformationIndex<'a, Param0: ::windows::runtime::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnamebuffer: *mut super::super::Foundation::PWSTR, buffertype: *mut NETSETUP_JOIN_STATUS) -> u32 {
     #[cfg(windows)]
@@ -8093,8 +8093,8 @@ pub unsafe fn NetGetJoinInformation<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpdomain: Param1, lpaccount: Param2, lppassword: Param3, oucount: *mut u32, ous: *mut *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -8108,8 +8108,8 @@ pub unsafe fn NetGetJoinableOUs<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8123,8 +8123,8 @@ pub unsafe fn NetGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
@@ -8138,8 +8138,8 @@ pub unsafe fn NetGroupAddUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8153,8 +8153,8 @@ pub unsafe fn NetGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, username: Param2) -> u32 {
     #[cfg(windows)]
@@ -8168,8 +8168,8 @@ pub unsafe fn NetGroupDelUser<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -8183,8 +8183,8 @@ pub unsafe fn NetGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8198,8 +8198,8 @@ pub unsafe fn NetGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -8213,8 +8213,8 @@ pub unsafe fn NetGroupGetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8228,8 +8228,8 @@ pub unsafe fn NetGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -8243,8 +8243,8 @@ pub unsafe fn NetGroupSetUsers<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, isservice: *mut super::super::Foundation::BOOL) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8258,8 +8258,8 @@ pub unsafe fn NetIsServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpserver: Param0,
@@ -8280,8 +8280,8 @@ pub unsafe fn NetJoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8295,8 +8295,8 @@ pub unsafe fn NetLocalGroupAdd<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
@@ -8310,8 +8310,8 @@ pub unsafe fn NetLocalGroupAddMember<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -8325,8 +8325,8 @@ pub unsafe fn NetLocalGroupAddMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8340,8 +8340,8 @@ pub unsafe fn NetLocalGroupDel<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(servername: Param0, groupname: Param1, membersid: Param2) -> u32 {
     #[cfg(windows)]
@@ -8355,8 +8355,8 @@ pub unsafe fn NetLocalGroupDelMember<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -8370,8 +8370,8 @@ pub unsafe fn NetLocalGroupDelMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -8385,8 +8385,8 @@ pub unsafe fn NetLocalGroupEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8400,8 +8400,8 @@ pub unsafe fn NetLocalGroupGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, localgroupname: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut usize) -> u32 {
     #[cfg(windows)]
@@ -8415,8 +8415,8 @@ pub unsafe fn NetLocalGroupGetMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8430,8 +8430,8 @@ pub unsafe fn NetLocalGroupSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, groupname: Param1, level: u32, buf: *const u8, totalentries: u32) -> u32 {
     #[cfg(windows)]
@@ -8445,8 +8445,8 @@ pub unsafe fn NetLocalGroupSetMembers<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, fromname: Param2, buf: *const u8, buflen: u32) -> u32 {
     #[cfg(windows)]
@@ -8460,8 +8460,8 @@ pub unsafe fn NetMessageBufferSend<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8475,8 +8475,8 @@ pub unsafe fn NetMessageNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8490,8 +8490,8 @@ pub unsafe fn NetMessageNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const *const u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8505,8 +8505,8 @@ pub unsafe fn NetMessageNameEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, msgname: Param1, level: u32, bufptr: *const *const u8) -> u32 {
     #[cfg(windows)]
@@ -8520,8 +8520,8 @@ pub unsafe fn NetMessageNameGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpdomain: Param0,
@@ -8554,8 +8554,8 @@ pub unsafe fn NetProvisionComputerAccount<'a, Param0: ::windows::runtime::IntoPa
     unimplemented!("Unsupported target OS");
 }
 pub const NetProvisioning: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(715306494, 47174, 19719, [129, 12, 178, 30, 228, 83, 32, 227]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, index: u32, entriesrequested: u32, preferredmaximumlength: u32, returnedentrycount: *mut u32, sortedbuffer: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -8569,8 +8569,8 @@ pub unsafe fn NetQueryDisplayInformation<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, infolevel: u32, buffer: *mut *mut u8) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8584,8 +8584,8 @@ pub unsafe fn NetQueryServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8599,8 +8599,8 @@ pub unsafe fn NetRemoteComputerSupports<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, bufferptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8614,8 +8614,8 @@ pub unsafe fn NetRemoteTOD<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, alternatename: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -8629,8 +8629,8 @@ pub unsafe fn NetRemoveAlternateComputerName<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, accountname: Param1, flags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8644,8 +8644,8 @@ pub unsafe fn NetRemoveServiceAccount<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpnewmachinename: Param1, lpaccount: Param2, lppassword: Param3, frenameoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -8659,8 +8659,8 @@ pub unsafe fn NetRenameMachineInDomain<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8674,8 +8674,8 @@ pub unsafe fn NetReplExportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8689,8 +8689,8 @@ pub unsafe fn NetReplExportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8704,8 +8704,8 @@ pub unsafe fn NetReplExportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8719,8 +8719,8 @@ pub unsafe fn NetReplExportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8734,8 +8734,8 @@ pub unsafe fn NetReplExportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8749,8 +8749,8 @@ pub unsafe fn NetReplExportDirSetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
@@ -8764,8 +8764,8 @@ pub unsafe fn NetReplExportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8779,8 +8779,8 @@ pub unsafe fn NetReplGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8794,8 +8794,8 @@ pub unsafe fn NetReplImportDirAdd<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8809,8 +8809,8 @@ pub unsafe fn NetReplImportDirDel<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8824,8 +8824,8 @@ pub unsafe fn NetReplImportDirEnum<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8839,8 +8839,8 @@ pub unsafe fn NetReplImportDirGetInfo<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1) -> u32 {
     #[cfg(windows)]
@@ -8854,8 +8854,8 @@ pub unsafe fn NetReplImportDirLock<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, dirname: Param1, unlockforce: u32) -> u32 {
     #[cfg(windows)]
@@ -8869,8 +8869,8 @@ pub unsafe fn NetReplImportDirUnlock<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8884,8 +8884,8 @@ pub unsafe fn NetReplSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pprovisionbindata: *const u8, cbprovisionbindatasize: u32, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3) -> u32 {
     #[cfg(windows)]
@@ -8899,8 +8899,8 @@ pub unsafe fn NetRequestOfflineDomainJoin<'a, Param3: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ppackagebindata: *const u8, dwpackagebindatasize: u32, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: Param3, pvreserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -8914,8 +8914,8 @@ pub unsafe fn NetRequestProvisioningPackageInstall<'a, Param3: ::windows::runtim
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, buffer: *mut u8, jobid: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8929,8 +8929,8 @@ pub unsafe fn NetScheduleJobAdd<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, minjobid: u32, maxjobid: u32) -> u32 {
     #[cfg(windows)]
@@ -8944,8 +8944,8 @@ pub unsafe fn NetScheduleJobDel<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, pointertobuffer: *mut *mut u8, prefferedmaximumlength: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -8959,8 +8959,8 @@ pub unsafe fn NetScheduleJobEnum<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, jobid: u32, pointertobuffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -8974,8 +8974,8 @@ pub unsafe fn NetScheduleJobGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulateddomainname: Param1, emulatedservername: Param2) -> u32 {
     #[cfg(windows)]
@@ -8989,8 +8989,8 @@ pub unsafe fn NetServerComputerNameAdd<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, emulatedservername: Param1) -> u32 {
     #[cfg(windows)]
@@ -9004,8 +9004,8 @@ pub unsafe fn NetServerComputerNameDel<'a, Param0: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9019,8 +9019,8 @@ pub unsafe fn NetServerDiskEnum<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, servertype: NET_SERVER_TYPE, domain: Param7, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9044,8 +9044,8 @@ pub unsafe fn NetServerEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9059,8 +9059,8 @@ pub unsafe fn NetServerGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parmerror: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9074,8 +9074,8 @@ pub unsafe fn NetServerSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -9089,8 +9089,8 @@ pub unsafe fn NetServerTransportAdd<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -9104,8 +9104,8 @@ pub unsafe fn NetServerTransportAddEx<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *const u8) -> u32 {
     #[cfg(windows)]
@@ -9119,8 +9119,8 @@ pub unsafe fn NetServerTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9134,8 +9134,8 @@ pub unsafe fn NetServerTransportEnum<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, opcode: u32, arg: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9149,8 +9149,8 @@ pub unsafe fn NetServiceControl<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9164,8 +9164,8 @@ pub unsafe fn NetServiceEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9179,8 +9179,8 @@ pub unsafe fn NetServiceGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, service: Param1, argc: u32, argv: *const super::super::Foundation::PWSTR, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9194,8 +9194,8 @@ pub unsafe fn NetServiceInstall<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(server: Param0, primaryname: Param1, domainaccount: Param2, domainaccountpassword: Param3, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -9209,8 +9209,8 @@ pub unsafe fn NetSetPrimaryComputerName<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUnjoinDomain<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpaccount: Param1, lppassword: Param2, funjoinoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -9238,8 +9238,8 @@ pub unsafe fn NetUseAdd(servername: *const i8, levelflags: u32, buf: *const u8, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, forcelevelflags: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -9253,8 +9253,8 @@ pub unsafe fn NetUseDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, levelflags: u32, bufptr: *mut *mut u8, preferedmaximumsize: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9268,8 +9268,8 @@ pub unsafe fn NetUseEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(uncservername: Param0, usename: Param1, levelflags: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9283,8 +9283,8 @@ pub unsafe fn NetUseGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9298,8 +9298,8 @@ pub unsafe fn NetUserAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, username: Param1, oldpassword: Param2, newpassword: Param3) -> u32 {
     #[cfg(windows)]
@@ -9313,8 +9313,8 @@ pub unsafe fn NetUserChangePassword<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1) -> u32 {
     #[cfg(windows)]
@@ -9328,8 +9328,8 @@ pub unsafe fn NetUserDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9343,8 +9343,8 @@ pub unsafe fn NetUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9358,8 +9358,8 @@ pub unsafe fn NetUserGetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9373,8 +9373,8 @@ pub unsafe fn NetUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, flags: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9388,8 +9388,8 @@ pub unsafe fn NetUserGetLocalGroups<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9403,8 +9403,8 @@ pub unsafe fn NetUserModalsGet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9418,8 +9418,8 @@ pub unsafe fn NetUserModalsSet<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, num_entries: u32) -> u32 {
     #[cfg(windows)]
@@ -9433,8 +9433,8 @@ pub unsafe fn NetUserSetGroups<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, username: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9448,8 +9448,8 @@ pub unsafe fn NetUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpserver: Param0, lpname: Param1, lpaccount: Param2, lppassword: Param3, nametype: NETSETUP_NAME_TYPE) -> u32 {
     #[cfg(windows)]
@@ -9463,8 +9463,8 @@ pub unsafe fn NetValidateName<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetValidatePasswordPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: *mut ::std::ffi::c_void, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: *mut ::std::ffi::c_void, outputarg: *mut *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9492,8 +9492,8 @@ pub unsafe fn NetValidatePasswordPolicyFree(outputarg: *mut *mut ::std::ffi::c_v
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9507,8 +9507,8 @@ pub unsafe fn NetWkstaGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buffer: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9536,8 +9536,8 @@ pub unsafe fn NetWkstaTransportAdd(servername: *const i8, level: u32, buf: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaTransportDel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, transportname: Param1, ucond: FORCE_LEVEL_FLAGS) -> u32 {
     #[cfg(windows)]
@@ -9565,8 +9565,8 @@ pub unsafe fn NetWkstaTransportEnum(servername: *const i8, level: u32, bufptr: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -9580,8 +9580,8 @@ pub unsafe fn NetWkstaUserEnum<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, bufptr: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9595,8 +9595,8 @@ pub unsafe fn NetWkstaUserGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetWkstaUserSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -10391,8 +10391,8 @@ unsafe impl ::windows::runtime::Abi for RTR_TOC_ENTRY {
 pub const RTUTILS_MAX_PROTOCOL_DLL_LEN: u32 = 48u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const RTUTILS_MAX_PROTOCOL_NAME_LEN: u32 = 40u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(pszfailedassertion: Param0, pszfilename: Param1, dwlinenumber: u32, pszmessage: Param3) {
     #[cfg(windows)]
@@ -10406,8 +10406,8 @@ pub unsafe fn RouterAssert<'a, Param0: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
@@ -10421,8 +10421,8 @@ pub unsafe fn RouterGetErrorStringA(dwerrorcode: u32, lplpszerrorstring: *mut su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -10436,8 +10436,8 @@ pub unsafe fn RouterGetErrorStringW(dwerrorcode: u32, lplpwszerrorstring: *mut s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
@@ -10451,8 +10451,8 @@ pub unsafe fn RouterLogDeregisterA<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0) {
     #[cfg(windows)]
@@ -10466,8 +10466,8 @@ pub unsafe fn RouterLogDeregisterW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -10481,8 +10481,8 @@ pub unsafe fn RouterLogEventA<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
@@ -10496,8 +10496,8 @@ pub unsafe fn RouterLogEventDataA<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwdatabytes: u32, lpdatabytes: *mut u8) {
     #[cfg(windows)]
@@ -10511,8 +10511,8 @@ pub unsafe fn RouterLogEventDataW<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
@@ -10526,8 +10526,8 @@ pub unsafe fn RouterLogEventExA<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4) {
     #[cfg(windows)]
@@ -10541,8 +10541,8 @@ pub unsafe fn RouterLogEventExW<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
@@ -10556,8 +10556,8 @@ pub unsafe fn RouterLogEventStringA<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32, dwerrorindex: u32) {
     #[cfg(windows)]
@@ -10571,8 +10571,8 @@ pub unsafe fn RouterLogEventStringW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
@@ -10586,8 +10586,8 @@ pub unsafe fn RouterLogEventValistExA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hloghandle: Param0, dweventtype: u32, dwerrorcode: u32, dwmessageid: u32, ptszformat: Param4, arglist: *mut i8) {
     #[cfg(windows)]
@@ -10601,8 +10601,8 @@ pub unsafe fn RouterLogEventValistExW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hloghandle: Param0, dweventtype: u32, dwmessageid: u32, dwsubstringcount: u32, plpszsubstringarray: *const super::super::Foundation::PWSTR, dwerrorcode: u32) {
     #[cfg(windows)]
@@ -10616,8 +10616,8 @@ pub unsafe fn RouterLogEventW<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -10631,8 +10631,8 @@ pub unsafe fn RouterLogRegisterA<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RouterLogRegisterW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -15353,8 +15353,8 @@ pub const SW_AUTOPROF_LOAD_MASK: u32 = 1u32;
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`*"]
 pub const SW_AUTOPROF_SAVE_MASK: u32 = 2u32;
 pub const ServiceAccountPasswordGUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(640588233, 24928, 18545, [172, 236, 78, 97, 115, 107, 111, 33]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetNetScheduleAccountInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszservername: Param0, pwszaccount: Param1, pwszpassword: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -15543,8 +15543,8 @@ pub unsafe fn TraceDeregisterW(dwtraceid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
@@ -15558,8 +15558,8 @@ pub unsafe fn TraceDumpExA<'a, Param5: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpbbytes: *mut u8, dwbytecount: u32, dwgroupsize: u32, baddressprefix: Param5, lpszprefix: Param6) -> u32 {
     #[cfg(windows)]
@@ -15573,8 +15573,8 @@ pub unsafe fn TraceDumpExW<'a, Param5: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15588,8 +15588,8 @@ pub unsafe fn TraceGetConsoleA(dwtraceid: u32, lphconsole: *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -15603,8 +15603,8 @@ pub unsafe fn TraceGetConsoleW(dwtraceid: u32, lphconsole: *mut super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
@@ -15618,8 +15618,8 @@ pub unsafe fn TracePrintfA<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
@@ -15633,8 +15633,8 @@ pub unsafe fn TracePrintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2) -> u32 {
     #[cfg(windows)]
@@ -15648,8 +15648,8 @@ pub unsafe fn TracePrintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, lpszformat: Param1) -> u32 {
     #[cfg(windows)]
@@ -15663,8 +15663,8 @@ pub unsafe fn TracePrintfW<'a, Param1: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
@@ -15678,8 +15678,8 @@ pub unsafe fn TracePutsExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszstring: Param2) -> u32 {
     #[cfg(windows)]
@@ -15693,8 +15693,8 @@ pub unsafe fn TracePutsExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -15708,8 +15708,8 @@ pub unsafe fn TraceRegisterExA<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszcallername: Param0, dwflags: u32) -> u32 {
     #[cfg(windows)]
@@ -15723,8 +15723,8 @@ pub unsafe fn TraceRegisterExW<'a, Param0: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]
@@ -15738,8 +15738,8 @@ pub unsafe fn TraceVprintfExA<'a, Param2: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_NetManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TraceVprintfExW<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dwtraceid: u32, dwflags: u32, lpszformat: Param2, arglist: *mut i8) -> u32 {
     #[cfg(windows)]

@@ -411,8 +411,8 @@ pub struct ISensOnNow_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwbatterylifepercent: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwbatterylifepercent: u32) -> ::windows::runtime::HRESULT,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDestinationReachableA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -426,8 +426,8 @@ pub unsafe fn IsDestinationReachableA<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsDestinationReachableW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdestination: Param0, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -441,8 +441,8 @@ pub unsafe fn IsDestinationReachableW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_EventNotificationService`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

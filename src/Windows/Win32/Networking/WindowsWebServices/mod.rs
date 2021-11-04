@@ -11471,8 +11471,8 @@ impl ::std::cmp::Eq for WS_XML_WRITER_TEXT_ENCODING {}
 unsafe impl ::windows::runtime::Abi for WS_XML_WRITER_TEXT_ENCODING {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hwnd: Param0, pwszrpid: Param1, pwebauthnclientdata: *const WEBAUTHN_CLIENT_DATA, pwebauthngetassertionoptions: *const WEBAUTHN_AUTHENTICATOR_GET_ASSERTION_OPTIONS) -> ::windows::runtime::Result<*mut WEBAUTHN_ASSERTION> {
     #[cfg(windows)]
@@ -11487,8 +11487,8 @@ pub unsafe fn WebAuthNAuthenticatorGetAssertion<'a, Param0: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNAuthenticatorMakeCredential<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(
     hwnd: Param0,
@@ -11532,8 +11532,8 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const ::windows::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTION) {
     #[cfg(windows)]
@@ -11547,8 +11547,8 @@ pub unsafe fn WebAuthNFreeAssertion(pwebauthnassertion: *const WEBAUTHN_ASSERTIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: *const WEBAUTHN_CREDENTIAL_ATTESTATION) {
     #[cfg(windows)]
@@ -11591,8 +11591,8 @@ pub unsafe fn WebAuthNGetCancellationId() -> ::windows::runtime::Result<::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNGetErrorName(hr: ::windows::runtime::HRESULT) -> super::super::Foundation::PWSTR {
     #[cfg(windows)]
@@ -11620,8 +11620,8 @@ pub unsafe fn WebAuthNGetW3CExceptionDOMError(hr: ::windows::runtime::HRESULT) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -11734,8 +11734,8 @@ pub unsafe fn WsAcceptChannel(listener: *const WS_LISTENER, channel: *const WS_C
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32, headerattributes: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11749,8 +11749,8 @@ pub unsafe fn WsAddCustomHeader(message: *const WS_MESSAGE, headerdescription: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11764,8 +11764,8 @@ pub unsafe fn WsAddErrorString(error: *const WS_ERROR, string: *const WS_STRING)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11779,8 +11779,8 @@ pub unsafe fn WsAddMappedHeader(message: *const WS_MESSAGE, headername: *const W
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsAddressMessage(message: *const WS_MESSAGE, address: *const WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11822,8 +11822,8 @@ pub unsafe fn WsAsyncExecute(asyncstate: *const WS_ASYNC_STATE, operation: ::std
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsCall(serviceproxy: *const WS_SERVICE_PROXY, operation: *const WS_OPERATION_DESCRIPTION, arguments: *const *const ::std::ffi::c_void, heap: *const WS_HEAP, callproperties: *const WS_CALL_PROPERTY, callpropertycount: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11907,8 +11907,8 @@ pub unsafe fn WsCloseServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, asyncco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsCombineUrl(baseurl: *const WS_STRING, referenceurl: *const WS_STRING, flags: u32, heap: *const WS_HEAP, resulturl: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -11993,8 +11993,8 @@ pub unsafe fn WsCreateError(properties: *const WS_ERROR_PROPERTY, propertycount:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsCreateFaultFromError(error: *const WS_ERROR, faulterrorcode: ::windows::runtime::HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: *const WS_HEAP) -> ::windows::runtime::Result<WS_FAULT> {
     #[cfg(windows)]
@@ -12093,8 +12093,8 @@ pub unsafe fn WsCreateReader(properties: *const WS_XML_READER_PROPERTY, property
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsCreateServiceEndpointFromTemplate(
     channeltype: WS_CHANNEL_TYPE,
@@ -12154,8 +12154,8 @@ pub unsafe fn WsCreateServiceEndpointFromTemplate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsCreateServiceHost(endpoints: *const *const WS_SERVICE_ENDPOINT, endpointcount: u16, serviceproperties: *const WS_SERVICE_PROPERTY, servicepropertycount: u32, servicehost: *mut *mut WS_SERVICE_HOST, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12262,8 +12262,8 @@ pub unsafe fn WsCreateXmlSecurityToken(tokenxml: *const WS_XML_BUFFER, tokenkey:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut super::super::Foundation::FILETIME, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12277,8 +12277,8 @@ pub unsafe fn WsDateTimeToFileTime(datetime: *const WS_DATETIME, filetime: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEAP, outurl: *mut *mut WS_URL, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12292,8 +12292,8 @@ pub unsafe fn WsDecodeUrl(url: *const WS_STRING, flags: u32, heap: *const WS_HEA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsEncodeUrl(url: *const WS_URL, flags: u32, heap: *const WS_HEAP, outurl: *mut WS_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12335,8 +12335,8 @@ pub unsafe fn WsEndWriterCanonicalization(writer: *const WS_XML_WRITER, error: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsFileTimeToDateTime(filetime: *const super::super::Foundation::FILETIME, datetime: *mut WS_DATETIME, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12378,8 +12378,8 @@ pub unsafe fn WsFillReader(reader: *const WS_XML_READER, minsize: u32, asynccont
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsFindAttribute<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, required: Param3, attributeindex: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12589,8 +12589,8 @@ pub unsafe fn WsGetChannelProperty(channel: *const WS_CHANNEL, id: WS_CHANNEL_PR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescription: *const WS_ELEMENT_DESCRIPTION, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, headerattributes: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12616,8 +12616,8 @@ pub unsafe fn WsGetCustomHeader(message: *const WS_MESSAGE, customheaderdescript
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetDictionary(encoding: WS_ENCODING, dictionary: *mut *mut WS_XML_DICTIONARY, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12645,8 +12645,8 @@ pub unsafe fn WsGetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows::runtime::Result<WS_STRING> {
     #[cfg(windows)]
@@ -12661,8 +12661,8 @@ pub unsafe fn WsGetErrorString(error: *const WS_ERROR, index: u32) -> ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12746,8 +12746,8 @@ pub unsafe fn WsGetListenerProperty(listener: *const WS_LISTENER, id: WS_LISTENE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: u32, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12787,8 +12787,8 @@ pub unsafe fn WsGetMessageProperty(message: *const WS_MESSAGE, id: WS_MESSAGE_PR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetMetadataEndpoints(metadata: *const WS_METADATA, endpoints: *mut WS_METADATA_ENDPOINTS, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12816,8 +12816,8 @@ pub unsafe fn WsGetMetadataProperty(metadata: *const WS_METADATA, id: WS_METADAT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, address: *mut *mut WS_ENDPOINT_ADDRESS, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12831,8 +12831,8 @@ pub unsafe fn WsGetMissingMetadataDocumentAddress(metadata: *const WS_METADATA, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetNamespaceFromPrefix<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(reader: *const WS_XML_READER, prefix: *const WS_XML_STRING, required: Param2, ns: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -12888,8 +12888,8 @@ pub unsafe fn WsGetPolicyProperty(policy: *const WS_POLICY, id: WS_POLICY_PROPER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetPrefixFromNamespace<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, ns: *const WS_XML_STRING, required: Param2, prefix: *mut *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13029,8 +13029,8 @@ pub unsafe fn WsGetWriterProperty(writer: *const WS_XML_WRITER, id: WS_XML_WRITE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsGetXmlAttribute(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, heap: *const WS_HEAP, valuechars: *mut *mut u16, valuecharcount: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13072,8 +13072,8 @@ pub unsafe fn WsMarkHeaderAsUnderstood(message: *const WS_MESSAGE, headerpositio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsMatchPolicyAlternative<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(policy: *const WS_POLICY, alternativeindex: u32, policyconstraints: *const WS_POLICY_CONSTRAINTS, matchrequired: Param3, heap: *const WS_HEAP, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13087,8 +13087,8 @@ pub unsafe fn WsMatchPolicyAlternative<'a, Param3: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13102,8 +13102,8 @@ pub unsafe fn WsMoveReader(reader: *const WS_XML_READER, moveto: WS_MOVE_TO, fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13117,8 +13117,8 @@ pub unsafe fn WsMoveWriter(writer: *const WS_XML_WRITER, moveto: WS_MOVE_TO, fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13132,8 +13132,8 @@ pub unsafe fn WsOpenChannel(channel: *const WS_CHANNEL, endpointaddress: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsOpenListener(listener: *const WS_LISTENER, url: *const WS_STRING, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13161,8 +13161,8 @@ pub unsafe fn WsOpenServiceHost(servicehost: *const WS_SERVICE_HOST, asynccontex
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsOpenServiceProxy(serviceproxy: *const WS_SERVICE_PROXY, address: *const WS_ENDPOINT_ADDRESS, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13204,8 +13204,8 @@ pub unsafe fn WsPushBytes(writer: *const WS_XML_WRITER, callback: ::std::option:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *mut ::std::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, actualitemcount: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13231,8 +13231,8 @@ pub unsafe fn WsReadArray(reader: *const WS_XML_READER, localname: *const WS_XML
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13246,8 +13246,8 @@ pub unsafe fn WsReadAttribute(reader: *const WS_XML_READER, attributedescription
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13275,8 +13275,8 @@ pub unsafe fn WsReadBytes(reader: *const WS_XML_READER, bytes: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadChars(reader: *const WS_XML_READER, chars: super::super::Foundation::PWSTR, maxcharcount: u32, actualcharcount: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13304,8 +13304,8 @@ pub unsafe fn WsReadCharsUtf8(reader: *const WS_XML_READER, bytes: *mut u8, maxb
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadElement(reader: *const WS_XML_READER, elementdescription: *const WS_ELEMENT_DESCRIPTION, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13347,8 +13347,8 @@ pub unsafe fn WsReadEndElement(reader: *const WS_XML_READER, error: *const WS_ER
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadEndpointAddressExtension(reader: *const WS_XML_READER, endpointaddress: *const WS_ENDPOINT_ADDRESS, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13418,8 +13418,8 @@ pub unsafe fn WsReadMessageStart(channel: *const WS_CHANNEL, message: *const WS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadMetadata(metadata: *const WS_METADATA, reader: *const WS_XML_READER, url: *const WS_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13447,8 +13447,8 @@ pub unsafe fn WsReadNode(reader: *const WS_XML_READER, error: *const WS_ERROR) -
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadQualifiedName(reader: *const WS_XML_READER, heap: *const WS_HEAP, prefix: *mut WS_XML_STRING, localname: *mut WS_XML_STRING, ns: *mut WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13490,8 +13490,8 @@ pub unsafe fn WsReadStartElement(reader: *const WS_XML_READER, error: *const WS_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReadToStartElement(reader: *const WS_XML_READER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, found: *mut super::super::Foundation::BOOL, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13561,8 +13561,8 @@ pub unsafe fn WsReadXmlBufferFromBytes(reader: *const WS_XML_READER, encoding: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsReceiveMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescriptions: *const *const WS_MESSAGE_DESCRIPTION, messagedescriptioncount: u32, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: *const WS_HEAP, value: *mut ::std::ffi::c_void, valuesize: u32, index: *mut u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13604,8 +13604,8 @@ pub unsafe fn WsRegisterOperationForCancel(context: *const WS_OPERATION_CONTEXT,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsRemoveCustomHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, headerns: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13633,8 +13633,8 @@ pub unsafe fn WsRemoveHeader(message: *const WS_MESSAGE, headertype: WS_HEADER_T
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsRemoveMappedHeader(message: *const WS_MESSAGE, headername: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13662,8 +13662,8 @@ pub unsafe fn WsRemoveNode(nodeposition: *const WS_XML_NODE_POSITION, error: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsRequestReply(
     channel: *const WS_CHANNEL,
@@ -13877,8 +13877,8 @@ pub unsafe fn WsSendFaultMessageForError(channel: *const WS_CHANNEL, replymessag
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSAGE, messagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, bodyvalue: *const ::std::ffi::c_void, bodyvaluesize: u32, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13892,8 +13892,8 @@ pub unsafe fn WsSendMessage(channel: *const WS_CHANNEL, message: *const WS_MESSA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsSendReplyMessage(channel: *const WS_CHANNEL, replymessage: *const WS_MESSAGE, replymessagedescription: *const WS_MESSAGE_DESCRIPTION, writeoption: WS_WRITE_OPTION, replybodyvalue: *const ::std::ffi::c_void, replybodyvaluesize: u32, requestmessage: *const WS_MESSAGE, asynccontext: *const WS_ASYNC_CONTEXT, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -13946,8 +13946,8 @@ pub unsafe fn WsSetErrorProperty(error: *const WS_ERROR, id: WS_ERROR_PROPERTY_I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsSetFaultErrorDetail(error: *const WS_ERROR, faultdetaildescription: *const WS_FAULT_DETAIL_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14157,8 +14157,8 @@ pub unsafe fn WsStartWriterCanonicalization(writer: *const WS_XML_WRITER, writec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsTrimXmlWhitespace<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(chars: Param0, charcount: u32, trimmedchars: *mut *mut u16, trimmedcount: *mut u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14172,8 +14172,8 @@ pub unsafe fn WsTrimXmlWhitespace<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsVerifyXmlNCName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(ncnamechars: Param0, ncnamecharcount: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14187,8 +14187,8 @@ pub unsafe fn WsVerifyXmlNCName<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, valuetype: WS_VALUE_TYPE, array: *const ::std::ffi::c_void, arraysize: u32, itemoffset: u32, itemcount: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14202,8 +14202,8 @@ pub unsafe fn WsWriteArray(writer: *const WS_XML_WRITER, localname: *const WS_XM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescription: *const WS_ATTRIBUTE_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14217,8 +14217,8 @@ pub unsafe fn WsWriteAttribute(writer: *const WS_XML_WRITER, attributedescriptio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteBody(message: *const WS_MESSAGE, bodydescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14246,8 +14246,8 @@ pub unsafe fn WsWriteBytes(writer: *const WS_XML_WRITER, bytes: *const ::std::ff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteChars<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(writer: *const WS_XML_WRITER, chars: Param1, charcount: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14275,8 +14275,8 @@ pub unsafe fn WsWriteCharsUtf8(writer: *const WS_XML_WRITER, bytes: *const u8, b
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteElement(writer: *const WS_XML_WRITER, elementdescription: *const WS_ELEMENT_DESCRIPTION, writeoption: WS_WRITE_OPTION, value: *const ::std::ffi::c_void, valuesize: u32, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14416,8 +14416,8 @@ pub unsafe fn WsWriteNode(writer: *const WS_XML_WRITER, node: *const WS_XML_NODE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14431,8 +14431,8 @@ pub unsafe fn WsWriteQualifiedName(writer: *const WS_XML_WRITER, prefix: *const 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteStartAttribute<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param4, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14460,8 +14460,8 @@ pub unsafe fn WsWriteStartCData(writer: *const WS_XML_WRITER, error: *const WS_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteStartElement(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, localname: *const WS_XML_STRING, ns: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14545,8 +14545,8 @@ pub unsafe fn WsWriteXmlBufferToBytes(writer: *const WS_XML_WRITER, xmlbuffer: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsWriteXmlnsAttribute<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(writer: *const WS_XML_WRITER, prefix: *const WS_XML_STRING, ns: *const WS_XML_STRING, singlequote: Param3, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -14560,8 +14560,8 @@ pub unsafe fn WsWriteXmlnsAttribute<'a, Param3: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_WindowsWebServices`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WsXmlStringEquals(string1: *const WS_XML_STRING, string2: *const WS_XML_STRING, error: *const WS_ERROR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

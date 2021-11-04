@@ -149,8 +149,8 @@ impl ::std::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_ApplicationVerifier`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::std::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]

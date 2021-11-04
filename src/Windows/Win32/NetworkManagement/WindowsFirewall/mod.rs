@@ -5934,8 +5934,8 @@ pub const NetFwProduct: ::windows::runtime::GUID = ::windows::runtime::GUID::fro
 pub const NetFwProducts: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3424192411, 33394, 19827, [187, 112, 205, 181, 51, 82, 123, 97]);
 pub const NetFwRule: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(744211518, 13161, 19507, [171, 12, 190, 148, 105, 103, 122, 244]);
 pub const NetSharingManager: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1550041517, 14678, 20472, [132, 134, 64, 3, 71, 88, 49, 91]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(wszservername: Param0, netisoerror: *mut NETISO_ERROR_TYPE) -> u32 {
     #[cfg(windows)]
@@ -5949,8 +5949,8 @@ pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, Param0: ::win
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg(windows)]
@@ -5964,8 +5964,8 @@ pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32 {
     #[cfg(windows)]
@@ -5979,8 +5979,8 @@ pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
@@ -5994,8 +5994,8 @@ pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: ::std::option::Option<PAC_CHANGES_CALLBACK_FN>, context: *const ::std::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -6009,8 +6009,8 @@ pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callbac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
@@ -6024,8 +6024,8 @@ pub unsafe fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     applicationcontainersid: Param0,
@@ -6047,8 +6047,8 @@ pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsFirewall`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(registrationobject: Param0) -> u32 {
     #[cfg(windows)]

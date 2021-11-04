@@ -9330,8 +9330,8 @@ pub unsafe fn DirectDrawCreateEx<'a, Param3: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: ::std::option::Option<LPDDENUMCALLBACKA>, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9345,8 +9345,8 @@ pub unsafe fn DirectDrawEnumerateA(lpcallback: ::std::option::Option<LPDDENUMCAL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: ::std::option::Option<LPDDENUMCALLBACKEXA>, lpcontext: *mut ::std::ffi::c_void, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9360,8 +9360,8 @@ pub unsafe fn DirectDrawEnumerateExA(lpcallback: ::std::option::Option<LPDDENUMC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: ::std::option::Option<LPDDENUMCALLBACKEXW>, lpcontext: *mut ::std::ffi::c_void, dwflags: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -9375,8 +9375,8 @@ pub unsafe fn DirectDrawEnumerateExW(lpcallback: ::std::option::Option<LPDDENUMC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Graphics_DirectDraw`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: ::std::option::Option<LPDDENUMCALLBACKW>, lpcontext: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

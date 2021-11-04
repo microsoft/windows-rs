@@ -3684,8 +3684,8 @@ pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3699,8 +3699,8 @@ pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Optio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3742,8 +3742,8 @@ pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3757,8 +3757,8 @@ pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3772,8 +3772,8 @@ pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 #[doc = "*Required features: `Win32_Media_Audio_DirectMusic`, `Win32_Foundation`, `Win32_Media_Multimedia`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 #[inline]
 pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pcguidcapturedevice: *const ::windows::runtime::GUID,

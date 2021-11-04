@@ -4331,8 +4331,8 @@ impl ::std::cmp::Eq for HTTP_WSK_API_TIMINGS {}
 unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, datachunk: *mut HTTP_DATA_CHUNK, cachepolicy: *mut HTTP_CACHE_POLICY, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4346,8 +4346,8 @@ pub unsafe fn HttpAddFragmentToCache<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpAddUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1, reserved: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4361,8 +4361,8 @@ pub unsafe fn HttpAddUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, urlcontext: u64, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -4376,8 +4376,8 @@ pub unsafe fn HttpAddUrlToUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4391,8 +4391,8 @@ pub unsafe fn HttpCancelHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpCloseRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4434,8 +4434,8 @@ pub unsafe fn HttpCloseUrlGroup(urlgroupid: u64) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Foundation::HANDLE, reserved: u32) -> u32 {
     #[cfg(windows)]
@@ -4449,8 +4449,8 @@ pub unsafe fn HttpCreateHttpHandle(requestqueuehandle: *mut super::super::Founda
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn HttpCreateRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPAPI_VERSION>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(version: Param0, name: Param1, securityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, flags: u32, requestqueuehandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4492,8 +4492,8 @@ pub unsafe fn HttpCreateUrlGroup(serversessionid: u64, purlgroupid: *mut u64, re
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(requestqueuehandle: Param0, requestid: u64, verb: HTTP_VERB, path: Param3, query: Param4, headers: *const HTTP_REQUEST_HEADERS) -> u32 {
     #[cfg(windows)]
@@ -4507,8 +4507,8 @@ pub unsafe fn HttpDeclarePush<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, delegatequeuehandle: Param1, requestid: u64, delegateurlgroupid: u64, propertyinfosetsize: u32, propertyinfoset: *const HTTP_DELEGATE_REQUEST_PROPERTY_INFO) -> u32 {
     #[cfg(windows)]
@@ -4522,8 +4522,8 @@ pub unsafe fn HttpDelegateRequestEx<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4537,8 +4537,8 @@ pub unsafe fn HttpDeleteServiceConfiguration<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(fullyqualifiedurl: Param0, requestqueuehandle: Param1, urlgroupid: *mut u64) -> u32 {
     #[cfg(windows)]
@@ -4552,8 +4552,8 @@ pub unsafe fn HttpFindUrlGroupId<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpFlushResponseCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, flags: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4595,8 +4595,8 @@ pub unsafe fn HttpInitialize<'a, Param0: ::windows::runtime::IntoParam<'a, HTTPA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -4610,8 +4610,8 @@ pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(reserved: *mut ::std::ffi::c_void, flags: u32, url: Param2, preparedurl: *mut super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
@@ -4625,8 +4625,8 @@ pub unsafe fn HttpPrepareUrl<'a, Param2: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpQueryRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *mut ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, returnlength: *mut u32, reserved2: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4654,8 +4654,8 @@ pub unsafe fn HttpQueryServerSessionProperty(serversessionid: u64, property: HTT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpQueryServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pinput: *const ::std::ffi::c_void, inputlength: u32, poutput: *mut ::std::ffi::c_void, outputlength: u32, preturnlength: *mut u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4692,8 +4692,8 @@ pub unsafe fn HttpQueryUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, urlprefix: Param1, byterange: *mut HTTP_BYTE_RANGE, buffer: *mut ::std::ffi::c_void, bufferlength: u32, bytesread: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4707,8 +4707,8 @@ pub unsafe fn HttpReadFragmentFromCache<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, flags: u32, sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO, sslclientcertinfosize: u32, bytesreceived: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4722,8 +4722,8 @@ pub unsafe fn HttpReceiveClientCertificate<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_Networking_WinSock`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: HTTP_RECEIVE_HTTP_REQUEST_FLAGS, requestbuffer: *mut HTTP_REQUEST_V2, requestbufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4737,8 +4737,8 @@ pub unsafe fn HttpReceiveHttpRequest<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitybuffer: *mut ::std::ffi::c_void, entitybufferlength: u32, bytesreturned: *mut u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4752,8 +4752,8 @@ pub unsafe fn HttpReceiveRequestEntityBody<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestqueuehandle: Param0, fullyqualifiedurl: Param1) -> u32 {
     #[cfg(windows)]
@@ -4767,8 +4767,8 @@ pub unsafe fn HttpRemoveUrl<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(urlgroupid: u64, pfullyqualifiedurl: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -4782,8 +4782,8 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<'a, Param1: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, httpresponse: *mut HTTP_RESPONSE_V2, cachepolicy: *mut HTTP_CACHE_POLICY, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
@@ -4808,8 +4808,8 @@ pub unsafe fn HttpSendHttpResponse<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, requestid: u64, flags: u32, entitychunkcount: u16, entitychunks: *const HTTP_DATA_CHUNK, bytessent: *mut u32, reserved1: *mut ::std::ffi::c_void, reserved2: u32, overlapped: *mut super::super::System::IO::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     #[cfg(windows)]
@@ -4834,8 +4834,8 @@ pub unsafe fn HttpSendResponseEntityBody<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, id: u64, propertyid: HTTP_REQUEST_PROPERTY, input: *const ::std::ffi::c_void, inputpropertysize: u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4849,8 +4849,8 @@ pub unsafe fn HttpSetRequestProperty<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpSetRequestQueueProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, property: HTTP_SERVER_PROPERTY, propertyinformation: *const ::std::ffi::c_void, propertyinformationlength: u32, reserved1: u32, reserved2: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4878,8 +4878,8 @@ pub unsafe fn HttpSetServerSessionProperty(serversessionid: u64, property: HTTP_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSetServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(servicehandle: Param0, configid: HTTP_SERVICE_CONFIG_ID, pconfiginformation: *const ::std::ffi::c_void, configinformationlength: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4907,8 +4907,8 @@ pub unsafe fn HttpSetUrlGroupProperty(urlgroupid: u64, property: HTTP_SERVER_PRO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpShutdownRequestQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0) -> u32 {
     #[cfg(windows)]
@@ -4936,8 +4936,8 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, configid: HTTP_SERVICE_CONFIG_ID, configinfo: *const ::std::ffi::c_void, configinfolength: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4951,8 +4951,8 @@ pub unsafe fn HttpUpdateServiceConfiguration<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4966,8 +4966,8 @@ pub unsafe fn HttpWaitForDemandStart<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]
@@ -4981,8 +4981,8 @@ pub unsafe fn HttpWaitForDisconnect<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_Networking_HttpServer`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnectEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(requestqueuehandle: Param0, connectionid: u64, reserved: u32, overlapped: *mut super::super::System::IO::OVERLAPPED) -> u32 {
     #[cfg(windows)]

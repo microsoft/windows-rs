@@ -4271,8 +4271,8 @@ impl ::std::convert::From<i32> for WSManCallbackFlags {
 unsafe impl ::windows::runtime::Abi for WSManCallbackFlags {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManCloseCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
@@ -4314,8 +4314,8 @@ pub unsafe fn WSManCloseSession(session: *mut WSMAN_SESSION, flags: u32) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
@@ -4329,8 +4329,8 @@ pub unsafe fn WSManCloseShell(shellhandle: *mut WSMAN_SHELL, flags: u32, r#async
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManConnectShell<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
@@ -4344,8 +4344,8 @@ pub unsafe fn WSManConnectShell<'a, Param2: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, options: *const WSMAN_OPTION_SET, connectxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
@@ -4359,8 +4359,8 @@ pub unsafe fn WSManConnectShellCommand<'a, Param2: ::windows::runtime::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManCreateSession<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(apihandle: *const WSMAN_API, connection: Param1, flags: u32, serverauthenticationcredentials: *const WSMAN_AUTHENTICATION_CREDENTIALS, proxyinfo: *const WSMAN_PROXY_INFO, session: *mut *mut WSMAN_SESSION) -> u32 {
     #[cfg(windows)]
@@ -4374,8 +4374,8 @@ pub unsafe fn WSManCreateSession<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManCreateShell<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
@@ -4389,8 +4389,8 @@ pub unsafe fn WSManCreateShell<'a, Param2: ::windows::runtime::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManCreateShellEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(session: *mut WSMAN_SESSION, flags: u32, resourceuri: Param2, shellid: Param3, startupinfo: *const WSMAN_SHELL_STARTUP_INFO_V11, options: *const WSMAN_OPTION_SET, createxml: *const WSMAN_DATA, r#async: *const WSMAN_SHELL_ASYNC, shell: *mut *mut WSMAN_SHELL) {
     #[cfg(windows)]
@@ -4444,8 +4444,8 @@ pub unsafe fn WSManDeinitialize(apihandle: *mut WSMAN_API, flags: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManDisconnectShell(shell: *mut WSMAN_SHELL, flags: u32, disconnectinfo: *const WSMAN_SHELL_DISCONNECT_INFO, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
@@ -4480,8 +4480,8 @@ impl ::std::convert::From<i32> for WSManEnumFlags {
 unsafe impl ::windows::runtime::Abi for WSManEnumFlags {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManGetErrorMessage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(apihandle: *const WSMAN_API, flags: u32, languagecode: Param2, errorcode: u32, messagelength: u32, message: super::super::Foundation::PWSTR, messagelengthused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4509,8 +4509,8 @@ pub unsafe fn WSManGetSessionOptionAsDword(session: *const WSMAN_SESSION, option
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManGetSessionOptionAsString(session: *const WSMAN_SESSION, option: WSManSessionOption, stringlength: u32, string: super::super::Foundation::PWSTR, stringlengthused: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -4539,8 +4539,8 @@ pub unsafe fn WSManInitialize(flags: u32, apihandle: *mut *mut WSMAN_API) -> u32
     unimplemented!("Unsupported target OS");
 }
 pub const WSManInternal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2111866789, 24011, 19959, [187, 18, 9, 36, 173, 143, 189, 154]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg(windows)]
@@ -4554,8 +4554,8 @@ pub unsafe fn WSManPluginAuthzOperationComplete<'a, Param4: ::windows::runtime::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, quota: *const WSMAN_AUTHZ_QUOTA, errorcode: u32, extendederrorinformation: Param4) -> u32 {
     #[cfg(windows)]
@@ -4569,8 +4569,8 @@ pub unsafe fn WSManPluginAuthzQueryQuotaComplete<'a, Param4: ::windows::runtime:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(senderdetails: *const WSMAN_SENDER_DETAILS, flags: u32, userauthorizationcontext: *const ::std::ffi::c_void, impersonationtoken: Param3, userisadministrator: Param4, errorcode: u32, extendederrorinformation: Param6) -> u32 {
     #[cfg(windows)]
@@ -4592,8 +4592,8 @@ pub unsafe fn WSManPluginAuthzUserComplete<'a, Param3: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_REQUEST) -> u32 {
     #[cfg(windows)]
@@ -4607,8 +4607,8 @@ pub unsafe fn WSManPluginFreeRequestDetails(requestdetails: *const WSMAN_PLUGIN_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::std::ffi::c_void, flags: u32, data: *mut WSMAN_DATA) -> u32 {
     #[cfg(windows)]
@@ -4622,8 +4622,8 @@ pub unsafe fn WSManPluginGetConfiguration(plugincontext: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, data: *mut WSMAN_DATA) -> u32 {
     #[cfg(windows)]
@@ -4637,8 +4637,8 @@ pub unsafe fn WSManPluginGetOperationParameters(requestdetails: *const WSMAN_PLU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, errorcode: u32, extendedinformation: Param3) -> u32 {
     #[cfg(windows)]
@@ -4652,8 +4652,8 @@ pub unsafe fn WSManPluginOperationComplete<'a, Param3: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginReceiveResult<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, stream: Param2, streamresult: *const WSMAN_DATA, commandstate: Param4, exitcode: u32) -> u32 {
     #[cfg(windows)]
@@ -4681,8 +4681,8 @@ pub unsafe fn WSManPluginReportCompletion(plugincontext: *const ::std::ffi::c_vo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManPluginReportContext(requestdetails: *const WSMAN_PLUGIN_REQUEST, flags: u32, context: *const ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -4743,8 +4743,8 @@ impl ::std::convert::From<i32> for WSManProxyAuthenticationFlags {
 unsafe impl ::windows::runtime::Abi for WSManProxyAuthenticationFlags {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, desiredstreamset: *const WSMAN_STREAM_ID_SET, r#async: *const WSMAN_SHELL_ASYNC, receiveoperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]
@@ -4758,8 +4758,8 @@ pub unsafe fn WSManReceiveShellOutput(shell: *mut WSMAN_SHELL, command: *const W
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
@@ -4773,8 +4773,8 @@ pub unsafe fn WSManReconnectShell(shell: *mut WSMAN_SHELL, flags: u32, r#async: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flags: u32, r#async: *const WSMAN_SHELL_ASYNC) {
     #[cfg(windows)]
@@ -4788,8 +4788,8 @@ pub unsafe fn WSManReconnectShellCommand(commandhandle: *mut WSMAN_COMMAND, flag
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandline: Param2, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
@@ -4803,8 +4803,8 @@ pub unsafe fn WSManRunShellCommand<'a, Param2: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *mut WSMAN_SHELL, flags: u32, commandid: Param2, commandline: Param3, args: *const WSMAN_COMMAND_ARG_SET, options: *const WSMAN_OPTION_SET, r#async: *const WSMAN_SHELL_ASYNC, command: *mut *mut WSMAN_COMMAND) {
     #[cfg(windows)]
@@ -4818,8 +4818,8 @@ pub unsafe fn WSManRunShellCommandEx<'a, Param2: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManSendShellInput<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, streamid: Param3, streamdata: *const WSMAN_DATA, endofstream: Param5, r#async: *const WSMAN_SHELL_ASYNC, sendoperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]
@@ -4897,8 +4897,8 @@ impl ::std::convert::From<i32> for WSManSessionOption {
 unsafe impl ::windows::runtime::Abi for WSManSessionOption {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManSetSessionOption(session: *const WSMAN_SESSION, option: WSManSessionOption, data: *const WSMAN_DATA) -> u32 {
     #[cfg(windows)]
@@ -4929,8 +4929,8 @@ impl ::std::convert::From<i32> for WSManShellFlag {
 unsafe impl ::windows::runtime::Abi for WSManShellFlag {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_RemoteManagement`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSManSignalShell<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(shell: *const WSMAN_SHELL, command: *const WSMAN_COMMAND, flags: u32, code: Param3, r#async: *const WSMAN_SHELL_ASYNC, signaloperation: *mut *mut WSMAN_OPERATION) {
     #[cfg(windows)]

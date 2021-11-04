@@ -14,8 +14,8 @@ impl ::std::convert::From<i32> for APPSTATE {
 unsafe impl ::windows::runtime::Abi for APPSTATE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -32,8 +32,8 @@ pub unsafe fn BrowseForGPO(lpbrowseinfo: *mut GPOBROWSEINFO) -> ::windows::runti
 pub const CLSID_GPESnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2411771700, 41185, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
 pub const CLSID_GroupPolicyObject: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3931121442, 41533, 4561, [167, 211, 0, 0, 248, 117, 113, 227]);
 pub const CLSID_RSOPSnapIn: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1841528907, 29202, 17805, [173, 176, 154, 7, 226, 174, 31, 162]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(descriptor: Param0, commandline: super::super::Foundation::PWSTR, commandlinelength: *mut u32) -> u32 {
     #[cfg(windows)]
@@ -47,8 +47,8 @@ pub unsafe fn CommandLineFromMsiDescriptor<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(lpgpo: Param0, lpcontainer: Param1, fhighpriority: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -74,8 +74,8 @@ unsafe impl ::windows::runtime::Handle for CriticalPolicySectionHandle {}
 unsafe impl ::windows::runtime::Abi for CriticalPolicySectionHandle {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpcontainer: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -89,8 +89,8 @@ pub unsafe fn DeleteAllGPOLinks<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpgpo: Param0, lpcontainer: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -104,8 +104,8 @@ pub unsafe fn DeleteGPOLink<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -119,8 +119,8 @@ pub unsafe fn EnterCriticalPolicySection<'a, Param0: ::windows::runtime::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -156,8 +156,8 @@ pub const FLAG_NO_GPO_FILTER: u32 = 2147483648u32;
 pub const FLAG_NO_USER: u32 = 1u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const FLAG_PLANNING_MODE: u32 = 16777216u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -171,8 +171,8 @@ pub unsafe fn FreeGPOListA(pgpolist: *const GROUP_POLICY_OBJECTA) -> super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeGPOListW(pgpolist: *const GROUP_POLICY_OBJECTW) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -717,8 +717,8 @@ impl ::std::convert::From<i32> for GROUP_POLICY_OBJECT_TYPE {
 unsafe impl ::windows::runtime::Abi for GROUP_POLICY_OBJECT_TYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(bmachine: Param0, lpwszmgmtproduct: Param1, dwmgmtproductoptions: u32) -> u32 {
     #[cfg(windows)]
@@ -732,8 +732,8 @@ pub unsafe fn GenerateGPNotification<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::runtime::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> u32 {
     #[cfg(windows)]
@@ -747,8 +747,8 @@ pub unsafe fn GetAppliedGPOListA<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(dwflags: u32, pmachinename: Param1, psiduser: Param2, pguidextension: *const ::windows::runtime::GUID, ppgpolist: *mut *mut GROUP_POLICY_OBJECTW) -> u32 {
     #[cfg(windows)]
@@ -762,8 +762,8 @@ pub unsafe fn GetAppliedGPOListW<'a, Param1: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(htoken: Param0, lpname: Param1, lphostname: Param2, lpcomputername: Param3, dwflags: u32, pgpolist: *mut *mut GROUP_POLICY_OBJECTA) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -777,8 +777,8 @@ pub unsafe fn GetGPOListA<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGPOListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     htoken: Param0,
@@ -799,8 +799,8 @@ pub unsafe fn GetGPOListW<'a, Param0: ::windows::runtime::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, displayname: *mut super::super::Foundation::PWSTR, supporturl: *mut super::super::Foundation::PWSTR) {
     #[cfg(windows)]
@@ -814,8 +814,8 @@ pub unsafe fn GetLocalManagedApplicationData<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(buserapps: Param0, pdwapps: *mut u32, prglocalapps: *mut *mut LOCALMANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
@@ -829,8 +829,8 @@ pub unsafe fn GetLocalManagedApplications<'a, Param0: ::windows::runtime::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_UI_Shell`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 #[inline]
 pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mut super::super::UI::Shell::APPCATEGORYINFOLIST) -> u32 {
     #[cfg(windows)]
@@ -844,8 +844,8 @@ pub unsafe fn GetManagedApplicationCategories(dwreserved: u32, pappcategory: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetManagedApplications(pcategory: *const ::windows::runtime::GUID, dwqueryflags: u32, dwinfolevel: u32, pdwapps: *mut u32, prgmanagedapps: *mut *mut MANAGEDAPPLICATION) -> u32 {
     #[cfg(windows)]
@@ -7724,8 +7724,8 @@ pub struct IRSOPInformation_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszeventsource: super::super::Foundation::PWSTR, pszeventlogname: super::super::Foundation::PWSTR, pszeventtime: super::super::Foundation::PWSTR, dweventid: u32, ppsztext: *mut super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpnamespace: Param0, lpfilename: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -7739,8 +7739,8 @@ pub unsafe fn ImportRSoPData<'a, Param0: ::windows::runtime::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallApplication(pinstallinfo: *const INSTALLDATA) -> u32 {
     #[cfg(windows)]
@@ -7804,8 +7804,8 @@ pub const LOCALSTATE_PUBLISHED: u32 = 2u32;
 pub const LOCALSTATE_UNINSTALLED: u32 = 64u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const LOCALSTATE_UNINSTALL_UNMANAGED: u32 = 4u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LeaveCriticalPolicySection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hsection: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8078,8 +8078,8 @@ unsafe impl ::windows::runtime::Abi for RSOP_TARGET {
 pub const RSOP_TEMPNAMESPACE_EXISTS: u32 = 4u32;
 #[doc = "*Required features: `Win32_System_GroupPolicy`*"]
 pub const RSOP_USER_ACCESS_DENIED: u32 = 1u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8093,8 +8093,8 @@ pub unsafe fn RefreshPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bmachine: Param0, dwoptions: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8108,8 +8108,8 @@ pub unsafe fn RefreshPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(hevent: Param0, bmachine: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -8123,8 +8123,8 @@ pub unsafe fn RegisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_Security`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(
     psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
@@ -8175,8 +8175,8 @@ pub unsafe fn RsopAccessCheckByType<'a, Param1: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfilename: Param0, prsoptoken: *const ::std::ffi::c_void, dwdesiredaccessmask: u32, pdwgrantedaccessmask: *mut u32, pbaccessstatus: *mut i32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8190,8 +8190,8 @@ pub unsafe fn RsopFileAccessCheck<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Wmi")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_System_Wmi`*"]
+#[cfg(feature = "Win32_System_Wmi")]
 #[inline]
 pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8205,8 +8205,8 @@ pub unsafe fn RsopResetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`, `Win32_System_Wmi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Wmi"))]
 #[inline]
 pub unsafe fn RsopSetPolicySettingStatus<'a, Param1: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemServices>, Param2: ::windows::runtime::IntoParam<'a, super::Wmi::IWbemClassObject>>(dwflags: u32, pservices: Param1, psettinginstance: Param2, ninfo: u32, pstatus: *const POLICYSETTINGSTATUSINFO) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -8237,8 +8237,8 @@ impl ::std::convert::From<i32> for SETTINGSTATUS {
 unsafe impl ::windows::runtime::Abi for SETTINGSTATUS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UninstallApplication<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(productcode: Param0, dwstatus: u32) -> u32 {
     #[cfg(windows)]
@@ -8252,8 +8252,8 @@ pub unsafe fn UninstallApplication<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_GroupPolicy`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnregisterGPNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hevent: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]

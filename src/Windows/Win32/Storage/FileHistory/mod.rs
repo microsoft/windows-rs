@@ -218,8 +218,8 @@ unsafe impl ::windows::runtime::Abi for FhBackupStopReason {
 }
 pub const FhConfigMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3980639036, 2537, 18826, [157, 246, 33, 119, 36, 76, 109, 180]);
 pub const FhReassociation: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1299353141, 5882, 17184, [158, 139, 191, 215, 16, 10, 136, 70]);
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -233,8 +233,8 @@ pub unsafe fn FhServiceBlockBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -248,8 +248,8 @@ pub unsafe fn FhServiceClosePipe<'a, Param0: ::windows::runtime::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(startserviceifstopped: Param0) -> ::windows::runtime::Result<super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE> {
     #[cfg(windows)]
@@ -264,8 +264,8 @@ pub unsafe fn FhServiceOpenPipe<'a, Param0: ::windows::runtime::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -279,8 +279,8 @@ pub unsafe fn FhServiceReloadConfiguration<'a, Param0: ::windows::runtime::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, lowpriorityio: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -294,8 +294,8 @@ pub unsafe fn FhServiceStartBackup<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_Foundation`, `Win32_System_WindowsProgramming`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(pipe: Param0, stoptracking: Param1) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -309,8 +309,8 @@ pub unsafe fn FhServiceStopBackup<'a, Param0: ::windows::runtime::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[doc = "*Required features: `Win32_Storage_FileHistory`, `Win32_System_WindowsProgramming`*"]
+#[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
 pub unsafe fn FhServiceUnblockBackup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::WindowsProgramming::FH_SERVICE_PIPE_HANDLE>>(pipe: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

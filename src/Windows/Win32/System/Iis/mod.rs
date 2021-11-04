@@ -685,8 +685,8 @@ pub const GUID_IIS_ISAPI_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::r
 pub const GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3579657161, 52137, 17631, [130, 126, 19, 45, 58, 69, 150, 194]);
 pub const GUID_IIS_WWW_SERVER_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(975851140, 19489, 18817, [174, 16, 63, 218, 13, 155, 15, 131]);
 pub const GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3729148361, 5608, 20458, [157, 133, 28, 221, 165, 32, 195, 52]);
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -700,8 +700,8 @@ pub unsafe fn GetExtensionVersion(pver: *mut HSE_VERSION_INFO) -> super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFilterVersion(pver: *mut HTTP_FILTER_VERSION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1984,8 +1984,8 @@ impl ::std::convert::From<i32> for HTTP_TRACE_TYPE {
 unsafe impl ::windows::runtime::Abi for HTTP_TRACE_TYPE {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     #[cfg(windows)]
@@ -1999,8 +1999,8 @@ pub unsafe fn HttpExtensionProc(pecb: *const EXTENSION_CONTROL_BLOCK) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_System_Iis`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u32, pvnotification: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]

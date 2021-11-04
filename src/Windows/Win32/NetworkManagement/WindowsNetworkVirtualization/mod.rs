@@ -345,8 +345,8 @@ impl ::std::cmp::Eq for WNV_REDIRECT_PARAM {}
 unsafe impl ::windows::runtime::Abi for WNV_REDIRECT_PARAM {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
@@ -360,8 +360,8 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[doc = "*Required features: `Win32_NetworkManagement_WindowsNetworkVirtualization`, `Win32_Foundation`, `Win32_System_IO`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WnvRequestNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(wnvhandle: Param0, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
     #[cfg(windows)]

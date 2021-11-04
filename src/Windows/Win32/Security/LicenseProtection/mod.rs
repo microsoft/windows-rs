@@ -16,8 +16,8 @@ impl ::std::convert::From<i32> for LicenseProtectionStatus {
 unsafe impl ::windows::runtime::Abi for LicenseProtectionStatus {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::runtime::Result<LicenseProtectionStatus> {
     #[cfg(windows)]
@@ -32,8 +32,8 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::runtime::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_LicenseProtection`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]

@@ -1,6 +1,6 @@
 #![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0, pszdisplayname: Param1, pszdescription: Param2, pcapabilities: *const super::SID_AND_ATTRIBUTES, dwcapabilitycount: u32) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
@@ -15,8 +15,8 @@ pub unsafe fn CreateAppContainerProfile<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -30,8 +30,8 @@ pub unsafe fn DeleteAppContainerProfile<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainername: Param0) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
@@ -46,8 +46,8 @@ pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, Param0: ::windows::r
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(psidappcontainersid: Param0, pszrestrictedappcontainername: Param1) -> ::windows::runtime::Result<super::super::Foundation::PSID> {
     #[cfg(windows)]
@@ -62,8 +62,8 @@ pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedNam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pszappcontainersid: Param0) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
     #[cfg(windows)]
@@ -78,8 +78,8 @@ pub unsafe fn GetAppContainerFolderPath<'a, Param0: ::windows::runtime::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSID>>(token: Param0, appcontainersid: Param1, objectpathlength: u32, objectpath: super::super::Foundation::PWSTR, returnlength: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -93,8 +93,8 @@ pub unsafe fn GetAppContainerNamedObjectPath<'a, Param0: ::windows::runtime::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_Registry")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_System_Registry`*"]
+#[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::runtime::Result<super::super::System::Registry::HKEY> {
     #[cfg(windows)]
@@ -153,8 +153,8 @@ pub struct IIsolatedAppLauncher_abi(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, appusermodelid: super::super::Foundation::PWSTR, arguments: super::super::Foundation::PWSTR, telemetryparameters: *const IsolatedAppLauncherTelemetryParameters) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -169,8 +169,8 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::runtime::Result<super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -185,8 +185,8 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_Security_Isolation`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::std::ffi::c_void) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]

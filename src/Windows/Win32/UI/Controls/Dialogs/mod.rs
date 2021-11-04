@@ -709,8 +709,8 @@ impl ::std::ops::Not for COMMON_DLG_ERRORS {
         Self(self.0.not())
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -724,8 +724,8 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -739,8 +739,8 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -754,8 +754,8 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1105,8 +1105,8 @@ pub const FR_RAW: u32 = 131072u32;
 pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const FR_WRAPAROUND: u32 = 1048576u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1120,8 +1120,8 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -1135,8 +1135,8 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTitleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
@@ -1150,8 +1150,8 @@ pub unsafe fn GetFileTitleA<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTitleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
@@ -1165,8 +1165,8 @@ pub unsafe fn GetFileTitleW<'a, Param0: ::windows::runtime::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1180,8 +1180,8 @@ pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1195,8 +1195,8 @@ pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -1210,8 +1210,8 @@ pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3309,8 +3309,8 @@ unsafe impl ::windows::runtime::Abi for PRINTPAGERANGE {
 }
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`*"]
 pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3324,8 +3324,8 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3339,8 +3339,8 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3354,8 +3354,8 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3369,8 +3369,8 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
@@ -3384,8 +3384,8 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`, `Win32_Graphics_Gdi`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -3399,8 +3399,8 @@ pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
@@ -3414,8 +3414,8 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Fo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[doc = "*Required features: `Win32_UI_Controls_Dialogs`, `Win32_Foundation`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
     #[cfg(windows)]
