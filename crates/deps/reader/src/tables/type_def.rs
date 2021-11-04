@@ -187,7 +187,7 @@ impl TypeDef {
         if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
             for def in &entry.def {
                 if let ElementType::TypeDef(def) = def {
-                def.features(features, keys);
+                    def.features(features, keys);
                 }
             }
         }
