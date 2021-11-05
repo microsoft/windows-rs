@@ -1,3 +1,4 @@
+mod async_kind;
 mod blob;
 mod codes;
 mod constant_value;
@@ -19,6 +20,7 @@ mod type_reader;
 mod type_tree;
 mod workspace;
 
+pub use async_kind::*;
 pub use blob::*;
 pub use codes::*;
 pub use constant_value::*;

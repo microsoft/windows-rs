@@ -755,13 +755,13 @@ impl ::std::convert::From<&DeviceInformationCollection> for super::super::Founda
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for DeviceInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<DeviceInformation>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for &DeviceInformationCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<DeviceInformation>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2200,13 +2200,13 @@ impl ::std::convert::From<&DeviceThumbnail> for super::super::Storage::Streams::
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

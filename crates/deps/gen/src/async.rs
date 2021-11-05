@@ -1,14 +1,14 @@
 use crate::*;
 
 pub fn gen_async(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen, cfg: &TokenStream) -> (TokenStream, TokenStream) {
-    let kind = async_kind(def);
+    let kind = def.async_kind();
 
     if kind != AsyncKind::None {
         return gen_async_kind(kind, def, def, gen, cfg);
     }
 
     for interface in interfaces {
-        let kind = async_kind(&interface.def);
+        let kind = interface.def.async_kind();
 
         if kind != AsyncKind::None {
             return gen_async_kind(kind, &interface.def, def, gen, cfg);
@@ -16,26 +16,6 @@ pub fn gen_async(def: &TypeDef, interfaces: &[InterfaceInfo], gen: &Gen, cfg: &T
     }
 
     (TokenStream::new(), TokenStream::new())
-}
-
-#[derive(PartialEq)]
-pub enum AsyncKind {
-    None,
-    Action,
-    ActionWithProgress,
-    Operation,
-    OperationWithProgress,
-}
-
-// TODO: make is_async method on TypeDef
-pub fn async_kind(def: &TypeDef) -> AsyncKind {
-    match def.type_name() {
-        TypeName::IAsyncAction => AsyncKind::Action,
-        TypeName::IAsyncActionWithProgress => AsyncKind::ActionWithProgress,
-        TypeName::IAsyncOperation => AsyncKind::Operation,
-        TypeName::IAsyncOperationWithProgress => AsyncKind::OperationWithProgress,
-        _ => AsyncKind::None,
-    }
 }
 
 fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Gen, cfg: &TokenStream) -> (TokenStream, TokenStream) {

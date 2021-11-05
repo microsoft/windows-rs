@@ -3513,12 +3513,12 @@ impl ::std::convert::From<&MessageWebSocketInformation> for IWebSocketInformatio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for MessageWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebSocketInformation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for &MessageWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebSocketInformation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<MessageWebSocketInformation> for IWebSocketInformation2 {
@@ -6310,12 +6310,12 @@ impl ::std::convert::From<&StreamWebSocketInformation> for IWebSocketInformation
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for StreamWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebSocketInformation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebSocketInformation> for &StreamWebSocketInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebSocketInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebSocketInformation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<StreamWebSocketInformation> for IWebSocketInformation2 {
@@ -6532,13 +6532,13 @@ impl ::std::convert::From<&WebSocketKeepAlive> for super::super::ApplicationMode
 #[cfg(feature = "ApplicationModel_Background")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTask> for WebSocketKeepAlive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Background::IBackgroundTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Background::IBackgroundTask>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::ApplicationModel::Background::IBackgroundTask> for &WebSocketKeepAlive {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::ApplicationModel::Background::IBackgroundTask> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::ApplicationModel::Background::IBackgroundTask>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]

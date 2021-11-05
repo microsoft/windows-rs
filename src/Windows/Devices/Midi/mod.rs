@@ -827,12 +827,12 @@ impl ::std::convert::From<&MidiActiveSensingMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiActiveSensingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiActiveSensingMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiActiveSensingMessage {}
@@ -1071,12 +1071,12 @@ impl ::std::convert::From<&MidiContinueMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiContinueMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiContinueMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiContinueMessage {}
@@ -1854,12 +1854,12 @@ impl ::std::convert::From<&MidiOutPort> for IMidiOutPort {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiOutPort> for MidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiOutPort> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiOutPort>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiOutPort> for &MidiOutPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiOutPort> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiOutPort>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2648,12 +2648,12 @@ impl ::std::convert::From<&MidiStartMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiStartMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiStartMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiStartMessage {}
@@ -2759,12 +2759,12 @@ impl ::std::convert::From<&MidiStopMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiStopMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiStopMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiStopMessage {}
@@ -3056,12 +3056,12 @@ impl ::std::convert::From<&MidiSystemExclusiveMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiSystemExclusiveMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSystemExclusiveMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiSystemExclusiveMessage {}
@@ -3167,12 +3167,12 @@ impl ::std::convert::From<&MidiSystemResetMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiSystemResetMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiSystemResetMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiSystemResetMessage {}
@@ -3411,12 +3411,12 @@ impl ::std::convert::From<&MidiTimingClockMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiTimingClockMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiTimingClockMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiTimingClockMessage {}
@@ -3522,12 +3522,12 @@ impl ::std::convert::From<&MidiTuneRequestMessage> for IMidiMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for MidiTuneRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMidiMessage> for &MidiTuneRequestMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMidiMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMidiMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MidiTuneRequestMessage {}

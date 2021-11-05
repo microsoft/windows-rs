@@ -212,12 +212,12 @@ impl ::std::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs>
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderAddAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderAddAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -406,12 +406,12 @@ impl ::std::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventAr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -600,12 +600,12 @@ impl ::std::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventA
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -810,12 +810,12 @@ impl ::std::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEv
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
@@ -1013,12 +1013,12 @@ impl ::std::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderShowTimeFrameActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAppointmentsProviderShowTimeFrameActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
@@ -1166,12 +1166,12 @@ impl ::std::convert::From<&BackgroundActivatedEventArgs> for IBackgroundActivate
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundActivatedEventArgs> for BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundActivatedEventArgs> for &BackgroundActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for BackgroundActivatedEventArgs {}
@@ -1329,12 +1329,12 @@ impl ::std::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for IBarcode
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs> for BarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBarcodeScannerPreviewActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs> for &BarcodeScannerPreviewActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBarcodeScannerPreviewActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
@@ -1449,12 +1449,12 @@ impl ::std::convert::From<&CachedFileUpdaterActivatedEventArgs> for ICachedFileU
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICachedFileUpdaterActivatedEventArgs> for CachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICachedFileUpdaterActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICachedFileUpdaterActivatedEventArgs> for &CachedFileUpdaterActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICachedFileUpdaterActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
@@ -1611,12 +1611,12 @@ impl ::std::convert::From<&CameraSettingsActivatedEventArgs> for ICameraSettings
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICameraSettingsActivatedEventArgs> for CameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICameraSettingsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICameraSettingsActivatedEventArgs> for &CameraSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICameraSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICameraSettingsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -1796,12 +1796,12 @@ impl ::std::convert::From<&CommandLineActivatedEventArgs> for ICommandLineActiva
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICommandLineActivatedEventArgs> for CommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICommandLineActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICommandLineActivatedEventArgs> for &CommandLineActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICommandLineActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICommandLineActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for CommandLineActivatedEventArgs {}
@@ -2030,12 +2030,12 @@ impl ::std::convert::From<&ContactCallActivatedEventArgs> for IContactCallActiva
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactCallActivatedEventArgs> for ContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactCallActivatedEventArgs> for &ContactCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
@@ -2202,12 +2202,12 @@ impl ::std::convert::From<&ContactMapActivatedEventArgs> for IContactMapActivate
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactMapActivatedEventArgs> for ContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactMapActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactMapActivatedEventArgs> for &ContactMapActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactMapActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactMapActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
@@ -2381,12 +2381,12 @@ impl ::std::convert::From<&ContactMessageActivatedEventArgs> for IContactMessage
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactMessageActivatedEventArgs> for ContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactMessageActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactMessageActivatedEventArgs> for &ContactMessageActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactMessageActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactMessageActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
@@ -2598,12 +2598,12 @@ impl ::std::convert::From<&ContactPanelActivatedEventArgs> for IContactPanelActi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPanelActivatedEventArgs> for ContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPanelActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPanelActivatedEventArgs> for &ContactPanelActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPanelActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPanelActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ContactPanelActivatedEventArgs {}
@@ -2709,12 +2709,12 @@ impl ::std::convert::From<&ContactPickerActivatedEventArgs> for IContactPickerAc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPickerActivatedEventArgs> for ContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPickerActivatedEventArgs> for &ContactPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -2866,12 +2866,12 @@ impl ::std::convert::From<&ContactPostActivatedEventArgs> for IContactPostActiva
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPostActivatedEventArgs> for ContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPostActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactPostActivatedEventArgs> for &ContactPostActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactPostActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactPostActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
@@ -3045,12 +3045,12 @@ impl ::std::convert::From<&ContactVideoCallActivatedEventArgs> for IContactVideo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactVideoCallActivatedEventArgs> for ContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactVideoCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IContactVideoCallActivatedEventArgs> for &ContactVideoCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IContactVideoCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IContactVideoCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
@@ -3233,12 +3233,12 @@ impl ::std::convert::From<&DeviceActivatedEventArgs> for IDeviceActivatedEventAr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDeviceActivatedEventArgs> for DeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDeviceActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDeviceActivatedEventArgs> for &DeviceActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDeviceActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDeviceActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
@@ -3463,12 +3463,12 @@ impl ::std::convert::From<&DevicePairingActivatedEventArgs> for IDevicePairingAc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDevicePairingActivatedEventArgs> for DevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDevicePairingActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDevicePairingActivatedEventArgs> for &DevicePairingActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDevicePairingActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDevicePairingActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -3637,12 +3637,12 @@ impl ::std::convert::From<&DialReceiverActivatedEventArgs> for IDialReceiverActi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDialReceiverActivatedEventArgs> for DialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDialReceiverActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDialReceiverActivatedEventArgs> for &DialReceiverActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDialReceiverActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDialReceiverActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
@@ -3909,12 +3909,12 @@ impl ::std::convert::From<&FileActivatedEventArgs> for IFileActivatedEventArgs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileActivatedEventArgs> for FileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileActivatedEventArgs> for &FileActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
@@ -4169,12 +4169,12 @@ impl ::std::convert::From<&FileOpenPickerActivatedEventArgs> for IFileOpenPicker
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileOpenPickerActivatedEventArgs> for FileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileOpenPickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileOpenPickerActivatedEventArgs> for &FileOpenPickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileOpenPickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileOpenPickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -4365,12 +4365,12 @@ impl ::std::convert::From<&FileOpenPickerContinuationEventArgs> for IFileOpenPic
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileOpenPickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileOpenPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileOpenPickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
@@ -4567,12 +4567,12 @@ impl ::std::convert::From<&FileSavePickerActivatedEventArgs> for IFileSavePicker
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileSavePickerActivatedEventArgs> for FileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileSavePickerActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileSavePickerActivatedEventArgs> for &FileSavePickerActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileSavePickerActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileSavePickerActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
@@ -4763,12 +4763,12 @@ impl ::std::convert::From<&FileSavePickerContinuationEventArgs> for IFileSavePic
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileSavePickerContinuationEventArgs> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileSavePickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFileSavePickerContinuationEventArgs> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFileSavePickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFileSavePickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
@@ -4959,12 +4959,12 @@ impl ::std::convert::From<&FolderPickerContinuationEventArgs> for IFolderPickerC
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFolderPickerContinuationEventArgs> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFolderPickerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IFolderPickerContinuationEventArgs> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IFolderPickerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IFolderPickerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
@@ -13061,12 +13061,12 @@ impl ::std::convert::From<&LaunchActivatedEventArgs> for ILaunchActivatedEventAr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILaunchActivatedEventArgs> for LaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILaunchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILaunchActivatedEventArgs> for &LaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILaunchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<LaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -13312,12 +13312,12 @@ impl ::std::convert::From<&LockScreenActivatedEventArgs> for ILockScreenActivate
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILockScreenActivatedEventArgs> for LockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILockScreenActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILockScreenActivatedEventArgs> for &LockScreenActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILockScreenActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILockScreenActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<LockScreenActivatedEventArgs> for IActivatedEventArgs {
@@ -13500,12 +13500,12 @@ impl ::std::convert::From<&LockScreenCallActivatedEventArgs> for ILockScreenCall
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILockScreenCallActivatedEventArgs> for LockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILockScreenCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILockScreenCallActivatedEventArgs> for &LockScreenCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILockScreenCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILockScreenCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<LockScreenCallActivatedEventArgs> for IActivatedEventArgs {
@@ -13690,12 +13690,12 @@ impl ::std::convert::From<&LockScreenComponentActivatedEventArgs> for IActivated
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgs> for LockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IActivatedEventArgs> for &LockScreenComponentActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for LockScreenComponentActivatedEventArgs {}
@@ -13853,12 +13853,12 @@ impl ::std::convert::From<&PhoneCallActivatedEventArgs> for IPhoneCallActivatedE
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPhoneCallActivatedEventArgs> for PhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPhoneCallActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPhoneCallActivatedEventArgs> for &PhoneCallActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPhoneCallActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPhoneCallActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PhoneCallActivatedEventArgs {}
@@ -13963,12 +13963,12 @@ impl ::std::convert::From<&PickerReturnedActivatedEventArgs> for IPickerReturned
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPickerReturnedActivatedEventArgs> for PickerReturnedActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPickerReturnedActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPickerReturnedActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPickerReturnedActivatedEventArgs> for &PickerReturnedActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPickerReturnedActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPickerReturnedActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PickerReturnedActivatedEventArgs> for IActivatedEventArgs {
@@ -14096,12 +14096,12 @@ impl ::std::convert::From<&Print3DWorkflowActivatedEventArgs> for IPrint3DWorkfl
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrint3DWorkflowActivatedEventArgs> for Print3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrint3DWorkflowActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrint3DWorkflowActivatedEventArgs> for &Print3DWorkflowActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrint3DWorkflowActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<Print3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
@@ -14229,12 +14229,12 @@ impl ::std::convert::From<&PrintTaskSettingsActivatedEventArgs> for IPrintTaskSe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskSettingsActivatedEventArgs> for PrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTaskSettingsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskSettingsActivatedEventArgs> for &PrintTaskSettingsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTaskSettingsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -14405,12 +14405,12 @@ impl ::std::convert::From<&ProtocolActivatedEventArgs> for IProtocolActivatedEve
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProtocolActivatedEventArgs> for ProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProtocolActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProtocolActivatedEventArgs> for &ProtocolActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProtocolActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProtocolActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ProtocolActivatedEventArgs> for IActivatedEventArgs {
@@ -14678,12 +14678,12 @@ impl ::std::convert::From<&ProtocolForResultsActivatedEventArgs> for IProtocolFo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProtocolForResultsActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProtocolForResultsActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IProtocolForResultsActivatedEventArgs> for &ProtocolForResultsActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IProtocolForResultsActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IProtocolForResultsActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
@@ -14929,12 +14929,12 @@ impl ::std::convert::From<&RestrictedLaunchActivatedEventArgs> for IRestrictedLa
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRestrictedLaunchActivatedEventArgs> for RestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRestrictedLaunchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IRestrictedLaunchActivatedEventArgs> for &RestrictedLaunchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IRestrictedLaunchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IRestrictedLaunchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -15126,12 +15126,12 @@ impl ::std::convert::From<&SearchActivatedEventArgs> for ISearchActivatedEventAr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISearchActivatedEventArgs> for SearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISearchActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISearchActivatedEventArgs> for &SearchActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISearchActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISearchActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<SearchActivatedEventArgs> for IActivatedEventArgs {
@@ -15356,12 +15356,12 @@ impl ::std::convert::From<&ShareTargetActivatedEventArgs> for IShareTargetActiva
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IShareTargetActivatedEventArgs> for ShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IShareTargetActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IShareTargetActivatedEventArgs> for &ShareTargetActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IShareTargetActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IShareTargetActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ShareTargetActivatedEventArgs> for IActivatedEventArgs {
@@ -15643,12 +15643,12 @@ impl ::std::convert::From<&StartupTaskActivatedEventArgs> for IStartupTaskActiva
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStartupTaskActivatedEventArgs> for StartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStartupTaskActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStartupTaskActivatedEventArgs> for &StartupTaskActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStartupTaskActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStartupTaskActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for StartupTaskActivatedEventArgs {}
@@ -15846,12 +15846,12 @@ impl ::std::convert::From<&ToastNotificationActivatedEventArgs> for IToastNotifi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IToastNotificationActivatedEventArgs> for ToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IToastNotificationActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IToastNotificationActivatedEventArgs> for &ToastNotificationActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IToastNotificationActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IToastNotificationActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ToastNotificationActivatedEventArgs> for IActivatedEventArgs {
@@ -16045,12 +16045,12 @@ impl ::std::convert::From<&UserDataAccountProviderActivatedEventArgs> for IUserD
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUserDataAccountProviderActivatedEventArgs> for UserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUserDataAccountProviderActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUserDataAccountProviderActivatedEventArgs> for &UserDataAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUserDataAccountProviderActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for UserDataAccountProviderActivatedEventArgs {}
@@ -16165,12 +16165,12 @@ impl ::std::convert::From<&VoiceCommandActivatedEventArgs> for IVoiceCommandActi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVoiceCommandActivatedEventArgs> for VoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVoiceCommandActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IVoiceCommandActivatedEventArgs> for &VoiceCommandActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IVoiceCommandActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IVoiceCommandActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<VoiceCommandActivatedEventArgs> for IActivatedEventArgs {
@@ -16336,12 +16336,12 @@ impl ::std::convert::From<&WalletActionActivatedEventArgs> for IWalletActionActi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWalletActionActivatedEventArgs> for WalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWalletActionActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWalletActionActivatedEventArgs> for &WalletActionActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWalletActionActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWalletActionActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WalletActionActivatedEventArgs> for IActivatedEventArgs {
@@ -16478,12 +16478,12 @@ impl ::std::convert::From<&WebAccountProviderActivatedEventArgs> for IWebAccount
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderActivatedEventArgs> for WebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderActivatedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderActivatedEventArgs> for &WebAccountProviderActivatedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderActivatedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderActivatedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -16642,12 +16642,12 @@ impl ::std::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for IWe
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAuthenticationBrokerContinuationEventArgs> for WebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAuthenticationBrokerContinuationEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAuthenticationBrokerContinuationEventArgs> for &WebAuthenticationBrokerContinuationEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAuthenticationBrokerContinuationEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {

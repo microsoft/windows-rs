@@ -94,8 +94,6 @@ impl TypeReader {
             }
         }
 
-        // TODO: remove Windows.Win32.Interop namespace
-
         Self { nested, types }
     }
 

@@ -170,12 +170,12 @@ impl ::std::convert::From<&HttpBufferContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpBufferContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpBufferContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -898,13 +898,13 @@ impl ::std::convert::From<&HttpCookieCollection> for super::super::Foundation::C
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<HttpCookie>> for HttpCookieCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<HttpCookie>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<HttpCookie>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<HttpCookie>> for &HttpCookieCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<HttpCookie>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<HttpCookie>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1198,12 +1198,12 @@ impl ::std::convert::From<&HttpFormUrlEncodedContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpFormUrlEncodedContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpFormUrlEncodedContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2106,12 +2106,12 @@ impl ::std::convert::From<&HttpMultipartContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpMultipartContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpMultipartContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2397,12 +2397,12 @@ impl ::std::convert::From<&HttpMultipartFormDataContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpMultipartFormDataContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpMultipartFormDataContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3449,12 +3449,12 @@ impl ::std::convert::From<&HttpStreamContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpStreamContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpStreamContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3683,12 +3683,12 @@ impl ::std::convert::From<&HttpStringContent> for IHttpContent {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for HttpStringContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IHttpContent> for &HttpStringContent {
     fn into_param(self) -> ::windows::runtime::Param<'a, IHttpContent> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IHttpContent>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]

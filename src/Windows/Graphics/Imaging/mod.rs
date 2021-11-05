@@ -1162,12 +1162,12 @@ impl ::std::convert::From<&BitmapFrame> for IBitmapFrame {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBitmapFrame> for BitmapFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBitmapFrame> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBitmapFrame>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBitmapFrame> for &BitmapFrame {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBitmapFrame> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBitmapFrame>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<BitmapFrame> for IBitmapFrameWithSoftwareBitmap {
@@ -1457,12 +1457,12 @@ impl ::std::convert::From<&BitmapPropertiesView> for IBitmapPropertiesView {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBitmapPropertiesView> for BitmapPropertiesView {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBitmapPropertiesView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBitmapPropertiesView>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBitmapPropertiesView> for &BitmapPropertiesView {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBitmapPropertiesView> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBitmapPropertiesView>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for BitmapPropertiesView {}
@@ -1624,13 +1624,13 @@ impl ::std::convert::From<&BitmapPropertySet> for super::super::Foundation::Coll
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>> for BitmapPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>> for &BitmapPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::HSTRING, BitmapTypedValue>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -3082,13 +3082,13 @@ impl ::std::convert::From<&ImageStream> for super::super::Storage::Streams::IRan
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for ImageStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &ImageStream {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

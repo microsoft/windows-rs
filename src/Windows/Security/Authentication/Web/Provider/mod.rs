@@ -1818,12 +1818,12 @@ impl ::std::convert::From<&WebAccountProviderGetTokenSilentOperation> for IWebAc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenOperation> for WebAccountProviderGetTokenSilentOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenOperation> for &WebAccountProviderGetTokenSilentOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebAccountProviderGetTokenSilentOperation> for IWebAccountProviderBaseReportOperation {
@@ -2147,12 +2147,12 @@ impl ::std::convert::From<&WebAccountProviderRequestTokenOperation> for IWebAcco
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenOperation> for WebAccountProviderRequestTokenOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenOperation> for &WebAccountProviderRequestTokenOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebAccountProviderRequestTokenOperation> for IWebAccountProviderBaseReportOperation {
@@ -2618,12 +2618,12 @@ impl ::std::convert::From<&WebAccountProviderTriggerDetails> for IWebAccountProv
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenObjects> for WebAccountProviderTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenObjects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenObjects>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccountProviderTokenObjects> for &WebAccountProviderTriggerDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccountProviderTokenObjects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccountProviderTokenObjects>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebAccountProviderTriggerDetails> for IWebAccountProviderTokenObjects2 {

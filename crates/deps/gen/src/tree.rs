@@ -5,12 +5,16 @@ pub fn gen_source_file(root: &'static str, tree: &TypeTree) -> TokenStream {
 
     let types = tree.types.values().map(move |t| gen_type_entry(t, &gen));
 
-    let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
+    let namespaces = tree.namespaces.iter().filter_map(move |(name, tree)| {
+        if !tree.include {
+            return None;
+        }
+
         let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
-        quote! {
+        Some(quote! {
             #[cfg(feature = #namespace)] pub mod #name;
-        }
+        })
     });
 
     quote! {

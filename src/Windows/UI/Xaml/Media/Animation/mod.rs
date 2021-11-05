@@ -2101,13 +2101,13 @@ impl ::std::convert::From<&ColorKeyFrameCollection> for super::super::super::sup
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> for ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> for &ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -5187,13 +5187,13 @@ impl ::std::convert::From<&DoubleKeyFrameCollection> for super::super::super::su
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> for DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> for &DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -14498,13 +14498,13 @@ impl ::std::convert::From<&ObjectKeyFrameCollection> for super::super::super::su
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> for ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> for &ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -15772,13 +15772,13 @@ impl ::std::convert::From<&PointKeyFrameCollection> for super::super::super::sup
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> for PointKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> for &PointKeyFrameCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -22462,13 +22462,13 @@ impl ::std::convert::From<&TimelineCollection> for super::super::super::super::F
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> for TimelineCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<Timeline>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> for &TimelineCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<Timeline>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -22838,13 +22838,13 @@ impl ::std::convert::From<&TransitionCollection> for super::super::super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> for TransitionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<Transition>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> for &TransitionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::super::Foundation::Collections::IVector<Transition>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

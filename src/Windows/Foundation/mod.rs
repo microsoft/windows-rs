@@ -3659,12 +3659,12 @@ impl ::std::convert::From<&MemoryBuffer> for IMemoryBuffer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMemoryBuffer> for MemoryBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMemoryBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMemoryBuffer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMemoryBuffer> for &MemoryBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMemoryBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMemoryBuffer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<MemoryBuffer> for IClosable {
@@ -4831,12 +4831,12 @@ impl ::std::convert::From<&WwwFormUrlDecoderEntry> for IWwwFormUrlDecoderEntry {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWwwFormUrlDecoderEntry> for WwwFormUrlDecoderEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWwwFormUrlDecoderEntry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWwwFormUrlDecoderEntry>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWwwFormUrlDecoderEntry> for &WwwFormUrlDecoderEntry {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWwwFormUrlDecoderEntry> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWwwFormUrlDecoderEntry>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for WwwFormUrlDecoderEntry {}

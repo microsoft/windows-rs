@@ -803,12 +803,12 @@ impl ::std::convert::From<&EnteredBackgroundEventArgs> for IEnteredBackgroundEve
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnteredBackgroundEventArgs> for EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnteredBackgroundEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IEnteredBackgroundEventArgs> for &EnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IEnteredBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IEnteredBackgroundEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for EnteredBackgroundEventArgs {}
@@ -2556,12 +2556,12 @@ impl ::std::convert::From<&LeavingBackgroundEventArgs> for ILeavingBackgroundEve
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILeavingBackgroundEventArgs> for LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILeavingBackgroundEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ILeavingBackgroundEventArgs> for &LeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ILeavingBackgroundEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ILeavingBackgroundEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for LeavingBackgroundEventArgs {}
@@ -5014,12 +5014,12 @@ impl ::std::convert::From<&SuspendingDeferral> for ISuspendingDeferral {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingDeferral> for SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingDeferral> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingDeferral>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingDeferral> for &SuspendingDeferral {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingDeferral> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingDeferral>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SuspendingDeferral {}
@@ -5100,12 +5100,12 @@ impl ::std::convert::From<&SuspendingEventArgs> for ISuspendingEventArgs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingEventArgs> for SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingEventArgs> for &SuspendingEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SuspendingEventArgs {}
@@ -5195,12 +5195,12 @@ impl ::std::convert::From<&SuspendingOperation> for ISuspendingOperation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingOperation> for SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingOperation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISuspendingOperation> for &SuspendingOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISuspendingOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISuspendingOperation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SuspendingOperation {}

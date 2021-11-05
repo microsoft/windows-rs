@@ -123,12 +123,12 @@ impl ::std::convert::From<&ConditionForceEffect> for IForceFeedbackEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for ConditionForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &ConditionForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ConditionForceEffect {}
@@ -286,12 +286,12 @@ impl ::std::convert::From<&ConstantForceEffect> for IForceFeedbackEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for ConstantForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &ConstantForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ConstantForceEffect {}
@@ -977,12 +977,12 @@ impl ::std::convert::From<&PeriodicForceEffect> for IForceFeedbackEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for PeriodicForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &PeriodicForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PeriodicForceEffect {}
@@ -1150,12 +1150,12 @@ impl ::std::convert::From<&RampForceEffect> for IForceFeedbackEffect {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for RampForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IForceFeedbackEffect> for &RampForceEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, IForceFeedbackEffect> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IForceFeedbackEffect>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for RampForceEffect {}

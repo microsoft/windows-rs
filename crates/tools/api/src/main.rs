@@ -97,6 +97,10 @@ fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::T
 }
 
 fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
+    if !tree.include {
+        return;
+    }
+
     let feature = tree.namespace[root.len() + 1..].replace('.', "_");
 
     if let Some(pos) = feature.rfind('_') {
@@ -114,6 +118,8 @@ fn include_all(tree: &mut reader::TypeTree) {
     tree.types.values_mut().for_each(|entry| entry.include = reader::TypeInclude::Full);
 
     tree.namespaces.values_mut().for_each(include_all);
+
+    tree.exclude_namespace("Windows.Win32.Interop");
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
@@ -127,6 +133,10 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTree) {
+    if !tree.include {
+        return;
+    }
+
     println!("{}", tree.namespace);
     let mut path = std::path::PathBuf::from(output);
 

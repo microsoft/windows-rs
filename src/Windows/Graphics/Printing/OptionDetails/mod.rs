@@ -1409,12 +1409,12 @@ impl ::std::convert::From<&PrintBindingOptionDetails> for IPrintOptionDetails {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintBindingOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintBindingOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintBindingOptionDetails> for IPrintItemListOptionDetails {
@@ -1602,12 +1602,12 @@ impl ::std::convert::From<&PrintBorderingOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintBorderingOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintBorderingOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintBorderingOptionDetails> for IPrintItemListOptionDetails {
@@ -1795,12 +1795,12 @@ impl ::std::convert::From<&PrintCollationOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintCollationOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintCollationOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintCollationOptionDetails> for IPrintItemListOptionDetails {
@@ -1988,12 +1988,12 @@ impl ::std::convert::From<&PrintColorModeOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintColorModeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintColorModeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintColorModeOptionDetails> for IPrintItemListOptionDetails {
@@ -2188,12 +2188,12 @@ impl ::std::convert::From<&PrintCopiesOptionDetails> for IPrintOptionDetails {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintCopiesOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintCopiesOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintCopiesOptionDetails> for IPrintNumberOptionDetails {
@@ -2484,12 +2484,12 @@ impl ::std::convert::From<&PrintCustomItemListOptionDetails> for IPrintOptionDet
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintCustomItemListOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintCustomItemListOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintCustomItemListOptionDetails> for IPrintCustomOptionDetails {
@@ -2716,12 +2716,12 @@ impl ::std::convert::From<&PrintCustomTextOptionDetails> for IPrintOptionDetails
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintCustomTextOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintCustomTextOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintCustomTextOptionDetails> for IPrintCustomOptionDetails {
@@ -2913,12 +2913,12 @@ impl ::std::convert::From<&PrintCustomToggleOptionDetails> for IPrintOptionDetai
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintCustomToggleOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintCustomToggleOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintCustomToggleOptionDetails> for IPrintCustomOptionDetails {
@@ -3106,12 +3106,12 @@ impl ::std::convert::From<&PrintDuplexOptionDetails> for IPrintOptionDetails {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintDuplexOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintDuplexOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintDuplexOptionDetails> for IPrintItemListOptionDetails {
@@ -3299,12 +3299,12 @@ impl ::std::convert::From<&PrintHolePunchOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintHolePunchOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintHolePunchOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintHolePunchOptionDetails> for IPrintItemListOptionDetails {
@@ -3492,12 +3492,12 @@ impl ::std::convert::From<&PrintMediaSizeOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintMediaSizeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintMediaSizeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintMediaSizeOptionDetails> for IPrintItemListOptionDetails {
@@ -3685,12 +3685,12 @@ impl ::std::convert::From<&PrintMediaTypeOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintMediaTypeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintMediaTypeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintMediaTypeOptionDetails> for IPrintItemListOptionDetails {
@@ -3954,12 +3954,12 @@ impl ::std::convert::From<&PrintOrientationOptionDetails> for IPrintOptionDetail
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintOrientationOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintOrientationOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintOrientationOptionDetails> for IPrintItemListOptionDetails {
@@ -4138,12 +4138,12 @@ impl ::std::convert::From<&PrintPageRangeOptionDetails> for IPrintOptionDetails 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintPageRangeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintPageRangeOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PrintPageRangeOptionDetails {}
@@ -4309,12 +4309,12 @@ impl ::std::convert::From<&PrintQualityOptionDetails> for IPrintOptionDetails {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintQualityOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintQualityOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintQualityOptionDetails> for IPrintItemListOptionDetails {
@@ -4502,12 +4502,12 @@ impl ::std::convert::From<&PrintStapleOptionDetails> for IPrintOptionDetails {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for PrintStapleOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintOptionDetails> for &PrintStapleOptionDetails {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintOptionDetails> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintOptionDetails>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintStapleOptionDetails> for IPrintItemListOptionDetails {

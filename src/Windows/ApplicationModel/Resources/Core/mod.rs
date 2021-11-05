@@ -701,13 +701,13 @@ impl ::std::convert::From<&ResourceCandidateVectorView> for super::super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> for ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> for &ResourceCandidateVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1062,13 +1062,13 @@ impl ::std::convert::From<&ResourceContextLanguagesVectorView> for super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> for ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> for &ResourceContextLanguagesVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<::windows::runtime::HSTRING>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1605,13 +1605,13 @@ impl ::std::convert::From<&ResourceMapIterator> for super::super::super::Foundat
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>> for ResourceMapIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>> for &ResourceMapIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, NamedResource>>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1744,13 +1744,13 @@ impl ::std::convert::From<&ResourceMapMapView> for super::super::super::Foundati
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>> for ResourceMapMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>> for &ResourceMapMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ResourceMap>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1919,13 +1919,13 @@ impl ::std::convert::From<&ResourceMapMapViewIterator> for super::super::super::
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>> for ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>> for &ResourceMapMapViewIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::runtime::HSTRING, ResourceMap>>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2156,13 +2156,13 @@ impl ::std::convert::From<&ResourceQualifierMapView> for super::super::super::Fo
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for ResourceQualifierMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for &ResourceQualifierMapView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IMapView<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2376,13 +2376,13 @@ impl ::std::convert::From<&ResourceQualifierObservableMap> for super::super::sup
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> for &ResourceQualifierObservableMap {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IObservableMap<::windows::runtime::HSTRING, ::windows::runtime::HSTRING>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2608,13 +2608,13 @@ impl ::std::convert::From<&ResourceQualifierVectorView> for super::super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> for ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> for &ResourceQualifierVectorView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

@@ -2128,12 +2128,12 @@ impl ::std::convert::From<&CashDrawerClosedEventArgs> for ICashDrawerEventSource
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICashDrawerEventSourceEventArgs> for CashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICashDrawerEventSourceEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &CashDrawerClosedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICashDrawerEventSourceEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for CashDrawerClosedEventArgs {}
@@ -2302,12 +2302,12 @@ impl ::std::convert::From<&CashDrawerOpenedEventArgs> for ICashDrawerEventSource
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICashDrawerEventSourceEventArgs> for CashDrawerOpenedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICashDrawerEventSourceEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &CashDrawerOpenedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICashDrawerEventSourceEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for CashDrawerOpenedEventArgs {}
@@ -8734,12 +8734,12 @@ impl ::std::convert::From<&JournalPrintJob> for IPosPrinterJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPosPrinterJob> for JournalPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPosPrinterJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPosPrinterJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPosPrinterJob> for &JournalPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPosPrinterJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPosPrinterJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for JournalPrintJob {}
@@ -14291,12 +14291,12 @@ impl ::std::convert::From<&SlipPrintJob> for IReceiptOrSlipJob {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IReceiptOrSlipJob> for SlipPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IReceiptOrSlipJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IReceiptOrSlipJob>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IReceiptOrSlipJob> for &SlipPrintJob {
     fn into_param(self) -> ::windows::runtime::Param<'a, IReceiptOrSlipJob> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IReceiptOrSlipJob>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<SlipPrintJob> for IPosPrinterJob {

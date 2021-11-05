@@ -1368,12 +1368,12 @@ impl ::std::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for IDefau
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for DefaultAudioCaptureDeviceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDefaultAudioDeviceChangedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for &DefaultAudioCaptureDeviceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDefaultAudioDeviceChangedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
@@ -1462,12 +1462,12 @@ impl ::std::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for IDefaul
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for DefaultAudioRenderDeviceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDefaultAudioDeviceChangedEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for &DefaultAudioRenderDeviceChangedEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDefaultAudioDeviceChangedEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}

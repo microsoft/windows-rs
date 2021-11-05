@@ -672,12 +672,12 @@ impl ::std::convert::From<&UICommand> for IUICommand {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUICommand> for UICommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUICommand>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUICommand> for &UICommand {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUICommand>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for UICommand {}
@@ -869,12 +869,12 @@ impl ::std::convert::From<&UICommandSeparator> for IUICommand {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUICommand> for UICommandSeparator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUICommand>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUICommand> for &UICommandSeparator {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUICommand> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUICommand>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for UICommandSeparator {}

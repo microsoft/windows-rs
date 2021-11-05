@@ -782,12 +782,12 @@ impl ::std::convert::From<&WebViewControl> for super::IWebViewControl {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IWebViewControl> for WebViewControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IWebViewControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IWebViewControl>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, super::IWebViewControl> for &WebViewControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::IWebViewControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::IWebViewControl>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<WebViewControl> for super::IWebViewControl2 {

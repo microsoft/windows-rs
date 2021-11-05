@@ -472,12 +472,12 @@ impl ::std::convert::From<&FileInformation> for IStorageItemInformation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemInformation> for FileInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemInformation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemInformation> for &FileInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemInformation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FileInformation> for super::IStorageFile {
@@ -1433,12 +1433,12 @@ impl ::std::convert::From<&FolderInformation> for IStorageItemInformation {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemInformation> for FolderInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemInformation>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemInformation> for &FolderInformation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemInformation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemInformation>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<FolderInformation> for super::IStorageFolder {

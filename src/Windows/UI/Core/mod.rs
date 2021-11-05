@@ -635,12 +635,12 @@ impl ::std::convert::From<&CoreAcceleratorKeys> for ICoreAcceleratorKeys {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreAcceleratorKeys> for CoreAcceleratorKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreAcceleratorKeys> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreAcceleratorKeys>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreAcceleratorKeys> for &CoreAcceleratorKeys {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreAcceleratorKeys> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreAcceleratorKeys>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for CoreAcceleratorKeys {}
@@ -1033,12 +1033,12 @@ impl ::std::convert::From<&CoreComponentInputSource> for ICoreInputSourceBase {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreInputSourceBase> for CoreComponentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreInputSourceBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreInputSourceBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreInputSourceBase> for &CoreComponentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreInputSourceBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreInputSourceBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<CoreComponentInputSource> for ICorePointerInputSource {
@@ -1767,12 +1767,12 @@ impl ::std::convert::From<&CoreIndependentInputSource> for ICoreInputSourceBase 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreInputSourceBase> for CoreIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreInputSourceBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreInputSourceBase>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreInputSourceBase> for &CoreIndependentInputSource {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreInputSourceBase> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreInputSourceBase>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<CoreIndependentInputSource> for ICorePointerInputSource {
@@ -2816,12 +2816,12 @@ impl ::std::convert::From<&CoreWindow> for ICoreWindow {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreWindow> for CoreWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreWindow>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreWindow> for &CoreWindow {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreWindow> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreWindow>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<CoreWindow> for ICorePointerRedirector {
@@ -3169,12 +3169,12 @@ impl ::std::convert::From<&CoreWindowEventArgs> for ICoreWindowEventArgs {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreWindowEventArgs> for CoreWindowEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreWindowEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreWindowEventArgs>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ICoreWindowEventArgs> for &CoreWindowEventArgs {
     fn into_param(self) -> ::windows::runtime::Param<'a, ICoreWindowEventArgs> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ICoreWindowEventArgs>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_Core`*"]

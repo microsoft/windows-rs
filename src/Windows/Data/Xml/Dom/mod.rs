@@ -7246,12 +7246,12 @@ impl ::std::convert::From<&XmlText> for IXmlText {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXmlText> for XmlText {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXmlText> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXmlText>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IXmlText> for &XmlText {
     fn into_param(self) -> ::windows::runtime::Param<'a, IXmlText> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IXmlText>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<XmlText> for IXmlCharacterData {

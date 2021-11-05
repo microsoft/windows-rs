@@ -834,12 +834,12 @@ impl ::std::convert::From<&ImageScannerAutoConfiguration> for IImageScannerForma
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for ImageScannerAutoConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for &ImageScannerAutoConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ImageScannerAutoConfiguration {}
@@ -1330,12 +1330,12 @@ impl ::std::convert::From<&ImageScannerFeederConfiguration> for IImageScannerFor
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for ImageScannerFeederConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for &ImageScannerFeederConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ImageScannerFeederConfiguration> for IImageScannerSourceConfiguration {
@@ -1677,12 +1677,12 @@ impl ::std::convert::From<&ImageScannerFlatbedConfiguration> for IImageScannerFo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for ImageScannerFlatbedConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IImageScannerFormatConfiguration> for &ImageScannerFlatbedConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IImageScannerFormatConfiguration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IImageScannerFormatConfiguration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<ImageScannerFlatbedConfiguration> for IImageScannerSourceConfiguration {

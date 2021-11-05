@@ -3731,12 +3731,12 @@ impl ::std::convert::From<&NDCustomData> for INDCustomData {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDCustomData> for NDCustomData {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDCustomData> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDCustomData>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDCustomData> for &NDCustomData {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDCustomData> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDCustomData>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -3850,12 +3850,12 @@ impl ::std::convert::From<&NDDownloadEngineNotifier> for INDDownloadEngineNotifi
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDDownloadEngineNotifier> for NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDDownloadEngineNotifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDDownloadEngineNotifier>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDDownloadEngineNotifier> for &NDDownloadEngineNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDDownloadEngineNotifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDDownloadEngineNotifier>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -3971,12 +3971,12 @@ impl ::std::convert::From<&NDLicenseFetchDescriptor> for INDLicenseFetchDescript
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor> for NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDLicenseFetchDescriptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDLicenseFetchDescriptor>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicenseFetchDescriptor {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDLicenseFetchDescriptor> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDLicenseFetchDescriptor>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -4131,12 +4131,12 @@ impl ::std::convert::From<&NDStorageFileHelper> for INDStorageFileHelper {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStorageFileHelper> for NDStorageFileHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStorageFileHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDStorageFileHelper>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStorageFileHelper> for &NDStorageFileHelper {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStorageFileHelper> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDStorageFileHelper>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -4241,12 +4241,12 @@ impl ::std::convert::From<&NDStreamParserNotifier> for INDStreamParserNotifier {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStreamParserNotifier> for NDStreamParserNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStreamParserNotifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDStreamParserNotifier>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDStreamParserNotifier> for &NDStreamParserNotifier {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDStreamParserNotifier> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDStreamParserNotifier>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -4391,12 +4391,12 @@ impl ::std::convert::From<&NDTCPMessenger> for INDMessenger {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDMessenger> for NDTCPMessenger {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDMessenger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDMessenger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INDMessenger> for &NDTCPMessenger {
     fn into_param(self) -> ::windows::runtime::Param<'a, INDMessenger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INDMessenger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -4789,12 +4789,12 @@ impl ::std::convert::From<&PlayReadyDomain> for IPlayReadyDomain {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyDomain> for PlayReadyDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyDomain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyDomain>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyDomain> for &PlayReadyDomain {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyDomain> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyDomain>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -4902,13 +4902,13 @@ impl ::std::convert::From<&PlayReadyDomainIterable> for super::super::super::Fou
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> for &PlayReadyDomainIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
@@ -5047,13 +5047,13 @@ impl ::std::convert::From<&PlayReadyDomainIterator> for super::super::super::Fou
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> for &PlayReadyDomainIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -5997,12 +5997,12 @@ impl ::std::convert::From<&PlayReadyLicense> for IPlayReadyLicense {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicense> for PlayReadyLicense {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicense> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicense>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicense> for &PlayReadyLicense {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicense> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicense>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -6208,12 +6208,12 @@ impl ::std::convert::From<&PlayReadyLicenseAcquisitionServiceRequest> for IPlayR
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicenseAcquisitionServiceRequest>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseAcquisitionServiceRequest> for &PlayReadyLicenseAcquisitionServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseAcquisitionServiceRequest> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicenseAcquisitionServiceRequest>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PlayReadyLicenseAcquisitionServiceRequest> for super::IMediaProtectionServiceRequest {
@@ -6372,13 +6372,13 @@ impl ::std::convert::From<&PlayReadyLicenseIterable> for super::super::super::Fo
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> for &PlayReadyLicenseIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
@@ -6517,13 +6517,13 @@ impl ::std::convert::From<&PlayReadyLicenseIterator> for super::super::super::Fo
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> for &PlayReadyLicenseIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -6647,12 +6647,12 @@ impl ::std::convert::From<&PlayReadyLicenseSession> for IPlayReadyLicenseSession
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicenseSession>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadyLicenseSession> for &PlayReadyLicenseSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadyLicenseSession> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadyLicenseSession>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PlayReadyLicenseSession> for IPlayReadyLicenseSession2 {
@@ -7179,13 +7179,13 @@ impl ::std::convert::From<&PlayReadySecureStopIterable> for super::super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterable {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(all(feature = "Foundation_Collections"))]
@@ -7324,13 +7324,13 @@ impl ::std::convert::From<&PlayReadySecureStopIterator> for super::super::super:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> for &PlayReadySecureStopIterator {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Media_Protection_PlayReady`*"]
@@ -7546,12 +7546,12 @@ impl ::std::convert::From<&PlayReadySecureStopServiceRequest> for IPlayReadySecu
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadySecureStopServiceRequest> for PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadySecureStopServiceRequest>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPlayReadySecureStopServiceRequest> for &PlayReadySecureStopServiceRequest {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPlayReadySecureStopServiceRequest> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPlayReadySecureStopServiceRequest>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PlayReadySecureStopServiceRequest> for super::IMediaProtectionServiceRequest {

@@ -3638,12 +3638,12 @@ impl ::std::convert::From<&InkRecognizerContainer> for IInkRecognizerContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkRecognizerContainer> for InkRecognizerContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkRecognizerContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInkRecognizerContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkRecognizerContainer> for &InkRecognizerContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkRecognizerContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInkRecognizerContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_Input_Inking`*"]
@@ -4179,12 +4179,12 @@ impl ::std::convert::From<&InkStrokeContainer> for IInkStrokeContainer {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkStrokeContainer> for InkStrokeContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkStrokeContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInkStrokeContainer>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IInkStrokeContainer> for &InkStrokeContainer {
     fn into_param(self) -> ::windows::runtime::Param<'a, IInkStrokeContainer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IInkStrokeContainer>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `UI_Input_Inking`*"]

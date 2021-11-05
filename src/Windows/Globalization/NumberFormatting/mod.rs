@@ -795,12 +795,12 @@ impl ::std::convert::From<&DecimalFormatter> for INumberFormatter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &DecimalFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<DecimalFormatter> for INumberFormatter2 {
@@ -2089,12 +2089,12 @@ impl ::std::convert::From<&IncrementNumberRounder> for INumberRounder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for IncrementNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberRounder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for &IncrementNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberRounder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for IncrementNumberRounder {}
@@ -2513,12 +2513,12 @@ impl ::std::convert::From<&PercentFormatter> for INumberFormatter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &PercentFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PercentFormatter> for INumberFormatter2 {
@@ -2954,12 +2954,12 @@ impl ::std::convert::From<&PermilleFormatter> for INumberFormatter {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberFormatter> for &PermilleFormatter {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberFormatter> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberFormatter>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PermilleFormatter> for INumberFormatter2 {
@@ -3276,12 +3276,12 @@ impl ::std::convert::From<&SignificantDigitsNumberRounder> for INumberRounder {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberRounder>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, INumberRounder> for &SignificantDigitsNumberRounder {
     fn into_param(self) -> ::windows::runtime::Param<'a, INumberRounder> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<INumberRounder>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SignificantDigitsNumberRounder {}
