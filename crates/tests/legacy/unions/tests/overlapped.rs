@@ -50,6 +50,12 @@ fn test() {
 }
 
 #[test]
+#[cfg(target_arch = "aarch64")]
+fn test_arch() {
+    assert_eq!(std::mem::size_of::<OVERLAPPED>(), 32);
+}
+
+#[test]
 #[cfg(target_arch = "x86_64")]
 fn test_arch() {
     assert_eq!(std::mem::size_of::<OVERLAPPED>(), 32);
