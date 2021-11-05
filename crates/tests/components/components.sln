@@ -9,23 +9,33 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "static_component", "static_
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|arm64 = Debug|arm64
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		Release|arm64 = Release|arm64
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|arm64.ActiveCfg = Debug|arm64
+		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|arm64.Build.0 = Debug|arm64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|x64.ActiveCfg = Debug|x64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|x64.Build.0 = Debug|x64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|x86.ActiveCfg = Debug|Win32
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Debug|x86.Build.0 = Debug|Win32
+		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|arm64.ActiveCfg = Release|arm64
+		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|arm64.Build.0 = Release|arm64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|x64.ActiveCfg = Release|x64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|x64.Build.0 = Release|x64
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|x86.ActiveCfg = Release|Win32
 		{8E99B9DD-DDAB-4A1E-93B5-1C90C85ADC3B}.Release|x86.Build.0 = Release|Win32
+		{E7427AF0-239F-4486-941D-633B3939FF67}.Debug|arm64.ActiveCfg = Debug|arm64
+		{E7427AF0-239F-4486-941D-633B3939FF67}.Debug|arm64.Build.0 = Debug|arm64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Debug|x64.ActiveCfg = Debug|x64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Debug|x64.Build.0 = Debug|x64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Debug|x86.ActiveCfg = Debug|x64
+		{E7427AF0-239F-4486-941D-633B3939FF67}.Release|arm64.ActiveCfg = Release|arm64
+		{E7427AF0-239F-4486-941D-633B3939FF67}.Release|arm64.Build.0 = Release|arm64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Release|x64.ActiveCfg = Release|x64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Release|x64.Build.0 = Release|x64
 		{E7427AF0-239F-4486-941D-633B3939FF67}.Release|x86.ActiveCfg = Release|x64

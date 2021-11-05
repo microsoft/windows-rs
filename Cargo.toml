@@ -38,6 +38,9 @@ windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.24.0" }
 [target.x86_64-pc-windows-msvc.dependencies]
 windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.24.0" }
 
+[target.aarch64-pc-windows-msvc.dependencies]
+windows_aarch64_msvc = { path = "crates/targets/aarch64_msvc", version = "0.24.0" }
+
 [target.i686-pc-windows-gnu.dependencies]
 windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.24.0" }
 
