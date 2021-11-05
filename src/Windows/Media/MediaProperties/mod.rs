@@ -2446,13 +2446,13 @@ impl ::std::convert::From<&MediaPropertySet> for super::super::Foundation::Colle
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for MediaPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> for &MediaPropertySet {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IMap<::windows::runtime::GUID, ::windows::runtime::IInspectable>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2878,12 +2878,12 @@ impl ::std::convert::From<&TimedMetadataEncodingProperties> for IMediaEncodingPr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for TimedMetadataEncodingProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaEncodingProperties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaEncodingProperties>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMediaEncodingProperties> for &TimedMetadataEncodingProperties {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMediaEncodingProperties> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMediaEncodingProperties>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for TimedMetadataEncodingProperties {}

@@ -1347,12 +1347,12 @@ impl ::std::convert::From<&JsonValue> for IJsonValue {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IJsonValue> for JsonValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IJsonValue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IJsonValue>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IJsonValue> for &JsonValue {
     fn into_param(self) -> ::windows::runtime::Param<'a, IJsonValue> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IJsonValue>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]

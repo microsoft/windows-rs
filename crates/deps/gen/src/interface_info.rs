@@ -79,14 +79,13 @@ impl InterfaceInfo {
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for #from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
+                            ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
                         }
                     }
                     #cfg
                     impl<'a, #constraints> ::windows::runtime::IntoParam<'a, #into> for &#from {
                         fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                            // TODO: The various conversions are adding ref counting bumps unnecessarily
-                            ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                            ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
                         }
                     }
                 }

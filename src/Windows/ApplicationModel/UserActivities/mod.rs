@@ -1095,12 +1095,12 @@ impl ::std::convert::From<&UserActivityContentInfo> for IUserActivityContentInfo
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUserActivityContentInfo> for UserActivityContentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUserActivityContentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUserActivityContentInfo>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IUserActivityContentInfo> for &UserActivityContentInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, IUserActivityContentInfo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IUserActivityContentInfo>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for UserActivityContentInfo {}

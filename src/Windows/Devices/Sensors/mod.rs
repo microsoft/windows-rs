@@ -7739,12 +7739,12 @@ impl ::std::convert::From<&PedometerDataThreshold> for ISensorDataThreshold {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISensorDataThreshold> for PedometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISensorDataThreshold> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISensorDataThreshold>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISensorDataThreshold> for &PedometerDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISensorDataThreshold> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISensorDataThreshold>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PedometerDataThreshold {}
@@ -8155,12 +8155,12 @@ impl ::std::convert::From<&ProximitySensorDataThreshold> for ISensorDataThreshol
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISensorDataThreshold> for ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISensorDataThreshold> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISensorDataThreshold>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISensorDataThreshold> for &ProximitySensorDataThreshold {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISensorDataThreshold> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISensorDataThreshold>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ProximitySensorDataThreshold {}
@@ -8255,13 +8255,13 @@ impl ::std::convert::From<&ProximitySensorDisplayOnOffController> for super::sup
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IClosable>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IClosable> for &ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IClosable>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]

@@ -490,13 +490,13 @@ impl ::std::convert::From<&DnssdServiceInstanceCollection> for super::super::sup
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for &DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

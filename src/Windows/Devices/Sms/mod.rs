@@ -195,13 +195,13 @@ impl ::std::convert::From<&DeleteSmsMessageOperation> for super::super::Foundati
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for DeleteSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for &DeleteSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -403,13 +403,13 @@ impl ::std::convert::From<&DeleteSmsMessagesOperation> for super::super::Foundat
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for DeleteSmsMessagesOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for &DeleteSmsMessagesOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -614,13 +614,13 @@ impl ::std::convert::From<&GetSmsDeviceOperation> for super::super::Foundation::
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> for GetSmsDeviceOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<SmsDevice>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> for &GetSmsDeviceOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<SmsDevice>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -825,13 +825,13 @@ impl ::std::convert::From<&GetSmsMessageOperation> for super::super::Foundation:
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> for GetSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<ISmsMessage>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> for &GetSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperation<ISmsMessage>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1051,13 +1051,13 @@ impl ::std::convert::From<&GetSmsMessagesOperation> for super::super::Foundation
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> for GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> for &GetSmsMessagesOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2543,13 +2543,13 @@ impl ::std::convert::From<&SendSmsMessageOperation> for super::super::Foundation
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for SendSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::IAsyncAction> for &SendSmsMessageOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::IAsyncAction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2975,12 +2975,12 @@ impl ::std::convert::From<&SmsBinaryMessage> for ISmsBinaryMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsBinaryMessage> for SmsBinaryMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsBinaryMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsBinaryMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsBinaryMessage> for &SmsBinaryMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsBinaryMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsBinaryMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<SmsBinaryMessage> for ISmsMessage {
@@ -3468,12 +3468,12 @@ impl ::std::convert::From<&SmsDevice> for ISmsDevice {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsDevice> for SmsDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsDevice>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsDevice> for &SmsDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsDevice>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Devices_Sms`*"]
@@ -5344,12 +5344,12 @@ impl ::std::convert::From<&SmsTextMessage> for ISmsTextMessage {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsTextMessage> for SmsTextMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsTextMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsTextMessage>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISmsTextMessage> for &SmsTextMessage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISmsTextMessage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISmsTextMessage>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<SmsTextMessage> for ISmsMessage {

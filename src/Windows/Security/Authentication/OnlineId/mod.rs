@@ -977,13 +977,13 @@ impl ::std::convert::From<&SignOutUserOperation> for super::super::super::Founda
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for SignOutUserOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::IAsyncAction>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for &SignOutUserOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IAsyncAction> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::IAsyncAction>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1192,13 +1192,13 @@ impl ::std::convert::From<&UserAuthenticationOperation> for super::super::super:
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for UserAuthenticationOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::IAsyncOperation<UserIdentity>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for &UserAuthenticationOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::IAsyncOperation<UserIdentity>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]

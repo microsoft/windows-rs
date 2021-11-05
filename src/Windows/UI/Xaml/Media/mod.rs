@@ -1622,13 +1622,13 @@ impl ::std::convert::From<&BrushCollection> for super::super::super::Foundation:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Brush>> for BrushCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Brush>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Brush>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Brush>> for &BrushCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Brush>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Brush>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2547,13 +2547,13 @@ impl ::std::convert::From<&DoubleCollection> for super::super::super::Foundation
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<f64>> for DoubleCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<f64>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<f64>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<f64>> for &DoubleCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<f64>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<f64>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -3544,13 +3544,13 @@ impl ::std::convert::From<&GeometryCollection> for super::super::super::Foundati
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Geometry>> for GeometryCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Geometry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Geometry>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Geometry>> for &GeometryCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Geometry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Geometry>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -4534,13 +4534,13 @@ impl ::std::convert::From<&GradientStopCollection> for super::super::super::Foun
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<GradientStop>> for GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<GradientStop>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<GradientStop>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<GradientStop>> for &GradientStopCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<GradientStop>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<GradientStop>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -10012,13 +10012,13 @@ impl ::std::convert::From<&PathFigureCollection> for super::super::super::Founda
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<PathFigure>> for PathFigureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<PathFigure>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<PathFigure>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<PathFigure>> for &PathFigureCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<PathFigure>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<PathFigure>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -10617,13 +10617,13 @@ impl ::std::convert::From<&PathSegmentCollection> for super::super::super::Found
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<PathSegment>> for PathSegmentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<PathSegment>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<PathSegment>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<PathSegment>> for &PathSegmentCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<PathSegment>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<PathSegment>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -11327,13 +11327,13 @@ impl ::std::convert::From<&PointCollection> for super::super::super::Foundation:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>> for PointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>> for &PointCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -16115,13 +16115,13 @@ impl ::std::convert::From<&TimelineMarkerCollection> for super::super::super::Fo
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<TimelineMarker>> for TimelineMarkerCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<TimelineMarker>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<TimelineMarker>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<TimelineMarker>> for &TimelineMarkerCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<TimelineMarker>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<TimelineMarker>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -16729,13 +16729,13 @@ impl ::std::convert::From<&TransformCollection> for super::super::super::Foundat
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Transform>> for TransformCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Transform>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Transform>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Transform>> for &TransformCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Transform>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Transform>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

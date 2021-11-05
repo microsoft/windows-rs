@@ -1175,13 +1175,13 @@ impl ::std::convert::From<&PasswordCredentialPropertyStore> for super::super::Fo
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for PasswordCredentialPropertyStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IPropertySet>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IPropertySet> for &PasswordCredentialPropertyStore {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IPropertySet> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IPropertySet>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1539,12 +1539,12 @@ impl ::std::convert::From<&WebAccount> for IWebAccount {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccount> for WebAccount {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccount> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccount>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWebAccount> for &WebAccount {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWebAccount> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWebAccount>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for WebAccount {}

@@ -2454,12 +2454,12 @@ impl ::std::convert::From<&PrintTaskOptions> for IPrintTaskOptionsCore {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCore> for PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTaskOptionsCore>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPrintTaskOptionsCore> for &PrintTaskOptions {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPrintTaskOptionsCore> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPrintTaskOptionsCore>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreProperties {

@@ -214,13 +214,13 @@ impl ::std::convert::From<&AccessListEntryView> for super::super::Foundation::Co
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> for AccessListEntryView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<AccessListEntry>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> for &AccessListEntryView {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVectorView<AccessListEntry>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -894,12 +894,12 @@ impl ::std::convert::From<&StorageItemAccessList> for IStorageItemAccessList {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemAccessList> for StorageItemAccessList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemAccessList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemAccessList>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IStorageItemAccessList> for &StorageItemAccessList {
     fn into_param(self) -> ::windows::runtime::Param<'a, IStorageItemAccessList> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IStorageItemAccessList>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `Storage_AccessCache`*"]

@@ -1623,12 +1623,12 @@ impl ::std::convert::From<&BackgroundTaskRegistration> for IBackgroundTaskRegist
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTaskRegistration> for BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTaskRegistration>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTaskRegistration> for &BackgroundTaskRegistration {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTaskRegistration> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTaskRegistration>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl ::std::convert::TryFrom<BackgroundTaskRegistration> for IBackgroundTaskRegistration2 {
@@ -2873,12 +2873,12 @@ impl ::std::convert::From<&ConversationalAgentTrigger> for IBackgroundTrigger {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &ConversationalAgentTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[doc = "*Required features: `ApplicationModel_Background`*"]
@@ -7263,12 +7263,12 @@ impl ::std::convert::From<&MobileBroadbandDeviceServiceNotificationTrigger> for 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandDeviceServiceNotificationTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandDeviceServiceNotificationTrigger {}
@@ -7348,12 +7348,12 @@ impl ::std::convert::From<&MobileBroadbandPcoDataChangeTrigger> for IBackgroundT
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPcoDataChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandPcoDataChangeTrigger {}
@@ -7433,12 +7433,12 @@ impl ::std::convert::From<&MobileBroadbandPinLockStateChangeTrigger> for IBackgr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandPinLockStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandPinLockStateChangeTrigger {}
@@ -7518,12 +7518,12 @@ impl ::std::convert::From<&MobileBroadbandRadioStateChangeTrigger> for IBackgrou
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRadioStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandRadioStateChangeTrigger {}
@@ -7603,12 +7603,12 @@ impl ::std::convert::From<&MobileBroadbandRegistrationStateChangeTrigger> for IB
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &MobileBroadbandRegistrationStateChangeTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for MobileBroadbandRegistrationStateChangeTrigger {}
@@ -7688,12 +7688,12 @@ impl ::std::convert::From<&NetworkOperatorDataUsageTrigger> for IBackgroundTrigg
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &NetworkOperatorDataUsageTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for NetworkOperatorDataUsageTrigger {}
@@ -7955,12 +7955,12 @@ impl ::std::convert::From<&PaymentAppCanMakePaymentTrigger> for IBackgroundTrigg
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &PaymentAppCanMakePaymentTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PaymentAppCanMakePaymentTrigger {}
@@ -8160,12 +8160,12 @@ impl ::std::convert::From<&PushNotificationTrigger> for IBackgroundTrigger {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for PushNotificationTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &PushNotificationTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for PushNotificationTrigger {}
@@ -8761,12 +8761,12 @@ impl ::std::convert::From<&SmsMessageReceivedTrigger> for IBackgroundTrigger {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &SmsMessageReceivedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SmsMessageReceivedTrigger {}
@@ -8854,12 +8854,12 @@ impl ::std::convert::From<&SocketActivityTrigger> for IBackgroundTrigger {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for SocketActivityTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &SocketActivityTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for SocketActivityTrigger {}
@@ -8944,12 +8944,12 @@ impl ::std::convert::From<&StorageLibraryChangeTrackerTrigger> for IBackgroundTr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &StorageLibraryChangeTrackerTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for StorageLibraryChangeTrackerTrigger {}
@@ -9394,12 +9394,12 @@ impl ::std::convert::From<&TetheringEntitlementCheckTrigger> for IBackgroundTrig
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &TetheringEntitlementCheckTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for TetheringEntitlementCheckTrigger {}
@@ -9595,12 +9595,12 @@ impl ::std::convert::From<&ToastNotificationActionTrigger> for IBackgroundTrigge
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationActionTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ToastNotificationActionTrigger {}
@@ -9691,12 +9691,12 @@ impl ::std::convert::From<&ToastNotificationHistoryChangedTrigger> for IBackgrou
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &ToastNotificationHistoryChangedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for ToastNotificationHistoryChangedTrigger {}
@@ -9781,12 +9781,12 @@ impl ::std::convert::From<&UserNotificationChangedTrigger> for IBackgroundTrigge
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IBackgroundTrigger> for &UserNotificationChangedTrigger {
     fn into_param(self) -> ::windows::runtime::Param<'a, IBackgroundTrigger> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IBackgroundTrigger>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 unsafe impl ::std::marker::Send for UserNotificationChangedTrigger {}

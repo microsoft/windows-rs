@@ -3183,13 +3183,13 @@ impl ::std::convert::From<&DependencyObjectCollection> for super::super::Foundat
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> for DependencyObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IObservableVector<DependencyObject>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> for &DependencyObjectCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IObservableVector<DependencyObject>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -16787,13 +16787,13 @@ impl ::std::convert::From<&TriggerActionCollection> for super::super::Foundation
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerAction>> for TriggerActionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<TriggerAction>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<TriggerAction>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerAction>> for &TriggerActionCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<TriggerAction>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<TriggerAction>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -17156,13 +17156,13 @@ impl ::std::convert::From<&TriggerCollection> for super::super::Foundation::Coll
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerBase>> for TriggerCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<TriggerBase>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<TriggerBase>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerBase>> for &TriggerCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::Foundation::Collections::IVector<TriggerBase>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::Foundation::Collections::IVector<TriggerBase>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]

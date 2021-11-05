@@ -795,13 +795,13 @@ impl ::std::convert::From<&BlockCollection> for super::super::super::Foundation:
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Block>> for BlockCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Block>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Block>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Block>> for &BlockCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Block>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Block>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8542,13 +8542,13 @@ impl ::std::convert::From<&InlineCollection> for super::super::super::Foundation
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Inline>> for InlineCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Inline>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Inline>>::into(self))
+        ::windows::runtime::Param::Owned(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Inline>> for &InlineCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::super::Foundation::Collections::IVector<Inline>> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::super::Foundation::Collections::IVector<Inline>>::into(::std::clone::Clone::clone(self)))
+        ::windows::runtime::Param::Borrowed(unsafe { ::std::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation_Collections")]
