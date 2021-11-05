@@ -1,3 +1,11 @@
+# 0.25
+
+- Multi-architecture support
+- Pre-packaged libs for ARM64
+- Reduced crate size
+- Documented feature requirements
+- Other small improvements and fixes
+
 # 0.24
 
 - Pre-packaged libs for GNU targets
