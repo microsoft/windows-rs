@@ -75,31 +75,19 @@ impl TypeTree {
     }
 
     pub fn get_namespace(&self, namespace: &str) -> Option<&Self> {
-        self.get_namespace_pos(namespace, 0)
-    }
-
-    // TODO: really need pos?
-    fn get_namespace_pos(&self, namespace: &str, pos: usize) -> Option<&Self> {
-        if let Some(next) = namespace[pos..].find('.') {
-            let next = pos + next;
-            self.namespaces.get(&namespace[pos..next]).and_then(|child| child.get_namespace_pos(namespace, next + 1))
+        if let Some(next) = namespace.find('.') {
+            self.namespaces.get(&namespace[..next]).and_then(|child| child.get_namespace(&namespace[next + 1..]))
         } else {
-            self.namespaces.get(&namespace[pos..])
+            self.namespaces.get(namespace)
         }
     }
 
     pub fn get_namespace_mut(&mut self, namespace: &str) -> Option<&mut Self> {
-        self.get_namespace_mut_pos(namespace, 0)
-    }
-
-    // TODO: really need pos?
-    fn get_namespace_mut_pos(&mut self, namespace: &str, pos: usize) -> Option<&mut Self> {
         self.include = true;
-        if let Some(next) = namespace[pos..].find('.') {
-            let next = pos + next;
-            self.namespaces.get_mut(&namespace[pos..next]).and_then(|child| child.get_namespace_mut_pos(namespace, next + 1))
+        if let Some(next) = namespace.find('.') {
+            self.namespaces.get_mut(&namespace[..next]).and_then(|child| child.get_namespace_mut(&namespace[next + 1..]))
         } else {
-            self.namespaces.get_mut(&namespace[pos..]).map(|ns| {
+            self.namespaces.get_mut(namespace).map(|ns| {
                 ns.include = true;
                 ns
             })
@@ -110,12 +98,5 @@ impl TypeTree {
         if let Some(tree) = self.get_namespace_mut(namespace) {
             tree.include = false;
         }
-        // if let Some(next) = namespace.find('.') {
-        //     if let Some(tree) = self.namespaces.get_mut(&namespace[..next]) {
-        //         tree.remove_namespace(&namespace[next + 1..]);
-        //     }
-        // } else {
-        //     self.namespaces.remove(namespace);
-        // }
     }
 }
